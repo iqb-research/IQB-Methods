@@ -14,10 +14,24 @@
     "text": "Currently, this website hosts material for and from the R-SIG. It might be expanded later on to include general methods team related material."
   },
   {
+    "objectID": "index.html#r-sig",
+    "href": "index.html#r-sig",
+    "title": "IQB Methods Team",
+    "section": "R-SIG",
+    "text": "R-SIG\n\n\n\n\n\n\nTip\n\n\n\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n\n\nIn this meeting we talk about all kind of topics related to scientific programming in R. Come along!"
+  },
+  {
     "objectID": "index.html#schedule",
     "href": "index.html#schedule",
     "title": "IQB Methods Team",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\n\nDate\nTopic\nDescription\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?\nWe will look at some of my old code and discuss how to improve it to make it clearer, reduce duplication and also some general tips."
+    "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?"
+  },
+  {
+    "objectID": "docs/loops/for_loop.html#how-to-write-a-for-loop",
+    "href": "docs/loops/for_loop.html#how-to-write-a-for-loop",
+    "title": "for-loops",
+    "section": "How to write a for-loop?",
+    "text": "How to write a for-loop?"
   }
 ]
