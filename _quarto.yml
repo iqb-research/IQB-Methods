@@ -2,12 +2,25 @@ project:
   type: website
 
 website:
-  title: "r-sig"
+  title: "IQB Methods Team"
+  page-navigation: true
+  open-graph: true
+  repo-url: https://github.com/nickhaf/r_tutorial
+  repo-actions: [edit, issue]
   navbar:
+    search: true
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+  sidebar: 
+    style: "docked"
+    search: true
+    contents:
+      - section: "Loops"
+        contents:
+          - docs/loops/for_loop.qmd
+          - docs/loops/apply.qmd
 
 format:
   html:
