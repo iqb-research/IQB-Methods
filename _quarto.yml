@@ -20,6 +20,9 @@ website:
       - section: "Workshops"
         contents:
           - docs/workshops/workshops.qmd
+      - section: "Additional material"
+        contents: 
+          - docs/material/material.qmd
 
 format:
   html:
