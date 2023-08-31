@@ -21,14 +21,9 @@
 
 
 <p><img src="https://iqb-research.github.io/R-SIG/posts/r_sig/23_03_20_forloops/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-</section>
-<section id="how-to-write-a-for-loop" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-write-a-for-loop">How to write a for-loop</h2>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="for-loops" class="level2">
+<h2 class="anchored" data-anchor-id="for-loops">For-loops</h2>
+<p>In this session we talked about for-loops. Take a look <a href="https://nickhaf.github.io/r_tutorial/qmd/loops/loops.html">here</a> for the corresponding chapter in a workshop I’ve designed.</p>
 
 
 </section>
@@ -39,16 +34,7 @@
 <ol>
 <li id="fn1"><p>Image by <a href="https://unsplash.com/de/@tine999?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Tine Ivanic</a> on <a href="https://unsplash.com/de/fotos/u2d0BPZFXOY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.↩︎</p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{hafiz2023,
-  author = {Hafiz, Nicklas},
-  title = {For-Loops},
-  date = {2023-03-20},
-  url = {https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hafiz2023" class="csl-entry quarto-appendix-citeas">
-Hafiz, Nicklas. 2023. <span>“For-Loops.”</span> March 20, 2023. <a href="https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/">https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/</a>.
-</div></div></section></div> ]]></description>
+</section></div> ]]></description>
   <category>R</category>
   <category>for-loops</category>
   <guid>https://iqb-research.github.io/R-SIG/posts/r_sig/23_03_20_forloops/index.html</guid>
