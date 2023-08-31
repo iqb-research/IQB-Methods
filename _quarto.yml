@@ -14,6 +14,8 @@ website:
       - href: index.qmd
         text: Home
       - posts.qmd
+      - href: newsletter.qmd
+        text: "Newsletter"
     right:
       - icon: rss
       - href: index.xml
@@ -31,7 +33,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: sandstone
     css: styles.css
     toc: true
 
