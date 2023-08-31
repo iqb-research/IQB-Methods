@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -221,40 +221,35 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="R,for-loops" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1693474546765" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="./posts/r_sig/23_03_20_forloops/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/r_sig/23_03_20_forloops/preview_image.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="R,for-loops" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1693474788326" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts/r_sig/23_03_20_forloops/index.html"> <img src="./posts/r_sig/23_03_20_forloops/preview_image.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/r_sig/23_03_20_forloops/index.html">
+<h3 class="no-anchor listing-title">
 for-loops
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
+</h3>
+<div class="listing-subtitle">
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('for-loops'); return false;">
-for-loops
+</a>
 </div>
-</div>
-<div class="card-text listing-description">
-R-SIG 20.03.2023
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Nicklas Hafiz
-</div>
+<div class="metadata">
+<a href="./posts/r_sig/23_03_20_forloops/index.html">
 <div class="listing-date">
 Mar 20, 2023
 </div>
+<div class="listing-author">
+Nicklas Hafiz
 </div>
-</div>
+<div class="listing-reading-time">
+1 min
 </div>
 </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
