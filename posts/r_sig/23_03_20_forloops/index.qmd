@@ -6,8 +6,6 @@ author:
   - affiliation: PhD student at the IQB, Methods team
 date: 3-20-2023
 categories: [R, for-loops]
-citation: 
-  url: https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/
 image: preview_image.jpg
 ---
 
@@ -15,8 +13,5 @@ image: preview_image.jpg
 
 [^1]: Image by [Tine Ivanic](https://unsplash.com/de/@tine999?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/de/fotos/u2d0BPZFXOY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
 
-## Motivation
-
-## How to write a for-loop
-
-## Exercises
+## For-loops
+In this session we talked about for-loops. Take a look [here](https://nickhaf.github.io/r_tutorial/qmd/loops/loops.html) for the corresponding chapter in a workshop I've designed. 
