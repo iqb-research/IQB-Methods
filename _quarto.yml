@@ -32,7 +32,7 @@ website:
 
 format:
   html:
-    theme: sandstone
+    theme: cosmos
     css: styles.css
     toc: true
 
