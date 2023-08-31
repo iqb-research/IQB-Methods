@@ -12,16 +12,14 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
       - posts.qmd
   sidebar: 
     style: "docked"
     search: true
     contents:
-      - section: "Loops"
+      - section: "Workshops"
         contents:
-          - docs/loops/for_loop.qmd
-          - docs/loops/apply.qmd
+          - docs/workshops/workshops.qmd
 
 format:
   html:
