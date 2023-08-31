@@ -198,7 +198,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#eatgads" id="toc-eatgads" class="nav-link active" data-scroll-target="#eatgads">eatGADS</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/posts/newsletter/23_08_09/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nickhaf/r_tutorial/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -206,8 +212,17 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="eatgads" class="level1">
+<h1>eatGADS</h1>
+<p>Die Funktion <code>insertVariable()</code> wurde in <code>relocateVariable()</code> umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.</p>
+<p>Eine neue Funktion, <code>recodeNA2missing()</code>, erlaubt es <code>NAs</code> (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. <code>-99 = "Missing By Design"</code>).</p>
+<p>Die Funktion <code>emptyTheseVariables()</code> erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf <code>NA</code> zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.</p>
+<p>Besonders hervoheben möchten wir an dieser Stelle noch die Funktion <code>fixEncoding()</code>, die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).</p>
+<p>Die Dokumentation des Pakets ist nun übrigens leicht einsehbar <a href="https://beckerbenj.github.io/eatGADS/">hier</a> zu finden.</p>
+<p>Alle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -447,4 +462,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/r_tutorial/edit/main/posts/newsletter/23_08_09/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nickhaf/r_tutorial/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+</body></html>

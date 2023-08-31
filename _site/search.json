@@ -180,5 +180,12 @@
     "title": "Newsletter",
     "section": "",
     "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
   }
 ]

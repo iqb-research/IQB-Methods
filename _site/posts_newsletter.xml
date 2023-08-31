@@ -20,8 +20,17 @@
 
 
 
+<section id="eatgads" class="level1">
+<h1>eatGADS</h1>
+<p>Die Funktion <code>insertVariable()</code> wurde in <code>relocateVariable()</code> umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.</p>
+<p>Eine neue Funktion, <code>recodeNA2missing()</code>, erlaubt es <code>NAs</code> (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. <code>-99 = "Missing By Design"</code>).</p>
+<p>Die Funktion <code>emptyTheseVariables()</code> erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf <code>NA</code> zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.</p>
+<p>Besonders hervoheben möchten wir an dieser Stelle noch die Funktion <code>fixEncoding()</code>, die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).</p>
+<p>Die Dokumentation des Pakets ist nun übrigens leicht einsehbar <a href="https://beckerbenj.github.io/eatGADS/">hier</a> zu finden.</p>
+<p>Alle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets.</p>
 
 
+</section>
 
  ]]></description>
   <guid>https://iqb-research.github.io/R-SIG/posts/newsletter/23_08_09/index.html</guid>
