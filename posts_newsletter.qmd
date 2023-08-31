@@ -1,0 +1,8 @@
+---
+title: "Newsletter"
+listing: 
+  contents: posts/newsletter
+  type: grid
+  sort: "date desc" 
+  feed: true
+---

@@ -13,8 +13,9 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - posts.qmd
-      - href: newsletter.qmd
+      - href: posts_r_sig.qmd
+        text: R-Sig
+      - href: posts_newsletter.qmd
         text: "Newsletter"
     right:
       - icon: rss
@@ -24,11 +25,9 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "Workshops"
+      - section: "Additional Material"
         contents:
           - docs/workshops/workshops.qmd
-      - section: "Additional material"
-        contents: 
           - docs/material/material.qmd
 
 format:
