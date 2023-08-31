@@ -3,6 +3,7 @@ project:
 
 website:
   title: "IQB Methods Team"
+  site-url: https://iqb-research.github.io/R-SIG/
   page-navigation: true
   open-graph: true
   repo-url: https://github.com/nickhaf/r_tutorial
@@ -13,6 +14,10 @@ website:
       - href: index.qmd
         text: Home
       - posts.qmd
+    right:
+      - icon: rss
+      - href: index.xml
+
   sidebar: 
     style: "docked"
     search: true
