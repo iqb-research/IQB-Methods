@@ -7,6 +7,7 @@ date: 09-08-2023
 ---
 
 # eatGADS
+
 Die Funktion `insertVariable()` wurde in `relocateVariable()` umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.
 
 Eine neue Funktion, `recodeNA2missing()`, erlaubt es `NAs` (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. `-99 = "Missing By Design"`).
@@ -15,6 +16,6 @@ Die Funktion `emptyTheseVariables()` erlaubt es nun, mehrere Variablen gleichzei
 
 Besonders hervoheben möchten wir an dieser Stelle noch die Funktion `fixEncoding()`, die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. "ü" wird zu "ue").
 
-Die Dokumentation des Pakets ist nun übrigens leicht einsehbar [hier](https://beckerbenj.github.io/eatGADS/) zu finden. 
+Die Dokumentation des Pakets ist nun übrigens leicht einsehbar [hier](https://beckerbenj.github.io/eatGADS/) zu finden.
 
-Alle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets. 
+Alle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets.

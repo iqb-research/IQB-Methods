@@ -16,7 +16,7 @@ website:
       - href: posts_r_sig.qmd
         text: R-Sig
       - href: posts_newsletter.qmd
-        text: "Newsletter"
+        text: Newsletter
     right:
       - icon: rss
       - href: index.xml
