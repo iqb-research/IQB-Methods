@@ -2,8 +2,9 @@
 title: "R-SIG"
 listing: 
   contents: posts/r_sig
-  type: grid
+  type: default
   sort: "date desc" 
   categories: true
   feed: true
+  fields: [image, date, title, author, reading-time]
 ---
