@@ -1,8 +1,12 @@
 [
   {
-    "listing": "/posts.html",
+    "listing": "/posts_newsletter.html",
+    "items": []
+  },
+  {
+    "listing": "/posts_r_sig.html",
     "items": [
-      "/posts/23_03_20_forloops/index.html"
+      "/posts/r_sig/23_03_20_forloops/index.html"
     ]
   }
 ]
