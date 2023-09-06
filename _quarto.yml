@@ -29,6 +29,7 @@ website:
         contents:
           - docs/workshops/workshops.qmd
           - docs/material/material.qmd
+          - docs/tutorials/tutorials.qmd
 
 format:
   html:
