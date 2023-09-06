@@ -3,10 +3,10 @@ project:
 
 website:
   title: "IQB Methods Team"
-  site-url: https://iqb-research.github.io/R-SIG/
+  site-url: https://iqb-research.github.io/IQB-Methods/
   page-navigation: true
   open-graph: true
-  repo-url: https://github.com/nickhaf/R-SIG
+  repo-url: https://github.com/nickhaf/IQB-Methods
   repo-actions: [edit, issue]
   navbar:
     search: true
