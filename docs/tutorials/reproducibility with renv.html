@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A selection of workshops for scientific computing">
+<meta name="description" content="Tutotial on how to use the ‘renv’-package in R to make the BT21 reproducible.">
 
-<title>IQB Methods Team - Workshops</title>
+<title>IQB Methods Team - Tutorials</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/material/material.html" rel="next">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,8 +63,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="IQB Methods Team - Workshops">
-<meta property="og:description" content="A selection of workshops for scientific computing">
+<meta property="og:title" content="IQB Methods Team - Tutorials">
+<meta property="og:description" content="Tutotial on how to use the ‘renv’-package in R to make the BT21 reproducible.">
 <meta property="og:site-name" content="IQB Methods Team">
 </head>
 
@@ -115,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/workshops/workshops.html">Additional Material</a></li><li class="breadcrumb-item"><a href="../../docs/workshops/workshops.html">Workshops</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Tutorials</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -146,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/workshops/workshops.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/workshops/workshops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshops</span></a>
   </div>
 </li>
@@ -174,24 +173,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r-introduction" id="toc-r-introduction" class="nav-link active" data-scroll-target="#r-introduction">R Introduction</a></li>
-  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
-  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link active" data-scroll-target="#reproducibility">Reproducibility</a></li>
+  <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv">renv</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#project-usage" id="toc-project-usage" class="nav-link" data-scroll-target="#project-usage">Project usage</a></li>
+  <li><a href="#note-on-package-versions" id="toc-note-on-package-versions" class="nav-link" data-scroll-target="#note-on-package-versions">Note on Package Versions</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/R-SIG/edit/main/docs/workshops/workshops.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nickhaf/R-SIG/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/nickhaf/R-SIG/edit/main/docs/tutorials/reproducibility with renv.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nickhaf/R-SIG/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workshops</h1>
+<h1 class="title">Tutorials</h1>
 </div>
 
 <div>
   <div class="description">
-    A selection of workshops for scientific computing
+    Tutotial on how to use the ‘renv’-package in R to make the BT21 reproducible.
   </div>
 </div>
 
@@ -206,19 +206,49 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="r-introduction" class="level2">
-<h2 class="anchored" data-anchor-id="r-introduction">R Introduction</h2>
-<p>An introduction to R with hands on examples and exercises can be found in <a href="https://nickhaf.github.io/r_tutorial/">Introduction to R</a>.</p>
+<section id="reproducibility" class="level1">
+<h1>Reproducibility</h1>
+<p>Project repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the <code>renv</code>-Package in R.</p>
 </section>
-<section id="git" class="level2">
-<h2 class="anchored" data-anchor-id="git">Git</h2>
+<section id="renv" class="level1">
+<h1>renv</h1>
+<p>The <code>renv</code>-package is intended for simple project-local R dependency management. <a href="https://rstudio.github.io/renv/articles/renv.html">Here</a> you’ll find a more thorough introduction.</p>
 </section>
-<section id="markdown" class="level2">
-<h2 class="anchored" data-anchor-id="markdown">Markdown</h2>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<ol type="1">
+<li>Create an RStudio Project in the working directory that should be made reproducible.</li>
+<li>If another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to <code>Tools - Global Options - General</code>. Maybe you will have to install <code>renv</code> for this version again.</li>
+<li>Initialise the project using <code>renv::init()</code>. This creates the basic infrastructure for the usage of <code>renv</code>.</li>
+</ol>
+<ul>
+<li>Dependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.</li>
+<li>If you want to install specific package versions, you can use <code>renv::intit(bare = TRUE)</code>.
+<ul>
+<li>This sets up the <code>renv</code> project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.<br>
+</li>
+<li>The dependencies in the working directory can be obtained by <code>renv::dependencies()</code>.</li>
+</ul></li>
+</ul>
+<ol start="4" type="1">
+<li>If you want specific package versions, you can use <code>renv::install(packagename/@version-number)</code>. Local packages or packages from GitHub can be installed as well (see <a href="https://rstudio.github.io/renv/reference/install.html">here</a>).</li>
+<li>In the end, packages should be installed in <code>./renv/library</code>. A lockfile <code>./renv.lock</code> is created, where the R version and the package versions are noted.</li>
+<li>Now you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using <code>renv::snapshot()</code>.</li>
+<li>If you want to restore the state of the project library as noted in the lockfile, use <code>renv::restore()</code>.</li>
+</ol>
 </section>
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p><a href="https://quarto.org/docs/websites/">Creating a website</a> with Quarto.</p>
+<section id="project-usage" class="level1">
+<h1>Project usage</h1>
+<ol type="1">
+<li>For maximal reproducibility, check the lockfile for the R-version before working with <code>renv</code>. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).</li>
+<li>As the packages are directly installed into the project working directory, you should be able to simply work with the <code>renv</code>-project as saved by the last user without doing anything.</li>
+</ol>
+</section>
+<section id="note-on-package-versions" class="level1">
+<h1>Note on Package Versions</h1>
+<p><a href="https://mran.microsoft.com/">MRAN</a> can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:</p>
+<p><code>Error: install of package 'tidyselect' failed [error code 1]</code></p>
+<p>In this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version <code>1.1.2</code> of <code>tidyselect</code>, so you install the version like so: <code>renv::install("tidyselect@1.1.2")</code>.</p>
 
 
 </section>
@@ -457,15 +487,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../docs/material/material.html" class="pagination-link">
-        <span class="nav-page-text">Advanced material</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

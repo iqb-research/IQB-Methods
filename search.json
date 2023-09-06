@@ -49,6 +49,20 @@
     "text": "Quarto\nA nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
   },
   {
+    "objectID": "docs/tutorials/tutorials.html",
+    "href": "docs/tutorials/tutorials.html",
+    "title": "Tutorials",
+    "section": "",
+    "text": "A tutorial on how to use the ‘renv’-package to make the BT21 reproducible can be found here."
+  },
+  {
+    "objectID": "docs/tutorials/tutorials.html#cheat-sheets",
+    "href": "docs/tutorials/tutorials.html#cheat-sheets",
+    "title": "Tutorials",
+    "section": "",
+    "text": "A tutorial on how to use the ‘renv’-package to make the BT21 reproducible can be found here."
+  },
+  {
     "objectID": "posts_r_sig.html",
     "href": "posts_r_sig.html",
     "title": "R-SIG",
@@ -75,6 +89,13 @@
     "title": "IQB Methods Team",
     "section": "Schedule",
     "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?"
+  },
+  {
+    "objectID": "docs/tutorials/reproducibility with renv.html",
+    "href": "docs/tutorials/reproducibility with renv.html",
+    "title": "Tutorials",
+    "section": "",
+    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
   },
   {
     "objectID": "docs/workshops/workshops.html",
