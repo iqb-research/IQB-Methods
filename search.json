@@ -1,5 +1,61 @@
 [
   {
+    "objectID": "docs/workshops/workshops.html",
+    "href": "docs/workshops/workshops.html",
+    "title": "Workshops",
+    "section": "",
+    "text": "An introduction to R with hands on examples and exercises can be found in Introduction to R."
+  },
+  {
+    "objectID": "docs/workshops/workshops.html#r-introduction",
+    "href": "docs/workshops/workshops.html#r-introduction",
+    "title": "Workshops",
+    "section": "",
+    "text": "An introduction to R with hands on examples and exercises can be found in Introduction to R."
+  },
+  {
+    "objectID": "docs/workshops/workshops.html#git",
+    "href": "docs/workshops/workshops.html#git",
+    "title": "Workshops",
+    "section": "Git",
+    "text": "Git"
+  },
+  {
+    "objectID": "docs/workshops/workshops.html#markdown",
+    "href": "docs/workshops/workshops.html#markdown",
+    "title": "Workshops",
+    "section": "Markdown",
+    "text": "Markdown"
+  },
+  {
+    "objectID": "docs/workshops/workshops.html#quarto",
+    "href": "docs/workshops/workshops.html#quarto",
+    "title": "Workshops",
+    "section": "Quarto",
+    "text": "Quarto\nCreating a website with Quarto."
+  },
+  {
+    "objectID": "docs/tutorials/reproducibility_with_renv.html",
+    "href": "docs/tutorials/reproducibility_with_renv.html",
+    "title": "Tutorials",
+    "section": "",
+    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
+  },
+  {
+    "objectID": "docs/tutorials/tutorials.html",
+    "href": "docs/tutorials/tutorials.html",
+    "title": "Tutorials",
+    "section": "",
+    "text": "A tutorial on how to use the ‘renv’-package to make the BT21 reproducible can be found here."
+  },
+  {
+    "objectID": "docs/tutorials/tutorials.html#cheat-sheets",
+    "href": "docs/tutorials/tutorials.html#cheat-sheets",
+    "title": "Tutorials",
+    "section": "",
+    "text": "A tutorial on how to use the ‘renv’-package to make the BT21 reproducible can be found here."
+  },
+  {
     "objectID": "posts_newsletter.html",
     "href": "posts_newsletter.html",
     "title": "Newsletter",
@@ -42,69 +98,6 @@
     "text": "Exercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
   },
   {
-    "objectID": "docs/workshops/workshops.html",
-    "href": "docs/workshops/workshops.html",
-    "title": "Workshops",
-    "section": "",
-    "text": "An introduction to R with hands on examples and exercises can be found in Introduction to R."
-  },
-  {
-    "objectID": "docs/workshops/workshops.html#r-introduction",
-    "href": "docs/workshops/workshops.html#r-introduction",
-    "title": "Workshops",
-    "section": "",
-    "text": "An introduction to R with hands on examples and exercises can be found in Introduction to R."
-  },
-  {
-    "objectID": "docs/workshops/workshops.html#git",
-    "href": "docs/workshops/workshops.html#git",
-    "title": "Workshops",
-    "section": "Git",
-    "text": "Git"
-  },
-  {
-    "objectID": "docs/workshops/workshops.html#markdown",
-    "href": "docs/workshops/workshops.html#markdown",
-    "title": "Workshops",
-    "section": "Markdown",
-    "text": "Markdown"
-  },
-  {
-    "objectID": "docs/workshops/workshops.html#quarto",
-    "href": "docs/workshops/workshops.html#quarto",
-    "title": "Workshops",
-    "section": "Quarto",
-    "text": "Quarto\nCreating a website with Quarto."
-  },
-  {
-    "objectID": "docs/tutorials/reproducibility with renv.html",
-    "href": "docs/tutorials/reproducibility with renv.html",
-    "title": "Tutorials",
-    "section": "",
-    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
-  },
-  {
-    "objectID": "docs/tutorials/tutorials.html",
-    "href": "docs/tutorials/tutorials.html",
-    "title": "Tutorials",
-    "section": "",
-    "text": "A tutorial on how to use the ‘renv’-package to make the BT21 reproducible can be found here."
-  },
-  {
-    "objectID": "docs/tutorials/tutorials.html#cheat-sheets",
-    "href": "docs/tutorials/tutorials.html#cheat-sheets",
-    "title": "Tutorials",
-    "section": "",
-    "text": "A tutorial on how to use the ‘renv’-package to make the BT21 reproducible can be found here."
-  },
-  {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "IQB Methods Team",
@@ -126,8 +119,43 @@
     "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?"
   },
   {
-    "objectID": "docs/tutorials/reproducibility_with_renv.html",
-    "href": "docs/tutorials/reproducibility_with_renv.html",
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+  },
+  {
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html",
+    "href": "posts/r_sig/23_03_20_forloops/index.html",
+    "title": "for-loops",
+    "section": "",
+    "text": "1"
+  },
+  {
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
+    "href": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
+    "title": "for-loops",
+    "section": "For-loops",
+    "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
+  },
+  {
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
+    "href": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
+    "title": "for-loops",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
+  },
+  {
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "docs/tutorials/reproducibility with renv.html",
+    "href": "docs/tutorials/reproducibility with renv.html",
     "title": "Tutorials",
     "section": "",
     "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
@@ -152,33 +180,5 @@
     "title": "Advanced material",
     "section": "Quarto",
     "text": "Quarto\nA nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
-  },
-  {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html",
-    "href": "posts/r_sig/23_03_20_forloops/index.html",
-    "title": "for-loops",
-    "section": "",
-    "text": "1"
-  },
-  {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
-    "href": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
-    "title": "for-loops",
-    "section": "For-loops",
-    "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
-  },
-  {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
-    "href": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
-    "title": "for-loops",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
-  },
-  {
-    "objectID": "posts/newsletter/23_08_09/index.html",
-    "href": "posts/newsletter/23_08_09/index.html",
-    "title": "09-08-2023",
-    "section": "",
-    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
   }
 ]
