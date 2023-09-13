@@ -25,12 +25,20 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "Additional Material"
+      - section: "R Tutorials"
         contents:
-          - docs/workshops/workshops.qmd
-          - docs/material/material.qmd
-          - docs/tutorials/tutorials.qmd
-
+          - docs/R/index.qmd
+          - section: "Cheat Sheets"
+            contents:
+             - href: https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf
+               text: Base R
+      - section: "Reproducability"
+        contents:
+          - docs/reproduce/renv.qmd
+      - section: "Quarto"
+        contents: 
+          - docs/quarto/index.qmd
+        
 format:
   html:
     theme: sandstone
