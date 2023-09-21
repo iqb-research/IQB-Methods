@@ -35,6 +35,17 @@ website:
       - section: "eat Packages"
         contents: 
           - docs/eat-packages/index.qmd
+          - docs/eat-packages/eatPrep.qmd
+          - docs/eat-packages/eatModel.qmd
+          - docs/eat-packages/eatRep.qmd
+          - docs/eat-packages/eatGADS.qmd
+          - docs/eat-packages/eatTools.qmd
+          - docs/eat-packages/eatAnalysis.qmd
+          - docs/eat-packages/eatATA.qmd
+          - docs/eat-packages/eatFDZ.qmd
+          - docs/eat-packages/eatCodebook.qmd
+          - docs/eat-packages/eatRecode.qmd
+          - docs/eat-packages/eatPlot.qmd
       - section: "Reproducibility"
         contents:
           - docs/reproduce/renv.qmd
