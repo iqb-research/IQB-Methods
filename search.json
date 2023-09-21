@@ -14,11 +14,60 @@
     "text": "Quarto websites\nCreating a website with Quarto.\nA nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
   },
   {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
     "section": "",
-    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html",
+    "href": "posts/r_sig/23_03_20_forloops/index.html",
+    "title": "for-loops",
+    "section": "",
+    "text": "1"
+  },
+  {
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
+    "href": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
+    "title": "for-loops",
+    "section": "For-loops",
+    "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
+  },
+  {
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
+    "href": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
+    "title": "for-loops",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
+  },
+  {
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IQB Methods Team",
+    "section": "",
+    "text": "Currently, this website hosts material for and from the R-SIG. It might be expanded later on to include general methods team related material."
+  },
+  {
+    "objectID": "index.html#r-sig",
+    "href": "index.html#r-sig",
+    "title": "IQB Methods Team",
+    "section": "R-SIG",
+    "text": "R-SIG\n\n\n\n\n\n\nTip\n\n\n\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n\n\nIn this meeting we talk about all kind of topics related to scientific programming in R. Come along!"
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "IQB Methods Team",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?"
   },
   {
     "objectID": "posts/r_sig/23_31_07_apply/index.html",
@@ -56,60 +105,18 @@
     "text": "Exercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IQB Methods Team",
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
     "section": "",
-    "text": "Currently, this website hosts material for and from the R-SIG. It might be expanded later on to include general methods team related material."
+    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html#r-sig",
-    "href": "index.html#r-sig",
-    "title": "IQB Methods Team",
-    "section": "R-SIG",
-    "text": "R-SIG\n\n\n\n\n\n\nTip\n\n\n\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n\n\nIn this meeting we talk about all kind of topics related to scientific programming in R. Come along!"
-  },
-  {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "IQB Methods Team",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?"
-  },
-  {
-    "objectID": "posts/newsletter/23_08_09/index.html",
-    "href": "posts/newsletter/23_08_09/index.html",
-    "title": "09-08-2023",
+    "objectID": "docs/eat-packages/index.html",
+    "href": "docs/eat-packages/index.html",
+    "title": "eat Packages",
     "section": "",
-    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
-  },
-  {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html",
-    "href": "posts/r_sig/23_03_20_forloops/index.html",
-    "title": "for-loops",
-    "section": "",
-    "text": "1"
-  },
-  {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
-    "href": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
-    "title": "for-loops",
-    "section": "For-loops",
-    "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
-  },
-  {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
-    "href": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
-    "title": "for-loops",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
-  },
-  {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Overview of Eat Packages\nFor an Overview click here."
   },
   {
     "objectID": "docs/R/index.html",
