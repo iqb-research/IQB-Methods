@@ -4,7 +4,7 @@ title: "eat Packages"
 
 # Overview of Eat Packages
 
-For an Overview click [here](http://iqbstaff.pbworks.com/w/page/29457501/ZK%20Datenanalyse).
+see table down below and click on the links for more information on a package.
 
 ## IQB-interne R-Pakete aus der ‚eat'-Familie
 
@@ -42,19 +42,14 @@ Ansprechpart[11] <- paste(p[3], "," ,p[2])
 
 #links <- ""
 
-
-
 df <- data.frame(Paketname, Ansprechpart)
-
-
-
 
 
 # find out how to print nicer
 df_layout <- df
 colnames(df_layout) <- c("Paketname", "Ansprechparter:in")
 
-df_layout
+#df_layout
 knitr::kable(df_layout)
 ```
 
