@@ -10,39 +10,58 @@ For an Overview click [here](http://iqbstaff.pbworks.com/w/page/29457501/ZK%20Da
 
 Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat ("educational assessment tools") kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:
 
-| Paketname     | Ansprechpartner:in | aktuelle Version | Quelle | Funktionsbeschreibung | Dokumentation |
-|------------|------------|------------|------------|------------|------------|
-|**eatPrep**    | test               | test             | test   | test                  | test          |
-|**eatModel**   | test              | test             | test   | test                  | test          |
-|**eatRep**     | test               | test             | test   | test                  | test          |
-|**eatGADS**    | test               | test             | test   | test                  | test          |
-|**eatTools**   | test              | test             | test   | test                  | test          |
-|**eatAnalysis**| test           | test             | test   | test                  | test          |
-|**eatATA**     | test               | test             | test   | test                  | test          |
-|**eatFDZ**     | test               | test             | test   | test                  | test          |
-|**eatCodebook**| test           | test             | test   | test                  | test          |
-|**eatRecode**  | test             | test             | test   | test                  | test          |
-|**eatPlot**    | test               | test             | test   | test                  | test          |
+| Paketname       | Ansprechpartner:in                                  | mehr Infos |
+|------------------|------------------------------------|------------------|
+| **eatPrep**     | Karoline Sachse                                     | test       |
+| **eatModel**    | Sebastian Weirich                                   | test       |
+| **eatRep**      | Sebastian Weirich, Benjamin Becker                  | test       |
+| **eatGADS**     | Benjamin Becker                                     | test       |
+| **eatTools**    | Sebastian Weirich, Benjamin Becker, Karoline Sachse | test       |
+| **eatAnalysis** | Benjamin Becker, Sebastian Weirich, Karoline Sachse | test       |
+| **eatATA**      | Benjamin Becker                                     | test       |
+| **eatFDZ**      | Benjamin Becker                                     | test       |
+| **eatCodebook** | Benjamin Becker                                     | test       |
+| **eatRecode**   | Benjamin Becker, Nicklas Hafiz                      | test       |
+| **eatPlot**     | Nicklas Hafiz, Philipp Franikowski                  | test       |
+
+```{r, echo=FALSE}
+### build table with Code for easier update
+Paketname <- c("eatPrep", "eatModel", "eatRep", "eatGADS", "eatTools", 
+               "eatAnalysis", "eatATA", "eatFDZ", "eatCodebook", "eatRecode", 
+               "eatPlot")
+p <- c("Benjamin Becker", "Philipp Franikowski", "Nicklas Hafiz", "Karoline Sachse", "Sebastian Weirich")
+Ansprechpart <- ""
+Ansprechpart[1] <- p[4]
+Ansprechpart[2] <- p[5]
+Ansprechpart[3] <- paste(p[5], "," ,p[1])
+Ansprechpart[c(4, 7:9)] <- p[1]
+Ansprechpart[5] <- paste(p[5], "," ,p[1], ",", p[4])
+Ansprechpart[6] <- paste(p[1], "," ,p[5], ",", p[4])
+Ansprechpart[10] <- paste(p[1], "," ,p[3])
+Ansprechpart[11] <- paste(p[3], "," ,p[2])
+
+#links <- ""
+
+
+
+df <- data.frame(Paketname, Ansprechpart)
 
 
 
 
-Pakete: eatPrep, eatModel, eatRep, earGADS, eatTools, eatAnalysis, eatATA, eatFDZ, eatCodebook, eatRecode, eatPlot
 
+# find out how to print nicer
+df_layout <- df
+colnames(df_layout) <- c("Paketname", "Ansprechparter:in")
 
-
-
-
-
-
-
-
-
-
+df_layout
+knitr::kable(df_layout)
+```
 
 ## Installation der R-Pakete
 
-Detallierte Anleitungen zur Installation der R-Pakete finden sich unter: [R-Pakete installieren](http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren)
+Detallierte Anleitungen zur Installation der R-Pakete finden sich unter: [R-Pakete installieren](http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren) 
+
 
 ## Kompatibilität
 
