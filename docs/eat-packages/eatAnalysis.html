@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IQB Methods Team - Material for learning R</title>
+<title>IQB Methods Team - eatAnalysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/eat-packages/index.html" rel="next">
+<link href="../../docs/eat-packages/eatATA.html" rel="next">
+<link href="../../docs/eat-packages/eatTools.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,8 +64,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="IQB Methods Team - Material for learning R">
-<meta property="og:description" content="">
+<meta property="og:title" content="IQB Methods Team - eatAnalysis">
 <meta property="og:site-name" content="IQB Methods Team">
 </head>
 
@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/R/index.html">R Tutorials</a></li><li class="breadcrumb-item"><a href="../../docs/R/index.html">Material for learning R</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/eat-packages/index.html">eat Packages</a></li><li class="breadcrumb-item"><a href="../../docs/eat-packages/eatAnalysis.html">eatAnalysis</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/R/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/R/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Material for learning R</span></a>
   </div>
 </li>
@@ -215,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/eat-packages/eatAnalysis.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/eat-packages/eatAnalysis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">eatAnalysis</span></a>
   </div>
 </li>
@@ -295,16 +295,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r-introduction" id="toc-r-introduction" class="nav-link active" data-scroll-target="#r-introduction">R Introduction</a></li>
+  <li><a href="#eatanalysis-info" id="toc-eatanalysis-info" class="nav-link active" data-scroll-target="#eatanalysis-info">eatAnalysis Info</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IQB-Methods/edit/main/docs/R/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/IQB-Methods/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IQB-Methods/edit/main/docs/eat-packages/eatAnalysis.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/IQB-Methods/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Material for learning R</h1>
+<h1 class="title">eatAnalysis</h1>
 </div>
 
 
@@ -319,9 +319,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="r-introduction" class="level1">
-<h1>R Introduction</h1>
-<p>An introduction to R with hands on examples and exercises can be found in <a href="https://nickhaf.github.io/r_tutorial/">Introduction to R</a>.</p>
+<section id="eatanalysis-info" class="level1">
+<h1>eatAnalysis Info</h1>
 
 
 </section>
@@ -562,10 +561,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../docs/eat-packages/eatTools.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">eatTools</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../docs/eat-packages/index.html" class="pagination-link">
-        <span class="nav-page-text">eat Packages</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/eat-packages/eatATA.html" class="pagination-link">
+        <span class="nav-page-text">eatATA</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
