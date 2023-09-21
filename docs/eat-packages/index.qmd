@@ -10,9 +10,14 @@ see table down below and click on the links for more information on a package.
 
 Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat ("educational assessment tools") kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:
 
+```{r, include=FALSE}
+# lieber Paketnamen und Beschreibungen + Links hier. Details dann auf den einzelnen Seiten.
+```
+
+
 | Paketname       | Ansprechpartner:in                                  | mehr Infos                                            |
 |------------------|-----------------------------------|------------------|
-| **eatPrep**     | Karoline Sachse                                     | [more Info on eatPrep](docs/eat-packages/eatPrep.qmd) |
+| **eatPrep**     | Karoline Sachse                                     | [more Info on eatPrep](eatPrep.qmd) |
 | **eatModel**    | Sebastian Weirich                                   | test                                                  |
 | **eatRep**      | Sebastian Weirich, Benjamin Becker                  | test                                                  |
 | **eatGADS**     | Benjamin Becker                                     | test                                                  |
@@ -40,20 +45,20 @@ Ansprechpart[6] <- paste(p[1], "," ,p[5], ",", p[4])
 Ansprechpart[10] <- paste(p[1], "," ,p[3])
 Ansprechpart[11] <- paste(p[3], "," ,p[2])
 
+
 #links <- ""
-links[1] <- "[eatPrep](docs/eat-packages/eatPrep.qmd)"
-links[2] <- "[eatModel](docs/eat-packages/eatModal.qmd)"
-links[3] <- "[eatRep](docs/eat-packages/eatRep.qmd)"
-links[4] <- "[eatGADS](docs/eat-packages/eatGADS.qmd)"
-links[5] <- "[eatTools](docs/eat-packages/eatTools.qmd)"
-links[6] <- "[eatAnalysis](docs/eat-packages/eatAnalysis.qmd)"
-links[7] <- "[eatATA](docs/eat-packages/eatATA.qmd)"
-links[8] <- "[eatFDZ](docs/eat-packages/eatFDZ.qmd)"
-links[9] <- "[eatCodebook](docs/eat-packages/eatCodebook.qmd)"
-links[10] <- "[eatRecode](docs/eat-packages/eatRecode.qmd)"
-links[11] <- "[eatPlot](docs/eat-packages/eatPlot.qmd)"
-
-
+links[1] <- "[eatPrep](eatPrep.qmd)"
+#links[2] <- "[eatModel](docs/eat-packages/eatModal.qmd)"
+#links[3] <- "[eatRep](docs/eat-packages/eatRep.qmd)"
+#links[4] <- "[eatGADS](docs/eat-packages/eatGADS.qmd)"
+#links[5] <- "[eatTools](docs/eat-packages/eatTools.qmd)"
+#links[6] <- "[eatAnalysis](docs/eat-packages/eatAnalysis.qmd)"
+#links[7] <- "[eatATA](docs/eat-packages/eatATA.qmd)"
+#links[8] <- "[eatFDZ](docs/eat-packages/eatFDZ.qmd)"
+#links[9] <- "[eatCodebook](docs/eat-packages/eatCodebook.qmd)"
+#links[10] <- "[eatRecode](docs/eat-packages/eatRecode.qmd)"
+#links[11] <- "[eatPlot](docs/eat-packages/eatPlot.qmd)"
+links[2:11] <- "-"
 
 df <- data.frame(Paketname, Ansprechpart, links)
 
