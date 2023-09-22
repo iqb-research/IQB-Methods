@@ -4,3 +4,23 @@ title: "eatATA"
 
 # eatATA Info
 
+```{r, echo=FALSE}
+#7
+ansprech_ata <- "Benjamin Becker"
+version_ata <- "[aktuelle Version](https://cran.r-project.org/web/packages/eatATA/index.html)"
+quelle_ata <- "[CRAN](https://cran.r-project.org/web/packages/eatATA/index.html)"
+descFunktion_ata <- "automatisierte Blockbesetzung/automatisierte Testhefterstellung."
+doku_ata <- "[CRAN vignette](https://cran.r-project.org/web/packages/eatATA/vignettes/eatATA.html)"
+
+
+info_ata <- data.frame(ansprech_ata, version_ata, quelle_ata)
+colnames(info_ata) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+
+knitr::kable(info_ata)
+```
+
+### Funktionsbeschreibung
+
+automatisierte Blockbesetzung/automatisierte Testhefterstellung.
+
+**Dokumentation:** [CRAN vignette](https://cran.r-project.org/web/packages/eatATA/vignettes/eatATA.html)

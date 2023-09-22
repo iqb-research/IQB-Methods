@@ -4,3 +4,23 @@ title: "eatCodebook"
 
 # eatCodebook Info
 
+```{r, echo=FALSE}
+#9
+ansprech_codebook <- "Benjamin Becker"
+version_codebook <- "[aktuelle Version](https://github.com/beckerbenj/eatCodebook/blob/main/DESCRIPTION)"
+quelle_codebook <- "[github](https://github.com/beckerbenj/eatCodebook)"
+descFunktion_codebook <- "automatisierte Erstellung von Skalenhandbüchern."
+doku_codebook <- "[github](https://beckerbenj.github.io/eatCodebook/)"
+
+
+info_codebook <- data.frame(ansprech_codebook, version_codebook, quelle_codebook)
+colnames(info_codebook) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+
+knitr::kable(info_codebook)
+```
+
+### Funktionsbeschreibung
+
+automatisierte Erstellung von Skalenhandbüchern.
+
+**Dokumentation:** [github](https://beckerbenj.github.io/eatCodebook/)

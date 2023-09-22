@@ -4,3 +4,23 @@ title: "eatFDZ"
 
 # eatFDZ Info
 
+```{r, echo=FALSE}
+#8
+ansprech_fdz <- "Benjamin Becker"
+version_fdz <- "[aktuelle Version](https://github.com/beckerbenj/eatFDZ/blob/master/DESCRIPTION)"
+quelle_fdz <- "[github](https://github.com/beckerbenj/eatFDZ)"
+descFunktion_fdz <- "automatisierte Anonymisierung von Datensätzen; Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen."
+doku_fdz <- ""
+
+
+info_fdz <- data.frame(ansprech_fdz, version_fdz, quelle_fdz)
+colnames(info_fdz) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+
+knitr::kable(info_fdz)
+```
+
+### Funktionsbeschreibung
+
+automatisierte Anonymisierung von Datensätzen; Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen.
+
+**Dokumentation:** -
