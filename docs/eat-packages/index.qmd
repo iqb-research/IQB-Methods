@@ -1,0 +1,89 @@
+---
+title: "Overview"
+---
+
+# Info on eat Packages
+
+see table down below and click on the links for more information on a package.
+
+## IQB-interne R-Pakete aus der ‚eat'-Familie
+
+Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat ("educational assessment tools") kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:
+
+```{r, include=FALSE}
+# lieber Paketnamen und Beschreibungen + Links hier. Details dann auf den einzelnen Seiten.
+```
+
+| Paketname       | Ansprechpartner:in                                  | mehr Infos                          |
+|-------------------|----------------------------------|-------------------|
+| **eatPrep**     | Karoline Sachse                                     | [more Info on eatPrep](eatPrep.qmd) |
+| **eatModel**    | Sebastian Weirich                                   | test                                |
+| **eatRep**      | Sebastian Weirich, Benjamin Becker                  | test                                |
+| **eatGADS**     | Benjamin Becker                                     | test                                |
+| **eatTools**    | Sebastian Weirich, Benjamin Becker, Karoline Sachse | test                                |
+| **eatAnalysis** | Benjamin Becker, Sebastian Weirich, Karoline Sachse | test                                |
+| **eatATA**      | Benjamin Becker                                     | test                                |
+| **eatFDZ**      | Benjamin Becker                                     | test                                |
+| **eatCodebook** | Benjamin Becker                                     | test                                |
+| **eatRecode**   | Benjamin Becker, Nicklas Hafiz                      | test                                |
+| **eatPlot**     | Nicklas Hafiz, Philipp Franikowski                  | test                                |
+
+```{r, echo=FALSE}
+### build table with Code for easier update
+Paketname <- c("eatPrep", "eatModel", "eatRep", "eatGADS", "eatTools", 
+               "eatAnalysis", "eatATA", "eatFDZ", "eatCodebook", "eatRecode", 
+               "eatPlot")
+p <- c("Benjamin Becker", "Philipp Franikowski", "Nicklas Hafiz", "Karoline Sachse", "Sebastian Weirich")
+
+Ansprechpart <- ""
+Ansprechpart[1] <- ansprech_prep
+Ansprechpart[2] <- p[5]
+Ansprechpart[3] <- paste(p[5], "," ,p[1])
+Ansprechpart[c(4, 7:9)] <- p[1]
+Ansprechpart[5] <- paste(p[5], "," ,p[1], ",", p[4])
+Ansprechpart[6] <- paste(p[1], "," ,p[5], ",", p[4])
+Ansprechpart[10] <- paste(p[1], "," ,p[3])
+Ansprechpart[11] <- paste(p[3], "," ,p[2])
+
+links <- ""
+links[1] <- ""#"[eatPrep](eatPrep.qmd)"
+#links[2] <- "[eatModel](docs/eat-packages/eatModal.qmd)"
+#links[3] <- "[eatRep](docs/eat-packages/eatRep.qmd)"
+#links[4] <- "[eatGADS](docs/eat-packages/eatGADS.qmd)"
+#links[5] <- "[eatTools](docs/eat-packages/eatTools.qmd)"
+#links[6] <- "[eatAnalysis](docs/eat-packages/eatAnalysis.qmd)"
+#links[7] <- "[eatATA](docs/eat-packages/eatATA.qmd)"
+#links[8] <- "[eatFDZ](docs/eat-packages/eatFDZ.qmd)"
+#links[9] <- "[eatCodebook](docs/eat-packages/eatCodebook.qmd)"
+#links[10] <- "[eatRecode](docs/eat-packages/eatRecode.qmd)"
+#links[11] <- "[eatPlot](docs/eat-packages/eatPlot.qmd)"
+links[2:11] <- "-"
+
+df <- data.frame(Paketname, Ansprechpart, links)
+
+
+# find out how to print nicer
+df_layout <- df
+colnames(df_layout) <- c("Paketname", "Ansprechparter:in", "mehr Infos zum Paket")
+
+#df_layout
+knitr::kable(df_layout)
+```
+
+## Installation der R-Pakete
+
+Detallierte Anleitungen zur Installation der R-Pakete finden sich unter: [R-Pakete installieren](http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren)
+
+## Kompatibilität
+
+Die meisten Teilpakete der "eat"-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:
+
+-   "eatTools" ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. "eatTools" hängt nicht von anderen "eat"-Paketen ab.
+-   "eatPrep" benötigt "eatTools"
+-   "eatRep" benötigt "eatTools" und "eatGADS"
+-   "eatModel" benötigt "eatTools" und "eatRep" (und damit ebenfalls "eatGADS"). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket "TAM" zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. "console_Feb2007.exe"; "TAM" wird beim Laden des Pakets mit installiert. "TAM" und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.
+-   "eatGADS" benötigt "eatTools" und "eatDB"
+
+Die wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von "eatRep" nicht immer kompatibel mit neuen Versionen von "eatTools" (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.
+
+Da sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden.
