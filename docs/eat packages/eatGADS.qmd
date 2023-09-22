@@ -4,3 +4,23 @@ title: "eatGADS"
 
 # eatGADS Info
 
+```{r, echo=FALSE}
+#4
+ansprech_gads <- "Benjamin Becker"
+version_gads <- "[aktuelle Version](https://cran.r-project.org/web/packages/eatGADS/index.html)"
+quelle_gasds <- "[CRAN](https://cran.r-project.org/web/packages/eatGADS/index.html)"
+descFunktion_gads <- "Erlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R."
+doku_gads <- "verschiedene aktuelle Vignetten siehe CRAN-Homepage."
+
+
+info_gads <- data.frame(ansprech_gads, version_gads, quelle_gads)
+colnames(info_gads) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+
+knitr::kable(info_gads)
+```
+
+### Funktionsbeschreibung
+
+Erlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R.
+
+**Dokumentation:** verschiedene aktuelle Vignetten siehe CRAN-Homepage.
