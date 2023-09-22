@@ -32,6 +32,9 @@ website:
             contents:
              - href: https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf
                text: Base R
+      - section: "eat Packages"
+        contents: 
+          - docs/eat-packages/index.qmd         
       - section: "Reproducibility"
         contents:
           - docs/reproduce/renv.qmd
