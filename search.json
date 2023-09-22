@@ -7,74 +7,74 @@
     "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
   },
   {
-    "objectID": "docs/quarto/index.html",
-    "href": "docs/quarto/index.html",
-    "title": "Quarto",
-    "section": "",
-    "text": "Quarto websites\nCreating a website with Quarto.\nA nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
-  },
-  {
-    "objectID": "docs/eat-packages/eatPrep.html",
-    "href": "docs/eat-packages/eatPrep.html",
+    "objectID": "docs/eat packages/eatPrep.html",
+    "href": "docs/eat packages/eatPrep.html",
     "title": "eatPrep",
     "section": "",
-    "text": "eatPrep Info"
+    "text": "eatPrep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nKaroline Sachse\naktuelle Version\ngithub, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nAufbereitung von Datensätzen (Einlesen, Plausibilitätsprüfungen, Zusammenführen von Datensätzen, Missingbehandlung, Rekodieren, Aggregieren, Scoren und Schreiben von gelabelten SPSS-Datensätzen) unter Verwendung von in der IQB-Datenbank hinterlegten Informationen zu den Items und zum Testdesign. Diese werden mithilfe des ZKDaemon (siehe unten) aus der Datenbank extrahiert und in ein standardisiertes xlsx-Format geschrieben. Dieses xlsx-Format nutzt ‘eatPrep’, um die Informationen aus der Datenbank nach R zu übertragen.\nDokumentation: (intern)"
   },
   {
-    "objectID": "docs/eat-packages/eatRep.html",
-    "href": "docs/eat-packages/eatRep.html",
+    "objectID": "docs/eat packages/eatRep.html",
+    "href": "docs/eat packages/eatRep.html",
     "title": "eatRep",
     "section": "",
     "text": "eatRep Info"
   },
   {
-    "objectID": "docs/eat-packages/eatGADS.html",
-    "href": "docs/eat-packages/eatGADS.html",
+    "objectID": "docs/eat packages/eatGADS.html",
+    "href": "docs/eat packages/eatGADS.html",
     "title": "eatGADS",
     "section": "",
     "text": "eatGADS Info"
   },
   {
-    "objectID": "docs/eat-packages/eatATA.html",
-    "href": "docs/eat-packages/eatATA.html",
+    "objectID": "docs/eat packages/eatATA.html",
+    "href": "docs/eat packages/eatATA.html",
     "title": "eatATA",
     "section": "",
     "text": "eatATA Info"
   },
   {
-    "objectID": "docs/eat-packages/eatRecode.html",
-    "href": "docs/eat-packages/eatRecode.html",
+    "objectID": "docs/eat packages/eatRecode.html",
+    "href": "docs/eat packages/eatRecode.html",
     "title": "eatRecode",
     "section": "",
     "text": "eatRecode Info"
   },
   {
-    "objectID": "docs/eat-packages/index.html",
-    "href": "docs/eat-packages/index.html",
+    "objectID": "docs/eat packages/index.html",
+    "href": "docs/eat packages/index.html",
     "title": "Overview",
     "section": "",
-    "text": "see table down below and click on the links for more information on a package.\n\n\nUm die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n\n\n\n\n\n\n\n\nPaketname\nAnsprechpartner:in\nmehr Infos\n\n\n\n\neatPrep\nKaroline Sachse\ntest\n\n\neatModel\nSebastian Weirich\ntest\n\n\neatRep\nSebastian Weirich, Benjamin Becker\ntest\n\n\neatGADS\nBenjamin Becker\ntest\n\n\neatTools\nSebastian Weirich, Benjamin Becker, Karoline Sachse\ntest\n\n\neatAnalysis\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\ntest\n\n\neatATA\nBenjamin Becker\ntest\n\n\neatFDZ\nBenjamin Becker\ntest\n\n\neatCodebook\nBenjamin Becker\ntest\n\n\neatRecode\nBenjamin Becker, Nicklas Hafiz\ntest\n\n\neatPlot\nNicklas Hafiz, Philipp Franikowski\ntest\n\n\n\n\n\n\n\n\nPaketname\nAnsprechparter:in\n\n\n\n\neatPrep\nKaroline Sachse\n\n\neatModel\nSebastian Weirich\n\n\neatRep\nSebastian Weirich , Benjamin Becker\n\n\neatGADS\nBenjamin Becker\n\n\neatTools\nSebastian Weirich , Benjamin Becker , Karoline Sachse\n\n\neatAnalysis\nBenjamin Becker , Sebastian Weirich , Karoline Sachse\n\n\neatATA\nBenjamin Becker\n\n\neatFDZ\nBenjamin Becker\n\n\neatCodebook\nBenjamin Becker\n\n\neatRecode\nBenjamin Becker , Nicklas Hafiz\n\n\neatPlot\nNicklas Hafiz , Philipp Franikowski\n\n\n\n\n\n\n\n\nDetallierte Anleitungen zur Installation der R-Pakete finden sich unter: R-Pakete installieren\n\n\n\nDie meisten Teilpakete der “eat”-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:\n\n“eatTools” ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. “eatTools” hängt nicht von anderen “eat”-Paketen ab.\n“eatPrep” benötigt “eatTools”\n“eatRep” benötigt “eatTools” und “eatGADS”\n“eatModel” benötigt “eatTools” und “eatRep” (und damit ebenfalls “eatGADS”). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket “TAM” zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. “console_Feb2007.exe”; “TAM” wird beim Laden des Pakets mit installiert. “TAM” und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.\n“eatGADS” benötigt “eatTools” und “eatDB”\n\nDie wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von “eatRep” nicht immer kompatibel mit neuen Versionen von “eatTools” (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.\nDa sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden."
+    "text": "see table down below and click on the links for more information on a package.\n\n\nUm die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n\n\n\nPaketname\nAnsprechpartner:in\nmehr Infos\n\n\n\n\neatPrep\nKaroline Sachse\nmore Info on eatPrep\n\n\neatModel\nSebastian Weirich\ntest\n\n\neatRep\nSebastian Weirich, Benjamin Becker\ntest\n\n\neatGADS\nBenjamin Becker\ntest\n\n\neatTools\nSebastian Weirich, Benjamin Becker, Karoline Sachse\ntest\n\n\neatAnalysis\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\ntest\n\n\neatATA\nBenjamin Becker\ntest\n\n\neatFDZ\nBenjamin Becker\ntest\n\n\neatCodebook\nBenjamin Becker\ntest\n\n\neatRecode\nBenjamin Becker, Nicklas Hafiz\ntest\n\n\neatPlot\nNicklas Hafiz, Philipp Franikowski\ntest\n\n\n\n\n\n\n\n\nPaketname\nAnsprechparter:in\nmehr Infos zum Paket\n\n\n\n\neatPrep\nKaroline Sachse\neatPrep\n\n\neatModel\nSebastian Weirich\n-\n\n\neatRep\nSebastian Weirich , Benjamin Becker\n-\n\n\neatGADS\nBenjamin Becker\n-\n\n\neatTools\nSebastian Weirich , Benjamin Becker , Karoline Sachse\n-\n\n\neatAnalysis\nBenjamin Becker , Sebastian Weirich , Karoline Sachse\n-\n\n\neatATA\nBenjamin Becker\n-\n\n\neatFDZ\nBenjamin Becker\n-\n\n\neatCodebook\nBenjamin Becker\n-\n\n\neatRecode\nBenjamin Becker , Nicklas Hafiz\n-\n\n\neatPlot\nNicklas Hafiz , Philipp Franikowski\n-\n\n\n\n\n\n\n\n\nDetallierte Anleitungen zur Installation der R-Pakete finden sich unter: R-Pakete installieren\n\n\n\nDie meisten Teilpakete der “eat”-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:\n\n“eatTools” ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. “eatTools” hängt nicht von anderen “eat”-Paketen ab.\n“eatPrep” benötigt “eatTools”\n“eatRep” benötigt “eatTools” und “eatGADS”\n“eatModel” benötigt “eatTools” und “eatRep” (und damit ebenfalls “eatGADS”). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket “TAM” zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. “console_Feb2007.exe”; “TAM” wird beim Laden des Pakets mit installiert. “TAM” und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.\n“eatGADS” benötigt “eatTools” und “eatDB”\n\nDie wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von “eatRep” nicht immer kompatibel mit neuen Versionen von “eatTools” (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.\nDa sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden."
   },
   {
-    "objectID": "docs/eat-packages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
-    "href": "docs/eat-packages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
+    "objectID": "docs/eat packages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
+    "href": "docs/eat packages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
     "title": "Overview",
     "section": "",
-    "text": "Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n\n\n\n\n\n\n\n\nPaketname\nAnsprechpartner:in\nmehr Infos\n\n\n\n\neatPrep\nKaroline Sachse\ntest\n\n\neatModel\nSebastian Weirich\ntest\n\n\neatRep\nSebastian Weirich, Benjamin Becker\ntest\n\n\neatGADS\nBenjamin Becker\ntest\n\n\neatTools\nSebastian Weirich, Benjamin Becker, Karoline Sachse\ntest\n\n\neatAnalysis\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\ntest\n\n\neatATA\nBenjamin Becker\ntest\n\n\neatFDZ\nBenjamin Becker\ntest\n\n\neatCodebook\nBenjamin Becker\ntest\n\n\neatRecode\nBenjamin Becker, Nicklas Hafiz\ntest\n\n\neatPlot\nNicklas Hafiz, Philipp Franikowski\ntest\n\n\n\n\n\n\n\n\nPaketname\nAnsprechparter:in\n\n\n\n\neatPrep\nKaroline Sachse\n\n\neatModel\nSebastian Weirich\n\n\neatRep\nSebastian Weirich , Benjamin Becker\n\n\neatGADS\nBenjamin Becker\n\n\neatTools\nSebastian Weirich , Benjamin Becker , Karoline Sachse\n\n\neatAnalysis\nBenjamin Becker , Sebastian Weirich , Karoline Sachse\n\n\neatATA\nBenjamin Becker\n\n\neatFDZ\nBenjamin Becker\n\n\neatCodebook\nBenjamin Becker\n\n\neatRecode\nBenjamin Becker , Nicklas Hafiz\n\n\neatPlot\nNicklas Hafiz , Philipp Franikowski"
+    "text": "Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n\n\n\nPaketname\nAnsprechpartner:in\nmehr Infos\n\n\n\n\neatPrep\nKaroline Sachse\nmore Info on eatPrep\n\n\neatModel\nSebastian Weirich\ntest\n\n\neatRep\nSebastian Weirich, Benjamin Becker\ntest\n\n\neatGADS\nBenjamin Becker\ntest\n\n\neatTools\nSebastian Weirich, Benjamin Becker, Karoline Sachse\ntest\n\n\neatAnalysis\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\ntest\n\n\neatATA\nBenjamin Becker\ntest\n\n\neatFDZ\nBenjamin Becker\ntest\n\n\neatCodebook\nBenjamin Becker\ntest\n\n\neatRecode\nBenjamin Becker, Nicklas Hafiz\ntest\n\n\neatPlot\nNicklas Hafiz, Philipp Franikowski\ntest\n\n\n\n\n\n\n\n\nPaketname\nAnsprechparter:in\nmehr Infos zum Paket\n\n\n\n\neatPrep\nKaroline Sachse\neatPrep\n\n\neatModel\nSebastian Weirich\n-\n\n\neatRep\nSebastian Weirich , Benjamin Becker\n-\n\n\neatGADS\nBenjamin Becker\n-\n\n\neatTools\nSebastian Weirich , Benjamin Becker , Karoline Sachse\n-\n\n\neatAnalysis\nBenjamin Becker , Sebastian Weirich , Karoline Sachse\n-\n\n\neatATA\nBenjamin Becker\n-\n\n\neatFDZ\nBenjamin Becker\n-\n\n\neatCodebook\nBenjamin Becker\n-\n\n\neatRecode\nBenjamin Becker , Nicklas Hafiz\n-\n\n\neatPlot\nNicklas Hafiz , Philipp Franikowski\n-"
   },
   {
-    "objectID": "docs/eat-packages/index.html#installation-der-r-pakete",
-    "href": "docs/eat-packages/index.html#installation-der-r-pakete",
+    "objectID": "docs/eat packages/index.html#installation-der-r-pakete",
+    "href": "docs/eat packages/index.html#installation-der-r-pakete",
     "title": "Overview",
     "section": "",
     "text": "Detallierte Anleitungen zur Installation der R-Pakete finden sich unter: R-Pakete installieren"
   },
   {
-    "objectID": "docs/eat-packages/index.html#kompatibilität",
-    "href": "docs/eat-packages/index.html#kompatibilität",
+    "objectID": "docs/eat packages/index.html#kompatibilität",
+    "href": "docs/eat packages/index.html#kompatibilität",
     "title": "Overview",
     "section": "",
     "text": "Die meisten Teilpakete der “eat”-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:\n\n“eatTools” ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. “eatTools” hängt nicht von anderen “eat”-Paketen ab.\n“eatPrep” benötigt “eatTools”\n“eatRep” benötigt “eatTools” und “eatGADS”\n“eatModel” benötigt “eatTools” und “eatRep” (und damit ebenfalls “eatGADS”). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket “TAM” zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. “console_Feb2007.exe”; “TAM” wird beim Laden des Pakets mit installiert. “TAM” und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.\n“eatGADS” benötigt “eatTools” und “eatDB”\n\nDie wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von “eatRep” nicht immer kompatibel mit neuen Versionen von “eatTools” (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.\nDa sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden."
+  },
+  {
+    "objectID": "docs/quarto/index.html",
+    "href": "docs/quarto/index.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "Quarto websites\nCreating a website with Quarto.\nA nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
   },
   {
     "objectID": "posts_newsletter.html",
@@ -175,52 +175,52 @@
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "docs/eat-packages/eatTools.html",
-    "href": "docs/eat-packages/eatTools.html",
-    "title": "eatTools",
-    "section": "",
-    "text": "eatTools Info"
-  },
-  {
-    "objectID": "docs/eat-packages/eatModel.html",
-    "href": "docs/eat-packages/eatModel.html",
-    "title": "eatModel",
-    "section": "",
-    "text": "eatModel Info"
-  },
-  {
-    "objectID": "docs/eat-packages/eatAnalysis.html",
-    "href": "docs/eat-packages/eatAnalysis.html",
-    "title": "eatAnalysis",
-    "section": "",
-    "text": "eatAnalysis Info"
-  },
-  {
-    "objectID": "docs/eat-packages/eatCodebook.html",
-    "href": "docs/eat-packages/eatCodebook.html",
-    "title": "eatCodebook",
-    "section": "",
-    "text": "eatCodebook Info"
-  },
-  {
-    "objectID": "docs/eat-packages/eatPlot.html",
-    "href": "docs/eat-packages/eatPlot.html",
-    "title": "eatPlot",
-    "section": "",
-    "text": "eatPlot Info"
-  },
-  {
-    "objectID": "docs/eat-packages/eatFDZ.html",
-    "href": "docs/eat-packages/eatFDZ.html",
-    "title": "eatFDZ",
-    "section": "",
-    "text": "eatFDZ Info"
-  },
-  {
     "objectID": "docs/R/index.html",
     "href": "docs/R/index.html",
     "title": "Material for learning R",
     "section": "",
     "text": "R Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R."
+  },
+  {
+    "objectID": "docs/eat packages/eatTools.html",
+    "href": "docs/eat packages/eatTools.html",
+    "title": "eatTools",
+    "section": "",
+    "text": "eatTools Info"
+  },
+  {
+    "objectID": "docs/eat packages/eatModel.html",
+    "href": "docs/eat packages/eatModel.html",
+    "title": "eatModel",
+    "section": "",
+    "text": "eatModel Info"
+  },
+  {
+    "objectID": "docs/eat packages/eatAnalysis.html",
+    "href": "docs/eat packages/eatAnalysis.html",
+    "title": "eatAnalysis",
+    "section": "",
+    "text": "eatAnalysis Info"
+  },
+  {
+    "objectID": "docs/eat packages/eatCodebook.html",
+    "href": "docs/eat packages/eatCodebook.html",
+    "title": "eatCodebook",
+    "section": "",
+    "text": "eatCodebook Info"
+  },
+  {
+    "objectID": "docs/eat packages/eatPlot.html",
+    "href": "docs/eat packages/eatPlot.html",
+    "title": "eatPlot",
+    "section": "",
+    "text": "eatPlot Info"
+  },
+  {
+    "objectID": "docs/eat packages/eatFDZ.html",
+    "href": "docs/eat packages/eatFDZ.html",
+    "title": "eatFDZ",
+    "section": "",
+    "text": "eatFDZ Info"
   }
 ]
