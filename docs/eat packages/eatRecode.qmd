@@ -4,3 +4,23 @@ title: "eatRecode"
 
 # eatRecode Info
 
+```{r, echo=FALSE}
+#10
+ansprech_recode <- "Benjamin Becker, Nicklas Hafiz"
+version_recode <- "[aktuelle Version](https://github.com/beckerbenj/eatRecode/blob/main/DESCRIPTION)"
+quelle_recode <- "[github](https://github.com/beckerbenj/eatRecode)"
+descFunktion_recode <- "Erstellen und Anwenden von Rekodierungsdatenbanken."
+doku_recode <- ""
+
+
+info_recode <- data.frame(ansprech_recode, version_recode, quelle_recode)
+colnames(info_recode) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+
+knitr::kable(info_recode)
+```
+
+### Funktionsbeschreibung
+
+Erstellen und Anwenden von Rekodierungsdatenbanken.
+
+**Dokumentation:** -
