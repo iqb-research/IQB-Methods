@@ -36,7 +36,7 @@ Paketname <- c("eatPrep", "eatModel", "eatRep", "eatGADS", "eatTools",
 p <- c("Benjamin Becker", "Philipp Franikowski", "Nicklas Hafiz", "Karoline Sachse", "Sebastian Weirich")
 
 Ansprechpart <- ""
-Ansprechpart[1] <- p[4]
+Ansprechpart[1] <- ansprech_prep
 Ansprechpart[2] <- p[5]
 Ansprechpart[3] <- paste(p[5], "," ,p[1])
 Ansprechpart[c(4, 7:9)] <- p[1]
