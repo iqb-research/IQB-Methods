@@ -14,20 +14,19 @@ Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu ver
 # lieber Paketnamen und Beschreibungen + Links hier. Details dann auf den einzelnen Seiten.
 ```
 
-
-| Paketname       | Ansprechpartner:in                                  | mehr Infos                                            |
-|------------------|-----------------------------------|------------------|
+| Paketname       | Ansprechpartner:in                                  | mehr Infos                          |
+|-------------------|-----------------------------------|-------------------|
 | **eatPrep**     | Karoline Sachse                                     | [more Info on eatPrep](eatPrep.qmd) |
-| **eatModel**    | Sebastian Weirich                                   | test                                                  |
-| **eatRep**      | Sebastian Weirich, Benjamin Becker                  | test                                                  |
-| **eatGADS**     | Benjamin Becker                                     | test                                                  |
-| **eatTools**    | Sebastian Weirich, Benjamin Becker, Karoline Sachse | test                                                  |
-| **eatAnalysis** | Benjamin Becker, Sebastian Weirich, Karoline Sachse | test                                                  |
-| **eatATA**      | Benjamin Becker                                     | test                                                  |
-| **eatFDZ**      | Benjamin Becker                                     | test                                                  |
-| **eatCodebook** | Benjamin Becker                                     | test                                                  |
-| **eatRecode**   | Benjamin Becker, Nicklas Hafiz                      | test                                                  |
-| **eatPlot**     | Nicklas Hafiz, Philipp Franikowski                  | test                                                  |
+| **eatModel**    | Sebastian Weirich                                   | test                                |
+| **eatRep**      | Sebastian Weirich, Benjamin Becker                  | test                                |
+| **eatGADS**     | Benjamin Becker                                     | test                                |
+| **eatTools**    | Sebastian Weirich, Benjamin Becker, Karoline Sachse | test                                |
+| **eatAnalysis** | Benjamin Becker, Sebastian Weirich, Karoline Sachse | test                                |
+| **eatATA**      | Benjamin Becker                                     | test                                |
+| **eatFDZ**      | Benjamin Becker                                     | test                                |
+| **eatCodebook** | Benjamin Becker                                     | test                                |
+| **eatRecode**   | Benjamin Becker, Nicklas Hafiz                      | test                                |
+| **eatPlot**     | Nicklas Hafiz, Philipp Franikowski                  | test                                |
 
 ```{r, echo=FALSE}
 ### build table with Code for easier update
@@ -35,7 +34,8 @@ Paketname <- c("eatPrep", "eatModel", "eatRep", "eatGADS", "eatTools",
                "eatAnalysis", "eatATA", "eatFDZ", "eatCodebook", "eatRecode", 
                "eatPlot")
 p <- c("Benjamin Becker", "Philipp Franikowski", "Nicklas Hafiz", "Karoline Sachse", "Sebastian Weirich")
-#Ansprechpart <- ""
+
+Ansprechpart <- ""
 Ansprechpart[1] <- p[4]
 Ansprechpart[2] <- p[5]
 Ansprechpart[3] <- paste(p[5], "," ,p[1])
@@ -45,8 +45,7 @@ Ansprechpart[6] <- paste(p[1], "," ,p[5], ",", p[4])
 Ansprechpart[10] <- paste(p[1], "," ,p[3])
 Ansprechpart[11] <- paste(p[3], "," ,p[2])
 
-
-#links <- ""
+links <- ""
 links[1] <- "[eatPrep](eatPrep.qmd)"
 #links[2] <- "[eatModel](docs/eat-packages/eatModal.qmd)"
 #links[3] <- "[eatRep](docs/eat-packages/eatRep.qmd)"
