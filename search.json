@@ -32,7 +32,7 @@
     "href": "docs/eatPackages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
     "title": "eat Packages",
     "section": "IQB-interne R-Pakete aus der ‚eat’-Familie",
-    "text": "IQB-interne R-Pakete aus der ‚eat’-Familie\nUm die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n\n\n\nPaketname\nAnsprechpartner:in\nmehr Infos\n\n\n\n\neatPrep\nKaroline Sachse\nmore Info on eatPrep\n\n\neatModel\nSebastian Weirich\ntest\n\n\neatRep\nSebastian Weirich, Benjamin Becker\ntest\n\n\neatGADS\nBenjamin Becker\ntest\n\n\neatTools\nSebastian Weirich, Benjamin Becker, Karoline Sachse\ntest\n\n\neatAnalysis\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\ntest\n\n\neatATA\nBenjamin Becker\ntest\n\n\neatFDZ\nBenjamin Becker\ntest\n\n\neatCodebook\nBenjamin Becker\ntest\n\n\neatRecode\nBenjamin Becker, Nicklas Hafiz\ntest\n\n\neatPlot\nNicklas Hafiz, Philipp Franikowski\ntest"
+    "text": "IQB-interne R-Pakete aus der ‚eat’-Familie\nUm die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n\n\n\nPaketname\nAnsprechpartner:in\nmehr Infos\n\n\n\n\neatPrep\nKaroline Sachse\nmore Info on eatPrep\n\n\neatModel\nSebastian Weirich\nmore Info on eatModel\n\n\neatRep\nSebastian Weirich, Benjamin Becker\nmore Info on eatRep\n\n\neatGADS\nBenjamin Becker\nmore Info on eatGADS\n\n\neatTools\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nmore Info on eatTools\n\n\neatAnalysis\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nmore Info on eatAnalysis\n\n\neatATA\nBenjamin Becker\nmore Info on eatATA\n\n\neatFDZ\nBenjamin Becker\nmore Info on eatFDZ\n\n\neatCodebook\nBenjamin Becker\nmore Info on eatCodebook\n\n\neatRecode\nBenjamin Becker, Nicklas Hafiz\nmore Info on eatRecode\n\n\neatPlot\nNicklas Hafiz, Philipp Franikowski\nmore Info on eatPlot"
   },
   {
     "objectID": "docs/eatPackages/index.html#installation-der-r-pakete",
@@ -67,7 +67,7 @@
     "href": "docs/eatPackages/eatGADS.html",
     "title": "eatGADS",
     "section": "",
-    "text": "eatGADS Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\n[CRAN page(https://cran.r-project.org/web/packages/eatGADS/index.html)\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nErlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R.\nDokumentation: Info page with several vignettes"
+    "text": "eatGADS Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nErlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R.\nDokumentation: Info page with several vignettes"
   },
   {
     "objectID": "docs/eatPackages/eatModel.html",
@@ -207,7 +207,7 @@
     "href": "docs/eatPackages/eatATA.html",
     "title": "eatATA",
     "section": "",
-    "text": "eatATA Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Blockbesetzung/automatisierte Testhefterstellung.\nDokumentation: typical use of ‘eat ATA’: a Minimal Example, ‘eatATA’ Functionality, a Pilot Study Example, Reference manual"
+    "text": "eatATA Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Blockbesetzung/automatisierte Testhefterstellung.\nDokumentation: typical use of ‘eat ATA’: a Minimal Example, ‘eatATA’ Functionality, a Pilot Study Example, Reference manual"
   },
   {
     "objectID": "docs/eatPackages/eatPlot.html",
