@@ -7,8 +7,8 @@ title: "eatAnalysis"
 ```{r, echo=FALSE}
 #6
 ansprech_anal <- "Benjamin Becker, Sebastian Weirich, Karoline Sachse"
-version_anal <- "[aktuelle Version](https://github.com/beckerbenj/eatAnalysis/blob/master/DESCRIPTION)"
-quelle_anal <- "[github](https://github.com/beckerbenj/eatAnalysis)"
+version_anal <- "[DESCRIPTION on github](https://github.com/beckerbenj/eatAnalysis/blob/master/DESCRIPTION)"
+quelle_anal <- "[github page](https://github.com/beckerbenj/eatAnalysis)"
 descFunktion_anal <- "verschiedene nützliche Hilfsfunktionen, wie zum Speichern von Excel-Datein, Speichern von Analyse-Ergebnissen von lm4 und Simulieren von IRT-Responses."
 doku_anal <- ""
 

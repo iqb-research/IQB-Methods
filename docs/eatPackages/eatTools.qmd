@@ -7,10 +7,10 @@ title: "eatTools"
 ```{r, echo=FALSE}
 #5
 ansprech_tools <- "Sebastian Weirich, Benjamin Becker, Karoline Sachse"
-version_tools <- "[aktuelle Version](https://cran.r-project.org/web/packages/eatTools/index.html)"
-quelle_tools <- "[CRAN](https://cran.r-project.org/web/packages/eatTools/index.html)"
+version_tools <- "[CRAN page](https://cran.r-project.org/web/packages/eatTools/index.html)"
+quelle_tools <- "[CRAN page](https://cran.r-project.org/web/packages/eatTools/index.html)"
 descFunktion_tools <- "verschiedene Hilfsfunktionen, die unter anderem auch von den Paketen 'eatPrep', 'eatModel', 'eatGADS' und 'eatRep' benötigt werden."
-doku_tools <- ""
+doku_tools <- "[Reference manual](https://cran.r-project.org/web/packages/eatTools/eatTools.pdf)"
 
 
 info_tools <- data.frame(ansprech_tools, version_tools, quelle_tools)
@@ -23,4 +23,4 @@ knitr::kable(info_tools)
 
 verschiedene Hilfsfunktionen, die unter anderem auch von den Paketen 'eatPrep', 'eatModel', 'eatGADS' und 'eatRep' benötigt werden.
 
-**Dokumentation:** -
+**Dokumentation:** [Reference manual](https://cran.r-project.org/web/packages/eatTools/eatTools.pdf)

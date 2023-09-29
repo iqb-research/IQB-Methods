@@ -10,7 +10,7 @@ ansprech_ata <- "Benjamin Becker"
 version_ata <- "[aktuelle Version](https://cran.r-project.org/web/packages/eatATA/index.html)"
 quelle_ata <- "[CRAN](https://cran.r-project.org/web/packages/eatATA/index.html)"
 descFunktion_ata <- "automatisierte Blockbesetzung/automatisierte Testhefterstellung."
-doku_ata <- "[CRAN vignette](https://cran.r-project.org/web/packages/eatATA/vignettes/eatATA.html)"
+doku_ata <- "see CRAN page for several vignettes"
 
 
 info_ata <- data.frame(ansprech_ata, version_ata, quelle_ata)

@@ -7,8 +7,8 @@ title: "eatFDZ"
 ```{r, echo=FALSE}
 #8
 ansprech_fdz <- "Benjamin Becker"
-version_fdz <- "[aktuelle Version](https://github.com/beckerbenj/eatFDZ/blob/master/DESCRIPTION)"
-quelle_fdz <- "[github](https://github.com/beckerbenj/eatFDZ)"
+version_fdz <- "[DESCRIPTION on github](https://github.com/beckerbenj/eatFDZ/blob/master/DESCRIPTION)"
+quelle_fdz <- "[github page](https://github.com/beckerbenj/eatFDZ)"
 descFunktion_fdz <- "automatisierte Anonymisierung von Datensätzen; Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen."
 doku_fdz <- ""
 
