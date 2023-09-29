@@ -11,7 +11,9 @@ version_rep <- "[CRAN page](https://cran.r-project.org/web/packages/eatRep/index
 quelle_rep <- "[CRAN page](https://cran.r-project.org/web/packages/eatRep/index.html)"
 descFunktion_rep <- "Berechnet Mittelwerte, Standardabweichungen, Varianzen, Häufigkeitstabellen, Perzentile und lineare (logistische) Regressionen sowie Trends für alle diese Analysen in geclusterten Mehrebenenstrukturen mit imputierten Daten. Das Paket implementiert einen Teil der Funktionsweise der Computersoftware WesVar in R und ist im Wesentlichen für die IQB-Bildungstrendstudien relevant."
 doku_rep <- c("intern", "intern", "[Replication Analysis with eatRep](https://cran.r-project.org/web//packages/eatRep/vignettes/eatRep.html)", "intern")
-
+# interne Dokus:  Vignette: i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2021\eatRep_Vignette.pdf
+                # Tutorial (deutsch): i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2021\eatRep.pdf
+                # Workshop: i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2021\
 
 info_rep <- data.frame(ansprech_rep, version_rep, quelle_rep)
 colnames(info_rep) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")

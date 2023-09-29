@@ -9,9 +9,10 @@ title: "eatModel"
 ansprech_model <- "Sebastian Weirich"
 version_model <- "[DESCRIPTION on github](https://github.com/weirichs/eatModel/blob/master/DESCRIPTION)"
 quelle_model <- "[github page](https://github.com/weirichs/eatModel), intern"
+# interne Quelle: i:\Methoden\99_eatZipVersionen\
 descFunktion_model <- "Dient als Interface für die Software ConQuest. Die benötigten Steuerdateien (Skript, Labels, Datensatz im 'fixed width'-Format) werden automatisch erzeugt und ConQuest über die Kommandozeile aufgerufen. Die Ergebnisdateien (Showfile, WLEs, PVs, etc.) können wieder nach R importiert und weiterverarbeitet werden. Neuere Versionen von 'eatModel' erlauben auch die Einbindung des R-Pakets 'tam' sowie Parallelisierung."
 doku_model <- "intern"
-
+# interne Doku: Workshop: i:\Methoden\02_IQB-interne_eat_Workshops\Workshop_eat_Dez2016\03_eatModel\
 
 info_model <- data.frame(ansprech_model, version_model, quelle_model)
 colnames(info_model) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
