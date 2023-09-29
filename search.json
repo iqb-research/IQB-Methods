@@ -53,35 +53,35 @@
     "href": "docs/eatPackages/eatRecode.html",
     "title": "eatRecode",
     "section": "",
-    "text": "eatRecode Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nErstellen und Anwenden von Rekodierungsdatenbanken.\nDokumentation: -"
+    "text": "eatRecode Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nFunktionsbeschreibung\nErstellen und Anwenden von Rekodierungsdatenbanken.\nDokumentation: -"
   },
   {
     "objectID": "docs/eatPackages/eatCodebook.html",
     "href": "docs/eatPackages/eatCodebook.html",
     "title": "eatCodebook",
     "section": "",
-    "text": "eatCodebook Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Erstellung von Skalenhandbüchern.\nDokumentation: github"
+    "text": "eatCodebook Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Erstellung von Skalenhandbüchern.\nDokumentation: Info page with several vignettes"
   },
   {
     "objectID": "docs/eatPackages/eatGADS.html",
     "href": "docs/eatPackages/eatGADS.html",
     "title": "eatGADS",
     "section": "",
-    "text": "eatGADS Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nErlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R.\nDokumentation: verschiedene aktuelle Vignetten siehe CRAN-Homepage."
+    "text": "eatGADS Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\n[CRAN page(https://cran.r-project.org/web/packages/eatGADS/index.html)\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nErlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R.\nDokumentation: Info page with several vignettes"
   },
   {
     "objectID": "docs/eatPackages/eatModel.html",
     "href": "docs/eatPackages/eatModel.html",
     "title": "eatModel",
     "section": "",
-    "text": "eatModel Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich\naktuelle Version\ngithub, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nDient als Interface für die Software ConQuest. Die benötigten Steuerdateien (Skript, Labels, Datensatz im ‘fixed width’-Format) werden automatisch erzeugt und ConQuest über die Kommandozeile aufgerufen. Die Ergebnisdateien (Showfile, WLEs, PVs, etc.) können wieder nach R importiert und weiterverarbeitet werden. Neuere Versionen von ‘eatModel’ erlauben auch die Einbindung des R-Pakets ‘tam’ sowie Parallelisierung.\nDokumentation: (intern)"
+    "text": "eatModel Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nDient als Interface für die Software ConQuest. Die benötigten Steuerdateien (Skript, Labels, Datensatz im ‘fixed width’-Format) werden automatisch erzeugt und ConQuest über die Kommandozeile aufgerufen. Die Ergebnisdateien (Showfile, WLEs, PVs, etc.) können wieder nach R importiert und weiterverarbeitet werden. Neuere Versionen von ‘eatModel’ erlauben auch die Einbindung des R-Pakets ‘tam’ sowie Parallelisierung.\nDokumentation: (intern)"
   },
   {
     "objectID": "docs/eatPackages/eatAnalysis.html",
     "href": "docs/eatPackages/eatAnalysis.html",
     "title": "eatAnalysis",
     "section": "",
-    "text": "eatAnalysis Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nverschiedene nützliche Hilfsfunktionen, wie zum Speichern von Excel-Datein, Speichern von Analyse-Ergebnissen von lm4 und Simulieren von IRT-Responses.\nDokumentation: -"
+    "text": "eatAnalysis Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nFunktionsbeschreibung\nverschiedene nützliche Hilfsfunktionen, wie zum Speichern von Excel-Datein, Speichern von Analyse-Ergebnissen von lm4 und Simulieren von IRT-Responses.\nDokumentation: -"
   },
   {
     "objectID": "posts/r_sig/23_31_07_apply/index.html",
@@ -186,42 +186,42 @@
     "href": "docs/eatPackages/eatPrep.html",
     "title": "eatPrep",
     "section": "",
-    "text": "eatPrep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nKaroline Sachse\naktuelle Version\ngithub, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nAufbereitung von Datensätzen (Einlesen, Plausibilitätsprüfungen, Zusammenführen von Datensätzen, Missingbehandlung, Rekodieren, Aggregieren, Scoren und Schreiben von gelabelten SPSS-Datensätzen) unter Verwendung von in der IQB-Datenbank hinterlegten Informationen zu den Items und zum Testdesign. Diese werden mithilfe des ZKDaemon (siehe unten) aus der Datenbank extrahiert und in ein standardisiertes xlsx-Format geschrieben. Dieses xlsx-Format nutzt ‘eatPrep’, um die Informationen aus der Datenbank nach R zu übertragen.\nDokumentation: (intern)"
+    "text": "eatPrep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nAufbereitung von Datensätzen (Einlesen, Plausibilitätsprüfungen, Zusammenführen von Datensätzen, Missingbehandlung, Rekodieren, Aggregieren, Scoren und Schreiben von gelabelten SPSS-Datensätzen) unter Verwendung von in der IQB-Datenbank hinterlegten Informationen zu den Items und zum Testdesign. Diese werden mithilfe des ZKDaemon (siehe unten) aus der Datenbank extrahiert und in ein standardisiertes xlsx-Format geschrieben. Dieses xlsx-Format nutzt ‘eatPrep’, um die Informationen aus der Datenbank nach R zu übertragen.\nDokumentation: (intern)"
   },
   {
     "objectID": "docs/eatPackages/eatTools.html",
     "href": "docs/eatPackages/eatTools.html",
     "title": "eatTools",
     "section": "",
-    "text": "eatTools Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nverschiedene Hilfsfunktionen, die unter anderem auch von den Paketen ‘eatPrep’, ‘eatModel’, ‘eatGADS’ und ‘eatRep’ benötigt werden.\nDokumentation: -"
+    "text": "eatTools Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nverschiedene Hilfsfunktionen, die unter anderem auch von den Paketen ‘eatPrep’, ‘eatModel’, ‘eatGADS’ und ‘eatRep’ benötigt werden.\nDokumentation: Reference manual"
   },
   {
     "objectID": "docs/eatPackages/eatRep.html",
     "href": "docs/eatPackages/eatRep.html",
     "title": "eatRep",
     "section": "",
-    "text": "eatRep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich, Benjamin Becker\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nBerechnet Mittelwerte, Standardabweichungen, Varianzen, Häufigkeitstabellen, Perzentile und lineare (logistische) Regressionen sowie Trends für alle diese Analysen in geclusterten Mehrebenenstrukturen mit imputierten Daten. Das Paket implementiert einen Teil der Funktionsweise der Computersoftware WesVar in R und ist im Wesentlichen für die IQB-Bildungstrendstudien relevant.\nDokumentation: Tutorial (englisch) und intern."
+    "text": "eatRep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nBerechnet Mittelwerte, Standardabweichungen, Varianzen, Häufigkeitstabellen, Perzentile und lineare (logistische) Regressionen sowie Trends für alle diese Analysen in geclusterten Mehrebenenstrukturen mit imputierten Daten. Das Paket implementiert einen Teil der Funktionsweise der Computersoftware WesVar in R und ist im Wesentlichen für die IQB-Bildungstrendstudien relevant.\nDokumentation: Replication Analysis with eatRep und intern."
   },
   {
     "objectID": "docs/eatPackages/eatATA.html",
     "href": "docs/eatPackages/eatATA.html",
     "title": "eatATA",
     "section": "",
-    "text": "eatATA Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Blockbesetzung/automatisierte Testhefterstellung.\nDokumentation: typical use of ‘eat ATA’: a Minimal Example, ‘eatATA’ Functionality, a Pilot Study Example"
+    "text": "eatATA Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Blockbesetzung/automatisierte Testhefterstellung.\nDokumentation: typical use of ‘eat ATA’: a Minimal Example, ‘eatATA’ Functionality, a Pilot Study Example, Reference manual"
   },
   {
     "objectID": "docs/eatPackages/eatPlot.html",
     "href": "docs/eatPackages/eatPlot.html",
     "title": "eatPlot",
     "section": "",
-    "text": "eatPlot Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nErstellen von Plots aus dem eatRep output (Hauptanwendungsfall: Bildungstrend).\nDokumentation: github"
+    "text": "eatPlot Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nFunktionsbeschreibung\nErstellen von Plots aus dem eatRep output (Hauptanwendungsfall: Bildungstrend).\nDokumentation: Info page with several vignettes"
   },
   {
     "objectID": "docs/eatPackages/eatFDZ.html",
     "href": "docs/eatPackages/eatFDZ.html",
     "title": "eatFDZ",
     "section": "",
-    "text": "eatFDZ Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Anonymisierung von Datensätzen; Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen.\nDokumentation: -"
+    "text": "eatFDZ Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Anonymisierung von Datensätzen; Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen.\nDokumentation: -"
   },
   {
     "objectID": "docs/quarto/index.html",
