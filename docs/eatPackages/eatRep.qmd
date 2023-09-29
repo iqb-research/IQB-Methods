@@ -1,0 +1,26 @@
+---
+title: "eatRep"
+---
+
+# eatRep Info
+
+```{r, echo=FALSE}
+#3
+ansprech_rep <- "Sebastian Weirich, Benjamin Becker"
+version_rep <- "[aktuelle Version](https://cran.r-project.org/web/packages/eatRep/index.html)"
+quelle_rep <- "[CRAN](https://cran.r-project.org/web/packages/eatRep/index.html)"
+descFunktion_rep <- "Berechnet Mittelwerte, Standardabweichungen, Varianzen, Häufigkeitstabellen, Perzentile und lineare (logistische) Regressionen sowie Trends für alle diese Analysen in geclusterten Mehrebenenstrukturen mit imputierten Daten. Das Paket implementiert einen Teil der Funktionsweise der Computersoftware WesVar in R und ist im Wesentlichen für die IQB-Bildungstrendstudien relevant."
+doku_rep <- c("intern", "intern", "[Tutorial (englisch)](https://cran.r-project.org/web//packages/eatRep/vignettes/eatRep.html)", "intern")
+
+
+info_rep <- data.frame(ansprech_rep, version_rep, quelle_rep)
+colnames(info_rep) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+
+knitr::kable(info_rep)
+```
+
+### Funktionsbeschreibung
+
+Berechnet Mittelwerte, Standardabweichungen, Varianzen, Häufigkeitstabellen, Perzentile und lineare (logistische) Regressionen sowie Trends für alle diese Analysen in geclusterten Mehrebenenstrukturen mit imputierten Daten. Das Paket implementiert einen Teil der Funktionsweise der Computersoftware WesVar in R und ist im Wesentlichen für die IQB-Bildungstrendstudien relevant.
+
+**Dokumentation:** [Tutorial (englisch)](https://cran.r-project.org/web//packages/eatRep/vignettes/eatRep.html) und intern.

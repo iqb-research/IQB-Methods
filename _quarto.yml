@@ -39,6 +39,16 @@ website:
         contents: 
           - docs/eatPackages/index.qmd
           - docs/eatPackages/eatPrep.qmd
+          - docs/eatPackages/eatModel.qmd
+          - docs/eatPackages/eatRep.qmd
+          - docs/eatPackages/eatGADS.qmd
+          - docs/eatPackages/eatTools.qmd
+          - docs/eatPackages/eatAnalysis.qmd
+          - docs/eatPackages/eatATA.qmd
+          - docs/eatPackages/eatFDZ.qmd
+          - docs/eatPackages/eatCodebook.qmd
+          - docs/eatPackages/eatRecode.qmd
+          - docs/eatPackages/eatPlot.qmd
       - section: "Quarto"
         contents: 
           - docs/quarto/index.qmd

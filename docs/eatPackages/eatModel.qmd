@@ -1,0 +1,26 @@
+---
+title: "eatModel"
+---
+
+# eatModel Info
+
+```{r, echo=FALSE}
+#2
+ansprech_model <- "Sebastian Weirich"
+version_model <- "[aktuelle Version](https://github.com/weirichs/eatModel/blob/master/DESCRIPTION)"
+quelle_model <- "[github](https://github.com/weirichs/eatModel), intern"
+descFunktion_model <- "Dient als Interface für die Software ConQuest. Die benötigten Steuerdateien (Skript, Labels, Datensatz im 'fixed width'-Format) werden automatisch erzeugt und ConQuest über die Kommandozeile aufgerufen. Die Ergebnisdateien (Showfile, WLEs, PVs, etc.) können wieder nach R importiert und weiterverarbeitet werden. Neuere Versionen von 'eatModel' erlauben auch die Einbindung des R-Pakets 'tam' sowie Parallelisierung."
+doku_model <- "intern"
+
+
+info_model <- data.frame(ansprech_model, version_model, quelle_model)
+colnames(info_model) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+
+knitr::kable(info_model)
+```
+
+### Funktionsbeschreibung
+
+Dient als Interface für die Software ConQuest. Die benötigten Steuerdateien (Skript, Labels, Datensatz im 'fixed width'-Format) werden automatisch erzeugt und ConQuest über die Kommandozeile aufgerufen. Die Ergebnisdateien (Showfile, WLEs, PVs, etc.) können wieder nach R importiert und weiterverarbeitet werden. Neuere Versionen von 'eatModel' erlauben auch die Einbindung des R-Pakets 'tam' sowie Parallelisierung.
+
+**Dokumentation:** (intern)
