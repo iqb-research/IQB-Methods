@@ -7,8 +7,8 @@ title: "eatRecode"
 ```{r, echo=FALSE}
 #10
 ansprech_recode <- "Benjamin Becker, Nicklas Hafiz"
-version_recode <- "[aktuelle Version](https://github.com/beckerbenj/eatRecode/blob/main/DESCRIPTION)"
-quelle_recode <- "[github](https://github.com/beckerbenj/eatRecode)"
+version_recode <- "[DESCRIPTION on github](https://github.com/beckerbenj/eatRecode/blob/main/DESCRIPTION)"
+quelle_recode <- "[github page](https://github.com/beckerbenj/eatRecode)"
 descFunktion_recode <- "Erstellen und Anwenden von Rekodierungsdatenbanken."
 doku_recode <- ""
 
