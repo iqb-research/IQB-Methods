@@ -23,4 +23,4 @@ knitr::kable(info_ata)
 
 automatisierte Blockbesetzung/automatisierte Testhefterstellung.
 
-**Dokumentation:** [CRAN vignette](https://cran.r-project.org/web/packages/eatATA/vignettes/eatATA.html)
+**Dokumentation:** [typical use of 'eat ATA': a Minimal Example](https://cran.r-project.org/web/packages/eatATA/vignettes/minimal_example.html), ['eatATA' Functionality](https://cran.r-project.org/web/packages/eatATA/vignettes/overview.html), [a Pilot Study Example](https://cran.r-project.org/web/packages/eatATA/vignettes/use_case_pilot_study.html)
