@@ -1,8 +1,6 @@
 ---
-title: "eat Packages"
+title: "Info on eat Packages"
 ---
-
-##  Info
 
 see table down below and click on the links for more information on a package.
 
@@ -27,7 +25,43 @@ Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu ver
 
 
 ```{r, echo=FALSE}
+#Paketname <- c("eatPrep", "eatModel", "eatRep", "eatGADS", "eatTools", 
+#               "eatAnalysis", "eatATA", "eatFDZ", "eatCodebook", "eatRecode", 
+#               "eatPlot")
+links <- ""
+links[1] <- "[eatPrep](eatPrep.qmd)"
+links[2] <- "[eatModel](eatModal.qmd)"
+links[3] <- "[eatRep](eatRep.qmd)"
+links[4] <- "[eatGADS](eatGADS.qmd)"
+links[5] <- "[eatTools](eatTools.qmd)"
+links[6] <- "[eatAnalysis](eatAnalysis.qmd)"
+links[7] <- "[eatATA](eatATA.qmd)"
+links[8] <- "[eatFDZ](eatFDZ.qmd)"
+links[9] <- "[eatCodebook](eatCodebook.qmd)"
+links[10]<- "[eatRecode](eatRecode.qmd)"
+links[11]<- "[eatPlot](eatPlot.qmd)"
 
+desc <- ""
+desc[1] <- "Aufbereitung von Datensätzen."
+desc[2] <- "Interface für die Software ConQuest."
+desc[3] <- "berechnet Kennwerte für Daten mit geclusterten Mehrebenenstrukturen mit imputierten Daten."
+desc[4] <- "Import und Datenaufbereitung von SPSS Datensätzen in R."
+desc[5] <- "verschiedene Hilfsfunktionen, die unter anderem auch von den Paketen 'eatPrep', 'eatModel', 'eatGADS' und 'eatRep' benötigt werden."
+desc[6] <- "verschiedene nützliche Hilfsfunktionen, wie zum Speichern von Excel-Datein, Speichern von Analyse-Ergebnissen von lm4 und Simulieren von IRT-Responses."
+desc[7] <- "automatisierte Blockbesetzung/automatisierte Testhefterstellung."
+desc[8] <- "automatisierte Anonymisierung von Datensätzen, Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen."
+desc[9] <- "automatisierte Erstellung von Skalenhandbüchern."
+desc[10]<- "Erstellen und Anwenden von Rekodierungsdatenbanken"
+desc[11]<- "Erstellen von Plots aus dem eatRep output (Hauptanwendungsfall: Bildungstrend)."
+
+df <- data.frame(links, desc)
+
+# find out how to print nicer
+df_layout <- df
+colnames(df_layout) <- c("Paketname", "Kurzbeschreibung")
+
+#df_layout
+knitr::kable(df_layout)
 
 ```
 
