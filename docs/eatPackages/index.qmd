@@ -27,8 +27,7 @@ Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu ver
 
 
 ```{r, echo=FALSE}
-Beschreibung <- c(descFunktion_prep, descFunktion_model, descFunktion_rep, descFunktion_gads, descFunktion_tools, 
-                  descFunktion_anal, descFunktion_ata, descFunktion_fdz, descFunktion_codebook, descFunktion_recode, descFunktion_plot)
+
 
 ```
 
