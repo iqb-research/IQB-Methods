@@ -16,35 +16,28 @@
   {
     "objectID": "docs/eatPackages/index.html",
     "href": "docs/eatPackages/index.html",
-    "title": "eat Packages",
-    "section": "",
-    "text": "see table down below and click on the links for more information on a package."
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#info",
-    "href": "docs/eatPackages/index.html#info",
-    "title": "eat Packages",
+    "title": "Info on eat Packages",
     "section": "",
     "text": "see table down below and click on the links for more information on a package."
   },
   {
     "objectID": "docs/eatPackages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
     "href": "docs/eatPackages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
-    "title": "eat Packages",
+    "title": "Info on eat Packages",
     "section": "IQB-interne R-Pakete aus der ‚eat’-Familie",
-    "text": "IQB-interne R-Pakete aus der ‚eat’-Familie\nUm die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n\n\n\nPaketname\nAnsprechpartner:in\nmehr Infos\n\n\n\n\neatPrep\nKaroline Sachse\nmore Info on eatPrep\n\n\neatModel\nSebastian Weirich\nmore Info on eatModel\n\n\neatRep\nSebastian Weirich, Benjamin Becker\nmore Info on eatRep\n\n\neatGADS\nBenjamin Becker\nmore Info on eatGADS\n\n\neatTools\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nmore Info on eatTools\n\n\neatAnalysis\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nmore Info on eatAnalysis\n\n\neatATA\nBenjamin Becker\nmore Info on eatATA\n\n\neatFDZ\nBenjamin Becker\nmore Info on eatFDZ\n\n\neatCodebook\nBenjamin Becker\nmore Info on eatCodebook\n\n\neatRecode\nBenjamin Becker, Nicklas Hafiz\nmore Info on eatRecode\n\n\neatPlot\nNicklas Hafiz, Philipp Franikowski\nmore Info on eatPlot"
+    "text": "IQB-interne R-Pakete aus der ‚eat’-Familie\nUm die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n\n\n\nPaketname\nAnsprechpartner:in\nmehr Infos\n\n\n\n\neatPrep\nKaroline Sachse\nmore Info on eatPrep\n\n\neatModel\nSebastian Weirich\nmore Info on eatModel\n\n\neatRep\nSebastian Weirich, Benjamin Becker\nmore Info on eatRep\n\n\neatGADS\nBenjamin Becker\nmore Info on eatGADS\n\n\neatTools\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nmore Info on eatTools\n\n\neatAnalysis\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nmore Info on eatAnalysis\n\n\neatATA\nBenjamin Becker\nmore Info on eatATA\n\n\neatFDZ\nBenjamin Becker\nmore Info on eatFDZ\n\n\neatCodebook\nBenjamin Becker\nmore Info on eatCodebook\n\n\neatRecode\nBenjamin Becker, Nicklas Hafiz\nmore Info on eatRecode\n\n\neatPlot\nNicklas Hafiz, Philipp Franikowski\nmore Info on eatPlot\n\n\n\n\n\n\n\n\nPaketname\nKurzbeschreibung\n\n\n\n\neatPrep\nAufbereitung von Datensätzen.\n\n\neatModel\nInterface für die Software ConQuest.\n\n\neatRep\nberechnet Kennwerte für Daten mit geclusterten Mehrebenenstrukturen mit imputierten Daten.\n\n\neatGADS\nImport und Datenaufbereitung von SPSS Datensätzen in R.\n\n\neatTools\nverschiedene Hilfsfunktionen, die unter anderem auch von den Paketen ‘eatPrep’, ‘eatModel’, ‘eatGADS’ und ‘eatRep’ benötigt werden.\n\n\neatAnalysis\nverschiedene nützliche Hilfsfunktionen, wie zum Speichern von Excel-Datein, Speichern von Analyse-Ergebnissen von lm4 und Simulieren von IRT-Responses.\n\n\neatATA\nautomatisierte Blockbesetzung/automatisierte Testhefterstellung.\n\n\neatFDZ\nautomatisierte Anonymisierung von Datensätzen, Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen.\n\n\neatCodebook\nautomatisierte Erstellung von Skalenhandbüchern.\n\n\neatRecode\nErstellen und Anwenden von Rekodierungsdatenbanken\n\n\neatPlot\nErstellen von Plots aus dem eatRep output (Hauptanwendungsfall: Bildungstrend)."
   },
   {
     "objectID": "docs/eatPackages/index.html#installation-der-r-pakete",
     "href": "docs/eatPackages/index.html#installation-der-r-pakete",
-    "title": "eat Packages",
+    "title": "Info on eat Packages",
     "section": "Installation der R-Pakete",
     "text": "Installation der R-Pakete\nDetallierte Anleitungen zur Installation der R-Pakete finden sich unter: R-Pakete installieren"
   },
   {
     "objectID": "docs/eatPackages/index.html#kompatibilität",
     "href": "docs/eatPackages/index.html#kompatibilität",
-    "title": "eat Packages",
+    "title": "Info on eat Packages",
     "section": "Kompatibilität",
     "text": "Kompatibilität\nDie meisten Teilpakete der “eat”-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:\n\n“eatTools” ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. “eatTools” hängt nicht von anderen “eat”-Paketen ab.\n“eatPrep” benötigt “eatTools”\n“eatRep” benötigt “eatTools” und “eatGADS”\n“eatModel” benötigt “eatTools” und “eatRep” (und damit ebenfalls “eatGADS”). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket “TAM” zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. “console_Feb2007.exe”; “TAM” wird beim Laden des Pakets mit installiert. “TAM” und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.\n“eatGADS” benötigt “eatTools” und “eatDB”\n\nDie wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von “eatRep” nicht immer kompatibel mit neuen Versionen von “eatTools” (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.\nDa sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden."
   },
