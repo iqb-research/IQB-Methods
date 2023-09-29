@@ -26,8 +26,6 @@ Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu ver
 
 
 
-
-
 ```{r, echo=FALSE}
 #Paketname <- c("eatPrep", "eatModel", "eatRep", "eatGADS", "eatTools", 
 #               "eatAnalysis", "eatATA", "eatFDZ", "eatCodebook", "eatRecode", 
