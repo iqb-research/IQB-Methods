@@ -38,6 +38,7 @@ website:
       - section: "eat Packages"
         contents: 
           - docs/eatPackages/index.qmd
+          - docs/eatPackages/eatPrep.qmd
       - section: "Quarto"
         contents: 
           - docs/quarto/index.qmd
