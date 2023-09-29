@@ -7,8 +7,8 @@ title: "eatATA"
 ```{r, echo=FALSE}
 #7
 ansprech_ata <- "Benjamin Becker"
-version_ata <- "[aktuelle Version](https://cran.r-project.org/web/packages/eatATA/index.html)"
-quelle_ata <- "[CRAN](https://cran.r-project.org/web/packages/eatATA/index.html)"
+version_ata <- "[CRAN page](https://cran.r-project.org/web/packages/eatATA/index.html)"
+quelle_ata <- "[CRAN page](https://cran.r-project.org/web/packages/eatATA/index.html)"
 descFunktion_ata <- "automatisierte Blockbesetzung/automatisierte Testhefterstellung."
 doku_ata <- "see CRAN page for several vignettes"
 
