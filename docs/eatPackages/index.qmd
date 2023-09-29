@@ -8,6 +8,7 @@ see table down below and click on the links for more information on a package.
 
 Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat ("educational assessment tools") kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:
 
+```{r, include=FALSE}
 #| Paketname       | Ansprechpartner:in                                  | mehr Infos                          |
 #|-------------------|----------------------------------|-------------------|
 #| **eatPrep**     | Karoline Sachse                                     | [more Info on eatPrep](eatPrep.qmd) |
@@ -21,6 +22,9 @@ Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu ver
 #| **eatCodebook** | Benjamin Becker                                     | [more Info on eatCodebook](eatCodebook.qmd) |
 #| **eatRecode**   | Benjamin Becker, Nicklas Hafiz                      | [more Info on eatRecode](eatRecode.qmd) |
 #| **eatPlot**     | Nicklas Hafiz, Philipp Franikowski                  | [more Info on eatPlot](eatPlot.qmd) |
+```
+
+
 
 
 
