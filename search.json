@@ -14,11 +14,67 @@
     "text": "R Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R."
   },
   {
-    "objectID": "docs/eatPackages/eatPrep.html",
-    "href": "docs/eatPackages/eatPrep.html",
-    "title": "eatPrep",
+    "objectID": "docs/eatPackages/index.html",
+    "href": "docs/eatPackages/index.html",
+    "title": "eat Packages",
     "section": "",
-    "text": "eatPrep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nKaroline Sachse\naktuelle Version\ngithub, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nAufbereitung von Datensätzen (Einlesen, Plausibilitätsprüfungen, Zusammenführen von Datensätzen, Missingbehandlung, Rekodieren, Aggregieren, Scoren und Schreiben von gelabelten SPSS-Datensätzen) unter Verwendung von in der IQB-Datenbank hinterlegten Informationen zu den Items und zum Testdesign. Diese werden mithilfe des ZKDaemon (siehe unten) aus der Datenbank extrahiert und in ein standardisiertes xlsx-Format geschrieben. Dieses xlsx-Format nutzt ‘eatPrep’, um die Informationen aus der Datenbank nach R zu übertragen.\nDokumentation: (intern)"
+    "text": "see table down below and click on the links for more information on a package.\n\n\nUm die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n…\n\n\n\nDetallierte Anleitungen zur Installation der R-Pakete finden sich unter: R-Pakete installieren\n\n\n\nDie meisten Teilpakete der “eat”-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:\n\n“eatTools” ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. “eatTools” hängt nicht von anderen “eat”-Paketen ab.\n“eatPrep” benötigt “eatTools”\n“eatRep” benötigt “eatTools” und “eatGADS”\n“eatModel” benötigt “eatTools” und “eatRep” (und damit ebenfalls “eatGADS”). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket “TAM” zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. “console_Feb2007.exe”; “TAM” wird beim Laden des Pakets mit installiert. “TAM” und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.\n“eatGADS” benötigt “eatTools” und “eatDB”\n\nDie wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von “eatRep” nicht immer kompatibel mit neuen Versionen von “eatTools” (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.\nDa sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden."
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
+    "href": "docs/eatPackages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
+    "title": "eat Packages",
+    "section": "",
+    "text": "Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n…"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#installation-der-r-pakete",
+    "href": "docs/eatPackages/index.html#installation-der-r-pakete",
+    "title": "eat Packages",
+    "section": "",
+    "text": "Detallierte Anleitungen zur Installation der R-Pakete finden sich unter: R-Pakete installieren"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#kompatibilität",
+    "href": "docs/eatPackages/index.html#kompatibilität",
+    "title": "eat Packages",
+    "section": "",
+    "text": "Die meisten Teilpakete der “eat”-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:\n\n“eatTools” ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. “eatTools” hängt nicht von anderen “eat”-Paketen ab.\n“eatPrep” benötigt “eatTools”\n“eatRep” benötigt “eatTools” und “eatGADS”\n“eatModel” benötigt “eatTools” und “eatRep” (und damit ebenfalls “eatGADS”). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket “TAM” zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. “console_Feb2007.exe”; “TAM” wird beim Laden des Pakets mit installiert. “TAM” und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.\n“eatGADS” benötigt “eatTools” und “eatDB”\n\nDie wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von “eatRep” nicht immer kompatibel mit neuen Versionen von “eatTools” (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.\nDa sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden."
+  },
+  {
+    "objectID": "docs/eatPackages/eatRecode.html",
+    "href": "docs/eatPackages/eatRecode.html",
+    "title": "eatRecode",
+    "section": "",
+    "text": "eatRecode Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nErstellen und Anwenden von Rekodierungsdatenbanken.\nDokumentation: -"
+  },
+  {
+    "objectID": "docs/eatPackages/eatCodebook.html",
+    "href": "docs/eatPackages/eatCodebook.html",
+    "title": "eatCodebook",
+    "section": "",
+    "text": "eatCodebook Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Erstellung von Skalenhandbüchern.\nDokumentation: github"
+  },
+  {
+    "objectID": "docs/eatPackages/eatGADS.html",
+    "href": "docs/eatPackages/eatGADS.html",
+    "title": "eatGADS",
+    "section": "",
+    "text": "eatGADS Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nErlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R.\nDokumentation: verschiedene aktuelle Vignetten siehe CRAN-Homepage."
+  },
+  {
+    "objectID": "docs/eatPackages/eatModel.html",
+    "href": "docs/eatPackages/eatModel.html",
+    "title": "eatModel",
+    "section": "",
+    "text": "eatModel Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich\naktuelle Version\ngithub, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nDient als Interface für die Software ConQuest. Die benötigten Steuerdateien (Skript, Labels, Datensatz im ‘fixed width’-Format) werden automatisch erzeugt und ConQuest über die Kommandozeile aufgerufen. Die Ergebnisdateien (Showfile, WLEs, PVs, etc.) können wieder nach R importiert und weiterverarbeitet werden. Neuere Versionen von ‘eatModel’ erlauben auch die Einbindung des R-Pakets ‘tam’ sowie Parallelisierung.\nDokumentation: (intern)"
+  },
+  {
+    "objectID": "docs/eatPackages/eatAnalysis.html",
+    "href": "docs/eatPackages/eatAnalysis.html",
+    "title": "eatAnalysis",
+    "section": "",
+    "text": "eatAnalysis Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nverschiedene nützliche Hilfsfunktionen, wie zum Speichern von Excel-Datein, Speichern von Analyse-Ergebnissen von lm4 und Simulieren von IRT-Responses.\nDokumentation: -"
   },
   {
     "objectID": "posts/r_sig/23_31_07_apply/index.html",
@@ -119,32 +175,46 @@
     "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
   },
   {
-    "objectID": "docs/eatPackages/index.html",
-    "href": "docs/eatPackages/index.html",
-    "title": "eat Packages",
+    "objectID": "docs/eatPackages/eatPrep.html",
+    "href": "docs/eatPackages/eatPrep.html",
+    "title": "eatPrep",
     "section": "",
-    "text": "see table down below and click on the links for more information on a package.\n\n\nUm die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n…\n\n\n\nDetallierte Anleitungen zur Installation der R-Pakete finden sich unter: R-Pakete installieren\n\n\n\nDie meisten Teilpakete der “eat”-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:\n\n“eatTools” ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. “eatTools” hängt nicht von anderen “eat”-Paketen ab.\n“eatPrep” benötigt “eatTools”\n“eatRep” benötigt “eatTools” und “eatGADS”\n“eatModel” benötigt “eatTools” und “eatRep” (und damit ebenfalls “eatGADS”). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket “TAM” zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. “console_Feb2007.exe”; “TAM” wird beim Laden des Pakets mit installiert. “TAM” und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.\n“eatGADS” benötigt “eatTools” und “eatDB”\n\nDie wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von “eatRep” nicht immer kompatibel mit neuen Versionen von “eatTools” (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.\nDa sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden."
+    "text": "eatPrep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nKaroline Sachse\naktuelle Version\ngithub, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nAufbereitung von Datensätzen (Einlesen, Plausibilitätsprüfungen, Zusammenführen von Datensätzen, Missingbehandlung, Rekodieren, Aggregieren, Scoren und Schreiben von gelabelten SPSS-Datensätzen) unter Verwendung von in der IQB-Datenbank hinterlegten Informationen zu den Items und zum Testdesign. Diese werden mithilfe des ZKDaemon (siehe unten) aus der Datenbank extrahiert und in ein standardisiertes xlsx-Format geschrieben. Dieses xlsx-Format nutzt ‘eatPrep’, um die Informationen aus der Datenbank nach R zu übertragen.\nDokumentation: (intern)"
   },
   {
-    "objectID": "docs/eatPackages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
-    "href": "docs/eatPackages/index.html#iqb-interne-r-pakete-aus-der-eat-familie",
-    "title": "eat Packages",
+    "objectID": "docs/eatPackages/eatTools.html",
+    "href": "docs/eatPackages/eatTools.html",
+    "title": "eatTools",
     "section": "",
-    "text": "Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat (“educational assessment tools”) kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:\n…"
+    "text": "eatTools Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nverschiedene Hilfsfunktionen, die unter anderem auch von den Paketen ‘eatPrep’, ‘eatModel’, ‘eatGADS’ und ‘eatRep’ benötigt werden.\nDokumentation: -"
   },
   {
-    "objectID": "docs/eatPackages/index.html#installation-der-r-pakete",
-    "href": "docs/eatPackages/index.html#installation-der-r-pakete",
-    "title": "eat Packages",
+    "objectID": "docs/eatPackages/eatRep.html",
+    "href": "docs/eatPackages/eatRep.html",
+    "title": "eatRep",
     "section": "",
-    "text": "Detallierte Anleitungen zur Installation der R-Pakete finden sich unter: R-Pakete installieren"
+    "text": "eatRep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich, Benjamin Becker\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nBerechnet Mittelwerte, Standardabweichungen, Varianzen, Häufigkeitstabellen, Perzentile und lineare (logistische) Regressionen sowie Trends für alle diese Analysen in geclusterten Mehrebenenstrukturen mit imputierten Daten. Das Paket implementiert einen Teil der Funktionsweise der Computersoftware WesVar in R und ist im Wesentlichen für die IQB-Bildungstrendstudien relevant.\nDokumentation: Tutorial (englisch) und intern."
   },
   {
-    "objectID": "docs/eatPackages/index.html#kompatibilität",
-    "href": "docs/eatPackages/index.html#kompatibilität",
-    "title": "eat Packages",
+    "objectID": "docs/eatPackages/eatATA.html",
+    "href": "docs/eatPackages/eatATA.html",
+    "title": "eatATA",
     "section": "",
-    "text": "Die meisten Teilpakete der “eat”-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:\n\n“eatTools” ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. “eatTools” hängt nicht von anderen “eat”-Paketen ab.\n“eatPrep” benötigt “eatTools”\n“eatRep” benötigt “eatTools” und “eatGADS”\n“eatModel” benötigt “eatTools” und “eatRep” (und damit ebenfalls “eatGADS”). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket “TAM” zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. “console_Feb2007.exe”; “TAM” wird beim Laden des Pakets mit installiert. “TAM” und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.\n“eatGADS” benötigt “eatTools” und “eatDB”\n\nDie wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von “eatRep” nicht immer kompatibel mit neuen Versionen von “eatTools” (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.\nDa sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden."
+    "text": "eatATA Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\nCRAN\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Blockbesetzung/automatisierte Testhefterstellung.\nDokumentation: CRAN vignette"
+  },
+  {
+    "objectID": "docs/eatPackages/eatPlot.html",
+    "href": "docs/eatPackages/eatPlot.html",
+    "title": "eatPlot",
+    "section": "",
+    "text": "eatPlot Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nErstellen von Plots aus dem eatRep output (Hauptanwendungsfall: Bildungstrend).\nDokumentation: github"
+  },
+  {
+    "objectID": "docs/eatPackages/eatFDZ.html",
+    "href": "docs/eatPackages/eatFDZ.html",
+    "title": "eatFDZ",
+    "section": "",
+    "text": "eatFDZ Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\naktuelle Version\ngithub\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Anonymisierung von Datensätzen; Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen.\nDokumentation: -"
   },
   {
     "objectID": "docs/quarto/index.html",
