@@ -1,0 +1,36 @@
+---
+title: "eat Packages"
+---
+
+#  Info on eat Packages
+
+see table down below and click on the links for more information on a package.
+
+## IQB-interne R-Pakete aus der ‚eat'-Familie
+
+Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat ("educational assessment tools") kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:
+
+...
+
+```{r}
+
+```
+
+
+## Installation der R-Pakete
+
+Detallierte Anleitungen zur Installation der R-Pakete finden sich unter: [R-Pakete installieren](http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren)
+
+## Kompatibilität
+
+Die meisten Teilpakete der "eat"-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:
+
+-   "eatTools" ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. "eatTools" hängt nicht von anderen "eat"-Paketen ab.
+-   "eatPrep" benötigt "eatTools"
+-   "eatRep" benötigt "eatTools" und "eatGADS"
+-   "eatModel" benötigt "eatTools" und "eatRep" (und damit ebenfalls "eatGADS"). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket "TAM" zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. "console_Feb2007.exe"; "TAM" wird beim Laden des Pakets mit installiert. "TAM" und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.
+-   "eatGADS" benötigt "eatTools" und "eatDB"
+
+Die wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von "eatRep" nicht immer kompatibel mit neuen Versionen von "eatTools" (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.
+
+Da sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden.
