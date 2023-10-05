@@ -24,7 +24,7 @@ knitr::kable(info_model)
 
 Serves as an interface for the ConQuest software. The required control files (script, labels, data set in 'fixed width' format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of 'eatModel' also allow the integration of the R package 'tam' and parallelisation.
 
-```{r}
+```{r, echo=FALSE}
 # **Documentation:** (internal)
 doku_model <- "internal"
 # interne Doku: Workshop: i:\Methoden\02_IQB-interne_eat_Workshops\Workshop_eat_Dez2016\03_eatModel\

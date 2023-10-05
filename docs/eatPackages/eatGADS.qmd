@@ -9,18 +9,25 @@ title: "eatGADS"
 ansprech_gads <- "Benjamin Becker"
 version_gads <- "[CRAN page](https://cran.r-project.org/web/packages/eatGADS/index.html)"
 quelle_gads <- "[CRAN page](https://cran.r-project.org/web/packages/eatGADS/index.html)"
-descFunktion_gads <- "Erlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R."
-doku_gads <- "[Info page with several vignettes](https://cran.r-project.org/web/packages/eatGADS/)"
-
+descFunktion_gads <- "Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R."
 
 info_gads <- data.frame(ansprech_gads, version_gads, quelle_gads)
-colnames(info_gads) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+colnames(info_gads) <- c("contact", "latest version", "source")
 
 knitr::kable(info_gads)
 ```
 
-### Funktionsbeschreibung
+### Description
 
-Erlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R.
+Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.
 
-**Dokumentation:** [Info page with several vignettes](https://cran.r-project.org/web/packages/eatGADS/)
+
+```{r, echo=FALSE}
+# **Documentation:** [Info page with several vignettes](https://cran.r-project.org/web/packages/eatGADS/)
+doku_gads <- "[Info page with several vignettes](https://cran.r-project.org/web/packages/eatGADS/)"
+
+table <- data.frame(doku_gads, check.rows = FALSE)
+colnames(table) <- "Documentation"
+
+knitr::kable(table)
+```
