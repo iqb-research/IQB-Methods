@@ -4,9 +4,9 @@ title: "Info on eat Packages"
 
 see table down below and click on the links for more information on a package.
 
-## IQB-interne R-Pakete aus der ‚eat'-Familie
+## IQB intern R packages from the 'eat'-family
 
-Um die Auswertung der VERA-Pilotierungsstudien und des IQB-Bildungstrends zu vereinheitlichen und zu vereinfachen, werden eine Reihe von R-Paketen mit dem Präfix eat ("educational assessment tools") kontinuierlich (weiter-)entwickelt. Aktuell werden folgende Pakete am IQB betreut:
+In order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat ("educational assessment tools") are continuously (further) developed. Currently, the following packages are maintained at the IQB:
 
 ```{r, include=FALSE}
 #| Paketname       | Ansprechpartner:in                                  | mehr Infos                          |
@@ -44,17 +44,17 @@ links[10]<- "[eatRecode](eatRecode.qmd)"
 links[11]<- "[eatPlot](eatPlot.qmd)"
 
 desc <- ""
-desc[1] <- "Aufbereitung von Datensätzen."
-desc[2] <- "Interface für die Software ConQuest."
-desc[3] <- "berechnet Kennwerte für Daten mit geclusterten Mehrebenenstrukturen mit imputierten Daten."
-desc[4] <- "Import und Datenaufbereitung von SPSS Datensätzen in R."
-desc[5] <- "verschiedene Hilfsfunktionen, die unter anderem auch von den Paketen 'eatPrep', 'eatModel', 'eatGADS' und 'eatRep' benötigt werden."
-desc[6] <- "verschiedene nützliche Hilfsfunktionen, wie zum Speichern von Excel-Datein, Speichern von Analyse-Ergebnissen von lm4 und Simulieren von IRT-Responses."
-desc[7] <- "automatisierte Blockbesetzung/automatisierte Testhefterstellung."
-desc[8] <- "automatisierte Anonymisierung von Datensätzen, Abgleich von pdf-Dokumenten (zB Skalenhandbüchern) und Datensätzen."
-desc[9] <- "automatisierte Erstellung von Skalenhandbüchern."
-desc[10]<- "Erstellen und Anwenden von Rekodierungsdatenbanken"
-desc[11]<- "Erstellen von Plots aus dem eatRep output (Hauptanwendungsfall: Bildungstrend)."
+desc[1] <- "Preparation of data sets."
+desc[2] <- "Interface for ConQuest software."
+desc[3] <- "calculates characteristics for data with clustered multi-level structures with imputed data."
+desc[4] <- "Import and data preparation of SPSS data sets in R."
+desc[5] <- "Various help functions that are also required by the packages 'eatPrep', 'eatModel', 'eatGADS' and 'eatRep', among others."
+desc[6] <- "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses."
+desc[7] <- "Automated block occupation/automated test booklet creation."
+desc[8] <- "Automated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets."
+desc[9] <- "Automated creation of scale manuals."
+desc[10]<- "Create and apply recoding databases."
+desc[11]<- "Creating plots from the eatRep output (main use: Bilduntstrend)."
 
 an <- ""
 an[1] <- "Karoline Sachse"
@@ -73,7 +73,7 @@ df <- data.frame(links, desc, an)
 
 # find out how to print nicer
 df_layout <- df
-colnames(df_layout) <- c("Paketname", "Kurzbeschreibung", "Ansprechperson")
+colnames(df_layout) <- c("package name", "brief description", "contact")
 
 #df_layout
 knitr::kable(df_layout)
@@ -81,20 +81,20 @@ knitr::kable(df_layout)
 ```
 
 
-## Installation der R-Pakete
+## Installing R packages
 
-Detallierte Anleitungen zur Installation der R-Pakete finden sich unter: [R-Pakete installieren](http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren)
+Detailed instructions for installing the R packages can be found here: [installing R packages](http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren)
 
-## Kompatibilität
+## Compatibility
 
-Die meisten Teilpakete der "eat"-Familie sind nicht isoliert lauffähig, das bedeutet, ein Teilpaket ist i.d.R. auf ein anderes Teilpaket angewiesen, um lauffähig zu sein. Konkret bedeutet das:
+Most packages of the "eat" family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:
 
--   "eatTools" ist ein Paket mit Hilfsfunktionen, die von anderen Paketen benötigt werden. "eatTools" hängt nicht von anderen "eat"-Paketen ab.
--   "eatPrep" benötigt "eatTools"
--   "eatRep" benötigt "eatTools" und "eatGADS"
--   "eatModel" benötigt "eatTools" und "eatRep" (und damit ebenfalls "eatGADS"). Das Paket greift für die Parameterschätzung optional auf das Computerprogramm Conquest oder das R-Paket "TAM" zu. Für Conquest genügt dabei die ausführbare Kommandozeilendatei (command line executable), z.B. "console_Feb2007.exe"; "TAM" wird beim Laden des Pakets mit installiert. "TAM" und Conquest basieren auf demselben statistischen Messmodell und überschneiden sich im Funktionsumfang stark.
--   "eatGADS" benötigt "eatTools" und "eatDB"
+- "eatTools" is a package with help functions required by other packages. "eatTools" does not depend on other "eat" packages.
+- eatPrep" requires "eatTools".
+- eatRep" needs "eatTools" and "eatGADS".
+- eatModel" requires "eatTools" and "eatRep" (and thus also "eatGADS"). The package optionally accesses the computer programme Conquest or the R package "TAM" for parameter estimation. For Conquest, the command line executable is sufficient, e.g. "console_Feb2007.exe"; "TAM" is installed when the package is loaded. "TAM" and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.
+- "eatGADS" requires "eatTools" and "eatDB".
 
-Die wechselseitige Abhängigkeit erstreckt sich auch auf Versionen. So sind bspw. alte Versionen von "eatRep" nicht immer kompatibel mit neuen Versionen von "eatTools" (und umgekehrt). Die jeweils aktuellen Paketversionen (siehe obenstehende Tabelle) sollten zueinander kompatibel sein. In der Regel (leider nicht immer) werden Versionskonflikte über eine Fehlermeldung ausgegeben. Es wird empfohlen, immer die jeweils aktuellen Paketversionen installiert zu haben.
+The interdependence also extends to different versions of the packages. For example, old versions of "eatRep" are not always compatible with new versions of "eatTools" (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.
 
-Da sich im Laufe der Paketentwicklung auch einzelne Funktionen teilweise substanziell geändert haben, können möglicherweise vergangene Analysen (bspw. aus dem Ländervergleich 2011) mit neuen Paketversionen und dem identischen Skript nicht mehr repliziert werden. In diesem Falle müsste das alte Skript entweder angepasst oder die zu dem damaligen Zeitpunkt verwendeten Paketversionen müssten wieder hergestellt werden.
+Since individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored.
