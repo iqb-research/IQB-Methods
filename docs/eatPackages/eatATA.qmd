@@ -2,36 +2,35 @@
 title: "eatATA"
 ---
 
-# eatATA Info
+# Info
 
 ```{r, echo=FALSE}
 #7
 ansprech_ata <- "Benjamin Becker"
 version_ata <- "[CRAN page](https://cran.r-project.org/web/packages/eatATA/index.html)"
 quelle_ata <- "[CRAN page](https://cran.r-project.org/web/packages/eatATA/index.html)"
+descFunktion_ata <- "Automated block occupation/automated test booklet creation."
 
 info_ata <- data.frame(ansprech_ata, version_ata, quelle_ata)
-colnames(info_ata) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+colnames(info_ata) <- c("contact", "latest version", "source")
 
 knitr::kable(info_ata)
 ```
 
-### Funktionsbeschreibung
+### Description
 
-automatisierte Blockbesetzung/automatisierte Testhefterstellung.
+Automated block occupation/automated test booklet creation.
 
 **Dokumentation:** [typical use of 'eat ATA': a Minimal Example](https://cran.r-project.org/web/packages/eatATA/vignettes/minimal_example.html), ['eatATA' Functionality](https://cran.r-project.org/web/packages/eatATA/vignettes/overview.html), [a Pilot Study Example](https://cran.r-project.org/web/packages/eatATA/vignettes/use_case_pilot_study.html), [Reference manual](https://cran.r-project.org/web/packages/eatATA/eatATA.pdf)
 
 ```{r, echo=FALSE}
-# to have this info in a more structurde table, as well.
-descFunktion_ata <- c("automatisierte Blockbesetzung/automatisierte Testhefterstellung.", "", "", "")
+# **Dokumentation:** [typical use of 'eat ATA': a Minimal Example](https://cran.r-project.org/web/packages/eatATA/vignettes/minimal_example.html), ['eatATA' Functionality](https://cran.r-project.org/web/packages/eatATA/vignettes/overview.html), [a Pilot Study Example](https://cran.r-project.org/web/packages/eatATA/vignettes/use_case_pilot_study.html), [Reference manual](https://cran.r-project.org/web/packages/eatATA/eatATA.pdf)
 doku_ata <- c("[typical use of 'eat ATA': a Minimal Example](https://cran.r-project.org/web/packages/eatATA/vignettes/minimal_example.html)", "['eatATA' Functionality](https://cran.r-project.org/web/packages/eatATA/vignettes/overview.html)", "[a Pilot Study Example](https://cran.r-project.org/web/packages/eatATA/vignettes/use_case_pilot_study.html)", "[Reference manual](https://cran.r-project.org/web/packages/eatATA/eatATA.pdf)")
 #"see CRAN page for several vignettes"
 
-table <- data.frame(descFunktion_ata, doku_ata, check.rows = FALSE)
-colnames(table) <- c("Funktionsbeschreibung", "Dokumentation")
+table <- data.frame(doku_ata, check.rows = FALSE)
+colnames(table) <- c("Documentation")
 
 knitr::kable(table) # keine schöne Ansicht, aber ok
 
 ```
-
