@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -295,9 +329,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#eatprep-info" id="toc-eatprep-info" class="nav-link active" data-scroll-target="#eatprep-info">eatPrep Info</a>
+  <li><a href="#info" id="toc-info" class="nav-link active" data-scroll-target="#info">Info</a>
   <ul class="collapse">
-  <li><a href="#funktionsbeschreibung" id="toc-funktionsbeschreibung" class="nav-link" data-scroll-target="#funktionsbeschreibung">Funktionsbeschreibung</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IQB-Methods/edit/main/docs/eatPackages/eatPrep.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/IQB-Methods/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -322,16 +356,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="eatprep-info" class="level1">
-<h1>eatPrep Info</h1>
+<section id="info" class="level1">
+<h1>Info</h1>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Ansprechparter:in</th>
-<th style="text-align: left;">aktuelle Version</th>
-<th style="text-align: left;">Quelle</th>
+<th style="text-align: left;">contact</th>
+<th style="text-align: left;">latest version</th>
+<th style="text-align: left;">source</th>
 </tr>
 </thead>
 <tbody>
@@ -344,10 +378,32 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
-<section id="funktionsbeschreibung" class="level3">
-<h3 class="anchored" data-anchor-id="funktionsbeschreibung">Funktionsbeschreibung</h3>
-<p>Aufbereitung von Datensätzen (Einlesen, Plausibilitätsprüfungen, Zusammenführen von Datensätzen, Missingbehandlung, Rekodieren, Aggregieren, Scoren und Schreiben von gelabelten SPSS-Datensätzen) unter Verwendung von in der IQB-Datenbank hinterlegten Informationen zu den Items und zum Testdesign. Diese werden mithilfe des ZKDaemon (siehe unten) aus der Datenbank extrahiert und in ein standardisiertes xlsx-Format geschrieben. Dieses xlsx-Format nutzt ‘eatPrep’, um die Informationen aus der Datenbank nach R zu übertragen.</p>
-<p><strong>Dokumentation:</strong> (intern)</p>
+<section id="description" class="level3">
+<h3 class="anchored" data-anchor-id="description">Description</h3>
+<p>Preparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by ‘eatPrep’ to transfer the information from the database to R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># **Documentation:** (internal)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>doku_prep <span class="ot">&lt;-</span> <span class="st">"internal"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(doku_prep, <span class="at">check.rows =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(table) <span class="ot">&lt;-</span> <span class="st">"Dokumentation"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># interne Doku: Workshop: i:\Methoden\02_IQB-interne_eat_Workshops\Workshop_eat_Dez2016\02_eatPrep\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dokumentation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">internal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 </section>
