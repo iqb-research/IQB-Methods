@@ -60,14 +60,14 @@
     "href": "docs/eatPackages/eatGADS.html",
     "title": "eatGADS",
     "section": "",
-    "text": "eatGADS Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nErlaubt Import und Datenaufbereitungen von SPSS Datensätzen in R. Erzeugt den Gesamtanalysedatensatz (GADS) für IQB-Bildungstrendstudien als SQLite3-Datenbank. Teile des Datensatzes können mithilfe des Pakets dann in R geladen werden. Erlaubt außerdem den Export von SPSS Dateien in und aus R.\nDokumentation: Info page with several vignettes"
+    "text": "eatGADS Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
   },
   {
     "objectID": "docs/eatPackages/eatModel.html",
     "href": "docs/eatPackages/eatModel.html",
     "title": "eatModel",
     "section": "",
-    "text": "eatModel Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nFunktionsbeschreibung\nDient als Interface für die Software ConQuest. Die benötigten Steuerdateien (Skript, Labels, Datensatz im ‘fixed width’-Format) werden automatisch erzeugt und ConQuest über die Kommandozeile aufgerufen. Die Ergebnisdateien (Showfile, WLEs, PVs, etc.) können wieder nach R importiert und weiterverarbeitet werden. Neuere Versionen von ‘eatModel’ erlauben auch die Einbindung des R-Pakets ‘tam’ sowie Parallelisierung.\nDokumentation: (intern)"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
   },
   {
     "objectID": "docs/eatPackages/eatAnalysis.html",
@@ -179,7 +179,7 @@
     "href": "docs/eatPackages/eatPrep.html",
     "title": "eatPrep",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nPreparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by ‘eatPrep’ to transfer the information from the database to R.\n\n# **Documentation:** (internal)\ndoku_prep &lt;- \"internal\"\ntable &lt;- data.frame(doku_prep, check.rows = FALSE)\ncolnames(table) &lt;- \"Dokumentation\"\n# interne Doku: Workshop: i:\\Methoden\\02_IQB-interne_eat_Workshops\\Workshop_eat_Dez2016\\02_eatPrep\\\n\nknitr::kable(table)\n\n\n\n\nDokumentation\n\n\n\n\ninternal"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nPreparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by ‘eatPrep’ to transfer the information from the database to R.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
   },
   {
     "objectID": "docs/eatPackages/eatTools.html",
@@ -193,7 +193,7 @@
     "href": "docs/eatPackages/eatRep.html",
     "title": "eatRep",
     "section": "",
-    "text": "eatRep Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nBerechnet Mittelwerte, Standardabweichungen, Varianzen, Häufigkeitstabellen, Perzentile und lineare (logistische) Regressionen sowie Trends für alle diese Analysen in geclusterten Mehrebenenstrukturen mit imputierten Daten. Das Paket implementiert einen Teil der Funktionsweise der Computersoftware WesVar in R und ist im Wesentlichen für die IQB-Bildungstrendstudien relevant.\nDokumentation: Replication Analysis with eatRep und intern."
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal\n\n\ninternal\n\n\nReplication Analysis with eatRep\n\n\ninternal"
   },
   {
     "objectID": "docs/eatPackages/eatATA.html",
