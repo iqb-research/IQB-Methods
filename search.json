@@ -60,7 +60,7 @@
     "href": "docs/eatPackages/eatGADS.html",
     "title": "eatGADS",
     "section": "",
-    "text": "eatGADS Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
   },
   {
     "objectID": "docs/eatPackages/eatModel.html",
@@ -74,7 +74,7 @@
     "href": "docs/eatPackages/eatAnalysis.html",
     "title": "eatAnalysis",
     "section": "",
-    "text": "eatAnalysis Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nFunktionsbeschreibung\nverschiedene nützliche Hilfsfunktionen, wie zum Speichern von Excel-Datein, Speichern von Analyse-Ergebnissen von lm4 und Simulieren von IRT-Responses.\nDokumentation: -"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-"
   },
   {
     "objectID": "posts/r_sig/23_31_07_apply/index.html",
@@ -179,14 +179,14 @@
     "href": "docs/eatPackages/eatPrep.html",
     "title": "eatPrep",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nPreparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by ‘eatPrep’ to transfer the information from the database to R.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, internal\n\n\n\n\n\n\nDescription\nPreparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by ‘eatPrep’ to transfer the information from the database to R.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
   },
   {
     "objectID": "docs/eatPackages/eatTools.html",
     "href": "docs/eatPackages/eatTools.html",
     "title": "eatTools",
     "section": "",
-    "text": "eatTools Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nverschiedene Hilfsfunktionen, die unter anderem auch von den Paketen ‘eatPrep’, ‘eatModel’, ‘eatGADS’ und ‘eatRep’ benötigt werden.\nDokumentation: Reference manual"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nDocumentation\n\n\n\n\nReference manual"
   },
   {
     "objectID": "docs/eatPackages/eatRep.html",
@@ -200,7 +200,7 @@
     "href": "docs/eatPackages/eatATA.html",
     "title": "eatATA",
     "section": "",
-    "text": "eatATA Info\n\n\n\n\n\nAnsprechparter:in\naktuelle Version\nQuelle\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nFunktionsbeschreibung\nautomatisierte Blockbesetzung/automatisierte Testhefterstellung.\nDokumentation: typical use of ‘eat ATA’: a Minimal Example, ‘eatATA’ Functionality, a Pilot Study Example, Reference manual\n\n\n\n\n\nFunktionsbeschreibung\nDokumentation\n\n\n\n\nautomatisierte Blockbesetzung/automatisierte Testhefterstellung.\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n\n‘eatATA’ Functionality\n\n\n\na Pilot Study Example\n\n\n\nReference manual"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAutomated block occupation/automated test booklet creation.\nDokumentation: typical use of ‘eat ATA’: a Minimal Example, ‘eatATA’ Functionality, a Pilot Study Example, Reference manual\n\n\n\n\n\nDocumentation\n\n\n\n\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n‘eatATA’ Functionality\n\n\na Pilot Study Example\n\n\nReference manual"
   },
   {
     "objectID": "docs/eatPackages/eatPlot.html",
