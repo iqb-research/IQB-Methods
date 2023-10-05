@@ -23,12 +23,11 @@ knitr::kable(info_prep)
 
 Preparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by 'eatPrep' to transfer the information from the database to R.
 
-
 ```{r}
 # **Documentation:** (internal)
 doku_prep <- "internal"
 table <- data.frame(doku_prep, check.rows = FALSE)
-colnames(table) <- "Dokumentation"
+colnames(table) <- "Documentation"
 # interne Doku: Workshop: i:\Methoden\02_IQB-interne_eat_Workshops\Workshop_eat_Dez2016\02_eatPrep\
 
 knitr::kable(table)
