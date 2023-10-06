@@ -21,7 +21,6 @@ knitr::kable(info_ata)
 
 Automated block occupation/automated test booklet creation.
 
-**Dokumentation:** [typical use of 'eat ATA': a Minimal Example](https://cran.r-project.org/web/packages/eatATA/vignettes/minimal_example.html), ['eatATA' Functionality](https://cran.r-project.org/web/packages/eatATA/vignettes/overview.html), [a Pilot Study Example](https://cran.r-project.org/web/packages/eatATA/vignettes/use_case_pilot_study.html), [Reference manual](https://cran.r-project.org/web/packages/eatATA/eatATA.pdf)
 
 ```{r, echo=FALSE}
 # **Dokumentation:** [typical use of 'eat ATA': a Minimal Example](https://cran.r-project.org/web/packages/eatATA/vignettes/minimal_example.html), ['eatATA' Functionality](https://cran.r-project.org/web/packages/eatATA/vignettes/overview.html), [a Pilot Study Example](https://cran.r-project.org/web/packages/eatATA/vignettes/use_case_pilot_study.html), [Reference manual](https://cran.r-project.org/web/packages/eatATA/eatATA.pdf)
