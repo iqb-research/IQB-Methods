@@ -1,0 +1,500 @@
+---
+title: "Workshop 1: Einführung in R"
+author: "Sebastian Weirich, Karoline Sachse und Benjamin Becker"
+date: "18. März 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Einleitung
+
+R ist eine Programmiersprache für **Datenmanipulation**, **statistische Datenanalyse** und **grafische Darstellung** von Daten (Yanada, 2018). 
+
+**Datenmanipulation:** 
+
+- Import und Export: Einlesen und Schreiben von SPSS-, Excel-, ASCII- oder trennzeichenbasierten Dateien
+- Kopieren, verschieben, löschen, packen und entpacken von Dateien und Verzeichnissen
+- Variablen- und Fallselektion, Rekodieren/Aggregieren von Variablen
+- Umstrukturieren von Datensätzen (long/wide)
+- Manipulation von Zeichenketten (Verknüpfen, extrahieren, ersetzen, z.B. auch mithilfe regulärer Ausdrücke: sehr mächtig, aber zuweilen kompliziert)
+
+**statistische Datenanalyse:**
+
+- lineare und nichtlineare Regression
+- Varianzanalyse
+- Strukturgleichungsmodelle
+- Mehrebenenanalyse
+- Multiple Imputation 
+- Item-Response-Modelle 
+- decision trees
+- mixed models, u.v.m.
+
+**grafische Darstellung von Daten:** 
+
+- Boxplots
+- Histogramme
+- Heat Maps
+
+## 2. R als Taschenrechner
+
+In der R Konsole kann man (mathematische) Funktionen eingeben und sie evaluieren lassen. Im einfachsten Fall funktioniert das wie ein Taschenrechner.  
+
+```{r 1}
+2+3
+2*3
+```
+
+Das Dezimaltrennzeichen in R ist ein Punkt, kein Komma.
+
+```{r 2}
+5/4
+```
+
+Exponentialschreibweise:
+
+```{r 3}
+2^3
+```
+
+Obwohl es nicht so aussieht, werden bei diesen Operationen im Hintergrund Funktionen ausgeführt. So kann man sich beispielsweise die Wurzel aus 2 einfach in Exponentialschreibweise oder mithilfe der Wurzelfunktion ausgeben lassen: 
+
+```{r 4}
+2^0.5
+```
+
+Wurzelfunktion: 
+
+```{r 4_1}
+sqrt(2)
+```
+
+Allgemein gilt auch in R: "Punktrechnung vor Strichrechnung":
+
+```{r 5}
+2*3+1
+2*(3+1)
+```
+
+## 3. Grundlagen
+
+R ist zugleich eine Sprache und eine Umgebung für statistische Datenbearbeitung. R ist objektbasiert. Alles in R ist ein Objekt: Zahlen, Vektoren, Matrizen, Funktionen. Das grundlegende Funktionsprinzip ist dabei: "Definiere ein Objekt und weise ihm einen Wert zu." Im einfachsten Fall wird im folgenden Beispiel das Objekt **`b`** erzeugt und ihm der Wert 2 zugewiesen. Um sich den Wert von **`b`** anzeigen zu lassen, kann man **`b`** einfach in die Konsole tippen: 
+
+```{r 6}
+b <- 2
+b
+```
+
+`b`** ist nun intern gespeichert und kann ebenfalls für Zuweisungen benutzt werden. Hier wird ein neues Objekt **`d`** erzeugt und ihm als Wert die Quadratwurzel von **`b`** zugewiesen: 
+
+```{r 7}
+d <- sqrt(b)
+```
+
+Möglich ist es auch, **`b`** wieder mit einem anderen Wert zu überschreiben: 
+
+```{r 8}
+b <- 100 * b
+b
+```
+
+Mit dem Befehl **`class`** kann man sich die Klasse von **`b`** anzeigen lassen. 
+
+```{r 9}
+class(b)
+```
+
+Die wichtigsten Klassen für skalare Objekt (also solche, die nur aus einem einzigen Element bestehen), sind 
+
+- **`numeric`**: reelle Ziffer oder Zahlen
+- **`character`**: Zeichenkette
+- **`logical`**: logischer Wert, der nur zwei Zustände annehmen kann, **`TRUE`** oder **`FALSE`**
+
+Im folgenden verschiedene Beispiele für character- bzw. logische Zuweisungen, hier jeweils wiederum nur für die Länge 1. Zuweisungen der Klasse character erfolgen mit hochgestellten Anführungszeichen:
+
+```{r 10}
+d <- "hallo"
+class(d)
+length(d)
+```
+
+Wenn einem Objekt die Zahl 220 in hochgestellten Anführungszeichen zugewiesen wird, wird der Wert nicht als numerisch, sondern als character behandelt:
+
+```{r 10_1}
+e <- "220"
+class(e)
+```
+
+Wenn einem Objekt der Austruck TRUE in hochgestellten Anführungszeichen zugewiesen wird, wird der Wert nicht als logical, sondern als character behandelt:
+
+
+```{r 10_2}
+f <- TRUE
+class(f)
+g <- "TRUE"
+class(g)
+```
+
+### 3.1 Vektoren
+
+Vektoren sind definiert als eine Reihe von Elementen *derselben* Klasse. Sie können unter anderem mit der Funktion **`c()`** erzeugt werden: 
+
+```{r 11}
+a <- c(1,4,2,2,89)
+b <- c("gut", "schlecht")
+d <- c(TRUE, TRUE, TRUE, FALSE, TRUE, TRUE)
+```
+
+Ähnlich wie in den vorher aufgeführten Beispielen kann man sich mit verschiedenen Befehlen verschiedene Eigenschaften dieser Vektoren zeigen lassen, etwa ihre Länge (= die Anzahl ihrer Elemente) mit **`length()`**, oder ihre Klasse mit **`class()`**. Bestimmte Funktionen wiederum kann man sinnvoll nur für numerische Vektoren anweden (z.B. **`sum()`**, **`mean()`**, **`min()`**, **`max()`** etc. Andere wiederum sind nur für Vektoren der Klasse character sinnvoll, etwa **`nchar()`**, das einem die Anzahl der Zeichen einer Zeichenkette gibt. Ganz allgemein gilt: Funktionen, die man auf Skalare anwenden kann, kann man in der Regel auch auf Vektoren anwenden: 
+
+```{r 12}
+skalar <- 2
+sqrt(skalar)
+vektor <- c(1,4,2,2,89)
+sqrt(vektor)
+```
+
+Die Funktion **`sqrt`** gibt dabei genauso viele Elemente zurück, wie der Vektor besitzt, den man der Funktion übergeben hat. Das ist nicht bei allen Funktionen so; die **`mean`**-Funktion gibt (sinnvollerweise) immer nur ein Element zurück. 
+
+```{r 13}
+skalar <- 2
+mean(skalar)
+vektor <- c(1,4,2,2,89)
+mean(vektor)
+```
+
+Was passiert, wenn man Vektoren "unzulässig" definiert, also beispielsweise die Regel, dass alle Elemente dieselbe Klasse haben müssen, missachtet? Vektoren werden in die "kleinste gemeinsame Klasse" umgewandelt. Es gibt hier keine Warnmeldung, und manchmal führt das zu unerwünschten Nebenwirkungen. Zuerst betrachten wir einen Vektor, der aus Elementen der Klasse numeric, character und logical besteht:
+
+```{r 14}
+b <- c(1,6,"hallo",TRUE,11,FALSE)
+b
+```
+
+Der gesamte Vektor wird als character definiert: 
+
+```{r 14_1}
+class(b)
+```
+
+Besteht der Vektor nur aus Elementen der Klassen numeric und logical, wird der Vektor als numeric definiert: 
+
+```{r 14_2}
+b <- c(1,6,TRUE,11,FALSE)
+b
+class(b)
+```
+
+An diesen Bespielen erkennt man prototypisch, wie R sich bei "widersinnigen" Benutzereingaben verhält: Anstatt bei formal falschen oder unsinnigen Eingaben wie **`nchar(15)`** eine Fehlermeldung auszugeben, wird versucht zu "antizipieren", was der Benutzer gemeint oder beabsichtigt haben könnte. Bei **`nchar(15)`** wird also zunächst der numerische Ausdruck in einen character-Ausdruck umgewandelt und anschließend die Anzahl der Zeichen dieses Ausdrucks ausgegeben. Intern wertet R statt **`nchar(15)`** folgenden Ausdruck aus: **`nchar("15")`** bzw. **`nchar(as.character(15))`**. Ein solches oder ähnliches Verhalten wendet R in unzähligen Fällen an, und daraus ergeben sich zugleich Vor- und Nachteile: es erlaubt dem Anwender, syntaktisch "unsauberen" Code zu verwenden, ohne dass es zu Fehlermeldungen kommt. In der Regel erhält man das gewünschte Ergebnis. Außerdem kann man R-Syntaxen teils sehr sparsam und "schreibfaul" erstellen; **`nchar(15)`** ist ja viel kürzer als **`nchar(as.character(15))`**. Dass R diese Nachlässigkeiten erlaubt, hat aber auch Nachteile: die syntaktische Logik der R-Sprache ist dadurch weniger transparent, und falls es doch zu Fehlermeldungen kommt, sind diese erstmal weniger verständlich. 
+
+Alternative Möglichkeiten, Vektoren zu erzeugen. Alle Zahlen von 1 bis 20: 
+
+```{r 15}
+a <- 1:20
+```
+
+Erzeuge eine Zahlenreihe von -2 bis +2 in Intervallen von 0.2:
+
+```{r 15_1}
+a <- seq(-2,2,0.2) 
+```
+
+Repliziere die Ziffer 4 dreimal:
+
+```{r 15_2}
+a <- rep(4,3)
+```
+
+Repliziere die Zahlenfolge von 1 bis 4 dreimal:
+
+```{r 15_3}
+a <- rep(1:4,3)
+```
+
+Repliziere in der Zahlenfolge von 1 bis 4 jede einzelne Ziffer dreimal:
+
+```{r 15_4}
+a <- rep(1:4,each=3)
+```
+
+Repliziere in der Zahlenfolge von 1 bis 4 jede einzelne Ziffer dreimal, und repliziere den egsamten Vektor zweimal: 
+
+```{r 15_5}
+a <- rep(1:4,each=3, times = 2)
+```
+
+Repliziere in der Zahlenfolge von 1 bis 4 die 1 einmal, die 2 zweimal, die 3 dreimal, etc.:
+
+```{r 15_6}
+a <- rep(1:4,1:4)
+```
+
+### 3.2 Navigation in Vektoren (subsetting)
+
+Mithilfe eckiger Klammern kann man sich einzelne Elemente eines Vektors anzeigen lassen oder auch verändern. 
+
+```{r 16}
+b <- sqrt(1:5)
+```
+
+Der gesamte Vektor **`b`** besteht aus fünf Zahlen: 
+
+```{r 16_1}
+b
+```
+
+Mit **`b[2]`** kann man sich nur das zweite Element des Vektors anzeigen lassen; mit **`b[2] <- 1000`** kann man das zweite Element durch die Zahl 1000 ersetzen: 
+
+```{r 16_2}
+b[2] <- 1000
+b
+```
+
+Mit **`b[4:5] <- c(400, 500)`** kann man das vierte und fünfte Element durch die Zahlen 400 und 500 ersetzen: 
+
+```{r 16_3}
+b[4:5] <- c(400, 500)
+b
+```
+
+Hier ein weiteres Beispiel für ein syntaktisch "fehlerhaftes" Subsetting, das trotzdem funktioniert. Man würde erwarten, dass **`b[4:5] <- 45`** eine Fehlermeldung gibt: *zwei* Elemente in einem Vektor sollen durch *eine* Zahl ersetzt werden. Die "sauberere" Lösung wäre **`b[4:5] <- c(45, 45)`**. Dennoch funktionier auch **`b[4:5] <- 45`**:
+
+```{r 16_4}
+b[4:5] <- 45
+b
+```
+
+Weitere "unzulässige" Operationen haben wieder denselben Effekt wie oben beschrieben. Ersetze ich ein Element des numerischen Vektors durch ein character-Element, wird der gesamte Vektor ebenfalls nach character umgewandelt. 
+
+```{r 17}
+b[1] <- "hallo"
+class(b)
+b
+```
+
+### 3.3 Funktionsliste I: Deskriptive Statistiken für numerische Vektoren
+
+Alle Funktionen, die sich sinnvoll auf numerische Vektoren anwenden lassen, können hier in ihrer Vollständigkeit nicht aufgeführt werden. Im Folgenden sollen jedoch die gebräuchlichsten und am häufigsten verwendeten aufgelistet werden: 
+
+- **`sum()`**. Berechnet die Summe aller Elemente eines Vektors. Nicht definiert für nicht-numerische Vektoren. 
+
+- **`mean()`**. Arithmetischer Mittelwert aller Elemente eines Vektors. Nicht definiert für nicht-numerische Vektoren. 
+
+- **`sd()`**. Standardabweichung
+
+- **`var()`**. Varianz
+
+- **`min()`**. Minimum
+
+- **`max()`**. Maximum
+
+- **`scale()`**. Funktion zum Zentrieren oder *z*-Standardisieren. Die Funktion besitzt zusätzliche Argumente, je nachdem ob standardisiert oder nur zentriert werden soll. Für die zusätzlichen Argumente sind Standardeinstellungen (defaults) definiert -- also "Voreinstellungen" der Argumente, die benutzt werden, wenn der Anwender die Funktionsargumente selbst nicht explizit definiert. Ein Vektor **`a <- rnorm(100, mean = 2, sd = 8)`** mit Mittelwert 2 und Standardabweichung 8 wird mit **`scale(a, center = TRUE, scale = FALSE)`** zentriert und mit **`scale(a, center = TRUE, scale = TRUE)`** standardisiert. (Bei **`scale(a, center = FALSE, scale = FALSE)`** passiert einfach gar nichts; der Vektor wird 1:1 so zurückgegeben, wie er war.) 
+- **`table()`** gibt eine Häufigkeitsverteilung aller Werte eines Vektors. Das ist sowohl für numerische als auch für nicht-numerische Vektoren möglich und für letztere häufig sinnvoller. 
+
+- **`sort()`**. Elemente auf- oder absteigend sortieren. Geht auch für nicht-numerische Vektoren (bei character-Vektoren wird in diesem Fall sortiert, bei Faktoren nach Ordnung der factor levels). Auch **`sort()`** enthält zusätzliche Argumente mit Voreinstellungen, z.B. das Argument **`decreasing`**, das angibt, ob auf- oder absteigend sortiert werden soll. Der default ist hier **`decreasing = FALSE`**; es wird also standardmäßig aufsteigend sortiert. 
+
+- **`order()`** funktioniert ähnlich wie **`sort()`**, gibt aber anstelle des Vektor-Wertes die Position zurück. Am einfachsten lässt sich das mit einem character-Vektor veranschaulichen -- hier erkennt man auch, dass verschiedene R-Funktionen zueinander häufig redundant sind; es gibt verschiedene syntaktische Möglichkeiten, ein und dasselbe Ergebnis zu erhalten. Das macht R zum einen recht flexibel, zum anderen nicht unbedingt übersichtlich. 
+
+```{r 17_2}
+vek <- c("oh", "je", "mi", "neh")
+sort(vek)
+order(vek)
+vek[order(vek)]
+```
+
+- **`rev()`** kehrt die Reihenfolge der Elemente eines Vektors um
+
+- **`unique()`** zeigt die Elemente des Vektors und lässt alle mehrfach vorhandenen Werte aus. 
+
+- **`duplicated()`** gibt einen logischen Vektor zurück, der für jedes Element anzeigt, ob es einzigartig ist (FALSE) oder mindestens zweimal vorkommt (TRUE)
+
+- **`which()`** gibt zurück, an welcher Stelle (oder welchen Stellen) eines Vektors sich ein bestimmtes Element befindet, z.B. **`which(x == 5)`**, oder eine bestimmte Bedingung erfüllt ist **`which(x > 5)`**, oder **`which(x != 5)`**
+
+Das sind, wie gesagt, bei weitem nicht alle Funktionen für numerische Vektoren. Wenn man eine bestimmte Operation durchführen möchte und den R-Befehl nicht kennt, hilft es häufig, die gewünschte Operation bei Google mit dem Zusatz "R" oder "R CRAN" einzugeben, vorzugsweise in englisch, z.B. "R sort by more than one variable".
+
+### 3.4 Funktionsliste II: Bearbeiten von character-Vektoren
+
+Im Anwendungsfall von Large-scale Assessments im Bildungsforschungsbereich kommen character-Vektoren bspw. in Variablen- oder Itemnamen vor. Weniger häufig begegnet man ihnen unter anderem auch in Freitextfeldern in Schülerfragebögen. R bietet zahlreiche Möglichkeiten zur Bearbeitung von character-Vektoren, die auch reguläre Ausdrücke einschließen. Hier sollen nur die wichtigsten anhand prominenter Anwendungsfälle genannt werden. Man könnte sich beispielsweise vorstellen, in einem großen Datensatz mit vielen Variablen bestimmte Spalten oder Variablen identifizieren beziehungsweise verändern zu wollen. Der beispielhaft verwendete Vektor mit Variablennamen sei der folgende: 
+
+```{r 17_3}
+varnamen <- c("idstud", "idclass", "D10101a", "D10102a", "D10102b", "D10103a", "D10201a", "D10301", "sex", "M15511a", "M15612a", "M15712b", "M15712c", "M15712d", "hisced", "parid")
+```
+
+Insgesamt gibt es hier nur 14 Variablen -- in großen Large-scale Datensätzen hat man es ja zuweilen mit 1000 variablen und mehr zu tun. 
+
+#### Die Funktion **`grep()`** 
+
+**`grep()`** erlaubt, einen character-vektor nach einem bestimmten Muster zu durchsuchen. Zurückgegeben werden alle Positionen, an denen dieses Muster auftritt. Man kann sich das ein bisschen wie die Suchfunktion in Word vorstellen. **`grep()`** hat verschiedene Argumente -- **`pattern`** gibt das Muster an, *was* gesucht werden soll, **`x`** gibt den character-Vektor an, *in dem* gesucht werden soll, und **`value`** gibt als logisches Argument an, ob der Wert selbst oder seine Position zurückgegeben werden soll. Die Flexibilität von **`grep()`** rührt unter anderem auch daher, dass man als Suchmuster (**`pattern`**) auch reguläre Ausdrücke verwenden kann. 
+
+- **`grep(pattern="id", x=varnamen)`** findet die Positionen der Variablennamen, die ein "id" im Variablennamen haben. 
+
+- **`grep(pattern="id", x=varnamen, value=TRUE)`** zeigt die Variablennamen an, die ein "id" im Variablennamen haben. 
+
+- **`grep(pattern="^id", x=varnamen, value=TRUE)`** zeigt die Variablennamen an, die mit einem "id" im Variablennamen *beginnen*. (Der "Haken" vor dem "id" besagt, dass der Variablenname mit "id" beginnen muss)
+
+- Wenn ich id-Variablen finden will, mit aber nicht sicher bin, ob die in dem Datensatz groß oder klein geschrieben sind, ich aber im Zweifel beide haben will, kann man die "Oder"-verknüpfung nehmen (genaueres im Abschnitt "Logische Operatoren"): **`grep(pattern="ID|id", x=varnamen, value=TRUE)`**
+
+- Auch den letzten Befehl kann man "einengen", dass nur die Variablennamen gesucht werden sollen, die mit einem groß oder kleingeschriebenen "ID" beginnen: **`grep(pattern="^ID|^id", x=varnamen, value=TRUE)`**
+
+- Das ist auch sinnvoll, wenn ich beispielsweise alle Variablennamen der Deutsch-Items identifizieren will und weiß, Deutsch-Items beginnen mit einem groß geschriebenen "D": **`grep(pattern="^D", x=varnamen, value=TRUE)`**
+
+- Genauso kann man auch nur die Variablennamen suchen, die mit einem klein geschriebenen "a" *aufhören*: **`grep(pattern="a$", x=varnamen, value=TRUE)`**. Das "$"-Zeichen gibt an, dass nach dem Zeichen "a" der Variablenname zuende sein muss. 
+
+- Möglich (aber etwas komplizierter) sind auch Verknüpfungen der Art: Finde alle Variablennamen, die mit einem "D" beginnen und einem "a" aufhören. Hier handelt es sich um eine logische Verknüpfung zweier Bedingungen -- genauer wird darauf im folgenden Abschnitt "Logische Operatoren" eingegangen. In R kann man das auf verschiedenen Wegen realisieren; eine Möglichkeit soll hier kurz demonstriert werden: 
+
+```{r 17_4}
+beginnt_mit_D <- grep(pattern="^D", x=varnamen, value=TRUE)
+endet_mit_a   <- grep(pattern="a$", x=varnamen, value=TRUE)
+beides        <- intersect(beginnt_mit_D, endet_mit_a)
+beides
+```
+
+#### Die Funktionen **`gsub()`**, **`substr()`**, **`substring()`**,  **`nchar()`** und **`strsplit()`**
+
+- **`gsub()`** erlaubt es, Teile eines character-Vektors zu ersetzen. Sollen bspw. in der Variablenliste alle Namen, die mit "D101" beginnen, durch "D201" ersetzt werden, geht das mit **`gsub(pattern = "D101", replacement = "D201", x = varnamen)`**. Hier ist es wichtig, die Stelligkeit zu beachten; **`gsub(pattern = "D1", replacement = "D2", x = varnamen)`** würde auch z.B. "D102" durch "D202" ersetzen. Möglich, aber nicht notwendig ist hier auch, die Ersetzung nur durchzuführen, wenn "D101" am Anfang des strings steht: **`gsub(pattern = "^D101", replacement = "D201", x = varnamen)`**. 
+
+- **`substr()`** erlaubt es, bestimmte Teile eines character-Vektors "auszuschneiden": wenn man bspw. nur die ersten 4 Zeichen ausschneiden will, geht das mit **`substr(x = varnamen, start = 1, stop = 4)`**. Zeichenketten mit weniger als 4 Zeichen (hier etwa der Variablenname "sex") werden dabei so beibehalten, wie sie waren. 
+
+- Möchte man von dem character-Vektor nur am Anfang bspw. das erste Zeichen entfernen und alle anderen beibehalten (egal, wie viele es sind), bietet sich die Funktion **`substring()`** an: **`substring(text = varnamen, first = 2)`**
+
+- **`nchar()`** einem für jedes Element die Anzahl von Zeichen (Buchstaben und Ziffern): **`nchar(varnamen)`**
+
+- **`strsplit()`** teilt einen character-Vektor an einem definierten Zeichen
+
+#### Die Funktion **`paste()`**
+
+Die Funktion erlaubt es, character-Vektoren aus einzelnen Elementen "zusammenzubauen". Soll beispielsweise an den Variablennamens-Vektor **`varnamen`** das Jahr der Erhebung mit angefügt werden, geht das mit folgendem Ausdruck: **`paste(varnamen, "2012", sep="_")`**. An jeden Variablennamen wurde nun die Jahreszahl 2012 angefügt. Der Argument **`sep`** gibt dabei das Zeichen an, das als "Trenner" zweischen dem ursprünglichen Ausdruck und dem "Suffix" 2012 verwendet werden soll. **`paste()`** ist eine recht mächtige Funktion, so kann man bspw. auch an jeden Variablennamen die laufende Nummer anhängen, die er im character-Vektor einnimmt: **`paste(varnamen, 1:length(varnamen), sep="_")`**. Es ist auch möglich, alle Elemente des Vektor zu einem einzigen großen String zusammenzubinden: **`paste(varnamen, collapse="_")`**. Die wichtige, aber häufig Verwirrung stiftende Unterscheidung liegt hierbei zwischen den Separationsargumenten **`sep`** und **`collapse`**. **`sep`** definiert das Trennzeichen für die einzelnen Terme; **`collapse`** (ggf.) das Trennzeichen, mit dem die Ergebnisse zusammengefügt werden (sofern sie zusammengefügt werden sollen). Die Hilfeseite der **`paste`**-Funktion liefert einige anschauliche Beispiele, die die Unterscheidung zwischen beiden verdeutlichen. 
+
+#### Funktionen aus **`eatTools`**
+
+Im Laufe der Datenaufbereitungsprozeduren am IQB wurden die obenstehenden Funktionen teils erweitert. Ohne Anspruch auf Vollständigkeit sollen weitere Möglichkeiten der Zeichenkettenmanipulation kurz genannt werden: 
+
+- **`eatTools::crop()`** entfernt führende oder abschließende Leerzeichen (bzw. ein frei definiertes Zeichen) aus einem character-Vektor. Das ist bspw. dann sinnvoll, wenn in inakkurat aufbereiteten Datensätzen z.B. anstatt einer `1` der Wert ` 1` (also mit einem unbeabsichtrigten leerzeichen eingetragen wurde. Hier werden (nur der Anschaulichkeit zuliebe) alle führenden und abschließenden "D"s aus den Variablennamen entfernt: **`eatTools::crop(varnamen, char = "D")`**
+
+- **`eatTools::removeNumeric()`** entfernt alle Ziffern aus einem character-Vektor: **`eatTools::removeNumeric(varnamen)`**
+
+- **`eatTools::removeNonNumeric()`** entfernt alle Buchstaben aus einem character-Vektor und lässt nur die Ziffern übrig. Manche Elemente von **`varnamen`** sind hinterher leer. **`eatTools::removeNonNumeric(varnamen)`**
+
+- **`eatTools::removePattern()`** entfernt ein bestimmtes Muster aus einem character-Vektor: **`eatTools::removePattern(string = varnamen, pattern = "id")`**
+
+## 4. Logische Operatoren
+
+Allgemeines zu logischen Operatoren kann man auf der gleichnamigen Wikipediaseite finden:     https://de.wikipedia.org/wiki/Logischer_Operator   
+Für sämtliche Operatoren gibt es eine Entsprechung in R. Die Syntax ist dabei (weitgehend) äquivalent zu den angegeben Beispielen für C, C++, Java und PHP auf der Wikipediaseite. Der Wahrheitswert, der in R zurückgegeben wird, hat die Klasse **`logical`** und kann 2 Werte annehmen: TRUE oder FALSE. Der Wahrheitswert kann wiederum einem Objekt zugewiesen werden: 
+
+```{r 17_5}
+istWahr <- 4 == 5 
+class(istWahr)
+istWahr
+```
+
+#### Logische Operatoren ohne Verknüpfung
+
+- **ist größer als**: `4 > 3` 
+- **ist kleiner als**: `4 < 3` 
+- **ist größer oder gleich**: `4 >= 3`
+- **ist kleiner oder gleich**: `4 <= 3`
+- **ist gleich**: `4 == 3`
+- **ist ungleich**: `4 != 3`
+
+#### Logische Operatoren mit Verknüpfungen
+
+- **Bedingung a UND Bedingung b sind erfüllt**: `4 > 3 & is.numeric(5)`
+- **Bedingung a ODER Bedingung b ist erfüllt**: `4 > 3 | is.numeric(5)`
+- **ENTWEDER Bedingung a ODER Bedingung b ist erfüllt**: `xor(4 > 3, is.numeric(5))`. Hier wird `FALSE` zurückgegeben, da *beide* Bedingungen erfüllt sind, und eben nicht nur entweder a oder b. 
+- **Bedingung b ist nicht erfüllt**: `!is.numeric("a")`. Hier wird `TRUE` zurückgegeben, denn es ist ja wahr, dass "a" *nicht* numerisch ist. 
+
+#### Arbeiten mit vektorwertigen logischen Verknüpfungen
+
+In den oberen Beispielen wurden logische Abfragen immer nur für ein Objekt der Länge 1 durchgeführt. Man kann diese Funktionen aber auch auf Vektoren anwenden. Dazu folgendes hypothetisches Beispiel: ein großer Datensatz mit vielen Variablen soll in Mplus ausgewertet werden. In Mplus dürfen Variablennamen jedoch nur maximal 6 Zeichen haben. Gibt es also in dem Variablennamens-Vektor **`varnamen`** Variablennamen mit unerlaubter Länge? Um das zu prüfen, geht man in mehreren Schritten vor:
+
+1. Zeige für jedes Element im Variablennamens-Vektor die Anzahl von Buchstaben an. 
+
+```{r 17_6}
+anzahl <- nchar(varnamen)
+```
+
+2. Prüfe, für welche Variablennamen die zulässige Zeichenanzahl überschritten ist. Dazu wird ein logischer Vektor erzeugt, der den Wert **`TRUE`** annimmt, wenn die Zeichenanzahl maximal 6 beträgt, andernfalls **`FALSE`**. 
+
+```{r 17_7}
+erlaubt <- anzahl <= 6
+erlaubt
+```
+
+3. Nun wird geprüft, ob diese Bedingung für alle Variablennamen erfüllt ist. Dazu können die Funktionen **`all()`** oder **`any()`** benutzt werden. **`all()`** fragt: Haben alle Elemente des Vektors **`erlaubt`** den Wahrheitswert **`TRUE`**? **`any()`** fragt: Gibt es irgendein Element in dem Vektors **`erlaubt`**, das den Wahrheitswert **`FALSE`** hat? 
+
+```{r 17_8}
+all(erlaubt)
+any(erlaubt == FALSE)
+```
+
+3. Ja, einige Variablennamen haben eine größere Zeichenanzahl als 6. Man kann die Variablennamen auf die ersten 6 Zeichen reduzieren: 
+
+```{r 17_9}
+varnamen_neu <- substr(varnamen, 1, 6)
+```
+
+4. Variablennamen müssen jedoch stets einzigartig (unique) sein. Ist das jetzt noch der Fall? Dazu verwendet man die oben beschriebene Funktion **`duplicated()`** in Verbindung mit **`any`**:
+
+```{r 17_10}
+any(duplicated(varnamen_neu))
+```
+
+Der Wahrheitswert ist **`TRUE`**, es gibt also mindestens zwei Variablennamen, die jetzt identisch sind. An dieser Stelle könnte es passieren, dass man erstmal nicht weiter weiß. Eine Möglichkeit wäre, zu googlen: "r make unique". So findet man eine Funktion namens **`make.unique`**, die es erlaubt, duplizierte Werte in character-Vektoren zu ersetzen, so dass sie einzigartig werden. Unglücklicherweise werden dadurch die Variablennamen wieder länger, als sie sein dürfen: 
+
+```{r 17_11}
+varnamen_neu2 <- make.unique(varnamen_neu)
+any(nchar(varnamen_neu2)>6)
+```
+
+Tatsächlich gibt es für dieses Problem also keine einfache, "triviale" Lösung. Man könnte entweder vollständig willkürliche Namen vergeben, die dann aber keine Rückschlüsse auf die ursprüngliche Variablenbedeutung mehr zulassen, oder man experimentiert, beruhend auf folgenden Überlegungen: **`make.unique`** fügt an nicht-unique Variablennamen einen Punkt und eine laufende Nummer an, also zwei zusätzliche Zeichen. Also dürfte man nur die ersten 4 Zeichen der Variablennamen beibehalten: 
+
+```{r 17_12}
+varnamen_neu3 <- make.unique(substr(varnamen, 1, 4))
+any(nchar(varnamen_neu3)>6)
+any(duplicated(varnamen_neu3))
+varnamen_neu3
+```
+
+Hundertprotentig schön ist auch diese Variante nicht, weil nun auch von bereits einzigartigen Variablennamen nur die ersten vier Zeichen übrig behalten worden sind, obwohl es hier ja hätten sechs sein dürfen. Sofern eine solche Operation im Arbeitsalltag also häufiger gebraucht wird, wäre es günstig, sich dafür eine eigene Funktion zu schreiben, um diese Prozesse weniger umständlich zu gestalten. Dazu aber an anderer Stelle mehr. 
+
+## 5. Fehlende Werte (missing values)
+
+Fehlende Werte werden in R mit **`NA`** (not available) gekennzeichnet. Im Folgenden geht es nicht darum, wie in statistischen Analysen mit fehlenden Werten umgegangen werden kann, sondern wie man sie in R technisch behandelt. Dazu soll beispielhaft ein numerischer Vektor betrachtet werden, der fehlende Werte enthält: 
+
+```{r 18}
+numvek <- rnorm(20, 0, 1)
+numvek[c(3,6,9,19)] <- NA
+```
+
+#### Die häufigsten im Zusammenhang mit fehlenden Werten gebräuchlichen Funktionen sind: 
+
+- **`is.na()`** gibt einen Vektor der Klasse **`logical`** zurück, dessen Wert **`TRUE`** ist, wenn es sich um einen fehlenden Wert handelt: **`is.na(numvek)`**. Wenn man lediglich wissen, ob es überhaupt irgendwelche fehlenden Werte gibt, kann man das mit **`any()`** verbinden: **`any(is.na(numvek))`**. Wenn man wissen will, an welcher Stelle die fehlenden Werte stehen, geht **`which(is.na(numvek))`**
+
+- **Achtung!** Anders als man vielleicht vermuten würde, funktioniert **`which(numvek == NA)`** nicht!
+
+- Wenn ich nur die beobachteten Werte aus **`numvek`** extrahieren möchte, also alles ausschließen, was **`NA`** ist, geht das mit **`na.omit(numvek)`**. Dieser Vektor ist mit nur noch 16 Elementen folglich kürzer als der ursprüngliche mit 20 Elementen: **`length(na.omit(numvek))`**
+
+- Möchte man sich beispielsweise den Mittelwert eines Vektors anzeigen lassen, der fehlende Werte enthält, ist das Ergebnis ebenfalls **`NA`**: **`mean(numvek)`**. Meist will man jedoch einfach das arithmetisches Mittel aller *beobachteten* Werte. Dazu könnte man einfach den Mittelwert unter Ausschluss der fehlenden Werte bestimmen: **`mean(na.omit(numvek))`**. Das ist dasselbe, wie wenn man in der Funktion **`mean()`** mit einem zusätzlichen Argument definiert, dass fehlende Werte vor der Berechnung ausgeschlossen werden sollen: **`mean(numvek, na.rm = TRUE)`**. Man sieht wieder, dass verschiedene syntaktische Umsetzungen zu dem gewünschten Ergebnis führen können. Das logische Argument **`na.rm`** ist für viele Funktionen definiert, so etwa **`var()`**, **`sd()`**, **`lm()`**, **`glm()`**, etc. 
+
+#### Fehlende Werte in character-Vektoren
+
+Hier gilt im Grunde dasselbe wie für numerische Vektoren. Auf ein paar Fallstricke soll hingewiesen werden: 
+
+```{r 19}
+charvek <- c("France", "Belgium", "Poland", NA, "Denmark", "NA", "Austria", "")
+which(is.na(charvek))
+```
+
+Auch in character-Vektoren müssen fehlende Werte *ohne* hochgestellte Anführungszeichen eingetragen werden; der sechste Wert **`"NA"`** wird nicht als fehlender Wert verstanden. Ebensowenig der achte Wert, der einfach ein leerer String ist. Letzteres ist insofern relevant, dass, wenn man etwa csv-Dateien mit R einliest, leere Zellen manchmal als leere Strings eingelesen werden, obwohl man sie eigentlich wie fehlende Werte behandelt wissen will. Um das **`"NA"`** und den leeren String in einen wirklichen fehlenden Wert umzuwandeln, kann beispielsweise die **`recode()`**-Funktion aus dem Paket **`car`** verwendet werden: 
+
+```{r 20}
+charvek_neu <- car::recode(charvek, "'NA'=NA; ''=NA")
+charvek_neu
+```
+
+## 6. Gut zu wissen
+
+Den Überblick über die vorhandenen Funktionen und Pakete zu behalten, ist nahezu unmöglich; allein auf CRAN gibt es tausende von R-Paketen. Aus unserer subjektiven Sicht sollen daher die wichtigsten Funktionen, die sich im Laufe des IQB-Lebens als unverzichtbar herausgestellt haben, hier kurz ohne Anspruch auf Vollständigkeit aufgelistet werden. Wo nötig, werden Links für weiterführende Literatur angegeben: 
+

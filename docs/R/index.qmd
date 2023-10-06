@@ -2,6 +2,22 @@
 title: "Material for learning R"
 ---
 
-# R Introduction
+# Starting R (English)
 
 An introduction to R with hands on examples and exercises can be found in [Introduction to R](https://nickhaf.github.io/r_tutorial/).
+
+# Starting R (Basics in German)
+
+To get started with R and to learn how to use eatRep, the following files can be viewed here:
+
+```{r, echo=FALSE}
+#tut <- c("[Workshop 1: Einführung in R]()", "[Workshop 2: Data Frames, Listen und Grafiken]()", "[Workshop 3: Pakete, Working Directory, Input und Output]()")
+# r_workshop_Einleitung.rmd
+
+
+#table <- data.frame(tut, check.rows = FALSE)
+#colnames(table) <- "Tutorials (German)"
+
+#knitr::kable(table)
+```
+

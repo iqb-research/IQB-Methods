@@ -28,6 +28,7 @@ website:
       - section: "R Tutorials"
         contents:
           - docs/R/index.qmd
+          - docs/R/r_workshop_Einleitung.rmd
           - section: "Cheat Sheets"
             contents:
              - href: https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf
