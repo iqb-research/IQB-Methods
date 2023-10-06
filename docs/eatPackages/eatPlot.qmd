@@ -2,25 +2,34 @@
 title: "eatPlot"
 ---
 
-# eatPlot Info
+# Info
 
 ```{r, echo=FALSE}
 #11
 ansprech_plot <- "Nicklas Hafiz, Philipp Franikowski"
 version_plot <- "[DESCRIPTION on github](https://github.com/nickhaf/eatPlot/blob/main/DESCRIPTION)"
 quelle_plot <- "[github page](https://github.com/nickhaf/eatPlot)"
-descFunktion_plot <- "Erstellen von Plots aus dem eatRep output (Hauptanwendungsfall: Bildungstrend)."
-doku_plot <- "[Info page with several vignettes](https://nickhaf.github.io/eatPlot/)"
 
+descFunktion_plot <- "Creating plots from the eatRep output (main use: Bilduntstrend)."
 
 info_plot <- data.frame(ansprech_plot, version_plot, quelle_plot)
-colnames(info_plot) <- c("Ansprechparter:in", "aktuelle Version", "Quelle")
+colnames(info_plot) <- c("contact", "latest version", "source")
 
 knitr::kable(info_plot)
 ```
 
-### Funktionsbeschreibung
+### Description
 
-Erstellen von Plots aus dem eatRep output (Hauptanwendungsfall: Bildungstrend).
+Creating plots from the eatRep output (main use: Bilduntstrend).
 
-**Dokumentation:** [Info page with several vignettes](https://nickhaf.github.io/eatPlot/)
+**Dokumentation:** 
+
+```{r, echo=FALSE}
+# **Documentation:** [Info page with several vignettes](https://nickhaf.github.io/eatPlot/)
+doku_plot <- "[Info page with several vignettes](https://nickhaf.github.io/eatPlot/)"
+
+table <- data.frame(doku_plot, check.rows = FALSE)
+colnames(table) <- "Documentation"
+
+knitr::kable(table)
+```
