@@ -14,7 +14,6 @@ To get started with R and to learn how to use eatRep, the following files can be
 #tut <- c("[Workshop 1: Einführung in R]()", "[Workshop 2: Data Frames, Listen und Grafiken]()", "[Workshop 3: Pakete, Working Directory, Input und Output]()")
 # r_workshop_Einleitung.rmd
 
-
 #table <- data.frame(tut, check.rows = FALSE)
 #colnames(table) <- "Tutorials (German)"
 
