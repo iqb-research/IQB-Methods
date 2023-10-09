@@ -14,102 +14,60 @@
     "text": "R Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R."
   },
   {
-    "objectID": "docs/eatPackages/index.html",
-    "href": "docs/eatPackages/index.html",
-    "title": "Info on eat Packages",
-    "section": "",
-    "text": "see table down below and click on the links for more information on a package."
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "title": "Info on eat Packages",
-    "section": "internal IQB R packages from the ‘eat’-family",
-    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski"
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#installing-r-packages",
-    "href": "docs/eatPackages/index.html#installing-r-packages",
-    "title": "Info on eat Packages",
-    "section": "Installing R packages",
-    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#compatibility",
-    "href": "docs/eatPackages/index.html#compatibility",
-    "title": "Info on eat Packages",
-    "section": "Compatibility",
-    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
-  },
-  {
-    "objectID": "docs/eatPackages/eatRecode.html",
-    "href": "docs/eatPackages/eatRecode.html",
-    "title": "eatRecode",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreate and apply recoding databases.\n\n\n\n\n\nDocumentation"
-  },
-  {
-    "objectID": "docs/eatPackages/eatCodebook.html",
-    "href": "docs/eatPackages/eatCodebook.html",
-    "title": "eatCodebook",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated creation of scale manuals.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
-  },
-  {
-    "objectID": "docs/eatPackages/eatGADS.html",
-    "href": "docs/eatPackages/eatGADS.html",
-    "title": "eatGADS",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
-  },
-  {
-    "objectID": "docs/eatPackages/eatModel.html",
-    "href": "docs/eatPackages/eatModel.html",
-    "title": "eatModel",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
-  },
-  {
-    "objectID": "docs/eatPackages/eatAnalysis.html",
-    "href": "docs/eatPackages/eatAnalysis.html",
-    "title": "eatAnalysis",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-"
-  },
-  {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html",
-    "href": "posts/r_sig/23_31_07_apply/index.html",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html",
+    "href": "posts/r_sig/23_07_31_apply/index.html",
     "title": "The apply family",
     "section": "",
     "text": "I can highly recommend the according chapter in R for Data Science in case you want to dive deeper."
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html#for-loops",
-    "href": "posts/r_sig/23_31_07_apply/index.html#for-loops",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#for-loops",
+    "href": "posts/r_sig/23_07_31_apply/index.html#for-loops",
     "title": "The apply family",
     "section": "For-loops",
     "text": "For-loops\nIn the last SIG we talked about for-loops.\nWhile for is definitely the most flexible of the looping options, we suggest you avoid it wherever you can, for the following two reasons:\n\n\nIt is not very expressive, i.e. takes a lot of code to do what you want.\n\n\nIt permits you to write horrible code.\n\n\nLet’s consider this example:\n\nexample_list &lt;- list(\n  \"vec_1\" = c(1:10),\n  \"vec_2\" = c(100:400),\n  \"vec_3\" = c(80:97, NA)\n)\nstr(example_list)\n\nList of 3\n $ vec_1: int [1:10] 1 2 3 4 5 6 7 8 9 10\n $ vec_2: int [1:301] 100 101 102 103 104 105 106 107 108 109 ...\n $ vec_3: int [1:19] 80 81 82 83 84 85 86 87 88 89 ...\n\n\nHere we have a list consisting of three vectors. Our goal is to sum them an output the result into a new vector. We could use a for-loop to do that:\n\nvec_sum &lt;- c()\nfor(i in 1: length(example_list)){\n  vec_sum[i] &lt;- sum(example_list[[i]], na.rm = TRUE)\n}\nvec_sum\n\n[1]    55 75250  1593\n\n\nOkay, that doesn’t look that complicated. But still, we need to define an empty vector at the beginning so we can save our sums, we need to iterate from 1:length(example_list), and manually select the \\(i^{th}\\) from the input list. That is not very expressive, and can be solved a lot easier. Enter, the apply-family:"
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html#the-apply-family",
-    "href": "posts/r_sig/23_31_07_apply/index.html#the-apply-family",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#the-apply-family",
+    "href": "posts/r_sig/23_07_31_apply/index.html#the-apply-family",
     "title": "The apply family",
     "section": "The apply-family",
     "text": "The apply-family\nThe apply-functions apply a function to a vector, list, matrix … and also always return a vector, list matrix …, depending on the specific function. Let’s rewrite our for-loop with sapply():\n\nvec_sum &lt;- sapply(example_list, sum)\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250    NA \n\n\nA lot less code and easier to understand! We just go over every list element and calculate its sum.\nIf we want to add another function argument, we can do that as well:\n\nvec_sum &lt;- sapply(example_list, sum, na.rm = TRUE)\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nWe can also define our own function:\n\nvec_sum &lt;- sapply(example_list, function(x){\n  res_sum &lt;- sum(x, na.rm = TRUE)\n  print(res_sum)\n  return(res_sum)\n})\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nHere we calculate the sum of object x, and then print it.\nFinally, which makes for even nicer code, we can define the function externally, to give it a concise name:\n\nprint_sum &lt;- function(vec){\n  res_sum &lt;- sum(vec, na.rm = TRUE)\n  print(res_sum)\n  return(res_sum)\n}\n\nvec_sum &lt;- sapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nDepending of the output we want, we can choose different apply-functions:\n\nsapply()\nsapply() simplifies the result, so, e.g., it will return a vector if possible:\n\nsapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\n\n\nvapply()\nSimilar to sapply(), but we can pre-specify a return value, so it might be safer to use:\n\nvapply(example_list, print_sum, integer(1))\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nBecause the result is an integer vector, we don’t get an error, but if we write this:\n\nvapply(example_list, print_sum, character(1))\n\n[1] 55\n\n\nError in vapply(example_list, print_sum, character(1)): values must be type 'character',\n but FUN(X[[1]]) result is type 'integer'\n\n\nThe function returns an error, because its output is an integer, and not a character vector.\n\n\nlapply()\nReturns a list:\n\nlapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\n$vec_1\n[1] 55\n\n$vec_2\n[1] 75250\n\n$vec_3\n[1] 1593\n\n\n\n\n\n\n\n\nExercises\n\n\n\nWork with the iris data.frame (it is already included in Base R):\n\nExercise 1\nWrite a for-loop to determine the median of each column, if it is numeric. If not, return the column class with class(). Save the results in a character vector, so every element should be converted to character before saving it in the vector.\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  if(is.numeric(iris[, i])){\n    vec_median[i] &lt;- as.character(median(iris[, i], na.rm = TRUE))\n  } else{\n    vec_median[i] &lt;- class(iris[, i])\n  }\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\"\n\n\n\n\n\n\n\nExercise 2\n\nDefine the body of the for loop as its own function. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\ncheck_median &lt;- function(vec){\n  if(is.numeric(vec)){\n    result &lt;- median(vec, na.rm = TRUE)\n  } else{\n    result &lt;- class(vec)\n  }\n  ## Convert to character, so our function always returns the correct type\n  result &lt;- as.character(result)\n  return(result)\n}\n\n## Check it:\ncheck_median(c(100, 1000))\n\n[1] \"550\"\n\ncheck_median(c(\"a\", \"b\"))\n\n[1] \"character\"\n\n\n\n\n\n\nUse it in the for-loop.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  vec_median[i] &lt;- check_median(iris[, i])\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\"\n\n\n\n\n\n\n\nExercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html#exercise-2",
-    "href": "posts/r_sig/23_31_07_apply/index.html#exercise-2",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#exercise-2",
+    "href": "posts/r_sig/23_07_31_apply/index.html#exercise-2",
     "title": "The apply family",
     "section": "Exercise 2",
     "text": "Exercise 2\n\nDefine the body of the for loop as its own function. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\ncheck_median &lt;- function(vec){\n  if(is.numeric(vec)){\n    result &lt;- median(vec, na.rm = TRUE)\n  } else{\n    result &lt;- class(vec)\n  }\n  ## Convert to character, so our function always returns the correct type\n  result &lt;- as.character(result)\n  return(result)\n}\n\n## Check it:\ncheck_median(c(100, 1000))\n\n[1] \"550\"\n\ncheck_median(c(\"a\", \"b\"))\n\n[1] \"character\"\n\n\n\n\n\n\nUse it in the for-loop.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  vec_median[i] &lt;- check_median(iris[, i])\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\""
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html#exercise-3",
-    "href": "posts/r_sig/23_31_07_apply/index.html#exercise-3",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#exercise-3",
+    "href": "posts/r_sig/23_07_31_apply/index.html#exercise-3",
     "title": "The apply family",
     "section": "Exercise 3",
     "text": "Exercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
+  },
+  {
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+  },
+  {
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
+    "section": "",
+    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -133,25 +91,18 @@
     "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?"
   },
   {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
+    "objectID": "posts/r_sig/23_09_10_clean/index.html",
+    "href": "posts/r_sig/23_09_10_clean/index.html",
+    "title": "Cleaner Scripts",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
+    "objectID": "posts/r_sig/23_09_10_clean/index.html#some-general-take-aways",
+    "href": "posts/r_sig/23_09_10_clean/index.html#some-general-take-aways",
+    "title": "Cleaner Scripts",
     "section": "",
-    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/newsletter/23_08_09/index.html",
-    "href": "posts/newsletter/23_08_09/index.html",
-    "title": "09-08-2023",
-    "section": "",
-    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
     "objectID": "posts/r_sig/23_03_20_forloops/index.html",
@@ -173,48 +124,6 @@
     "title": "for-loops",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
-  },
-  {
-    "objectID": "docs/eatPackages/eatPrep.html",
-    "href": "docs/eatPackages/eatPrep.html",
-    "title": "eatPrep",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, internal\n\n\n\n\n\n\nDescription\nPreparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by ‘eatPrep’ to transfer the information from the database to R.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
-  },
-  {
-    "objectID": "docs/eatPackages/eatTools.html",
-    "href": "docs/eatPackages/eatTools.html",
-    "title": "eatTools",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nDocumentation\n\n\n\n\nReference manual"
-  },
-  {
-    "objectID": "docs/eatPackages/eatRep.html",
-    "href": "docs/eatPackages/eatRep.html",
-    "title": "eatRep",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal\n\n\ninternal\n\n\nReplication Analysis with eatRep\n\n\ninternal"
-  },
-  {
-    "objectID": "docs/eatPackages/eatATA.html",
-    "href": "docs/eatPackages/eatATA.html",
-    "title": "eatATA",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nDocumentation\n\n\n\n\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n‘eatATA’ Functionality\n\n\na Pilot Study Example\n\n\nReference manual"
-  },
-  {
-    "objectID": "docs/eatPackages/eatPlot.html",
-    "href": "docs/eatPackages/eatPlot.html",
-    "title": "eatPlot",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreating plots from the eatRep output (main use: Bilduntstrend).\nDokumentation:\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
-  },
-  {
-    "objectID": "docs/eatPackages/eatFDZ.html",
-    "href": "docs/eatPackages/eatFDZ.html",
-    "title": "eatFDZ",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nDocumentation"
   },
   {
     "objectID": "docs/quarto/index.html",
