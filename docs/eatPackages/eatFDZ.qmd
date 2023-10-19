@@ -1,0 +1,36 @@
+---
+title: "eatFDZ"
+---
+
+# Info
+
+```{r, echo=FALSE}
+#8
+ansprech_fdz <- "Benjamin Becker"
+version_fdz <- "[DESCRIPTION on github](https://github.com/beckerbenj/eatFDZ/blob/master/DESCRIPTION)"
+quelle_fdz <- "[github page](https://github.com/beckerbenj/eatFDZ)"
+
+descFunktion_fdz <- "Automated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets."
+
+
+
+info_fdz <- data.frame(ansprech_fdz, version_fdz, quelle_fdz)
+colnames(info_fdz) <-  c("contact", "latest version", "source")
+
+knitr::kable(info_fdz)
+```
+
+### Description
+
+Automated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.
+
+
+```{r, echo=FALSE}
+# **Documentation:** -
+doku_fdz <- ""
+
+table <- data.frame(doku_fdz, check.rows = FALSE)
+colnames(table) <- "Documentation"
+
+knitr::kable(table)
+```

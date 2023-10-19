@@ -1,0 +1,31 @@
+---
+title: "eatTools"
+---
+
+# Info
+
+```{r, echo=FALSE}
+#5
+ansprech_tools <- "Sebastian Weirich, Benjamin Becker, Karoline Sachse"
+version_tools <- "[CRAN page](https://cran.r-project.org/web/packages/eatTools/index.html)"
+quelle_tools <- "[CRAN page](https://cran.r-project.org/web/packages/eatTools/index.html)"
+descFunktion_tools <- "Various help functions that are also required by the packages 'eatPrep', 'eatModel', 'eatGADS' and 'eatRep', among others."
+
+info_tools <- data.frame(ansprech_tools, version_tools, quelle_tools)
+colnames(info_tools) <-  c("contact", "latest version", "source")
+
+knitr::kable(info_tools)
+```
+
+### Description
+
+Various help functions that are also required by the packages 'eatPrep', 'eatModel', 'eatGADS' and 'eatRep', among others.
+
+```{r, echo=FALSE}
+# **Documentation:** [Reference manual](https://cran.r-project.org/web/packages/eatTools/eatTools.pdf)
+doku_tools <- "[Reference manual](https://cran.r-project.org/web/packages/eatTools/eatTools.pdf)"
+table <- data.frame(doku_tools, check.rows = FALSE)
+colnames(table) <- "Documentation"
+
+knitr::kable(table)
+```
