@@ -2,86 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/index.html</loc>
-    <lastmod>2023-10-19T12:25:57.440Z</lastmod>
+    <lastmod>2023-10-19T13:19:18.659Z</lastmod>
   </url>
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/posts_newsletter.html</loc>
-    <lastmod>2023-10-19T12:25:56.628Z</lastmod>
+    <lastmod>2023-10-19T13:19:17.823Z</lastmod>
   </url>
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_31_07_apply/index.html</loc>
-    <lastmod>2023-10-19T12:25:55.760Z</lastmod>
+    <lastmod>2023-10-19T13:19:16.947Z</lastmod>
   </url>
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/docs/reproduce/renv.html</loc>
-    <lastmod>2023-10-19T12:25:32.007Z</lastmod>
+    <lastmod>2023-10-19T13:18:52.423Z</lastmod>
   </url>
   <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/R/index.html</loc>
-    <lastmod>2023-10-19T12:25:31.167Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatCodebook.html</loc>
-    <lastmod>2023-10-19T12:25:07.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatGADS.html</loc>
-    <lastmod>2023-10-19T12:24:22.614Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatATA.html</loc>
-    <lastmod>2023-10-19T12:23:37.323Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatModel.html</loc>
-    <lastmod>2023-10-19T12:22:51.948Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatAnalysis.html</loc>
-    <lastmod>2023-10-19T12:22:06.425Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatRecode.html</loc>
-    <lastmod>2023-10-19T12:21:20.738Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatPlot.html</loc>
-    <lastmod>2023-10-19T12:21:43.732Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatTools.html</loc>
-    <lastmod>2023-10-19T12:22:29.207Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatFDZ.html</loc>
-    <lastmod>2023-10-19T12:23:14.681Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatRep.html</loc>
-    <lastmod>2023-10-19T12:23:59.936Z</lastmod>
-  </url>
-  <url>
-    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatPrep.html</loc>
-    <lastmod>2023-10-19T12:24:45.375Z</lastmod>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/R/ws1.html</loc>
+    <lastmod>2023-10-19T13:18:51.534Z</lastmod>
   </url>
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/index.html</loc>
-    <lastmod>2023-10-19T12:25:30.835Z</lastmod>
+    <lastmod>2023-10-19T13:18:25.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatPrep.html</loc>
+    <lastmod>2023-10-19T13:17:38.541Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatRep.html</loc>
+    <lastmod>2023-10-19T13:16:51.308Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatFDZ.html</loc>
+    <lastmod>2023-10-19T13:16:04.126Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatTools.html</loc>
+    <lastmod>2023-10-19T13:15:17.173Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatPlot.html</loc>
+    <lastmod>2023-10-19T13:14:30.320Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatRecode.html</loc>
+    <lastmod>2023-10-19T13:14:06.415Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatAnalysis.html</loc>
+    <lastmod>2023-10-19T13:14:53.680Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatModel.html</loc>
+    <lastmod>2023-10-19T13:15:40.662Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatATA.html</loc>
+    <lastmod>2023-10-19T13:16:27.859Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatGADS.html</loc>
+    <lastmod>2023-10-19T13:17:14.972Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/eatPackages/eatCodebook.html</loc>
+    <lastmod>2023-10-19T13:18:02.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://iqb-research.github.io/IQB-Methods/docs/R/index.html</loc>
+    <lastmod>2023-10-19T13:18:26.234Z</lastmod>
   </url>
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/docs/quarto/index.html</loc>
-    <lastmod>2023-10-19T12:25:31.535Z</lastmod>
+    <lastmod>2023-10-19T13:18:51.910Z</lastmod>
   </url>
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/index.html</loc>
-    <lastmod>2023-10-19T12:25:32.415Z</lastmod>
+    <lastmod>2023-10-19T13:18:52.819Z</lastmod>
   </url>
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/index.html</loc>
-    <lastmod>2023-10-19T12:25:56.156Z</lastmod>
+    <lastmod>2023-10-19T13:19:17.359Z</lastmod>
   </url>
   <url>
     <loc>https://iqb-research.github.io/IQB-Methods/posts_r_sig.html</loc>
-    <lastmod>2023-10-19T12:25:57.072Z</lastmod>
+    <lastmod>2023-10-19T13:19:18.259Z</lastmod>
   </url>
 </urlset>
