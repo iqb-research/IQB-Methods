@@ -1,0 +1,421 @@
+---
+title: "Data Frames, Listen und Grafiken in R"
+---
+
+# 1. Datensätze: data.frames
+
+Ein data.frame kann als eine spaltenweise Aneinanderreihung verschiedener Vektoren verstanden werden. Jeder einzelne Vektor kann dabei, wie gehabt, nur Elemente derselben Klasse enthalten; der data.frame selbst kann jedoch Vektoren unterschiedlicher Klasse enthalten. Im folgenden Beispiel wird ein `data.frame` aus zwei character- und drei numerischen Vektoren erzeugt:
+
+```{r 01}
+ID <- c(89045, 43678, 88475, 69781, 88766, 67743)
+name <- c("Onno", "Stefan", "Sylvain", "Annette", "Marina", "Eike")
+geschlecht <- c("m","m","m","w","w","m")
+treatment  <- c(0,1,1,1,0,1)
+bdi.wert   <- c(12.5,13,11.75,9.85,10.15,9.95)
+daten      <- data.frame(ID, name, geschlecht, treatment, bdi.wert, stringsAsFactors=FALSE)
+```
+
+Um sich einen Überblick über den soeben angelegten data.frame zu verschaffen, sind folgende Befehle nützlich:
+
+1.  Die ersten Zeilen des Datensatzes werden ausgegeben:
+
+```{r 01b}
+head(daten)
+```
+
+2.  Die Struktur des Datensatzes wird ausgegeben:
+
+```{r 01f}
+str(daten)
+```
+
+3.  Eine Zusammenfassung der Daten wird ausgegeben:
+
+```{r 01g}
+summary(daten)
+```
+
+4.  Welche Eigenschaften hat ein Objekt "data.frame"?
+
+```{r 01j}
+class(daten)
+mode(daten)
+```
+
+Auf zwei Besonderheiten soll hier kurz eingegangen werden:
+
+-   Warum hat das Objekt `daten` zwar die Klasse `data.frame`, aber den Modus `list`? Der Grund ist, dass in R data.frames "Spezialfälle" von Listen sind, genauso wie man einen Skalar als "Spezialfall" eines Vektors verstehen kann. In R dürfen Listen beliebig viele Elemente beliebigen Typs enthalten. data.frames dürfen mehrere Vektoren *gleicher* Länge, aber unterschiedlichen Typs (bzw. unterschiedlicher Klasse) enthalten. Ein data.frame ist also eine "eingeschränkte" Liste.
+-   Was bedeutet "stringsAsFactors"? Wird ein data.frame konstruiert, der sich (teilweise) aus character-Variablen zusammensetzt, werden diese in R standardmäßig wie Faktoren behandelt. Das ist dann sinnvoll, wenn diese character-Variablen (wie hier) im Grunde nur Gruppierungsvariablen sind (hier: male, female). In SPSS gibt es für Gruppierungsvariablen die Skalendefinition "nominal". Typischerweise werden solche Variablen als unabhängige Variablen in Varianzanalysen eingesetzt. Unter "echten" character-Variablen könnte man sich etwa die Freitextantworten in Fragebögen vorstellen. "stringsAsFactors" besagt also: "Soll R diese Variablen wie Faktoren behandeln oder wie echte character-Variablen?"
+
+Die Variablen Treatment und Geschlecht könnten auch Faktoren werden (was in der Regel aber eigentlich nicht nötig ist):
+
+```{r 01c}
+daten$geschlecht <- as.factor(daten$geschlecht)
+daten$treatment <- as.factor(daten$treatment)
+str(daten)
+```
+
+## 1.1 Zusammenführen von data.frames (merging)
+
+Nehmen wir an, wir hätten nun einen weiteren data.frame, der die Nachnamen einiger Studienteilnehmer\*innen enthält:
+
+```{r 02}
+daten2 <- data.frame(
+    ID = c(43678, 88475, 88766, 89045),
+    nachname = c("Tegemann", "Laffont", "Brandner",
+                 "Schreiner"), stringsAsFactors = FALSE)
+daten2
+```
+
+...und möchten diesen nun mit unseren Daten zusammenführen, dann geht das sehr flexibel mit der Funktion `merge()`. `merge()` verknüpft die Datensätze automatisch über Spalten in den beiden Datensätzen, die gleich benannt sind, in unserem Beispiel die Spalte `ID`:
+
+```{r 03}
+dat <- merge(daten, daten2, all=TRUE)
+dat
+```
+
+Sind die Spalten mit den Schlüsselvariablen nicht gleich benannt kann man im `by.x`-Argument spezifizieren, wie die Variable im ersten Datensatz heißt und im `by.y`-Argument, wie sie im zweiten Datensatz heißt. Heißen mehrere Variablen in beiden Datensätzen gleich und man möchte nur eine dieser gleichnamigen Variablen zur Verknüpfung verwenden, spezifiziert man diese im `by`-Argument:
+
+```{r 03x}
+dat <- merge(daten, daten2, by="ID", all=TRUE)
+dat
+```
+
+Wenn man zwei Datensätze untereinander schreiben möchte, müssen sie dieselbe Spaltenausdehnung haben:
+
+```{r 03b}
+rbind(daten2, daten2)
+```
+
+...und wenn man zwei Datensätze nebeneinander schreiben möchte, müssen sie dieselbe Zeilenausdehnung haben:
+
+```{r 03c}
+cbind(daten2, daten2)
+```
+
+Möchte man viele Datensätze derselben Ausdehnung nebeneinander oder untereinander in einen `data.frame`schreiben, kann man die Funktion `do.call()` benutzen, die analog zu hier im Beispiel mit `cbind()` auch mit `rbind()` funktioniert:
+
+```{r 03cc}
+do.call("cbind", list(daten2, daten2, daten2, daten2))
+```
+
+Zum weiteren Umgang mit dem Listenformat `list` siehe Kapitel 2, weiter unten.
+
+## 1.2 Navigation in data.frames (subsetting)
+
+Ähnlich wie in Vektoren kann man in data.frames über eckige Klammern einzelne Elemente anzeigen lassen oder verändern. Da data.frames zwei Dimensionen haben (Vektoren haben nur eine), muss man hier das Element mit \[Zeile, Spalte\] auswählen, also beispielsweise
+
+```{r 04}
+dat[4,2]
+```
+
+Alternativ kann man mit dem Dollar-Zeichen eine Variable ansteuern:
+
+```{r 05}
+dat[4,]$name
+```
+
+Oder man kann den Variablennamen (mit hochgestellten Anführungszeichen) verwenden:
+
+```{r 06}
+dat[4,"name"]
+```
+
+Die komplette "name"-Spalte gibt man aus, indem man die Zeilenbezeichnung weglässt oder alle Zeilen explizit auswählt:
+
+```{r 07}
+dat$name
+dat[,"name"]
+dat[1:6,"name"]
+```
+
+Auch die Reihenfolge zu variieren, ist möglich:
+
+```{r 08}
+dat[6:1,"name"]
+```
+
+Um sich nur ausgewählte Spalten in selbst definierter Reihenfolge des Datensatzes anzusehen bzw. in einem neuen Objekt zu speichern:
+
+```{r 09}
+dat2 <- dat[,c("name", "nachname", "bdi.wert", "treatment")]
+dat2
+```
+
+Wenn man sich nur bestimmte Subgruppen anschauen möchte:
+
+1.  Alle Mitglieder der Kontrollgruppe:
+
+```{r 10}
+dat2[dat2$treatment == 0,]
+```
+
+2.  Alle mit einem BDI-Wert größer als 10:
+
+```{r 10r}
+dat2[dat2$bdi.wert > 10,]
+```
+
+3.  Alle in der Treatment-Gruppe und einem BDI-Wert größer als 10:
+
+```{r 10k}
+dat2[dat2$treatment == 1 & dat2$bdi.wert > 10,]
+```
+
+4.  Alle in der Treatment-Gruppe oder einem BDI-Wert größer als 10:
+
+```{r 10l}
+dat2[dat2$treatment == 1 | dat2$bdi.wert > 10,]
+```
+
+5.  Alle, deren Vorname mit "S" beginnt:
+
+```{r 10ll}
+dat2[grep("^S", dat2$name),]
+```
+
+6.  Alle, für die kein Nachname hinterlegt ist:
+
+```{r 10lll}
+dat2[is.na(dat2$nachname),]
+```
+
+7.  Der Datensatz ohne Personen, für die kein Nachname hinterlegt ist:
+
+```{r 10lllll}
+dat2[!is.na(dat2$nachname),]
+```
+
+oder
+
+```{r 10lllllb}
+dat2[-which(is.na(dat2$nachname)),]
+```
+
+## 1.3 Rekodieren von Variablen in data.frames
+
+Wenn man bestimmte Werte im data.frame ersetzen möchte oder Variablen in andere Variablen umkodieren möchte, hat man verschiedene Möglichkeiten.
+
+1.  Alle Werte im Datensatz ersetzen:\
+
+<!-- -->
+
+a)  z.B. alle fehlenden Werte durch einen bestimmten Missingcode ersetzen:
+
+```{r 11}
+dat2[is.na(dat2)] <- "-97"
+dat2
+```
+
+b)  oder einen bestimmen Wert durch andere Werte oder Missings ersetzen:
+
+```{r 11ll}
+dat2[dat2=="-97"] <- NA
+dat2
+```
+
+2.  Neue Variablen in Abhängigkeit von anderen Variablen bilden
+
+Mit der Funktion `ifelse` formuliert man zunächst eine Bedingung (hier alle, die einen BDI kleiner als 10 haben und gleichzeitig in der Treatment-Gruppe sind), danach gibt man durch ein Komma abgetrennt an, welche Werte in der neuen Variable stehen sollen (hier `"Treatment war wirksam"`). Durch ein weiteres Komma abgetrennt kann dann angegeben werden, was passieren soll, wenn die Bedingung nicht zutrifft. Dabei kann dort sogar ein weiteres `ifelse`-Statement eingefügt werden, wie hier im Beispiel, das nach genau denselben Regeln aufgebaut ist.
+
+```{r 12}
+dat2$neueVar <- ifelse(test=dat2$bdi.wert < 10 & dat2$treatment==1,
+                       yes="Treatment war wirksam",  
+                       no = ifelse(test=dat2$bdi.wert >= 10 & dat2$treatment==1,   
+                                   yes="Treatment nicht wirksam",
+                                   no="kein Treatment"))
+dat2
+```
+
+Auch kann die Funktion `recode` aus dem Paket `car` verwendet werden. Hier werden die Werte oder Wertebereiche einer Variablen umkodiert. Der Wertebereich des niedrigsten aufgetretenen Wertes bis zum Wert 10 entspricht dem hier benutzten Statement `lo:10`. Wie man mit allen nicht explizit erwähnten Werten verfahren möchte, kann mit dem `else`-Argument festlegen.
+
+```{r 13, eval=FALSE}
+library(car)
+```
+
+```{r 13c, include=FALSE}
+library(car)
+```
+
+```{r 13b}
+dat2$neueVar <- car::recode(dat2$bdi.wert, "lo:10='leichte Depression'; else='schwere Depression'")
+dat2
+```
+
+## 1.4 Umstrukturieren von data.frames
+
+Unser Datensatz befindet sich im sogenannten Wide-Format. Für manche Anwendungen kann es sinnvoll sein, den Datensatz in das sogenannte Long-Format zu bringen, in dem alle Werte der Personen in einer einzigen Variablen untereinander stehen. Früher benutzte man das Paket `reshape2`, um einen Datensatz ins Long-Format zu bringen, was auch jetzt noch immer unkompliziert möglich ist:
+
+```{r 14, eval=FALSE}
+library(reshape2)
+```
+
+```{r 14c, include=FALSE}
+library(reshape2)
+```
+
+```{r 14b, warning=FALSE}
+datl <- reshape2::melt(dat, id.vars="ID")
+datl
+```
+
+und mit `dcast()` formte man den Datensatz wieder zurück:
+
+```{r 15, warning=FALSE}
+reshape2::dcast(datl, ID ~ variable)
+```
+
+In jüngerer Zeit wurden dazu recht effiziente Funktionen entwickelt, die im Paket `tidyr` zu finden sind. Hier wird nur rudimentär in die Benutzung dieser Funktionen eingeführt -- der/die interessierte Leser/in mag sich in folgende Seite vertiefen: http://tidyr.tidyverse.org/articles/pivot.html Hierbei ist zu beachten, dass bei Benutzung des Pakets `tidyr` die `data.frames` zu anderen Objekten werden, nämlich `tibbles` (die aber problemlos mit der Funktion `as.data.frame()` wieder in `data.frames` zurücktransformiert werden können. Darüber hinaus weicht die zu verwendende Syntax hier deutlich von der bisher gezeigten basalen R-Syntax ab. Eine besondere Rolle spielt hier der sogenannte Pipe-Operator `%>%`, über den hier http://www.rdocumentation.org/packages/magrittr/versions/1.0.1/topics/%25%3E%25 oder an anderer Stelle weitergelesen werden kann.
+
+```{r 144, eval=FALSE}
+library(tidyr)
+```
+
+```{r 144c, include=FALSE}
+library(tidyr)
+dat$bdi.wert <- as.character(dat$bdi.wert)
+```
+
+Umstrukturierung unserer Daten ins Long-Format:
+
+```{r 144b, warning=FALSE, eval=FALSE}
+dat %>% pivot_longer(
+  cols=name:nachname,
+  names_to = "variable",
+  values_to = "value"
+)
+```
+
+oder, äquivalent dazu, mit:
+
+```{r 144bb, warning=FALSE}
+pivot_longer(dat, cols=name:nachname, names_to = "variable", values_to = "value")
+```
+
+und mit `pivot_wider()` kann man den Datensatz wieder zurück formen:
+
+```{r 154, warning=FALSE, eval=FALSE}
+datl  %>% pivot_wider(
+  names_from = variable, values_from = value
+)
+```
+
+oder genauso:
+
+```{r 154b, warning=FALSE}
+pivot_wider(datl, names_from = variable, values_from = value)
+```
+
+# 2. Listen
+
+Wie oben schon erwähnt wurde, sind data.frames Spezialfälle von Listen, die Vektoren gleicher Länge enthalten. Listen, die keine data.frames sind, dürfen Elemente unterschiedlichen Typs und unterschiedlicher Länge enthalten. Die Elemente einer Liste dürfen sogar wieder Listen sein, aber auch data.frames, Vektoren, Skalare oder andere beliebige R-Objekte.
+
+Zum Beispiel könnte man eine Liste mit den oben erzeugten Teildatensätzen und einzelnen Komponenten dieser erstellen:
+
+```{r 16}
+L1 <- list(daten$bdi.wert, daten2$nachname, dat2)
+str(L1)
+```
+
+...und die Elemente dieser Liste benennen:
+
+```{r 17}
+names(L1) <- c("Werte", "Nachnamen", "Gesamt")
+L1
+```
+
+## 2.1 Subsetting in Listen
+
+Auch bei Listen gibt es wieder zwei Möglichkeiten, wie man auf die Elemente zugreifen kann:
+
+1.  Über den Index, z.B. wenn man im dritten Listenelement weitere Unterelemente ansteuern möchte, wie hier die zweite Spalte und die fünfte Zeile:
+
+```{r 18}
+L1[[3]][5,2]
+```
+
+2.  Über den Namen in Anführungszeichen oder mit vorangestelltem Dollar-Zeichen:
+
+```{r 19}
+L1[["Gesamt"]][5,2]
+L1[["Gesamt"]][5,"nachname"]
+L1$Gesamt$nachname[5]
+```
+
+Eine Teilliste der Liste kann aufgerufen werden, indem die einzelnen Komponenten indiziert werden:
+
+```{r 20}
+L1[c(1,2)]
+```
+
+## 2.2 Merging von Listen
+
+Listen können kombiniert werden, indem sie mit `c()` verbunden werden:
+
+```{r 21}
+L2 <- c(L1[2], L1[1])
+L2
+```
+
+Weitere Komponenten können über Neuindizierung oder Namen hinzugefügt werden:
+
+```{r 22}
+L2[[3]] <- TRUE
+L2$nochwas <- FALSE
+L2[["undnochwas"]] <- data.frame(wahr=c(FALSE,TRUE,TRUE),falsch=c(TRUE,TRUE,FALSE))
+L2
+```
+
+Sollen Komponenten entfernt werden, kann man wieder den Minus-Operator benutzen:
+
+```{r 23}
+L2 <- L2[-c(3,4)]
+L2
+```
+
+## 2.3 Aufheben der Listenstruktur
+
+Möchte man keine Liste mehr haben, hilft die Funktion `unlist()` weiter, die alle Elemente der Liste nacheinander in einen benannten Vektor schreibt, dessen Namen man aber auch entfernen kann:
+
+```{r 24}
+(L3 <- unlist(L2))
+unname(unlist(L2))
+```
+
+# 3. Grafiken
+
+Manchmal möchte man seine Daten visualisieren. Dafür gibt es auch in der Basis-Variante von R ohne zusätzliche Paketinstallation sehr praktische Funktionen.
+
+## 1.1 Balkendiagramme
+
+Z.B. Verteilung des BDI-Werts:
+
+```{r 25a}
+barplot(bdi.wert ~ name, data=dat2)
+```
+
+Für einfache Häufigkeitsverteilungen:
+
+```{r 25}
+hist(dat2$bdi.wert)
+```
+
+Boxplots:
+
+```{r 27}
+boxplot(bdi.wert ~ treatment, data=dat2)
+```
+
+## 1.2 Die `plot()`-Funktion und mehrere Grafiken neben- oder untereinander
+
+Möchte man in einem Fenster mehrere Grafiken unter- oder nebeneinander darstellen, kann man sich des Parameters `mfrow` der `par()`-Funktion bedienen. Die erste Zahl gibt an, in wie vielen Grafiken die Zeilen untereinander dargestellt werden sollen und die zweite Zahl, in wie vielen Spalten nebeneinander. Sollen die Daten zunächst geplottet werden und daneben deren Verteilung (im Beispiel nur bedingt sinnvoll), sieht das so aus:
+
+```{r 28}
+par(mfrow=c(1,2))
+plot(dat2$bdi.wert)
+plot(density(dat2$bdi.wert),main="Eine Verteilung")
+```
+
+## 1.3 Das Paket `ggplot2`
+
+Ein mächtiges Paket zur Erstellung von Grafiken ist `ggplot2`, zu dem z.B. unter diesem Link eine gute Einführung gegeben wird: http://methodenlehre.github.io/einfuehrung-in-R/grafiken-mit-ggplot2.html
