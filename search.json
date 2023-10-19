@@ -1,80 +1,31 @@
 [
   {
-    "objectID": "docs/reproduce/renv.html",
-    "href": "docs/reproduce/renv.html",
-    "title": "The renv-Package",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IQB Methods Team",
     "section": "",
-    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
+    "text": "Currently, this website hosts material for and from the R-SIG. It might be expanded later on to include general methods team related material."
   },
   {
-    "objectID": "docs/R/index.html",
-    "href": "docs/R/index.html",
-    "title": "Material for learning R",
+    "objectID": "index.html#r-sig",
+    "href": "index.html#r-sig",
+    "title": "IQB Methods Team",
+    "section": "R-SIG",
+    "text": "R-SIG\n\n\n\n\n\n\nTip\n\n\n\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n\n\nIn this meeting we talk about all kind of topics related to scientific programming in R. Come along!"
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "IQB Methods Team",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?"
+  },
+  {
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
     "section": "",
-    "text": "R Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R."
-  },
-  {
-    "objectID": "docs/eatPackages/index.html",
-    "href": "docs/eatPackages/index.html",
-    "title": "Info on eat Packages",
-    "section": "",
-    "text": "see table down below and click on the links for more information on a package."
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "title": "Info on eat Packages",
-    "section": "internal IQB R packages from the ‘eat’-family",
-    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski"
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#installing-r-packages",
-    "href": "docs/eatPackages/index.html#installing-r-packages",
-    "title": "Info on eat Packages",
-    "section": "Installing R packages",
-    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#compatibility",
-    "href": "docs/eatPackages/index.html#compatibility",
-    "title": "Info on eat Packages",
-    "section": "Compatibility",
-    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
-  },
-  {
-    "objectID": "docs/eatPackages/eatRecode.html",
-    "href": "docs/eatPackages/eatRecode.html",
-    "title": "eatRecode",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreate and apply recoding databases.\n\n\n\n\n\nDocumentation"
-  },
-  {
-    "objectID": "docs/eatPackages/eatCodebook.html",
-    "href": "docs/eatPackages/eatCodebook.html",
-    "title": "eatCodebook",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated creation of scale manuals.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
-  },
-  {
-    "objectID": "docs/eatPackages/eatGADS.html",
-    "href": "docs/eatPackages/eatGADS.html",
-    "title": "eatGADS",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
-  },
-  {
-    "objectID": "docs/eatPackages/eatModel.html",
-    "href": "docs/eatPackages/eatModel.html",
-    "title": "eatModel",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
-  },
-  {
-    "objectID": "docs/eatPackages/eatAnalysis.html",
-    "href": "docs/eatPackages/eatAnalysis.html",
-    "title": "eatAnalysis",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-"
+    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/r_sig/23_31_07_apply/index.html",
@@ -112,39 +63,130 @@
     "text": "Exercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IQB Methods Team",
+    "objectID": "docs/reproduce/renv.html",
+    "href": "docs/reproduce/renv.html",
+    "title": "The renv-Package",
     "section": "",
-    "text": "Currently, this website hosts material for and from the R-SIG. It might be expanded later on to include general methods team related material."
+    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
   },
   {
-    "objectID": "index.html#r-sig",
-    "href": "index.html#r-sig",
-    "title": "IQB Methods Team",
-    "section": "R-SIG",
-    "text": "R-SIG\n\n\n\n\n\n\nTip\n\n\n\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n\n\nIn this meeting we talk about all kind of topics related to scientific programming in R. Come along!"
-  },
-  {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "IQB Methods Team",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\nDate\nTopic\n\n\n\n\n9.10.2023\nImproving code: How to write clear and parsimonious code in R?"
-  },
-  {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
+    "objectID": "docs/R/index.html",
+    "href": "docs/R/index.html",
+    "title": "Material for learning R",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "R Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R."
   },
   {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
+    "objectID": "docs/eatPackages/eatCodebook.html",
+    "href": "docs/eatPackages/eatCodebook.html",
+    "title": "eatCodebook",
     "section": "",
-    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated creation of scale manuals.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
+  },
+  {
+    "objectID": "docs/eatPackages/eatGADS.html",
+    "href": "docs/eatPackages/eatGADS.html",
+    "title": "eatGADS",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
+  },
+  {
+    "objectID": "docs/eatPackages/eatATA.html",
+    "href": "docs/eatPackages/eatATA.html",
+    "title": "eatATA",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nDocumentation\n\n\n\n\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n‘eatATA’ Functionality\n\n\na Pilot Study Example\n\n\nReference manual"
+  },
+  {
+    "objectID": "docs/eatPackages/eatModel.html",
+    "href": "docs/eatPackages/eatModel.html",
+    "title": "eatModel",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
+  },
+  {
+    "objectID": "docs/eatPackages/eatAnalysis.html",
+    "href": "docs/eatPackages/eatAnalysis.html",
+    "title": "eatAnalysis",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-"
+  },
+  {
+    "objectID": "docs/eatPackages/eatRecode.html",
+    "href": "docs/eatPackages/eatRecode.html",
+    "title": "eatRecode",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreate and apply recoding databases.\n\n\n\n\n\nDocumentation"
+  },
+  {
+    "objectID": "docs/eatPackages/eatPlot.html",
+    "href": "docs/eatPackages/eatPlot.html",
+    "title": "eatPlot",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreating plots from the eatRep output (main use: Bilduntstrend).\nDokumentation:\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
+  },
+  {
+    "objectID": "docs/eatPackages/eatTools.html",
+    "href": "docs/eatPackages/eatTools.html",
+    "title": "eatTools",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nDocumentation\n\n\n\n\nReference manual"
+  },
+  {
+    "objectID": "docs/eatPackages/eatFDZ.html",
+    "href": "docs/eatPackages/eatFDZ.html",
+    "title": "eatFDZ",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nDocumentation"
+  },
+  {
+    "objectID": "docs/eatPackages/eatRep.html",
+    "href": "docs/eatPackages/eatRep.html",
+    "title": "eatRep",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal\n\n\ninternal\n\n\nReplication Analysis with eatRep\n\n\ninternal"
+  },
+  {
+    "objectID": "docs/eatPackages/eatPrep.html",
+    "href": "docs/eatPackages/eatPrep.html",
+    "title": "eatPrep",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, internal\n\n\n\n\n\n\nDescription\nPreparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by ‘eatPrep’ to transfer the information from the database to R.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html",
+    "href": "docs/eatPackages/index.html",
+    "title": "Info on eat Packages",
+    "section": "",
+    "text": "see table down below and click on the links for more information on a package."
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "title": "Info on eat Packages",
+    "section": "internal IQB R packages from the ‘eat’-family",
+    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#installing-r-packages",
+    "href": "docs/eatPackages/index.html#installing-r-packages",
+    "title": "Info on eat Packages",
+    "section": "Installing R packages",
+    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#compatibility",
+    "href": "docs/eatPackages/index.html#compatibility",
+    "title": "Info on eat Packages",
+    "section": "Compatibility",
+    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
+  },
+  {
+    "objectID": "docs/quarto/index.html",
+    "href": "docs/quarto/index.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "Quarto websites\nCreating a website with Quarto.\nA nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
   },
   {
     "objectID": "posts/newsletter/23_08_09/index.html",
@@ -175,52 +217,10 @@
     "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
   },
   {
-    "objectID": "docs/eatPackages/eatPrep.html",
-    "href": "docs/eatPackages/eatPrep.html",
-    "title": "eatPrep",
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, internal\n\n\n\n\n\n\nDescription\nPreparation of data sets (reading, plausibility checks, merging of data sets, handling missings, recoding, aggregating, scoring and writing of labelled SPSS data sets) using item and test design information stored in the IQB database. This is extracted from the database using the ZKDaemon (see below) and written into a standardised xlsx format. This xlsx format is used by ‘eatPrep’ to transfer the information from the database to R.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
-  },
-  {
-    "objectID": "docs/eatPackages/eatTools.html",
-    "href": "docs/eatPackages/eatTools.html",
-    "title": "eatTools",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nDocumentation\n\n\n\n\nReference manual"
-  },
-  {
-    "objectID": "docs/eatPackages/eatRep.html",
-    "href": "docs/eatPackages/eatRep.html",
-    "title": "eatRep",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal\n\n\ninternal\n\n\nReplication Analysis with eatRep\n\n\ninternal"
-  },
-  {
-    "objectID": "docs/eatPackages/eatATA.html",
-    "href": "docs/eatPackages/eatATA.html",
-    "title": "eatATA",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nDocumentation\n\n\n\n\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n‘eatATA’ Functionality\n\n\na Pilot Study Example\n\n\nReference manual"
-  },
-  {
-    "objectID": "docs/eatPackages/eatPlot.html",
-    "href": "docs/eatPackages/eatPlot.html",
-    "title": "eatPlot",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreating plots from the eatRep output (main use: Bilduntstrend).\nDokumentation:\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
-  },
-  {
-    "objectID": "docs/eatPackages/eatFDZ.html",
-    "href": "docs/eatPackages/eatFDZ.html",
-    "title": "eatFDZ",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nDocumentation"
-  },
-  {
-    "objectID": "docs/quarto/index.html",
-    "href": "docs/quarto/index.html",
-    "title": "Quarto",
-    "section": "",
-    "text": "Quarto websites\nCreating a website with Quarto.\nA nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   }
 ]
