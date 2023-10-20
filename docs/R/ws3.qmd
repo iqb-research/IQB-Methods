@@ -40,7 +40,7 @@ Falls es mehrere Pakete gibt, die Funktionen mit demselben Namen beinhalten (zB 
 
 Wenn `R` geöffnet wird (ob über die GUI oder RStudio), wird ein aktives Working Dirctory festgelegt. In diesem Ordner sucht `R` dann standardmäßig nach Dateien bzw. speichert diese dort ab. Mit den Befehlen `getwd()` und `setwd()` kann das Working Directory ausgegeben und verändert werden.
 
-```{r wd}
+```{r wd, eval = FALSE}
 # Working Directory ausgeben lassen
 getwd()
 # Working Directory ändern
@@ -57,7 +57,7 @@ Verwendet man RStudio und öffnet eine neue RStudio-Session per Doppelklick auf 
 
 Man kann Dateipfade also in relative bzw. absolute Dateipfade unterteilen:
 
-```{r pfade}
+```{r pfade, eval = FALSE}
 # Working Directory und relativen Dateipfade verwenden
 setwd("P:/R/03_Workshops_und_Tutorials/02_R_Einfuehrung/Material_WSIII")
 test <- readRDS("mtcars.RDS")
@@ -74,7 +74,7 @@ In `R` gibt es zwei R-spezifische Dateiformate, um Daten zu speichern: `RDS` und
 
 `saveRDS()` dient zur Speicherung eines einzelnen Objekts in R, die die Endung `RDS` erhalten sollten. Beim Laden dieses Objekts wird dem Objekt ein neuer Name zugewiesen.
 
-```{r RDS}
+```{r RDS, eval = FALSE}
 # Beispieldatensatz
 head(mtcars)
 # Objekt speichern
@@ -87,7 +87,7 @@ head(dat)
 
 `save()` dient zur Speicherung mehrerer Objekte auf einmal, entsprechende Dateien sollten die Endung `RData` erhalten. Beim Laden dieser Objekte behalten diese ihren ursprünglichen Namen. Dies kann nervig sein, da mögliche andere Personen nicht wissen, welche Namen die gespeicherten Objekte hatten.
 
-```{r RData}
+```{r RData, eval = FALSE}
 # Beispieldatensätze
 mtcars2 <- mtcars
 iris2 <- iris
@@ -110,7 +110,7 @@ ls()
 
 Beim Speichern von comma seperated files (`.csv`) können die Funktionen `write.csv()` und `write.csv2()` verwendet werden, wobei letztere Funktion den deutschen Excel-Konventionen ("," als Dezimaltrenner) entspricht.
 
-```{r csv}
+```{r csv, eval = FALSE}
 # Objekt speichern
 write.csv2(mtcars, "Material_WSIII/mtcars.csv")
 # Objekt laden
@@ -123,7 +123,7 @@ head(dat)
 
 Zum Einlesen von Excel files empfiehlt sich die Funktion `read_xlsx()` aus dem Paket `readxl`. Achtung! Da das Paket standardmäßig einen `tibble` ausgibt, eine Spezialform von `data.frames`, empfiehlt sich die Umwandlung zu einem `data.frame`. Da das Paket leider kein Schreiben von Excel files unterstützt, empfiehlt sich hierfür die Funktion `write_xlsx()` aus dem Paket `eatAnalysis`.
 
-```{r xlsx}
+```{r xlsx, eval = FALSE}
 # Objekt speichern
 eatAnalysis::write_xlsx(mtcars, "Material_WSIII/mtcars.xlsx", row.names = FALSE)
 # Objekt laden
@@ -136,21 +136,21 @@ head(dat)
 
 Zum Importieren von SPSS-Dateien bietet sich das Paket `eatGADS` an. Es ermöglicht das Einlesen von Daten in einem zwei-schrittigem Vorgehen. Zuerst werden die Daten eingelesen.
 
-```{r import_spss, message=FALSE}
+```{r import_spss, message=FALSE, eval = FALSE}
 # sav Datei einlesen
 spss <- eatGADS::import_spss("Material_WSIII/example.sav")
 ```
 
 Diese Datei enthält sämtliche Metadaten, die auch die originale spss-Datei beinhaltet (Variablen- und Wertelabel etc.). Diese können mithilfe von `extractMeta` abgefragt werden.
 
-```{r meta}
+```{r meta, eval = FALSE}
 # sav Datei einlesen
 eatGADS::extractMeta(spss, "PJgsep_a")
 ```
 
 Um Analysen in R durchzuführen, müssen die Daten aus diesem Objekt nun mithilfe der `extractData()`-Funktion extrahiert werden. Diese ermöglicht zum einen Missingcodes anzuwenden, zum anderen gelabelte Variablen entweder als numerische, character oder Faktor-Variablen auszugeben.
 
-```{r extractData}
+```{r extractData, eval = FALSE}
 # sav Datei einlesen
 dat <- eatGADS::extractData(spss, convertLabel = "character", convertMiss = TRUE)
 head(dat)
@@ -160,7 +160,7 @@ head(dat)
 
 Stata-Datein können mithilfe des Paktes `haven` sowohl gelesen als auch geschrieben werden.
 
-```{r stata}
+```{r stata, eval = FALSE}
 # Objekt speichern
 haven::write_dta(mtcars, "Material_WSIII/mtcars.dta")
 # Objekt laden
@@ -173,7 +173,7 @@ head(dat)
 
 Häufig möchte man in Vorbereitung von Analysen mithilfe von `Mplus` Daten in `R` aufbereiten. Das Paket `MplusAutomation` beinhaltet die Funktion `prepareMplusData()`, die das schreiben von `.dat` Datein ermöglicht und zusätzlich einen Rohling für die Mplus-Analysesyntax erstellt. Außerdem beinhaltet das Paket zahlreiche Möglichkeiten verschiedene Analysen zu automatisieren.
 
-```{r mplus,warning= FALSE}
+```{r mplus,warning= FALSE, eval = FALSE}
 # Objekt speichern
 MplusAutomation::prepareMplusData(mtcars, filename = "Material_WSIII/mtcars.dat")
 ```
