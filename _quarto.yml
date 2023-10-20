@@ -32,9 +32,12 @@ website:
              - docs/R/index.qmd
              - href: https://nickhaf.github.io/r_tutorial/
                text: Selfpaced R Workshop
-             - docs/R/ws1.qmd
-             - docs/R/ws2.qmd
-             - docs/R/ws3.qmd
+             - href: docs/R/ws1.qmd
+               text: Einführung
+             - href: docs/R/ws2.qmd
+               text: Data.frames, Listen & Plots
+             - href: docs/R/ws3.qmd
+               text: Pakete und Daten laden
           - section: "Cheat Sheets"
             contents:
              - href: https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf
