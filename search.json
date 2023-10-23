@@ -35,39 +35,53 @@
     "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html",
-    "href": "posts/r_sig/23_31_07_apply/index.html",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html",
+    "href": "posts/r_sig/23_07_31_apply/index.html",
     "title": "The apply family",
     "section": "",
     "text": "I can highly recommend the according chapter in R for Data Science in case you want to dive deeper."
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html#for-loops",
-    "href": "posts/r_sig/23_31_07_apply/index.html#for-loops",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#for-loops",
+    "href": "posts/r_sig/23_07_31_apply/index.html#for-loops",
     "title": "The apply family",
     "section": "For-loops",
     "text": "For-loops\nIn the last SIG we talked about for-loops.\nWhile for is definitely the most flexible of the looping options, we suggest you avoid it wherever you can, for the following two reasons:\n\n\nIt is not very expressive, i.e. takes a lot of code to do what you want.\n\n\nIt permits you to write horrible code.\n\n\nLet’s consider this example:\n\nexample_list &lt;- list(\n  \"vec_1\" = c(1:10),\n  \"vec_2\" = c(100:400),\n  \"vec_3\" = c(80:97, NA)\n)\nstr(example_list)\n\nList of 3\n $ vec_1: int [1:10] 1 2 3 4 5 6 7 8 9 10\n $ vec_2: int [1:301] 100 101 102 103 104 105 106 107 108 109 ...\n $ vec_3: int [1:19] 80 81 82 83 84 85 86 87 88 89 ...\n\n\nHere we have a list consisting of three vectors. Our goal is to sum them an output the result into a new vector. We could use a for-loop to do that:\n\nvec_sum &lt;- c()\nfor(i in 1: length(example_list)){\n  vec_sum[i] &lt;- sum(example_list[[i]], na.rm = TRUE)\n}\nvec_sum\n\n[1]    55 75250  1593\n\n\nOkay, that doesn’t look that complicated. But still, we need to define an empty vector at the beginning so we can save our sums, we need to iterate from 1:length(example_list), and manually select the \\(i^{th}\\) from the input list. That is not very expressive, and can be solved a lot easier. Enter, the apply-family:"
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html#the-apply-family",
-    "href": "posts/r_sig/23_31_07_apply/index.html#the-apply-family",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#the-apply-family",
+    "href": "posts/r_sig/23_07_31_apply/index.html#the-apply-family",
     "title": "The apply family",
     "section": "The apply-family",
     "text": "The apply-family\nThe apply-functions apply a function to a vector, list, matrix … and also always return a vector, list matrix …, depending on the specific function. Let’s rewrite our for-loop with sapply():\n\nvec_sum &lt;- sapply(example_list, sum)\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250    NA \n\n\nA lot less code and easier to understand! We just go over every list element and calculate its sum.\nIf we want to add another function argument, we can do that as well:\n\nvec_sum &lt;- sapply(example_list, sum, na.rm = TRUE)\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nWe can also define our own function:\n\nvec_sum &lt;- sapply(example_list, function(x){\n  res_sum &lt;- sum(x, na.rm = TRUE)\n  print(res_sum)\n  return(res_sum)\n})\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nHere we calculate the sum of object x, and then print it.\nFinally, which makes for even nicer code, we can define the function externally, to give it a concise name:\n\nprint_sum &lt;- function(vec){\n  res_sum &lt;- sum(vec, na.rm = TRUE)\n  print(res_sum)\n  return(res_sum)\n}\n\nvec_sum &lt;- sapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nDepending of the output we want, we can choose different apply-functions:\n\nsapply()\nsapply() simplifies the result, so, e.g., it will return a vector if possible:\n\nsapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\n\n\nvapply()\nSimilar to sapply(), but we can pre-specify a return value, so it might be safer to use:\n\nvapply(example_list, print_sum, integer(1))\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nBecause the result is an integer vector, we don’t get an error, but if we write this:\n\nvapply(example_list, print_sum, character(1))\n\n[1] 55\n\n\nError in vapply(example_list, print_sum, character(1)): values must be type 'character',\n but FUN(X[[1]]) result is type 'integer'\n\n\nThe function returns an error, because its output is an integer, and not a character vector.\n\n\nlapply()\nReturns a list:\n\nlapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\n$vec_1\n[1] 55\n\n$vec_2\n[1] 75250\n\n$vec_3\n[1] 1593\n\n\n\n\n\n\n\n\nExercises\n\n\n\nWork with the iris data.frame (it is already included in Base R):\n\nExercise 1\nWrite a for-loop to determine the median of each column, if it is numeric. If not, return the column class with class(). Save the results in a character vector, so every element should be converted to character before saving it in the vector.\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  if(is.numeric(iris[, i])){\n    vec_median[i] &lt;- as.character(median(iris[, i], na.rm = TRUE))\n  } else{\n    vec_median[i] &lt;- class(iris[, i])\n  }\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\"\n\n\n\n\n\n\n\nExercise 2\n\nDefine the body of the for loop as its own function. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\ncheck_median &lt;- function(vec){\n  if(is.numeric(vec)){\n    result &lt;- median(vec, na.rm = TRUE)\n  } else{\n    result &lt;- class(vec)\n  }\n  ## Convert to character, so our function always returns the correct type\n  result &lt;- as.character(result)\n  return(result)\n}\n\n## Check it:\ncheck_median(c(100, 1000))\n\n[1] \"550\"\n\ncheck_median(c(\"a\", \"b\"))\n\n[1] \"character\"\n\n\n\n\n\n\nUse it in the for-loop.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  vec_median[i] &lt;- check_median(iris[, i])\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\"\n\n\n\n\n\n\n\nExercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html#exercise-2",
-    "href": "posts/r_sig/23_31_07_apply/index.html#exercise-2",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#exercise-2",
+    "href": "posts/r_sig/23_07_31_apply/index.html#exercise-2",
     "title": "The apply family",
     "section": "Exercise 2",
     "text": "Exercise 2\n\nDefine the body of the for loop as its own function. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\ncheck_median &lt;- function(vec){\n  if(is.numeric(vec)){\n    result &lt;- median(vec, na.rm = TRUE)\n  } else{\n    result &lt;- class(vec)\n  }\n  ## Convert to character, so our function always returns the correct type\n  result &lt;- as.character(result)\n  return(result)\n}\n\n## Check it:\ncheck_median(c(100, 1000))\n\n[1] \"550\"\n\ncheck_median(c(\"a\", \"b\"))\n\n[1] \"character\"\n\n\n\n\n\n\nUse it in the for-loop.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  vec_median[i] &lt;- check_median(iris[, i])\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\""
   },
   {
-    "objectID": "posts/r_sig/23_31_07_apply/index.html#exercise-3",
-    "href": "posts/r_sig/23_31_07_apply/index.html#exercise-3",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#exercise-3",
+    "href": "posts/r_sig/23_07_31_apply/index.html#exercise-3",
     "title": "The apply family",
     "section": "Exercise 3",
     "text": "Exercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
+  },
+  {
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html",
+    "title": "Cleaner Scripts",
+    "section": "",
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+  },
+  {
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "title": "Cleaner Scripts",
+    "section": "",
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
     "objectID": "docs/reproduce/renv.html",
@@ -371,6 +385,27 @@
     "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
   },
   {
+    "objectID": "posts/r_sig/23_10_23_renv/index.html",
+    "href": "posts/r_sig/23_10_23_renv/index.html",
+    "title": "Reproducability with renv",
+    "section": "",
+    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
+  },
+  {
+    "objectID": "posts/r_sig/23_10_23_renv/index.html#motivation",
+    "href": "posts/r_sig/23_10_23_renv/index.html#motivation",
+    "title": "Reproducability with renv",
+    "section": "",
+    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
+  },
+  {
+    "objectID": "posts/r_sig/23_10_23_renv/index.html#workflow",
+    "href": "posts/r_sig/23_10_23_renv/index.html#workflow",
+    "title": "Reproducability with renv",
+    "section": "Workflow",
+    "text": "Workflow\nWe already have an article on the website. Or take a look at the official renv documentation."
+  },
+  {
     "objectID": "posts/r_sig/23_03_20_forloops/index.html",
     "href": "posts/r_sig/23_03_20_forloops/index.html",
     "title": "for-loops",
@@ -396,6 +431,6 @@
     "href": "posts_r_sig.html",
     "title": "R-SIG",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nNov 10, 2024\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   }
 ]

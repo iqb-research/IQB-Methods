@@ -14,7 +14,7 @@
 <item>
   <title>The apply family</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_31_07_apply/index.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/index.html</link>
   <description><![CDATA[ 
 
 
@@ -626,8 +626,71 @@ $Species
  ]]></description>
   <category>R</category>
   <category>loops</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_31_07_apply/index.html</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/index.html</guid>
   <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Reproducability with renv</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_23_renv/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> can help you with that.</p>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<p>We already have an <a href="https://iqb-research.github.io/IQB-Methods/docs/reproduce/renv.html">article</a> on the website. Or take a look at the official <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> documentation.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>renv</category>
+  <category>reproducability</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_23_renv/index.html</guid>
+  <pubDate>Sun, 10 Nov 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Cleaner Scripts</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="some-general-take-aways" class="level2">
+<h2 class="anchored" data-anchor-id="some-general-take-aways">Some general take-aways</h2>
+<ol type="1">
+<li>Markdown vs.&nbsp;Quarto vs.&nbsp;R-Skripte</li>
+</ol>
+<ul>
+<li>Quarto is more up to date than R-Markdown</li>
+<li>Markdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.</li>
+<li>In the end it’s a question of preference.</li>
+</ul>
+<ol type="1">
+<li>Write packages on top of the script.</li>
+</ol>
+<ul>
+<li>Write down verion number (use <code>sessionInfo()</code>).</li>
+<li>Or, even better: use <code>renv</code>.</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>best practices</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</guid>
+  <pubDate>Mon, 09 Oct 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>for-loops</title>
