@@ -7,25 +7,18 @@
     "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
   },
   {
-    "objectID": "posts/r_sig/23_10_23_renv/index.html",
-    "href": "posts/r_sig/23_10_23_renv/index.html",
-    "title": "Reproducability with renv",
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html",
+    "title": "Cleaner Scripts",
     "section": "",
-    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
-    "objectID": "posts/r_sig/23_10_23_renv/index.html#motivation",
-    "href": "posts/r_sig/23_10_23_renv/index.html#motivation",
-    "title": "Reproducability with renv",
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "title": "Cleaner Scripts",
     "section": "",
-    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
-  },
-  {
-    "objectID": "posts/r_sig/23_10_23_renv/index.html#workflow",
-    "href": "posts/r_sig/23_10_23_renv/index.html#workflow",
-    "title": "Reproducability with renv",
-    "section": "Workflow",
-    "text": "Workflow\nWe already have an article on the website. Or take a look at the official renv documentation."
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
     "objectID": "posts/r_sig/23_07_31_apply/index.html",
@@ -396,21 +389,28 @@
     "href": "posts_r_sig.html",
     "title": "R-SIG",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nNov 10, 2024\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 7, 2025\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nNov 10, 2024\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
-    "href": "posts/r_sig/23_10_09_cleaner/index.html",
-    "title": "Cleaner Scripts",
+    "objectID": "posts/r_sig/23_11_06_renv/index.html",
+    "href": "posts/r_sig/23_11_06_renv/index.html",
+    "title": "Reproducability with renv",
     "section": "",
-    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
   },
   {
-    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
-    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
-    "title": "Cleaner Scripts",
+    "objectID": "posts/r_sig/23_11_06_renv/index.html#motivation",
+    "href": "posts/r_sig/23_11_06_renv/index.html#motivation",
+    "title": "Reproducability with renv",
     "section": "",
-    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
+  },
+  {
+    "objectID": "posts/r_sig/23_11_06_renv/index.html#workflow",
+    "href": "posts/r_sig/23_11_06_renv/index.html#workflow",
+    "title": "Reproducability with renv",
+    "section": "Workflow",
+    "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
   },
   {
     "objectID": "posts/r_sig/23_03_20_forloops/index.html",
