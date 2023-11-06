@@ -1,0 +1,56 @@
+---
+title: "Reproducability with renv"
+description: "R-SIG 23.10.2023"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+date: 23-10-2023
+categories: [R, renv, reproducability]
+---
+
+## Motivation
+
+Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package [renv](https://rstudio.github.io/renv/articles/renv.html) can help you with that.
+
+## Workflow
+
+First, initialize the project:
+
+```{r, eval = FALSE}
+# install.packages(renv)
+renv::init()
+```
+
+
+This mainly will do two things: 
+
+1. Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.
+1. A `.lock` file, where the package versions get documented.
+
+By the way, it doesn't matter if you do this in the beginning of your project, in between or at the end. `renv::init()` will automatically setup the project with all the packages you have used in the project.
+
+The rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use `renv::install()` which has some additional features compared to `install.packages())`. For example, you can install specific package versions: `renv::install("dplyr@1.1.1")`. No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with `library()`.
+
+The next step is to write the package into your `.lock` file:
+
+```{r, eval = FALSE}
+renv::snapshot()
+```
+
+This will update the `.lock` file with your new package.
+
+If on the other hand you want to restore the packages from the `.lock` file, use:
+
+```{r, eval = FALSE}
+renv::restore()
+```
+
+This will install the package version that is documented in the lock file into your project specific library.
+
+You can update your dependencies to the latest version using:
+
+```{r, eval = FALSE}
+renv::update()
+```
+
+Look [here](https://rstudio.github.io/renv/articles/renv.html#getting-started) for the offical documentation.
