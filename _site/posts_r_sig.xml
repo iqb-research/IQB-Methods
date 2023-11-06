@@ -6,21 +6,747 @@
       version="2.0">
 <channel>
 <title>IQB Methods Team</title>
-<link>https://iqb-research.github.io/R-SIG/posts_r_sig.html</link>
-<atom:link href="https://iqb-research.github.io/R-SIG/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
+<link>https://iqb-research.github.io/IQB-Methods/posts_r_sig.html</link>
+<atom:link href="https://iqb-research.github.io/IQB-Methods/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Sun, 19 Mar 2023 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 06 Jul 2025 22:00:00 GMT</lastBuildDate>
 <item>
-  <title>for-loops</title>
+  <title>The apply family</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/R-SIG/posts/r_sig/23_03_20_forloops/index.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/index.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p><img src="https://iqb-research.github.io/R-SIG/posts/r_sig/23_03_20_forloops/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
+<p>I can highly recommend the according chapter in <a href="https://r4ds.had.co.nz/iteration.html#iteration">R for Data Science</a> in case you want to dive deeper.</p>
+<section id="for-loops" class="level2">
+<h2 class="anchored" data-anchor-id="for-loops">For-loops</h2>
+<p>In the <a href="../../../posts/r_sig/23_03_20_forloops/index.html">last SIG</a> we talked about <a href="https://nickhaf.github.io/r_tutorial/qmd/loops/loops.html">for-loops</a>.<br>
+While for is definitely the most flexible of the looping options, we suggest you avoid it wherever you can, for the following two reasons:</p>
+<ul>
+<li><ol type="1">
+<li>It is not very expressive, i.e.&nbsp;takes a lot of code to do what you want.</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>It permits you to write horrible code.</li>
+</ol></li>
+</ul>
+<p>Let’s consider this example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">example_list <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(</span>
+<span id="cb1-2">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vec_1"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>),</span>
+<span id="cb1-3">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vec_2"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">400</span>),</span>
+<span id="cb1-4">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vec_3"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">80</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">97</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>)</span>
+<span id="cb1-5">)</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(example_list)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 3
+ $ vec_1: int [1:10] 1 2 3 4 5 6 7 8 9 10
+ $ vec_2: int [1:301] 100 101 102 103 104 105 106 107 108 109 ...
+ $ vec_3: int [1:19] 80 81 82 83 84 85 86 87 88 89 ...</code></pre>
+</div>
+</div>
+<p>Here we have a list consisting of three vectors. Our goal is to sum them an output the result into a new vector. We could use a for-loop to do that:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">vec_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>()</span>
+<span id="cb3-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(example_list)){</span>
+<span id="cb3-3">  vec_sum[i] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(example_list[[i]], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb3-4">}</span>
+<span id="cb3-5">vec_sum</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]    55 75250  1593</code></pre>
+</div>
+</div>
+<p>Okay, that doesn’t look that complicated. But still, we need to define an empty vector at the beginning so we can save our sums, we need to iterate from <code>1:length(example_list)</code>, and manually select the <img src="https://latex.codecogs.com/png.latex?i%5E%7Bth%7D"> from the input list. That is not very expressive, and can be solved a lot easier. Enter, the apply-family:</p>
+</section>
+<section id="the-apply-family" class="level2">
+<h2 class="anchored" data-anchor-id="the-apply-family">The apply-family</h2>
+<p>The apply-functions <em>apply</em> a function to a vector, list, matrix … and also always return a vector, list matrix …, depending on the specific function. Let’s rewrite our for-loop with <code>sapply()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">vec_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sapply</span>(example_list, sum)</span>
+<span id="cb5-2">vec_sum</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>vec_1 vec_2 vec_3 
+   55 75250    NA </code></pre>
+</div>
+</div>
+<p>A lot less code and easier to understand! We just go over every list element and calculate its sum.</p>
+<p>If we want to add another function argument, we can do that as well:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">vec_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sapply</span>(example_list, sum, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb7-2">vec_sum</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>vec_1 vec_2 vec_3 
+   55 75250  1593 </code></pre>
+</div>
+</div>
+<p>We can also <a href="https://nickhaf.github.io/r_tutorial/qmd/functions/functions.html">define our own function</a>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">vec_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sapply</span>(example_list, <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(x){</span>
+<span id="cb9-2">  res_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(x, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb9-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(res_sum)</span>
+<span id="cb9-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(res_sum)</span>
+<span id="cb9-5">})</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55
+[1] 75250
+[1] 1593</code></pre>
+</div>
+</div>
+<p>Here we calculate the sum of object <code>x</code>, and then print it.</p>
+<p>Finally, which makes for even nicer code, we can define the function externally, to give it a concise name:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">print_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(vec){</span>
+<span id="cb11-2">  res_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(vec, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb11-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(res_sum)</span>
+<span id="cb11-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(res_sum)</span>
+<span id="cb11-5">}</span>
+<span id="cb11-6"></span>
+<span id="cb11-7">vec_sum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sapply</span>(example_list, print_sum)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55
+[1] 75250
+[1] 1593</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">vec_sum</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>vec_1 vec_2 vec_3 
+   55 75250  1593 </code></pre>
+</div>
+</div>
+<p>Depending of the output we want, we can choose different apply-functions:</p>
+<section id="sapply" class="level3">
+<h3 class="anchored" data-anchor-id="sapply">sapply()</h3>
+<p><code>sapply()</code> simplifies the result, so, e.g., it will return a vector if possible:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sapply</span>(example_list, print_sum)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55
+[1] 75250
+[1] 1593</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>vec_1 vec_2 vec_3 
+   55 75250  1593 </code></pre>
+</div>
+</div>
+</section>
+<section id="vapply" class="level3">
+<h3 class="anchored" data-anchor-id="vapply">vapply()</h3>
+<p>Similar to <code>sapply()</code>, but we can pre-specify a return value, so it might be safer to use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vapply</span>(example_list, print_sum, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">integer</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55
+[1] 75250
+[1] 1593</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>vec_1 vec_2 vec_3 
+   55 75250  1593 </code></pre>
+</div>
+</div>
+<p>Because the result is an integer vector, we don’t get an error, but if we write this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vapply</span>(example_list, print_sum, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">character</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in vapply(example_list, print_sum, character(1)): Werte müssen vom Typ 'character' sein,
+Ergebnis von FUN(X[[1]]) ist aber Typ 'integer'</code></pre>
+</div>
+</div>
+<p>The function returns an error, because its output is an integer, and not a character vector.</p>
+</section>
+<section id="lapply" class="level3">
+<h3 class="anchored">lapply()</h3>
+<p>Returns a list:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(example_list, print_sum)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55
+[1] 75250
+[1] 1593</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$vec_1
+[1] 55
+
+$vec_2
+[1] 75250
+
+$vec_3
+[1] 1593</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Work with the <code>iris</code> data.frame (it is already included in Base R):</p>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<p>Write a for-loop to determine the median of each column, if it is numeric. If not, return the column class with <code>class()</code>. Save the results in a character vector, so every element should be converted to character before saving it in the vector.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">vec_median <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>()</span>
+<span id="cb27-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ncol</span>(iris)){</span>
+<span id="cb27-3">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(iris[, i])){</span>
+<span id="cb27-4">    vec_median[i] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">median</span>(iris[, i], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>))</span>
+<span id="cb27-5">  } <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span>{</span>
+<span id="cb27-6">    vec_median[i] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(iris[, i])</span>
+<span id="cb27-7">  }</span>
+<span id="cb27-8">}</span>
+<span id="cb27-9"></span>
+<span id="cb27-10">vec_median</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "5.8"    "3"      "4.35"   "1.3"    "factor"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<ol type="1">
+<li>Define the body of the for loop as its own <a href="https://nickhaf.github.io/r_tutorial/qmd/functions/functions.html">function</a>. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">check_median <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(vec){</span>
+<span id="cb29-2">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(vec)){</span>
+<span id="cb29-3">    result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">median</span>(vec, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb29-4">  } <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span>{</span>
+<span id="cb29-5">    result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(vec)</span>
+<span id="cb29-6">  }</span>
+<span id="cb29-7">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Convert to character, so our function always returns the correct type</span></span>
+<span id="cb29-8">  result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(result)</span>
+<span id="cb29-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(result)</span>
+<span id="cb29-10">}</span>
+<span id="cb29-11"></span>
+<span id="cb29-12"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Check it:</span></span>
+<span id="cb29-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_median</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "550"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_median</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"b"</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Use it in the for-loop.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1">vec_median <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>()</span>
+<span id="cb33-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ncol</span>(iris)){</span>
+<span id="cb33-3">  vec_median[i] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_median</span>(iris[, i])</span>
+<span id="cb33-4">}</span>
+<span id="cb33-5"></span>
+<span id="cb33-6">vec_median</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "5.8"    "3"      "4.35"   "1.3"    "factor"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Rewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.</p>
+<ol type="1">
+<li>A vector.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sapply</span>(iris, check_median)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+       "5.8"          "3"       "4.35"        "1.3"     "factor" </code></pre>
+</div>
+</div>
+<p>Or, even better:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vapply</span>(iris, check_median, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">character</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+       "5.8"          "3"       "4.35"        "1.3"     "factor" </code></pre>
+</div>
+</div>
+<p>Wow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>A list.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(iris, check_median)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Sepal.Length
+[1] "5.8"
+
+$Sepal.Width
+[1] "3"
+
+$Petal.Length
+[1] "4.35"
+
+$Petal.Width
+[1] "1.3"
+
+$Species
+[1] "factor"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>loops</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/index.html</guid>
+  <pubDate>Sun, 06 Jul 2025 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Reproducability with renv</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> can help you with that.</p>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<p>First, initialize the project:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages(renv)</span></span>
+<span id="cb1-2">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">init</span>()</span></code></pre></div>
+</div>
+<p>This mainly will do two things:</p>
+<ol type="1">
+<li>Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.</li>
+<li>A <code>.lock</code> file, where the package versions get documented.</li>
+</ol>
+<p>By the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. <code>renv::init()</code> will automatically setup the project with all the packages you have used in the project.</p>
+<p>The rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use <code>renv::install()</code> which has some additional features compared to <code>install.packages())</code>. For example, you can install specific package versions: <code>renv::install("dplyr@1.1.1")</code>. No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library.</p>
+<p>Then you load your package like you normally would with <code>library()</code>.</p>
+<p>The next step is to write the package into your <code>.lock</code> file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">snapshot</span>()</span></code></pre></div>
+</div>
+<p>This will update the <code>.lock</code> file with your new package.</p>
+<p>If on the other hand you want to restore the packages from the <code>.lock</code> file, use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">restore</span>()</span></code></pre></div>
+</div>
+<p>This will install the package version that is documented in the lock file into your project specific library.</p>
+<p>You can update your dependencies to the latest version using:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">update</span>()</span></code></pre></div>
+</div>
+<p>Look <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started">here</a> for the offical documentation.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>renv</category>
+  <category>reproducability</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/index.html</guid>
+  <pubDate>Sat, 09 Nov 2024 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Cleaner Scripts</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="some-general-take-aways" class="level2">
+<h2 class="anchored" data-anchor-id="some-general-take-aways">Some general take-aways</h2>
+<ol type="1">
+<li>Markdown vs.&nbsp;Quarto vs.&nbsp;R-Skripte</li>
+</ol>
+<ul>
+<li>Quarto is more up to date than R-Markdown</li>
+<li>Markdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.</li>
+<li>In the end it’s a question of preference.</li>
+</ul>
+<ol type="1">
+<li>Write packages on top of the script.</li>
+</ol>
+<ul>
+<li>Write down verion number (use <code>sessionInfo()</code>).</li>
+<li>Or, even better: use <code>renv</code>.</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>best practices</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</guid>
+  <pubDate>Sun, 08 Oct 2023 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>for-loops</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
 </section>
@@ -50,10 +776,10 @@
 Hafiz, Nicklas. 2023. <span>“For-Loops.”</span> March 20, 2023. <a href="https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/">https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/</a>.
 </div></div></section></div> ]]></description>
   <category>R</category>
-  <category>for-loops</category>
-  <guid>https://iqb-research.github.io/R-SIG/posts/r_sig/23_03_20_forloops/index.html</guid>
+  <category>loops</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/index.html</guid>
   <pubDate>Sun, 19 Mar 2023 23:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/R-SIG/posts/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
