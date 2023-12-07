@@ -376,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#building-the-website" id="toc-building-the-website" class="nav-link" data-scroll-target="#building-the-website">Building the website</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IQB-Methods/edit/main/docs/quarto/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/IQB-Methods/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/quarto/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -413,28 +413,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it.</p>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<ol type="1">
-<li>As the website is hosted on GitHub, you can just clone the <a href="https://github.com/iqb-research/IQB-Methods">repository</a>.</li>
-<li>Open the RStudio project with RStudio.</li>
-<li>This website uses <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> to keep the project specific package library up to date. The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</li>
-</ol>
+<p>This website uses <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> to keep the project specific package library up to date. The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <em>first thing you need to do</em> is to install the necessary packages into your local project library:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("renv")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If your files need their own packages, just install them like you would normally do with either:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"eatGADS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You need to do this even if you have them already installed on your PC locally, because <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> uses a project specific library.</p>
 </section>
 <section id="file-structure" class="level2">
 <h2 class="anchored" data-anchor-id="file-structure">File structure</h2>
-<p>Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: <code>docs</code> or <code>posts</code>. <code>docs</code> contains most of the tutorial files: They are structured into sub folders, like <code>eatPackages</code> or <code>R</code>. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Just make sure they are quarto-files with the <code>.qmd</code> ending.</p>
+<p>Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: <code>docs</code> or <code>posts</code>. <code>docs</code> contains most of the tutorial files: They are structured into sub folders, like <code>eatPackages</code> or <code>R</code>. Here the quarto-files can be found that contain the actual website content. Just edit them or add new ones. Just make sure they are quarto-files with the <code>.qmd</code> ending.</p>
 <section id="quarto.yml" class="level3">
 <h3 class="anchored" data-anchor-id="quarto.yml"><code>_quarto.yml</code></h3>
-<p>On the highest directory level you can find the <code>_quarto.yml</code> file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give name the links to the websites:</p>
+<p>On the highest directory level you can find the <code>_quarto.yml</code> file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give the links to the websites different names:</p>
 <pre><code>    contents:
       - section: "R Tutorials"
         contents:
@@ -445,7 +435,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                text: Selfpaced R Workshop
              - href: docs/R/ws1.qmd
                text: Einführung</code></pre>
-<p>This creates the section <code>R Tutorials</code> with the subsection <code>Introduction</code>. <code>Introduction</code> consists of three pages: the <code>index.qmd</code> page, wich is like the main page of this section, the page <code>Selfpaced R Workshop</code>, which actually is only a link to another website, and the page <code>Einführung</code>, which links to the qmd-file <code>ws1.qmd</code>. Just add your pages where appropriate.</p>
+<p>This creates the section <code>R Tutorials</code> with the subsection <code>Introduction</code>. Introduction consists of three pages: the <code>index.qmd</code> page, wich is like the main page of this section, the page <code>Selfpaced R Workshop</code>, which actually is only a link to another website, and the page <code>Einführung</code>, which links to the qmd-file <code>ws1.qmd</code>. Just add your pages where appropriate.</p>
 </section>
 <section id="quarto-files" class="level3">
 <h3 class="anchored" data-anchor-id="quarto-files">quarto-files</h3>
@@ -454,7 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="linking">Linking</h4>
 <p>You can easily link to other pages of this website, or to other websites:</p>
 <p><code>[displayed text](link.de)</code></p>
-<p>You might need to use relative paths: <code>[renv](../../posts/r_sig/23_11_06_renv/index.qmd)</code>. This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
+<p>You might need to use relative paths: <code>[</code>renv<code>](../../posts/r_sig/23_11_06_renv/index.qmd)</code> This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
 </section>
 <section id="pictures" class="level4">
 <h4 class="anchored" data-anchor-id="pictures">Pictures</h4>
@@ -487,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@sinjin_thomas?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Sinjin Thomas</a> on <a href="https://unsplash.com/de/fotos/brauner-und-schwarzer-kurzhaariger-hund-VpoS_qNXkxA?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@debralcamp?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Debbie Campbell</a> on <a href="https://unsplash.com/de/fotos/brauner-und-weisser-kurzbeschichteter-hund-der-tagsuber-auf-braunem-betonboden-sitzt-6el9poQDfpg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>My Footnote.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
