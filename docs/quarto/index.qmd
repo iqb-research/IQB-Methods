@@ -46,7 +46,7 @@ You can easily link to other pages of this website, or to other websites:
 `[displayed text](link.de)`
 
 You might need to use relative paths:
-`[`renv`](../../posts/r_sig/23_11_06_renv/index.qmd)`
+`[renv](../../posts/r_sig/23_11_06_renv/index.qmd)`
 This will link to the `renv` page in the `posts` directory. 
 
 #### Pictures
@@ -56,7 +56,7 @@ To add a picture to your website, save the picture in the same folder as your `.
 
 ![](my_image.jpg)[^1]
 
-[^1]: Image by [Debbie Campbell](https://unsplash.com/de/@debralcamp?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/brauner-und-weisser-kurzbeschichteter-hund-der-tagsuber-auf-braunem-betonboden-sitzt-6el9poQDfpg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
+[^1]: Image by [Sinjin Thomas](https://unsplash.com/de/@sinjin_thomas?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/brauner-und-schwarzer-kurzhaariger-hund-VpoS_qNXkxA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
 
 #### Footnotes
 You can add footnotes with:
