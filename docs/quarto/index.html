@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Nicklas Hafiz">
+<meta name="dcterms.date" content="2023-12-17">
 
-<title>IQB Methods Team - Quarto</title>
+<title>IQB Methods Team - Updating the website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -63,8 +99,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="IQB Methods Team - Quarto">
+<meta property="og:title" content="IQB Methods Team - Updating the website">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/quarto/my_image.jpg">
 <meta property="og:site-name" content="IQB Methods Team">
 </head>
 
@@ -114,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/quarto/index.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../docs/quarto/index.html">Quarto</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/quarto/index.html">Quarto</a></li><li class="breadcrumb-item"><a href="../../docs/quarto/index.html">Updating the website</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -315,7 +352,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/quarto/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Quarto</span></a>
+ <span class="menu-text">Updating the website</span></a>
   </div>
 </li>
       </ul>
@@ -330,7 +367,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quarto-websites" id="toc-quarto-websites" class="nav-link active" data-scroll-target="#quarto-websites">Quarto websites</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#file-structure" id="toc-file-structure" class="nav-link" data-scroll-target="#file-structure">File structure</a>
+  <ul class="collapse">
+  <li><a href="#quarto.yml" id="toc-quarto.yml" class="nav-link" data-scroll-target="#quarto.yml"><code>_quarto.yml</code></a></li>
+  <li><a href="#quarto-files" id="toc-quarto-files" class="nav-link" data-scroll-target="#quarto-files">quarto-files</a></li>
+  </ul></li>
+  <li><a href="#building-the-website" id="toc-building-the-website" class="nav-link" data-scroll-target="#building-the-website">Building the website</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IQB-Methods/edit/main/docs/quarto/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/IQB-Methods/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -339,14 +383,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto</h1>
+<h1 class="title">Updating the website</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicklas Hafiz </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 17, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -354,15 +410,87 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="quarto-websites" class="level1">
-<h1>Quarto websites</h1>
-<p><a href="https://quarto.org/docs/websites/">Creating a website</a> with Quarto.</p>
-<p>A nice hands on tutorial on adding blog posts to an existing Quarto website can be found <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">here</a>, along with some additional tips on citations, footnotes etc.</p>
+<p>This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<ol type="1">
+<li>As the website is hosted on GitHub, you can just clone the <a href="https://github.com/iqb-research/IQB-Methods">repository</a>.</li>
+<li>Open the RStudio project with RStudio.</li>
+<li>This website uses <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> to keep the project specific package library up to date. The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("renv")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If your files need their own packages, just install them like you would normally do with either:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"eatGADS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You need to do this even if you have them already installed on your PC locally, because <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> uses a project specific library.</p>
+</section>
+<section id="file-structure" class="level2">
+<h2 class="anchored" data-anchor-id="file-structure">File structure</h2>
+<p>Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: <code>docs</code> or <code>posts</code>. <code>docs</code> contains most of the tutorial files: They are structured into sub folders, like <code>eatPackages</code> or <code>R</code>. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Just make sure they are quarto-files with the <code>.qmd</code> ending.</p>
+<section id="quarto.yml" class="level3">
+<h3 class="anchored" data-anchor-id="quarto.yml"><code>_quarto.yml</code></h3>
+<p>On the highest directory level you can find the <code>_quarto.yml</code> file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give name the links to the websites:</p>
+<pre><code>    contents:
+      - section: "R Tutorials"
+        contents:
+          - section: "Introduction"
+            contents:
+             - docs/R/index.qmd
+             - href: https://nickhaf.github.io/r_tutorial/
+               text: Selfpaced R Workshop
+             - href: docs/R/ws1.qmd
+               text: Einführung</code></pre>
+<p>This creates the section <code>R Tutorials</code> with the subsection <code>Introduction</code>. <code>Introduction</code> consists of three pages: the <code>index.qmd</code> page, wich is like the main page of this section, the page <code>Selfpaced R Workshop</code>, which actually is only a link to another website, and the page <code>Einführung</code>, which links to the qmd-file <code>ws1.qmd</code>. Just add your pages where appropriate.</p>
+</section>
+<section id="quarto-files" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-files">quarto-files</h3>
+<p>The quarto-files contain the actual content of the website. Just edit them like you would edit <code>.qmd</code>-files (or <code>.rmd</code>-files, as the rmarkdown syntax is quite similar). Here are some useful tips:</p>
+<section id="linking" class="level4">
+<h4 class="anchored" data-anchor-id="linking">Linking</h4>
+<p>You can easily link to other pages of this website, or to other websites:</p>
+<p><code>[displayed text](link.de)</code></p>
+<p>You might need to use relative paths: <code>[renv](../../posts/r_sig/23_11_06_renv/index.qmd)</code>. This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
+</section>
+<section id="pictures" class="level4">
+<h4 class="anchored" data-anchor-id="pictures">Pictures</h4>
+<p>To add a picture to your website, save the picture in the same folder as your <code>.qmd</code>-file. Then you can display it with:</p>
+<p><code>![](my_image.jpg)</code></p>
+<p><img src="my_image.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+<section id="footnotes" class="level4">
+<h4 class="anchored" data-anchor-id="footnotes">Footnotes</h4>
+<p>You can add footnotes with:</p>
+<pre><code>Add a footnote[^2].
+
+[^2]: My Footnote.</code></pre>
+<p>Add a footnote<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+</section>
+</section>
+</section>
+<section id="building-the-website" class="level2">
+<h2 class="anchored" data-anchor-id="building-the-website">Building the website</h2>
+<p>To get a preview of your website, just click on the <code>Render</code> button in R Studio. This is not necessary however, because the website will only be built online when you push to github and merge into main. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first.</p>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<p>The official documentation can be found <a href="https://quarto.org/docs/websites/">here</a>. A nice hands on tutorial on adding blog posts to an existing Quarto website can be found <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">here</a>, along with some additional tips on citations, footnotes etc.</p>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@sinjin_thomas?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Sinjin Thomas</a> on <a href="https://unsplash.com/de/fotos/brauner-und-schwarzer-kurzhaariger-hund-VpoS_qNXkxA?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>My Footnote.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
