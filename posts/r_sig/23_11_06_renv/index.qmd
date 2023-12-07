@@ -21,11 +21,10 @@ First, initialize the project:
 renv::init()
 ```
 
+This mainly will do two things:
 
-This mainly will do two things: 
-
-1. Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.
-1. A `.lock` file, where the package versions get documented.
+1.  Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.
+2.  A `.lock` file, where the package versions get documented.
 
 By the way, it doesn't matter if you do this in the beginning of your project, in between or at the end. `renv::init()` will automatically setup the project with all the packages you have used in the project.
 

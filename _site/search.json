@@ -207,7 +207,7 @@
     "href": "posts/r_sig/23_11_06_renv/index.html#workflow",
     "title": "Reproducability with renv",
     "section": "Workflow",
-    "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library.\nThen you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
+    "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
   },
   {
     "objectID": "posts/r_sig/23_07_31_apply/index.html",
@@ -439,5 +439,89 @@
     "title": "Cleaner Scripts",
     "section": "",
     "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+  },
+  {
+    "objectID": "docs/quarto/index.html",
+    "href": "docs/quarto/index.html",
+    "title": "Updating the website",
+    "section": "",
+    "text": "This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it."
+  },
+  {
+    "objectID": "docs/quarto/index.html#setup",
+    "href": "docs/quarto/index.html#setup",
+    "title": "Updating the website",
+    "section": "Setup",
+    "text": "Setup\nThis website uses renv to keep the project specific package library up to date. The needed packages are recorded in the .lock-file, but not uploaded to GitHub. So the first thing you need to do is to install the necessary packages into your local project library:\n\n# install.packages(\"renv\")\nrenv::restore()"
+  },
+  {
+    "objectID": "docs/quarto/index.html#further-reading",
+    "href": "docs/quarto/index.html#further-reading",
+    "title": "Updating the website",
+    "section": "Further reading",
+    "text": "Further reading\nThe official documentation can be found here. A nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
+  },
+  {
+    "objectID": "docs/reproduce/renv.html",
+    "href": "docs/reproduce/renv.html",
+    "title": "The renv-Package",
+    "section": "",
+    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
+  },
+  {
+    "objectID": "docs/eatPackages/index.html",
+    "href": "docs/eatPackages/index.html",
+    "title": "Info on eat Packages",
+    "section": "",
+    "text": "see table down below and click on the links for more information on a package."
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "title": "Info on eat Packages",
+    "section": "internal IQB R packages from the ‘eat’-family",
+    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#installing-r-packages",
+    "href": "docs/eatPackages/index.html#installing-r-packages",
+    "title": "Info on eat Packages",
+    "section": "Installing R packages",
+    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#compatibility",
+    "href": "docs/eatPackages/index.html#compatibility",
+    "title": "Info on eat Packages",
+    "section": "Compatibility",
+    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
+  },
+  {
+    "objectID": "docs/eatPackages/eatAnalysis.html",
+    "href": "docs/eatPackages/eatAnalysis.html",
+    "title": "eatAnalysis",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-"
+  },
+  {
+    "objectID": "docs/quarto/index.html#file-structure",
+    "href": "docs/quarto/index.html#file-structure",
+    "title": "Updating the website",
+    "section": "File structure",
+    "text": "File structure\nBasically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: docs or posts. docs contains most of the tutorial files: They are structured into sub folders, like eatPackages or R. Here the quarto-files can be found that contain the actual website content. Just edit them or add new ones. Just make sure they are quarto-files with the .qmd ending.\n\n_quarto.yml\nOn the highest directory level you can find the _quarto.yml file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give the links to the websites different names:\n    contents:\n      - section: \"R Tutorials\"\n        contents:\n          - section: \"Introduction\"\n            contents:\n             - docs/R/index.qmd\n             - href: https://nickhaf.github.io/r_tutorial/\n               text: Selfpaced R Workshop\n             - href: docs/R/ws1.qmd\n               text: Einführung\nThis creates the section R Tutorials with the subsection Introduction. Introduction consists of three pages: the index.qmd page, wich is like the main page of this section, the page Selfpaced R Workshop, which actually is only a link to another website, and the page Einführung, which links to the qmd-file ws1.qmd. Just add your pages where appropriate.\n\n\nquarto-files\nThe quarto-files contain the actual content of the website. Just edit them like you would edit .qmd-files (or .rmd-files, as the rmarkdown syntax is quite similar). Here are some useful tips:\n\nLinking\nYou can easily link to other pages of this website, or to other websites:\n[displayed text](link.de)\nYou might need to use relative paths: [renv](../../posts/r_sig/23_11_06_renv/index.qmd) This will link to the renv page in the posts directory.\n\n\nPictures\nTo add a picture to your website, save the picture in the same folder as your .qmd-file. Then you can display it with:\n![](my_image.jpg)\n1\n\n\nFootnotes\nYou can add footnotes with:\nAdd a footnote[^2].\n\n[^2]: My Footnote.\nAdd a footnote2."
+  },
+  {
+    "objectID": "docs/quarto/index.html#building-the-website",
+    "href": "docs/quarto/index.html#building-the-website",
+    "title": "Updating the website",
+    "section": "Building the website",
+    "text": "Building the website\nTo get a preview of your website, just click on the Render button in R Studio. This is not necessary however, because the website will only be built online when you push to github and merge into main. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first."
+  },
+  {
+    "objectID": "docs/quarto/index.html#footnotes",
+    "href": "docs/quarto/index.html#footnotes",
+    "title": "Updating the website",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Debbie Campbell on Unsplash.↩︎\nMy Footnote.↩︎"
   }
 ]
