@@ -101,6 +101,9 @@ There are multiple different options, take a look at the [documentation](https:/
 #### CSS styles
 You can tweak the appearence even more by using you own [CSS-styles](https://quarto.org/docs/output-formats/html-basics.html#css-styles). 
 
+### Editing on the web page
+You can also find a small button called `Edit this page` next to the GitHub logo. This allows you to edit the page directly on GitHub. 
+
 ## Building the website
 
 To get a preview of your website, just click on the `Render` button in R Studio. This is not necessary however, because the website will only be built online when you push to github and merge into main. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first.
