@@ -10,7 +10,114 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Sun, 06 Jul 2025 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 22 Oct 2023 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Reproducability with renv</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> can help you with that.</p>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<p>First, initialize the project:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages(renv)</span></span>
+<span id="cb1-2">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">init</span>()</span></code></pre></div>
+</div>
+<p>This mainly will do two things:</p>
+<ol type="1">
+<li>Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.</li>
+<li>A <code>.lock</code> file, where the package versions get documented.</li>
+</ol>
+<p>By the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. <code>renv::init()</code> will automatically setup the project with all the packages you have used in the project.</p>
+<p>The rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use <code>renv::install()</code> which has some additional features compared to <code>install.packages())</code>. For example, you can install specific package versions: <code>renv::install("dplyr@1.1.1")</code>. No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with <code>library()</code>.</p>
+<p>The next step is to write the package into your <code>.lock</code> file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">snapshot</span>()</span></code></pre></div>
+</div>
+<p>This will update the <code>.lock</code> file with your new package.</p>
+<p>If on the other hand you want to restore the packages from the <code>.lock</code> file, use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">restore</span>()</span></code></pre></div>
+</div>
+<p>This will install the package version that is documented in the lock file into your project specific library.</p>
+<p>You can update your dependencies to the latest version using:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">update</span>()</span></code></pre></div>
+</div>
+<p>Look <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started">here</a> for the offical documentation.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>renv</category>
+  <category>reproducability</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/index.html</guid>
+  <pubDate>Sun, 22 Oct 2023 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Cleaner Scripts</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="some-general-take-aways" class="level2">
+<h2 class="anchored" data-anchor-id="some-general-take-aways">Some general take-aways</h2>
+<ol type="1">
+<li>Markdown vs.&nbsp;Quarto vs.&nbsp;R-Skripte</li>
+</ol>
+<ul>
+<li>Quarto is more up to date than R-Markdown</li>
+<li>Markdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.</li>
+<li>In the end it’s a question of preference.</li>
+</ul>
+<ol type="1">
+<li>Write packages on top of the script.</li>
+</ol>
+<ul>
+<li>Write down verion number (use <code>sessionInfo()</code>).</li>
+<li>Or, even better: use <code>renv</code>.</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>best practices</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</guid>
+  <pubDate>Sun, 08 Oct 2023 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>The apply family</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
@@ -627,115 +734,7 @@ $Species
   <category>R</category>
   <category>loops</category>
   <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/index.html</guid>
-  <pubDate>Sun, 06 Jul 2025 22:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Reproducability with renv</title>
-  <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> can help you with that.</p>
-</section>
-<section id="workflow" class="level2">
-<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<p>First, initialize the project:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># install.packages(renv)</span></span>
-<span id="cb1-2">renv<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">init</span>()</span></code></pre></div>
-</div>
-<p>This mainly will do two things:</p>
-<ol type="1">
-<li>Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.</li>
-<li>A <code>.lock</code> file, where the package versions get documented.</li>
-</ol>
-<p>By the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. <code>renv::init()</code> will automatically setup the project with all the packages you have used in the project.</p>
-<p>The rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use <code>renv::install()</code> which has some additional features compared to <code>install.packages())</code>. For example, you can install specific package versions: <code>renv::install("dplyr@1.1.1")</code>. No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library.</p>
-<p>Then you load your package like you normally would with <code>library()</code>.</p>
-<p>The next step is to write the package into your <code>.lock</code> file:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">renv<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">snapshot</span>()</span></code></pre></div>
-</div>
-<p>This will update the <code>.lock</code> file with your new package.</p>
-<p>If on the other hand you want to restore the packages from the <code>.lock</code> file, use:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">renv<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">restore</span>()</span></code></pre></div>
-</div>
-<p>This will install the package version that is documented in the lock file into your project specific library.</p>
-<p>You can update your dependencies to the latest version using:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">renv<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">update</span>()</span></code></pre></div>
-</div>
-<p>Look <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started">here</a> for the offical documentation.</p>
-
-
-</section>
-
- ]]></description>
-  <category>R</category>
-  <category>renv</category>
-  <category>reproducability</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/index.html</guid>
-  <pubDate>Sat, 09 Nov 2024 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Cleaner Scripts</title>
-  <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="some-general-take-aways" class="level2">
-<h2 class="anchored" data-anchor-id="some-general-take-aways">Some general take-aways</h2>
-<ol type="1">
-<li>Markdown vs.&nbsp;Quarto vs.&nbsp;R-Skripte</li>
-</ol>
-<ul>
-<li>Quarto is more up to date than R-Markdown</li>
-<li>Markdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.</li>
-<li>In the end it’s a question of preference.</li>
-</ul>
-<ol type="1">
-<li>Write packages on top of the script.</li>
-</ol>
-<ul>
-<li>Write down verion number (use <code>sessionInfo()</code>).</li>
-<li>Or, even better: use <code>renv</code>.</li>
-</ul>
-
-
-</section>
-
- ]]></description>
-  <category>R</category>
-  <category>best practices</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</guid>
-  <pubDate>Sun, 08 Oct 2023 22:00:00 GMT</pubDate>
+  <pubDate>Sun, 30 Jul 2023 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>for-loops</title>
@@ -747,14 +746,9 @@ font-style: inherit;">update</span>()</span></code></pre></div>
 
 
 <p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-</section>
-<section id="how-to-write-a-for-loop" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-write-a-for-loop">How to write a for-loop</h2>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="for-loops" class="level2">
+<h2 class="anchored" data-anchor-id="for-loops">For-loops</h2>
+<p>In this session we talked about for-loops. Take a look <a href="https://nickhaf.github.io/r_tutorial/qmd/loops/loops.html">here</a> for the corresponding chapter in a workshop I’ve designed.</p>
 
 
 </section>
@@ -765,16 +759,7 @@ font-style: inherit;">update</span>()</span></code></pre></div>
 <ol>
 <li id="fn1"><p>Image by <a href="https://unsplash.com/de/@tine999?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Tine Ivanic</a> on <a href="https://unsplash.com/de/fotos/u2d0BPZFXOY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.↩︎</p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{hafiz2023,
-  author = {Hafiz, Nicklas},
-  title = {For-Loops},
-  date = {2023-03-20},
-  url = {https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hafiz2023" class="csl-entry quarto-appendix-citeas">
-Hafiz, Nicklas. 2023. <span>“For-Loops.”</span> March 20, 2023. <a href="https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/">https://iqb-research.github.io/R-SIG/posts/23_03_20_forloops/</a>.
-</div></div></section></div> ]]></description>
+</section></div> ]]></description>
   <category>R</category>
   <category>loops</category>
   <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/index.html</guid>
