@@ -1,87 +1,10 @@
 [
   {
-    "objectID": "docs/eatPackages/eatTools.html",
-    "href": "docs/eatPackages/eatTools.html",
-    "title": "eatTools",
+    "objectID": "docs/reproduce/renv.html",
+    "href": "docs/reproduce/renv.html",
+    "title": "The renv-Package",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nDocumentation\n\n\n\n\nReference manual"
-  },
-  {
-    "objectID": "docs/eatPackages/eatAnalysis.html",
-    "href": "docs/eatPackages/eatAnalysis.html",
-    "title": "eatAnalysis",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-"
-  },
-  {
-    "objectID": "docs/eatPackages/eatATA.html",
-    "href": "docs/eatPackages/eatATA.html",
-    "title": "eatATA",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nDocumentation\n\n\n\n\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n‘eatATA’ Functionality\n\n\na Pilot Study Example\n\n\nReference manual"
-  },
-  {
-    "objectID": "docs/eatPackages/eatRep.html",
-    "href": "docs/eatPackages/eatRep.html",
-    "title": "eatRep",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal\n\n\ninternal\n\n\nReplication Analysis with eatRep\n\n\ninternal"
-  },
-  {
-    "objectID": "docs/eatPackages/eatFDZ.html",
-    "href": "docs/eatPackages/eatFDZ.html",
-    "title": "eatFDZ",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nDocumentation"
-  },
-  {
-    "objectID": "docs/eatPackages/eatModel.html",
-    "href": "docs/eatPackages/eatModel.html",
-    "title": "eatModel",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
-  },
-  {
-    "objectID": "docs/R/ws3.html",
-    "href": "docs/R/ws3.html",
-    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
-    "section": "",
-    "text": "Die Funktionalität von base R wird um ein vielfaches durch ein sehr umfangreiches Pakete-Universum ergänzt. Diese Erweiterungen werden für R packages oder libraries genannt. Im Prinzip kann jeder(r) eine solche library schreiben, deswegen ist bei der Nutzung neuer libraries etwas Vorsicht geboten. Es gibt jedoch eine Reihe sehr weit verbreiteter und hochwertiger libraries, deren Nutzung uneingeschränkt empfohlen werden kann.\nLiegen Pakete auf CRAN, können sie mithilfe von install.packages() installiert werden. Pakete, die ausschließlich auf Github verfügbar sind, können über devtools::install_github() installiert werden. Für nähere Informationen siehe auch: http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren\n\n# Paket von CRAN installieren\ninstall.packages(\"car\")\n# Paket von Github installieren\nremotes::install_github(\"sachseka/eatPrep\", upgrade = \"never\")\n\nAchtung: Wenn ein Paket bereits geladen ist und eine Neuinstallation dieses Pakets versucht wird, kann dies zu Fehlern führen. In diesem Fall kann entweder die R Session neu gestartet oder das entsprechende Paket mit detach() “entladen” werden.\nZur Verwendung von Paketen können einzelne Funktionen explizit über ihren Namespace angesprochen werden, ohne dass sie dafür explizit geladen werden müssen:\n\n# Funktion verwenden, ohne Paket zu laden\nsome_data &lt;- c(1, 2, 1, 4)\ncar::recode(some_data, \"1 = 'a'; 2 = 'b'; 4 = 'd'\")\n\n[1] \"a\" \"b\" \"a\" \"d\"\n\n\nOder das Paket wird vollständig geladen mithilfe des library() Befehls\n\n# Paket laden\nlibrary(\"car\")\n\nLoading required package: carData\n\nsome_data &lt;- c(1, 2, 1, 4)\nrecode(some_data, \"1 = 'a'; 2 = 'b'; 4 = 'd'\")\n\n[1] \"a\" \"b\" \"a\" \"d\"\n\n\nFalls es mehrere Pakete gibt, die Funktionen mit demselben Namen beinhalten (zB dplyr::recode()), kann mit car::recode() sichergestellt werden, dass immer die gewünschte Funktion verwendet wird, auch wenn zusätzlich das Paket dplyr geladen wird."
-  },
-  {
-    "objectID": "docs/R/ws3.html#csv",
-    "href": "docs/R/ws3.html#csv",
-    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
-    "section": ".csv",
-    "text": ".csv\nBeim Speichern von comma seperated files (.csv) können die Funktionen write.csv() und write.csv2() verwendet werden, wobei letztere Funktion den deutschen Excel-Konventionen (“,” als Dezimaltrenner) entspricht.\n\n# Objekt speichern\nwrite.csv2(mtcars, \"Material_WSIII/mtcars.csv\")\n# Objekt laden\ndat &lt;- read.csv2(\"Material_WSIII/mtcars.csv\")\n# Objekt betrachten\nhead(dat)"
-  },
-  {
-    "objectID": "docs/R/ws3.html#xlsx-excel",
-    "href": "docs/R/ws3.html#xlsx-excel",
-    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
-    "section": ".xlsx (Excel)",
-    "text": ".xlsx (Excel)\nZum Einlesen von Excel files empfiehlt sich die Funktion read_xlsx() aus dem Paket readxl. Achtung! Da das Paket standardmäßig einen tibble ausgibt, eine Spezialform von data.frames, empfiehlt sich die Umwandlung zu einem data.frame. Da das Paket leider kein Schreiben von Excel files unterstützt, empfiehlt sich hierfür die Funktion write_xlsx() aus dem Paket eatAnalysis.\n\n# Objekt speichern\neatAnalysis::write_xlsx(mtcars, \"Material_WSIII/mtcars.xlsx\", row.names = FALSE)\n# Objekt laden\ndat &lt;- readxl::read_xlsx(\"Material_WSIII/mtcars.xlsx\")\ndat &lt;- as.data.frame(dat)\nhead(dat)"
-  },
-  {
-    "objectID": "docs/R/ws3.html#sav-spss",
-    "href": "docs/R/ws3.html#sav-spss",
-    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
-    "section": ".sav (SPSS)",
-    "text": ".sav (SPSS)\nZum Importieren von SPSS-Dateien bietet sich das Paket eatGADS an. Es ermöglicht das Einlesen von Daten in einem zwei-schrittigem Vorgehen. Zuerst werden die Daten eingelesen.\n\n# sav Datei einlesen\nspss &lt;- eatGADS::import_spss(\"Material_WSIII/example.sav\")\n\nDiese Datei enthält sämtliche Metadaten, die auch die originale spss-Datei beinhaltet (Variablen- und Wertelabel etc.). Diese können mithilfe von extractMeta abgefragt werden.\n\n# sav Datei einlesen\neatGADS::extractMeta(spss, \"PJgsep_a\")\n\nUm Analysen in R durchzuführen, müssen die Daten aus diesem Objekt nun mithilfe der extractData()-Funktion extrahiert werden. Diese ermöglicht zum einen Missingcodes anzuwenden, zum anderen gelabelte Variablen entweder als numerische, character oder Faktor-Variablen auszugeben.\n\n# sav Datei einlesen\ndat &lt;- eatGADS::extractData(spss, convertLabel = \"character\", convertMiss = TRUE)\nhead(dat)"
-  },
-  {
-    "objectID": "docs/R/ws3.html#dta-stata",
-    "href": "docs/R/ws3.html#dta-stata",
-    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
-    "section": ".dta (Stata)",
-    "text": ".dta (Stata)\nStata-Datein können mithilfe des Paktes haven sowohl gelesen als auch geschrieben werden.\n\n# Objekt speichern\nhaven::write_dta(mtcars, \"Material_WSIII/mtcars.dta\")\n# Objekt laden\ndat &lt;- haven::read_dta(\"Material_WSIII/mtcars.dta\")\ndat &lt;- as.data.frame(dat)\nhead(dat)"
-  },
-  {
-    "objectID": "docs/R/ws3.html#dat-mplus",
-    "href": "docs/R/ws3.html#dat-mplus",
-    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
-    "section": ".dat (Mplus)",
-    "text": ".dat (Mplus)\nHäufig möchte man in Vorbereitung von Analysen mithilfe von Mplus Daten in R aufbereiten. Das Paket MplusAutomation beinhaltet die Funktion prepareMplusData(), die das schreiben von .dat Datein ermöglicht und zusätzlich einen Rohling für die Mplus-Analysesyntax erstellt. Außerdem beinhaltet das Paket zahlreiche Möglichkeiten verschiedene Analysen zu automatisieren.\n\n# Objekt speichern\nMplusAutomation::prepareMplusData(mtcars, filename = \"Material_WSIII/mtcars.dat\")"
+    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
   },
   {
     "objectID": "docs/R/ws2.html",
@@ -161,53 +84,53 @@
     "text": "1.3 Das Paket ggplot2\nEin mächtiges Paket zur Erstellung von Grafiken ist ggplot2, zu dem z.B. unter diesem Link eine gute Einführung gegeben wird: http://methodenlehre.github.io/einfuehrung-in-R/grafiken-mit-ggplot2.html"
   },
   {
-    "objectID": "docs/quarto/index.html",
-    "href": "docs/quarto/index.html",
-    "title": "Updating the website",
+    "objectID": "docs/R/index.html",
+    "href": "docs/R/index.html",
+    "title": "Material for learning R",
     "section": "",
-    "text": "This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it."
+    "text": "R Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R."
   },
   {
-    "objectID": "docs/quarto/index.html#setup",
-    "href": "docs/quarto/index.html#setup",
-    "title": "Updating the website",
-    "section": "Setup",
-    "text": "Setup\n\nAs the website is hosted on GitHub, you can just clone the repository.\nOpen the RStudio project with RStudio.\nThis website uses renv to keep the project specific package library up to date. The needed packages are recorded in the .lock-file, but not uploaded to GitHub. So the first thing you need to do is to install the necessary packages into your local project library:\n\n\n# install.packages(\"renv\")\nrenv::restore()\n\nIf your files need their own packages, just install them like you would normally do with either:\n\ninstall.packages(\"eatGADS\")\nrenv::install(\"eatGADS\")\n\nYou need to do this even if you have them already installed on your PC locally, because renv uses a project specific library."
-  },
-  {
-    "objectID": "docs/quarto/index.html#file-structure",
-    "href": "docs/quarto/index.html#file-structure",
-    "title": "Updating the website",
-    "section": "File structure",
-    "text": "File structure\nBasically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: docs or posts. docs contains most of the tutorial files: They are structured into sub folders, like eatPackages or R. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Just make sure they are quarto-files with the .qmd ending.\n\n_quarto.yml\nOn the highest directory level you can find the _quarto.yml file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give name the links to the websites:\n    contents:\n      - section: \"R Tutorials\"\n        contents:\n          - section: \"Introduction\"\n            contents:\n             - docs/R/index.qmd\n             - href: https://nickhaf.github.io/r_tutorial/\n               text: Selfpaced R Workshop\n             - href: docs/R/ws1.qmd\n               text: Einführung\nThis creates the section R Tutorials with the subsection Introduction. Introduction consists of three pages: the index.qmd page, wich is like the main page of this section, the page Selfpaced R Workshop, which actually is only a link to another website, and the page Einführung, which links to the qmd-file ws1.qmd. Just add your pages where appropriate.\n\n\nquarto-files\nThe quarto-files contain the actual content of the website. Just edit them like you would edit .qmd-files (or .rmd-files, as the rmarkdown syntax is quite similar). Here are some useful tips:\n\nLinking\nYou can easily link to other pages of this website, or to other websites:\n[displayed text](link.de)\nYou might need to use relative paths: [renv](../../posts/r_sig/23_11_06_renv/index.qmd). This will link to the renv page in the posts directory.\n\n\nPictures\nTo add a picture to your website, save the picture in the same folder as your .qmd-file. Then you can display it with:\n![](my_image.jpg)\n1\n\n\nFootnotes\nYou can add footnotes with:\nAdd a footnote[^2].\n\n[^2]: My Footnote.\nAdd a footnote2.\n\n\nCallouts\nYou can add little information boxes like this:\n::: callout-tip\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n:::\n\n\n\n\n\n\nTip\n\n\n\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n\n\nThere are multiple different options, take a look at the documentation for more.\n\n\nCSS styles\nYou can tweak the appearence even more by using you own CSS-styles.\n\n\n\nEditing on the web page\nYou can also find a small button called Edit this page next to the GitHub logo. This allows you to edit the page directly on GitHub."
-  },
-  {
-    "objectID": "docs/quarto/index.html#building-the-website",
-    "href": "docs/quarto/index.html#building-the-website",
-    "title": "Updating the website",
-    "section": "Building the website",
-    "text": "Building the website\nTo get a preview of your website, just click on the Render button in R Studio. This is not necessary however, because the website will only be built online when you push to github and merge into main. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first."
-  },
-  {
-    "objectID": "docs/quarto/index.html#further-reading",
-    "href": "docs/quarto/index.html#further-reading",
-    "title": "Updating the website",
-    "section": "Further reading",
-    "text": "Further reading\nThe official documentation can be found here. A nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
-  },
-  {
-    "objectID": "docs/quarto/index.html#footnotes",
-    "href": "docs/quarto/index.html#footnotes",
-    "title": "Updating the website",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Sinjin Thomas on Unsplash.↩︎\nMy Footnote.↩︎"
-  },
-  {
-    "objectID": "posts/newsletter/23_08_09/index.html",
-    "href": "posts/newsletter/23_08_09/index.html",
-    "title": "09-08-2023",
+    "objectID": "docs/eatPackages/eatModel.html",
+    "href": "docs/eatPackages/eatModel.html",
+    "title": "eatModel",
     "section": "",
-    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal"
+  },
+  {
+    "objectID": "docs/eatPackages/eatRecode.html",
+    "href": "docs/eatPackages/eatRecode.html",
+    "title": "eatRecode",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreate and apply recoding databases.\n\n\n\n\n\nDocumentation"
+  },
+  {
+    "objectID": "docs/eatPackages/eatTools.html",
+    "href": "docs/eatPackages/eatTools.html",
+    "title": "eatTools",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nDocumentation\n\n\n\n\nReference manual"
+  },
+  {
+    "objectID": "docs/eatPackages/eatPrep.html",
+    "href": "docs/eatPackages/eatPrep.html",
+    "title": "eatPrep",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, internal\n\n\n\n\n\n\nDescription\n“Preparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple datasets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool \"AnalyseInput\", which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal: “i:/Methoden/02_IQB-interne_eat_Workshops/eatPrep_2021”"
+  },
+  {
+    "objectID": "docs/eatPackages/eatATA.html",
+    "href": "docs/eatPackages/eatATA.html",
+    "title": "eatATA",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nDocumentation\n\n\n\n\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n‘eatATA’ Functionality\n\n\na Pilot Study Example\n\n\nReference manual"
+  },
+  {
+    "objectID": "docs/eatPackages/eatGADS.html",
+    "href": "docs/eatPackages/eatGADS.html",
+    "title": "eatGADS",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
   },
   {
     "objectID": "posts/r_sig/23_07_31_apply/index.html",
@@ -245,32 +168,32 @@
     "text": "Exercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
   },
   {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html",
-    "href": "posts/r_sig/23_03_20_forloops/index.html",
-    "title": "for-loops",
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html",
+    "title": "Cleaner Scripts",
     "section": "",
-    "text": "1"
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
-    "href": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
-    "title": "for-loops",
-    "section": "For-loops",
-    "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
-  },
-  {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
-    "href": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
-    "title": "for-loops",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
-  },
-  {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "title": "Cleaner Scripts",
     "section": "",
-    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+  },
+  {
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+  },
+  {
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -280,11 +203,11 @@
     "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
   },
   {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/r_sig/23_11_06_renv/index.html",
@@ -308,32 +231,172 @@
     "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
   },
   {
-    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
-    "href": "posts/r_sig/23_10_09_cleaner/index.html",
-    "title": "Cleaner Scripts",
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html",
+    "href": "posts/r_sig/23_03_20_forloops/index.html",
+    "title": "for-loops",
     "section": "",
-    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+    "text": "1"
   },
   {
-    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
-    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
-    "title": "Cleaner Scripts",
-    "section": "",
-    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
+    "href": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
+    "title": "for-loops",
+    "section": "For-loops",
+    "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
   },
   {
-    "objectID": "docs/reproduce/renv.html",
-    "href": "docs/reproduce/renv.html",
-    "title": "The renv-Package",
-    "section": "",
-    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\")."
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
+    "href": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
+    "title": "for-loops",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
   },
   {
-    "objectID": "docs/R/index.html",
-    "href": "docs/R/index.html",
-    "title": "Material for learning R",
+    "objectID": "docs/quarto/index.html",
+    "href": "docs/quarto/index.html",
+    "title": "Updating the website",
     "section": "",
-    "text": "R Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R."
+    "text": "This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it."
+  },
+  {
+    "objectID": "docs/quarto/index.html#setup",
+    "href": "docs/quarto/index.html#setup",
+    "title": "Updating the website",
+    "section": "Setup",
+    "text": "Setup\n\nAs the website is hosted on GitHub, you can just clone the repository.\nOpen the RStudio project with RStudio.\nThis website uses renv to keep the project specific package library up to date. The needed packages are recorded in the .lock-file, but not uploaded to GitHub. So the first thing you need to do is to install the necessary packages into your local project library:\n\n\n# install.packages(\"renv\")\nrenv::restore()\n\nIf your files need their own packages, just install them like you would normally do with either:\n\ninstall.packages(\"eatGADS\")\nrenv::install(\"eatGADS\")\n\nYou need to do this even if you have them already installed on your PC locally, because renv uses a project specific library."
+  },
+  {
+    "objectID": "docs/quarto/index.html#file-structure",
+    "href": "docs/quarto/index.html#file-structure",
+    "title": "Updating the website",
+    "section": "File structure",
+    "text": "File structure\nBasically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: docs or posts. docs contains most of the tutorial files: They are structured into sub folders, like eatPackages or R. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Just make sure they are quarto-files with the .qmd ending.\n\n_quarto.yml\nOn the highest directory level you can find the _quarto.yml file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give name the links to the websites:\n    contents:\n      - section: \"R Tutorials\"\n        contents:\n          - section: \"Introduction\"\n            contents:\n             - docs/R/index.qmd\n             - href: https://nickhaf.github.io/r_tutorial/\n               text: Selfpaced R Workshop\n             - href: docs/R/ws1.qmd\n               text: Einführung\nThis creates the section R Tutorials with the subsection Introduction. Introduction consists of three pages: the index.qmd page, which is like the main page of this section, the page Selfpaced R Workshop, which actually is only a link to another website, and the page Einführung, which links to the qmd-file ws1.qmd. Just add your pages where appropriate.\n\n\nquarto-files\nThe quarto-files contain the actual content of the website. Just edit them like you would edit .qmd-files (or .rmd-files, as the rmarkdown syntax is quite similar). Here are some useful tips:\n\nLinking\nYou can easily link to other pages of this website, or to other websites:\n[displayed text](link.de)\nYou might need to use relative paths: [renv](../../posts/r_sig/23_11_06_renv/index.qmd). This will link to the renv page in the posts directory.\n\n\nPictures\nTo add a picture to your website, save the picture in the same folder as your .qmd-file. Then you can display it with:\n![](my_image.jpg)\n1\n\n\nFootnotes\nYou can add footnotes with:\nAdd a footnote[^2].\n\n[^2]: My Footnote.\nAdd a footnote2.\n\n\nCallouts\nYou can add little information boxes like this:\n::: callout-tip\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n:::\n\n\n\n\n\n\nTip\n\n\n\nThe R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.\n\n\nThere are multiple different options, take a look at the documentation for more.\n\n\nCSS styles\nYou can tweak the appearence even more by using you own CSS-styles.\n\n\n\nEditing on the web page\nYou can also find a small button called Edit this page next to the GitHub logo. This allows you to edit the page directly on GitHub."
+  },
+  {
+    "objectID": "docs/quarto/index.html#building-the-website",
+    "href": "docs/quarto/index.html#building-the-website",
+    "title": "Updating the website",
+    "section": "Building the website",
+    "text": "Building the website\nTo get a preview of your website, just click on the Render button in R Studio. This is not necessary however, because the website will only be built online when you push to github and merge into main. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first."
+  },
+  {
+    "objectID": "docs/quarto/index.html#further-reading",
+    "href": "docs/quarto/index.html#further-reading",
+    "title": "Updating the website",
+    "section": "Further reading",
+    "text": "Further reading\nThe official documentation can be found here. A nice hands on tutorial on adding blog posts to an existing Quarto website can be found here, along with some additional tips on citations, footnotes etc."
+  },
+  {
+    "objectID": "docs/quarto/index.html#footnotes",
+    "href": "docs/quarto/index.html#footnotes",
+    "title": "Updating the website",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Sinjin Thomas on Unsplash.↩︎\nMy Footnote.↩︎"
+  },
+  {
+    "objectID": "docs/eatPackages/eatPlot.html",
+    "href": "docs/eatPackages/eatPlot.html",
+    "title": "eatPlot",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreating plots from the eatRep output (main use: Bilduntstrend).\nDokumentation:\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html",
+    "href": "docs/eatPackages/index.html",
+    "title": "Info on eat Packages",
+    "section": "",
+    "text": "see table down below and click on the links for more information on a package."
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "title": "Info on eat Packages",
+    "section": "internal IQB R packages from the ‘eat’-family",
+    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#installing-r-packages",
+    "href": "docs/eatPackages/index.html#installing-r-packages",
+    "title": "Info on eat Packages",
+    "section": "Installing R packages",
+    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#compatibility",
+    "href": "docs/eatPackages/index.html#compatibility",
+    "title": "Info on eat Packages",
+    "section": "Compatibility",
+    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
+  },
+  {
+    "objectID": "docs/eatPackages/eatFDZ.html",
+    "href": "docs/eatPackages/eatFDZ.html",
+    "title": "eatFDZ",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nDocumentation"
+  },
+  {
+    "objectID": "docs/eatPackages/eatCodebook.html",
+    "href": "docs/eatPackages/eatCodebook.html",
+    "title": "eatCodebook",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated creation of scale manuals.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
+  },
+  {
+    "objectID": "docs/eatPackages/eatAnalysis.html",
+    "href": "docs/eatPackages/eatAnalysis.html",
+    "title": "eatAnalysis",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-"
+  },
+  {
+    "objectID": "docs/eatPackages/eatRep.html",
+    "href": "docs/eatPackages/eatRep.html",
+    "title": "eatRep",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal\n\n\ninternal\n\n\nReplication Analysis with eatRep\n\n\ninternal"
+  },
+  {
+    "objectID": "docs/R/ws3.html",
+    "href": "docs/R/ws3.html",
+    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
+    "section": "",
+    "text": "Die Funktionalität von base R wird um ein vielfaches durch ein sehr umfangreiches Pakete-Universum ergänzt. Diese Erweiterungen werden für R packages oder libraries genannt. Im Prinzip kann jeder(r) eine solche library schreiben, deswegen ist bei der Nutzung neuer libraries etwas Vorsicht geboten. Es gibt jedoch eine Reihe sehr weit verbreiteter und hochwertiger libraries, deren Nutzung uneingeschränkt empfohlen werden kann.\nLiegen Pakete auf CRAN, können sie mithilfe von install.packages() installiert werden. Pakete, die ausschließlich auf Github verfügbar sind, können über devtools::install_github() installiert werden. Für nähere Informationen siehe auch: http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren\n\n# Paket von CRAN installieren\ninstall.packages(\"car\")\n# Paket von Github installieren\nremotes::install_github(\"sachseka/eatPrep\", upgrade = \"never\")\n\nAchtung: Wenn ein Paket bereits geladen ist und eine Neuinstallation dieses Pakets versucht wird, kann dies zu Fehlern führen. In diesem Fall kann entweder die R Session neu gestartet oder das entsprechende Paket mit detach() “entladen” werden.\nZur Verwendung von Paketen können einzelne Funktionen explizit über ihren Namespace angesprochen werden, ohne dass sie dafür explizit geladen werden müssen:\n\n# Funktion verwenden, ohne Paket zu laden\nsome_data &lt;- c(1, 2, 1, 4)\ncar::recode(some_data, \"1 = 'a'; 2 = 'b'; 4 = 'd'\")\n\n[1] \"a\" \"b\" \"a\" \"d\"\n\n\nOder das Paket wird vollständig geladen mithilfe des library() Befehls\n\n# Paket laden\nlibrary(\"car\")\n\nLoading required package: carData\n\nsome_data &lt;- c(1, 2, 1, 4)\nrecode(some_data, \"1 = 'a'; 2 = 'b'; 4 = 'd'\")\n\n[1] \"a\" \"b\" \"a\" \"d\"\n\n\nFalls es mehrere Pakete gibt, die Funktionen mit demselben Namen beinhalten (zB dplyr::recode()), kann mit car::recode() sichergestellt werden, dass immer die gewünschte Funktion verwendet wird, auch wenn zusätzlich das Paket dplyr geladen wird."
+  },
+  {
+    "objectID": "docs/R/ws3.html#csv",
+    "href": "docs/R/ws3.html#csv",
+    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
+    "section": ".csv",
+    "text": ".csv\nBeim Speichern von comma seperated files (.csv) können die Funktionen write.csv() und write.csv2() verwendet werden, wobei letztere Funktion den deutschen Excel-Konventionen (“,” als Dezimaltrenner) entspricht.\n\n# Objekt speichern\nwrite.csv2(mtcars, \"Material_WSIII/mtcars.csv\")\n# Objekt laden\ndat &lt;- read.csv2(\"Material_WSIII/mtcars.csv\")\n# Objekt betrachten\nhead(dat)"
+  },
+  {
+    "objectID": "docs/R/ws3.html#xlsx-excel",
+    "href": "docs/R/ws3.html#xlsx-excel",
+    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
+    "section": ".xlsx (Excel)",
+    "text": ".xlsx (Excel)\nZum Einlesen von Excel files empfiehlt sich die Funktion read_xlsx() aus dem Paket readxl. Achtung! Da das Paket standardmäßig einen tibble ausgibt, eine Spezialform von data.frames, empfiehlt sich die Umwandlung zu einem data.frame. Da das Paket leider kein Schreiben von Excel files unterstützt, empfiehlt sich hierfür die Funktion write_xlsx() aus dem Paket eatAnalysis.\n\n# Objekt speichern\neatAnalysis::write_xlsx(mtcars, \"Material_WSIII/mtcars.xlsx\", row.names = FALSE)\n# Objekt laden\ndat &lt;- readxl::read_xlsx(\"Material_WSIII/mtcars.xlsx\")\ndat &lt;- as.data.frame(dat)\nhead(dat)"
+  },
+  {
+    "objectID": "docs/R/ws3.html#sav-spss",
+    "href": "docs/R/ws3.html#sav-spss",
+    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
+    "section": ".sav (SPSS)",
+    "text": ".sav (SPSS)\nZum Importieren von SPSS-Dateien bietet sich das Paket eatGADS an. Es ermöglicht das Einlesen von Daten in einem zwei-schrittigem Vorgehen. Zuerst werden die Daten eingelesen.\n\n# sav Datei einlesen\nspss &lt;- eatGADS::import_spss(\"Material_WSIII/example.sav\")\n\nDiese Datei enthält sämtliche Metadaten, die auch die originale spss-Datei beinhaltet (Variablen- und Wertelabel etc.). Diese können mithilfe von extractMeta abgefragt werden.\n\n# sav Datei einlesen\neatGADS::extractMeta(spss, \"PJgsep_a\")\n\nUm Analysen in R durchzuführen, müssen die Daten aus diesem Objekt nun mithilfe der extractData()-Funktion extrahiert werden. Diese ermöglicht zum einen Missingcodes anzuwenden, zum anderen gelabelte Variablen entweder als numerische, character oder Faktor-Variablen auszugeben.\n\n# sav Datei einlesen\ndat &lt;- eatGADS::extractData(spss, convertLabel = \"character\", convertMiss = TRUE)\nhead(dat)"
+  },
+  {
+    "objectID": "docs/R/ws3.html#dta-stata",
+    "href": "docs/R/ws3.html#dta-stata",
+    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
+    "section": ".dta (Stata)",
+    "text": ".dta (Stata)\nStata-Datein können mithilfe des Paktes haven sowohl gelesen als auch geschrieben werden.\n\n# Objekt speichern\nhaven::write_dta(mtcars, \"Material_WSIII/mtcars.dta\")\n# Objekt laden\ndat &lt;- haven::read_dta(\"Material_WSIII/mtcars.dta\")\ndat &lt;- as.data.frame(dat)\nhead(dat)"
+  },
+  {
+    "objectID": "docs/R/ws3.html#dat-mplus",
+    "href": "docs/R/ws3.html#dat-mplus",
+    "title": "Pakete(-Installation), Workspace, Daten laden und speichern in R",
+    "section": ".dat (Mplus)",
+    "text": ".dat (Mplus)\nHäufig möchte man in Vorbereitung von Analysen mithilfe von Mplus Daten in R aufbereiten. Das Paket MplusAutomation beinhaltet die Funktion prepareMplusData(), die das schreiben von .dat Datein ermöglicht und zusätzlich einen Rohling für die Mplus-Analysesyntax erstellt. Außerdem beinhaltet das Paket zahlreiche Möglichkeiten verschiedene Analysen zu automatisieren.\n\n# Objekt speichern\nMplusAutomation::prepareMplusData(mtcars, filename = \"Material_WSIII/mtcars.dat\")"
   },
   {
     "objectID": "docs/R/ws1.html",
@@ -383,68 +446,5 @@
     "title": "R Workshop Einführung",
     "section": "6. Gut zu wissen",
     "text": "6. Gut zu wissen\nDen Überblick über die vorhandenen Funktionen und Pakete zu behalten, ist nahezu unmöglich; allein auf CRAN gibt es tausende von R-Paketen. Aus unserer subjektiven Sicht sollen daher die wichtigsten Funktionen, die sich im Laufe des IQB-Lebens als unverzichtbar herausgestellt haben, hier kurz ohne Anspruch auf Vollständigkeit aufgelistet werden. Wo nötig, werden Links für weiterführende Literatur angegeben:"
-  },
-  {
-    "objectID": "docs/eatPackages/eatCodebook.html",
-    "href": "docs/eatPackages/eatCodebook.html",
-    "title": "eatCodebook",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated creation of scale manuals.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
-  },
-  {
-    "objectID": "docs/eatPackages/index.html",
-    "href": "docs/eatPackages/index.html",
-    "title": "Info on eat Packages",
-    "section": "",
-    "text": "see table down below and click on the links for more information on a package."
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "title": "Info on eat Packages",
-    "section": "internal IQB R packages from the ‘eat’-family",
-    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski"
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#installing-r-packages",
-    "href": "docs/eatPackages/index.html#installing-r-packages",
-    "title": "Info on eat Packages",
-    "section": "Installing R packages",
-    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#compatibility",
-    "href": "docs/eatPackages/index.html#compatibility",
-    "title": "Info on eat Packages",
-    "section": "Compatibility",
-    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
-  },
-  {
-    "objectID": "docs/eatPackages/eatPrep.html",
-    "href": "docs/eatPackages/eatPrep.html",
-    "title": "eatPrep",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, internal\n\n\n\n\n\n\nDescription\n“Preparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple datasets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool \"AnalyseInput\", which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal: “i:/Methoden/02_IQB-interne_eat_Workshops/eatPrep_2021”"
-  },
-  {
-    "objectID": "docs/eatPackages/eatRecode.html",
-    "href": "docs/eatPackages/eatRecode.html",
-    "title": "eatRecode",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreate and apply recoding databases.\n\n\n\n\n\nDocumentation"
-  },
-  {
-    "objectID": "docs/eatPackages/eatPlot.html",
-    "href": "docs/eatPackages/eatPlot.html",
-    "title": "eatPlot",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreating plots from the eatRep output (main use: Bilduntstrend).\nDokumentation:\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
-  },
-  {
-    "objectID": "docs/eatPackages/eatGADS.html",
-    "href": "docs/eatPackages/eatGADS.html",
-    "title": "eatGADS",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes"
   }
 ]
