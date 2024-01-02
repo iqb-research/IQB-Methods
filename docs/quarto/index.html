@@ -436,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="file-structure" class="level2">
 <h2 class="anchored" data-anchor-id="file-structure">File structure</h2>
-<p>Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: <code>docs</code> or <code>posts</code>. <code>docs</code> contains most of the tutorial files: They are structured into sub folders, like <code>eatPackages</code> or <code>R</code>. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Just make sure they are quarto-files with the <code>.qmd</code> ending.</p>
+<p>Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: <code>docs</code> or <code>posts</code>. <code>docs</code> contains most of the tutorial files: They are structured into sub folders, like <code>eatPackages</code> or <code>R</code>. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Make sure they are quarto-files with the <code>.qmd</code> ending.</p>
 <section id="quarto.yml" class="level3">
 <h3 class="anchored" data-anchor-id="quarto.yml"><code>_quarto.yml</code></h3>
 <p>On the highest directory level you can find the <code>_quarto.yml</code> file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give name the links to the websites:</p>
@@ -508,7 +508,7 @@ Tip
 </section>
 <section id="building-the-website" class="level2">
 <h2 class="anchored" data-anchor-id="building-the-website">Building the website</h2>
-<p>To get a preview of your website, just click on the <code>Render</code> button in R Studio. This is not necessary however, because the website will only be built online when you push to github and merge into main. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first.</p>
+<p>To get a preview of your website, click on the <code>Render</code> button in R Studio. Make sure you are not working locally and not on the network drive, because you might run into admin right problems otherwise. The rendering is not really necessary, because the website will only be built online when you push to GitHub and merge into main. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first.</p>
 </section>
 <section id="further-reading" class="level2">
 <h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
