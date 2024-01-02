@@ -28,7 +28,7 @@ You need to do this even if you have them already installed on your PC locally, 
 
 ## File structure
 
-Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: `docs` or `posts`. `docs` contains most of the tutorial files: They are structured into sub folders, like `eatPackages` or `R`. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Just make sure they are quarto-files with the `.qmd` ending.
+Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: `docs` or `posts`. `docs` contains most of the tutorial files: They are structured into sub folders, like `eatPackages` or `R`. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Make sure they are quarto-files with the `.qmd` ending.
 
 ### `_quarto.yml`
 
