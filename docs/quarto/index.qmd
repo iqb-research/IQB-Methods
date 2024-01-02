@@ -47,7 +47,7 @@ On the highest directory level you can find the `_quarto.yml` file. It defines t
                text: Einführung
 ```
 
-This creates the section `R Tutorials` with the subsection `Introduction`. `Introduction` consists of three pages: the `index.qmd` page, wich is like the main page of this section, the page `Selfpaced R Workshop`, which actually is only a link to another website, and the page `Einführung`, which links to the qmd-file `ws1.qmd`. Just add your pages where appropriate.
+This creates the section `R Tutorials` with the subsection `Introduction`. `Introduction` consists of three pages: the `index.qmd` page, which is like the main page of this section, the page `Selfpaced R Workshop`, which actually is only a link to another website, and the page `Einführung`, which links to the qmd-file `ws1.qmd`. Just add your pages where appropriate.
 
 ### quarto-files
 
