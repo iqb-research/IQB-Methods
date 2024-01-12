@@ -1,0 +1,25 @@
+---
+title: "Pull requests with Github"
+author: "Sebastian Weirich"
+date: 01-12-2024
+---
+
+When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version. Since I always forget how the workflow for this works, I'll write it down here step by step. These steps refer to the use of GitKraken; if you do this in RStudio, it may work differently.
+
+## Following steps are necessary
+
+1.  A change has been made in the local repository (on your local hard disc copy of the repository).
+2.  The change is committed in GitKraken, but not yet pushed.
+3.  Instead, right-click on "master" to open a menu and select "create branch here".
+4.  Assign a name for this branch.
+5.  Push by pressing "Push".
+6.  Change to the the Github page of the package (for example, [eatTools repository](https://github.com/weirichs/eatTools)) and start the pull request via "Compare & pull request".
+7.  Choose your favorite reviewer under "Reviewer"
+8.  If necessary, enter a comment for the request.
+9.  Click on "create pull request" to start the request.
+10. Once the author and reviewer have reached an agreement, the review branch can be merged with the master branch (this is not done in GitKraken, but on the GitHub website: select the pull request, scroll down the page and click on "merge pull request into master")
+11. Finally, the review branch can be deleted. Choose "delete" on the Github homepage. Then delete the local branch (i.e. in GitKraken) in the same way if necessary
+
+## Please note
+
+As long as the master branch and the new branch are not merged again, there are two "parallel" branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check in GitKraken which branch is currently stored in your local repository. If you need to make changes in the new branch, you must first save it locally by double-clicking on the relevant branch.

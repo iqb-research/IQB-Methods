@@ -64,7 +64,10 @@ website:
       - section: "Quarto"
         contents: 
           - docs/quarto/index.qmd
-        
+      - section: "Git"
+        contents:
+          - docs/git/index.qmd
+
 format:
   html:
     theme: sandstone
