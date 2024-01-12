@@ -217,11 +217,18 @@
     "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
   },
   {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
+    "objectID": "posts/newsletter/24_01_12/index.html",
+    "href": "posts/newsletter/24_01_12/index.html",
+    "title": "12-01-2024",
     "section": "",
-    "text": "09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Webseite\nDas Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:\nhttps://iqb-research.github.io/IQB-Methods/\n\n\nAnsprechpartner:innen während Benjamins Elternzeit\nBenjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:\n\nGADS BT22 - Sebastian\nFDZ Reporting - Nicklas\neatFDZ - Karoline\neatGADS - Philipp\n\n\n\neatTools\nDie Version 0.7.5 liegt nun auf CRAN und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen halveString() und mergeAttr(). Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden."
+  },
+  {
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -231,11 +238,11 @@
     "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
   },
   {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "12-01-2024\n\n\nNewsletter\n\n\n\nNicklas Hafiz\n\n\nDec 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/newsletter/23_08_09/index.html",

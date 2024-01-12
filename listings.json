@@ -1,17 +1,18 @@
 [
   {
-    "listing": "/posts_newsletter.html",
-    "items": [
-      "/posts/newsletter/23_08_09/index.html"
-    ]
-  },
-  {
     "listing": "/posts_r_sig.html",
     "items": [
       "/posts/r_sig/23_11_06_renv/index.html",
       "/posts/r_sig/23_10_09_cleaner/index.html",
       "/posts/r_sig/23_07_31_apply/index.html",
       "/posts/r_sig/23_03_20_forloops/index.html"
+    ]
+  },
+  {
+    "listing": "/posts_newsletter.html",
+    "items": [
+      "/posts/newsletter/24_01_12/index.html",
+      "/posts/newsletter/23_08_09/index.html"
     ]
   }
 ]
