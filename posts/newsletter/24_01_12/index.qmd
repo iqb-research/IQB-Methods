@@ -1,0 +1,19 @@
+# Webseite
+
+Das Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei: 
+
+https://iqb-research.github.io/IQB-Methods/
+
+
+# Ansprechpartner:innen während Benjamins Elternzeit
+
+Benjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:
+
+- GADS BT22 - Sebastian
+- FDZ Reporting - Nicklas
+- eatFDZ - Karoline
+- eatGADS - Philipp
+
+# eatTools
+Die Version 0.7.5 liegt nun auf [CRAN](https://cran.r-project.org/web/packages/eatTools/index.html) und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen `halveString()` und `mergeAttr()`. Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden.
+
