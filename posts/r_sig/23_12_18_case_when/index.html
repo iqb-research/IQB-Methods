@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2023-12-18">
+<meta name="description" content="R-SIG 18.12.2023">
 
-<title>IQB Methods Team - Newsletter</title>
+<title>IQB Methods Team - Case_when() function</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,41 +95,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="IQB Methods Team" href="posts_newsletter.xml"><meta property="og:title" content="IQB Methods Team - Newsletter">
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="IQB Methods Team - Case_when() function">
+<meta property="og:description" content="R-SIG 18.12.2023">
 <meta property="og:site-name" content="IQB Methods Team">
 </head>
 
@@ -106,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">IQB Methods Team</span>
     </a>
   </div>
@@ -117,25 +121,25 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts_r_sig.html" rel="" target="">
+    <a class="nav-link" href="../../../posts_r_sig.html" rel="" target="">
  <span class="menu-text">R-Sig</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts_newsletter.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../../posts_newsletter.html" rel="" target="">
  <span class="menu-text">Newsletter</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./docs/quarto/index.html" rel="" target="">
+    <a class="nav-link active" href="../../../docs/quarto/index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Maintenance</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml" rel="" target="">
+    <a class="nav-link" href="../../../index.xml" rel="" target="">
  <span class="menu-text"></span></a>
   </li>  
 </ul>
@@ -149,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Newsletter</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Case_when() function</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,7 +163,39 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Case_when() function</h1>
+                  <div>
+        <div class="description">
+          R-SIG 18.12.2023
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">tidyverse</div>
+                <div class="quarto-category">data manipulation</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 18, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -189,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/R/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/R/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Material for learning R</span></a>
   </div>
 </li>
@@ -201,19 +237,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/R/ws1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/R/ws1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/R/ws2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/R/ws2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data.frames, Listen &amp; Plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/R/ws3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/R/ws3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pakete und Daten laden</span></a>
   </div>
 </li>
@@ -249,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/reproduce/renv.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/reproduce/renv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The renv-Package</span></a>
   </div>
 </li>
@@ -266,73 +302,73 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Info on eat Packages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatAnalysis.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatAnalysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatAnalysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatATA.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatATA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatATA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatCodebook.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatCodebook.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatCodebook</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatFDZ.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatFDZ.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatFDZ</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatGADS.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatGADS.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatGADS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatModel</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatPlot.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatPlot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatPlot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatPrep.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatPrep.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatPrep</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatRecode.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatRecode.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatRecode</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatRep.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatRep.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatRep</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/eatPackages/eatTools.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/eatPackages/eatTools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">eatTools</span></a>
   </div>
 </li>
@@ -349,7 +385,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/quarto/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/quarto/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Updating the website</span></a>
   </div>
 </li>
@@ -366,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/git/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/git/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pull requests with Github</span></a>
   </div>
 </li>
@@ -378,85 +414,128 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-to-use-it" id="toc-how-to-use-it" class="nav-link active" data-scroll-target="#how-to-use-it">How to use it</a></li>
+  <li><a href="#evaluation-order" id="toc-evaluation-order" class="nav-link" data-scroll-target="#evaluation-order">Evaluation order</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/r_sig/23_12_18_case_when/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Newsletter</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<p>The <code>case_when()</code> function from the <code>dplyr</code> package of the <code>tidyverse</code> is a useful function for combining multiple <code>ifelse()</code> statements.</p>
+<section id="how-to-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-it">How to use it</h2>
+<p>Let’s take a look at a little example. Let’s consider a very simple data frame containing only a column of different countries:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1733011200000" data-listing-file-modified-sort="1705320020525" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="./posts/newsletter/24_01_12/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-12-01-2024
-</h5>
-<div class="card-text listing-description">
-Newsletter
+    filter, lag</code></pre>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Nicklas Hafiz
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
 </div>
-<div class="listing-date">
-Dec 1, 2024
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">country =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Deu"</span>, <span class="dv">4</span>), <span class="st">"Mexico"</span>, <span class="st">"Peru"</span>, <span class="st">"Ghana"</span>, <span class="st">"China"</span>, <span class="st">"Spanien"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1694131200000" data-listing-file-modified-sort="1705320020525" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="./posts/newsletter/23_08_09/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-09-08-2023
-</h5>
-<div class="card-text listing-description">
-Newsletter
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Benjamin Becker
-</div>
-<div class="listing-date">
-Sep 8, 2023
+<p>Now, let’s suppose we want to add a second column containing the continent of the country. We can either use nested <code>ifelse()</code> statements, which makes the coed quite hard to read:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>continent <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Deu"</span>, <span class="st">"Spanien"</span>), </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">yes =</span> <span class="st">"Europe"</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">no =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                         df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Mexico"</span> <span class="sc">|</span> df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Peru"</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">yes =</span> <span class="st">"America"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">no =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                           df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Ghana"</span>, </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                           <span class="at">yes =</span> <span class="st">"Africa"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">no =</span> <span class="st">"Asia"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                       )</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                       ))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country continent
+1     Deu    Europe
+2     Deu    Europe
+3     Deu    Europe
+4     Deu    Europe
+5  Mexico   America
+6    Peru   America
+7   Ghana    Africa
+8   China      Asia
+9 Spanien    Europe</code></pre>
 </div>
 </div>
+<p><code>case_when()</code> has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are seperated by <code>~</code>. So if the condition on the left side is met in a row, the function returns the value on the right side of <code>~</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">case_when</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Deu"</span>, <span class="st">"Spanien"</span>) <span class="sc">~</span> <span class="st">"Europe"</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                               country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Mexico"</span>, <span class="st">"Peru"</span>) <span class="sc">~</span> <span class="st">"America"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                               country <span class="sc">==</span> <span class="st">"Ghana"</span> <span class="sc">~</span> <span class="st">"Africa"</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Another continent"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                                 )</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>df_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country         continent
+1     Deu            Europe
+2     Deu            Europe
+3     Deu            Europe
+4     Deu            Europe
+5  Mexico           America
+6    Peru           America
+7   Ghana            Africa
+8   China Another continent
+9 Spanien            Europe</code></pre>
 </div>
 </div>
-</a>
+<p>We wrap this statement into a mutate function to automatically create the new column continent from the output of <code>case_when</code>. The <code>TRUE</code> in the last row catches all conditions we haven’t dealt with further above. So all rows wich haven’t met any of the above conditions will get the label “Another continent”.</p>
+</section>
+<section id="evaluation-order" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-order">Evaluation order</h2>
+<p><code>case_when()</code> goes from the top to the bottom. So if a row has met a statement, it is not considered further down. That’s why it makes sense to go from the most specific statements to the less specific ones. Otherwise the least specific ones might overwrite everything in the beginning:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_3 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">case_when</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(df<span class="sc">$</span>country) <span class="sc">~</span> <span class="st">"Other country"</span>, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                               country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Mexico"</span>, <span class="st">"Peru"</span>) <span class="sc">~</span> <span class="st">"America"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                               country <span class="sc">==</span> <span class="st">"Ghana"</span> <span class="sc">~</span> <span class="st">"Africa"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Another continent"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                                 )</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>df_3  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country     continent
+1     Deu Other country
+2     Deu Other country
+3     Deu Other country
+4     Deu Other country
+5  Mexico Other country
+6    Peru Other country
+7   Ghana Other country
+8   China Other country
+9 Spanien Other country</code></pre>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+<p>Because our first statement already covers all rows, the rest is obsolete. This top-down working also makes the <code>TRUE</code> condition in our last line possible, because only those rows that haven’t been used yet will come this far, and all of them are catched (because <code>TRUE</code> always is true).</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -694,4 +773,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts_newsletter.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+</body></html>

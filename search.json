@@ -196,6 +196,55 @@
     "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
   },
   {
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html",
+    "title": "Cleaner Scripts",
+    "section": "",
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+  },
+  {
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "title": "Cleaner Scripts",
+    "section": "",
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+  },
+  {
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+  },
+  {
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
+    "section": "",
+    "text": "12-01-2024\n\n\nNewsletter\n\n\n\nNicklas Hafiz\n\n\nDec 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IQB Methods Team",
+    "section": "",
+    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
+  },
+  {
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/newsletter/24_01_12/index.html",
+    "href": "posts/newsletter/24_01_12/index.html",
+    "title": "12-01-2024",
+    "section": "",
+    "text": "Webseite\nDas Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:\nhttps://iqb-research.github.io/IQB-Methods/\n\n\nAnsprechpartner:innen während Benjamins Elternzeit\nBenjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:\n\nGADS BT22 - Sebastian\nFDZ Reporting - Nicklas\neatFDZ - Karoline\neatGADS - Philipp\n\n\n\neatTools\nDie Version 0.7.5 liegt nun auf CRAN und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen halveString() und mergeAttr(). Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden."
+  },
+  {
     "objectID": "posts/r_sig/23_11_06_renv/index.html",
     "href": "posts/r_sig/23_11_06_renv/index.html",
     "title": "Reproducability with renv",
@@ -217,53 +266,25 @@
     "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
   },
   {
-    "objectID": "posts/newsletter/24_01_12/index.html",
-    "href": "posts/newsletter/24_01_12/index.html",
-    "title": "12-01-2024",
+    "objectID": "posts/r_sig/23_12_18_case_when/index.html",
+    "href": "posts/r_sig/23_12_18_case_when/index.html",
+    "title": "Case_when() function",
     "section": "",
-    "text": "Webseite\nDas Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:\nhttps://iqb-research.github.io/IQB-Methods/\n\n\nAnsprechpartner:innen während Benjamins Elternzeit\nBenjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:\n\nGADS BT22 - Sebastian\nFDZ Reporting - Nicklas\neatFDZ - Karoline\neatGADS - Philipp\n\n\n\neatTools\nDie Version 0.7.5 liegt nun auf CRAN und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen halveString() und mergeAttr(). Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden."
+    "text": "The case_when() function from the dplyr package of the tidyverse is a useful function for combining multiple ifelse() statements."
   },
   {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/r_sig/23_12_18_case_when/index.html#how-to-use-it",
+    "href": "posts/r_sig/23_12_18_case_when/index.html#how-to-use-it",
+    "title": "Case_when() function",
+    "section": "How to use it",
+    "text": "How to use it\nLet’s take a look at a little example. Let’s consider a very simple data frame containing only a column of different countries:\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\ndf &lt;- data.frame(country = c(rep(\"Deu\", 4), \"Mexico\", \"Peru\", \"Ghana\", \"China\", \"Spanien\"))\n\nNow, let’s suppose we want to add a second column containing the continent of the country. We can either use nested ifelse() statements, which makes the coed quite hard to read:\n\ndf$continent &lt;- ifelse(df$country %in% c(\"Deu\", \"Spanien\"), \n                       yes = \"Europe\", \n                       no = ifelse(\n                         df$country == \"Mexico\" | df$country == \"Peru\", \n                         yes = \"America\",\n                         no = ifelse(\n                           df$country == \"Ghana\", \n                           yes = \"Africa\",\n                           no = \"Asia\"\n                       )\n                       ))\n\ndf\n\n  country continent\n1     Deu    Europe\n2     Deu    Europe\n3     Deu    Europe\n4     Deu    Europe\n5  Mexico   America\n6    Peru   America\n7   Ghana    Africa\n8   China      Asia\n9 Spanien    Europe\n\n\ncase_when() has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are seperated by ~. So if the condition on the left side is met in a row, the function returns the value on the right side of ~:\n\ndf_2 &lt;- df %&gt;%\n  mutate(continent = case_when(country %in% c(\"Deu\", \"Spanien\") ~ \"Europe\", \n                               country %in% c(\"Mexico\", \"Peru\") ~ \"America\",\n                               country == \"Ghana\" ~ \"Africa\", \n                               TRUE ~ \"Another continent\"\n                                 )\n         )\ndf_2\n\n  country         continent\n1     Deu            Europe\n2     Deu            Europe\n3     Deu            Europe\n4     Deu            Europe\n5  Mexico           America\n6    Peru           America\n7   Ghana            Africa\n8   China Another continent\n9 Spanien            Europe\n\n\nWe wrap this statement into a mutate function to automatically create the new column continent from the output of case_when. The TRUE in the last row catches all conditions we haven’t dealt with further above. So all rows wich haven’t met any of the above conditions will get the label “Another continent”."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IQB Methods Team",
-    "section": "",
-    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
-  },
-  {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
-    "section": "",
-    "text": "12-01-2024\n\n\nNewsletter\n\n\n\nNicklas Hafiz\n\n\nDec 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/newsletter/23_08_09/index.html",
-    "href": "posts/newsletter/23_08_09/index.html",
-    "title": "09-08-2023",
-    "section": "",
-    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
-  },
-  {
-    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
-    "href": "posts/r_sig/23_10_09_cleaner/index.html",
-    "title": "Cleaner Scripts",
-    "section": "",
-    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
-  },
-  {
-    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
-    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
-    "title": "Cleaner Scripts",
-    "section": "",
-    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
+    "objectID": "posts/r_sig/23_12_18_case_when/index.html#evaluation-order",
+    "href": "posts/r_sig/23_12_18_case_when/index.html#evaluation-order",
+    "title": "Case_when() function",
+    "section": "Evaluation order",
+    "text": "Evaluation order\ncase_when() goes from the top to the bottom. So if a row has met a statement, it is not considered further down. That’s why it makes sense to go from the most specific statements to the less specific ones. Otherwise the least specific ones might overwrite everything in the beginning:\n\ndf_3 &lt;- df %&gt;%\n  mutate(continent = case_when(country %in% c(df$country) ~ \"Other country\", \n                               country %in% c(\"Mexico\", \"Peru\") ~ \"America\",\n                               country == \"Ghana\" ~ \"Africa\", \n                               TRUE ~ \"Another continent\"\n                                 )\n         )\n\ndf_3  \n\n  country     continent\n1     Deu Other country\n2     Deu Other country\n3     Deu Other country\n4     Deu Other country\n5  Mexico Other country\n6    Peru Other country\n7   Ghana Other country\n8   China Other country\n9 Spanien Other country\n\n\nBecause our first statement already covers all rows, the rest is obsolete. This top-down working also makes the TRUE condition in our last line possible, because only those rows that haven’t been used yet will come this far, and all of them are catched (because TRUE always is true)."
   },
   {
     "objectID": "posts/r_sig/23_07_31_apply/index.html",
