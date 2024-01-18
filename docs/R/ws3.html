@@ -495,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt betrachten</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>save()</code> dient zur Speicherung mehrerer Objekte auf einmal, entsprechende Dateien sollten die Endung <code>RData</code> erhalten. Beim Laden dieser Objekte behalten diese ihren ursprünglichen Namen. Dies kann nervig sein, da mögliche andere Personen nicht wissen, welche Namen die gespeicherten Objekte hatten.</p>
+<p><code>save()</code> dient zur Speicherung eines oder (in der Regel) mehrerer Objekte auf einmal, entsprechende Dateien sollten die Endung <code>RData</code> erhalten. Beim Laden dieser Objekte behalten diese ihren ursprünglichen Namen. Dies kann nervig sein, da mögliche andere Personen nicht wissen, welche Namen die gespeicherten Objekte hatten.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispieldatensätze</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars</span>
@@ -505,10 +505,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekte laden</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"Material_WSIII/stuff.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Wenn man überprüfen möchte, wie die geladenen Objekte heißen, kann man mithilfe des Befehls <code>ls()</code> die aktuell vorhanden Objekte in der globalen Umgebung überprüfen oder diese in RStudio unter <code>Environment</code> betrachten.</p>
+<p>Ungünstig ist die Verwendung von <code>save</code> bzw. <code>load</code> auch deshalb, weil beim Laden dieser Objekte gegebenenfalls gleichlautende und bereits in der globalen Umgebung vorhandene Objekte überschrieben werden. Setzt man um den <code>load</code>-Befehl eine Klammer, erkennt man immerhin, welche Namen die gespeicherten Objekte hatten:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Welche Objekte liegen in der globalen Umgebung?</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekte laden und hre Namen anzeigen lassen</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">load</span>(<span class="st">"Material_WSIII/stuff.RData"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wenn man überprüfen möchte, wie die in der globalen Umgebung geladenen Objekte heißen, kann man mithilfe des Befehls <code>ls()</code> die aktuell vorhanden Objekte in der globalen Umgebung überprüfen oder diese in RStudio unter <code>Environment</code> betrachten.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Welche Objekte liegen in der globalen Umgebung?</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "has_annotations" "pandoc_dir"      "quarto_bin_path" "some_data"      </code></pre>
 </div>
@@ -520,63 +525,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="csv">.csv</h2>
 <p>Beim Speichern von comma seperated files (<code>.csv</code>) können die Funktionen <code>write.csv()</code> und <code>write.csv2()</code> verwendet werden, wobei letztere Funktion den deutschen Excel-Konventionen (“,” als Dezimaltrenner) entspricht.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(mtcars, <span class="st">"Material_WSIII/mtcars.csv"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"Material_WSIII/mtcars.csv"</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt betrachten</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(mtcars, <span class="st">"Material_WSIII/mtcars.csv"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"Material_WSIII/mtcars.csv"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt betrachten</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="xlsx-excel" class="level2">
 <h2 class="anchored" data-anchor-id="xlsx-excel">.xlsx (Excel)</h2>
 <p>Zum Einlesen von Excel files empfiehlt sich die Funktion <code>read_xlsx()</code> aus dem Paket <code>readxl</code>. Achtung! Da das Paket standardmäßig einen <code>tibble</code> ausgibt, eine Spezialform von <code>data.frames</code>, empfiehlt sich die Umwandlung zu einem <code>data.frame</code>. Da das Paket leider kein Schreiben von Excel files unterstützt, empfiehlt sich hierfür die Funktion <code>write_xlsx()</code> aus dem Paket <code>eatAnalysis</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>eatAnalysis<span class="sc">::</span><span class="fu">write_xlsx</span>(mtcars, <span class="st">"Material_WSIII/mtcars.xlsx"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"Material_WSIII/mtcars.xlsx"</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dat)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>eatAnalysis<span class="sc">::</span><span class="fu">write_xlsx</span>(mtcars, <span class="st">"Material_WSIII/mtcars.xlsx"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"Material_WSIII/mtcars.xlsx"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dat)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="sav-spss" class="level2">
 <h2 class="anchored" data-anchor-id="sav-spss">.sav (SPSS)</h2>
 <p>Zum Importieren von SPSS-Dateien bietet sich das Paket <code>eatGADS</code> an. Es ermöglicht das Einlesen von Daten in einem zwei-schrittigem Vorgehen. Zuerst werden die Daten eingelesen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>spss <span class="ot">&lt;-</span> eatGADS<span class="sc">::</span><span class="fu">import_spss</span>(<span class="st">"Material_WSIII/example.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Diese Datei enthält sämtliche Metadaten, die auch die originale spss-Datei beinhaltet (Variablen- und Wertelabel etc.). Diese können mithilfe von <code>extractMeta</code> abgefragt werden.</p>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>eatGADS<span class="sc">::</span><span class="fu">extractMeta</span>(spss, <span class="st">"PJgsep_a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>spss <span class="ot">&lt;-</span> eatGADS<span class="sc">::</span><span class="fu">import_spss</span>(<span class="st">"Material_WSIII/example.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Diese Datei enthält sämtliche Metadaten, die auch die originale spss-Datei beinhaltet (Variablen- und Wertelabel etc.). Diese können mithilfe von <code>extractMeta</code> abgefragt werden. Im Folgenden werden die Metadaten für die Variable <code>"PJgsep_a"</code> abgerufen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>eatGADS<span class="sc">::</span><span class="fu">extractMeta</span>(spss, <span class="st">"PJgsep_a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Um Analysen in R durchzuführen, müssen die Daten aus diesem Objekt nun mithilfe der <code>extractData()</code>-Funktion extrahiert werden. Diese ermöglicht zum einen Missingcodes anzuwenden, zum anderen gelabelte Variablen entweder als numerische, character oder Faktor-Variablen auszugeben.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> eatGADS<span class="sc">::</span><span class="fu">extractData</span>(spss, <span class="at">convertLabel =</span> <span class="st">"character"</span>, <span class="at">convertMiss =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> eatGADS<span class="sc">::</span><span class="fu">extractData</span>(spss, <span class="at">convertLabel =</span> <span class="st">"character"</span>, <span class="at">convertMiss =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="dta-stata" class="level2">
 <h2 class="anchored" data-anchor-id="dta-stata">.dta (Stata)</h2>
 <p>Stata-Datein können mithilfe des Paktes <code>haven</code> sowohl gelesen als auch geschrieben werden.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">write_dta</span>(mtcars, <span class="st">"Material_WSIII/mtcars.dta"</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"Material_WSIII/mtcars.dta"</span>)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dat)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">write_dta</span>(mtcars, <span class="st">"Material_WSIII/mtcars.dta"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"Material_WSIII/mtcars.dta"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dat)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="dat-mplus" class="level2">
 <h2 class="anchored" data-anchor-id="dat-mplus">.dat (Mplus)</h2>
 <p>Häufig möchte man in Vorbereitung von Analysen mithilfe von <code>Mplus</code> Daten in <code>R</code> aufbereiten. Das Paket <code>MplusAutomation</code> beinhaltet die Funktion <code>prepareMplusData()</code>, die das schreiben von <code>.dat</code> Datein ermöglicht und zusätzlich einen Rohling für die Mplus-Analysesyntax erstellt. Außerdem beinhaltet das Paket zahlreiche Möglichkeiten verschiedene Analysen zu automatisieren.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>MplusAutomation<span class="sc">::</span><span class="fu">prepareMplusData</span>(mtcars, <span class="at">filename =</span> <span class="st">"Material_WSIII/mtcars.dat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>MplusAutomation<span class="sc">::</span><span class="fu">prepareMplusData</span>(mtcars, <span class="at">filename =</span> <span class="st">"Material_WSIII/mtcars.dat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
