@@ -403,7 +403,7 @@
     "href": "docs/eatPackages/eatRep.html",
     "title": "eatRep",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal\n\n\ninternal\n\n\nReplication Analysis with eatRep\n\n\nInternal Structure of eatRep"
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\nDocumentation\n\nA vignette which demonstrates replication analyses with eatRep is here.\nThe internal structure of the package is documented here. This overview is primarily dedicated to developers who want to want to further improve or extend the package and therefore need to understand its structure.\nWorkshop materials concerning eatRep can be found on the IQB network drives: i:\\Methoden\\02_IQB-interne_eat_Workshops\\eatRep_2021\\"
   },
   {
     "objectID": "docs/R/ws3.html",
