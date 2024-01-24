@@ -24,7 +24,7 @@ Calculates means, standard deviations, variances, frequency tables, percentiles 
 
 ```{r, echo=FALSE}
 # **Dokumentation:** [Replication Analysis with eatRep](https://cran.r-project.org/web//packages/eatRep/vignettes/eatRep.html) and internal.
-doku_rep <- c("internal", "internal", "[Replication Analysis with eatRep](https://cran.r-project.org/web//packages/eatRep/vignettes/eatRep.html)", "internal")
+doku_rep <- c("internal", "internal", "[Replication Analysis with eatRep](https://cran.r-project.org/web//packages/eatRep/vignettes/eatRep.html)", "[Internal Structure of eatRep](https://github.com/iqb-research/IQB-Methods/blob/main/_site/structure.html)")
 # interne Dokus:  Vignette: i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2021\eatRep_Vignette.pdf
                 # Tutorial (deutsch): i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2021\eatRep.pdf
                 # Workshop: i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2021\
