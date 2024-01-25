@@ -9,13 +9,14 @@
 <link>https://iqb-research.github.io/IQB-Methods/posts_r_sig.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.450</generator>
+<generator>quarto-1.4.549</generator>
 <lastBuildDate>Mon, 18 Dec 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Case_when() function</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/index.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -310,14 +311,15 @@ font-style: inherit;">"Another continent"</span></span>
   <category>R</category>
   <category>tidyverse</category>
   <category>data manipulation</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/index.html</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/</guid>
   <pubDate>Mon, 18 Dec 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Reproducability with renv</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/index.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -381,20 +383,21 @@ font-style: inherit;">update</span>()</span></code></pre></div>
   <category>R</category>
   <category>renv</category>
   <category>reproducability</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/index.html</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/</guid>
   <pubDate>Mon, 23 Oct 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Cleaner Scripts</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/</link>
   <description><![CDATA[ 
 
 
 
 
+
 <section id="some-general-take-aways" class="level2">
-<h2 class="anchored" data-anchor-id="some-general-take-aways">Some general take-aways</h2>
+
 <ol type="1">
 <li>Markdown vs.&nbsp;Quarto vs.&nbsp;R-Skripte</li>
 </ol>
@@ -417,14 +420,15 @@ font-style: inherit;">update</span>()</span></code></pre></div>
  ]]></description>
   <category>R</category>
   <category>best practices</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/index.html</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/</guid>
   <pubDate>Mon, 09 Oct 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>The apply family</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/index.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1035,14 +1039,15 @@ $Species
  ]]></description>
   <category>R</category>
   <category>loops</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/index.html</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/</guid>
   <pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>for-loops</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/index.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1064,7 +1069,7 @@ $Species
 </section></div> ]]></description>
   <category>R</category>
   <category>loops</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/index.html</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/</guid>
   <pubDate>Mon, 20 Mar 2023 00:00:00 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
 </item>
