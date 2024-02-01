@@ -8,3 +8,34 @@ listing:
   feed: true
   fields: [image, date, title, author, reading-time]
 ---
+
+The "Special Interest Group" about R (R-SIG) takes place every other week. We talk about all kinds of topics related to coding in R. Drop by if you're interested! 
+
+# Structure
+Each session you will have the opportunity to bring in R-related questions which we will discuss for 10 - 15 minutes. **Please send them in the Friday before the next session.**
+The rest of the time we will deal with a specific topic. There will be a short input and then a practical part each time, so you can try out everything we're talking about.  
+
+A suggestion for a timetable we can loosely follow: 
+- 13:00 - 13:15: Input
+- 13:15 - 13:35: Exercise time :)
+- 13:35 - 13:50: Discuss exercises
+- 13:50 - 14:10: Questions
+
+# Future Topics
+Here a list of possible topics for the next sessions. 
+
+- [] **`tidyverse`**
+  - [] Introduction
+  - [] Data wrangling 
+  - [] Plotting with `ggplot2`
+- [] Recap of "Advanced Basics": 
+  - [] Own functions
+  - [] loops
+  - [] apply-family
+- [] Package development and how it might be relevant for scientific analyses: 
+  - [] Own functions
+  - [] Structure of projects
+  - [] Testing!
+- [] Code Review: How to improve code I (or somebody else) has written. **You can send in your code, it might be a nice way of getting feedback you won't get otherwise**. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).
+- [] Coding Kata: The website [Codewars](https://www.codewars.com) let's you solve different coding challenges. 
+
