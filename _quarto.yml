@@ -47,6 +47,9 @@ website:
       - section: "Reproducibility"
         contents:
           - docs/reproduce/renv.qmd
+      - section: "Asserting Code"
+        contents:
+          - docs/checkmage/checkmate.qmd
       - section: "eat Packages"
         contents: 
           - docs/eatPackages/index.qmd
