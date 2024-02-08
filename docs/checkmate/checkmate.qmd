@@ -1,0 +1,208 @@
+---
+title: "Using Checkmate"
+author: "Edna Grewers"
+date: 2023-12-01
+---
+
+# Intro
+
+With the checkmate package you can test, check and assert all kinds of arguments regarding type, length and much more. You can also write your own assert-functions.
+
+In this Vignette you can get a broad understand how the package works, how the output looks like and some example functions. For more details and a complete overview go to [CRAN](https://cran.r-project.org/web/packages/checkmate/index.html), specifically the [checkmate.pdf](https://cran.r-project.org/web/packages/checkmate/checkmate.pdf) or use the following line of code:
+
+```{r, eval=FALSE}
+lsf.str("package:checkmate")
+```
+
+## Setup
+
+Install the package from `CRAN` with the following code. Then load it in your library.
+
+```{r, eval=FALSE}
+install.packages("checkmate")
+```
+
+```{r}
+library(checkmate)
+```
+
+
+## Different Outputs
+
+There are three main functions that we use: `test`, `check` and `assert`, which do similar things but produce different outputs. All functions have two ways to write them: `test_numeric()` with an underscore and `testNumeric()` with a capital Letter, but they both work the same. For simplicity we'll just use one option.
+
+To show the differences in outputs we check arguments for numeric input, as an example. See below to see checks for different types or attributes.
+
+**Test**
+
+Test-functions test whether an argument has certain attributes and gives you `TRUE` or `FALSE` output.
+
+```{r}
+test_numeric(c(6:1, 4))
+test_numeric("hallo") 
+```
+
+**Check**
+
+Check-functions check whether an argument has certain attributes and gives you `TRUE` or a `string` containing an error message as an output. In the string you can see what kind of argument you should have given, and what you did wrong.
+
+```{r}
+check_numeric(c(6:1, 4))
+check_numeric("hallo") 
+```
+
+**Assert**
+
+Assert-functions assert whether an argument has certain attributes and throw an `error message` if you it doesn't. When you did everything correct, it doesn't create an output. The `error message` contains the `string` from the `check`-functions.
+
+```{r, error=TRUE}
+assert_numeric(c(6:1, 4))
+assert_numeric("hallo")
+```
+
+If you save an `assert_numeric()` object into a variable x, it will contain the original object that you asserted.
+
+```{r}
+x <- assert_numeric(c(6:1, 4))
+x
+```
+
+## Checking for Type
+
+With `lsf.str()` you can see all functions of the package.
+
+```{r, eval=FALSE}
+lsf.str("package:checkmate")
+```
+
+You can check for specific types of arguments e.g. `numeric`, `number`, `integer`, `double`, `character`, `string`, `logical`, `flag`, `missing`, or data structure e.g. `list`, `data_frame`, `array` and so on. You can also look for attributes e.g. `true`, `subset`, `named` or `atomic`, and much more.
+
+Depending on what kind of output you want, you choose your function.
+
+```{r}
+check_list(list())
+check_list(1:9)
+```
+
+If you are looking for a specific function you can use:
+
+```{r}
+ls("package:checkmate", pattern = "atomic") 
+```
+
+### Checking for Type: Data Frames
+
+If you want to check the types of elements of a more complex data structure like a `list` or a `data frame`, you have to look at the arguments of the functions. Both have the argument `types`.
+
+First we create an example data frame with rows and columns named. It has numeric and character elements.
+
+```{r}
+df <- data.frame(klein = 1:3, mittel = 4:6, groß = c("7", "8", "9"), row.names = c("A", "B", "C"))
+df
+```
+
+Now we can check for the types of the elements using the `types` argument. You can look at the whole data frame with `df`, at single columns using `df[1]` or `df[klein]` or at single rows using `df[1,]`. The error message will tell you the first element that has a type you didn't check for.
+
+```{r}
+# checking the whole data frame
+check_data_frame(df, types = c("numeric", "character"))
+check_data_frame(df, types = "numeric")
+
+# checking individual columns
+check_data_frame(df[1], types = "numeric")
+check_data_frame(df["klein"], types = "numeric")
+check_data_frame(df[3], types = "numeric")
+
+# checking for individual rows
+df[1,]
+check_data_frame(df[1,], types = "numeric")
+
+```
+
+You can also check the type of individual elements with `df[1,1]` or just the content of the columns by loosing the attributes of the data frame with `df$klein` or `df[,1]`. In this example they all have type `integer`. Now `check_data_frame()` doesn't work anymore, because the data is no longer a data frame. You can use the normal checks from above.
+
+```{r}
+check_data_frame(df$klein, types = "numeric")
+
+check_integer(df$klein)
+check_numeric(df[,1])
+check_double(df[1,1])
+```
+
+### Checking for Type: Lists
+
+Lists work the same way. We create an example list a, with named elements of different types.
+
+```{r}
+a <- list(zahlen = 1:9, mon = month.abb, creator = "IQB")
+assert_list(a, types = c("numeric", "character"))
+assert_character(a$mon)
+```
+
+## Checking for Length
+
+You can check if an argument is `scalar`, but you cannot check for arbitrary lengths this way.
+
+```{r, error=TRUE}
+check_scalar(1)
+check_scalar(1:5)
+
+ls("package:checkmate", pattern = "length")
+```
+
+To check for arbitrary length of an argument, you have to use the `len` argument from the `test`, `check` or `assert` functions.
+
+```{r, error=TRUE}
+check_character(month.abb, len = 12)
+check_character(month.abb, len = 11)
+```
+
+There are some other attributes you can check like this, e.g. `min.len`, `max.len`, `unique` or the length of elements in character vectors using `n.chars`, `min.chars` or `max.chars`.
+
+```{r}
+check_character(month.abb, n.chars = 3, min.chars = 2)
+check_character(month.abb, n.chars = 2)
+check_character(month.abb, n.chars = 3, max.chars = 2)
+```
+
+For more info what arguments you can check, type `?check_character` in the console.
+
+```{r, eval=FALSE}
+?check_character
+```
+
+You can also check the lengths of **lists** or the length of columns/rows of a **data frame** in a similar way by using our example objects from above.
+
+```{r}
+assert_list(a, len = 3, min.len = 2, max.len = 3)
+assert_data_frame(df, min.cols = 1, max.cols = 3, ncols = 3)
+```
+
+## Checking Names via Subset
+
+You cannot check the names of complex objects directly. With the **list** or **data_frame** functions you can only check if the objects is named at all, or if the names are unique via the arguments `names` for lists and `col.names` or \``row.names` for data frames. Again using our example objects.
+
+```{r, error=TRUE}
+# a <- list(zahlen = 1:9, mon = month.abb, creator = "IQB")
+# df <- data.frame(klein = 1:3, mittel = 4:6, groß = c("7", "8", "9"), row.names = c("A", "B", "C"))
+
+assert_list(a, names = "named")
+assert_data_frame(df, col.names = "unique")
+```
+
+You can check for specific names by using the `subset` functions. You can check whether the object give the argument `choices` contains `x`. If `x` is not a subset of `choices` you'll get an error message.
+
+```{r, error=TRUE}
+# lists
+check_subset(x = "mon", choices = names(a))
+# data frames
+check_subset(c("klein", "mittel", "groß", "größer"), choices = colnames(df))
+
+```
+
+You can also check for unique values or missings in a similar way. For more info see the help functions.
+
+```{r, eval=FALSE}
+?assert_list
+?assert_data_frame
+```
