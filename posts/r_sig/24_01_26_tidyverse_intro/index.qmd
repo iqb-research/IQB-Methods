@@ -18,6 +18,8 @@ library(tidyverse)
 
 ## Introduction
 
+https://jhudatascience.org/tidyversecourse/index.html
+
 The `tidyverse` is composed of multiple packages, all following a common philosophy, and facilitating many aspects of coding in R, for example data wrangling and plotting. It is not really necessary to learn the `tidyverse` syntax in order to understand R and become proficient in it. However, I find it easier to understand in many cases, which probably makes it easier to get started with. Therefore, I will provide the syntax from the respective `tidyverse` package along with the `Base R` syntax in many cases. In the end, it is a question of preference what you want to learn. Most code will probably be composed from `base R` functions and `tidyverse` functions.
 
 You can find an overview of the included packages at the offical [`tidyverse documentation`](https://www.tidyverse.org/packages/).
