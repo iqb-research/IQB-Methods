@@ -1,0 +1,76 @@
+---
+title: "Introductino to the tidyverse"
+description: "R-SIG 26.02.24"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, tidyverse]
+image: preview_image.jpg
+---
+
+![](preview_image.jpg)[^1]
+
+[^1]: Image by [Barn Images](https://unsplash.com/de/@barnimages?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/verschiedene-handwerkzeuge-im-werkzeugregal-t5YUoHW6zRo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
+
+```{r}
+library(tidyverse)
+```
+
+## Introduction
+
+The `tidyverse` is composed of multiple packages, all following a common philosophy, and facilitating many aspects of coding in R, for example data wrangling and plotting. It is not really necessary to learn the `tidyverse` syntax in order to understand R and become proficient in it. However, I find it easier to understand in many cases, which probably makes it easier to get started with. Therefore, I will provide the syntax from the respective `tidyverse` package along with the `Base R` syntax in many cases. In the end, it is a question of preference what you want to learn. Most code will probably be composed from `base R` functions and `tidyverse` functions.
+
+You can find an overview of the included packages at the offical [`tidyverse documentation`](https://www.tidyverse.org/packages/).
+
+### Tidy Data
+
+*Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table.* ([Wickham, 2014](https://www.jstatsoft.org/article/view/v059i10)).
+
+## Some tidyverse features
+
+### Tibbles
+
+A special type of data frame are the so called `tibbles`. Tibbles are a modern version of data frames and the standard data frame type of the `tidyverse`, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don't be confused if you run into them, in general they behave like data frames.
+
+```{r}
+persons_tibble <- tibble(
+  name = c("Anna", "Alex", "John", "Jessi"),
+  age = c(19, 17, 18, 18),
+  birth_month = c("Jan", "Sep", "Oct", "Mar"),
+  big5_extro = c(3.5, 2, 4.5, 4.2)
+)
+persons_tibble
+```
+
+### The Pipe Operator
+
+`tidyverse` code is often written using the pipe operator `%>%` (read as '*then do*'), which makes it easy to connect multiple function calls:
+
+In base R, one could write:
+
+```{r}
+sum(seq(from = 1, to = mean(c(45:100), na.rm = TRUE), by = 0.1))
+```
+
+Which, in the tidyverse, would be written like so:
+
+```{r, message = FALSE}
+c(45:100) %>%
+  mean(na.rm = TRUE) %>%
+  seq(from = 1, to = ., by = 0.1) %>%
+  sum
+```
+
+Much nicer to read, right?
+
+Some notes on this syntax:
+
+1.  If we don't have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with `sum`.
+2.  The pipe operator will give the result of the last function as input into the next function. That's why we don't have to specify the vector within the `mean()` function.
+3.  If we want to clearly state which of the function arguments should receive the input, we can write a `.`, which can be read as *output of the previous function call*. That's what we do in the `seq()` function. It calculates a sequence from `1` to the mean of `c(45:100)`.
+
+
+### 
+
+
+## Exercise

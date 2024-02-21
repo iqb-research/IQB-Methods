@@ -81,7 +81,7 @@
     "href": "posts_r_sig.html",
     "title": "R-SIG",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nundefined\n\n\nIntroductino to the tidyverse\n\n\nNicklas Hafiz\n\n\n3 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/r_sig/23_03_20_forloops/index.html",
@@ -530,5 +530,47 @@
     "title": "for-loops",
     "section": "For-loops",
     "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
+  },
+  {
+    "objectID": "posts/r_sig/24_01_26_tidyverse_intro/index.html",
+    "href": "posts/r_sig/24_01_26_tidyverse_intro/index.html",
+    "title": "Introductino to the tidyverse",
+    "section": "",
+    "text": "1\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "posts/r_sig/24_01_26_tidyverse_intro/index.html#tidyverse",
+    "href": "posts/r_sig/24_01_26_tidyverse_intro/index.html#tidyverse",
+    "title": "Introductino to the tidyverse",
+    "section": "tidyverse",
+    "text": "tidyverse"
+  },
+  {
+    "objectID": "posts/r_sig/24_01_26_tidyverse_intro/index.html#footnotes",
+    "href": "posts/r_sig/24_01_26_tidyverse_intro/index.html#footnotes",
+    "title": "Introductino to the tidyverse",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Barn Images on Unsplash.↩︎"
+  },
+  {
+    "objectID": "posts/r_sig/24_01_26_tidyverse_intro/index.html#introduction",
+    "href": "posts/r_sig/24_01_26_tidyverse_intro/index.html#introduction",
+    "title": "Introductino to the tidyverse",
+    "section": "Introduction",
+    "text": "Introduction\nThe tidyverse is composed of multiple packages, all following a common philosophy, and facilitating many aspects of coding in R, for example data wrangling and plotting. It is not really necessary to learn the tidyverse syntax in order to understand R and become proficient in it. However, I find it easier to understand in many cases, which probably makes it easier to get started with. Therefore, I will provide the syntax from the respective tidyverse package along with the Base R syntax in many cases. In the end, it is a question of preference what you want to learn. Most code will probably be composed from base R functions and tidyverse functions.\nYou can find an overview of the included packages at the offical tidyverse documentation.\n\nTidy Data\nTidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. (Wickham, 2014)."
+  },
+  {
+    "objectID": "posts/r_sig/24_01_26_tidyverse_intro/index.html#some-tidyverse-features",
+    "href": "posts/r_sig/24_01_26_tidyverse_intro/index.html#some-tidyverse-features",
+    "title": "Introductino to the tidyverse",
+    "section": "Some tidyverse features",
+    "text": "Some tidyverse features\n\nTibbles\nA special type of data frame are the so called tibbles. Tibbles are a modern version of data frames and the standard data frame type of the tidyverse, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don’t be confused if you run into them, in general they behave like data frames.\n\npersons_tibble &lt;- tibble(\n  name = c(\"Anna\", \"Alex\", \"John\", \"Jessi\"),\n  age = c(19, 17, 18, 18),\n  birth_month = c(\"Jan\", \"Sep\", \"Oct\", \"Mar\"),\n  big5_extro = c(3.5, 2, 4.5, 4.2)\n)\npersons_tibble\n\n# A tibble: 4 × 4\n  name    age birth_month big5_extro\n  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;\n1 Anna     19 Jan                3.5\n2 Alex     17 Sep                2  \n3 John     18 Oct                4.5\n4 Jessi    18 Mar                4.2\n\n\n\n\nThe Pipe Operator\ntidyverse code is often written using the pipe operator %&gt;% (read as ‘then do’), which makes it easy to connect multiple function calls:\nIn base R, one could write:\n\nsum(seq(from = 1, to = mean(c(45:100), na.rm = TRUE), by = 0.1))\n\n[1] 26313\n\n\nWhich, in the tidyverse, would be written like so:\n\nc(45:100) %&gt;%\n  mean(na.rm = TRUE) %&gt;%\n  seq(from = 1, to = ., by = 0.1) %&gt;%\n  sum\n\n[1] 26313\n\n\nMuch nicer to read, right?\nSome notes on this syntax:\n\nIf we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with sum.\nThe pipe operator will give the result of the last function as input into the next function. That’s why we don’t have to specify the vector within the mean() function.\nIf we want to clearly state which of the function arguments should receive the input, we can write a ., which can be read as output of the previous function call. That’s what we do in the seq() function. It calculates a sequence from 1 to the mean of c(45:100)."
+  },
+  {
+    "objectID": "posts/r_sig/24_01_26_tidyverse_intro/index.html#exercise",
+    "href": "posts/r_sig/24_01_26_tidyverse_intro/index.html#exercise",
+    "title": "Introductino to the tidyverse",
+    "section": "Exercise",
+    "text": "Exercise"
   }
 ]
