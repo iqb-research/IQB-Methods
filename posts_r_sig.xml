@@ -1126,7 +1126,7 @@ A more thorough introduction into the <code>tidyverse</code> can be found <a hre
 </section>
 <section id="absolute-paths-vs.-relative-paths" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="absolute-paths-vs.-relative-paths"><span class="header-section-number">3.3</span> Absolute paths vs.&nbsp;relative paths</h3>
-<p>I can head to a specific file by using the full path (<strong>absolute path</strong>): <code>"C:/Users/hafiznij/Documents/GitHub/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/raw_data/winners.rda"</code>. This approach has some disadvantages: it will only work on <strong>my</strong> notebook. If I want to continue my project on another device, I will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use <strong>relative paths</strong>: <code>".\raw_data\winners.rda"</code>. This will always work independently of the device I am working on, as long as I am in the correct <strong>working directory</strong>.</p>
+<p>I can head to a specific file by using the full path (<strong>absolute path</strong>): <code>"C:/Users/hafiznij/Documents/GitHub/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/raw_data/winners.rda"</code>. This approach has some disadvantages: it will only work on <strong>my</strong> notebook. If I want to continue my project on another device, I will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use <strong>relative paths</strong>: <code>"./raw_data/winners.rda"</code>. This will always work independently of the device I am working on, as long as I am in the correct <strong>working directory</strong>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1161,7 +1161,7 @@ The <code>here</code> package
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your R Studio project is saved in. For example, <code>".\raw_data\winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not incredibly important right now, especially if you have all your files in the same folder. But it can become very valuable with increasing project complexity and file structure, so look into it if you want to get a head start! I also I have to use it sometimes during the tutorial because of the way I have organized my project, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
+<p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your R Studio project is saved in. For example, <code>"./raw_data/winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not incredibly important right now, especially if you have all your files in the same folder. But it can become very valuable with increasing project complexity and file structure, so look into it if you want to get a head start! I also I have to use it sometimes during the tutorial because of the way I have organized my project, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
 </div>
 </div>
 </section>
@@ -2154,7 +2154,7 @@ font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div>
   <category>R</category>
   <category>tidyverse</category>
   <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/</guid>
-  <pubDate>Mon, 26 Feb 2024 12:05:23 GMT</pubDate>
+  <pubDate>Mon, 26 Feb 2024 12:23:47 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
