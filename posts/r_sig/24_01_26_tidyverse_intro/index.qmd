@@ -55,7 +55,7 @@ Within your project folder, I would suggest that you create subfolders to save y
 
 ### Absolute paths vs. relative paths
 
-I can head to a specific file by using the full path (**absolute path**): `"C:/Users/hafiznij/Documents/GitHub/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/raw_data/winners.rda"`. This approach has some disadvantages: it will only work on **my** notebook. If I want to continue my project on another device, I will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use **relative paths**: `".\raw_data\winners.rda"`. This will always work independently of the device I am working on, as long as I am in the correct **working directory**.
+I can head to a specific file by using the full path (**absolute path**): `"C:/Users/hafiznij/Documents/GitHub/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/raw_data/winners.rda"`. This approach has some disadvantages: it will only work on **my** notebook. If I want to continue my project on another device, I will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use **relative paths**: `"./raw_data/winners.rda"`. This will always work independently of the device I am working on, as long as I am in the correct **working directory**.
 
 ::: callout-tip
 ## Network drives
@@ -75,7 +75,7 @@ Now take a look at the working directory and the relative path I used for loadin
 ::: callout-tip
 ## The `here` package
 
-Another great way to deal with the path confusion is to use the `here` package. It can build the paths relative to the directory where your R Studio project is saved in. For example, `".\raw_data\winners.rda"` becomes `here::here("raw_data", "winners.rda")`. This is not incredibly important right now, especially if you have all your files in the same folder. But it can become very valuable with increasing project complexity and file structure, so look into it if you want to get a head start! I also I have to use it sometimes during the tutorial because of the way I have organized my project, so don't be confused! It is just another way to build file paths. Look [here](https://here.r-lib.org/) (:D) if you want to learn more about the package.
+Another great way to deal with the path confusion is to use the `here` package. It can build the paths relative to the directory where your R Studio project is saved in. For example, `"./raw_data/winners.rda"` becomes `here::here("raw_data", "winners.rda")`. This is not incredibly important right now, especially if you have all your files in the same folder. But it can become very valuable with increasing project complexity and file structure, so look into it if you want to get a head start! I also I have to use it sometimes during the tutorial because of the way I have organized my project, so don't be confused! It is just another way to build file paths. Look [here](https://here.r-lib.org/) (:D) if you want to learn more about the package.
 :::
 
 ## Exercise
