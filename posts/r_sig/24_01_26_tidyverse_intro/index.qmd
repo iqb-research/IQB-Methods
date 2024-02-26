@@ -7,6 +7,7 @@ author:
 categories: [R, tidyverse]
 image: preview_image.jpg
 number-sections: true
+date: 02-26-2024
 ---
 
 ![](preview_image.jpg)[^1]
@@ -21,12 +22,10 @@ library(tidyverse)
 
 *Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table.* ([Wickham, 2014](https://www.jstatsoft.org/article/view/v059i10)).
 
-
 The `tidyverse` is composed of multiple packages, all following a common philosophy, and facilitating many aspects of coding in R, for example data wrangling and plotting. It is not really necessary to learn the `tidyverse` syntax in order to be proficient in R. However, I find it easier to understand and write Code in, at least in most cases. In the end, it is a question of preference what you want to learn and use. Most code will probably be composed from `base R` functions and `tidyverse` functions.
 
-You can find an overview of the included packages at the offical [tidyverse documentation](https://www.tidyverse.org/packages/).   
-A more thorough introduction into the `tidyverse` can be found [here](https://jhudatascience.org/tidyversecourse/index.html
-). 
+You can find an overview of the included packages at the offical [tidyverse documentation](https://www.tidyverse.org/packages/).\
+A more thorough introduction into the `tidyverse` can be found [here](https://jhudatascience.org/tidyversecourse/index.html).
 
 ## Some tidyverse features
 
@@ -45,12 +44,15 @@ Some notes on the pipe syntax, also see [Exercises](http://localhost:3795/posts/
 3.  If we want to clearly state which of the function arguments should receive the input, we can write a `.`, which can be read as *output of the previous function call*.
 
 ## Workstation organization
+
 ### RStudio Projects
+
 Over time, it will become increasingly hard to organize all your files, working directories and workspaces in a sensible manner. A reasonable big project will consist of multiple script files, data, output and plots. To keep everything toghether, [RStudio Projects](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects) can be used (highly recommended). Therefore, when starting a new project in R, the first thing you should do is to create a RStudio project.
 
 You can create a new RStudio project by clicking on `File - New Project` in the RStudio window. You can either create a totally new directory, or choose an already existing folder for the project.
 
 ### Code organization
+
 Within your project folder, I would suggest that you create subfolders to save your Scripts, data, outputs ... in. For example, you could create a folder named R, where all your R Scripts will go. You can do the same for data, plots etc. This will help you to structure your working directory and make it easier to find specific files.
 
 ### Absolute paths vs. relative paths
@@ -59,7 +61,8 @@ I can head to a specific file by using the full path (**absolute path**): `"C:/U
 
 ::: callout-tip
 ## Network drives
-One exception might be paths to files on the IQB network drives, like `T:` ... Because these are always the same for every one, absolute paths will work just fine for everything lying on here. 
+
+One exception might be paths to files on the IQB network drives, like `T:` ... Because these are always the same for every one, absolute paths will work just fine for everything lying on here.
 :::
 
 The working directory is the path R is currently working in. I can obtain it by typing:
@@ -80,16 +83,15 @@ Another great way to deal with the path confusion is to use the `here` package. 
 
 ## Exercise
 
-0. Create a new RStudio project. Create the folders `R`, `data` and `plots`. Create a new R-Script which lies in your `R` folder. 
+0.  Create a new RStudio project. Create the folders `R`, `data` and `plots`. Create a new R-Script which lies in your `R` folder.
 
-1. Write the following code using the pipe-operator from the `tidyverse`:
+1.  Write the following code using the pipe-operator from the `tidyverse`:
 
 ```{r, eval = FALSE}
 sum(seq(from = 1, to = mean(c(45:100), na.rm = TRUE), by = 0.1))
 ```
 
 ::: {.callout-caution collapse="true"}
-
 ## Solution
 
 ```{r}
@@ -108,32 +110,32 @@ Much nicer to read, right?
 3.  If we want to clearly state which of the function arguments should receive the input, we can write a `.`, which can be read as *output of the previous function call*. That's what we do in the `seq()` function. It calculates a sequence from `1` to the mean of `c(45:100)`.
 :::
 
-2. Install and load the `palmerpenguins` package. 
+2.  Install and load the `palmerpenguins` package.
 
 ::: {.callout-caution collapse="true"}
-
 ## Solution
+
 ```{r}
 # install.packages("palmerpenguins")
 library(palmerpenguins)
 ```
 :::
 
-3. Transform the `penguins`-tibble (available after loading the package) into a `data.frame`.
+3.  Transform the `penguins`-tibble (available after loading the package) into a `data.frame`.
 
 ::: {.callout-caution collapse="true"}
-
 ## Solution
+
 ```{r}
 penguins_frame <- as.data.frame(penguins)
 ```
 :::
 
-4. Compare how both objects (tibble and data.frame) are printed into the console. Which differences can you see?
+4.  Compare how both objects (tibble and data.frame) are printed into the console. Which differences can you see?
 
 ::: {.callout-caution collapse="true"}
-
 ## Solution
+
 ```{r, }
 penguins
 ```
@@ -142,18 +144,18 @@ penguins
 penguins_frame
 ```
 
-- `tibbles` only print 10 rows  by default, data.frames a lot more. 
-- `tibbles` only print as many columns as possible in one row, which looks a lot cleaner.
-- On top, the `tibble` shows us how many rows and columns there are in our data. 
-- `NAs` are printed in red in `tibbles` (not in this output, but try it yourself). 
-- The data-type of each column is printed on top of the column in `tibbles`.
-
+-   `tibbles` only print 10 rows by default, data.frames a lot more.
+-   `tibbles` only print as many columns as possible in one row, which looks a lot cleaner.
+-   On top, the `tibble` shows us how many rows and columns there are in our data.
+-   `NAs` are printed in red in `tibbles` (not in this output, but try it yourself).
+-   The data-type of each column is printed on top of the column in `tibbles`.
 :::
 
-5. Save your penguins `data.frame` and your penguins `tibble` as `.RDS` files in a dedicated `data` folder in your R-project. Use relative paths!
+5.  Save your penguins `data.frame` and your penguins `tibble` as `.RDS` files in a dedicated `data` folder in your R-project. Use relative paths!
 
 ::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r, eval = FALSE}
 saveRDS(penguins, file = "./data/penguins.RDS")
 saveRDS(penguins_frame, file = "./data/penguins_frame.RDS")
@@ -161,11 +163,11 @@ saveRDS(penguins_frame, file = "./data/penguins_frame.RDS")
 ```
 :::
 
-
-6. Load your penguins `data.frame` and your penguins `tibble` into R. Use the `here` package. 
+6.  Load your penguins `data.frame` and your penguins `tibble` into R. Use the `here` package.
 
 ::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r, eval = FALSE}
 library(here)
 
