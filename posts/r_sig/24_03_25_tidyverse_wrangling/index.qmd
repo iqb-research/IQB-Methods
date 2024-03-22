@@ -69,11 +69,11 @@ athletes %>%
 We can use `filter` to subset rows according to their values in specific columns: 
 
 ```{r, output.lines = 4}
-## All Volleyball athletes
+## All Volleyballers
 athletes %>%
   filter(Sport == "Volleyball")
 
-## All Judo athletes between 50 and 100 kg
+## All Judoka between 50 and 100 kg
 athletes %>%
   filter(Sport == "Judo", between(Weight, 50, 100))
 
@@ -84,7 +84,95 @@ athletes %>%
 
 Note how we can just write our conditions without connecting them with `&` (`filter()` does that automatically for us). Also, we don’t have to put the column names into "", because `filter()` knows that this are column names of the athletes data frame, which makes coding a bit more pleasant. Also, missing rows are automatically removed, which makes sense in many cases!
 
+## `pivot_...()`
+To reshape data.frames from long to wide or wide to long format we can use `pivot_wider()` and `pivot_longer()`:
+
+Let's define a simpler data.frame first: 
+
+```{r}
+inhabitants_wide <- data.frame(
+  country = c("China", "India", "USA"),
+  inhabitants_2021 = c(1425893465, 1407563842, NA),
+  inhabitants_2022 = c(1425857720, 1420939232, 338903174)
+)
+inhabitants_wide
+```
+
+```{r}
+inhabitants_long <- inhabitants_wide %>%
+  pivot_longer(
+    cols = c("inhabitants_2022", "inhabitants_2021"),
+    names_to = "year",
+    values_to = "inhabitants"
+  )
+
+head(inhabitants_long)
+```
+
+```{r}
+inhabitants_long <- inhabitants_wide %>%
+  pivot_longer(
+    ## Select the columns we want to reshape:
+    cols = c("inhabitants_2022", "inhabitants_2021"),
+    ## Define a new column where the column names will go to:
+    names_to = "year",
+    ## Define a new column where the values will go to:
+    values_to = "inhabitants"
+  )
+
+head(inhabitants_wide)
+```
+
+## `mutate()`
+With `mutate()` we can add new columns to a data.frame or edit existing ones:
+
+```{r, output.lines = 4}
+athletes %>%
+  mutate(new_column = NA)
+```
+
+### Useful helpers
+Like `select()`, `mutate()` really starts to shine when helper functions are added. For example we can fill a new column according to values in other columns:
+```{r}
+## Build a new column indicating if this is a contact sport athlete
+athletes %>%
+  mutate(contact_sport = ifelse(Sport %in% c("Wrestling", "Boxing", "Judo", "Rugby", "Taekwondo", "Rugby Sevens"), 
+                                yes = TRUE, 
+                                no = FALSE)
+         )
+```
+
+If we have to connect multiple `ifelse()` functions, it's better to use `dplyrs` `case_when()`[https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/]:
+
+```{r}
+## This gets complicated pretty quickly:
+athletes %>%
+  mutate(judo_weightclass = ifelse(grepl("Middleweight", .$Event), 
+                                  yes = "Middleweight", 
+                                  no = ifelse(grepl("Half-Lightweight", .$Event), 
+                                        yes = "Half-Lightweight", 
+                                        no = ifelse(grepl("Lightweight", .$Event), 
+                                                    yes = "Lightweight", 
+                                                    no = NA)
+                                        ) 
+                                        )
+                                  ) %>% 
+  filter(Sport == "Judo")
+
+## so do this instead:
+athletes %>%
+  mutate(judo_weightclass = case_when(str_detect(Event, "Middleweight") ~ "Middleweight", 
+                                      str_detect(Event, "Half-Lightweight") ~ "Half-Lightweight", 
+                                      str_detect(Event, "Lightweight") ~ "Lightweight")
+         ) %>%
+  filter(Sport == "Judo")
+```
 
 
 
 
+
+### conditional `mutate()`
+
+
+### !!sim ...
