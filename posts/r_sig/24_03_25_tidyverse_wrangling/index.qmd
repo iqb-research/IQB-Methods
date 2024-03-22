@@ -1,0 +1,90 @@
+---
+title: "Introduction to the tidyverse"
+description: "R-SIG 25.03.24"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, tidyverse]
+image: data_wrangling.jpg
+number-sections: true
+date: 03-25-2024
+---
+
+![](data_wrangling.jpg)[^1]
+
+[^1]: Image by [Bing Copilot](https://www.bing.com/images/create/data-wrangling/1-65fd4161357e424ab4710052a455ae76?id=%2bsYYE%2fjAx45kPemp84oShA%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG1.63cnYyWZaAlWJaaaluAw&FORM=SYDBIC)
+
+```{r, echo = FALSE, message = FALSE}
+source(here::here("posts", "r_sig", "output_hook.R"))
+```
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+The (`tidyverse`)[https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/] provides many tools for wrangling data, from selecting, sorting or renaming columns over filtering specific rows according to complex conditions to building new columns according to values in other columns. 
+Let's take a look at the most important ones. We will use the (`athletes`)[] dataset in the examples:
+
+::: {.callout-caution icon="false" collapse="true"}
+## Load the data
+
+```{r message=FALSE}
+# install.packages("tidyverse")
+# install.packages("here")
+
+library(tidyverse)
+library(here)
+
+athletes <- readRDS(file = here::here("posts", "r_sig", "raw_data", "athletes.rds"))
+```
+:::
+
+
+## `Select()`
+Selecting columns from a data.frame is pretty straight forward:
+
+```{r, output.lines = 4}
+athletes %>%
+  select(Year, Sport)
+```
+
+Note how we don't have to put the columns in `""`, and how we can simply seperate them by `,`.  
+`select()` becomes especially useful when combined with [selection helpers](https://dplyr.tidyverse.org/reference/select.html):
+
+```{r, output.lines = 4}
+## Select all columns starting with a Se
+athletes %>%
+  select(starts_with("Se"))
+
+## Select all columns containing the letters "ea"
+athletes %>%
+  select(contains("ea"))
+
+## Or, we can combine them:
+athletes %>% 
+  select(ends_with("t") & contains("igh"))
+```
+
+## `filter()`
+We can use `filter` to subset rows according to their values in specific columns: 
+
+```{r, output.lines = 4}
+## All Volleyball athletes
+athletes %>%
+  filter(Sport == "Volleyball")
+
+## All Judo athletes between 50 and 100 kg
+athletes %>%
+  filter(Sport == "Judo", between(Weight, 50, 100))
+
+## All athletes with missing heigth
+athletes %>%
+  filter(is.na(Height))
+```
+
+Note how we can just write our conditions without connecting them with `&` (`filter()` does that automatically for us). Also, we don’t have to put the column names into "", because `filter()` knows that this are column names of the athletes data frame, which makes coding a bit more pleasant. Also, missing rows are automatically removed, which makes sense in many cases!
+
+
+
+
+
