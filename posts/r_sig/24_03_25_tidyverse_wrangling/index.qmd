@@ -40,7 +40,7 @@ athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds"))
 :::
 
 
-## `Select()`
+## `select()` columns
 Selecting columns from a data.frame is pretty straight forward:
 
 ```{r, output.lines = 4}
@@ -65,7 +65,7 @@ athletes %>%
   select(ends_with("t") & contains("igh"))
 ```
 
-## `filter()`
+## `filter()` rows
 We can use `filter` to subset rows according to their values in specific columns: 
 
 ```{r, output.lines = 4}
@@ -87,7 +87,7 @@ athletes %>%
 
 Note how we can just write our conditions without connecting them with `&` (`filter()` does that automatically for us). Also, we don’t have to put the column names into "", because `filter()` knows that this are column names of the athletes data frame, which makes coding a bit more pleasant. Also, missing rows are automatically removed, which makes sense in many cases!
 
-## `pivot_...()`
+## `pivot_...()` long/wide format
 To reshape data.frames from long to wide or wide to long format we can use `pivot_wider()` and `pivot_longer()`:
 
 Let's define a simpler data.frame first: 
@@ -219,7 +219,7 @@ athletes %>%
 ```
 
 
-## Merging data
+## `..._join_..()` data.frames
 We have multiple options for merging data.frames in the `tidyverse`. `left_join()` can be used if we want to keep all rows of the first data.frame and only adds the rows of the second data.frame that have an identifier in the first data.frame, `right_join()` keeps all rows of the second data frame, and `full_join()` keeps all rows of both data frames.
 
 Let's merge a world coordinate data set onto our medal counts. This can be helpful if we want to plot the number of won medals in each country later on:
