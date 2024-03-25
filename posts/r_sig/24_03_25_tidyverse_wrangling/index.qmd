@@ -71,15 +71,18 @@ We can use `filter` to subset rows according to their values in specific columns
 ```{r, output.lines = 4}
 ## All Volleyballers
 athletes %>%
-  filter(Sport == "Volleyball")
+  filter(Sport == "Volleyball") %>%
+  head
 
 ## All Judoka between 50 and 100 kg
 athletes %>%
-  filter(Sport == "Judo", between(Weight, 50, 100))
+  filter(Sport == "Judo", between(Weight, 50, 100)) %>%
+  head()
 
-## All athletes with missing heigth
+## All athletes with missing height
 athletes %>%
-  filter(is.na(Height))
+  filter(is.na(Height)) %>%
+  head()
 ```
 
 Note how we can just write our conditions without connecting them with `&` (`filter()` does that automatically for us). Also, we don’t have to put the column names into "", because `filter()` knows that this are column names of the athletes data frame, which makes coding a bit more pleasant. Also, missing rows are automatically removed, which makes sense in many cases!
@@ -145,7 +148,9 @@ With `mutate()` we can add new columns to a data.frame or edit existing ones:
 
 ```{r, output.lines = 4}
 athletes %>%
-  mutate(new_column = NA)
+  mutate(new_column = NA) %>%
+  mutate(ID = as.character(ID)) %>%
+  str()
 ```
 
 ### Useful helpers
@@ -156,10 +161,11 @@ athletes %>%
   mutate(contact_sport = ifelse(Sport %in% c("Wrestling", "Boxing", "Judo", "Rugby", "Taekwondo", "Rugby Sevens"), 
                                 yes = TRUE, 
                                 no = FALSE)
-         )
+         ) %>%
+  select(Name, Sport, contact_sport)
 ```
 
-If we have to connect multiple `ifelse()` functions, it's better to use `dplyrs` `case_when()`[https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/]:
+If we have to connect multiple `ifelse()` functions, it's better to use `dplyrs` [`case_when()`](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/):
 
 ```{r, output.lines = 10}
 ## This gets complicated pretty quickly:
@@ -174,7 +180,8 @@ athletes %>%
                                         ) 
                                         )
                                   ) %>% 
-  filter(Sport == "Judo")
+  filter(Sport == "Judo") %>%
+  select(Name, Sport, Event, judo_weightclass)
 
 ## so do this instead:
 athletes %>%
@@ -182,14 +189,16 @@ athletes %>%
                                       str_detect(Event, "Half-Lightweight") ~ "Half-Lightweight", 
                                       str_detect(Event, "Lightweight") ~ "Lightweight")
          ) %>%
-  filter(Sport == "Judo")
+  filter(Sport == "Judo") %>%
+  select(Name, Sport, Event, judo_weightclass)
+
 ```
 
 ## `group_by()`
 We can group our data by values in specific columns and perform some sort of operation on the groups. 
 If we wanted to know the number of medals each region has won, we can for example group by region and medal type, and then `count()` (another `tidyverse` function) the number of cases in each group:
 
-```{r, output.lines = 5}
+```{r, output.lines = 10}
 medal_counts <- athletes %>%
   group_by(Region, Medal) %>%
   count(Medal) 
@@ -199,11 +208,14 @@ medal_counts
 
 We can also `summarize()` data:
 
-```{r, output.lines = 5}
+```{r, output.lines = 10}
 ## Let's see what the mean, min and max age of athletes was in each Region:
 athletes %>%
   group_by(Region) %>%
-      summarize(mean_age = mean(Age, na.rm = TRUE), min_age = min(Age, na.rm = TRUE), max_age = max(Age, na.rm = TRUE))
+      summarize(mean_age = mean(Age, na.rm = TRUE), 
+                min_age = min(Age, na.rm = TRUE), 
+                max_age = max(Age, na.rm = TRUE)
+                )
 ```
 
 
@@ -310,7 +322,7 @@ str(characters_stats)
 Take a look at the examples in `?select` to see how you can select all columns but those fulfilling a certain condition.
 :::
 
-::: {.callout-solution collapse="true"}
+::: { .callout-caution collapse="true"}
 
 ```{r}
 characters_stats %>%
@@ -323,7 +335,7 @@ characters_stats %>%
 
 4. Calculate the mean rating of all characters by show and question, so you get the mean rating of all characters in a show on each item. 
 
-::: {.callout-solution collapse="true"}
+::: { .callout-caution collapse="true"}
 
 ```{r}
 characters_summary <- characters_stats %>%
@@ -343,11 +355,11 @@ Second, reshape this data.frame into long format.
 :::
 
 
-::: {.callout-solution collapse="true"}
+::: { .callout-caution collapse="true"}
 
 ```{r}
 compare_shows <- characters_summary %>%
-  filter(uni_name %in% c("Friends", "How I Met Your Mother" )) %>%
+  filter(str_detect(uni_name, c("Friends|How I Met Your Mother" ))) %>%
   pivot_wider(
     names_from = "uni_name",
     values_from = "mean_rating")
@@ -362,7 +374,7 @@ Now we could look at specific questions. For example the How I Met Your Mother c
 6. Now, add a column containing the difference in rating between both shows for each question to your new comparison data.frame. Then, sort the rows by descending size of difference between the ratings. So the row with the highest difference in mean rating between your two shows should be on top. 
 
 
-::: {.callout-solution collapse="true"}
+::: { .callout-caution collapse="true"}
 
 ```{r}
 compare_shows %>%
