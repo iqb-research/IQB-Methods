@@ -12,7 +12,7 @@
 <generator>quarto-1.3.433</generator>
 <lastBuildDate>Sun, 24 Mar 2024 23:00:00 GMT</lastBuildDate>
 <item>
-  <title>Introduction to the tidyverse</title>
+  <title>Data wrangling in the tidyverse</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_25_tidyverse_wrangling/index.html</link>
   <description><![CDATA[ 
@@ -178,12 +178,15 @@ font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E
 background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Volleyball"</span>)</span></code></pre></div>
+font-style: inherit;">"Volleyball"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb11-4">  head</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     NOC     ID                                                           Name
-1    ALG 122168                                                    Faza Tsabet
-2    ALG  73155                                                 Narimne Madani
-3    ALG  47642                                               Sehryne Hennaoui
+<pre><code>  NOC     ID             Name Sex Age Height Weight    Team       Games Year
+1 ALG 122168      Faza Tsabet   F  23    183     79 Algeria 2008 Summer 2008
+2 ALG  73155   Narimne Madani   F  24    176     63 Algeria 2008 Summer 2008
+3 ALG  47642 Sehryne Hennaoui   F  24    172     69 Algeria 2012 Summer 2012
 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
@@ -204,17 +207,22 @@ font-style: inherit;">between</span>(Weight, <span class="dv" style="color: #AD0
 background-color: null;
 font-style: inherit;">50</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">100</span>))</span></code></pre></div>
+font-style: inherit;">100</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb13-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     NOC     ID                                              Name Sex Age
-1    AFG  99303                                     Friba Razayee   F  18
-2    AFG  33817                                    Ajmal Faizzada   M  25
-3    AFG   7050                           Mohammad Tawfiq Bakhshi   M  30
+<pre><code>  NOC     ID                    Name Sex Age Height Weight        Team
+1 AFG  99303           Friba Razayee   F  18    165     70 Afghanistan
+2 AFG  33817          Ajmal Faizzada   M  25    173     66 Afghanistan
+3 AFG   7050 Mohammad Tawfiq Bakhshi   M  30    181     99 Afghanistan
 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
-font-style: italic;">## All athletes with missing heigth</span></span>
+font-style: italic;">## All athletes with missing height</span></span>
 <span id="cb15-2">athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
@@ -222,12 +230,17 @@ font-style: inherit;">%&gt;%</span></span>
 background-color: null;
 font-style: inherit;">filter</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">is.na</span>(Height))</span></code></pre></div>
+font-style: inherit;">is.na</span>(Height)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb15-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     NOC     ID
-1    AFG 132181
-2    AFG  87371
-3    AFG    502
+<pre><code>  NOC     ID                     Name Sex Age Height Weight        Team
+1 AFG 132181              Najam Yahya   M  NA     NA     NA Afghanistan
+2 AFG  87371    Ahmad Jahan Nuristani   M  NA     NA     NA Afghanistan
+3 AFG    502        Ahmad Shah Abouwi   M  NA     NA     NA Afghanistan
 ...</code></pre>
 </div>
 </div>
@@ -398,12 +411,26 @@ font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">new_column =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">NA</span>)</span></code></pre></div>
+font-style: inherit;">NA</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb25-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ID =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(ID)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb25-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     NOC     ID                                             Name Sex Age Height
-1    AFG 132181                                      Najam Yahya   M  NA     NA
-2    AFG  87371                            Ahmad Jahan Nuristani   M  NA     NA
-3    AFG  44977                                Mohammad Halilula   M  28    163
+<pre><code>'data.frame':   270767 obs. of  17 variables:
+ $ NOC       : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID        : chr  "132181" "87371" "44977" "502" ...
+ $ Name      : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
 ...</code></pre>
 </div>
 </div>
@@ -450,22 +477,27 @@ background-color: null;
 font-style: inherit;">no =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">FALSE</span>)</span>
-<span id="cb27-6">         )</span></code></pre></div>
+<span id="cb27-6">         ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb27-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Name, Sport, contact_sport)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     NOC     ID                                             Name Sex Age Height
-1    AFG 132181                                      Najam Yahya   M  NA     NA
-2    AFG  87371                            Ahmad Jahan Nuristani   M  NA     NA
-3    AFG  44977                                Mohammad Halilula   M  28    163
-4    AFG    502                                Ahmad Shah Abouwi   M  NA     NA
-5    AFG 109153                               Shakar Khan Shakar   M  24     NA
-6    AFG  29626                             Sultan Mohammad Dost   M  28    168
-7    AFG   1076                            Jammal-ud-Din Affendi   M  28     NA
-8    AFG 121376                         Khan Nasrullah Totakhail   M  NA     NA
-9    AFG  80210                                         Alam Mir   M  NA     NA
+<pre><code>                                                                                               Name
+1                                                                                       Najam Yahya
+2                                                                             Ahmad Jahan Nuristani
+3                                                                                 Mohammad Halilula
+4                                                                                 Ahmad Shah Abouwi
+5                                                                                Shakar Khan Shakar
+6                                                                              Sultan Mohammad Dost
+7                                                                             Jammal-ud-Din Affendi
+8                                                                          Khan Nasrullah Totakhail
+9                                                                                          Alam Mir
 ...</code></pre>
 </div>
 </div>
-<p>If we have to connect multiple <code>ifelse()</code> functions, it’s better to use <code>dplyrs</code> <code>case_when()</code>[https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/]:</p>
+<p>If we have to connect multiple <code>ifelse()</code> functions, it’s better to use <code>dplyrs</code> <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/"><code>case_when()</code></a>:</p>
 <div class="cell" data-output.lines="10">
 <div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
@@ -539,18 +571,23 @@ font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E
 background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Judo"</span>)</span></code></pre></div>
+font-style: inherit;">"Judo"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb29-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Name, Sport, Event, judo_weightclass)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     NOC     ID                                              Name Sex Age
-1    AFG  99303                                     Friba Razayee   F  18
-2    AFG  33817                                    Ajmal Faizzada   M  25
-3    AFG   7050                           Mohammad Tawfiq Bakhshi   M  30
-4    AHO  83594                                     Sergio Murray   M  25
-5    AHO  73287                                     Willem Maduro   M  NA
-6    AHO  34544                              Jaime Antonio Felipa   M  32
-7    ALB  58601                                 Majlinda Kelmendi   F  21
-8    ALB 121096                                    Edmond Topalli   M  28
-9    ALG   9593                                     Sami Belgroun   M  25
+<pre><code>                                                  Name Sport
+1                                        Friba Razayee  Judo
+2                                       Ajmal Faizzada  Judo
+3                              Mohammad Tawfiq Bakhshi  Judo
+4                                        Sergio Murray  Judo
+5                                        Willem Maduro  Judo
+6                                 Jaime Antonio Felipa  Judo
+7                                    Majlinda Kelmendi  Judo
+8                                       Edmond Topalli  Judo
+9                                        Sami Belgroun  Judo
 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="do" style="color: #5E5E5E;
@@ -601,18 +638,23 @@ font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E
 background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Judo"</span>)</span></code></pre></div>
+font-style: inherit;">"Judo"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb31-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Name, Sport, Event, judo_weightclass)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     NOC     ID                                              Name Sex Age
-1    AFG  99303                                     Friba Razayee   F  18
-2    AFG  33817                                    Ajmal Faizzada   M  25
-3    AFG   7050                           Mohammad Tawfiq Bakhshi   M  30
-4    AHO  83594                                     Sergio Murray   M  25
-5    AHO  73287                                     Willem Maduro   M  NA
-6    AHO  34544                              Jaime Antonio Felipa   M  32
-7    ALB  58601                                 Majlinda Kelmendi   F  21
-8    ALB 121096                                    Edmond Topalli   M  28
-9    ALG   9593                                     Sami Belgroun   M  25
+<pre><code>                                                  Name Sport
+1                                        Friba Razayee  Judo
+2                                       Ajmal Faizzada  Judo
+3                              Mohammad Tawfiq Bakhshi  Judo
+4                                        Sergio Murray  Judo
+5                                        Willem Maduro  Judo
+6                                 Jaime Antonio Felipa  Judo
+7                                    Majlinda Kelmendi  Judo
+8                                       Edmond Topalli  Judo
+9                                        Sami Belgroun  Judo
 ...</code></pre>
 </div>
 </div>
@@ -621,7 +663,7 @@ font-style: inherit;">"Judo"</span>)</span></code></pre></div>
 <section id="group_by" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="group_by"><span class="header-section-number">5</span> <code>group_by()</code></h2>
 <p>We can group our data by values in specific columns and perform some sort of operation on the groups. If we wanted to know the number of medals each region has won, we can for example group by region and medal type, and then <code>count()</code> (another <code>tidyverse</code> function) the number of cases in each group:</p>
-<div class="cell" data-output.lines="5">
+<div class="cell" data-output.lines="10">
 <div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1">medal_counts <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
@@ -643,11 +685,16 @@ font-style: inherit;">count</span>(Medal) </span>
    Region         Medal      n
    &lt;chr&gt;          &lt;chr&gt;  &lt;int&gt;
  1 Afghanistan    Bronze     2
+ 2 Afghanistan    &lt;NA&gt;     124
+ 3 Albania        &lt;NA&gt;      70
+ 4 Algeria        Bronze     8
+ 5 Algeria        Gold       5
+ 6 Algeria        Silver     4
 ...</code></pre>
 </div>
 </div>
 <p>We can also <code>summarize()</code> data:</p>
-<div class="cell" data-output.lines="5">
+<div class="cell" data-output.lines="10">
 <div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Let's see what the mean, min and max age of athletes was in each Region:</span></span>
@@ -669,7 +716,8 @@ font-style: inherit;">mean</span>(Age, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>), <span class="at" style="color: #657422;
+font-style: inherit;">TRUE</span>), </span>
+<span id="cb35-5">                <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">min_age =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -677,7 +725,8 @@ font-style: inherit;">min</span>(Age, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>), <span class="at" style="color: #657422;
+font-style: inherit;">TRUE</span>), </span>
+<span id="cb35-6">                <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">max_age =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -685,13 +734,19 @@ font-style: inherit;">max</span>(Age, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>))</span></code></pre></div>
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb35-7">                )</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 206 × 4
    Region         mean_age min_age max_age
    &lt;chr&gt;             &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;
  1 Afghanistan        23.5      17      35
  2 Albania            25.3      16      46
+ 3 Algeria            24.4      14      38
+ 4 American Samoa     27.2      16      43
+ 5 Andorra            23.1      15      61
+ 6 Angola             24.9      13      51
+ 7 Antigua            23.2      14      38
 ...</code></pre>
 </div>
 </div>
@@ -1107,7 +1162,18 @@ Hint
 </div>
 </div>
 </div>
-<div class="callout-solution" data-collapse="true">
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1">characters_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1138,10 +1204,39 @@ font-style: inherit;">str</span>()</span></code></pre></div>
 </div>
 </div>
 </div>
+</div>
+</div>
 <ol start="4" type="1">
 <li>Calculate the mean rating of all characters by show and question, so you get the mean rating of all characters in a show on each item.</li>
 </ol>
-<div class="callout-solution" data-collapse="true">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use <code>group_by()</code> and <code>summarise()</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1">characters_summary <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1170,11 +1265,13 @@ font-style: inherit;">TRUE</span>))</span></code></pre></div>
 </div>
 </div>
 </div>
+</div>
+</div>
 <ol start="5" type="1">
 <li>Choose two of your favorite shows. Build a data frame that has two mean_rating columns, one for each show.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1183,14 +1280,25 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can get an overview of the used shows with <code>unique(characters_stats$uni_name)</code> First, filter your two shows from the <code>characters_stats</code> data.frame.<br>
 Second, reshape this data.frame into long format.</p>
 </div>
 </div>
 </div>
-<div class="callout-solution" data-collapse="true">
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">compare_shows <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1199,15 +1307,13 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb56-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">filter</span>(uni_name <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">filter</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">str_detect</span>(uni_name, <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Friends"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"How I Met Your Mother"</span> )) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">"Friends|How I Met Your Mother"</span> ))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb56-3">  <span class="fu" style="color: #4758AB;
@@ -1244,10 +1350,39 @@ font-style: inherit;">"mean_rating"</span>)</span>
 </div>
 <p>Now we could look at specific questions. For example the How I Met Your Mother characters seem to be rated a bit more slothful than the Friends characters.</p>
 </div>
+</div>
+</div>
 <ol start="6" type="1">
 <li>Now, add a column containing the difference in rating between both shows for each question to your new comparison data.frame. Then, sort the rows by descending size of difference between the ratings. So the row with the highest difference in mean rating between your two shows should be on top.</li>
 </ol>
-<div class="callout-solution" data-collapse="true">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To work with columns within <code>mutate()</code> you could for example use <code>.$column_name</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">compare_shows <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1294,6 +1429,8 @@ font-style: inherit;">abs</span>(diff_shows)))</span></code></pre></div>
 </div>
 <p><code>desc()</code> means descending, so we go from the largest value to the smallest.<br>
 <code>abs()</code> means absolute, so we get the absolute value instead of negative values in some cases.</p>
+</div>
+</div>
 </div>
 
 
@@ -3530,7 +3667,7 @@ $Species
   <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Introduction to the tidyverse</title>
+  <title>Column-wise operations in the tidyverse</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/index.html</link>
   <description><![CDATA[ 
