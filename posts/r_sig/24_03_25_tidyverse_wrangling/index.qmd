@@ -72,17 +72,17 @@ We can use `filter` to subset rows according to their values in specific columns
 ## All Volleyballers
 athletes %>%
   filter(Sport == "Volleyball") %>%
-  head
+  str
 
 ## All Judoka between 50 and 100 kg
 athletes %>%
   filter(Sport == "Judo", between(Weight, 50, 100)) %>%
-  head()
+  str()
 
 ## All athletes with missing height
 athletes %>%
   filter(is.na(Height)) %>%
-  head()
+  str()
 ```
 
 Note how we can just write our conditions without connecting them with `&` (`filter()` does that automatically for us). Also, we don’t have to put the column names into "", because `filter()` knows that this are column names of the athletes data frame, which makes coding a bit more pleasant. Also, missing rows are automatically removed, which makes sense in many cases!
@@ -106,14 +106,15 @@ inhabitants_wide
 inhabitants_long <- inhabitants_wide %>%
   pivot_longer(
     ## Select the columns we want to reshape:
-    cols = c("inhabitants_2022", "inhabitants_2021"),
+    cols = starts_with("inhabitants"),
+    names_prefix = "inhabitants_",
     ## Define a new column where the column names will go to:
     names_to = "year",
     ## Define a new column where the values will go to:
     values_to = "inhabitants"
   )
 
-head(inhabitants_wide)
+head(inhabitants_long)
 ```
 In other cases, it might happen that multiple variables are put into the same column, together with an identifier column:
 
@@ -162,7 +163,8 @@ athletes %>%
                                 yes = TRUE, 
                                 no = FALSE)
          ) %>%
-  select(Name, Sport, contact_sport)
+  select(Name, Sport, contact_sport) %>%
+  str
 ```
 
 If we have to connect multiple `ifelse()` functions, it's better to use `dplyrs` [`case_when()`](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/):
@@ -170,29 +172,45 @@ If we have to connect multiple `ifelse()` functions, it's better to use `dplyrs`
 ```{r, output.lines = 10}
 ## This gets complicated pretty quickly:
 athletes %>%
-  mutate(judo_weightclass = ifelse(grepl("Middleweight", .$Event), 
-                                  yes = "Middleweight", 
-                                  no = ifelse(grepl("Half-Lightweight", .$Event), 
-                                        yes = "Half-Lightweight", 
-                                        no = ifelse(grepl("Lightweight", .$Event), 
-                                                    yes = "Lightweight", 
-                                                    no = NA)
+  mutate(judo_weightclass = if_else(str_detect(Event, "Middleweight"), 
+                                  true = "Middleweight", 
+                                  false = if_else(str_detect(Event, "Half-Lightweight"), 
+                                        true = "Half-Lightweight", 
+                                        false = if_else(str_detect(Event, "Lightweight"), 
+                                                    true = "Lightweight", 
+                                                    false = NA)
                                         ) 
                                         )
                                   ) %>% 
   filter(Sport == "Judo") %>%
-  select(Name, Sport, Event, judo_weightclass)
+  select(Name, Sport, Event, judo_weightclass) %>%
+  str
 
 ## so do this instead:
 athletes %>%
   mutate(judo_weightclass = case_when(str_detect(Event, "Middleweight") ~ "Middleweight", 
                                       str_detect(Event, "Half-Lightweight") ~ "Half-Lightweight", 
-                                      str_detect(Event, "Lightweight") ~ "Lightweight")
+                                      str_detect(Event, "Lightweight") ~ "Lightweight",
+                                      TRUE ~ "other Weightclass" )
          ) %>%
   filter(Sport == "Judo") %>%
-  select(Name, Sport, Event, judo_weightclass)
+  select(Name, Sport, Event, judo_weightclass) %>%
+  str()
 
 ```
+
+## `..._replace_...()`
+We can easily replace values in a column using `str_replace()` or `replace_na()`:
+
+```{r}
+athletes %>%
+  mutate(Sex = str_replace(Sex, "M", "Male")) %>%
+  mutate(Sex = str_replace(Sex, "F", "Female")) %>%
+  mutate(Height = replace_na(Height, 0)) %>%
+  select(Sex, Height) %>%
+  str()
+```
+
 
 ## `group_by()`
 We can group our data by values in specific columns and perform some sort of operation on the groups. 
@@ -225,7 +243,7 @@ We have multiple options for merging data.frames in the `tidyverse`. `left_join(
 Let's merge a world coordinate data set onto our medal counts. This can be helpful if we want to plot the number of won medals in each country later on:
 
 ```{r}
-world_coordinates <- readRDS(here::here(  "raw_data", "world_coordinates.rds"))
+world_coordinates <- readRDS(here::here("raw_data", "world_coordinates.rds"))
 ```
 
 Only take gold medals into account: 
@@ -250,7 +268,7 @@ head(medal_countries)
 ```
 
 ## Exercise
-0. Read the `characters.rds` and the `psych_stats.csv` into R (see [here]())
+0. Read the `characters.rds` and the `psych_stats.csv` into R (download [here](https://github.com/iqb-research/IQB-Methods/tree/main/raw_data)).
 
 ::: {.callout-caution collapse="true"}
 ## Solution
