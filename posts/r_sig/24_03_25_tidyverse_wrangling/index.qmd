@@ -335,6 +335,12 @@ characters_stats %>%
 
 4. Calculate the mean rating of all characters by show and question, so you get the mean rating of all characters in a show on each item. 
 
+::: { .callout-tip collapse="true"}
+## Hint
+Use `group_by()` and `summarise()`.
+
+:::
+
 ::: { .callout-caution collapse="true"}
 
 ```{r}
@@ -373,6 +379,10 @@ Now we could look at specific questions. For example the How I Met Your Mother c
 
 6. Now, add a column containing the difference in rating between both shows for each question to your new comparison data.frame. Then, sort the rows by descending size of difference between the ratings. So the row with the highest difference in mean rating between your two shows should be on top. 
 
+::: { .callout-tip collapse="true"}
+## Hint
+To work with columns within `mutate()` you could for example use `.$column_name`. 
+:::
 
 ::: { .callout-caution collapse="true"}
 
