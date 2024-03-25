@@ -1,0 +1,61 @@
+---
+title: "Introduction to the tidyverse"
+description: "R-SIG 25.03.24"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, tidyverse]
+image: data_wrangling.jpg
+number-sections: true
+date: 03-25-2024
+---
+
+![](data_wrangling.jpg)[^1]
+
+[^1]: Image by [Bing Copilot](https://www.bing.com/images/create/data-wrangling/1-65fd4161357e424ab4710052a455ae76?id=%2bsYYE%2fjAx45kPemp84oShA%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG1.63cnYyWZaAlWJaaaluAw&FORM=SYDBIC)
+
+```{r, echo = FALSE, message = FALSE}
+source(here::here("output_hook.R"))
+```
+
+```{r, message=FALSE}
+library(tidyverse)
+
+athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds"))
+
+```
+
+## Column-wise operations
+Instead of looping over columns with a  [for-loop](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/), we can also use `across()` in combination with other `tidyverse` functions: 
+
+Across can take column names and a function that should be applied to the selected columns: 
+```{r}
+## Here we transform the Height and Weight columns into numeric:
+athletes %>%
+  mutate(across(c(Height, Weight), as.character)) %>%
+  str
+```
+
+But it is also possible to select columns based on a selection function:
+
+```{r}
+## And here we transform all numeric columns into character:
+athletes %>%
+  mutate(across(where(is.numeric), as.character)) %>%
+  str()
+```
+
+We can also specify our own transformation function. For example, we could standardize all numeric variables: 
+
+```{r}
+standardize_column <- function(col){
+  (col - mean(col, na.rm = TRUE))/sd(col, na.rm = TRUE)
+}
+
+athletes %>%
+  mutate(across(where(is.numeric), standardize_column)) %>%
+  str()
+```
+
+
+### !!sim ...
