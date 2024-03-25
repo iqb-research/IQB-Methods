@@ -73,8 +73,8 @@ font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
 </div>
 </div>
 </div>
-<section id="select" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="select"><span class="header-section-number">1</span> <code>Select()</code></h2>
+<section id="select-columns" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="select-columns"><span class="header-section-number">1</span> <code>select()</code> columns</h2>
 <p>Selecting columns from a data.frame is pretty straight forward:</p>
 <div class="cell" data-output.lines="4">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">athletes <span class="sc" style="color: #5E5E5E;
@@ -162,8 +162,8 @@ font-style: inherit;">"igh"</span>))</span></code></pre></div>
 </div>
 </div>
 </section>
-<section id="filter" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="filter"><span class="header-section-number">2</span> <code>filter()</code></h2>
+<section id="filter-rows" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="filter-rows"><span class="header-section-number">2</span> <code>filter()</code> rows</h2>
 <p>We can use <code>filter</code> to subset rows according to their values in specific columns:</p>
 <div class="cell" data-output.lines="4">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
@@ -246,8 +246,8 @@ font-style: inherit;">head</span>()</span></code></pre></div>
 </div>
 <p>Note how we can just write our conditions without connecting them with <code>&amp;</code> (<code>filter()</code> does that automatically for us). Also, we don’t have to put the column names into ““, because <code>filter()</code> knows that this are column names of the athletes data frame, which makes coding a bit more pleasant. Also, missing rows are automatically removed, which makes sense in many cases!</p>
 </section>
-<section id="pivot_..." class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="pivot_..."><span class="header-section-number">3</span> <code>pivot_...()</code></h2>
+<section id="pivot_...-longwide-format" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="pivot_...-longwide-format"><span class="header-section-number">3</span> <code>pivot_...()</code> long/wide format</h2>
 <p>To reshape data.frames from long to wide or wide to long format we can use <code>pivot_wider()</code> and <code>pivot_longer()</code>:</p>
 <p>Let’s define a simpler data.frame first:</p>
 <div class="cell">
@@ -751,8 +751,8 @@ font-style: inherit;">TRUE</span>)</span>
 </div>
 </div>
 </section>
-<section id="merging-data" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="merging-data"><span class="header-section-number">6</span> Merging data</h2>
+<section id="join_..-data.frames" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="join_..-data.frames"><span class="header-section-number">6</span> <code>..._join_..()</code> data.frames</h2>
 <p>We have multiple options for merging data.frames in the <code>tidyverse</code>. <code>left_join()</code> can be used if we want to keep all rows of the first data.frame and only adds the rows of the second data.frame that have an identifier in the first data.frame, <code>right_join()</code> keeps all rows of the second data frame, and <code>full_join()</code> keeps all rows of both data frames.</p>
 <p>Let’s merge a world coordinate data set onto our medal counts. This can be helpful if we want to plot the number of won medals in each country later on:</p>
 <div class="cell">
