@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the tidyverse"
+title: "Column-wise operations in the tidyverse"
 description: "R-SIG 25.03.24"
 author: 
   - name: Nicklas Hafiz
@@ -7,7 +7,7 @@ author:
 categories: [R, tidyverse]
 image: data_wrangling.jpg
 number-sections: true
-date: 03-25-2024
+date: 03-25-2021
 ---
 
 ![](data_wrangling.jpg)[^1]

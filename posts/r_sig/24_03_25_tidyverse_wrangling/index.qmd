@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the tidyverse"
+title: "Data wrangling in the tidyverse"
 description: "R-SIG 25.03.24"
 author: 
   - name: Nicklas Hafiz
@@ -22,7 +22,7 @@ source(here::here("output_hook.R"))
 library(tidyverse)
 ```
 
-The (`tidyverse`)[https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/] provides many tools for wrangling data, from selecting, sorting or renaming columns over filtering specific rows according to complex conditions to building new columns according to values in other columns. 
+The [`tidyverse`](https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/) provides many tools for wrangling data, from selecting, sorting or renaming columns over filtering specific rows according to complex conditions to building new columns according to values in other columns. 
 Let's take a look at the most important ones. We will use the (`athletes`)[] dataset in the examples:
 
 ::: {.callout-caution icon="false" collapse="true"}
@@ -361,6 +361,7 @@ Now we could look at specific questions. For example the How I Met Your Mother c
 
 6. Now, add a column containing the difference in rating between both shows for each question to your new comparison data.frame. Then, sort the rows by descending size of difference between the ratings. So the row with the highest difference in mean rating between your two shows should be on top. 
 
+
 ::: {.callout-solution collapse="true"}
 
 ```{r}
@@ -370,4 +371,6 @@ compare_shows %>%
   
 ```
 
+`desc()` means descending, so we go from the largest value to the smallest.   
+`abs()` means absolute, so we get the absolute value instead of negative values in some cases. 
 :::
