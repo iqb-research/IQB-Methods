@@ -75,12 +75,13 @@ This doesn't work, because we are trying to program a function using [data maski
 
 ### Loops
 - In the case of `mutate()`, we have to use **dynamic dots**, which need to used if we want to create names programmatically: `:=` instead of `=`. 
-- We need to **embrace** the changeable variable (either in a function or a loop) like this: `{{var}}`. 
-- If we just want to extract data, we can use the `data` pronoun (or the `.` as short version) with `[[` ([see](https://dplyr.tidyverse.org/articles/programming.html#indirection)).
-- We can also simply write `"{var}_..."` to paste together a new column name. 
+- We need to **embrace** the changeable variable (either in a function or a loop) like this: `{{var}}`.
+- In `mutate()`, we can also simply write `"{var}_..."` to paste together a new column name. 
+- If we just want to extract data, we can use the `data` pronoun (or the `.` as short version) with `[[` ([see here](https://dplyr.tidyverse.org/articles/programming.html#indirection)).
 
 ```{r}
 athletes_2 <- athletes
+
 for(i in c("Height", "Weight")){
   athletes_2 <- athletes_2 %>%
     mutate({{i}} := as.character(.[[i]]))
@@ -99,7 +100,7 @@ str(athletes_3)
 ```
 
 ### Functions
-This also applies if we want to define a function with column names as arguments, using tidyverse inside. Here we need to embrace our variable as well to make it data masking friendly: 
+This also applies if we want to define a function with column names as arguments, using `tidyverse` inside. Here we need to embrace our variable as well to make it data masking friendly: 
 
 ```{r eval = FALSE}
 ## This doesn't work:
@@ -153,7 +154,7 @@ psych_stats <- read.csv(here::here(  "raw_data", "psych_stats.csv"), sep = ";")
 ```
 :::
 
-1. Write a function that can standardize a numeric column. It should take a data.frame and a column as arguments. 
+1. Write a function that can standardize a numeric column. It should take a `data.frame` and a column as arguments. 
 To standardize, the function should subtract the mean of the column from each of its raw values and then divide each difference by the standard deviation of the original variable.   
 Finally, it should return a numeric vector containing the standardized values. 
 Make the function work with data masking!
@@ -170,9 +171,14 @@ standardize_var <- function(dat, var){
   column <- dat %>%
     pull({{var}}) 
   
+if(!is.numeric(column)){stop(paste0("Please provide a numeric column! Yours has the type '", typeof(column), "'."))}
+
   column_std <- (column - mean(column)) / sd(column)
   return(column_std)
 }
+
+## test the function:
+# standardize_var(athletes, Region)
 
 standardized_col <- psych_stats %>% 
   standardize_var(messy_neat)
@@ -184,7 +190,7 @@ sd(standardized_col)
 
 :::
 
-2. Apply this function within a for-loop on 10 columns of your choice.
+2. Apply this function within a for-loop on 10 columns of your choice. Add the standardized columns as new columns to your data frame. 
 
 ::: {.callout-caution collapse="true"}
 ## Solution
@@ -202,6 +208,9 @@ sd(psych_stats$flexible_rigid_std)
 
 
 3. Now build the same standardization function, but it should only take a numeric vector as input, not a whole `data.frame`. 
+
+::: {.callout-caution collapse="true"}
+## Solution
 ```{r}
 standardize_var_2 <- function(vec){
   if(!is.numeric(vec)){stop(paste0("Please provide a numeric vector! Yours has the type '", typeof(vec), "'."))}
@@ -213,10 +222,10 @@ standardize_var_2(c(1,2,3))
 # standardize_var_2(c("a",2,3))
 
 ```
-
+:::
 
 4. Apply one of your two standardization functions onto the psych_stats `data.frame` using `across()`. The standardized columns should be added to the data frame. Think carefully about which one should be used in this context and why.  
-This is a pretty hard exercise, so use google, StackOverflow and the help function `?` within R. 
+This exercise is a little bit harder, so use google, StackOverflow and the help function `?` within R. 
 
 ::: {.callout-tip collapse="true"}
 ## Hint
