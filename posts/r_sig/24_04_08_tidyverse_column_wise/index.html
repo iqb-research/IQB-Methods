@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2021-03-25">
+<meta name="dcterms.date" content="2024-04-08">
 <meta name="description" content="R-SIG 25.03.24">
 
 <title>IQB Methods Team - Column-wise operations in the tidyverse</title>
@@ -194,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 25, 2021</p>
+        <p class="date">April 8, 2024</p>
       </div>
     </div>
     
@@ -442,10 +442,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#column-wise-operations" id="toc-column-wise-operations" class="nav-link active" data-scroll-target="#column-wise-operations"><span class="header-section-number">1</span> Column-wise operations</a>
+  <li><a href="#column-wise-operations-with-across" id="toc-column-wise-operations-with-across" class="nav-link active" data-scroll-target="#column-wise-operations-with-across">Column-wise operations with <code>across()</code></a></li>
+  <li><a href="#using-tidyverse-functions-in-loops" id="toc-using-tidyverse-functions-in-loops" class="nav-link" data-scroll-target="#using-tidyverse-functions-in-loops">Using tidyverse functions in loops</a>
   <ul class="collapse">
-  <li><a href="#sim" id="toc-sim" class="nav-link" data-scroll-target="#sim"><span class="header-section-number">1.1</span> !!sim …</a></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
   </ul></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/r_sig/24_04_08_tidyverse_column_wise/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -456,18 +459,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p><img src="data_wrangling.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><img src="columns.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(  <span class="st">"raw_data"</span>, <span class="st">"athletes.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="column-wise-operations" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="column-wise-operations"><span class="header-section-number">1</span> Column-wise operations</h2>
-<p>Instead of looping over columns with a <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/">for-loop</a>, we can also use <code>across()</code> in combination with other <code>tidyverse</code> functions:</p>
+<section id="column-wise-operations-with-across" class="level2">
+<h2 class="anchored" data-anchor-id="column-wise-operations-with-across">Column-wise operations with <code>across()</code></h2>
+<p>Instead of looping over columns with a <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/">for-loop</a>, we can also use <code>across()</code> in combination with other <code>tidyverse</code> functions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>mutate_...()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The functions <code>mutate_all()</code>, <code>mutate_at()</code>, and <code>mutate_if()</code> do the same, but are superseded. This means they still work, but the <code>tidyverse</code> team recommends to use <code>across()</code> instead.</p>
+</div>
+</div>
 <p>Across can take column names and a function that should be applied to the selected columns:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Here we transform the Height and Weight columns into numeric:</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Here we transform the Height and Weight columns to the type character:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>athletes <span class="sc">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(Height, Weight), as.character)) <span class="sc">%&gt;%</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  str</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -517,27 +533,149 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
 </div>
 </div>
-<p>We can also specify our own transformation function. For example, we could standardize all numeric variables:</p>
+<p>We can also specify our own transformation function.</p>
+</section>
+<section id="using-tidyverse-functions-in-loops" class="level2">
+<h2 class="anchored" data-anchor-id="using-tidyverse-functions-in-loops">Using tidyverse functions in loops</h2>
+<p>When using tidyverse syntax within a loop, we might run into the problem that the tidyverse function can’t deal with our iteration counter like we are used to:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>standardize_column <span class="ot">&lt;-</span> <span class="cf">function</span>(col){</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  (col <span class="sc">-</span> <span class="fu">mean</span>(col, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))<span class="sc">/</span><span class="fu">sd</span>(col, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>athletes <span class="sc">%&gt;%</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), standardize_column)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Trying to transform the Height and Weight column to character using a for-loop.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Note: Normally across() would be a better option in this case (and most of the time anyways).</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">##       But sometimes a good old fashioned for-loop might be easier to programm to get the job done, </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">##       in which case one should keep some specifics in mind: </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">## This throws an error: </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>athletes_2 <span class="ot">&lt;-</span> athletes</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"Height"</span>, <span class="st">"Weight"</span>)){</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  athletes_2 <span class="ot">&lt;-</span> athletes_2 <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">i =</span> <span class="fu">as.character</span>(.<span class="sc">$</span>i))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This doesn’t work, because we are trying to program a function using <a href="https://dplyr.tidyverse.org/articles/programming.html#data-masking">data masking</a>. Data masking just means that we don’t have to type <code>athletes$Height</code> in a <code>tidyverse</code> function, but simply <code>Height</code>, because the function knows this refers to a column in the current data.frame.</p>
+<section id="loops" class="level3">
+<h3 class="anchored" data-anchor-id="loops">Loops</h3>
+<ul>
+<li>In the case of <code>mutate()</code>, we have to use <strong>dynamic dots</strong>, which need to used if we want to create names programmatically: <code>:=</code> instead of <code>=</code>.</li>
+<li>We need to <strong>embrace</strong> the changeable variable (either in a function or a loop) like this: <code>{var}</code>.</li>
+<li>If we just want to extract data, we can use the <code>data</code> pronoun (or the <code>.</code> as short version) with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see</a>).</li>
+<li>We can also simply write <code>"{var}_..."</code> to paste together a new column name.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>athletes_2 <span class="ot">&lt;-</span> athletes</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"Height"</span>, <span class="st">"Weight"</span>)){</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  athletes_2 <span class="ot">&lt;-</span> athletes_2 <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>({{i}} <span class="sc">:</span><span class="er">=</span> <span class="fu">as.character</span>(.[[i]]))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(athletes_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  16 variables:
  $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
- $ ID    : num  1.639 0.491 -0.596 -1.736 1.049 ...
+ $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
  $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
  $ Sex   : chr  "M" "M" "M" "M" ...
- $ Age   : num  NA NA 0.382 NA -0.244 ...
- $ Height: num  NA NA -1.17 NA NA ...
- $ Weight: num  NA NA -0.955 NA 0.229 ...
+ $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...
+ $ Height: chr  NA NA "163" NA ...
+ $ Weight: chr  NA NA "57" NA ...
  $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
  $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
- $ Year  : num  -0.7483 -1.016 0.0548 -0.7483 -0.4806 ...
+ $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
+ $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
+ $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
+ $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
+ $ Medal : chr  NA NA NA NA ...
+ $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## With programmatically built new columns: </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>athletes_3 <span class="ot">&lt;-</span> athletes</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"Height"</span>, <span class="st">"Weight"</span>)){</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  athletes_3 <span class="ot">&lt;-</span> athletes_3 <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"{i}_char"</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">as.character</span>(.[[i]]))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(athletes_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  18 variables:
+ $ NOC        : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID         : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
+ $ Name       : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sex        : chr  "M" "M" "M" "M" ...
+ $ Age        : int  NA NA 28 NA 24 28 28 NA NA NA ...
+ $ Height     : int  NA NA 163 NA NA 168 NA NA NA NA ...
+ $ Weight     : num  NA NA 57 NA 74 73 NA NA 57 NA ...
+ $ Team       : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Games      : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
+ $ Year       : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
+ $ Season     : chr  "Summer" "Summer" "Summer" "Summer" ...
+ $ City       : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
+ $ Sport      : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ Event      : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
+ $ Medal      : chr  NA NA NA NA ...
+ $ Region     : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Height_char: chr  NA NA "163" NA ...
+ $ Weight_char: chr  NA NA "57" NA ...</code></pre>
+</div>
+</div>
+</section>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">Functions</h3>
+<p>This also applies if we want to define a function with column names as arguments, using tidyverse inside. Here we need to embrace our variable as well to make it data masking friendly:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## This doesn't work:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>print_col <span class="ot">&lt;-</span> <span class="cf">function</span>(dat, var){</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(dat <span class="sc">%&gt;%</span> <span class="fu">pull</span>(var))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>athletes <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print_col</span>(Region)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## This works:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>print_col <span class="ot">&lt;-</span> <span class="cf">function</span>(dat, var){</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(dat <span class="sc">%&gt;%</span> <span class="fu">pull</span>({{var}}))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>athletes <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print_col</span>(Region)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    [1] "Afghanistan"                      "Afghanistan"                     
+    [3] "Afghanistan"                      "Afghanistan"                     
+    [5] "Afghanistan"                      "Afghanistan"                     
+    [7] "Afghanistan"                      "Afghanistan"                     
+...</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+!!sim()
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In previous SIG-Sessions we have used <code>!!sym()</code> for this, which also works, but is more to remember:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>athletes_2 <span class="ot">&lt;-</span> athletes</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"Height"</span>, <span class="st">"Weight"</span>)){</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  athletes_2 <span class="ot">&lt;-</span> athletes_2 <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="sc">!!</span><span class="fu">sym</span>(i) <span class="sc">:</span><span class="er">=</span> <span class="fu">as.character</span>(<span class="sc">!!</span><span class="fu">sym</span>(i)))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(athletes_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  16 variables:
+ $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
+ $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sex   : chr  "M" "M" "M" "M" ...
+ $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...
+ $ Height: chr  NA NA "163" NA ...
+ $ Weight: chr  NA NA "57" NA ...
+ $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
+ $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
  $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
  $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
  $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
@@ -546,18 +684,202 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
 </div>
 </div>
-<section id="sim" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="sim"><span class="header-section-number">1.1</span> !!sim …</h3>
-
-
+</div>
+</div>
 </section>
+</section>
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<ol start="0" type="1">
+<li>Read the <code>characters.rds</code> and the <code>psych_stats.csv</code> into R (download <a href="https://github.com/iqb-research/IQB-Methods/tree/main/raw_data">here</a>).</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>characters <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(  <span class="st">"raw_data"</span>, <span class="st">"characters.rds"</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>psych_stats <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(  <span class="st">"raw_data"</span>, <span class="st">"psych_stats.csv"</span>), <span class="at">sep =</span> <span class="st">";"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>Write a function that can standardize a numeric column. It should take a data.frame and a column as arguments. To standardize, the function should subtract the mean of the column from each of its raw values and then divide each difference by the standard deviation of the original variable.<br>
+Finally, it should return a numeric vector containing the standardized values. Make the function work with data masking!</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To extract a single column as a vector to do some operations on it you can use <code>pull()</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>standardize_var <span class="ot">&lt;-</span> <span class="cf">function</span>(dat, var){</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  column <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>({{var}}) </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  column_std <span class="ot">&lt;-</span> (column <span class="sc">-</span> <span class="fu">mean</span>(column)) <span class="sc">/</span> <span class="fu">sd</span>(column)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(column_std)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>standardized_col <span class="ot">&lt;-</span> psych_stats <span class="sc">%&gt;%</span> </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">standardize_var</span>(messy_neat)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(standardized_col) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(standardized_col)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Apply this function within a for-loop on 10 columns of your choice.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">colnames</span>(psych_stats)[<span class="dv">20</span><span class="sc">:</span><span class="dv">29</span>]){</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a> psych_stats <span class="ot">&lt;-</span> psych_stats <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"{i}_std"</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">standardize_var</span>(psych_stats, .data[[i]]))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(psych_stats<span class="sc">$</span>flexible_rigid_std)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.582513e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(psych_stats<span class="sc">$</span>flexible_rigid_std)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Now build the same standardization function, but it should only take a numeric vector as input, not a whole <code>data.frame</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>standardize_var_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(vec){</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.numeric</span>(vec)){<span class="fu">stop</span>(<span class="fu">paste0</span>(<span class="st">"Please provide a numeric vector! Yours has the type '"</span>, <span class="fu">typeof</span>(vec), <span class="st">"'."</span>))}</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  (vec<span class="sc">-</span> <span class="fu">mean</span>(vec))<span class="sc">/</span><span class="fu">sd</span>(vec)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Testing the function</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">standardize_var_2</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1  0  1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize_var_2(c("a",2,3))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Apply one of your two standardization functions onto the psych_stats <code>data.frame</code> using <code>across()</code>. The standardized columns should be added to the data frame. Think carefully about which one should be used in this context and why.<br>
+This is a pretty hard exercise, so use google, StackOverflow and the help function <code>?</code> within R.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Look at the documentation of <code>across()</code> to see how you can give new column names into <code>mutate()</code> from within <code>across()</code>.</li>
+<li>It’s probably easier to use a function that only takes a vector, and not the whole data.frame within <code>across()</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>psych_stats_std <span class="ot">&lt;-</span> psych_stats <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.cols =</span> <span class="fu">where</span>(is.numeric), </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.fns =</span> standardize_var_2, </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.names =</span> <span class="st">"{.col}_standardized"</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(psych_stats_std<span class="sc">$</span>innocent_jaded_standardized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.127042e-18</code></pre>
+</div>
+</div>
+<p>I used the function that only takes a vector: using it within <code>across()</code> made it possible to just provide the function, and not having to deal with the extra data argument. The only argument in my function is the vector, and it is more naturally for across to handle, because it already applies a function to a column, so the extraction is not necessary.</p>
+</div>
+</div>
+</div>
+
+
 </section>
 
 
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Image by <a href="https://www.bing.com/images/create/data-wrangling/1-65fd4161357e424ab4710052a455ae76?id=%2bsYYE%2fjAx45kPemp84oShA%3d%3d&amp;view=detailv2&amp;idpp=genimg&amp;idpclose=1&amp;thId=OIG1.63cnYyWZaAlWJaaaluAw&amp;FORM=SYDBIC">Bing Copilot</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@1188low?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Darryl Low</a> on <a href="https://unsplash.com/de/fotos/graustufenfoto-eines-gebaudes-pXqZs5TG2HU?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
