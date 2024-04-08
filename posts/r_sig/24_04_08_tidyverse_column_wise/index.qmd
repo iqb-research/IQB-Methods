@@ -28,7 +28,7 @@ athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds"))
 
 Instead of looping over columns with a [for-loop](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/), we can also use `across()` in combination with other `tidyverse` functions.
 
-::: {.callout-tip}
+::: {.callout-note}
 ## `mutate_...()`
 The functions `mutate_all()`, `mutate_at()`, and `mutate_if()` do the same, but are superseded. This means they still work, but the `tidyverse` team recommends to use `across()` instead. 
 :::
@@ -125,7 +125,7 @@ athletes %>%
 ```
 
 
-::: {.callout-tip}
+::: {.callout-note}
 ## !!sim()
 In previous SIG-Sessions we have used `!!sym()` for this, which also works, but is more to remember:
 
