@@ -195,14 +195,15 @@ font-style: inherit;">$</span>i))</span>
 <ul>
 <li>In the case of <code>mutate()</code>, we have to use <strong>dynamic dots</strong>, which need to used if we want to create names programmatically: <code>:=</code> instead of <code>=</code>.</li>
 <li>We need to <strong>embrace</strong> the changeable variable (either in a function or a loop) like this: <code>{var}</code>.</li>
-<li>If we just want to extract data, we can use the <code>data</code> pronoun (or the <code>.</code> as short version) with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see</a>).</li>
-<li>We can also simply write <code>"{var}_..."</code> to paste together a new column name.</li>
+<li>In <code>mutate()</code>, we can also simply write <code>"{var}_..."</code> to paste together a new column name.</li>
+<li>If we just want to extract data, we can use the <code>data</code> pronoun (or the <code>.</code> as short version) with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see here</a>).</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">athletes_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes</span>
-<span id="cb7-2"><span class="cf" style="color: #003B4F;
+<span id="cb7-2"></span>
+<span id="cb7-3"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -213,12 +214,12 @@ background-color: null;
 font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Weight"</span>)){</span>
-<span id="cb7-3">  athletes_2 <span class="ot" style="color: #003B4F;
+<span id="cb7-4">  athletes_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes_2 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb7-4">    <span class="fu" style="color: #4758AB;
+<span id="cb7-5">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>({{i}} <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -227,8 +228,8 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.character</span>(.[[i]]))</span>
-<span id="cb7-5">}</span>
-<span id="cb7-6"><span class="fu" style="color: #4758AB;
+<span id="cb7-6">}</span>
+<span id="cb7-7"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -313,7 +314,7 @@ font-style: inherit;">str</span>(athletes_3)</span></code></pre></div>
 </section>
 <section id="functions" class="level3">
 <h3 class="anchored" data-anchor-id="functions">Functions</h3>
-<p>This also applies if we want to define a function with column names as arguments, using tidyverse inside. Here we need to embrace our variable as well to make it data masking friendly:</p>
+<p>This also applies if we want to define a function with column names as arguments, using <code>tidyverse</code> inside. Here we need to embrace our variable as well to make it data masking friendly:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
@@ -501,7 +502,7 @@ font-style: inherit;">";"</span>)</span></code></pre></div>
 </div>
 </div>
 <ol type="1">
-<li>Write a function that can standardize a numeric column. It should take a data.frame and a column as arguments. To standardize, the function should subtract the mean of the column from each of its raw values and then divide each difference by the standard deviation of the original variable.<br>
+<li>Write a function that can standardize a numeric column. It should take a <code>data.frame</code> and a column as arguments. To standardize, the function should subtract the mean of the column from each of its raw values and then divide each difference by the standard deviation of the original variable.<br>
 Finally, it should return a numeric vector containing the standardized values. Make the function work with data masking!</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -547,7 +548,25 @@ font-style: inherit;">%&gt;%</span></span>
 background-color: null;
 font-style: inherit;">pull</span>({{var}}) </span>
 <span id="cb17-4">  </span>
-<span id="cb17-5">  column_std <span class="ot" style="color: #003B4F;
+<span id="cb17-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(column)){<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">stop</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Please provide a numeric column! Yours has the type '"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">typeof</span>(column), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"'."</span>))}</span>
+<span id="cb17-6"></span>
+<span id="cb17-7">  column_std <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> (column <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -558,21 +577,28 @@ background-color: null;
 font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sd</span>(column)</span>
-<span id="cb17-6">  <span class="fu" style="color: #4758AB;
+<span id="cb17-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">return</span>(column_std)</span>
-<span id="cb17-7">}</span>
-<span id="cb17-8"></span>
-<span id="cb17-9">standardized_col <span class="ot" style="color: #003B4F;
+<span id="cb17-9">}</span>
+<span id="cb17-10"></span>
+<span id="cb17-11"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## test the function:</span></span>
+<span id="cb17-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># standardize_var(athletes, Region)</span></span>
+<span id="cb17-13"></span>
+<span id="cb17-14">standardized_col <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb17-10">  <span class="fu" style="color: #4758AB;
+<span id="cb17-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">standardize_var</span>(messy_neat)</span>
-<span id="cb17-11"></span>
-<span id="cb17-12"><span class="fu" style="color: #4758AB;
+<span id="cb17-16"></span>
+<span id="cb17-17"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(standardized_col) <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -595,7 +621,7 @@ font-style: inherit;">sd</span>(standardized_col)</span></code></pre></div>
 </div>
 </div>
 <ol start="2" type="1">
-<li>Apply this function within a for-loop on 10 columns of your choice.</li>
+<li>Apply this function within a for-loop on 10 columns of your choice. Add the standardized columns as new columns to your data frame.</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -664,6 +690,18 @@ font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div>
 <ol start="3" type="1">
 <li>Now build the same standardization function, but it should only take a numeric vector as input, not a whole <code>data.frame</code>.</li>
 </ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">standardize_var_2 <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -719,12 +757,15 @@ font-style: inherit;">3</span>))</span></code></pre></div>
 background-color: null;
 font-style: inherit;"># standardize_var_2(c("a",2,3))</span></span></code></pre></div>
 </div>
+</div>
+</div>
+</div>
 <ol start="4" type="1">
 <li>Apply one of your two standardization functions onto the psych_stats <code>data.frame</code> using <code>across()</code>. The standardized columns should be added to the data frame. Think carefully about which one should be used in this context and why.<br>
-This is a pretty hard exercise, so use google, StackOverflow and the help function <code>?</code> within R.</li>
+This exercise is a little bit harder, so use google, StackOverflow and the help function <code>?</code> within R.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -733,7 +774,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>Look at the documentation of <code>across()</code> to see how you can give new column names into <code>mutate()</code> from within <code>across()</code>.</li>
@@ -743,7 +784,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -752,7 +793,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">psych_stats_std <span class="ot" style="color: #003B4F;
