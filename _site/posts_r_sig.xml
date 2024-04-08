@@ -10,7 +10,807 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Sun, 24 Mar 2024 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 07 Apr 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Column-wise operations in the tidyverse</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" class="img-fluid"><sup>1</sup></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">athletes <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
+</div>
+<section id="column-wise-operations-with-across" class="level2">
+<h2 class="anchored" data-anchor-id="column-wise-operations-with-across">Column-wise operations with <code>across()</code></h2>
+<p>Instead of looping over columns with a <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/">for-loop</a>, we can also use <code>across()</code> in combination with other <code>tidyverse</code> functions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>mutate_...()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The functions <code>mutate_all()</code>, <code>mutate_at()</code>, and <code>mutate_if()</code> do the same, but are superseded. This means they still work, but the <code>tidyverse</code> team recommends to use <code>across()</code> instead.</p>
+</div>
+</div>
+<p>Across can take column names and a function that should be applied to the selected columns:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Here we transform the Height and Weight columns to the type character:</span></span>
+<span id="cb2-2">athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">across</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(Height, Weight), as.character)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-4">  str</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  16 variables:
+ $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
+ $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sex   : chr  "M" "M" "M" "M" ...
+ $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...
+ $ Height: chr  NA NA "163" NA ...
+ $ Weight: chr  NA NA "57" NA ...
+ $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
+ $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
+ $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
+ $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
+ $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
+ $ Medal : chr  NA NA NA NA ...
+ $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
+</div>
+</div>
+<p>But it is also possible to select columns based on a selection function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## And here we transform all numeric columns into character:</span></span>
+<span id="cb4-2">athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">across</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(is.numeric), as.character)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  16 variables:
+ $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID    : chr  "132181" "87371" "44977" "502" ...
+ $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sex   : chr  "M" "M" "M" "M" ...
+ $ Age   : chr  NA NA "28" NA ...
+ $ Height: chr  NA NA "163" NA ...
+ $ Weight: chr  NA NA "57" NA ...
+ $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
+ $ Year  : chr  "1956" "1948" "1980" "1956" ...
+ $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
+ $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
+ $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
+ $ Medal : chr  NA NA NA NA ...
+ $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
+</div>
+</div>
+<p>We can also specify our own transformation function.</p>
+</section>
+<section id="using-tidyverse-functions-in-loops" class="level2">
+<h2 class="anchored" data-anchor-id="using-tidyverse-functions-in-loops">Using tidyverse functions in loops</h2>
+<p>When using tidyverse syntax within a loop, we might run into the problem that the tidyverse function can’t deal with our iteration counter like we are used to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Trying to transform the Height and Weight column to character using a for-loop.</span></span>
+<span id="cb6-2"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Note: Normally across() would be a better option in this case (and most of the time anyways).</span></span>
+<span id="cb6-3"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##       But sometimes a good old fashioned for-loop might be easier to programm to get the job done, </span></span>
+<span id="cb6-4"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##       in which case one should keep some specifics in mind: </span></span>
+<span id="cb6-5"></span>
+<span id="cb6-6"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## This throws an error: </span></span>
+<span id="cb6-7">athletes_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes</span>
+<span id="cb6-8"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Weight"</span>)){</span>
+<span id="cb6-9">  athletes_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes_2 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">i =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(.<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>i))</span>
+<span id="cb6-11">}</span></code></pre></div>
+</div>
+<p>This doesn’t work, because we are trying to program a function using <a href="https://dplyr.tidyverse.org/articles/programming.html#data-masking">data masking</a>. Data masking just means that we don’t have to type <code>athletes$Height</code> in a <code>tidyverse</code> function, but simply <code>Height</code>, because the function knows this refers to a column in the current data.frame.</p>
+<section id="loops" class="level3">
+<h3 class="anchored" data-anchor-id="loops">Loops</h3>
+<ul>
+<li>In the case of <code>mutate()</code>, we have to use <strong>dynamic dots</strong>, which need to used if we want to create names programmatically: <code>:=</code> instead of <code>=</code>.</li>
+<li>We need to <strong>embrace</strong> the changeable variable (either in a function or a loop) like this: <code>{{var}}</code>.</li>
+<li>If we just want to extract data, we can use the <code>data</code> pronoun (or the <code>.</code> as short version) with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see</a>).</li>
+<li>We can also simply write <code>"{var}_..."</code> to paste together a new column name.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">athletes_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes</span>
+<span id="cb7-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Weight"</span>)){</span>
+<span id="cb7-3">  athletes_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes_2 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb7-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>({{i}} <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(.[[i]]))</span>
+<span id="cb7-5">}</span>
+<span id="cb7-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  16 variables:
+ $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
+ $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sex   : chr  "M" "M" "M" "M" ...
+ $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...
+ $ Height: chr  NA NA "163" NA ...
+ $ Weight: chr  NA NA "57" NA ...
+ $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
+ $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
+ $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
+ $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
+ $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
+ $ Medal : chr  NA NA NA NA ...
+ $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## With programmatically built new columns: </span></span>
+<span id="cb9-2">athletes_3 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes</span>
+<span id="cb9-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Weight"</span>)){</span>
+<span id="cb9-4">  athletes_3 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes_3 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"{i}_char"</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(.[[i]]))</span>
+<span id="cb9-6">}</span>
+<span id="cb9-7"></span>
+<span id="cb9-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(athletes_3)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  18 variables:
+ $ NOC        : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID         : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
+ $ Name       : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sex        : chr  "M" "M" "M" "M" ...
+ $ Age        : int  NA NA 28 NA 24 28 28 NA NA NA ...
+ $ Height     : int  NA NA 163 NA NA 168 NA NA NA NA ...
+ $ Weight     : num  NA NA 57 NA 74 73 NA NA 57 NA ...
+ $ Team       : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Games      : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
+ $ Year       : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
+ $ Season     : chr  "Summer" "Summer" "Summer" "Summer" ...
+ $ City       : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
+ $ Sport      : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ Event      : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
+ $ Medal      : chr  NA NA NA NA ...
+ $ Region     : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Height_char: chr  NA NA "163" NA ...
+ $ Weight_char: chr  NA NA "57" NA ...</code></pre>
+</div>
+</div>
+</section>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">Functions</h3>
+<p>This also applies if we want to define a function with column names as arguments, using tidyverse inside. Here we need to embrace our variable as well to make it data masking friendly:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## This doesn't work:</span></span>
+<span id="cb11-2">print_col <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(dat, var){</span>
+<span id="cb11-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(dat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pull</span>(var))</span>
+<span id="cb11-4">}</span>
+<span id="cb11-5"></span>
+<span id="cb11-6">athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb11-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
+</div>
+<div class="cell" data-output.lines="4">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## This works:</span></span>
+<span id="cb12-2">print_col <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(dat, var){</span>
+<span id="cb12-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(dat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pull</span>({{var}}))</span>
+<span id="cb12-4">}</span>
+<span id="cb12-5"></span>
+<span id="cb12-6">athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb12-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    [1] "Afghanistan"                      "Afghanistan"                     
+    [3] "Afghanistan"                      "Afghanistan"                     
+    [5] "Afghanistan"                      "Afghanistan"                     
+    [7] "Afghanistan"                      "Afghanistan"                     
+...</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+!!sim()
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In previous SIG-Sessions we have used <code>!!sym()</code> for this, which also works, but is more to remember:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">athletes_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes</span>
+<span id="cb14-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Weight"</span>)){</span>
+<span id="cb14-3">  athletes_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes_2 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb14-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sym</span>(i) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sym</span>(i)))</span>
+<span id="cb14-5">}</span>
+<span id="cb14-6"></span>
+<span id="cb14-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  16 variables:
+ $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
+ $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sex   : chr  "M" "M" "M" "M" ...
+ $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...
+ $ Height: chr  NA NA "163" NA ...
+ $ Weight: chr  NA NA "57" NA ...
+ $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
+ $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
+ $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
+ $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
+ $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
+ $ Medal : chr  NA NA NA NA ...
+ $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<ol start="0" type="1">
+<li>Read the <code>characters.rds</code> and the <code>psych_stats.csv</code> into R (download <a href="https://github.com/iqb-research/IQB-Methods/tree/main/raw_data">here</a>).</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">characters <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"characters.rds"</span>))</span>
+<span id="cb16-2">psych_stats <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read.csv</span>(here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"psych_stats.csv"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">";"</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>Write a function that can standardize a numeric column. It should take a data.frame and a column as arguments. To standardize, the function should subtract the mean of the column from each of its raw values and then divide each difference by the standard deviation of the original variable.<br>
+Finally, it should return a numeric vector containing the standardized values. Make the function work with data masking!</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To extract a single column as a vector to do some operations on it you can use <code>pull()</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">standardize_var <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(dat, var){</span>
+<span id="cb17-2">  column <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> dat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb17-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pull</span>({{var}}) </span>
+<span id="cb17-4">  </span>
+<span id="cb17-5">  column_std <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> (column <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(column)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(column)</span>
+<span id="cb17-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(column_std)</span>
+<span id="cb17-7">}</span>
+<span id="cb17-8"></span>
+<span id="cb17-9">standardized_col <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb17-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">standardize_var</span>(messy_neat)</span>
+<span id="cb17-11"></span>
+<span id="cb17-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(standardized_col) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(standardized_col)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Apply this function within a for-loop on 10 columns of your choice.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(psych_stats)[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">29</span>]){</span>
+<span id="cb21-2"> psych_stats <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb21-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"{i}_std"</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">standardize_var</span>(psych_stats, .data[[i]]))</span>
+<span id="cb21-4">}</span>
+<span id="cb21-5"></span>
+<span id="cb21-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(psych_stats<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.582513e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(psych_stats<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Now build the same standardization function, but it should only take a numeric vector as input, not a whole <code>data.frame</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">standardize_var_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(vec){</span>
+<span id="cb25-2">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(vec)){<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">stop</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Please provide a numeric vector! Yours has the type '"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">typeof</span>(vec), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"'."</span>))}</span>
+<span id="cb25-3">  (vec<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(vec))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(vec)</span>
+<span id="cb25-4">}</span>
+<span id="cb25-5"></span>
+<span id="cb25-6"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Testing the function</span></span>
+<span id="cb25-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">standardize_var_2</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1  0  1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># standardize_var_2(c("a",2,3))</span></span></code></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Apply one of your two standardization functions onto the psych_stats <code>data.frame</code> using <code>across()</code>. The standardized columns should be added to the data frame. Think carefully about which one should be used in this context and why.<br>
+This is a pretty hard exercise, so use google, StackOverflow and the help function <code>?</code> within R.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Look at the documentation of <code>across()</code> to see how you can give new column names into <code>mutate()</code> from within <code>across()</code>.</li>
+<li>It’s probably easier to use a function that only takes a vector, and not the whole data.frame within <code>across()</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">psych_stats_std <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb28-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(</span>
+<span id="cb28-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">across</span>(</span>
+<span id="cb28-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.cols =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(is.numeric), </span>
+<span id="cb28-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.fns =</span> standardize_var_2, </span>
+<span id="cb28-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.names =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"{.col}_standardized"</span></span>
+<span id="cb28-7">    )</span>
+<span id="cb28-8">  )</span>
+<span id="cb28-9"></span>
+<span id="cb28-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(psych_stats_std<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>innocent_jaded_standardized)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.127042e-18</code></pre>
+</div>
+</div>
+<p>I used the function that only takes a vector: using it within <code>across()</code> made it possible to just provide the function, and not having to deal with the extra data argument. The only argument in my function is the vector, and it is more naturally for across to handle, because it already applies a function to a column, so the extraction is not necessary.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@1188low?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Darryl Low</a> on <a href="https://unsplash.com/de/fotos/graustufenfoto-eines-gebaudes-pXqZs5TG2HU?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>tidyverse</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/index.html</guid>
+  <pubDate>Sun, 07 Apr 2024 22:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/data_wrangling.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Data wrangling in the tidyverse</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
@@ -181,12 +981,12 @@ background-color: null;
 font-style: inherit;">"Volleyball"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-4">  head</span></code></pre></div>
+<span id="cb11-4">  str</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  NOC     ID             Name Sex Age Height Weight    Team       Games Year
-1 ALG 122168      Faza Tsabet   F  23    183     79 Algeria 2008 Summer 2008
-2 ALG  73155   Narimne Madani   F  24    176     63 Algeria 2008 Summer 2008
-3 ALG  47642 Sehryne Hennaoui   F  24    172     69 Algeria 2012 Summer 2012
+<pre><code>'data.frame':   3404 obs. of  16 variables:
+ $ NOC   : chr  "ALG" "ALG" "ALG" "ALG" ...
+ $ ID    : int  122168 73155 47642 74593 74593 117675 249 249 90117 90100 ...
+ $ Name  : chr  "Faza Tsabet" "Narimne Madani" "Sehryne Hennaoui" "Nawal Mansouri" ...
 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
@@ -212,12 +1012,12 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb13-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">head</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  NOC     ID                    Name Sex Age Height Weight        Team
-1 AFG  99303           Friba Razayee   F  18    165     70 Afghanistan
-2 AFG  33817          Ajmal Faizzada   M  25    173     66 Afghanistan
-3 AFG   7050 Mohammad Tawfiq Bakhshi   M  30    181     99 Afghanistan
+<pre><code>'data.frame':   2916 obs. of  16 variables:
+ $ NOC   : chr  "AFG" "AFG" "AFG" "ALB" ...
+ $ ID    : int  99303 33817 7050 58601 121096 9593 78883 5689 78882 9593 ...
+ $ Name  : chr  "Friba Razayee" "Ajmal Faizzada" "Mohammad Tawfiq Bakhshi" "Majlinda Kelmendi" ...
 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="do" style="color: #5E5E5E;
@@ -235,12 +1035,12 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb15-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">head</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  NOC     ID                     Name Sex Age Height Weight        Team
-1 AFG 132181              Najam Yahya   M  NA     NA     NA Afghanistan
-2 AFG  87371    Ahmad Jahan Nuristani   M  NA     NA     NA Afghanistan
-3 AFG    502        Ahmad Shah Abouwi   M  NA     NA     NA Afghanistan
+<pre><code>'data.frame':   60083 obs. of  16 variables:
+ $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID    : int  132181 87371 502 109153 1076 121376 80210 87374 6323 59344 ...
+ $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Ahmad Shah Abouwi" "Shakar Khan Shakar" ...
 ...</code></pre>
 </div>
 </div>
@@ -314,37 +1114,45 @@ font-style: italic;">## Select the columns we want to reshape:</span></span>
 background-color: null;
 font-style: inherit;">cols =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+font-style: inherit;">starts_with</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"inhabitants_2022"</span>, <span class="st" style="color: #20794D;
+font-style: inherit;">"inhabitants"</span>),</span>
+<span id="cb19-5">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">"inhabitants_2021"</span>),</span>
-<span id="cb19-5">    <span class="do" style="color: #5E5E5E;
+font-style: inherit;">names_prefix =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"inhabitants_"</span>,</span>
+<span id="cb19-6">    <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Define a new column where the column names will go to:</span></span>
-<span id="cb19-6">    <span class="at" style="color: #657422;
+<span id="cb19-7">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"year"</span>,</span>
-<span id="cb19-7">    <span class="do" style="color: #5E5E5E;
+<span id="cb19-8">    <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Define a new column where the values will go to:</span></span>
-<span id="cb19-8">    <span class="at" style="color: #657422;
+<span id="cb19-9">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">values_to =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"inhabitants"</span></span>
-<span id="cb19-9">  )</span>
-<span id="cb19-10"></span>
-<span id="cb19-11"><span class="fu" style="color: #4758AB;
+<span id="cb19-10">  )</span>
+<span id="cb19-11"></span>
+<span id="cb19-12"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">head</span>(inhabitants_wide)</span></code></pre></div>
+font-style: inherit;">head</span>(inhabitants_long)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  country inhabitants_2021 inhabitants_2022
-1   China       1425893465       1425857720
-2   India       1407563842       1420939232
-3     USA               NA        338903174</code></pre>
+<pre><code># A tibble: 6 × 3
+  country year  inhabitants
+  &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;
+1 China   2021   1425893465
+2 China   2022   1425857720
+3 India   2021   1407563842
+4 India   2022   1420939232
+5 USA     2021           NA
+6 USA     2022    338903174</code></pre>
 </div>
 </div>
 <p>In other cases, it might happen that multiple variables are put into the same column, together with an identifier column:</p>
@@ -482,19 +1290,15 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb27-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">select</span>(Name, Sport, contact_sport)</span></code></pre></div>
+font-style: inherit;">select</span>(Name, Sport, contact_sport) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb27-8">  str</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                                                                               Name
-1                                                                                       Najam Yahya
-2                                                                             Ahmad Jahan Nuristani
-3                                                                                 Mohammad Halilula
-4                                                                                 Ahmad Shah Abouwi
-5                                                                                Shakar Khan Shakar
-6                                                                              Sultan Mohammad Dost
-7                                                                             Jammal-ud-Din Affendi
-8                                                                          Khan Nasrullah Totakhail
-9                                                                                          Alam Mir
-...</code></pre>
+<pre><code>'data.frame':   270767 obs. of  3 variables:
+ $ Name         : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sport        : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ contact_sport: logi  FALSE FALSE TRUE FALSE TRUE TRUE ...</code></pre>
 </div>
 </div>
 <p>If we have to connect multiple <code>ifelse()</code> functions, it’s better to use <code>dplyrs</code> <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/"><code>case_when()</code></a>:</p>
@@ -511,53 +1315,47 @@ font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">judo_weightclass =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ifelse</span>(<span class="fu" style="color: #4758AB;
+font-style: inherit;">if_else</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">grepl</span>(<span class="st" style="color: #20794D;
+font-style: inherit;">str_detect</span>(Event, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Middleweight"</span>, .<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>Event), </span>
+font-style: inherit;">"Middleweight"</span>), </span>
 <span id="cb29-4">                                  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">yes =</span> <span class="st" style="color: #20794D;
+font-style: inherit;">true =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Middleweight"</span>, </span>
 <span id="cb29-5">                                  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">no =</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">false =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ifelse</span>(<span class="fu" style="color: #4758AB;
+font-style: inherit;">if_else</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">grepl</span>(<span class="st" style="color: #20794D;
+font-style: inherit;">str_detect</span>(Event, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Half-Lightweight"</span>, .<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>Event), </span>
+font-style: inherit;">"Half-Lightweight"</span>), </span>
 <span id="cb29-6">                                        <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">yes =</span> <span class="st" style="color: #20794D;
+font-style: inherit;">true =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Half-Lightweight"</span>, </span>
 <span id="cb29-7">                                        <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">no =</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">false =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ifelse</span>(<span class="fu" style="color: #4758AB;
+font-style: inherit;">if_else</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">grepl</span>(<span class="st" style="color: #20794D;
+font-style: inherit;">str_detect</span>(Event, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Lightweight"</span>, .<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>Event), </span>
+font-style: inherit;">"Lightweight"</span>), </span>
 <span id="cb29-8">                                                    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">yes =</span> <span class="st" style="color: #20794D;
+font-style: inherit;">true =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Lightweight"</span>, </span>
 <span id="cb29-9">                                                    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">no =</span> <span class="cn" style="color: #8f5902;
+font-style: inherit;">false =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">NA</span>)</span>
 <span id="cb29-10">                                        ) </span>
@@ -576,19 +1374,16 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb29-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">select</span>(Name, Sport, Event, judo_weightclass)</span></code></pre></div>
+font-style: inherit;">select</span>(Name, Sport, Event, judo_weightclass) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb29-15">  str</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                                  Name Sport
-1                                        Friba Razayee  Judo
-2                                       Ajmal Faizzada  Judo
-3                              Mohammad Tawfiq Bakhshi  Judo
-4                                        Sergio Murray  Judo
-5                                        Willem Maduro  Judo
-6                                 Jaime Antonio Felipa  Judo
-7                                    Majlinda Kelmendi  Judo
-8                                       Edmond Topalli  Judo
-9                                        Sami Belgroun  Judo
-...</code></pre>
+<pre><code>'data.frame':   3799 obs. of  4 variables:
+ $ Name            : chr  "Friba Razayee" "Ajmal Faizzada" "Mohammad Tawfiq Bakhshi" "Sergio Murray" ...
+ $ Sport           : chr  "Judo" "Judo" "Judo" "Judo" ...
+ $ Event           : chr  "Judo Women's Middleweight" "Judo Men's Half-Lightweight" "Judo Men's Half-Heavyweight" "Judo Men's Middleweight" ...
+ $ judo_weightclass: chr  "Middleweight" "Half-Lightweight" NA "Middleweight" ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
@@ -628,11 +1423,18 @@ font-style: inherit;">"Lightweight"</span>) <span class="sc" style="color: #5E5E
 background-color: null;
 font-style: inherit;">~</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Lightweight"</span>)</span>
-<span id="cb31-6">         ) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">"Lightweight"</span>,</span>
+<span id="cb31-6">                                      <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"other Weightclass"</span> )</span>
+<span id="cb31-7">         ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb31-7">  <span class="fu" style="color: #4758AB;
+<span id="cb31-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -641,44 +1443,102 @@ background-color: null;
 font-style: inherit;">"Judo"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb31-8">  <span class="fu" style="color: #4758AB;
+<span id="cb31-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">select</span>(Name, Sport, Event, judo_weightclass)</span></code></pre></div>
+font-style: inherit;">select</span>(Name, Sport, Event, judo_weightclass) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb31-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                                  Name Sport
-1                                        Friba Razayee  Judo
-2                                       Ajmal Faizzada  Judo
-3                              Mohammad Tawfiq Bakhshi  Judo
-4                                        Sergio Murray  Judo
-5                                        Willem Maduro  Judo
-6                                 Jaime Antonio Felipa  Judo
-7                                    Majlinda Kelmendi  Judo
-8                                       Edmond Topalli  Judo
-9                                        Sami Belgroun  Judo
-...</code></pre>
+<pre><code>'data.frame':   3799 obs. of  4 variables:
+ $ Name            : chr  "Friba Razayee" "Ajmal Faizzada" "Mohammad Tawfiq Bakhshi" "Sergio Murray" ...
+ $ Sport           : chr  "Judo" "Judo" "Judo" "Judo" ...
+ $ Event           : chr  "Judo Women's Middleweight" "Judo Men's Half-Lightweight" "Judo Men's Half-Heavyweight" "Judo Men's Middleweight" ...
+ $ judo_weightclass: chr  "Middleweight" "Half-Lightweight" "other Weightclass" "Middleweight" ...</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="group_by" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="group_by"><span class="header-section-number">5</span> <code>group_by()</code></h2>
-<p>We can group our data by values in specific columns and perform some sort of operation on the groups. If we wanted to know the number of medals each region has won, we can for example group by region and medal type, and then <code>count()</code> (another <code>tidyverse</code> function) the number of cases in each group:</p>
-<div class="cell" data-output.lines="10">
-<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1">medal_counts <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
+<section id="replace_..." class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="replace_..."><span class="header-section-number">5</span> <code>..._replace_...()</code></h2>
+<p>We can easily replace values in a column using <code>str_replace()</code> or <code>replace_na()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1">athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb33-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">group_by</span>(Region, Medal) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sex =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_replace</span>(Sex, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Male"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb33-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sex =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_replace</span>(Sex, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"F"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Female"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb33-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Height =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">replace_na</span>(Height, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb33-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Sex, Height) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb33-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  2 variables:
+ $ Sex   : chr  "Male" "Male" "Male" "Male" ...
+ $ Height: int  0 0 163 0 0 168 0 0 0 0 ...</code></pre>
+</div>
+</div>
+</section>
+<section id="group_by" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="group_by"><span class="header-section-number">6</span> <code>group_by()</code></h2>
+<p>We can group our data by values in specific columns and perform some sort of operation on the groups. If we wanted to know the number of medals each region has won, we can for example group by region and medal type, and then <code>count()</code> (another <code>tidyverse</code> function) the number of cases in each group:</p>
+<div class="cell" data-output.lines="10">
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">medal_counts <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb35-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Region, Medal) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb35-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
 font-style: inherit;">count</span>(Medal) </span>
-<span id="cb33-4"></span>
-<span id="cb33-5">medal_counts</span></code></pre></div>
+<span id="cb35-4"></span>
+<span id="cb35-5">medal_counts</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 533 × 3
 # Groups:   Region, Medal [533]
@@ -695,18 +1555,18 @@ font-style: inherit;">count</span>(Medal) </span>
 </div>
 <p>We can also <code>summarize()</code> data:</p>
 <div class="cell" data-output.lines="10">
-<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="do" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Let's see what the mean, min and max age of athletes was in each Region:</span></span>
-<span id="cb35-2">athletes <span class="sc" style="color: #5E5E5E;
+<span id="cb37-2">athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb35-3">  <span class="fu" style="color: #4758AB;
+<span id="cb37-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(Region) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb35-4">      <span class="fu" style="color: #4758AB;
+<span id="cb37-4">      <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summarize</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -717,7 +1577,7 @@ background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>), </span>
-<span id="cb35-5">                <span class="at" style="color: #657422;
+<span id="cb37-5">                <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">min_age =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -726,7 +1586,7 @@ background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>), </span>
-<span id="cb35-6">                <span class="at" style="color: #657422;
+<span id="cb37-6">                <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">max_age =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -735,7 +1595,7 @@ background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>)</span>
-<span id="cb35-7">                )</span></code></pre></div>
+<span id="cb37-7">                )</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 206 × 4
    Region         mean_age min_age max_age
@@ -751,12 +1611,12 @@ font-style: inherit;">TRUE</span>)</span>
 </div>
 </div>
 </section>
-<section id="join_..-data.frames" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="join_..-data.frames"><span class="header-section-number">6</span> <code>..._join_..()</code> data.frames</h2>
+<section id="join_..-data.frames" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="join_..-data.frames"><span class="header-section-number">7</span> <code>..._join_..()</code> data.frames</h2>
 <p>We have multiple options for merging data.frames in the <code>tidyverse</code>. <code>left_join()</code> can be used if we want to keep all rows of the first data.frame and only adds the rows of the second data.frame that have an identifier in the first data.frame, <code>right_join()</code> keeps all rows of the second data frame, and <code>full_join()</code> keeps all rows of both data frames.</p>
 <p>Let’s merge a world coordinate data set onto our medal counts. This can be helpful if we want to plot the number of won medals in each country later on:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">world_coordinates <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">world_coordinates <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -764,7 +1624,7 @@ font-style: inherit;">readRDS</span>(here<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
+font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
@@ -772,7 +1632,7 @@ font-style: inherit;">"world_coordinates.rds"</span>))</span></code></pre></div>
 </div>
 <p>Only take gold medals into account:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1">medal_counts <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1">medal_counts <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> medal_counts <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -786,7 +1646,7 @@ font-style: inherit;">"Gold"</span>)</span></code></pre></div>
 </div>
 <p>To merge two data frames that include information that belongs together, we need a common column, on which we can combine them. In our case, this is the column containing the country. They are both named <code>region</code>, but one with an upper case <code>R</code>. This doesn’t pose a problem, as we can define which columns should be taken from which data frame for merging with <code>join_by()</code>. Let’s take a quick look before merging to check if there are any countries named differently in both data sets:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">medal_counts<span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">medal_counts<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>Region[<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -803,20 +1663,20 @@ font-style: inherit;">$</span>region)]</span></code></pre></div>
 </div>
 <p>Looks like all of the countries in our <code>medal_countries</code> data frame can also be found in our <code>world_coordinates</code> frame. Only athletes without a country will be lost when merging, but that’s ok for now, as we are interested in the country specific gold medal counts. So let’s merge:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">medal_countries <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">medal_countries <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> world_coordinates <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb41-2">  <span class="fu" style="color: #4758AB;
+<span id="cb43-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">left_join</span>(medal_counts, <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">join_by</span>(region <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> Region))</span>
-<span id="cb41-3"></span>
-<span id="cb41-4"><span class="fu" style="color: #4758AB;
+<span id="cb43-3"></span>
+<span id="cb43-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(medal_countries)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -830,10 +1690,10 @@ font-style: inherit;">head</span>(medal_countries)</span></code></pre></div>
 </div>
 </div>
 </section>
-<section id="exercise" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="exercise"><span class="header-section-number">7</span> Exercise</h2>
+<section id="exercise" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="exercise"><span class="header-section-number">8</span> Exercise</h2>
 <ol start="0" type="1">
-<li>Read the <code>characters.rds</code> and the <code>psych_stats.csv</code> into R (see <a href="">here</a>)</li>
+<li>Read the <code>characters.rds</code> and the <code>psych_stats.csv</code> into R (download <a href="https://github.com/iqb-research/IQB-Methods/tree/main/raw_data">here</a>).</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -848,7 +1708,7 @@ Solution
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">characters <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1">characters <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -861,7 +1721,7 @@ background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"characters.rds"</span>))</span>
-<span id="cb43-2">psych_stats <span class="ot" style="color: #003B4F;
+<span id="cb45-2">psych_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -914,30 +1774,30 @@ Solution
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1">psych_stats_long <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1">psych_stats_long <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb44-2">  <span class="fu" style="color: #4758AB;
+<span id="cb46-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_longer</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cols =</span> messy_neat<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span>innocent_jaded, </span>
-<span id="cb44-3">               <span class="at" style="color: #657422;
+<span id="cb46-3">               <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"question"</span>, </span>
-<span id="cb44-4">               <span class="at" style="color: #657422;
+<span id="cb46-4">               <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">values_to =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"rating"</span>)</span>
-<span id="cb44-5"></span>
-<span id="cb44-6"><span class="fu" style="color: #4758AB;
+<span id="cb46-5"></span>
+<span id="cb46-6"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(psych_stats_long)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -989,7 +1849,7 @@ Solution
 <div class="callout-body-container callout-body">
 <p>First, let’s take a look at both data sets again:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str</span>(characters)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1002,7 +1862,7 @@ font-style: inherit;">str</span>(characters)</span></code></pre></div>
  $ link      : chr  "https://openpsychometrics.org/tests/characters/stats/F/2" "https://openpsychometrics.org/tests/characters/stats/F/1" "https://openpsychometrics.org/tests/characters/stats/F/5" "https://openpsychometrics.org/tests/characters/stats/F/4" ...
  $ image_link: chr  "https://openpsychometrics.org/tests/characters/test-resources/pics/F/2.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/1.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/5.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/4.jpg" ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str</span>(psych_stats)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1111,20 +1971,20 @@ font-style: inherit;">str</span>(psych_stats)</span></code></pre></div>
 </div>
 <p>It seems like both data frames have a column containing an ID for the character. We can use that column for merging:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1">characters_stats <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1">characters_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> characters <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb50-2">  <span class="fu" style="color: #4758AB;
+<span id="cb52-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">right_join</span>(psych_stats_long, <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">join_by</span>(id <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> char_id))</span>
-<span id="cb50-3"></span>
-<span id="cb50-4"><span class="fu" style="color: #4758AB;
+<span id="cb52-3"></span>
+<span id="cb52-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str</span>(characters_stats)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1175,10 +2035,10 @@ Caution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1">characters_stats <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1">characters_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb52-2">  <span class="fu" style="color: #4758AB;
+<span id="cb54-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1189,7 +2049,7 @@ background-color: null;
 font-style: inherit;">"uni"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb52-3">  <span class="fu" style="color: #4758AB;
+<span id="cb54-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1238,17 +2098,17 @@ Caution
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1">characters_summary <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">characters_summary <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> characters_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb54-2">  <span class="fu" style="color: #4758AB;
+<span id="cb56-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(uni_name, question) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb54-3">  <span class="fu" style="color: #4758AB;
+<span id="cb56-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1300,12 +2160,12 @@ Caution
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">compare_shows <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">compare_shows <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> characters_summary <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb56-2">  <span class="fu" style="color: #4758AB;
+<span id="cb58-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1316,21 +2176,21 @@ background-color: null;
 font-style: inherit;">"Friends|How I Met Your Mother"</span> ))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb56-3">  <span class="fu" style="color: #4758AB;
+<span id="cb58-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_wider</span>(</span>
-<span id="cb56-4">    <span class="at" style="color: #657422;
+<span id="cb58-4">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">names_from =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"uni_name"</span>,</span>
-<span id="cb56-5">    <span class="at" style="color: #657422;
+<span id="cb58-5">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">values_from =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"mean_rating"</span>)</span>
-<span id="cb56-6"></span>
-<span id="cb56-7">compare_shows</span></code></pre></div>
+<span id="cb58-6"></span>
+<span id="cb58-7">compare_shows</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 364 × 3
    question               Friends `How I Met Your Mother`
@@ -1384,10 +2244,10 @@ Caution
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">compare_shows <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1">compare_shows <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb58-2">  <span class="fu" style="color: #4758AB;
+<span id="cb60-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1402,7 +2262,7 @@ background-color: null;
 font-style: inherit;">"How I Met Your Mother"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb58-3">  <span class="fu" style="color: #4758AB;
+<span id="cb60-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">arrange</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3665,199 +4525,6 @@ $Species
   <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/index.html</guid>
   <pubDate>Sun, 19 Mar 2023 23:00:00 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Column-wise operations in the tidyverse</title>
-  <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/data_wrangling.jpg" class="img-fluid"><sup>1</sup></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb1-2"></span>
-<span id="cb1-3">athletes <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">readRDS</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
-</div>
-<section id="column-wise-operations" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="column-wise-operations"><span class="header-section-number">1</span> Column-wise operations</h2>
-<p>Instead of looping over columns with a <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/">for-loop</a>, we can also use <code>across()</code> in combination with other <code>tidyverse</code> functions:</p>
-<p>Across can take column names and a function that should be applied to the selected columns:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Here we transform the Height and Weight columns into numeric:</span></span>
-<span id="cb2-2">athletes <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb2-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">across</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(Height, Weight), as.character)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb2-4">  str</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   270767 obs. of  16 variables:
- $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
- $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
- $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
- $ Sex   : chr  "M" "M" "M" "M" ...
- $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...
- $ Height: chr  NA NA "163" NA ...
- $ Weight: chr  NA NA "57" NA ...
- $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
- $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
- $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
- $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
- $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
- $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
- $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
- $ Medal : chr  NA NA NA NA ...
- $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
-</div>
-</div>
-<p>But it is also possible to select columns based on a selection function:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## And here we transform all numeric columns into character:</span></span>
-<span id="cb4-2">athletes <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb4-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">across</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">where</span>(is.numeric), as.character)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb4-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   270767 obs. of  16 variables:
- $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
- $ ID    : chr  "132181" "87371" "44977" "502" ...
- $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
- $ Sex   : chr  "M" "M" "M" "M" ...
- $ Age   : chr  NA NA "28" NA ...
- $ Height: chr  NA NA "163" NA ...
- $ Weight: chr  NA NA "57" NA ...
- $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
- $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
- $ Year  : chr  "1956" "1948" "1980" "1956" ...
- $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
- $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
- $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
- $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
- $ Medal : chr  NA NA NA NA ...
- $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
-</div>
-</div>
-<p>We can also specify our own transformation function. For example, we could standardize all numeric variables:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">standardize_column <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">function</span>(col){</span>
-<span id="cb6-2">  (col <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(col, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>))<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sd</span>(col, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span>
-<span id="cb6-3">}</span>
-<span id="cb6-4"></span>
-<span id="cb6-5">athletes <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">across</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">where</span>(is.numeric), standardize_column)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   270767 obs. of  16 variables:
- $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
- $ ID    : num  1.639 0.491 -0.596 -1.736 1.049 ...
- $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
- $ Sex   : chr  "M" "M" "M" "M" ...
- $ Age   : num  NA NA 0.382 NA -0.244 ...
- $ Height: num  NA NA -1.17 NA NA ...
- $ Weight: num  NA NA -0.955 NA 0.229 ...
- $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
- $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
- $ Year  : num  -0.7483 -1.016 0.0548 -0.7483 -0.4806 ...
- $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
- $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
- $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
- $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
- $ Medal : chr  NA NA NA NA ...
- $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
-</div>
-</div>
-<section id="sim" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="sim"><span class="header-section-number">1.1</span> !!sim …</h3>
-
-
-</section>
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Image by <a href="https://www.bing.com/images/create/data-wrangling/1-65fd4161357e424ab4710052a455ae76?id=%2bsYYE%2fjAx45kPemp84oShA%3d%3d&amp;view=detailv2&amp;idpp=genimg&amp;idpclose=1&amp;thId=OIG1.63cnYyWZaAlWJaaaluAw&amp;FORM=SYDBIC">Bing Copilot</a>↩︎</p></li>
-</ol>
-</section></div> ]]></description>
-  <category>R</category>
-  <category>tidyverse</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/index.html</guid>
-  <pubDate>Wed, 24 Mar 2021 23:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/data_wrangling.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
