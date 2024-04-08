@@ -199,6 +199,9 @@ athletes %>%
 
 ```
 
+### Programmatically using `mutate()`
+If you want to use `mutate()` programmatically within a loop or a function, take a look at [Column-wise operations in the tidyverse](https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/)
+
 ## `..._replace_...()`
 We can easily replace values in a column using `str_replace()` or `replace_na()`:
 
