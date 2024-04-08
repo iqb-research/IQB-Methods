@@ -46,7 +46,7 @@ font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
 <section id="column-wise-operations-with-across" class="level2">
 <h2 class="anchored" data-anchor-id="column-wise-operations-with-across">Column-wise operations with <code>across()</code></h2>
 <p>Instead of looping over columns with a <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/">for-loop</a>, we can also use <code>across()</code> in combination with other <code>tidyverse</code> functions.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -372,7 +372,7 @@ font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
 ...</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
