@@ -65,19 +65,22 @@ When using tidyverse syntax within a loop, we might run into the problem that th
 
 ## This throws an error: 
 athletes_2 <- athletes
+
 for(i in c("Height", "Weight")){
   athletes_2 <- athletes_2 %>%
     mutate(i = as.character(.$i))
 }
+
+
 ```
 
 This doesn't work, because we are trying to program a function using [data masking](https://dplyr.tidyverse.org/articles/programming.html#data-masking). Data masking just means that we don't have to type `athletes$Height` in a `tidyverse` function, but simply `Height`, because the function knows this refers to a column in the current data.frame.  
 
 ### Loops
 - In the case of `mutate()`, we have to use **dynamic dots**, which need to used if we want to create names programmatically: `:=` instead of `=`. 
-- We need to **embrace** the changeable variable (either in a function or a loop) like this: `{{var}}`.
+- We need to **embrace** the changeable variable (either in a function or a loop) like this: `\\{\\{var\\}\\}`.
 - In `mutate()`, we can also simply write `"{var}_..."` to paste together a new column name. 
-- If we just want to extract data, we can use the `data` pronoun (or the `.` as short version) with `[[` ([see here](https://dplyr.tidyverse.org/articles/programming.html#indirection)).
+- If we just want to extract data, we can use the `.data` pronoun (or the `.` as short version) with `[[` ([see here](https://dplyr.tidyverse.org/articles/programming.html#indirection)).
 
 ```{r}
 athletes_2 <- athletes
@@ -88,6 +91,11 @@ for(i in c("Height", "Weight")){
 }
 str(athletes_2)
 
+for(i in c("Height", "Weight")){
+  athletes_2 <- athletes_2 %>%
+    mutate({{i}} := as.character({{i}}))
+}
+str(athletes_2)
 
 ## With programmatically built new columns: 
 athletes_3 <- athletes
@@ -126,7 +134,7 @@ athletes %>%
 
 
 ::: {.callout-note}
-## !!sim()
+## !!sym()
 In previous SIG-Sessions we have used `!!sym()` for this, which also works, but is more to remember:
 
 ```{r}
