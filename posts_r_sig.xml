@@ -1503,6 +1503,10 @@ font-style: inherit;">str</span>()</span></code></pre></div>
 </div>
 </div>
 </section>
+<section id="programmatically-using-mutate" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="programmatically-using-mutate"><span class="header-section-number">4.2</span> Programmatically using <code>mutate()</code></h3>
+<p>If you want to use <code>mutate()</code> programmatically within a loop or a function, take a look at <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/">Column-wise operations in the tidyverse</a></p>
+</section>
 </section>
 <section id="replace_..." class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="replace_..."><span class="header-section-number">5</span> <code>..._replace_...()</code></h2>
