@@ -162,7 +162,8 @@ font-style: italic;">## This throws an error: </span></span>
 <span id="cb6-7">athletes_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes</span>
-<span id="cb6-8"><span class="cf" style="color: #003B4F;
+<span id="cb6-8"></span>
+<span id="cb6-9"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -173,12 +174,12 @@ background-color: null;
 font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Weight"</span>)){</span>
-<span id="cb6-9">  athletes_2 <span class="ot" style="color: #003B4F;
+<span id="cb6-10">  athletes_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes_2 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-10">    <span class="fu" style="color: #4758AB;
+<span id="cb6-11">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -187,16 +188,16 @@ background-color: null;
 font-style: inherit;">as.character</span>(.<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>i))</span>
-<span id="cb6-11">}</span></code></pre></div>
+<span id="cb6-12">}</span></code></pre></div>
 </div>
 <p>This doesn’t work, because we are trying to program a function using <a href="https://dplyr.tidyverse.org/articles/programming.html#data-masking">data masking</a>. Data masking just means that we don’t have to type <code>athletes$Height</code> in a <code>tidyverse</code> function, but simply <code>Height</code>, because the function knows this refers to a column in the current data.frame.</p>
 <section id="loops" class="level3">
 <h3 class="anchored" data-anchor-id="loops">Loops</h3>
 <ul>
 <li>In the case of <code>mutate()</code>, we have to use <strong>dynamic dots</strong>, which need to used if we want to create names programmatically: <code>:=</code> instead of <code>=</code>.</li>
-<li>We need to <strong>embrace</strong> the changeable variable (either in a function or a loop) like this: <code>{var}</code>.</li>
+<li>We need to <strong>embrace</strong> the changeable variable (either in a function or a loop) like this: <code>\\{\\{var\\}\\}</code>.</li>
 <li>In <code>mutate()</code>, we can also simply write <code>"{var}_..."</code> to paste together a new column name.</li>
-<li>If we just want to extract data, we can use the <code>data</code> pronoun (or the <code>.</code> as short version) with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see here</a>).</li>
+<li>If we just want to extract data, we can use the <code>.data</code> pronoun (or the <code>.</code> as short version) with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see here</a>).</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">athletes_2 <span class="ot" style="color: #003B4F;
@@ -251,13 +252,7 @@ font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
  $ Medal : chr  NA NA NA NA ...
  $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## With programmatically built new columns: </span></span>
-<span id="cb9-2">athletes_3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> athletes</span>
-<span id="cb9-3"><span class="cf" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -268,12 +263,66 @@ background-color: null;
 font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Weight"</span>)){</span>
-<span id="cb9-4">  athletes_3 <span class="ot" style="color: #003B4F;
+<span id="cb9-2">  athletes_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes_2 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>({{i}} <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>({{i}}))</span>
+<span id="cb9-4">}</span>
+<span id="cb9-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   270767 obs. of  16 variables:
+ $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
+ $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...
+ $ Name  : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
+ $ Sex   : chr  "M" "M" "M" "M" ...
+ $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...
+ $ Height: chr  "Height" "Height" "Height" "Height" ...
+ $ Weight: chr  "Weight" "Weight" "Weight" "Weight" ...
+ $ Team  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ Games : chr  "1956 Summer" "1948 Summer" "1980 Summer" "1956 Summer" ...
+ $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...
+ $ Season: chr  "Summer" "Summer" "Summer" "Summer" ...
+ $ City  : chr  "Melbourne" "London" "Moskva" "Melbourne" ...
+ $ Sport : chr  "Hockey" "Hockey" "Wrestling" "Hockey" ...
+ $ Event : chr  "Hockey Men's Hockey" "Hockey Men's Hockey" "Wrestling Men's Bantamweight, Freestyle" "Hockey Men's Hockey" ...
+ $ Medal : chr  NA NA NA NA ...
+ $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## With programmatically built new columns: </span></span>
+<span id="cb11-2">athletes_3 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes</span>
+<span id="cb11-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Weight"</span>)){</span>
+<span id="cb11-4">  athletes_3 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes_3 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-5">    <span class="fu" style="color: #4758AB;
+<span id="cb11-5">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="st" style="color: #20794D;
 background-color: null;
@@ -284,9 +333,9 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.character</span>(.[[i]]))</span>
-<span id="cb9-6">}</span>
-<span id="cb9-7"></span>
-<span id="cb9-8"><span class="fu" style="color: #4758AB;
+<span id="cb11-6">}</span>
+<span id="cb11-7"></span>
+<span id="cb11-8"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str</span>(athletes_3)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -316,52 +365,52 @@ font-style: inherit;">str</span>(athletes_3)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="functions">Functions</h3>
 <p>This also applies if we want to define a function with column names as arguments, using <code>tidyverse</code> inside. Here we need to embrace our variable as well to make it data masking friendly:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## This doesn't work:</span></span>
-<span id="cb11-2">print_col <span class="ot" style="color: #003B4F;
+<span id="cb13-2">print_col <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">function</span>(dat, var){</span>
-<span id="cb11-3">  <span class="fu" style="color: #4758AB;
+<span id="cb13-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">print</span>(dat <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pull</span>(var))</span>
-<span id="cb11-4">}</span>
-<span id="cb11-5"></span>
-<span id="cb11-6">athletes <span class="sc" style="color: #5E5E5E;
+<span id="cb13-4">}</span>
+<span id="cb13-5"></span>
+<span id="cb13-6">athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-7">  <span class="fu" style="color: #4758AB;
+<span id="cb13-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
 </div>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="do" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## This works:</span></span>
-<span id="cb12-2">print_col <span class="ot" style="color: #003B4F;
+<span id="cb14-2">print_col <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">function</span>(dat, var){</span>
-<span id="cb12-3">  <span class="fu" style="color: #4758AB;
+<span id="cb14-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">print</span>(dat <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pull</span>({{var}}))</span>
-<span id="cb12-4">}</span>
-<span id="cb12-5"></span>
-<span id="cb12-6">athletes <span class="sc" style="color: #5E5E5E;
+<span id="cb14-4">}</span>
+<span id="cb14-5"></span>
+<span id="cb14-6">athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb12-7">  <span class="fu" style="color: #4758AB;
+<span id="cb14-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -378,16 +427,16 @@ font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-!!sim()
+!!sym()
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>In previous SIG-Sessions we have used <code>!!sym()</code> for this, which also works, but is more to remember:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">athletes_2 <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">athletes_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes</span>
-<span id="cb14-2"><span class="cf" style="color: #003B4F;
+<span id="cb16-2"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -398,12 +447,12 @@ background-color: null;
 font-style: inherit;">"Height"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Weight"</span>)){</span>
-<span id="cb14-3">  athletes_2 <span class="ot" style="color: #003B4F;
+<span id="cb16-3">  athletes_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes_2 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb14-4">    <span class="fu" style="color: #4758AB;
+<span id="cb16-4">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -420,9 +469,9 @@ background-color: null;
 font-style: inherit;">!!</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sym</span>(i)))</span>
-<span id="cb14-5">}</span>
-<span id="cb14-6"></span>
-<span id="cb14-7"><span class="fu" style="color: #4758AB;
+<span id="cb16-5">}</span>
+<span id="cb16-6"></span>
+<span id="cb16-7"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -467,7 +516,7 @@ Solution
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">characters <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">characters <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -480,7 +529,7 @@ background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"characters.rds"</span>))</span>
-<span id="cb16-2">psych_stats <span class="ot" style="color: #003B4F;
+<span id="cb18-2">psych_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -534,21 +583,21 @@ Solution
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">standardize_var <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">standardize_var <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">function</span>(dat, var){</span>
-<span id="cb17-2">  column <span class="ot" style="color: #003B4F;
+<span id="cb19-2">  column <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> dat <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb17-3">    <span class="fu" style="color: #4758AB;
+<span id="cb19-3">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pull</span>({{var}}) </span>
-<span id="cb17-4">  </span>
-<span id="cb17-5"><span class="cf" style="color: #003B4F;
+<span id="cb19-4">  </span>
+<span id="cb19-5"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -565,8 +614,8 @@ background-color: null;
 font-style: inherit;">typeof</span>(column), <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"'."</span>))}</span>
-<span id="cb17-6"></span>
-<span id="cb17-7">  column_std <span class="ot" style="color: #003B4F;
+<span id="cb19-6"></span>
+<span id="cb19-7">  column_std <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> (column <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -577,28 +626,28 @@ background-color: null;
 font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sd</span>(column)</span>
-<span id="cb17-8">  <span class="fu" style="color: #4758AB;
+<span id="cb19-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">return</span>(column_std)</span>
-<span id="cb17-9">}</span>
-<span id="cb17-10"></span>
-<span id="cb17-11"><span class="do" style="color: #5E5E5E;
+<span id="cb19-9">}</span>
+<span id="cb19-10"></span>
+<span id="cb19-11"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## test the function:</span></span>
-<span id="cb17-12"><span class="co" style="color: #5E5E5E;
+<span id="cb19-12"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># standardize_var(athletes, Region)</span></span>
-<span id="cb17-13"></span>
-<span id="cb17-14">standardized_col <span class="ot" style="color: #003B4F;
+<span id="cb19-13"></span>
+<span id="cb19-14">standardized_col <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb17-15">  <span class="fu" style="color: #4758AB;
+<span id="cb19-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">standardize_var</span>(messy_neat)</span>
-<span id="cb17-16"></span>
-<span id="cb17-17"><span class="fu" style="color: #4758AB;
+<span id="cb19-16"></span>
+<span id="cb19-17"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(standardized_col) <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -610,7 +659,7 @@ font-style: inherit;">5</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sd</span>(standardized_col)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -636,7 +685,7 @@ Solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="cf" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -649,12 +698,12 @@ background-color: null;
 font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">29</span>]){</span>
-<span id="cb21-2"> psych_stats <span class="ot" style="color: #003B4F;
+<span id="cb23-2"> psych_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb21-3">    <span class="fu" style="color: #4758AB;
+<span id="cb23-3">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="st" style="color: #20794D;
 background-color: null;
@@ -665,9 +714,9 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">standardize_var</span>(psych_stats, .data[[i]]))</span>
-<span id="cb21-4">}</span>
-<span id="cb21-5"></span>
-<span id="cb21-6"><span class="fu" style="color: #4758AB;
+<span id="cb23-4">}</span>
+<span id="cb23-5"></span>
+<span id="cb23-6"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(psych_stats<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -675,7 +724,7 @@ font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.582513e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sd</span>(psych_stats<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -703,12 +752,12 @@ Solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">standardize_var_2 <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">standardize_var_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">function</span>(vec){</span>
-<span id="cb25-2">  <span class="cf" style="color: #003B4F;
+<span id="cb27-2">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -725,7 +774,7 @@ background-color: null;
 font-style: inherit;">typeof</span>(vec), <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"'."</span>))}</span>
-<span id="cb25-3">  (vec<span class="sc" style="color: #5E5E5E;
+<span id="cb27-3">  (vec<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -734,12 +783,12 @@ background-color: null;
 font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sd</span>(vec)</span>
-<span id="cb25-4">}</span>
-<span id="cb25-5"></span>
-<span id="cb25-6"><span class="do" style="color: #5E5E5E;
+<span id="cb27-4">}</span>
+<span id="cb27-5"></span>
+<span id="cb27-6"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Testing the function</span></span>
-<span id="cb25-7"><span class="fu" style="color: #4758AB;
+<span id="cb27-7"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">standardize_var_2</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -753,7 +802,7 @@ font-style: inherit;">3</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1  0  1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># standardize_var_2(c("a",2,3))</span></span></code></pre></div>
 </div>
@@ -796,34 +845,34 @@ Solution
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">psych_stats_std <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">psych_stats_std <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb28-2">  <span class="fu" style="color: #4758AB;
+<span id="cb30-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(</span>
-<span id="cb28-3">    <span class="fu" style="color: #4758AB;
+<span id="cb30-3">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">across</span>(</span>
-<span id="cb28-4">    <span class="at" style="color: #657422;
+<span id="cb30-4">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">.cols =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">where</span>(is.numeric), </span>
-<span id="cb28-5">    <span class="at" style="color: #657422;
+<span id="cb30-5">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">.fns =</span> standardize_var_2, </span>
-<span id="cb28-6">    <span class="at" style="color: #657422;
+<span id="cb30-6">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">.names =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"{.col}_standardized"</span></span>
-<span id="cb28-7">    )</span>
-<span id="cb28-8">  )</span>
-<span id="cb28-9"></span>
-<span id="cb28-10"><span class="fu" style="color: #4758AB;
+<span id="cb30-7">    )</span>
+<span id="cb30-8">  )</span>
+<span id="cb30-9"></span>
+<span id="cb30-10"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(psych_stats_std<span class="sc" style="color: #5E5E5E;
 background-color: null;
