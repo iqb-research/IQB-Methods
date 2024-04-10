@@ -89,7 +89,7 @@ Add a footnote[^2].
 You can add little information boxes like this:
 ```
 ::: callout-tip
-The R-SIG meets each every two weeks on Monday from 13:00 - 14:00. The next meeting will be on 9.10.2023.
+The R-SIG meets each every two weeks on Monday from 13:00 - 14:00.
 :::
 ```
 ::: callout-tip
