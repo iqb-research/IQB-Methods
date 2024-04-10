@@ -11,12 +11,11 @@ website:
   navbar:
     search: true
     left:
-      - href: index.qmd
-        text: Home
       - href: posts_r_sig.qmd
         text: R-Sig
       - href: posts_newsletter.qmd
         text: Newsletter
+      - href: docs/FAQ/FAQ.qmd
       - text: "Internal Documentation"
         menu: 
           - docs/quarto/index.qmd
