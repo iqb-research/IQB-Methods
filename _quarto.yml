@@ -17,8 +17,10 @@ website:
         text: R-Sig
       - href: posts_newsletter.qmd
         text: Newsletter
-      - href: docs/quarto/index.qmd
-        text: Maintenance
+      - text: "Internal Documentation"
+        menu: 
+          - docs/quarto/index.qmd
+          - docs/discussions/code_conventions.qmd
     right:
       - icon: rss
       - href: index.xml
@@ -64,12 +66,10 @@ website:
           - docs/eatPackages/eatRecode.qmd
           - docs/eatPackages/eatRep.qmd
           - docs/eatPackages/eatTools.qmd
-      - section: "Quarto"
-        contents: 
-          - docs/quarto/index.qmd
-      - section: "Git"
+      - section: "GitHub"
         contents:
           - docs/git/index.qmd
+
 
 format:
   html:
