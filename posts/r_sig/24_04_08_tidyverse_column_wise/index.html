@@ -554,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>In the case of <code>mutate()</code>, we have to use <strong>dynamic dots</strong>, which need to used if we want to create names programmatically: <code>:=</code> instead of <code>=</code>.</li>
 <li>We need to <strong>embrace</strong> the changeable variable (either in a function or a loop) like this: <code>{var}</code>.</li>
 <li>In <code>mutate()</code>, we can also simply write <code>"{var}_..."</code> to paste together a new column name.</li>
-<li>If we just want to extract data, we can use the <code>.data</code> pronoun (or the <code>.</code> as short version) with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see here</a>).</li>
+<li>If we just want to extract data, we can use the <code>.data</code> pronoun with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see here</a>). <code>.data</code> helps to clear up ambiguity, it makes clear you want to extract a column from the current data.frame. This is something different than the <code>.</code>, which can be read like “data up to this point” and references the data that gets put into the function where the <code>.</code> is used. The <code>.</code> actually stands for a data.frame, while <code>.data</code> is used for symbol evaluation.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>athletes_2 <span class="ot">&lt;-</span> athletes</span>
@@ -637,6 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ Weight_char: chr  NA NA "57" NA ...</code></pre>
 </div>
 </div>
+<p>Beware of overwriting the same data.frame you put into <code>mutate()</code>! Otherwise the resulting data.frame will always be overwritten by the old one that always gets put into the function.</p>
 </section>
 <section id="functions" class="level3">
 <h3 class="anchored" data-anchor-id="functions">Functions</h3>
@@ -772,7 +773,7 @@ Solution
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.numeric</span>(column)){<span class="fu">stop</span>(<span class="fu">paste0</span>(<span class="st">"Please provide a numeric column! Yours has the type '"</span>, <span class="fu">typeof</span>(column), <span class="st">"'."</span>))}</span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  column_std <span class="ot">&lt;-</span> (column <span class="sc">-</span> <span class="fu">mean</span>(column)) <span class="sc">/</span> <span class="fu">sd</span>(column)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  column_std <span class="ot">&lt;-</span> (column <span class="sc">-</span> <span class="fu">mean</span>(column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># automatically remove NAs</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(column_std)</span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -797,8 +798,25 @@ Solution
 <ol start="2" type="1">
 <li>Apply this function within a for-loop on 10 columns of your choice. Add the standardized columns as new columns to your data frame.</li>
 </ol>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Always overwrite the same data.frame you put into the function.</p>
+<p><code>for(i in c("col_1", "col_2"){dat_new &lt;- dat %&gt;% ...}</code> won’t work because we always overwrite the dat_new object, where our new column was added, with our old data.frame.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -807,12 +825,12 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">colnames</span>(psych_stats)[<span class="dv">20</span><span class="sc">:</span><span class="dv">29</span>]){</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a> psych_stats <span class="ot">&lt;-</span> psych_stats <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"{i}_std"</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">standardize_var</span>(psych_stats, .data[[i]]))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="st">"{i}_std"</span> <span class="sc">:</span><span class="er">=</span> <span class="fu">standardize_var</span>(., .data[[i]])) <span class="co"># The point means we use the object called before the last pipe, in this case psych_stats. </span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(psych_stats<span class="sc">$</span>flexible_rigid_std)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -831,7 +849,7 @@ Solution
 <li>Now build the same standardization function, but it should only take a numeric vector as input, not a whole <code>data.frame</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -840,7 +858,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>standardize_var_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(vec){</span>
@@ -863,7 +881,7 @@ Solution
 This exercise is a little bit harder, so use google, StackOverflow and the help function <code>?</code> within R.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -872,7 +890,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>Look at the documentation of <code>across()</code> to see how you can give new column names into <code>mutate()</code> from within <code>across()</code>.</li>
@@ -882,7 +900,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -891,7 +909,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>psych_stats_std <span class="ot">&lt;-</span> psych_stats <span class="sc">%&gt;%</span></span>
