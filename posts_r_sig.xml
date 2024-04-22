@@ -2510,12 +2510,12 @@ A more thorough introduction into the <code>tidyverse</code> can be found <a hre
 <h2 data-number="2" class="anchored" data-anchor-id="some-tidyverse-features"><span class="header-section-number">2</span> Some tidyverse features</h2>
 <section id="tibbles" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="tibbles"><span class="header-section-number">2.1</span> Tibbles</h3>
-<p>A special type of data frame are the so called <code>tibbles</code>. Tibbles are a modern version of data frames and the standard data frame type of the <code>tidyverse</code>, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don’t be confused if you run into them, in general they behave like data frames. Take a look at the <a href="http://localhost:3795/posts/r_sig/24_01_26_tidyverse_intro/#exercise">Exercises</a>, or at a more thorough <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html">Example</a> if you want to learn more.</p>
+<p>A special type of data frame are the so called <code>tibbles</code>. Tibbles are a modern version of data frames and the standard data frame type of the <code>tidyverse</code>, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don’t be confused if you run into them, in general they behave like data frames. Take a look at the <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/#exercise">Exercises</a>, or at a more thorough <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html">Example</a> if you want to learn more.</p>
 </section>
 <section id="the-pipe-operator" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="the-pipe-operator"><span class="header-section-number">2.2</span> The Pipe Operator</h3>
 <p><code>tidyverse</code> code is often written using the pipe operator <code>%&gt;%</code> (read as ‘<em>then do</em>’), which makes it easy to connect multiple function calls.</p>
-<p>Some notes on the pipe syntax, also see <a href="http://localhost:3795/posts/r_sig/24_01_26_tidyverse_intro/#exercise">Exercises</a>:</p>
+<p>Some notes on the pipe syntax, also see <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/#exercise">Exercises</a>:</p>
 <ol type="1">
 <li>If we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets.</li>
 <li>The pipe operator will give the result of the last function as input into the next function.</li>
