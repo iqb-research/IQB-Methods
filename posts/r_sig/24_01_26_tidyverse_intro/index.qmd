@@ -31,13 +31,13 @@ A more thorough introduction into the `tidyverse` can be found [here](https://jh
 
 ### Tibbles
 
-A special type of data frame are the so called `tibbles`. Tibbles are a modern version of data frames and the standard data frame type of the `tidyverse`, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don't be confused if you run into them, in general they behave like data frames. Take a look at the [Exercises](http://localhost:3795/posts/r_sig/24_01_26_tidyverse_intro/#exercise), or at a more thorough [Example](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html) if you want to learn more.
+A special type of data frame are the so called `tibbles`. Tibbles are a modern version of data frames and the standard data frame type of the `tidyverse`, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don't be confused if you run into them, in general they behave like data frames. Take a look at the [Exercises](https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/#exercise), or at a more thorough [Example](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html) if you want to learn more.
 
 ### The Pipe Operator
 
 `tidyverse` code is often written using the pipe operator `%>%` (read as '*then do*'), which makes it easy to connect multiple function calls.
 
-Some notes on the pipe syntax, also see [Exercises](http://localhost:3795/posts/r_sig/24_01_26_tidyverse_intro/#exercise):
+Some notes on the pipe syntax, also see [Exercises](https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/#exercise):
 
 1.  If we don't have any additional arguments we want to put into the function, we can just write the function name without any brackets.
 2.  The pipe operator will give the result of the last function as input into the next function.
