@@ -551,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="loops">Loops</h3>
 <ul>
 <li>In the case of <code>mutate()</code>, we have to use <strong>dynamic dots</strong>, which need to used if we want to create names programmatically: <code>:=</code> instead of <code>=</code>.</li>
-<li>We need to <strong>embrace</strong> the changeable variable (either in a function or a loop) like this: <code>\\{\\{var\\}\\}</code>.</li>
+<li>We need to <strong>embrace</strong> the changeable variable (either in a function or a loop) like this: <code>{var}</code>.</li>
 <li>In <code>mutate()</code>, we can also simply write <code>"{var}_..."</code> to paste together a new column name.</li>
 <li>If we just want to extract data, we can use the <code>.data</code> pronoun (or the <code>.</code> as short version) with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see here</a>).</li>
 </ul>
