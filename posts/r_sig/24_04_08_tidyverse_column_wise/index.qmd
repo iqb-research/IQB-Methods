@@ -28,9 +28,10 @@ athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds"))
 
 Instead of looping over columns with a [for-loop](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/), we can also use `across()` in combination with other `tidyverse` functions.
 
-::: {.callout-note}
+::: callout-note
 ## `mutate_...()`
-The functions `mutate_all()`, `mutate_at()`, and `mutate_if()` do the same, but are superseded. This means they still work, but the `tidyverse` team recommends to use `across()` instead. 
+
+The functions `mutate_all()`, `mutate_at()`, and `mutate_if()` do the same, but are superseded. This means they still work, but the `tidyverse` team recommends to use `across()` instead.
 :::
 
 Across can take column names and a function that should be applied to the selected columns:
@@ -53,8 +54,8 @@ athletes %>%
 
 We can also specify our own transformation function.
 
-
 ## Using tidyverse functions in loops
+
 When using tidyverse syntax within a loop, we might run into the problem that the tidyverse function can't deal with our iteration counter like we are used to:
 
 ```{r eval = FALSE}
@@ -74,13 +75,14 @@ for(i in c("Height", "Weight")){
 
 ```
 
-This doesn't work, because we are trying to program a function using [data masking](https://dplyr.tidyverse.org/articles/programming.html#data-masking). Data masking just means that we don't have to type `athletes$Height` in a `tidyverse` function, but simply `Height`, because the function knows this refers to a column in the current data.frame.  
+This doesn't work, because we are trying to program a function using [data masking](https://dplyr.tidyverse.org/articles/programming.html#data-masking). Data masking just means that we don't have to type `athletes$Height` in a `tidyverse` function, but simply `Height`, because the function knows this refers to a column in the current data.frame.
 
 ### Loops
-- In the case of `mutate()`, we have to use **dynamic dots**, which need to used if we want to create names programmatically: `:=` instead of `=`. 
-- We need to **embrace** the changeable variable (either in a function or a loop) like this: `{{var}}`.
-- In `mutate()`, we can also simply write `"{var}_..."` to paste together a new column name. 
-- If we just want to extract data, we can use the `.data` pronoun (or the `.` as short version) with `[[` ([see here](https://dplyr.tidyverse.org/articles/programming.html#indirection)).
+
+-   In the case of `mutate()`, we have to use **dynamic dots**, which need to used if we want to create names programmatically: `:=` instead of `=`.
+-   We need to **embrace** the changeable variable (either in a function or a loop) like this: `{{var}}`.
+-   In `mutate()`, we can also simply write `"{var}_..."` to paste together a new column name.
+-   If we just want to extract data, we can use the `.data` pronoun with `[[` ([see here](https://dplyr.tidyverse.org/articles/programming.html#indirection)). `.data` helps to clear up ambiguity, it makes clear you want to extract a column from the current data.frame. This is something different than the `.`, which can be read like "data up to this point" and references the data that gets put into the function where the `.` is used. The `.` actually stands for a data.frame, while `.data` is used for symbol evaluation. 
 
 ```{r}
 athletes_2 <- athletes
@@ -107,8 +109,11 @@ for(i in c("Height", "Weight")){
 str(athletes_3)
 ```
 
+Beware of overwriting the same data.frame you put into `mutate()`! Otherwise the resulting data.frame will always be overwritten by the old one that always gets put into the function. 
+
 ### Functions
-This also applies if we want to define a function with column names as arguments, using `tidyverse` inside. Here we need to embrace our variable as well to make it data masking friendly: 
+
+This also applies if we want to define a function with column names as arguments, using `tidyverse` inside. Here we need to embrace our variable as well to make it data masking friendly:
 
 ```{r eval = FALSE}
 ## This doesn't work:
@@ -132,9 +137,9 @@ athletes %>%
 
 ```
 
-
-::: {.callout-note}
+::: callout-note
 ## !!sym()
+
 In previous SIG-Sessions we have used `!!sym()` for this, which also works, but is more to remember:
 
 ```{r}
@@ -146,34 +151,33 @@ for(i in c("Height", "Weight")){
 
 str(athletes_2)
 ```
-
 :::
-
 
 # Exercise
 
-0. Read the `characters.rds` and the `psych_stats.csv` into R (download [here](https://github.com/iqb-research/IQB-Methods/tree/main/raw_data)).
+0.  Read the `characters.rds` and the `psych_stats.csv` into R (download [here](https://github.com/iqb-research/IQB-Methods/tree/main/raw_data)).
 
 ::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r}
 characters <- readRDS(here::here(  "raw_data", "characters.rds"))
 psych_stats <- read.csv(here::here(  "raw_data", "psych_stats.csv"), sep = ";")
 ```
 :::
 
-1. Write a function that can standardize a numeric column. It should take a `data.frame` and a column as arguments. 
-To standardize, the function should subtract the mean of the column from each of its raw values and then divide each difference by the standard deviation of the original variable.   
-Finally, it should return a numeric vector containing the standardized values. 
-Make the function work with data masking!
+1.  Write a function that can standardize a numeric column. It should take a `data.frame` and a column as arguments. To standardize, the function should subtract the mean of the column from each of its raw values and then divide each difference by the standard deviation of the original variable.\
+    Finally, it should return a numeric vector containing the standardized values. Make the function work with data masking!
 
 ::: {.callout-tip collapse="true"}
 ## Hint
+
 To extract a single column as a vector to do some operations on it you can use `pull()`.
 :::
 
 ::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r}
 standardize_var <- function(dat, var){
   column <- dat %>%
@@ -181,7 +185,7 @@ standardize_var <- function(dat, var){
   
 if(!is.numeric(column)){stop(paste0("Please provide a numeric column! Yours has the type '", typeof(column), "'."))}
 
-  column_std <- (column - mean(column)) / sd(column)
+  column_std <- (column - mean(column, na.rm = TRUE)) / sd(column, na.rm = TRUE) # automatically remove NAs
   return(column_std)
 }
 
@@ -195,17 +199,26 @@ mean(standardized_col) %>% round(5)
 sd(standardized_col)
 
 ```
+:::
+
+2.  Apply this function within a for-loop on 10 columns of your choice. Add the standardized columns as new columns to your data frame.
+
+::: {.callout-tip collapse="true"}
+## Hint
+Always overwrite the same data.frame you put into the function. 
+
+`for(i in c("col_1", "col_2"){dat_new <- dat %>% ...}`
+won't work because we always overwrite the dat_new object, where our new column was added, with our old data.frame. 
 
 :::
 
-2. Apply this function within a for-loop on 10 columns of your choice. Add the standardized columns as new columns to your data frame. 
-
 ::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r}
 for(i in colnames(psych_stats)[20:29]){
  psych_stats <- psych_stats %>%
-    mutate("{i}_std" := standardize_var(psych_stats, .data[[i]]))
+    mutate("{i}_std" := standardize_var(., .data[[i]])) # The point means we use the object called before the last pipe, in this case psych_stats. 
 }
 
 mean(psych_stats$flexible_rigid_std)
@@ -214,11 +227,11 @@ sd(psych_stats$flexible_rigid_std)
 ```
 :::
 
-
-3. Now build the same standardization function, but it should only take a numeric vector as input, not a whole `data.frame`. 
+3.  Now build the same standardization function, but it should only take a numeric vector as input, not a whole `data.frame`.
 
 ::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r}
 standardize_var_2 <- function(vec){
   if(!is.numeric(vec)){stop(paste0("Please provide a numeric vector! Yours has the type '", typeof(vec), "'."))}
@@ -232,17 +245,17 @@ standardize_var_2(c(1,2,3))
 ```
 :::
 
-4. Apply one of your two standardization functions onto the psych_stats `data.frame` using `across()`. The standardized columns should be added to the data frame. Think carefully about which one should be used in this context and why.  
-This exercise is a little bit harder, so use google, StackOverflow and the help function `?` within R. 
+4.  Apply one of your two standardization functions onto the psych_stats `data.frame` using `across()`. The standardized columns should be added to the data frame. Think carefully about which one should be used in this context and why.\
+    This exercise is a little bit harder, so use google, StackOverflow and the help function `?` within R.
 
 ::: {.callout-tip collapse="true"}
 ## Hint
-- Look at the documentation of `across()` to see how you can give new column names into `mutate()` from within `across()`.
-- It's probably easier to use a function that only takes a vector, and not the whole data.frame within `across()`.
+
+-   Look at the documentation of `across()` to see how you can give new column names into `mutate()` from within `across()`.
+-   It's probably easier to use a function that only takes a vector, and not the whole data.frame within `across()`.
 :::
 
 ::: {.callout-caution collapse="true"}
-
 ## Solution
 
 ```{r}
@@ -258,8 +271,5 @@ psych_stats_std <- psych_stats %>%
 mean(psych_stats_std$innocent_jaded_standardized)
 ```
 
-I used the function that only takes a vector: using it within `across()` made it possible to just provide the function, and not having to deal with the extra data argument. The only argument in my function is the vector, and it is more naturally for across to handle, because it already applies a function to a column, so the extraction is not necessary. 
-
+I used the function that only takes a vector: using it within `across()` made it possible to just provide the function, and not having to deal with the extra data argument. The only argument in my function is the vector, and it is more naturally for across to handle, because it already applies a function to a column, so the extraction is not necessary.
 :::
-
-
