@@ -1,4 +1,54 @@
 ---
-title: "Code conventions"
+title: "Code-Konventionen"
 ---
+
+
+# Allgemeine Konventionen
+
+## Umfang von Code-Abschnitten
+
+- Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten. 
+- Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden. 
+- In R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen  habne wir noch nichts beschlossen. 
+
+
+## Benennungskonventionen
+- Benennungskonventionen: 
+  - Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen. 
+  - kurze Namen vs sprechende Namen => eher sprechende Namen
+  - Funktionen: eher Verben
+  - Objekte (die keine Funktionen sind): eher Substantive
+  - allgemein keine Dopplungen mit existierenden R-Objekten!
+  - Objekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?
+      - wenn sich Objekte substanziell ändern, nicht überschreiben
+  - häufige Argumentnamen 
+      => häufige: dat, path/file/filePath/filename, dir/folder, ... 
+  - Argumentreihenfolge? (Pipebarkeit => auch: Output-Steuerung)
+
+- Darf man dplyr und/oder pipen benutzen? (offen)
+
+
+Verschoben:
+- Indentierung?
+- Häufige Argumentnamen
+- Kommentar- & Austauschsprache
+- "Sprechender Code"? Vgl. best Coding Practices...
+- finales Ziel: styleR?
+- Tests (Abdeckung, Umsetzung, Style, ...)
+- schematische Paket-Dokumentationen (nächstes Thema!)
+  - potentiell interessantes R Paket zur Visualisierung: https://uptake.github.io/pkgnet/articles/pkgnet-intro.html
+
+nächste Themen:
+- **Umgang mit vielen Funktionsargumenten**
+- Paketstruktur-Vignette/Dokumentation auf Quarto-Homepage
+- Argumentenweitergabe bei Wrapper-Funktionen (via Minimalbsp.)
+- Vorgehen/Standards bei Code Reviews
+
+2.: Wie soll das umgesetzt werden?
+- **via Code Review**
+- Bei Überarbeitungen & neuen Projekten
+
+3. Format
+- Austausch via dieses Threads oder so?  data.frame$var; data.frame[, var], data.frame[[var]]
+- Regelmäßige Treffen (1 mal im Monat)
 
