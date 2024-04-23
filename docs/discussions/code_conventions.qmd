@@ -2,6 +2,8 @@
 title: "Code-Konventionen"
 ---
 
+# Überblick
+Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat.  
 
 # Allgemeine Konventionen
 
@@ -9,28 +11,33 @@ title: "Code-Konventionen"
 
 - Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten. 
 - Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden. 
-- In R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen  habne wir noch nichts beschlossen. 
+- In R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen  haben wir noch nichts beschlossen. 
+  - Bei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden. 
+  - Rigoroses testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.  
+  - https://uptake.github.io/pkgnet/articles/pkgnet-intro.html
 
 
 ## Benennungskonventionen
-- Benennungskonventionen: 
-  - Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen. 
-  - kurze Namen vs sprechende Namen => eher sprechende Namen
-  - Funktionen: eher Verben
-  - Objekte (die keine Funktionen sind): eher Substantive
-  - allgemein keine Dopplungen mit existierenden R-Objekten!
-  - Objekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?
-      - wenn sich Objekte substanziell ändern, nicht überschreiben
-  - häufige Argumentnamen 
-      => häufige: dat, path/file/filePath/filename, dir/folder, ... 
-  - Argumentreihenfolge? (Pipebarkeit => auch: Output-Steuerung)
 
-- Darf man dplyr und/oder pipen benutzen? (offen)
+- Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen. 
+- kurze Namen vs sprechende Namen => eher sprechende Namen
+- Funktionen: eher Verben
+- Objekte (die keine Funktionen sind): eher Substantive
+- allgemein keine Dopplungen mit existierenden R-Objekten!
+- Objekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?
+    - wenn sich Objekte substanziell ändern, nicht überschreiben
+- häufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, ... 
+- Argumentreihenfolge? (Pipebarkeit => auch: Output-Steuerung)
+
+# Code Review
+
+
 
 
 Verschoben:
 - Indentierung?
 - Häufige Argumentnamen
+- Dplyr und/oder pipen?
 - Kommentar- & Austauschsprache
 - "Sprechender Code"? Vgl. best Coding Practices...
 - finales Ziel: styleR?
@@ -44,11 +51,4 @@ nächste Themen:
 - Argumentenweitergabe bei Wrapper-Funktionen (via Minimalbsp.)
 - Vorgehen/Standards bei Code Reviews
 
-2.: Wie soll das umgesetzt werden?
-- **via Code Review**
-- Bei Überarbeitungen & neuen Projekten
-
-3. Format
-- Austausch via dieses Threads oder so?  data.frame$var; data.frame[, var], data.frame[[var]]
-- Regelmäßige Treffen (1 mal im Monat)
 
