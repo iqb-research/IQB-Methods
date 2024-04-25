@@ -31,6 +31,8 @@ Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmte
 
 # Code Review
 
+Overview of the Git-Workflow can be found [here](https://iqb-research.github.io/IQB-Methods/docs/git/).
+
 ## Vorgehen
 
 - Person, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden. 
@@ -74,18 +76,6 @@ Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmte
 - In Zukunft soll ein Standardprozedere definiert werden, in welchem festgelegt wird, in welcher Tiefe das Review erfolgen soll, und was standardmäßig gecheckt werden soll. 
 - Label sollen einheitlich über die Repositories erstell und gentutzt werden (Bug/Enhancement ..., Prio-Label)
 
-
-## Git-Workflow im Terminal
-
-1. *Gegebenenfalls: Auf den mainbranch wechseln:* `git checkout main`
-2. Verifizieren, dass man auf dem richtigen branch ist: `git status`
-3. Onlinebranch lokal herunterladen: `git pull`
-4. *Gegebenenfalls: Neuen branch "branch_2" erstellen, und direkt darauf wechseln:* `git checkout -b branch_2`
-5. (Alle) Änderungen stagen: `git add .`
-6. Gestagte Änderungen commiten (mit aussagekräftiger Commitmessage): `git commit -m "implemented new function"`
-7. Commits hochladen: `git push`
-
-
 # Issues
 
 - Wir nutzen [GitHub-Projects](https://github.com/orgs/iqb-research/projects/5/views/14) um alle ToDos aus verschiedenen Repos an einem Ort zu sammeln.  
@@ -102,7 +92,6 @@ Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmte
 
 - Column "Done" contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together. 
 - Everything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos. 
-
 
 # Mögliche nächste Themen
 Verschoben:

@@ -23,3 +23,16 @@ When people collaboratively develop software (R packages) and use Github as a re
 ## Please note
 
 As long as the master branch and the new branch are not merged again, there are two "parallel" branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check in GitKraken which branch is currently stored in your local repository. If you need to make changes in the new branch, you must first save it locally by double-clicking on the relevant branch.
+
+
+## Git-Workflow im Terminal (NH)
+
+1. *Gegebenenfalls: Auf den mainbranch wechseln:* `git checkout main`
+2. Verifizieren, dass man auf dem richtigen branch ist: `git status`
+3. Onlinebranch lokal herunterladen: `git pull`
+4. *Gegebenenfalls: Neuen branch "branch_2" erstellen, und direkt darauf wechseln:* `git checkout -b branch_2`
+5. (Alle) Änderungen stagen: `git add .`
+6. Gestagte Änderungen commiten (mit aussagekräftiger Commitmessage): `git commit -m "implemented new function"`
+7. Commits hochladen: `git push`
+
+
