@@ -31,9 +31,80 @@ Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmte
 
 # Code Review
 
+## Vorgehen
+
+- Person, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden. 
+- Sind mehrere Reviewer zum **Review** assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen) 
+- Übernimmt man ein Review, assigned man sich selbst den **Pull-Request**, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)
+
+## Was muss bei der Anforderung eines Reviews beachtet werden?
+- Eher kleinschrittige, abgeschlossene Bestandteile reviewen lassen. 
+- Priorität festlegen 
+   - high: innerhalb eines Tages
+   - medium: innerhalb einer Woche
+   - low: keine Zeitbegrenzung
+
+## Was sollen die Reviewer machen?
+- **Sich zum Review assignen, wenn man anfängt.**
+- Benennungskonventionen, Formatkonventionen
+- Verständlichkeit
+- Tests auf Vollständigkeit überprüfen (Edge Cases, möglichst alles abgedeckt?)
+
+<ins>Optional:</ins>
+  - Mit den Tests rumspielen, versuchen die Funktion failen zu lassen.   
+
+## Personelle Aufteilung 
+
+- eatPrepTBA: PF, NH, KAS, ... (mal schauen)
+- eatPrep: KAS, PF, NH
+- eatPlot: NH, PF, KAS
+- eatModel: SW, KAS, BB
+- eatRep: SW, BB, KAS
+- eatTools: SW, KAS, BB, NH, PF
+- eatAnalysis: BB, SW, KAS
+- eatGADS: BB, KAS, NH
+- eatDB: BB, PF, NH
+- eatFDZ: BB, NH
+- eatCodebook: BB, SW, PF, NH
+- eatRecode: BB, NH 
+- eatATA: BB, DD, ?
+
+## Kommunikation & Zeiterwartung
+- Person, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab ...), oder eine Prioritätenfestlegung. 
+- In Zukunft soll ein Standardprozedere definiert werden, in welchem festgelegt wird, in welcher Tiefe das Review erfolgen soll, und was standardmäßig gecheckt werden soll. 
+- Label sollen einheitlich über die Repositories erstell und gentutzt werden (Bug/Enhancement ..., Prio-Label)
 
 
+## Git-Workflow im Terminal
 
+1. *Gegebenenfalls: Auf den mainbranch wechseln:* `git checkout main`
+2. Verifizieren, dass man auf dem richtigen branch ist: `git status`
+3. Onlinebranch lokal herunterladen: `git pull`
+4. *Gegebenenfalls: Neuen branch "branch_2" erstellen, und direkt darauf wechseln:* `git checkout -b branch_2`
+5. (Alle) Änderungen stagen: `git add .`
+6. Gestagte Änderungen commiten (mit aussagekräftiger Commitmessage): `git commit -m "implemented new function"`
+7. Commits hochladen: `git push`
+
+
+# Issues
+
+- Wir nutzen [GitHub-Projects](https://github.com/orgs/iqb-research/projects/5/views/14) um alle ToDos aus verschiedenen Repos an einem Ort zu sammeln.  
+- Wichtige Issues aus jedem Repo sollten im Projekt hinzugefügt werden. 
+
+## Issues aus einem anderen Repository zum Projekt hinzufügen
+
+1. Click on `Add item`
+2. `#beckerbenj/eatGADS` 
+3. From the suggested list you can choose the issue you want to add to the project, or create a new one.  
+4. You can filter for all open issues with `is:issue is:open`. 
+
+## Issue sorting
+
+- Column "Done" contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together. 
+- Everything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos. 
+
+
+# Mögliche nächste Themen
 Verschoben:
 - Indentierung?
 - Häufige Argumentnamen
@@ -44,11 +115,8 @@ Verschoben:
 - Tests (Abdeckung, Umsetzung, Style, ...)
 - schematische Paket-Dokumentationen (nächstes Thema!)
   - potentiell interessantes R Paket zur Visualisierung: https://uptake.github.io/pkgnet/articles/pkgnet-intro.html
-
-nächste Themen:
-- **Umgang mit vielen Funktionsargumenten**
 - Paketstruktur-Vignette/Dokumentation auf Quarto-Homepage
-- Argumentenweitergabe bei Wrapper-Funktionen (via Minimalbsp.)
-- Vorgehen/Standards bei Code Reviews
-
+- Labels bei Pull-Requests und Issues
+- Umgang mit failed Tests bei Pull-Requests (ggf. differenziert nach Stumi/Wimi)
+-  Workflow Update Pull Requests (Wiedervorlage nach Einarbeitung von requested Changes)
 
