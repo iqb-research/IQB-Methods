@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IQB Methods Team - Code conventions</title>
+<title>IQB Methods Team - Code-Konventionen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="IQB Methods Team - Code conventions">
+<meta property="og:title" content="IQB Methods Team - Code-Konventionen">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -113,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../docs/discussions/code_conventions.html">
- <span class="dropdown-text">Code conventions</span></a>
+ <span class="dropdown-text">Code-Konventionen</span></a>
   </li>  
     </ul>
   </li>
@@ -134,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Code conventions</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Code-Konventionen</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -363,14 +364,39 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#überblick" id="toc-überblick" class="nav-link active" data-scroll-target="#überblick">Überblick</a></li>
+  <li><a href="#allgemeine-konventionen" id="toc-allgemeine-konventionen" class="nav-link" data-scroll-target="#allgemeine-konventionen">Allgemeine Konventionen</a>
+  <ul class="collapse">
+  <li><a href="#umfang-von-code-abschnitten" id="toc-umfang-von-code-abschnitten" class="nav-link" data-scroll-target="#umfang-von-code-abschnitten">Umfang von Code-Abschnitten</a></li>
+  <li><a href="#benennungskonventionen" id="toc-benennungskonventionen" class="nav-link" data-scroll-target="#benennungskonventionen">Benennungskonventionen</a></li>
+  </ul></li>
+  <li><a href="#code-review" id="toc-code-review" class="nav-link" data-scroll-target="#code-review">Code Review</a>
+  <ul class="collapse">
+  <li><a href="#vorgehen" id="toc-vorgehen" class="nav-link" data-scroll-target="#vorgehen">Vorgehen</a></li>
+  <li><a href="#was-muss-bei-der-anforderung-eines-reviews-beachtet-werden" id="toc-was-muss-bei-der-anforderung-eines-reviews-beachtet-werden" class="nav-link" data-scroll-target="#was-muss-bei-der-anforderung-eines-reviews-beachtet-werden">Was muss bei der Anforderung eines Reviews beachtet werden?</a></li>
+  <li><a href="#was-sollen-die-reviewer-machen" id="toc-was-sollen-die-reviewer-machen" class="nav-link" data-scroll-target="#was-sollen-die-reviewer-machen">Was sollen die Reviewer machen?</a></li>
+  <li><a href="#personelle-aufteilung" id="toc-personelle-aufteilung" class="nav-link" data-scroll-target="#personelle-aufteilung">Personelle Aufteilung</a></li>
+  <li><a href="#kommunikation-zeiterwartung" id="toc-kommunikation-zeiterwartung" class="nav-link" data-scroll-target="#kommunikation-zeiterwartung">Kommunikation &amp; Zeiterwartung</a></li>
+  </ul></li>
+  <li><a href="#issues" id="toc-issues" class="nav-link" data-scroll-target="#issues">Issues</a>
+  <ul class="collapse">
+  <li><a href="#issues-aus-einem-anderen-repository-zum-projekt-hinzufügen" id="toc-issues-aus-einem-anderen-repository-zum-projekt-hinzufügen" class="nav-link" data-scroll-target="#issues-aus-einem-anderen-repository-zum-projekt-hinzufügen">Issues aus einem anderen Repository zum Projekt hinzufügen</a></li>
+  <li><a href="#issue-sorting" id="toc-issue-sorting" class="nav-link" data-scroll-target="#issue-sorting">Issue sorting</a></li>
+  </ul></li>
+  <li><a href="#mögliche-nächste-themen" id="toc-mögliche-nächste-themen" class="nav-link" data-scroll-target="#mögliche-nächste-themen">Mögliche nächste Themen</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/discussions/code_conventions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Code conventions</h1>
+<h1 class="title">Code-Konventionen</h1>
 </div>
 
 
@@ -387,8 +413,155 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="überblick" class="level2">
+<h2 class="anchored" data-anchor-id="überblick">Überblick</h2>
+<p>Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat.</p>
+</section>
+<section id="allgemeine-konventionen" class="level2">
+<h2 class="anchored" data-anchor-id="allgemeine-konventionen">Allgemeine Konventionen</h2>
+<section id="umfang-von-code-abschnitten" class="level3">
+<h3 class="anchored" data-anchor-id="umfang-von-code-abschnitten">Umfang von Code-Abschnitten</h3>
+<ul>
+<li>Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.</li>
+<li>Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.</li>
+<li>In R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.
+<ul>
+<li>Bei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.</li>
+<li>Rigoroses testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.<br>
+</li>
+<li>https://uptake.github.io/pkgnet/articles/pkgnet-intro.html</li>
+</ul></li>
+</ul>
+</section>
+<section id="benennungskonventionen" class="level3">
+<h3 class="anchored" data-anchor-id="benennungskonventionen">Benennungskonventionen</h3>
+<ul>
+<li>Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.</li>
+<li>kurze Namen vs sprechende Namen =&gt; eher sprechende Namen</li>
+<li>Funktionen: eher Verben</li>
+<li>Objekte (die keine Funktionen sind): eher Substantive</li>
+<li>allgemein keine Dopplungen mit existierenden R-Objekten!</li>
+<li>Objekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?
+<ul>
+<li>wenn sich Objekte substanziell ändern, nicht überschreiben</li>
+</ul></li>
+<li>häufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, …</li>
+<li>Argumentreihenfolge? (Pipebarkeit =&gt; auch: Output-Steuerung)</li>
+</ul>
+</section>
+</section>
+<section id="code-review" class="level2">
+<h2 class="anchored" data-anchor-id="code-review">Code Review</h2>
+<p>Overview of the Git-Workflow can be found <a href="https://iqb-research.github.io/IQB-Methods/docs/git/">here</a>.</p>
+<section id="vorgehen" class="level3">
+<h3 class="anchored" data-anchor-id="vorgehen">Vorgehen</h3>
+<ul>
+<li>Person, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden.</li>
+<li>Sind mehrere Reviewer zum <strong>Review</strong> assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen)</li>
+<li>Übernimmt man ein Review, assigned man sich selbst den <strong>Pull-Request</strong>, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)</li>
+</ul>
+</section>
+<section id="was-muss-bei-der-anforderung-eines-reviews-beachtet-werden" class="level3">
+<h3 class="anchored" data-anchor-id="was-muss-bei-der-anforderung-eines-reviews-beachtet-werden">Was muss bei der Anforderung eines Reviews beachtet werden?</h3>
+<ul>
+<li>Eher kleinschrittige, abgeschlossene Bestandteile reviewen lassen.</li>
+<li>Priorität festlegen
+<ul>
+<li>high: innerhalb eines Tages</li>
+<li>medium: innerhalb einer Woche</li>
+<li>low: keine Zeitbegrenzung</li>
+</ul></li>
+</ul>
+</section>
+<section id="was-sollen-die-reviewer-machen" class="level3">
+<h3 class="anchored" data-anchor-id="was-sollen-die-reviewer-machen">Was sollen die Reviewer machen?</h3>
+<ul>
+<li><strong>Sich zum Review assignen, wenn man anfängt.</strong></li>
+<li>Benennungskonventionen, Formatkonventionen</li>
+<li>Verständlichkeit</li>
+<li>Tests auf Vollständigkeit überprüfen (Edge Cases, möglichst alles abgedeckt?)</li>
+</ul>
+<ins>
+Optional:
+</ins>
+<ul>
+<li>Mit den Tests rumspielen, versuchen die Funktion failen zu lassen.</li>
+</ul>
+</section>
+<section id="personelle-aufteilung" class="level3">
+<h3 class="anchored" data-anchor-id="personelle-aufteilung">Personelle Aufteilung</h3>
+<ul>
+<li>eatPrepTBA: PF, NH, KAS, … (mal schauen)</li>
+<li>eatPrep: KAS, PF, NH</li>
+<li>eatPlot: NH, PF, KAS</li>
+<li>eatModel: SW, KAS, BB</li>
+<li>eatRep: SW, BB, KAS</li>
+<li>eatTools: SW, KAS, BB, NH, PF</li>
+<li>eatAnalysis: BB, SW, KAS</li>
+<li>eatGADS: BB, KAS, NH</li>
+<li>eatDB: BB, PF, NH</li>
+<li>eatFDZ: BB, NH</li>
+<li>eatCodebook: BB, SW, PF, NH</li>
+<li>eatRecode: BB, NH</li>
+<li>eatATA: BB, DD, ?</li>
+</ul>
+</section>
+<section id="kommunikation-zeiterwartung" class="level3">
+<h3 class="anchored" data-anchor-id="kommunikation-zeiterwartung">Kommunikation &amp; Zeiterwartung</h3>
+<ul>
+<li>Person, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab …), oder eine Prioritätenfestlegung.</li>
+<li>In Zukunft soll ein Standardprozedere definiert werden, in welchem festgelegt wird, in welcher Tiefe das Review erfolgen soll, und was standardmäßig gecheckt werden soll.</li>
+<li>Label sollen einheitlich über die Repositories erstell und gentutzt werden (Bug/Enhancement …, Prio-Label)</li>
+</ul>
+</section>
+</section>
+<section id="issues" class="level2">
+<h2 class="anchored" data-anchor-id="issues">Issues</h2>
+<ul>
+<li>Wir nutzen <a href="https://github.com/orgs/iqb-research/projects/5/views/14">GitHub-Projects</a> um alle ToDos aus verschiedenen Repos an einem Ort zu sammeln.<br>
+</li>
+<li>Wichtige Issues aus jedem Repo sollten im Projekt hinzugefügt werden.</li>
+</ul>
+<section id="issues-aus-einem-anderen-repository-zum-projekt-hinzufügen" class="level3">
+<h3 class="anchored" data-anchor-id="issues-aus-einem-anderen-repository-zum-projekt-hinzufügen">Issues aus einem anderen Repository zum Projekt hinzufügen</h3>
+<ol type="1">
+<li>Click on <code>Add item</code></li>
+<li><code>#beckerbenj/eatGADS</code></li>
+<li>From the suggested list you can choose the issue you want to add to the project, or create a new one.<br>
+</li>
+<li>You can filter for all open issues with <code>is:issue is:open</code>.</li>
+</ol>
+</section>
+<section id="issue-sorting" class="level3">
+<h3 class="anchored" data-anchor-id="issue-sorting">Issue sorting</h3>
+<ul>
+<li>Column “Done” contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together.</li>
+<li>Everything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos.</li>
+</ul>
+</section>
+</section>
+<section id="mögliche-nächste-themen" class="level2">
+<h2 class="anchored" data-anchor-id="mögliche-nächste-themen">Mögliche nächste Themen</h2>
+<ul>
+<li>Indentierung?</li>
+<li>Häufige Argumentnamen</li>
+<li>Dplyr und/oder pipen?</li>
+<li>Kommentar- &amp; Austauschsprache</li>
+<li>“Sprechender Code”? Vgl. best Coding Practices…</li>
+<li>finales Ziel: styleR?</li>
+<li>Tests (Abdeckung, Umsetzung, Style, …)</li>
+<li>schematische Paket-Dokumentationen (nächstes Thema!)
+<ul>
+<li>potentiell interessantes R Paket zur Visualisierung: https://uptake.github.io/pkgnet/articles/pkgnet-intro.html</li>
+</ul></li>
+<li>Paketstruktur-Vignette/Dokumentation auf Quarto-Homepage</li>
+<li>Labels bei Pull-Requests und Issues</li>
+<li>Umgang mit failed Tests bei Pull-Requests (ggf. differenziert nach Stumi/Wimi)</li>
+<li>Workflow Update Pull Requests (Wiedervorlage nach Einarbeitung von requested Changes)</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -805,4 +978,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/discussions/code_conventions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/discussions/code_conventions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

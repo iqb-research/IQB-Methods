@@ -182,6 +182,48 @@
     "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nApr 8, 2024\n\n\nColumn-wise operations in the tidyverse\n\n\nNicklas Hafiz\n\n\n6 min\n\n\n\n\n\n\n\nMar 25, 2024\n\n\nData wrangling in the tidyverse\n\n\nNicklas Hafiz\n\n\n12 min\n\n\n\n\n\n\n\nMar 22, 2024\n\n\nData sets\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nIntroduction to the tidyverse\n\n\nNicklas Hafiz\n\n\n7 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "docs/discussions/code_conventions.html",
+    "href": "docs/discussions/code_conventions.html",
+    "title": "Code-Konventionen",
+    "section": "",
+    "text": "Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat."
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#überblick",
+    "href": "docs/discussions/code_conventions.html#überblick",
+    "title": "Code-Konventionen",
+    "section": "",
+    "text": "Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat."
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#allgemeine-konventionen",
+    "href": "docs/discussions/code_conventions.html#allgemeine-konventionen",
+    "title": "Code-Konventionen",
+    "section": "Allgemeine Konventionen",
+    "text": "Allgemeine Konventionen\n\nUmfang von Code-Abschnitten\n\nGenerell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.\nGleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.\nIn R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.\n\nBei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.\nRigoroses testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.\n\nhttps://uptake.github.io/pkgnet/articles/pkgnet-intro.html\n\n\n\n\nBenennungskonventionen\n\nBei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.\nkurze Namen vs sprechende Namen =&gt; eher sprechende Namen\nFunktionen: eher Verben\nObjekte (die keine Funktionen sind): eher Substantive\nallgemein keine Dopplungen mit existierenden R-Objekten!\nObjekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?\n\nwenn sich Objekte substanziell ändern, nicht überschreiben\n\nhäufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, …\nArgumentreihenfolge? (Pipebarkeit =&gt; auch: Output-Steuerung)"
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#code-review",
+    "href": "docs/discussions/code_conventions.html#code-review",
+    "title": "Code-Konventionen",
+    "section": "Code Review",
+    "text": "Code Review\nOverview of the Git-Workflow can be found here.\n\nVorgehen\n\nPerson, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden.\nSind mehrere Reviewer zum Review assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen)\nÜbernimmt man ein Review, assigned man sich selbst den Pull-Request, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)\n\n\n\nWas muss bei der Anforderung eines Reviews beachtet werden?\n\nEher kleinschrittige, abgeschlossene Bestandteile reviewen lassen.\nPriorität festlegen\n\nhigh: innerhalb eines Tages\nmedium: innerhalb einer Woche\nlow: keine Zeitbegrenzung\n\n\n\n\nWas sollen die Reviewer machen?\n\nSich zum Review assignen, wenn man anfängt.\nBenennungskonventionen, Formatkonventionen\nVerständlichkeit\nTests auf Vollständigkeit überprüfen (Edge Cases, möglichst alles abgedeckt?)\n\n\nOptional:\n\n\nMit den Tests rumspielen, versuchen die Funktion failen zu lassen.\n\n\n\nPersonelle Aufteilung\n\neatPrepTBA: PF, NH, KAS, … (mal schauen)\neatPrep: KAS, PF, NH\neatPlot: NH, PF, KAS\neatModel: SW, KAS, BB\neatRep: SW, BB, KAS\neatTools: SW, KAS, BB, NH, PF\neatAnalysis: BB, SW, KAS\neatGADS: BB, KAS, NH\neatDB: BB, PF, NH\neatFDZ: BB, NH\neatCodebook: BB, SW, PF, NH\neatRecode: BB, NH\neatATA: BB, DD, ?\n\n\n\nKommunikation & Zeiterwartung\n\nPerson, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab …), oder eine Prioritätenfestlegung.\nIn Zukunft soll ein Standardprozedere definiert werden, in welchem festgelegt wird, in welcher Tiefe das Review erfolgen soll, und was standardmäßig gecheckt werden soll.\nLabel sollen einheitlich über die Repositories erstell und gentutzt werden (Bug/Enhancement …, Prio-Label)"
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#issues",
+    "href": "docs/discussions/code_conventions.html#issues",
+    "title": "Code-Konventionen",
+    "section": "Issues",
+    "text": "Issues\n\nWir nutzen GitHub-Projects um alle ToDos aus verschiedenen Repos an einem Ort zu sammeln.\n\nWichtige Issues aus jedem Repo sollten im Projekt hinzugefügt werden.\n\n\nIssues aus einem anderen Repository zum Projekt hinzufügen\n\nClick on Add item\n#beckerbenj/eatGADS\nFrom the suggested list you can choose the issue you want to add to the project, or create a new one.\n\nYou can filter for all open issues with is:issue is:open.\n\n\n\nIssue sorting\n\nColumn “Done” contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together.\nEverything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos."
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#mögliche-nächste-themen",
+    "href": "docs/discussions/code_conventions.html#mögliche-nächste-themen",
+    "title": "Code-Konventionen",
+    "section": "Mögliche nächste Themen",
+    "text": "Mögliche nächste Themen\n\nIndentierung?\nHäufige Argumentnamen\nDplyr und/oder pipen?\nKommentar- & Austauschsprache\n“Sprechender Code”? Vgl. best Coding Practices…\nfinales Ziel: styleR?\nTests (Abdeckung, Umsetzung, Style, …)\nschematische Paket-Dokumentationen (nächstes Thema!)\n\npotentiell interessantes R Paket zur Visualisierung: https://uptake.github.io/pkgnet/articles/pkgnet-intro.html\n\nPaketstruktur-Vignette/Dokumentation auf Quarto-Homepage\nLabels bei Pull-Requests und Issues\nUmgang mit failed Tests bei Pull-Requests (ggf. differenziert nach Stumi/Wimi)\nWorkflow Update Pull Requests (Wiedervorlage nach Einarbeitung von requested Changes)"
+  },
+  {
     "objectID": "docs/eatPackages/eatRep.html",
     "href": "docs/eatPackages/eatRep.html",
     "title": "eatRep",
@@ -748,6 +790,18 @@
     "title": "Pull requests with Github",
     "section": "Please note",
     "text": "Please note\nAs long as the master branch and the new branch are not merged again, there are two “parallel” branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check in GitKraken which branch is currently stored in your local repository. If you need to make changes in the new branch, you must first save it locally by double-clicking on the relevant branch.",
+    "crumbs": [
+      "R-Sig",
+      "GitHub",
+      "Pull requests with Github"
+    ]
+  },
+  {
+    "objectID": "docs/git/index.html#git-workflow-im-terminal-nh",
+    "href": "docs/git/index.html#git-workflow-im-terminal-nh",
+    "title": "Pull requests with Github",
+    "section": "Git-Workflow im Terminal (NH)",
+    "text": "Git-Workflow im Terminal (NH)\n\nGegebenenfalls: Auf den mainbranch wechseln: git checkout main\nVerifizieren, dass man auf dem richtigen branch ist: git status\nOnlinebranch lokal herunterladen: git pull\nGegebenenfalls: Neuen branch “branch_2” erstellen, und direkt darauf wechseln: git checkout -b branch_2\n(Alle) Änderungen stagen: git add .\nGestagte Änderungen commiten (mit aussagekräftiger Commitmessage): git commit -m \"implemented new function\"\nCommits hochladen: git push",
     "crumbs": [
       "R-Sig",
       "GitHub",
