@@ -13,6 +13,11 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Install libcurl
+        run: sudo apt-get install libcurl4-openssl-dev
+      - name: Install libharfbuzz  
+        run: sudo apt-get install libharfbuzz-dev libfribidi-dev
+        
       - name: Check out repository
         uses: actions/checkout@v3
         
