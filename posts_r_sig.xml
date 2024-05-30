@@ -9,7 +9,7 @@
 <link>https://iqb-research.github.io/IQB-Methods/posts_r_sig.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.553</generator>
+<generator>quarto-1.4.554</generator>
 <lastBuildDate>Mon, 08 Apr 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Column-wise operations in the tidyverse</title>
@@ -931,7 +931,7 @@ font-style: inherit;">$</span>innocent_jaded_standardized)</span></code></pre></
   <category>loops</category>
   <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/</guid>
   <pubDate>Mon, 08 Apr 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/data_wrangling.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Data wrangling in the tidyverse</title>
@@ -2513,6 +2513,35 @@ Tip
   <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_22_datasets/</guid>
   <pubDate>Fri, 22 Mar 2024 00:00:00 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_22_datasets/olympics.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Plotting with ggplot2</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/plotting.jpg" class="img-fluid"><sup>1</sup></p>
+<p>A ggplot2-tutorial I’ve created can be found <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html">here</a>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://www.bing.com/images/create/a-scientist-moulding-a-plot-of-data-by-hand/1-66587edc1e8f43589fdc865731f162f6?id=Pw2nhqhO37f3lXFK0VoYZQ%3D%3D&amp;view=detailv2&amp;idpp=genimg&amp;idpclose=1&amp;thid=OIG2.1wR3ZVvAOQy3uyh0hWET&amp;form=SYDBIC">Bing Copilot</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>tidyverse</category>
+  <category>plots</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/</guid>
+  <pubDate>Wed, 06 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/plotting.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Introduction to the tidyverse</title>
