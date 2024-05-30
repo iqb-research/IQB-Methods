@@ -5,7 +5,7 @@ author:
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
 categories: [R, tidyverse, loops]
-image: data_wrangling.jpg
+image: columns.jpg
 date: 04-08-2024
 ---
 
@@ -82,7 +82,7 @@ This doesn't work, because we are trying to program a function using [data maski
 -   In the case of `mutate()`, we have to use **dynamic dots**, which need to used if we want to create names programmatically: `:=` instead of `=`.
 -   We need to **embrace** the changeable variable (either in a function or a loop) like this: `{{var}}`.
 -   In `mutate()`, we can also simply write `"{var}_..."` to paste together a new column name.
--   If we just want to extract data, we can use the `.data` pronoun with `[[` ([see here](https://dplyr.tidyverse.org/articles/programming.html#indirection)). `.data` helps to clear up ambiguity, it makes clear you want to extract a column from the current data.frame. This is something different than the `.`, which can be read like "data up to this point" and references the data that gets put into the function where the `.` is used. The `.` actually stands for a data.frame, while `.data` is used for symbol evaluation. 
+-   If we just want to extract data, we can use the `.data` pronoun with `[[` ([see here](https://dplyr.tidyverse.org/articles/programming.html#indirection)). `.data` helps to clear up ambiguity, it makes clear you want to extract a column from the current data.frame. This is something different than the `.`, which can be read like "data up to this point" and references the data that gets put into the function where the `.` is used. The `.` actually stands for a data.frame, while `.data` is used for symbol evaluation.
 
 ```{r}
 athletes_2 <- athletes
@@ -109,7 +109,7 @@ for(i in c("Height", "Weight")){
 str(athletes_3)
 ```
 
-Beware of overwriting the same data.frame you put into `mutate()`! Otherwise the resulting data.frame will always be overwritten by the old one that always gets put into the function. 
+Beware of overwriting the same data.frame you put into `mutate()`! Otherwise the resulting data.frame will always be overwritten by the old one that always gets put into the function.
 
 ### Functions
 
@@ -205,11 +205,10 @@ sd(standardized_col)
 
 ::: {.callout-tip collapse="true"}
 ## Hint
-Always overwrite the same data.frame you put into the function. 
 
-`for(i in c("col_1", "col_2"){dat_new <- dat %>% ...}`
-won't work because we always overwrite the dat_new object, where our new column was added, with our old data.frame. 
+Always overwrite the same data.frame you put into the function.
 
+`for(i in c("col_1", "col_2"){dat_new <- dat %>% ...}` won't work because we always overwrite the dat_new object, where our new column was added, with our old data.frame.
 :::
 
 ::: {.callout-caution collapse="true"}
