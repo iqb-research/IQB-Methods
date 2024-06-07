@@ -199,8 +199,15 @@
     "objectID": "docs/FAQ/FAQ.html#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte",
     "href": "docs/FAQ/FAQ.html#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte",
     "title": "FAQ",
-    "section": "DIF-Richtung in Conquest/eatModel: Was bedeuten negative WErte in der “estDif”-Spalte?",
-    "text": "DIF-Richtung in Conquest/eatModel: Was bedeuten negative WErte in der “estDif”-Spalte?\nIn eatModel wird nur der erste Teil der zweiten Tabelle item*DIFvariable aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items in der ersten Gruppe leichter sind. Die erste Gruppe ist dabei die mir dem numerisch kleineren Gruppenindikator.\nWeitere Fragestellungen können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx"
+    "section": "2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?",
+    "text": "2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?\nIn eatModel wird nur der erste Teil der zweiten Tabelle item*[DIFvariable] aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items in der ersten Gruppe der [DIFvariable] leichter sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert."
+  },
+  {
+    "objectID": "docs/FAQ/FAQ.html#section",
+    "href": "docs/FAQ/FAQ.html#section",
+    "title": "FAQ",
+    "section": "",
+    "text": "Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx"
   },
   {
     "objectID": "docs/eatPackages/eatRep.html",
