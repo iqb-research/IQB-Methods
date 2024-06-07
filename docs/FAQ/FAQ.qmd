@@ -4,7 +4,11 @@ title: "FAQ"
 
 ## Wie poole ich mein $R^2$ richtig über 15 Imputationen?
 a.	Harel 2009 (via Fisher-Z)
-b.	NH macht Layout-Vorlage, SW befüllt inhaltlich
+b.	SW führt weiter aus
+
+## DIF-Richtung in Conquest/eatModel: Was bedeuten negative WErte in der "estDif"-Spalte?
+In eatModel wird nur der erste Teil der zweiten Tabelle item*DIFvariable aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items in der ersten Gruppe leichter sind. Die erste Gruppe ist dabei die mir dem numerisch kleineren Gruppenindikator.
 
 
-Weitere Fragestellungen unter: t:\SIG\SIG Methoden\Liste methodischer Fragen.docx
+
+Weitere Fragestellungen können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx
