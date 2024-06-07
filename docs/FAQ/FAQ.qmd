@@ -6,7 +6,7 @@ title: "FAQ"
 a.	Harel 2009 (via Fisher-Z)
 b.	SW führt weiter aus
 
-## 2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative WErte in der "estDif"-Spalte?
+## 2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der "estDif"-Spalte?
 In eatModel wird nur der erste Teil der zweiten Tabelle item*[DIFvariable] aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items **in der ersten Gruppe** der [DIFvariable] **leichter** sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert.
 
 
