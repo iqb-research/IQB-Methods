@@ -3,8 +3,10 @@ title: "FAQ"
 ---
 
 ## 1. Wie poole ich mein $R^2$ richtig über mehrere (bspw. 15) Imputationen?
-### a. Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritt: Die Quadratwurzel aus $R^2$ ziehen; eine Fisher *z*-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird; Rubins Regeln für metrische Variablen anwenden; mit einer inversen *z*-Transformation den Wert wieder zurückrechnen und quadrieren
-### b. Im Paket eatRep kann das über die Funktion pool.R2() berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird. Angenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) $R^2$-Werte, dann kann der gepoolte $R^2$-Wert folgendermaßen bestimmt werden: r2 <- c(0.12,0.18,0.17,0.21,0.23); eatRep:::pool.R2(r2)
+### a. Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte: 
+Die Quadratwurzel aus $R^2$ ziehen; eine Fisher *z*-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird; Rubins Regeln für metrische Variablen anwenden; mit einer inversen *z*-Transformation den Wert wieder zurückrechnen und quadrieren
+### b. Im Paket eatRep kann das über die Funktion pool.R2() berechnet werden. 
+Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird. Angenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) $R^2$-Werte, dann kann der gepoolte $R^2$-Wert folgendermaßen bestimmt werden: r2 <- c(0.12,0.18,0.17,0.21,0.23); eatRep:::pool.R2(r2)
 
 ## 2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der "estDif"-Spalte?
 In eatModel wird nur der erste Teil der zweiten Tabelle item*[DIFvariable] aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items **in der ersten Gruppe** der [DIFvariable] **leichter** sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert.
