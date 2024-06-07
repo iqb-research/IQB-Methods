@@ -186,14 +186,21 @@
     "href": "docs/FAQ/FAQ.html",
     "title": "FAQ",
     "section": "",
-    "text": "Harel 2009 (via Fisher-Z)\nNH macht Layout-Vorlage, SW befüllt inhaltlich\n\nWeitere Fragestellungen unter: t:Methodenmethodischer Fragen.docx"
+    "text": "Harel 2009 (via Fisher-Z)\nSW führt weiter aus"
   },
   {
     "objectID": "docs/FAQ/FAQ.html#wie-poole-ich-mein-r2-richtig-über-15-imputationen",
     "href": "docs/FAQ/FAQ.html#wie-poole-ich-mein-r2-richtig-über-15-imputationen",
     "title": "FAQ",
     "section": "",
-    "text": "Harel 2009 (via Fisher-Z)\nNH macht Layout-Vorlage, SW befüllt inhaltlich\n\nWeitere Fragestellungen unter: t:Methodenmethodischer Fragen.docx"
+    "text": "Harel 2009 (via Fisher-Z)\nSW führt weiter aus"
+  },
+  {
+    "objectID": "docs/FAQ/FAQ.html#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte",
+    "href": "docs/FAQ/FAQ.html#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte",
+    "title": "FAQ",
+    "section": "DIF-Richtung in Conquest/eatModel: Was bedeuten negative WErte in der “estDif”-Spalte?",
+    "text": "DIF-Richtung in Conquest/eatModel: Was bedeuten negative WErte in der “estDif”-Spalte?\nIn eatModel wird nur der erste Teil der zweiten Tabelle item*DIFvariable aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items in der ersten Gruppe leichter sind. Die erste Gruppe ist dabei die mir dem numerisch kleineren Gruppenindikator.\nWeitere Fragestellungen können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx"
   },
   {
     "objectID": "docs/eatPackages/eatRep.html",
