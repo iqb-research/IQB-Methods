@@ -50,7 +50,7 @@ Die Zentrierung um den Gesamtmittelwert ermöglicht die Untersuchung der Effekte
 
 Alle Empfehlungen gelten ebenso für kategoriale Prädiktoren, siehe z. B. Yaremych et al. (2023): "... we have demonstrated that centering guidelines for continuous predictors should be applied analogously to categorical predictors" (p. 8). Hierbei wird ein $k-$stufiger Prädiktor stets durch $k-1$ “Coding-Variablen” repräsentiert. Ob diese durch Dummy-Kodierung, Effekt-Kodierung oder Kontrast-Kodierung gebildet werden, hängt von der intendierten Interpretation ab und liegt außerhalb des Fokus’ dieses Artikels.
 
-### Literatur:
+### Literatur
 
 Algina, J., & Swaminathan, H. (2011). Centering in two-level nested designs. In J. Hox & K. Roberts (Eds.), *The handbook of advanced multilevel data analysis* (pp. 285–312). Routledge.
 
