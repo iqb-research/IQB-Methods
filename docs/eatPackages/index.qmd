@@ -32,7 +32,7 @@ In order to standardise and simplify the evaluation of the VERA pilot studies an
 #               "eatPlot")
 links <- ""
 links[1] <- "[eatPrep](eatPrep.qmd)"
-links[2] <- "[eatModel](eatModal.qmd)"
+links[2] <- "[eatModel](eatModel.qmd)"
 links[3] <- "[eatRep](eatRep.qmd)"
 links[4] <- "[eatGADS](eatGADS.qmd)"
 links[5] <- "[eatTools](eatTools.qmd)"
