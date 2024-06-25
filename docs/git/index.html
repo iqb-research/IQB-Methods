@@ -371,11 +371,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#recommended-workflow" id="toc-recommended-workflow" class="nav-link active" data-scroll-target="#recommended-workflow">Recommended Workflow</a>
-  <ul class="collapse">
-  <li><a href="#initiating-a-review" id="toc-initiating-a-review" class="nav-link" data-scroll-target="#initiating-a-review">Initiating a review</a></li>
-  <li><a href="#review-process" id="toc-review-process" class="nav-link" data-scroll-target="#review-process">Review Process</a></li>
-  </ul></li>
+  <li><a href="#following-steps-are-necessary" id="toc-following-steps-are-necessary" class="nav-link active" data-scroll-target="#following-steps-are-necessary">Following steps are necessary</a></li>
   <li><a href="#please-note" id="toc-please-note" class="nav-link" data-scroll-target="#please-note">Please note</a></li>
   <li><a href="#git-workflow-im-terminal-nh" id="toc-git-workflow-im-terminal-nh" class="nav-link" data-scroll-target="#git-workflow-im-terminal-nh">Git-Workflow im Terminal (NH)</a></li>
   </ul>
@@ -416,43 +412,25 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version. Since I always forget how the workflow for this works, I’ll write it down here step by step. These steps refer to the use of GitKraken; if you do this in RStudio, it may work differently.</p>
-<section id="recommended-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="recommended-workflow">Recommended Workflow</h2>
+<section id="following-steps-are-necessary" class="level2">
+<h2 class="anchored" data-anchor-id="following-steps-are-necessary">Following steps are necessary</h2>
 <ol type="1">
-<li>Pull all changes from the relevant branch. Normally, this will be the branch <code>main</code>, but it might also happen that you want to extend on another branch.</li>
-<li><code>Create</code> and <code>checkout</code> (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it.</li>
-<li>Make changes in your local repository.</li>
-<li><code>Commit</code> them as often as possible. The more you commit, the more of you work gets saved regulary.</li>
-<li>If you want to upload your changes, <code>Push</code>.</li>
-<li>Repeat 3 - 5 until you are done.</li>
-</ol>
-<section id="initiating-a-review" class="level3">
-<h3 class="anchored" data-anchor-id="initiating-a-review">Initiating a review</h3>
-<p>Once you are content with your changes and you want to finalize them, you can initiate a review:</p>
-<ol type="1">
-<li>Change to the the Github page of the package (for example, <a href="https://github.com/weirichs/eatTools">eatTools repository</a>) and start the <code>pull request</code> via “Compare &amp; pull request”. This will open a new page, where you can customize your pull request.</li>
-<li>Choose your favorite reviewer under “Reviewer”. You can ask multiple people.</li>
-<li>Enter a comment for the request, specifying what you want the reviewer(s) to look for especially.</li>
+<li>A change has been made in the local repository (on your local hard disc copy of the repository).</li>
+<li>The change is committed in GitKraken, but not yet pushed.</li>
+<li>Instead, right-click on “master” to open a menu and select “create branch here”.</li>
+<li>Assign a name for this branch.</li>
+<li>Push by pressing “Push”.</li>
+<li>Change to the the Github page of the package (for example, <a href="https://github.com/weirichs/eatTools">eatTools repository</a>) and start the pull request via “Compare &amp; pull request”.</li>
+<li>Choose your favorite reviewer under “Reviewer”</li>
+<li>If necessary, enter a comment for the request.</li>
 <li>Click on “create pull request” to start the request.</li>
-</ol>
-</section>
-<section id="review-process" class="level3">
-<h3 class="anchored" data-anchor-id="review-process">Review Process</h3>
-<ol type="1">
-<li>Now the review process begins: The person that takes over the review assigns itself on the right side of the pull request page.</li>
-<li>The reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code.</li>
-<li>In the end, the reviewer delivers their final verdict: <code>approve</code> or <code>request changes</code>.</li>
-<li>Now it’s the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made.</li>
-<li>The changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made.</li>
-<li>Reiterate until the author and reviewer have reached an agreement.</li>
-<li>If both are satisfied. On the GitHub Pull-request page, select “merge pull request into main” at the bottom.</li>
+<li>Once the author and reviewer have reached an agreement, the review branch can be merged with the master branch (this is not done in GitKraken, but on the GitHub website: select the pull request, scroll down the page and click on “merge pull request into master”)</li>
 <li>Finally, the review branch can be deleted. Choose “delete” on the Github homepage. Then delete the local branch (i.e.&nbsp;in GitKraken) in the same way if necessary</li>
 </ol>
 </section>
-</section>
 <section id="please-note" class="level2">
 <h2 class="anchored" data-anchor-id="please-note">Please note</h2>
-<p>As long as the master/main branch and the new branch are not merged again, there are two “parallel” branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e.&nbsp;the master branch) of the package. As a developer, you always have to check and be conscious about on which branch you are currently working on.</p>
+<p>As long as the master branch and the new branch are not merged again, there are two “parallel” branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e.&nbsp;the master branch) of the package. As a developer, you always have to check in GitKraken which branch is currently stored in your local repository. If you need to make changes in the new branch, you must first save it locally by double-clicking on the relevant branch.</p>
 </section>
 <section id="git-workflow-im-terminal-nh" class="level2">
 <h2 class="anchored" data-anchor-id="git-workflow-im-terminal-nh">Git-Workflow im Terminal (NH)</h2>
