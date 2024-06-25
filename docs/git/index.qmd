@@ -6,24 +6,36 @@ date: 01-12-2024
 
 When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version. Since I always forget how the workflow for this works, I'll write it down here step by step. These steps refer to the use of GitKraken; if you do this in RStudio, it may work differently.
 
-## Following steps are necessary
+## Recommended Workflow
+1. Pull all changes from the relevant branch. Normally, this will be the branch `main`, but it might also happen that you want to extend on another branch. 
+2. `Create` and `checkout` (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it. 
+3. Make changes in your local repository. 
+4. `Commit` them as often as possible. The more you commit, the more of you work gets saved regulary. 
+5. If you want to upload your changes, `Push`. 
+6. Repeat 3 - 5 until you are done. 
 
-1.  A change has been made in the local repository (on your local hard disc copy of the repository).
-2.  The change is committed in GitKraken, but not yet pushed.
-3.  Instead, right-click on "master" to open a menu and select "create branch here".
-4.  Assign a name for this branch.
-5.  Push by pressing "Push".
-6.  Change to the the Github page of the package (for example, [eatTools repository](https://github.com/weirichs/eatTools)) and start the pull request via "Compare & pull request".
-7.  Choose your favorite reviewer under "Reviewer"
-8.  If necessary, enter a comment for the request.
-9.  Click on "create pull request" to start the request.
-10. Once the author and reviewer have reached an agreement, the review branch can be merged with the master branch (this is not done in GitKraken, but on the GitHub website: select the pull request, scroll down the page and click on "merge pull request into master")
-11. Finally, the review branch can be deleted. Choose "delete" on the Github homepage. Then delete the local branch (i.e. in GitKraken) in the same way if necessary
+### Initiating a review
+Once you are content with your changes and you want to finalize them, you can initiate a review:
+
+1.  Change to the the Github page of the package (for example, [eatTools repository](https://github.com/weirichs/eatTools)) and start the `pull request` via "Compare & pull request". This will open a new page, where you can customize your pull request. 
+2.  Choose your favorite reviewer under "Reviewer". You can ask multiple people.
+3.  Enter a comment for the request, specifying what you want the reviewer(s) to look for especially. 
+4.  Click on "create pull request" to start the request.
+
+### Review Process
+
+1. Now the review process begins: The person that takes over the review assigns itself on the right side of the pull request page. 
+2. The reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code. 
+3. In the end, the reviewer delivers their final verdict: `approve` or `request changes`. 
+4. Now it's the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made. 
+5. The changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made. 
+6. Reiterate until the author and reviewer have reached an agreement. 
+7. If both are satisfied. On the GitHub Pull-request page, select "merge pull request into main" at the bottom. 
+8. Finally, the review branch can be deleted. Choose "delete" on the Github homepage. Then delete the local branch (i.e. in GitKraken) in the same way if necessary
 
 ## Please note
 
-As long as the master branch and the new branch are not merged again, there are two "parallel" branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check in GitKraken which branch is currently stored in your local repository. If you need to make changes in the new branch, you must first save it locally by double-clicking on the relevant branch.
-
+As long as the master/main branch and the new branch are not merged again, there are two "parallel" branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check and be conscious about on which branch you are currently working on. 
 
 ## Git-Workflow im Terminal (NH)
 
