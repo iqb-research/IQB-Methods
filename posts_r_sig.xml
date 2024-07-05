@@ -9,7 +9,7 @@
 <link>https://iqb-research.github.io/IQB-Methods/posts_r_sig.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.557</generator>
+<generator>quarto-1.5.53</generator>
 <lastBuildDate>Mon, 03 Jun 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Plotting with ggplot2</title>
@@ -194,8 +194,10 @@ font-style: inherit;">&lt;-</span> athletes</span>
 <span id="cb6-8"></span>
 <span id="cb6-9"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
@@ -235,8 +237,10 @@ font-style: inherit;">&lt;-</span> athletes</span>
 <span id="cb7-2"></span>
 <span id="cb7-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
@@ -283,8 +287,10 @@ font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
 </div>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
@@ -337,8 +343,10 @@ background-color: null;
 font-style: inherit;">&lt;-</span> athletes</span>
 <span id="cb11-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
@@ -402,6 +410,7 @@ font-style: italic;">## This doesn't work:</span></span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(dat, var){</span>
 <span id="cb13-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -427,6 +436,7 @@ font-style: italic;">## This works:</span></span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(dat, var){</span>
 <span id="cb14-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -468,8 +478,10 @@ background-color: null;
 font-style: inherit;">&lt;-</span> athletes</span>
 <span id="cb16-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
@@ -617,6 +629,7 @@ Solution
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(dat, var){</span>
 <span id="cb19-2">  column <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -629,6 +642,7 @@ font-style: inherit;">pull</span>({{var}}) </span>
 <span id="cb19-4">  </span>
 <span id="cb19-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -744,8 +758,10 @@ Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">colnames</span>(psych_stats)[<span class="dv" style="color: #AD0000;
@@ -815,9 +831,11 @@ Solution
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(vec){</span>
 <span id="cb27-2">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
@@ -4130,8 +4148,10 @@ background-color: null;
 font-style: inherit;">c</span>()</span>
 <span id="cb3-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -4197,6 +4217,7 @@ font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sapply</span>(example_list, <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(x){</span>
 <span id="cb9-2">  res_sum <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -4227,6 +4248,7 @@ font-style: inherit;">return</span>(res_sum)</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(vec){</span>
 <span id="cb11-2">  res_sum <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -4377,8 +4399,10 @@ background-color: null;
 font-style: inherit;">c</span>()</span>
 <span id="cb27-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -4388,6 +4412,7 @@ background-color: null;
 font-style: inherit;">ncol</span>(iris)){</span>
 <span id="cb27-3">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">is.numeric</span>(iris[, i])){</span>
@@ -4404,6 +4429,7 @@ background-color: null;
 font-style: inherit;">TRUE</span>))</span>
 <span id="cb27-5">  } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span>{</span>
 <span id="cb27-6">    vec_median[i] <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -4444,9 +4470,11 @@ Caution
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(vec){</span>
 <span id="cb29-2">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">is.numeric</span>(vec)){</span>
@@ -4461,6 +4489,7 @@ background-color: null;
 font-style: inherit;">TRUE</span>)</span>
 <span id="cb29-4">  } <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">else</span>{</span>
 <span id="cb29-5">    result <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -4535,8 +4564,10 @@ background-color: null;
 font-style: inherit;">c</span>()</span>
 <span id="cb33-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
