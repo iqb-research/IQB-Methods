@@ -499,31 +499,10 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatTools)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: TAM</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: CDM</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: mvtnorm</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>**********************************
-** CDM 8.2-6 (2022-08-25 15:43:23)       
-** Cognitive Diagnostic Models  **
-**********************************</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>* TAM 4.2-21 (2024-02-19 18:52:08)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: parallel</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data.ex08, <span class="at">package=</span><span class="st">"TAM"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span> ( <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, data.ex08[[<span class="st">"resp"</span>]])</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatModel)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data.ex08, <span class="at">package=</span><span class="st">"TAM"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span> ( <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, data.ex08[[<span class="st">"resp"</span>]])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14 subject(s) do not solve any item:
    115 (10 false), 613 (10 false), 979 (10 false) ... 
@@ -532,34 +511,18 @@ Dataset is completely linked.
 'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
 Q matrix specifies 1 dimension(s).</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>run <span class="ot">&lt;-</span> <span class="fu">runModel</span>(def)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">getResults</span>(run)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in getTamWles(runModelObj = runModelObj, qMatrix = qMatrix, leseAlles =
-leseAlles, : NAs introduced by coercion</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>run <span class="ot">&lt;-</span> <span class="fu">runModel</span>(def)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">getResults</span>(run)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>|*****|
 |-----|</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in data.frame(res[1, c("model", "source")], alln, stringsAsFactors =
-FALSE): row names were found from a short variable and have been discarded</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in data.frame(res[1, c("model", "source")], type = "tech", par = "dif",
-: row names were found from a short variable and have been discarded</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in data.frame(res[1, c("model", "source")], type = "tech", par =
-c("QMC", : row names were found from a short variable and have been discarded</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>item<span class="ot">&lt;-</span> <span class="fu">itemFromRes</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>item<span class="ot">&lt;-</span> <span class="fu">itemFromRes</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">subset</span>(<span class="fu">roundDF</span>(item,<span class="at">digits =</span> <span class="dv">3</span>), item <span class="sc">==</span> <span class="st">"I0006"</span>)[,<span class="fu">c</span>(<span class="st">"item"</span>, <span class="st">"itemP"</span>, <span class="st">"est"</span>, <span class="st">"estDif"</span>, <span class="st">"absDif"</span>, <span class="st">"difIndex"</span>, <span class="st">"ETS"</span>)], <span class="at">row.names=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">subset</span>(<span class="fu">roundDF</span>(item,<span class="at">digits =</span> <span class="dv">3</span>), item <span class="sc">==</span> <span class="st">"I0006"</span>)[,<span class="fu">c</span>(<span class="st">"item"</span>, <span class="st">"itemP"</span>, <span class="st">"est"</span>, <span class="st">"estDif"</span>, <span class="st">"absDif"</span>, <span class="st">"difIndex"</span>, <span class="st">"ETS"</span>)], <span class="at">row.names=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
@@ -589,9 +552,9 @@ c("QMC", : row names were found from a short variable and have been discarded</c
 
 </div>
 </div>
-<p>Die allgemeine Lösungswahrscheinlichkeit des Items ist 45.4 Prozent. Der positive DIF-Wert bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1:</p>
+<p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(dat[,<span class="st">"I0006"</span>], dat[,<span class="st">"female"</span>], mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(dat[,<span class="st">"I0006"</span>], dat[,<span class="st">"female"</span>], mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    0     1 
 0.410 0.498 </code></pre>
