@@ -20,7 +20,7 @@ Im Paket eatRep kann das über die Funktion `pool.R2()` berechnet werden. Die Fu
 
 Angenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) $R^2$-Werte, dann kann der gepoolte $R^2$-Wert folgendermaßen bestimmt werden:
 
-```{r eval = FALSE}
+```{r eval = FALSE,warning=FALSE,message=FALSE}
 r2 <- c(0.12,0.18,0.17,0.21,0.23)
 eatRep::pool.R2(r2)
 ```
@@ -29,7 +29,7 @@ eatRep::pool.R2(r2)
 
 In eatModel wird nur der erste Teil der zweiten Tabelle $item\times [DIFvariable]$ aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items **in der ersten Gruppe** der \[DIFvariable\] **leichter** sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:
 
-```{r eval = TRUE}
+```{r eval = TRUE,warning=FALSE,message=FALSE}
 library(kableExtra)
 library(eatTools)
 library(eatModel)
@@ -43,12 +43,12 @@ item<- itemFromRes(res)
 
 Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6: 
 
-```{r eval = TRUE}
+```{r eval = TRUE,warning=FALSE,message=FALSE}
 kbl(subset(roundDF(item,digits = 3), item == "I0006")[,c("item", "itemP", "est", "estDif", "absDif", "difIndex", "ETS")], row.names=FALSE) %>% 
     kable_styling(bootstrap_options = "striped", full_width = FALSE, position = "center")
 ```
 
-Die allgemeine Lösungswahrscheinlichkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1: 
+Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1: 
 
 ```{r eval = TRUE}
 tapply(dat[,"I0006"], dat[,"female"], mean)
