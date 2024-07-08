@@ -1,0 +1,38 @@
+---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+---
+
+# Introduction
+
+- [Quarto](https://quarto.org/) is an open-source scientific and technical publishing system. 
+- It allows you to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate your code when rendering. No mor copy-pasting from tables. No more screenshoting plots. No more trying to get the references formatted correctly. And much more!
+- One great thing about quarto: because you write your stuff in Markdown language (it's not hard), you are free to choose into which format to export, and can change that easily. I could for example export my manuscript as PDF, and with just changing one word, I can export into word, HTML ...
+- You can also build slides and even websites (like the one you are currently on) with quarto. 
+- Great stuff!
+
+# Workflow
+- RStudio project
+- Optional (but highly recommended): GitHub
+- Optional (but highly recommended): [renv](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/)
+- manuscript (best is to split up the manuscript into chapters)
+- R-Code either seperatly or within your manuscript
+- Personal preference: Splitting up pretty much, makes it easier to keep an overview. 
+
+# Minimal Example
+
+
+# Templates & APA
+
+## Format
+
+## Tables
+
+
+
+# Exercises
