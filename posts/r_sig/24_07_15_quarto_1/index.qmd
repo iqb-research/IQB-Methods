@@ -6,33 +6,197 @@ author:
   - affiliation: PhD student at the IQB, Methods team
 categories: [R, quarto]
 date: 07-15-2024
+bibliography: references.bib
+bibliographystyle: apa
 ---
 
 # Introduction
 
-- [Quarto](https://quarto.org/) is an open-source scientific and technical publishing system. 
-- It allows you to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate your code when rendering. No mor copy-pasting from tables. No more screenshoting plots. No more trying to get the references formatted correctly. And much more!
-- One great thing about quarto: because you write your stuff in Markdown language (it's not hard), you are free to choose into which format to export, and can change that easily. I could for example export my manuscript as PDF, and with just changing one word, I can export into word, HTML ...
-- You can also build slides and even websites (like the one you are currently on) with quarto. 
-- Great stuff!
+-   [Quarto](https://quarto.org/) is an open-source scientific and technical publishing system.
+-   It allows you to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate your code when rendering. No mor copy-pasting from tables. No more screenshoting plots. No more trying to get the references formatted correctly. And much more!
+-   One great thing about quarto: because you write your stuff in Markdown language (it's not hard), you are free to choose into which format to export, and can change that easily. I could for example export my manuscript as PDF, and with just changing one word, I can export into word, HTML ...
+-   You can also build slides and even websites (like the one you are currently on) with quarto.
+-   Great stuff!
 
 # Workflow
-- RStudio project
-- Optional (but highly recommended): GitHub
-- Optional (but highly recommended): [renv](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/)
-- manuscript (best is to split up the manuscript into chapters)
-- R-Code either seperatly or within your manuscript
-- Personal preference: Splitting up pretty much, makes it easier to keep an overview. 
 
-# Minimal Example
+-   RStudio project
+-   Optional (but highly recommended): GitHub
+-   Optional (but highly recommended): [renv](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/)
+-   `File - New File - Quarto Document` manuscript (best is to split up the manuscript into chapters)
+-   R-Code either seperatly or within your manuscript
+-   Personal preference: Splitting up pretty much, makes it easier to keep an overview.
+
+# Components
+
+## YAML header
+
+Begin on top of document by writing `---`, and also end with `---`. It contains global options for your document:
+
+```         
+---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+---
+```
+
+An overview of possible YAML-fields can be found [here](https://quarto.org/docs/reference/formats/pdf.html).
+
+## Markdown text
+
+Write your text in markdown language. Some expressions:
+
+-   `#` for headers. Add as many `#` as you like for subheaders.
+- `**bold**, *italic*, `code``
+- Lists: `-` for bullet points, `1.` for numbered lists (beware: the line above the list has to be empty)
+- Linebreaks: Two spaces at the end of a line. 
+
+## Code chunks
+
+
+```{r}
+#| echo: true
+
+library(palmerpenguins)
+
+
+```
+
+Chunk options: 
 
 
 # Templates & APA
 
 ## Format
+There are some markdown templates that format your text in APA style. Most famously, the [`papaja`](https://github.com/crsh/papaja) package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.   
+
+Alternatively, I've found (but not yet tested) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via:
+
+```{r}
+#| eval: false
+#| echo: true
+#| 
+quarto::quarto_use_template("wjschne/apaquarto")
+```
+
+
 
 ## Tables
 
+## Citations
+Citations are saved in `.bib` files. The `.bib` format can be chosen on almost every website, often next to APA and others. It looks like this: 
+
+```
+@article{allport1936trait,
+  title={Trait-names: A psycho-lexical study.},
+  author={Allport, Gordon W and Odbert, Henry S},
+  journal={Psychological monographs},
+  volume={47},
+  number={1},
+  pages={i},
+  year={1936},
+  publisher={Psychological Review Company}
+}
+
+@book{darwin1859,
+  added-at = {2008-05-27T04:02:47.000+0200},
+  address = {London},
+  author = {Darwin, Charles},
+  biburl = {https://www.bibsonomy.org/bibtex/2d70d713c717fb28384fb073c9f6dfbc2/neilernst},
+  citeulike-article-id = {2376343},
+  interhash = {c738acbb887362be5b0e6abc51be42d3},
+  intrahash = {d70d713c717fb28384fb073c9f6dfbc2},
+  keywords = {evolution},
+  note = { or the Preservation of Favored Races in the Struggle for Life},
+  priority = {2},
+  publisher = {Murray},
+  timestamp = {2008-05-27T04:02:47.000+0200},
+  title = {On the Origin of Species by Means of Natural Selection},
+  year = 1859
+}
+
+```
+The great thing is: from this format, you can generate all kinds of different citation styles. Just put `bibliographystyle:` with the wanted style into your YAML-header: `bibliographystyle: apa`
+
+Of course, you should still check if the fields are filled in correctly.
+So if you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.  
+To cite a reference in you text, you can use an @ in front of the tag like `@darwin1859`: @darwin1859.
 
 
 # Exercises
+
+1. Create a RStudio project and a Quarto document in a new directory.   
+2. Fill the `.qmd` document with a "mini"-analysis of the [`athletes`](https://github.com/nickhaf/r_tutorial/blob/main/raw_data/athletes.rds) dataset The analysis should contain: 
+
+- at least two chapters
+- some sort of table
+- some plot
+
+::: {.callout-tip collapse="true"}
+## Hint
+Feel free to use summaries and plots from the previous [R-SIG](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html). 
+:::
+
+::: {.callout-caution collapse="true"}
+## Solution
+
+```{r, message=FALSE}
+#| echo: true
+
+library(tidyverse)
+
+athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds"))
+
+best_by_sport <- athletes %>%
+  ## Get all gold medalists
+  filter(Medal == "Gold") %>%
+  ## Group them by sport and region
+  group_by(Sport, Region) %>%
+  ## count the number of medals each country has per sport category
+  count(Medal) %>%
+  ## Now only group by sport, so we can extract the maximum medal row by sport, and not by sport and country
+  group_by(Sport) %>%
+  ## Extract the country with the most medals
+  slice(which.max(n))
+
+head(best_by_sport)
+
+```
+
+
+```{r}
+world_coordinates <- readRDS(file = here::here("raw_data", "world_coordinates.rds"))
+
+medal_counts <- athletes %>%
+  filter(Medal == "Gold") %>%
+  group_by(Region) %>%
+  count(Medal)
+
+medal_countries <- world_coordinates %>%
+  rename("Region" = region) %>%
+  left_join(medal_counts)
+
+p <- ggplot(
+  data = medal_countries,
+  mapping = aes(x = long, y = lat, group = group)
+) +
+    geom_polygon(aes(fill = n)) +
+    coord_fixed(1.3) +
+  ## Use another colour palette:
+  scale_fill_distiller(palette = "YlOrBr", direction = 1) +
+  ## Plot title
+  ggtitle("Olympic Gold Medal winners") +
+  ## Legend title:
+  guides(fill = guide_legend(title = "Gold medal \n winners")) +
+  ## Minimal theme:
+  theme_void()
+
+p
+```
+
+:::

@@ -10,7 +10,447 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.433</generator>
-<lastBuildDate>Sun, 07 Apr 2024 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 14 Jul 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Reproducable manuscripts with Quarto</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<ul>
+<li><a href="https://quarto.org/">Quarto</a> is an open-source scientific and technical publishing system.</li>
+<li>It allows you to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate your code when rendering. No mor copy-pasting from tables. No more screenshoting plots. No more trying to get the references formatted correctly. And much more!</li>
+<li>One great thing about quarto: because you write your stuff in Markdown language (it’s not hard), you are free to choose into which format to export, and can change that easily. I could for example export my manuscript as PDF, and with just changing one word, I can export into word, HTML …</li>
+<li>You can also build slides and even websites (like the one you are currently on) with quarto.</li>
+<li>Great stuff!</li>
+</ul>
+</section>
+<section id="workflow" class="level1">
+<h1>Workflow</h1>
+<ul>
+<li>RStudio project</li>
+<li>Optional (but highly recommended): GitHub</li>
+<li>Optional (but highly recommended): <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/">renv</a></li>
+<li><code>File - New File - Quarto Document</code> manuscript (best is to split up the manuscript into chapters)</li>
+<li>R-Code either seperatly or within your manuscript</li>
+<li>Personal preference: Splitting up pretty much, makes it easier to keep an overview.</li>
+</ul>
+</section>
+<section id="components" class="level1">
+<h1>Components</h1>
+<section id="yaml-header" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header">YAML header</h2>
+<p>Begin on top of document by writing <code>---</code>, and also end with <code>---</code>. It contains global options for your document:</p>
+<pre><code>---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+---</code></pre>
+<p>An overview of possible YAML-fields can be found <a href="https://quarto.org/docs/reference/formats/pdf.html">here</a>.</p>
+</section>
+<section id="markdown-text" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-text">Markdown text</h2>
+<p>Write your text in markdown language. Some expressions:</p>
+<ul>
+<li><code>#</code> for headers. Add as many <code>#</code> as you like for subheaders.</li>
+<li><code>**bold**, *italic*,</code>code``</li>
+<li>Lists: <code>-</code> for bullet points, <code>1.</code> for numbered lists (beware: the line above the list has to be empty)</li>
+<li>Linebreaks: Two spaces at the end of a line.</li>
+</ul>
+</section>
+<section id="code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="code-chunks">Code chunks</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(palmerpenguins)</span></code></pre></div>
+</div>
+<p>Chunk options:</p>
+</section>
+</section>
+<section id="templates-apa" class="level1">
+<h1>Templates &amp; APA</h1>
+<section id="format" class="level2">
+<h2 class="anchored" data-anchor-id="format">Format</h2>
+<p>There are some markdown templates that format your text in APA style. Most famously, the <a href="https://github.com/crsh/papaja"><code>papaja</code></a> package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.</p>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<p>Citations are saved in <code>.bib</code> files. The <code>.bib</code> format can be chosen on almost every website, often next to APA and others. It looks like this:</p>
+<pre><code>@article{allport1936trait,
+  title={Trait-names: A psycho-lexical study.},
+  author={Allport, Gordon W and Odbert, Henry S},
+  journal={Psychological monographs},
+  volume={47},
+  number={1},
+  pages={i},
+  year={1936},
+  publisher={Psychological Review Company}
+}
+
+@book{darwin1859,
+  added-at = {2008-05-27T04:02:47.000+0200},
+  address = {London},
+  author = {Darwin, Charles},
+  biburl = {https://www.bibsonomy.org/bibtex/2d70d713c717fb28384fb073c9f6dfbc2/neilernst},
+  citeulike-article-id = {2376343},
+  interhash = {c738acbb887362be5b0e6abc51be42d3},
+  intrahash = {d70d713c717fb28384fb073c9f6dfbc2},
+  keywords = {evolution},
+  note = { or the Preservation of Favored Races in the Struggle for Life},
+  priority = {2},
+  publisher = {Murray},
+  timestamp = {2008-05-27T04:02:47.000+0200},
+  title = {On the Origin of Species by Means of Natural Selection},
+  year = 1859
+}
+</code></pre>
+<p>The great thing is: from this format, you can generate all kinds of different citation styles. Just put <code>bibliographystyle:</code> with the wanted style into your YAML-header: <code>bibliographystyle: apa</code></p>
+<p>Of course, you should still check if the fields are filled in correctly. So if you have created a <code>references.bib</code> file in your project directory, you can include it in your quarto document by adding <code>bibliography: references.bib</code> to your YAML header.<br>
+To cite a reference in you text, you can use an @ in front of the tag like <code>@darwin1859</code>: <span class="citation" data-cites="darwin1859">Darwin (1859)</span>.</p>
+</section>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Create a RStudio project and a Quarto document in a new directory.<br>
+</li>
+<li>Fill the <code>.qmd</code> document with a “mini”-analysis of the <a href="https://github.com/nickhaf/r_tutorial/blob/main/raw_data/athletes.rds"><code>athletes</code></a> dataset The analysis should contain:</li>
+</ol>
+<ul>
+<li>at least two chapters</li>
+<li>some sort of table</li>
+<li>some plot</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Feel free to use summaries and plots from the previous <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html">R-SIG</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb4-2"></span>
+<span id="cb4-3">athletes <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"athletes.rds"</span>))</span>
+<span id="cb4-4"></span>
+<span id="cb4-5">best_by_sport <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-6">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Get all gold medalists</span></span>
+<span id="cb4-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Medal <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Gold"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-8">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Group them by sport and region</span></span>
+<span id="cb4-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sport, Region) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-10">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## count the number of medals each country has per sport category</span></span>
+<span id="cb4-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">count</span>(Medal) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-12">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Now only group by sport, so we can extract the maximum medal row by sport, and not by sport and country</span></span>
+<span id="cb4-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sport) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb4-14">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Extract the country with the most medals</span></span>
+<span id="cb4-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">slice</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">which.max</span>(n))</span>
+<span id="cb4-16"></span>
+<span id="cb4-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(best_by_sport)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+# Groups:   Sport [6]
+  Sport            Region      Medal     n
+  &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt; &lt;int&gt;
+1 Aeronautics      Switzerland Gold      1
+2 Alpine Skiing    Austria     Gold     34
+3 Alpinism         UK          Gold     12
+4 Archery          South Korea Gold     49
+5 Art Competitions Germany     Gold      9
+6 Athletics        USA         Gold    542</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">world_coordinates <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"world_coordinates.rds"</span>))</span>
+<span id="cb6-2"></span>
+<span id="cb6-3">medal_counts <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Medal <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Gold"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Region) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">count</span>(Medal)</span>
+<span id="cb6-7"></span>
+<span id="cb6-8">medal_countries <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> world_coordinates <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rename</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Region"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> region) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">left_join</span>(medal_counts)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(Region)`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(</span>
+<span id="cb8-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> medal_countries,</span>
+<span id="cb8-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mapping =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> long, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> lat, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">group =</span> group)</span>
+<span id="cb8-4">) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_polygon</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> n)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-6">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_fixed</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.3</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-7">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Use another colour palette:</span></span>
+<span id="cb8-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_distiller</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">palette =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"YlOrBr"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">direction =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-9">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Plot title</span></span>
+<span id="cb8-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggtitle</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Olympic Gold Medal winners"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-11">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Legend title:</span></span>
+<span id="cb8-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">guides</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">guide_legend</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Gold medal </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> winners"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-13">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Minimal theme:</span></span>
+<span id="cb8-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_void</span>()</span>
+<span id="cb8-15"></span>
+<span id="cb8-16">p</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-darwin1859" class="csl-entry">
+Darwin, Charles. 1859. <em>On the Origin of Species by Means of Natural Selection</em>. London: Murray.
+</div>
+</div></section></div> ]]></description>
+  <category>R</category>
+  <category>quarto</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/index.html</guid>
+  <pubDate>Sun, 14 Jul 2024 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Plotting with ggplot2</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/plotting.jpg" class="img-fluid"><sup>1</sup></p>
+<p>A ggplot2-tutorial I’ve created can be found <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html">here</a>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://www.bing.com/images/create/a-scientist-moulding-a-plot-of-data-by-hand/1-66587edc1e8f43589fdc865731f162f6?id=Pw2nhqhO37f3lXFK0VoYZQ%3D%3D&amp;view=detailv2&amp;idpp=genimg&amp;idpclose=1&amp;thid=OIG2.1wR3ZVvAOQy3uyh0hWET&amp;form=SYDBIC">Bing Copilot</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>tidyverse</category>
+  <category>plots</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/index.html</guid>
+  <pubDate>Sun, 02 Jun 2024 22:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/plotting.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Column-wise operations in the tidyverse</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
@@ -930,7 +1370,7 @@ font-style: inherit;">$</span>innocent_jaded_standardized)</span></code></pre></
   <category>loops</category>
   <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/index.html</guid>
   <pubDate>Sun, 07 Apr 2024 22:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/data_wrangling.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Data wrangling in the tidyverse</title>
