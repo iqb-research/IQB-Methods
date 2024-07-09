@@ -55,6 +55,7 @@ Write your text in markdown language. Some expressions:
 - `**bold**, *italic*, `code``
 - Lists: `-` for bullet points, `1.` for numbered lists (beware: the line above the list has to be empty)
 - Linebreaks: Two spaces at the end of a line. 
+- Links: `[text](url)`
 
 ## Code chunks
 
@@ -70,23 +71,14 @@ library(palmerpenguins)
 Chunk options: 
 
 
-# Templates & APA
-
-## Format
-There are some markdown templates that format your text in APA style. Most famously, the [`papaja`](https://github.com/crsh/papaja) package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.   
-
-Alternatively, I've found (but not yet tested) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via:
-
-```{r}
-#| eval: false
-#| echo: true
-#| 
-quarto::quarto_use_template("wjschne/apaquarto")
-```
-
 
 
 ## Tables
+Tables can be a bit tricky in quarto. The great thing is: once you have styled them, they get updated automatically if some data changes.  
+For some simple tables, the normal markdown syntax might be enough, see [here](https://quarto.org/docs/authoring/tables.html). I'd like to point out `knitr::kable()`, which allows some extra styling. 
+For more complex tables, I've found the [rempsyc](https://rempsyc.remi-theriault.com/articles/table) package which helps in building APA tables, but there are other options like [flextable](https://davidgohel.github.io/flextable/) or [gt](https://gt.rstudio.com/)  as well. 
+
+
 
 ## Citations
 Citations are saved in `.bib` files. The `.bib` format can be chosen on almost every website, often next to APA and others. It looks like this: 
@@ -128,19 +120,66 @@ So if you have created a `references.bib` file in your project directory, you ca
 To cite a reference in you text, you can use an @ in front of the tag like `@darwin1859`: @darwin1859.
 
 
+
+# Templates & APA
+
+## Own Templates
+You can always create your [own template](https://quarto.org/docs/journals/templates.html) Luckily, some people have done a lot of the work for us, and therefore we can use templates provided for [specific journals](https://github.com/quarto-journals/). Oooor more generally, APA templates: 
+
+## Papaja
+There are some markdown templates that format your text in APA style. Most famously, the [`papaja`](https://github.com/crsh/papaja) package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.   
+
+## apaquarto
+Alternatively, I've found (but not yet tested in a whole project) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via:
+
+```{r}
+#| eval: false
+#| echo: true
+
+setwd("home/my_project") # Make sure the folder is empty
+
+quarto::quarto_use_template("wjschne/apaquarto")
+```
+
+This will create the necessary files in your folder. Update the `.qmd` file with the same name as your folder. I'd suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts ...).  
+The template should label your tables and figures correctly, and format the bibliography as well as the whole document. 
+
+
 # Exercises
 
-1. Create a RStudio project and a Quarto document in a new directory.   
-2. Fill the `.qmd` document with a "mini"-analysis of the [`athletes`](https://github.com/nickhaf/r_tutorial/blob/main/raw_data/athletes.rds) dataset The analysis should contain: 
+0. Create a fresh, empty folder for this exercise.
+1. Install the `apaquarto` template. 
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+- Make sure you have a current version of quarto installed. If not, download from [here](https://quarto.org/docs/download/) and install. Restart RStudio, it should find the new quarto installation automatically. 
+- Make sure to set the working directory to an empty folder before installing: 
+
+```{r}
+#| eval: false
+#| echo: true
+
+setwd("home/my_project") # Make sure the folder is empty
+quarto::quarto_use_template("wjschne/apaquarto")
+
+```
+
+
+:::
+
+2. Create a RStudio project in your directory and open it. 
+3. Open the `.qmd` document and fill it with a "mini"-analysis of the [`athletes`](https://github.com/nickhaf/r_tutorial/blob/main/raw_data/athletes.rds) dataset. So update the YAML and the text body for your own needs. The analysis should contain: 
 
 - at least two chapters
 - some sort of table
 - some plot
+- two own references (a book and an article)
 
-::: {.callout-tip collapse="true"}
-## Hint
+Everything should be in APA7 style.   
 Feel free to use summaries and plots from the previous [R-SIG](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html). 
-:::
+
+
 
 ::: {.callout-caution collapse="true"}
 ## Solution
@@ -200,3 +239,5 @@ p
 ```
 
 :::
+
+4. Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. 
