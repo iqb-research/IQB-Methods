@@ -78,7 +78,10 @@ Tables can be a bit tricky in quarto. The great thing is: once you have styled t
 For some simple tables, the normal markdown syntax might be enough, see [here](https://quarto.org/docs/authoring/tables.html). I'd like to point out `knitr::kable()`, which allows some extra styling. 
 For more complex tables, I've found the [rempsyc](https://rempsyc.remi-theriault.com/articles/table) package which helps in building APA tables, but there are other options like [flextable](https://davidgohel.github.io/flextable/) or [gt](https://gt.rstudio.com/)  as well. 
 
+Tables can be numerated with `` which will always put the correct number in the caption. Captions can be written with ``.
 
+### A quick word about formating model output
+There are some packages out there that help you to format output of statistical models. 
 
 ## Citations
 Citations are saved in `.bib` files. The `.bib` format can be chosen on almost every website, often next to APA and others. It looks like this: 
@@ -175,6 +178,7 @@ quarto::quarto_use_template("wjschne/apaquarto")
 - some sort of table
 - some plot
 - two own references (a book and an article)
+- a linear regression with table. What kind? Maybe use the volleyball dataset instead? With a t-Test!
 
 Everything should be in APA7 style.   
 Feel free to use summaries and plots from the previous [R-SIG](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html). 
@@ -189,55 +193,40 @@ Feel free to use summaries and plots from the previous [R-SIG](https://nickhaf.g
 
 library(tidyverse)
 
-athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds"))
+athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds")) %>%
+  mutate(Medal_bi = ifelse(is.na(Medal), 0, 1)) %>%
+  filter(Sport %in% c("Basketball", "Judo", "Beach Volleyball"))
 
-best_by_sport <- athletes %>%
-  ## Get all gold medalists
-  filter(Medal == "Gold") %>%
-  ## Group them by sport and region
-  group_by(Sport, Region) %>%
-  ## count the number of medals each country has per sport category
-  count(Medal) %>%
-  ## Now only group by sport, so we can extract the maximum medal row by sport, and not by sport and country
-  group_by(Sport) %>%
-  ## Extract the country with the most medals
-  slice(which.max(n))
+## Center height? Look into log-reg slides völkle. Also: how to interpret the regression weights?
 
-head(best_by_sport)
+## This is not a course on logistic regression, use with care. 
+model <- glm(Medal_bi ~ Height * Sex, data = athletes, family = binomial(link='logit'))
+summary(model)
+
+library(report)
+report(model)
+report_table(model)
+
+library(broom)
+library(rempsyc)
+model_broom <- tidy(model)
+
+
+nice_table(model_broom, broom = "glm")
+
+
+## Or just build the table yourself. 
 
 ```
 
 
 ```{r}
-world_coordinates <- readRDS(file = here::here("raw_data", "world_coordinates.rds"))
+## Maybe plot predicitons, or at least data points with a line through it?
 
-medal_counts <- athletes %>%
-  filter(Medal == "Gold") %>%
-  group_by(Region) %>%
-  count(Medal)
-
-medal_countries <- world_coordinates %>%
-  rename("Region" = region) %>%
-  left_join(medal_counts)
-
-p <- ggplot(
-  data = medal_countries,
-  mapping = aes(x = long, y = lat, group = group)
-) +
-    geom_polygon(aes(fill = n)) +
-    coord_fixed(1.3) +
-  ## Use another colour palette:
-  scale_fill_distiller(palette = "YlOrBr", direction = 1) +
-  ## Plot title
-  ggtitle("Olympic Gold Medal winners") +
-  ## Legend title:
-  guides(fill = guide_legend(title = "Gold medal \n winners")) +
-  ## Minimal theme:
-  theme_void()
-
-p
 ```
 
 :::
 
 4. Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. 
+
+5. Convert your manuscript into a PDF. 
