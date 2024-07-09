@@ -20,14 +20,42 @@ Im Paket eatRep kann das über die Funktion `pool.R2()` berechnet werden. Die Fu
 
 Angenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) $R^2$-Werte, dann kann der gepoolte $R^2$-Wert folgendermaßen bestimmt werden:
 
-```{r eval = FALSE}
+```{r eval = FALSE,warning=FALSE,message=FALSE}
 r2 <- c(0.12,0.18,0.17,0.21,0.23)
 eatRep::pool.R2(r2)
 ```
 
 ## 2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der "estDif"-Spalte?
 
-In eatModel wird nur der erste Teil der zweiten Tabelle item\*\[DIFvariable\] aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items **in der ersten Gruppe** der \[DIFvariable\] **leichter** sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert.
+In eatModel wird nur der erste Teil der zweiten Tabelle $item\times [DIFvariable]$ aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items **in der ersten Gruppe** der $[DIFvariable]$ **leichter** sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:
+
+```{r eval = TRUE,warning=FALSE,message=FALSE}
+library(kableExtra)
+library(eatTools)
+library(eatModel)
+data(data.ex08, package="TAM")
+dat <- data.frame ( id = 1:nrow(data.ex08[["resp"]]), female = unlist(data.ex08[["facets"]])-1, data.ex08[["resp"]])
+def <- defineModel(dat, items= -c(1:2), id="id", DIF.var = "female", software="tam")
+run <- runModel(def)
+res <- getResults(run)
+item<- itemFromRes(res)
+```
+
+Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6: 
+
+```{r eval = TRUE,warning=FALSE,message=FALSE}
+item6 <- subset(roundDF(item,digits = 3), item == "I0006")
+cols  <- c("item", "itemP", "est", "estDif", "absDif", "difIndex", "ETS")
+# ausgewaehlte Spalten fuer Items 6 anzeigen lassen 
+kbl(item6[,cols], row.names=FALSE) %>% 
+    kable_styling(bootstrap_options = "striped", full_width = FALSE, position = "center")
+```
+
+Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `item[which(item[,"item"] == "I0006"),"estDif"]` bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1: 
+
+```{r eval = TRUE}
+tapply(dat[,"I0006"], dat[,"female"], mean)
+```
 
 ## 3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen
 
@@ -60,6 +88,15 @@ Die Zentrierung um den Gesamtmittelwert ermöglicht die Untersuchung der Effekte
 ### c. Keine Zentrierung: Ist selten sinnvoll bei Interaktionen im Modell. Vor allem dann nicht, wenn die Null für die Prädiktorvariablen kein sinnvoller Wert ist.
 
 Alle Empfehlungen gelten ebenso für kategoriale Prädiktoren, siehe z. B. Yaremych et al. (2023): "... we have demonstrated that centering guidelines for continuous predictors should be applied analogously to categorical predictors" (p. 8). Hierbei wird ein $k-$stufiger Prädiktor stets durch $k-1$ “Coding-Variablen” repräsentiert. Ob diese durch Dummy-Kodierung, Effekt-Kodierung oder Kontrast-Kodierung gebildet werden, hängt von der intendierten Interpretation ab und liegt außerhalb des Fokus’ dieses Artikels.
+
+## 4. Wie groß sollte das *N* pro Item idealerweise sein?
+
+Grundsätzlich stellt sich die Frage des *N* pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es hängt jedoch stets von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an $N>100$ orientieren. Im Studiendesign versucht man dabei, auf ein $N=150$ zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktische notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:
+
+-   **VERA-Pilotierung ohne DIF:** hier wäre $N=150$ ein vertretbarer Richtwert.
+-   **VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:** für eine verlässliche DIF-Analyse wäre $N=150$ *pro Geschlechtergruppe* anzustreben. Da geschlecht einigermaßen gleichverteilt und erfahrungsgemäß nur wenige missing values hat, wäre hier $N=300$ ein Minimum, $N=400$ ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt. 
+-   **Pilotierung mit DIF-Analyse bzgl. SPF:** Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre $N=150$ in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen $N>20000$ schafft man sowas zwar, aber das wäre in kleineren Erhebungen wie VERA komplett unrealistisch. Hier müsste man also ggf. sowas wie Oversampling machen, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen "überrepräsentieren". 
+-   **Analysen bzgl. Migrationshintergrund:** Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem *N* pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichproe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus $Migrationshintergrund\times Geschlecht$ hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein -- es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen. 
 
 ### Literatur
 
