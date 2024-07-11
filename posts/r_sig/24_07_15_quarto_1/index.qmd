@@ -42,10 +42,12 @@ author:
   - affiliation: PhD student at the IQB, Methods team
 categories: [R, quarto]
 date: 07-15-2024
+format: pdf
 ---
 ```
 
-An overview of possible YAML-fields can be found [here](https://quarto.org/docs/reference/formats/pdf.html).
+An overview of possible YAML-fields can be found [here](https://quarto.org/docs/reference/formats/pdf.html).  
+Note the `format` field, which lets you quickly convert your document between `pdf`, `word` and `html`.  
 
 ## Markdown text
 
@@ -64,7 +66,8 @@ Write your text in markdown language. Some expressions:
 #| echo: true
 
 library(palmerpenguins)
-
+library(tidyverse)
+head(penguins)
 
 ```
 
@@ -74,11 +77,71 @@ Chunk options:
 
 
 ## Tables
-Tables can be a bit tricky in quarto. The great thing is: once you have styled them, they get updated automatically if some data changes.  
-For some simple tables, the normal markdown syntax might be enough, see [here](https://quarto.org/docs/authoring/tables.html). I'd like to point out `knitr::kable()`, which allows some extra styling. 
-For more complex tables, I've found the [rempsyc](https://rempsyc.remi-theriault.com/articles/table) package which helps in building APA tables, but there are other options like [flextable](https://davidgohel.github.io/flextable/) or [gt](https://gt.rstudio.com/)  as well. 
+Tables can be a bit tricky in quarto. The great thing is: once you have styled them, they get updated automatically if some data changes. 
+Also, there are a lot of different packages for building tables in markdown, here are some options: 
 
-Tables can be numerated with `` which will always put the correct number in the caption. Captions can be written with ``.
+For some simple tables, the normal markdown syntax might be enough, see [here](https://quarto.org/docs/authoring/tables.html). 
+
+```
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| A1       | B1       | C1       |
+| A2       | B2       | C2       |
+
+```
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| A1       | B1       | C1       |
+| A2       | B2       | C2       |
+
+
+
+With `knitr::kable()` you can build them programmatically:
+
+```{r}
+#| echo: true
+
+penguins_species <- penguins %>%
+  group_by(species) %>%
+  summarise(mean_flipper_length = mean(flipper_length_mm, na.rm = TRUE), 
+            n = n()) 
+
+knitr::kable(penguins_species)
+
+```
+
+For more complex tables, I've found the [rempsyc](https://rempsyc.remi-theriault.com/articles/table) package which helps in building APA tables, but there are other options like [flextable](https://davidgohel.github.io/flextable/) or [gt](https://gt.rstudio.com/)  as well:
+
+```r
+#| label: tbl-penguins
+#| tbl-cap: Table with penguins species flipper length.
+
+library(rempsyc)
+
+nice_table(
+  penguins_species
+)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| label: tbl-penguins
+#| tbl-cap: Table with penguins species flipper length.
+
+library(rempsyc)
+
+nice_table(
+  penguins_species
+)
+```
+
+
+### Labels
+Tables that are build programmatically can be labeled with `#| label: tbl-penguins` at the top of the chunk.
+This will always put the correct number in the caption and also lets you cross-reference the table in you text: `See @tbl-penguins` becomes: See @tbl-penguins.  
+The apaquarto template will take care of correctly rendering it to APA-style.
+Captions can be written with `#| tbl-cap: Table with penguins species flipper length.`.
 
 ### A quick word about formating model output
 There are some packages out there that help you to format output of statistical models. 
@@ -175,14 +238,12 @@ quarto::quarto_use_template("wjschne/apaquarto")
 3. Open the `.qmd` document and fill it with a "mini"-analysis of the [`athletes`](https://github.com/nickhaf/r_tutorial/blob/main/raw_data/athletes.rds) dataset. So update the YAML and the text body for your own needs. The analysis should contain: 
 
 - at least two chapters
-- some sort of table
+- some sort of table. Make it as complex as you like to try and play around with different packages and table options. 
 - some plot
 - two own references (a book and an article)
 - a linear regression with table. What kind? Maybe use the volleyball dataset instead? With a t-Test!
 
 Everything should be in APA7 style.   
-Feel free to use summaries and plots from the previous [R-SIG](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html). 
-
 
 
 ::: {.callout-caution collapse="true"}
