@@ -6,10 +6,10 @@ title: "FAQ"
 
 ### a. Methode nach Harel (2009)
 
-Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:  
-1. Die Quadratwurzel aus $R^2$ ziehen  
-2. eine Fisher *z*-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird  
-3. Rubins Regeln für metrische Variablen anwenden  
+Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:\
+1. Die Quadratwurzel aus $R^2$ ziehen\
+2. eine Fisher *z*-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird\
+3. Rubins Regeln für metrische Variablen anwenden\
 4. mit einer inversen *z*-Transformation den Wert wieder zurückrechnen und quadrieren
 
 Harel, O. (2009). The estimation of R2 and adjusted R2 in incomplete data sets using multiple imputation. *Journal of Applied Statistics, 36*(10), 1109-1118.
@@ -41,7 +41,7 @@ res <- getResults(run)
 item<- itemFromRes(res)
 ```
 
-Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6: 
+Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:
 
 ```{r eval = TRUE,warning=FALSE,message=FALSE}
 item6 <- subset(roundDF(item,digits = 3), item == "I0006")
@@ -51,7 +51,7 @@ kbl(item6[,cols], row.names=FALSE) %>%
     kable_styling(bootstrap_options = "striped", full_width = FALSE, position = "center")
 ```
 
-Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `item[which(item[,"item"] == "I0006"),"estDif"]` bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1: 
+Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `item[which(item[,"item"] == "I0006"),"estDif"]` bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1:
 
 ```{r eval = TRUE}
 tapply(dat[,"I0006"], dat[,"female"], mean)
@@ -89,22 +89,23 @@ Die Zentrierung um den Gesamtmittelwert ermöglicht die Untersuchung der Effekte
 
 Alle Empfehlungen gelten ebenso für kategoriale Prädiktoren, siehe z. B. Yaremych et al. (2023): "... we have demonstrated that centering guidelines for continuous predictors should be applied analogously to categorical predictors" (p. 8). Hierbei wird ein $k-$stufiger Prädiktor stets durch $k-1$ “Coding-Variablen” repräsentiert. Ob diese durch Dummy-Kodierung, Effekt-Kodierung oder Kontrast-Kodierung gebildet werden, hängt von der intendierten Interpretation ab und liegt außerhalb des Fokus’ dieses Artikels.
 
-## 4. Wie groß sollte das *N* pro Item idealerweise sein?
-
-Grundsätzlich stellt sich die Frage des *N* pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es hängt jedoch stets von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an $N>100$ orientieren. Im Studiendesign versucht man dabei, auf ein $N=150$ zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktische notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:
-
--   **VERA-Pilotierung ohne DIF:** hier wäre $N=150$ ein vertretbarer Richtwert.
--   **VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:** für eine verlässliche DIF-Analyse wäre $N=150$ *pro Geschlechtergruppe* anzustreben. Da geschlecht einigermaßen gleichverteilt und erfahrungsgemäß nur wenige missing values hat, wäre hier $N=300$ ein Minimum, $N=400$ ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt. 
--   **Pilotierung mit DIF-Analyse bzgl. SPF:** Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre $N=150$ in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen $N>20000$ schafft man sowas zwar, aber das wäre in kleineren Erhebungen wie VERA komplett unrealistisch. Hier müsste man also ggf. sowas wie Oversampling machen, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen "überrepräsentieren". 
--   **Analysen bzgl. Migrationshintergrund:** Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem *N* pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichproe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus $Migrationshintergrund\times Geschlecht$ hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein -- es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen. 
-
-### Literatur
+### d. Literatur
 
 Algina, J., & Swaminathan, H. (2011). Centering in two-level nested designs. In J. Hox & K. Roberts (Eds.), *The handbook of advanced multilevel data analysis* (pp. 285–312). Routledge.
 
 Bauer, D.J., & Curran, P.J. (2005). Probing interactions in fixed and multilevel regression: Inferential and graphical techniques. *Multivariate Behavioral Research, 40*, 373–400. https://doi.org/10.1207/s15327906mbr4003_5
 
 Yaremych, H. E., Preacher, K. J., & Hedeker, D. (2023). Centering categorical predictors in multilevel models: Best practices and interpretation. *Psychological Methods, 28*(3), 613–630. https://doi.org/10.1037/met0000434
+
+
+## 4. Wie groß sollte das *N* pro Item in typischen IQB-Pilotierungsstudien idealerweise sein?
+
+Grundsätzlich stellt sich die Frage des *N* pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen und dafür gibt es Daumenregeln. Als Minimalwert kann man sich an $N>100$ orientieren. Im Studiendesign versucht man dabei, auf ein $N=150$ zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:
+
+-   **VERA-Pilotierung ohne DIF:** hier wäre $N=150$ ein vertretbarer Richtwert.
+-   **VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:** für eine verlässliche DIF-Analyse wäre $N=150$ *pro Geschlechtergruppe* anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier $N=300$ ein Minimum, $N=400$ ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.
+-   **Pilotierung mit DIF-Analyse bzgl. SPF:** Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre $N=150$ in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen $N>20000$ schafft man sowas zwar, aber das wäre in kleineren Erhebungen wie VERA komplett unrealistisch. Hier müsste man also ggf. ein Oversampling machen, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen "überrepräsentieren".
+-   **Analysen bzgl. Migrationshintergrund:** Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem *N* pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus $\text{Migrationshintergrund} \times \text{Geschlecht}$ hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein -- es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.
 
 ## 
 
