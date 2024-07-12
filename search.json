@@ -1,102 +1,5 @@
 [
   {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
-    "section": "",
-    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJun 3, 2024\n\n\nPlotting with ggplot2\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nApr 8, 2024\n\n\nColumn-wise operations in the tidyverse\n\n\nNicklas Hafiz\n\n\n6 min\n\n\n\n\n\n\n\nMar 25, 2024\n\n\nData wrangling in the tidyverse\n\n\nNicklas Hafiz\n\n\n12 min\n\n\n\n\n\n\n\nMar 22, 2024\n\n\nData sets\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nIntroduction to the tidyverse\n\n\nNicklas Hafiz\n\n\n7 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "docs/discussions/code_conventions.html",
-    "href": "docs/discussions/code_conventions.html",
-    "title": "Code-Konventionen",
-    "section": "",
-    "text": "Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat."
-  },
-  {
-    "objectID": "docs/discussions/code_conventions.html#überblick",
-    "href": "docs/discussions/code_conventions.html#überblick",
-    "title": "Code-Konventionen",
-    "section": "",
-    "text": "Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat."
-  },
-  {
-    "objectID": "docs/discussions/code_conventions.html#allgemeine-konventionen",
-    "href": "docs/discussions/code_conventions.html#allgemeine-konventionen",
-    "title": "Code-Konventionen",
-    "section": "Allgemeine Konventionen",
-    "text": "Allgemeine Konventionen\n\nUmfang von Code-Abschnitten\n\nGenerell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.\nGleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.\nIn R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.\n\nBei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.\nRigoroses testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.\n\nhttps://uptake.github.io/pkgnet/articles/pkgnet-intro.html\n\n\n\n\nBenennungskonventionen\n\nBei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.\nkurze Namen vs sprechende Namen =&gt; eher sprechende Namen\nFunktionen: eher Verben\nObjekte (die keine Funktionen sind): eher Substantive\nallgemein keine Dopplungen mit existierenden R-Objekten!\nObjekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?\n\nwenn sich Objekte substanziell ändern, nicht überschreiben\n\nhäufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, …\nArgumentreihenfolge? (Pipebarkeit =&gt; auch: Output-Steuerung)"
-  },
-  {
-    "objectID": "docs/discussions/code_conventions.html#code-review",
-    "href": "docs/discussions/code_conventions.html#code-review",
-    "title": "Code-Konventionen",
-    "section": "Code Review",
-    "text": "Code Review\nOverview of the Git-Workflow can be found here.\n\nVorgehen\n\nPerson, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden.\nSind mehrere Reviewer zum Review assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen)\nÜbernimmt man ein Review, assigned man sich selbst den Pull-Request, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)\n\n\n\nWas muss bei der Anforderung eines Reviews beachtet werden?\n\nEher kleinschrittige, abgeschlossene Bestandteile reviewen lassen.\nPriorität festlegen\n\nhigh: innerhalb eines Tages\nmedium: innerhalb einer Woche\nlow: keine Zeitbegrenzung\n\n\n\n\nWas sollen die Reviewer machen?\n\nSich zum Review assignen, wenn man anfängt.\nBenennungskonventionen, Formatkonventionen\nVerständlichkeit\nTests auf Vollständigkeit überprüfen (Edge Cases, möglichst alles abgedeckt?)\n\n\nOptional:\n\n\nMit den Tests rumspielen, versuchen die Funktion failen zu lassen.\n\n\n\nPersonelle Aufteilung\n\neatPrepTBA: PF, NH, KAS, … (mal schauen)\neatPrep: KAS, PF, NH\neatPlot: NH, PF, KAS\neatModel: SW, KAS, BB\neatRep: SW, BB, KAS\neatTools: SW, KAS, BB, NH, PF\neatAnalysis: BB, SW, KAS\neatGADS: BB, KAS, NH\neatDB: BB, PF, NH\neatFDZ: BB, NH\neatCodebook: BB, SW, PF, NH\neatRecode: BB, NH\neatATA: BB, DD, ?\n\n\n\nKommunikation & Zeiterwartung\n\nPerson, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab …), oder eine Prioritätenfestlegung.\nIn Zukunft soll ein Standardprozedere definiert werden, in welchem festgelegt wird, in welcher Tiefe das Review erfolgen soll, und was standardmäßig gecheckt werden soll.\nLabel sollen einheitlich über die Repositories erstell und gentutzt werden (Bug/Enhancement …, Prio-Label)"
-  },
-  {
-    "objectID": "docs/discussions/code_conventions.html#issues",
-    "href": "docs/discussions/code_conventions.html#issues",
-    "title": "Code-Konventionen",
-    "section": "Issues",
-    "text": "Issues\n\nWir nutzen GitHub-Projects um alle ToDos aus verschiedenen Repos an einem Ort zu sammeln.\n\nWichtige Issues aus jedem Repo sollten im Projekt hinzugefügt werden.\n\n\nIssues aus einem anderen Repository zum Projekt hinzufügen\n\nClick on Add item\n#beckerbenj/eatGADS\nFrom the suggested list you can choose the issue you want to add to the project, or create a new one.\n\nYou can filter for all open issues with is:issue is:open.\n\n\n\nIssue sorting\n\nColumn “Done” contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together.\nEverything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos."
-  },
-  {
-    "objectID": "docs/discussions/code_conventions.html#mögliche-nächste-themen",
-    "href": "docs/discussions/code_conventions.html#mögliche-nächste-themen",
-    "title": "Code-Konventionen",
-    "section": "Mögliche nächste Themen",
-    "text": "Mögliche nächste Themen\n\nIndentierung?\nHäufige Argumentnamen\nDplyr und/oder pipen?\nKommentar- & Austauschsprache\n“Sprechender Code”? Vgl. best Coding Practices…\nfinales Ziel: styleR?\nTests (Abdeckung, Umsetzung, Style, …)\nschematische Paket-Dokumentationen (nächstes Thema!)\n\npotentiell interessantes R Paket zur Visualisierung: https://uptake.github.io/pkgnet/articles/pkgnet-intro.html\n\nPaketstruktur-Vignette/Dokumentation auf Quarto-Homepage\nLabels bei Pull-Requests und Issues\nUmgang mit failed Tests bei Pull-Requests (ggf. differenziert nach Stumi/Wimi)\nWorkflow Update Pull Requests (Wiedervorlage nach Einarbeitung von requested Changes)"
-  },
-  {
-    "objectID": "docs/git/index.html",
-    "href": "docs/git/index.html",
-    "title": "Pull requests with Github",
-    "section": "",
-    "text": "When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version.",
-    "crumbs": [
-      "R-Sig",
-      "GitHub",
-      "Pull requests with Github"
-    ]
-  },
-  {
-    "objectID": "docs/git/index.html#recommended-workflow",
-    "href": "docs/git/index.html#recommended-workflow",
-    "title": "Pull requests with Github",
-    "section": "Recommended Workflow",
-    "text": "Recommended Workflow\n\nPull all changes from the relevant branch. Normally, this will be the branch main, but it might also happen that you want to extend on another branch.\nCreate and checkout (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it.\nMake changes in your local repository.\nCommit them as often as possible. The more you commit, the more of you work gets saved regulary.\nIf you want to upload your changes, Push.\nRepeat 3 - 5 until you are done.\n\n\nInitiating a review\nOnce you are content with your changes and you want to finalize them, you can initiate a review:\n\nChange to the the Github page of the package (for example, eatTools repository) and start the pull request via “Compare & pull request”. This will open a new page, where you can customize your pull request.\nChoose your favorite reviewer under “Reviewer”. You can ask multiple people.\nEnter a comment for the request, specifying what you want the reviewer(s) to look for especially.\nClick on “create pull request” to start the request.\n\n\n\nReview Process\n\nNow the review process begins: The person that takes over the review assigns herself on the right side of the pull request page. Keep in mind our Code Conventions.\nThe reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code.\nIn the end, the reviewer delivers their final verdict: approve or request changes.\nNow it’s the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made.\nThe changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made.\nReiterate until the author and reviewer have reached an agreement.\nIf both are satisfied. On the GitHub Pull-request page, select “merge pull request into main” (or any other branch you want to and can merge on) at the bottom.\nFinally, the review branch can be deleted. Choose “delete” on the Github homepage. Then delete the local branch (i.e. in GitKraken) in the same way if necessary",
-    "crumbs": [
-      "R-Sig",
-      "GitHub",
-      "Pull requests with Github"
-    ]
-  },
-  {
-    "objectID": "docs/git/index.html#please-note",
-    "href": "docs/git/index.html#please-note",
-    "title": "Pull requests with Github",
-    "section": "Please note",
-    "text": "Please note\nAs long as the master/main branch and the new branch are not merged again, there are two “parallel” branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check and be conscious about on which branch you are currently working on.",
-    "crumbs": [
-      "R-Sig",
-      "GitHub",
-      "Pull requests with Github"
-    ]
-  },
-  {
-    "objectID": "docs/git/index.html#git-workflow-im-terminal-nh",
-    "href": "docs/git/index.html#git-workflow-im-terminal-nh",
-    "title": "Pull requests with Github",
-    "section": "Git-Workflow im Terminal (NH)",
-    "text": "Git-Workflow im Terminal (NH)\n\nGegebenenfalls: Auf den mainbranch wechseln: git checkout main\nVerifizieren, dass man auf dem richtigen branch ist: git status\nOnlinebranch lokal herunterladen: git pull\nGegebenenfalls: Neuen branch “branch_2” erstellen, und direkt darauf wechseln: git checkout -b branch_2\n(Alle) Änderungen stagen: git add .\nGestagte Änderungen commiten (mit aussagekräftiger Commitmessage): git commit -m \"implemented new function\"\nCommits hochladen: git push",
-    "crumbs": [
-      "R-Sig",
-      "GitHub",
-      "Pull requests with Github"
-    ]
-  },
-  {
     "objectID": "docs/R/index.html",
     "href": "docs/R/index.html",
     "title": "Material for learning R",
@@ -188,39 +91,51 @@
     ]
   },
   {
-    "objectID": "docs/eatPackages/eatRecode.html",
-    "href": "docs/eatPackages/eatRecode.html",
-    "title": "eatRecode",
+    "objectID": "docs/reproduce/renv.html",
+    "href": "docs/reproduce/renv.html",
+    "title": "The renv-Package",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreate and apply recoding databases.\n\n\n\n\n\nDocumentation",
+    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\").",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "eatRecode"
+      "Reproducibility",
+      "The renv-Package"
     ]
   },
   {
-    "objectID": "docs/eatPackages/eatModel.html",
-    "href": "docs/eatPackages/eatModel.html",
-    "title": "eatModel",
+    "objectID": "docs/eatPackages/eatPlot.html",
+    "href": "docs/eatPackages/eatPlot.html",
+    "title": "eatPlot",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreating plots from the eatRep output (main use: Bilduntstrend).\nDokumentation:\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes",
     "crumbs": [
       "R-Sig",
       "eat Packages",
-      "eatModel"
+      "eatPlot"
     ]
   },
   {
-    "objectID": "docs/eatPackages/eatTools.html",
-    "href": "docs/eatPackages/eatTools.html",
-    "title": "eatTools",
+    "objectID": "docs/eatPackages/eatATA.html",
+    "href": "docs/eatPackages/eatATA.html",
+    "title": "eatATA",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nDocumentation\n\n\n\n\nReference manual",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nDocumentation\n\n\n\n\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n‘eatATA’ Functionality\n\n\na Pilot Study Example\n\n\nReference manual",
     "crumbs": [
       "R-Sig",
       "eat Packages",
-      "eatTools"
+      "eatATA"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/eatCodebook.html",
+    "href": "docs/eatPackages/eatCodebook.html",
+    "title": "eatCodebook",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated creation of scale manuals.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "eatCodebook"
     ]
   },
   {
@@ -236,27 +151,27 @@
     ]
   },
   {
-    "objectID": "docs/eatPackages/eatPrep.html",
-    "href": "docs/eatPackages/eatPrep.html",
-    "title": "eatPrep",
+    "objectID": "docs/eatPackages/eatRep.html",
+    "href": "docs/eatPackages/eatRep.html",
+    "title": "eatRep",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, internal\n\n\n\n\n\n\nDescription\nPreparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple datasets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool “AnalyseInput”, which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal: “i:/Methoden/02_IQB-interne_eat_Workshops/eatPrep_2021”",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\nDocumentation\n\nA vignette which demonstrates replication analyses with eatRep is here.\nThe internal structure of the package is documented here. This overview is primarily dedicated to developers who want to further improve or extend the package and therefore need to understand its structure.\nWorkshop materials concerning eatRep can also be found on the IQB network drives: i:\\Methoden\\02_IQB-interne_eat_Workshops\\eatRep_2021\\",
     "crumbs": [
       "R-Sig",
       "eat Packages",
-      "eatPrep"
+      "eatRep"
     ]
   },
   {
-    "objectID": "docs/eatPackages/eatPlot.html",
-    "href": "docs/eatPackages/eatPlot.html",
-    "title": "eatPlot",
+    "objectID": "docs/eatPackages/eatAnalysis.html",
+    "href": "docs/eatPackages/eatAnalysis.html",
+    "title": "eatAnalysis",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nNicklas Hafiz, Philipp Franikowski\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreating plots from the eatRep output (main use: Bilduntstrend).\nDokumentation:\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-",
     "crumbs": [
       "R-Sig",
       "eat Packages",
-      "eatPlot"
+      "eatAnalysis"
     ]
   },
   {
@@ -302,46 +217,53 @@
     "text": "Footnotes\n\n\nImage by Sinjin Thomas on Unsplash.↩︎\nMy Footnote.↩︎"
   },
   {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
+    "objectID": "docs/FAQ/FAQ.html",
+    "href": "docs/FAQ/FAQ.html",
+    "title": "FAQ",
     "section": "",
-    "text": "12-01-2024\n\n\nNewsletter\n\n\n\nNicklas Hafiz\n\n\nDec 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:\n1. Die Quadratwurzel aus \\(R^2\\) ziehen\n2. eine Fisher z-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird\n3. Rubins Regeln für metrische Variablen anwenden\n4. mit einer inversen z-Transformation den Wert wieder zurückrechnen und quadrieren\nHarel, O. (2009). The estimation of R2 and adjusted R2 in incomplete data sets using multiple imputation. Journal of Applied Statistics, 36(10), 1109-1118.\n\n\n\nIm Paket eatRep kann das über die Funktion pool.R2() berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird.\nAngenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) \\(R^2\\)-Werte, dann kann der gepoolte \\(R^2\\)-Wert folgendermaßen bestimmt werden:\n\nr2 &lt;- c(0.12,0.18,0.17,0.21,0.23)\neatRep::pool.R2(r2)"
   },
   {
-    "objectID": "posts/r_sig/23_07_31_apply/index.html",
-    "href": "posts/r_sig/23_07_31_apply/index.html",
-    "title": "The apply family",
+    "objectID": "docs/FAQ/FAQ.html#wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen",
+    "href": "docs/FAQ/FAQ.html#wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen",
+    "title": "FAQ",
     "section": "",
-    "text": "I can highly recommend the according chapter in R for Data Science in case you want to dive deeper."
+    "text": "Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:\n1. Die Quadratwurzel aus \\(R^2\\) ziehen\n2. eine Fisher z-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird\n3. Rubins Regeln für metrische Variablen anwenden\n4. mit einer inversen z-Transformation den Wert wieder zurückrechnen und quadrieren\nHarel, O. (2009). The estimation of R2 and adjusted R2 in incomplete data sets using multiple imputation. Journal of Applied Statistics, 36(10), 1109-1118.\n\n\n\nIm Paket eatRep kann das über die Funktion pool.R2() berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird.\nAngenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) \\(R^2\\)-Werte, dann kann der gepoolte \\(R^2\\)-Wert folgendermaßen bestimmt werden:\n\nr2 &lt;- c(0.12,0.18,0.17,0.21,0.23)\neatRep::pool.R2(r2)"
   },
   {
-    "objectID": "posts/r_sig/23_07_31_apply/index.html#for-loops",
-    "href": "posts/r_sig/23_07_31_apply/index.html#for-loops",
-    "title": "The apply family",
-    "section": "For-loops",
-    "text": "For-loops\nIn the last SIG we talked about for-loops.\nWhile for is definitely the most flexible of the looping options, we suggest you avoid it wherever you can, for the following two reasons:\n\n\nIt is not very expressive, i.e. takes a lot of code to do what you want.\n\n\nIt permits you to write horrible code.\n\n\nLet’s consider this example:\n\nexample_list &lt;- list(\n  \"vec_1\" = c(1:10),\n  \"vec_2\" = c(100:400),\n  \"vec_3\" = c(80:97, NA)\n)\nstr(example_list)\n\nList of 3\n $ vec_1: int [1:10] 1 2 3 4 5 6 7 8 9 10\n $ vec_2: int [1:301] 100 101 102 103 104 105 106 107 108 109 ...\n $ vec_3: int [1:19] 80 81 82 83 84 85 86 87 88 89 ...\n\n\nHere we have a list consisting of three vectors. Our goal is to sum them an output the result into a new vector. We could use a for-loop to do that:\n\nvec_sum &lt;- c()\nfor(i in 1: length(example_list)){\n  vec_sum[i] &lt;- sum(example_list[[i]], na.rm = TRUE)\n}\nvec_sum\n\n[1]    55 75250  1593\n\n\nOkay, that doesn’t look that complicated. But still, we need to define an empty vector at the beginning so we can save our sums, we need to iterate from 1:length(example_list), and manually select the \\(i^{th}\\) from the input list. That is not very expressive, and can be solved a lot easier. Enter, the apply-family:"
+    "objectID": "docs/FAQ/FAQ.html#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte",
+    "href": "docs/FAQ/FAQ.html#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte",
+    "title": "FAQ",
+    "section": "2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?",
+    "text": "2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?\nIn eatModel wird nur der erste Teil der zweiten Tabelle \\(item\\times [DIFvariable]\\) aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items in der ersten Gruppe der \\([DIFvariable]\\) leichter sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:\n\nlibrary(kableExtra)\nlibrary(eatTools)\nlibrary(eatModel)\ndata(data.ex08, package=\"TAM\")\ndat &lt;- data.frame ( id = 1:nrow(data.ex08[[\"resp\"]]), female = unlist(data.ex08[[\"facets\"]])-1, data.ex08[[\"resp\"]])\ndef &lt;- defineModel(dat, items= -c(1:2), id=\"id\", DIF.var = \"female\", software=\"tam\")\n\n14 subject(s) do not solve any item:\n   115 (10 false), 613 (10 false), 979 (10 false) ... \n7 subject(s) solved each item: 119 (10 correct), 514 (10 correct), 774 (10 correct) ... \nDataset is completely linked.\n'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.\nQ matrix specifies 1 dimension(s).\n\nrun &lt;- runModel(def)\nres &lt;- getResults(run)\n\n|*****|\n|-----|\n\nitem&lt;- itemFromRes(res)\n\nDas einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:\n\nitem6 &lt;- subset(roundDF(item,digits = 3), item == \"I0006\")\ncols  &lt;- c(\"item\", \"itemP\", \"est\", \"estDif\", \"absDif\", \"difIndex\", \"ETS\")\n# ausgewaehlte Spalten fuer Items 6 anzeigen lassen \nkbl(item6[,cols], row.names=FALSE) %&gt;% \n    kable_styling(bootstrap_options = \"striped\", full_width = FALSE, position = \"center\")\n\n\n\n\nitem\nitemP\nest\nestDif\nabsDif\ndifIndex\nETS\n\n\n\n\nI0006\n0.454\n0.226\n0.31\n0.62\n1\nB\n\n\n\n\n\n\n\nDie allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von item[which(item[,\"item\"] == \"I0006\"),\"estDif\"] bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1:\n\ntapply(dat[,\"I0006\"], dat[,\"female\"], mean)\n\n    0     1 \n0.410 0.498"
   },
   {
-    "objectID": "posts/r_sig/23_07_31_apply/index.html#the-apply-family",
-    "href": "posts/r_sig/23_07_31_apply/index.html#the-apply-family",
-    "title": "The apply family",
-    "section": "The apply-family",
-    "text": "The apply-family\nThe apply-functions apply a function to a vector, list, matrix … and also always return a vector, list matrix …, depending on the specific function. Let’s rewrite our for-loop with sapply():\n\nvec_sum &lt;- sapply(example_list, sum)\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250    NA \n\n\nA lot less code and easier to understand! We just go over every list element and calculate its sum.\nIf we want to add another function argument, we can do that as well:\n\nvec_sum &lt;- sapply(example_list, sum, na.rm = TRUE)\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nWe can also define our own function:\n\nvec_sum &lt;- sapply(example_list, function(x){\n  res_sum &lt;- sum(x, na.rm = TRUE)\n  print(res_sum)\n  return(res_sum)\n})\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nHere we calculate the sum of object x, and then print it.\nFinally, which makes for even nicer code, we can define the function externally, to give it a concise name:\n\nprint_sum &lt;- function(vec){\n  res_sum &lt;- sum(vec, na.rm = TRUE)\n  print(res_sum)\n  return(res_sum)\n}\n\nvec_sum &lt;- sapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nDepending of the output we want, we can choose different apply-functions:\n\nsapply()\nsapply() simplifies the result, so, e.g., it will return a vector if possible:\n\nsapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\n\n\nvapply()\nSimilar to sapply(), but we can pre-specify a return value, so it might be safer to use:\n\nvapply(example_list, print_sum, integer(1))\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nBecause the result is an integer vector, we don’t get an error, but if we write this:\n\nvapply(example_list, print_sum, character(1))\n\n[1] 55\n\n\nError in vapply(example_list, print_sum, character(1)): values must be type 'character',\n but FUN(X[[1]]) result is type 'integer'\n\n\nThe function returns an error, because its output is an integer, and not a character vector.\n\n\nlapply()\nReturns a list:\n\nlapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\n$vec_1\n[1] 55\n\n$vec_2\n[1] 75250\n\n$vec_3\n[1] 1593\n\n\n\n\n\n\n\n\nExercises\n\n\n\nWork with the iris data.frame (it is already included in Base R):\n\nExercise 1\nWrite a for-loop to determine the median of each column, if it is numeric. If not, return the column class with class(). Save the results in a character vector, so every element should be converted to character before saving it in the vector.\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  if(is.numeric(iris[, i])){\n    vec_median[i] &lt;- as.character(median(iris[, i], na.rm = TRUE))\n  } else{\n    vec_median[i] &lt;- class(iris[, i])\n  }\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\"\n\n\n\n\n\n\n\nExercise 2\n\nDefine the body of the for loop as its own function. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\ncheck_median &lt;- function(vec){\n  if(is.numeric(vec)){\n    result &lt;- median(vec, na.rm = TRUE)\n  } else{\n    result &lt;- class(vec)\n  }\n  ## Convert to character, so our function always returns the correct type\n  result &lt;- as.character(result)\n  return(result)\n}\n\n## Check it:\ncheck_median(c(100, 1000))\n\n[1] \"550\"\n\ncheck_median(c(\"a\", \"b\"))\n\n[1] \"character\"\n\n\n\n\n\n\nUse it in the for-loop.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  vec_median[i] &lt;- check_median(iris[, i])\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\"\n\n\n\n\n\n\n\nExercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
+    "objectID": "docs/FAQ/FAQ.html#zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen",
+    "href": "docs/FAQ/FAQ.html#zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen",
+    "title": "FAQ",
+    "section": "3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen",
+    "text": "3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen\nWenn in Mehrebenenmodellen Interaktionen geschätzt werden, hängt die Schätzung des Intercepts wie auch die der Haupteffekte von der gewählten Skala der Prädiktoren ab. Die Haupteffekte repräsentieren den Effekt eines Prädiktors an der Stelle, an der die anderen Prädiktoren null sind. Da die Null oftmals kein natürlicher Wert von Prädiktoren ist (z. B. ist die Interpretation eines Effekts an der Stelle Klassengröße = 0 i. d. R. nicht sehr sinnvoll), wird das Zentrieren der Prädiktoren empfohlen. Hier kommen zwei Varianten in Frage: Zentrierung am Gruppenmittelwert und Zentrierung am Gesamtmittelwert. Für einen Prädiktor \\(X\\), der an Individuum \\(i\\) (\\(\\forall i \\in \\{1,…,i,…,n\\}\\)) in Gruppe \\(j\\) (\\(\\forall j \\in \\{1,…,j,…,J\\}\\)) erhoben wird, bedeutet eine Zentrierung am Gesamtmittelwert, dass man von diesem individuellen Wert \\(x_{ij}\\) den Gesamtmittelwert \\(M_X\\) abzieht, gemäß: \\(X_{ij}-M_X\\). Eine Zentrierung am Gruppenmittelwert bedeutet, dass man vom individuellen Wert \\(x_{ij}\\) den Mittelwert der jeweiligen Gruppe abzieht, gemäß: \\(X_{ij}-M_{X_j}\\) Hier eine grafische Darstellung dieser Zentrierungsmöglichkeiten eines Prädiktors:\n\n\n\nZentrierungsmöglichkeiten\n\n\nHier ist derselbe Prädiktor in seinen drei Zentrierungsformen in Relation zu einem Outcome abgebildet:\n\n\n\ndrei Zentrierungsformen in Relation zu einem Outcome\n\n\nWenn man nun eine einfache lineare Regression eines Outcomes auf den Prädiktor rechnet, kann man die Haupteffekte (Slopes) des unzentrierten Prädiktors und des Grand-Mean-zentrierten Prädiktors genau gleich interpretieren: Der Regressionskoeffizient beschreibt die Veränderung des Outcomes, wenn der Prädiktor um eine Einheit ansteigt. Dies gilt nicht für den Group-Mean-zentrierten Prädiktor: Dieser repräsentiert die erwartete Veränderung des Outcomes bei Zunahme des Prädiktors um eine durchschnittliche Einheit innerhalb der Gruppen.\n\na. Zentrierung um den Gruppenmittelwert: Schätzung von Individual- und Aggregateffekten unabhängig voneinander.\nDie Zentrierung um den Gruppenmittelwert ermöglicht die Trennung der individuellen Variation innerhalb der Gruppen von der Variation zwischen den Gruppen. Dadurch können sowohl die Effekte auf der Individualebene als auch die Effekte auf der Gruppenebene unabhängig voneinander geschätzt werden.\n\nInterpretation von Level-1-Variablen-Interaktionen: Zeigt an, wie sich die lineare Beziehung zwischen Variablen innerhalb der Gruppen gestaltet.\nInterpretation von Level-2-Variablen-Interaktionen: Zeigt an, wie sich die lineare Beziehung der Variablen zwischen den Gruppen gestaltet – allerdings wird hier nicht voll kontrolliert für Level-1-Prädiktoren, sofern nicht zusätzlich noch die Gruppenmittelwerte der zu kontrollierenden Level-1-Variablen aufgenommen werden, sodass die Zentrierung um den Gruppenmittelwert für diesen Zweck von manchen Autor:innen als weniger sinnvoll erachtet wird (Algina & Swaminathan, 2011).\nInterpretation von Cross-Level-Interaktionen: Bei der Untersuchung von Interaktionen zeigt ein Interaktionseffekt zwischen einer um den Gruppenmittelwert zentrierten individuellen Variablen (Level-1) und einer gruppenbezogenen Variablen (Level-2), inwiefern der Effekt der individuellen Variablen von der gruppenbezogenen Variablen abhängt: Hat eine höhere Ausprägung auf einer Level-1-Variablen relativ zum Gruppenmittelwert auf dieser Variablen einen anderen Effekt auf das Kriterium, wenn die Ausprägung einer Level-2-Variablen für die Gruppe höher ist? Der Koeffizient sollte sich gemäß Algina und Swaminathan (2011) nicht bedeutsam unterscheiden von dem, der durch Zentrierung um den Gesamtmittelwert geschätzt wird, aber falls doch, empfehlen die Autoren, diese Cross-Level-Interaktion aus dem Modell zu entfernen. Andere Autor:innen empfehlen nur Group-Mean-Centering der Level-1- und Grand-Mean-Centering der Level-2-Prädiktoren bei Untersuchung von Cross-Level-Interaktionen, da so die Interpretation der Haupteffekte erleichtert wird (z.B. Bauer & Curran, 2005). Mehrere Autor:innen (z. B. Yaremych et al., 2023) plädieren bei Cross-Level-Interaktionen im Allgemeinen für diese Art der Zentrierung, da sie meistens den formulierten Cross-Level-Interaktions-Hypothesen entspricht.\n\n\n\nb. Zentrierung um den Gesamtmittelwert: Führt zu einfacher Interpretation des Intercepts, aber auch zu “Overall-Regression”.\nDie Zentrierung um den Gesamtmittelwert ermöglicht die Untersuchung der Effekte in Bezug auf den Mittelwert der gesamten Stichprobe. Das Intercept entspricht dem erwarteten Wert auf der Kriteriumsvariablen bei durchschnittlicher Ausprägung der Prädiktorvariablen. Die Effekte zwischen und innerhalb der Untersuchungseinheiten lassen sich nicht mehr getrennt interpretieren („Overall-Regression“).\n\nInterpretation von Level-1-Variablen-Interaktionen: Zeigt an, wie sich die lineare Beziehung der Variablen über alle Gruppen hinweg gestaltet.\nInterpretation von Level-2-Variablen-Interaktionen: Zeigt an, wie sich die lineare Beziehung der Variablen zwischen den Gruppen gestaltet (ggf. vollständig kontrolliert für Level-1-Prädiktoren). Diese Form der Zentrierung wird zu solchem Zweck meist empfohlen (Algina & Swaminathan, 2011).\nInterpretation von Cross-Level-Interaktionen: Bei der Untersuchung von Interaktionen zeigt ein Interaktionseffekt zwischen einer um den Gesamtmittelwert zentrierten individuellen Variablen (Level-1) und einer gruppenbezogenen Variablen (Level-2), wie der Effekt der individuellen Variablen über alle Gruppen hinweg von der gruppenbezogenen Variablen abhängt: Hat eine höhere absolute Ausprägung auf einer Level-1-Variablen einen anderen Effekt auf das Kriterium, wenn die Ausprägung einer Level-2-Variablen für die Gruppe höher ist? Algina und Swaminathan (2011) plädieren dafür, diese Cross-Level-Interaktion aus dem Modell zu entfernen, sollte sich der Effekt deutlich unterscheiden von der alternativen Schätzung nach Zentrierung um den Gruppenmittelwert.\n\n\n\nc. Keine Zentrierung: Ist selten sinnvoll bei Interaktionen im Modell. Vor allem dann nicht, wenn die Null für die Prädiktorvariablen kein sinnvoller Wert ist.\nAlle Empfehlungen gelten ebenso für kategoriale Prädiktoren, siehe z. B. Yaremych et al. (2023): “… we have demonstrated that centering guidelines for continuous predictors should be applied analogously to categorical predictors” (p. 8). Hierbei wird ein \\(k-\\)stufiger Prädiktor stets durch \\(k-1\\) “Coding-Variablen” repräsentiert. Ob diese durch Dummy-Kodierung, Effekt-Kodierung oder Kontrast-Kodierung gebildet werden, hängt von der intendierten Interpretation ab und liegt außerhalb des Fokus’ dieses Artikels.\n\n\nd. Literatur\nAlgina, J., & Swaminathan, H. (2011). Centering in two-level nested designs. In J. Hox & K. Roberts (Eds.), The handbook of advanced multilevel data analysis (pp. 285–312). Routledge.\nBauer, D.J., & Curran, P.J. (2005). Probing interactions in fixed and multilevel regression: Inferential and graphical techniques. Multivariate Behavioral Research, 40, 373–400. https://doi.org/10.1207/s15327906mbr4003_5\nYaremych, H. E., Preacher, K. J., & Hedeker, D. (2023). Centering categorical predictors in multilevel models: Best practices and interpretation. Psychological Methods, 28(3), 613–630. https://doi.org/10.1037/met0000434"
   },
   {
-    "objectID": "posts/r_sig/23_07_31_apply/index.html#exercise-2",
-    "href": "posts/r_sig/23_07_31_apply/index.html#exercise-2",
-    "title": "The apply family",
-    "section": "Exercise 2",
-    "text": "Exercise 2\n\nDefine the body of the for loop as its own function. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\ncheck_median &lt;- function(vec){\n  if(is.numeric(vec)){\n    result &lt;- median(vec, na.rm = TRUE)\n  } else{\n    result &lt;- class(vec)\n  }\n  ## Convert to character, so our function always returns the correct type\n  result &lt;- as.character(result)\n  return(result)\n}\n\n## Check it:\ncheck_median(c(100, 1000))\n\n[1] \"550\"\n\ncheck_median(c(\"a\", \"b\"))\n\n[1] \"character\"\n\n\n\n\n\n\nUse it in the for-loop.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  vec_median[i] &lt;- check_median(iris[, i])\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\""
+    "objectID": "docs/FAQ/FAQ.html#wie-groß-sollte-das-n-pro-item-in-typischen-iqb-pilotierungsstudien-idealerweise-sein",
+    "href": "docs/FAQ/FAQ.html#wie-groß-sollte-das-n-pro-item-in-typischen-iqb-pilotierungsstudien-idealerweise-sein",
+    "title": "FAQ",
+    "section": "4. Wie groß sollte das N pro Item in typischen IQB-Pilotierungsstudien idealerweise sein?",
+    "text": "4. Wie groß sollte das N pro Item in typischen IQB-Pilotierungsstudien idealerweise sein?\nGrundsätzlich stellt sich die Frage des N pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen und dafür gibt es Daumenregeln. Als Minimalwert kann man sich an \\(N&gt;100\\) orientieren. Im Studiendesign versucht man dabei, auf ein \\(N=150\\) zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:\n\nVERA-Pilotierung ohne DIF: hier wäre \\(N=150\\) ein vertretbarer Richtwert.\nVERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht: für eine verlässliche DIF-Analyse wäre \\(N=150\\) pro Geschlechtergruppe anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier \\(N=300\\) ein Minimum, \\(N=400\\) ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.\nPilotierung mit DIF-Analyse bzgl. SPF: Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre \\(N=150\\) in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen \\(N&gt;20000\\) schafft man sowas zwar, aber das wäre in kleineren Erhebungen wie VERA komplett unrealistisch. Hier müsste man also ggf. ein Oversampling machen, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen “überrepräsentieren”.\nAnalysen bzgl. Migrationshintergrund: Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem N pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus \\(\\text{Migrationshintergrund} \\times \\text{Geschlecht}\\) hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein – es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen."
   },
   {
-    "objectID": "posts/r_sig/23_07_31_apply/index.html#exercise-3",
-    "href": "posts/r_sig/23_07_31_apply/index.html#exercise-3",
-    "title": "The apply family",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
+    "objectID": "docs/FAQ/FAQ.html#section",
+    "href": "docs/FAQ/FAQ.html#section",
+    "title": "FAQ",
+    "section": "",
+    "text": "Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IQB Methods Team",
+    "section": "",
+    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
   },
   {
     "objectID": "posts/r_sig/24_06_03_ggplot2/index.html",
@@ -358,25 +280,53 @@
     "text": "Footnotes\n\n\nImage by Bing Copilot.↩︎"
   },
   {
-    "objectID": "posts/r_sig/23_12_18_case_when/index.html",
-    "href": "posts/r_sig/23_12_18_case_when/index.html",
-    "title": "Case_when() function",
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html",
+    "href": "posts/r_sig/23_03_20_forloops/index.html",
+    "title": "for-loops",
     "section": "",
-    "text": "The case_when() function from the dplyr package of the tidyverse is a useful function for combining multiple ifelse() statements."
+    "text": "1"
   },
   {
-    "objectID": "posts/r_sig/23_12_18_case_when/index.html#how-to-use-it",
-    "href": "posts/r_sig/23_12_18_case_when/index.html#how-to-use-it",
-    "title": "Case_when() function",
-    "section": "How to use it",
-    "text": "How to use it\nLet’s take a look at a little example. Let’s consider a very simple data frame containing only a column of different countries:\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\ndf &lt;- data.frame(country = c(rep(\"Deu\", 4), \"Mexico\", \"Peru\", \"Ghana\", \"China\", \"Spanien\"))\n\nNow, let’s suppose we want to add a second column containing the continent of the country. We can either use nested ifelse() statements, which makes the coed quite hard to read:\n\ndf$continent &lt;- ifelse(df$country %in% c(\"Deu\", \"Spanien\"), \n                       yes = \"Europe\", \n                       no = ifelse(\n                         df$country == \"Mexico\" | df$country == \"Peru\", \n                         yes = \"America\",\n                         no = ifelse(\n                           df$country == \"Ghana\", \n                           yes = \"Africa\",\n                           no = \"Asia\"\n                       )\n                       ))\n\ndf\n\n  country continent\n1     Deu    Europe\n2     Deu    Europe\n3     Deu    Europe\n4     Deu    Europe\n5  Mexico   America\n6    Peru   America\n7   Ghana    Africa\n8   China      Asia\n9 Spanien    Europe\n\n\ncase_when() has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are seperated by ~. So if the condition on the left side is met in a row, the function returns the value on the right side of ~:\n\ndf_2 &lt;- df %&gt;%\n  mutate(continent = case_when(country %in% c(\"Deu\", \"Spanien\") ~ \"Europe\", \n                               country %in% c(\"Mexico\", \"Peru\") ~ \"America\",\n                               country == \"Ghana\" ~ \"Africa\", \n                               TRUE ~ \"Another continent\"\n                                 )\n         )\ndf_2\n\n  country         continent\n1     Deu            Europe\n2     Deu            Europe\n3     Deu            Europe\n4     Deu            Europe\n5  Mexico           America\n6    Peru           America\n7   Ghana            Africa\n8   China Another continent\n9 Spanien            Europe\n\n\nWe wrap this statement into a mutate function to automatically create the new column continent from the output of case_when. The TRUE in the last row catches all conditions we haven’t dealt with further above. So all rows wich haven’t met any of the above conditions will get the label “Another continent”."
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
+    "href": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
+    "title": "for-loops",
+    "section": "For-loops",
+    "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
   },
   {
-    "objectID": "posts/r_sig/23_12_18_case_when/index.html#evaluation-order",
-    "href": "posts/r_sig/23_12_18_case_when/index.html#evaluation-order",
-    "title": "Case_when() function",
-    "section": "Evaluation order",
-    "text": "Evaluation order\ncase_when() goes from the top to the bottom. So if a row has met a statement, it is not considered further down. That’s why it makes sense to go from the most specific statements to the less specific ones. Otherwise the least specific ones might overwrite everything in the beginning:\n\ndf_3 &lt;- df %&gt;%\n  mutate(continent = case_when(country %in% c(df$country) ~ \"Other country\", \n                               country %in% c(\"Mexico\", \"Peru\") ~ \"America\",\n                               country == \"Ghana\" ~ \"Africa\", \n                               TRUE ~ \"Another continent\"\n                                 )\n         )\n\ndf_3  \n\n  country     continent\n1     Deu Other country\n2     Deu Other country\n3     Deu Other country\n4     Deu Other country\n5  Mexico Other country\n6    Peru Other country\n7   Ghana Other country\n8   China Other country\n9 Spanien Other country\n\n\nBecause our first statement already covers all rows, the rest is obsolete. This top-down working also makes the TRUE condition in our last line possible, because only those rows that haven’t been used yet will come this far, and all of them are catched (because TRUE always is true)."
+    "objectID": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
+    "href": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
+    "title": "for-loops",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
+  },
+  {
+    "objectID": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html",
+    "href": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html",
+    "title": "Column-wise operations in the tidyverse",
+    "section": "",
+    "text": "1\nlibrary(tidyverse)\n\nathletes &lt;- readRDS(file = here::here(  \"raw_data\", \"athletes.rds\"))"
+  },
+  {
+    "objectID": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#column-wise-operations-with-across",
+    "href": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#column-wise-operations-with-across",
+    "title": "Column-wise operations in the tidyverse",
+    "section": "Column-wise operations with across()",
+    "text": "Column-wise operations with across()\nInstead of looping over columns with a for-loop, we can also use across() in combination with other tidyverse functions.\n\n\n\n\n\n\nmutate_...()\n\n\n\nThe functions mutate_all(), mutate_at(), and mutate_if() do the same, but are superseded. This means they still work, but the tidyverse team recommends to use across() instead.\n\n\nAcross can take column names and a function that should be applied to the selected columns:\n\n## Here we transform the Height and Weight columns to the type character:\nathletes %&gt;%\n  mutate(across(c(Height, Weight), as.character)) %&gt;%\n  str\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height: chr  NA NA \"163\" NA ...\n $ Weight: chr  NA NA \"57\" NA ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n\n\nBut it is also possible to select columns based on a selection function:\n\n## And here we transform all numeric columns into character:\nathletes %&gt;%\n  mutate(across(where(is.numeric), as.character)) %&gt;%\n  str()\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : chr  \"132181\" \"87371\" \"44977\" \"502\" ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : chr  NA NA \"28\" NA ...\n $ Height: chr  NA NA \"163\" NA ...\n $ Weight: chr  NA NA \"57\" NA ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : chr  \"1956\" \"1948\" \"1980\" \"1956\" ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n\n\nWe can also specify our own transformation function."
+  },
+  {
+    "objectID": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#using-tidyverse-functions-in-loops",
+    "href": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#using-tidyverse-functions-in-loops",
+    "title": "Column-wise operations in the tidyverse",
+    "section": "Using tidyverse functions in loops",
+    "text": "Using tidyverse functions in loops\nWhen using tidyverse syntax within a loop, we might run into the problem that the tidyverse function can’t deal with our iteration counter like we are used to:\n\n## Trying to transform the Height and Weight column to character using a for-loop.\n## Note: Normally across() would be a better option in this case (and most of the time anyways).\n##       But sometimes a good old fashioned for-loop might be easier to programm to get the job done, \n##       in which case one should keep some specifics in mind: \n\n## This throws an error: \nathletes_2 &lt;- athletes\n\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_2 &lt;- athletes_2 %&gt;%\n    mutate(i = as.character(.$i))\n}\n\nThis doesn’t work, because we are trying to program a function using data masking. Data masking just means that we don’t have to type athletes$Height in a tidyverse function, but simply Height, because the function knows this refers to a column in the current data.frame.\n\nLoops\n\nIn the case of mutate(), we have to use dynamic dots, which need to used if we want to create names programmatically: := instead of =.\nWe need to embrace the changeable variable (either in a function or a loop) like this: {var}.\nIn mutate(), we can also simply write \"{var}_...\" to paste together a new column name.\nIf we just want to extract data, we can use the .data pronoun with [[ (see here). .data helps to clear up ambiguity, it makes clear you want to extract a column from the current data.frame. This is something different than the ., which can be read like “data up to this point” and references the data that gets put into the function where the . is used. The . actually stands for a data.frame, while .data is used for symbol evaluation.\n\n\nathletes_2 &lt;- athletes\n\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_2 &lt;- athletes_2 %&gt;%\n    mutate({{i}} := as.character(.[[i]]))\n}\nstr(athletes_2)\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height: chr  NA NA \"163\" NA ...\n $ Weight: chr  NA NA \"57\" NA ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_2 &lt;- athletes_2 %&gt;%\n    mutate({{i}} := as.character({{i}}))\n}\nstr(athletes_2)\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height: chr  \"Height\" \"Height\" \"Height\" \"Height\" ...\n $ Weight: chr  \"Weight\" \"Weight\" \"Weight\" \"Weight\" ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n\n## With programmatically built new columns: \nathletes_3 &lt;- athletes\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_3 &lt;- athletes_3 %&gt;%\n    mutate(\"{i}_char\" := as.character(.[[i]]))\n}\n\nstr(athletes_3)\n\n'data.frame':   270767 obs. of  18 variables:\n $ NOC        : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID         : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name       : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex        : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age        : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height     : int  NA NA 163 NA NA 168 NA NA NA NA ...\n $ Weight     : num  NA NA 57 NA 74 73 NA NA 57 NA ...\n $ Team       : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games      : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year       : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season     : chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City       : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport      : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event      : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal      : chr  NA NA NA NA ...\n $ Region     : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Height_char: chr  NA NA \"163\" NA ...\n $ Weight_char: chr  NA NA \"57\" NA ...\n\n\nBeware of overwriting the same data.frame you put into mutate()! Otherwise the resulting data.frame will always be overwritten by the old one that always gets put into the function.\n\n\nFunctions\nThis also applies if we want to define a function with column names as arguments, using tidyverse inside. Here we need to embrace our variable as well to make it data masking friendly:\n\n## This doesn't work:\nprint_col &lt;- function(dat, var){\n  print(dat %&gt;% pull(var))\n}\n\nathletes %&gt;%\n  print_col(Region)\n\n\n## This works:\nprint_col &lt;- function(dat, var){\n  print(dat %&gt;% pull({{var}}))\n}\n\nathletes %&gt;%\n  print_col(Region)\n\n    [1] \"Afghanistan\"                      \"Afghanistan\"                     \n    [3] \"Afghanistan\"                      \"Afghanistan\"                     \n    [5] \"Afghanistan\"                      \"Afghanistan\"                     \n    [7] \"Afghanistan\"                      \"Afghanistan\"                     \n...\n\n\n\n\n\n\n\n\n!!sym()\n\n\n\nIn previous SIG-Sessions we have used !!sym() for this, which also works, but is more to remember:\n\nathletes_2 &lt;- athletes\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_2 &lt;- athletes_2 %&gt;%\n    mutate(!!sym(i) := as.character(!!sym(i)))\n}\n\nstr(athletes_2)\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height: chr  NA NA \"163\" NA ...\n $ Weight: chr  NA NA \"57\" NA ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ..."
+  },
+  {
+    "objectID": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#footnotes",
+    "href": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#footnotes",
+    "title": "Column-wise operations in the tidyverse",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Darryl Low on Unsplash.↩︎"
   },
   {
     "objectID": "posts/r_sig/24_01_26_tidyverse_intro/index.html",
@@ -419,83 +369,6 @@
     "title": "Introduction to the tidyverse",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nImage by Barn Images on Unsplash.↩︎"
-  },
-  {
-    "objectID": "posts/r_sig/23_11_06_renv/index.html",
-    "href": "posts/r_sig/23_11_06_renv/index.html",
-    "title": "Reproducability with renv",
-    "section": "",
-    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
-  },
-  {
-    "objectID": "posts/r_sig/23_11_06_renv/index.html#motivation",
-    "href": "posts/r_sig/23_11_06_renv/index.html#motivation",
-    "title": "Reproducability with renv",
-    "section": "",
-    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
-  },
-  {
-    "objectID": "posts/r_sig/23_11_06_renv/index.html#workflow",
-    "href": "posts/r_sig/23_11_06_renv/index.html#workflow",
-    "title": "Reproducability with renv",
-    "section": "Workflow",
-    "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
-  },
-  {
-    "objectID": "posts/newsletter/23_08_09/index.html",
-    "href": "posts/newsletter/23_08_09/index.html",
-    "title": "09-08-2023",
-    "section": "",
-    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
-  },
-  {
-    "objectID": "posts/newsletter/24_01_12/index.html",
-    "href": "posts/newsletter/24_01_12/index.html",
-    "title": "12-01-2024",
-    "section": "",
-    "text": "Webseite\nDas Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:\nhttps://iqb-research.github.io/IQB-Methods/\n\n\nAnsprechpartner:innen während Benjamins Elternzeit\nBenjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:\n\nGADS BT22 - Sebastian\nFDZ Reporting - Nicklas\neatFDZ - Karoline\neatGADS - Philipp\n\n\n\neatTools\nDie Version 0.7.5 liegt nun auf CRAN und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen halveString() und mergeAttr(). Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden."
-  },
-  {
-    "objectID": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html",
-    "href": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html",
-    "title": "Column-wise operations in the tidyverse",
-    "section": "",
-    "text": "1\nlibrary(tidyverse)\n\nathletes &lt;- readRDS(file = here::here(  \"raw_data\", \"athletes.rds\"))"
-  },
-  {
-    "objectID": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#column-wise-operations-with-across",
-    "href": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#column-wise-operations-with-across",
-    "title": "Column-wise operations in the tidyverse",
-    "section": "Column-wise operations with across()",
-    "text": "Column-wise operations with across()\nInstead of looping over columns with a for-loop, we can also use across() in combination with other tidyverse functions.\n\n\n\n\n\n\nmutate_...()\n\n\n\nThe functions mutate_all(), mutate_at(), and mutate_if() do the same, but are superseded. This means they still work, but the tidyverse team recommends to use across() instead.\n\n\nAcross can take column names and a function that should be applied to the selected columns:\n\n## Here we transform the Height and Weight columns to the type character:\nathletes %&gt;%\n  mutate(across(c(Height, Weight), as.character)) %&gt;%\n  str\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height: chr  NA NA \"163\" NA ...\n $ Weight: chr  NA NA \"57\" NA ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n\n\nBut it is also possible to select columns based on a selection function:\n\n## And here we transform all numeric columns into character:\nathletes %&gt;%\n  mutate(across(where(is.numeric), as.character)) %&gt;%\n  str()\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : chr  \"132181\" \"87371\" \"44977\" \"502\" ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : chr  NA NA \"28\" NA ...\n $ Height: chr  NA NA \"163\" NA ...\n $ Weight: chr  NA NA \"57\" NA ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : chr  \"1956\" \"1948\" \"1980\" \"1956\" ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n\n\nWe can also specify our own transformation function."
-  },
-  {
-    "objectID": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#using-tidyverse-functions-in-loops",
-    "href": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#using-tidyverse-functions-in-loops",
-    "title": "Column-wise operations in the tidyverse",
-    "section": "Using tidyverse functions in loops",
-    "text": "Using tidyverse functions in loops\nWhen using tidyverse syntax within a loop, we might run into the problem that the tidyverse function can’t deal with our iteration counter like we are used to:\n\n## Trying to transform the Height and Weight column to character using a for-loop.\n## Note: Normally across() would be a better option in this case (and most of the time anyways).\n##       But sometimes a good old fashioned for-loop might be easier to programm to get the job done, \n##       in which case one should keep some specifics in mind: \n\n## This throws an error: \nathletes_2 &lt;- athletes\n\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_2 &lt;- athletes_2 %&gt;%\n    mutate(i = as.character(.$i))\n}\n\nThis doesn’t work, because we are trying to program a function using data masking. Data masking just means that we don’t have to type athletes$Height in a tidyverse function, but simply Height, because the function knows this refers to a column in the current data.frame.\n\nLoops\n\nIn the case of mutate(), we have to use dynamic dots, which need to used if we want to create names programmatically: := instead of =.\nWe need to embrace the changeable variable (either in a function or a loop) like this: {var}.\nIn mutate(), we can also simply write \"{var}_...\" to paste together a new column name.\nIf we just want to extract data, we can use the .data pronoun with [[ (see here). .data helps to clear up ambiguity, it makes clear you want to extract a column from the current data.frame. This is something different than the ., which can be read like “data up to this point” and references the data that gets put into the function where the . is used. The . actually stands for a data.frame, while .data is used for symbol evaluation.\n\n\nathletes_2 &lt;- athletes\n\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_2 &lt;- athletes_2 %&gt;%\n    mutate({{i}} := as.character(.[[i]]))\n}\nstr(athletes_2)\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height: chr  NA NA \"163\" NA ...\n $ Weight: chr  NA NA \"57\" NA ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_2 &lt;- athletes_2 %&gt;%\n    mutate({{i}} := as.character({{i}}))\n}\nstr(athletes_2)\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height: chr  \"Height\" \"Height\" \"Height\" \"Height\" ...\n $ Weight: chr  \"Weight\" \"Weight\" \"Weight\" \"Weight\" ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n\n## With programmatically built new columns: \nathletes_3 &lt;- athletes\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_3 &lt;- athletes_3 %&gt;%\n    mutate(\"{i}_char\" := as.character(.[[i]]))\n}\n\nstr(athletes_3)\n\n'data.frame':   270767 obs. of  18 variables:\n $ NOC        : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID         : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name       : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex        : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age        : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height     : int  NA NA 163 NA NA 168 NA NA NA NA ...\n $ Weight     : num  NA NA 57 NA 74 73 NA NA 57 NA ...\n $ Team       : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games      : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year       : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season     : chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City       : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport      : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event      : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal      : chr  NA NA NA NA ...\n $ Region     : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Height_char: chr  NA NA \"163\" NA ...\n $ Weight_char: chr  NA NA \"57\" NA ...\n\n\nBeware of overwriting the same data.frame you put into mutate()! Otherwise the resulting data.frame will always be overwritten by the old one that always gets put into the function.\n\n\nFunctions\nThis also applies if we want to define a function with column names as arguments, using tidyverse inside. Here we need to embrace our variable as well to make it data masking friendly:\n\n## This doesn't work:\nprint_col &lt;- function(dat, var){\n  print(dat %&gt;% pull(var))\n}\n\nathletes %&gt;%\n  print_col(Region)\n\n\n## This works:\nprint_col &lt;- function(dat, var){\n  print(dat %&gt;% pull({{var}}))\n}\n\nathletes %&gt;%\n  print_col(Region)\n\n    [1] \"Afghanistan\"                      \"Afghanistan\"                     \n    [3] \"Afghanistan\"                      \"Afghanistan\"                     \n    [5] \"Afghanistan\"                      \"Afghanistan\"                     \n    [7] \"Afghanistan\"                      \"Afghanistan\"                     \n...\n\n\n\n\n\n\n\n\n!!sym()\n\n\n\nIn previous SIG-Sessions we have used !!sym() for this, which also works, but is more to remember:\n\nathletes_2 &lt;- athletes\nfor(i in c(\"Height\", \"Weight\")){\n  athletes_2 &lt;- athletes_2 %&gt;%\n    mutate(!!sym(i) := as.character(!!sym(i)))\n}\n\nstr(athletes_2)\n\n'data.frame':   270767 obs. of  16 variables:\n $ NOC   : chr  \"AFG\" \"AFG\" \"AFG\" \"AFG\" ...\n $ ID    : int  132181 87371 44977 502 109153 29626 1076 121376 80210 87374 ...\n $ Name  : chr  \"Najam Yahya\" \"Ahmad Jahan Nuristani\" \"Mohammad Halilula\" \"Ahmad Shah Abouwi\" ...\n $ Sex   : chr  \"M\" \"M\" \"M\" \"M\" ...\n $ Age   : int  NA NA 28 NA 24 28 28 NA NA NA ...\n $ Height: chr  NA NA \"163\" NA ...\n $ Weight: chr  NA NA \"57\" NA ...\n $ Team  : chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ...\n $ Games : chr  \"1956 Summer\" \"1948 Summer\" \"1980 Summer\" \"1956 Summer\" ...\n $ Year  : int  1956 1948 1980 1956 1964 1960 1936 1956 1972 1956 ...\n $ Season: chr  \"Summer\" \"Summer\" \"Summer\" \"Summer\" ...\n $ City  : chr  \"Melbourne\" \"London\" \"Moskva\" \"Melbourne\" ...\n $ Sport : chr  \"Hockey\" \"Hockey\" \"Wrestling\" \"Hockey\" ...\n $ Event : chr  \"Hockey Men's Hockey\" \"Hockey Men's Hockey\" \"Wrestling Men's Bantamweight, Freestyle\" \"Hockey Men's Hockey\" ...\n $ Medal : chr  NA NA NA NA ...\n $ Region: chr  \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" \"Afghanistan\" ..."
-  },
-  {
-    "objectID": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#footnotes",
-    "href": "posts/r_sig/24_04_08_tidyverse_column_wise/index.html#footnotes",
-    "title": "Column-wise operations in the tidyverse",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Darryl Low on Unsplash.↩︎"
-  },
-  {
-    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
-    "href": "posts/r_sig/23_10_09_cleaner/index.html",
-    "title": "Cleaner Scripts",
-    "section": "",
-    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
-  },
-  {
-    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
-    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
-    "title": "Cleaner Scripts",
-    "section": "",
-    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
     "objectID": "posts/r_sig/24_03_25_tidyverse_wrangling/index.html",
@@ -568,25 +441,74 @@
     "text": "Footnotes\n\n\nImage by Bing Copilot↩︎"
   },
   {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html",
-    "href": "posts/r_sig/23_03_20_forloops/index.html",
-    "title": "for-loops",
+    "objectID": "posts/newsletter/24_01_12/index.html",
+    "href": "posts/newsletter/24_01_12/index.html",
+    "title": "12-01-2024",
     "section": "",
-    "text": "1"
+    "text": "Webseite\nDas Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:\nhttps://iqb-research.github.io/IQB-Methods/\n\n\nAnsprechpartner:innen während Benjamins Elternzeit\nBenjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:\n\nGADS BT22 - Sebastian\nFDZ Reporting - Nicklas\neatFDZ - Karoline\neatGADS - Philipp\n\n\n\neatTools\nDie Version 0.7.5 liegt nun auf CRAN und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen halveString() und mergeAttr(). Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden."
   },
   {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
-    "href": "posts/r_sig/23_03_20_forloops/index.html#for-loops",
-    "title": "for-loops",
-    "section": "For-loops",
-    "text": "For-loops\nIn this session we talked about for-loops. Take a look here for the corresponding chapter in a workshop I’ve designed."
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
+    "section": "",
+    "text": "12-01-2024\n\n\nNewsletter\n\n\n\nNicklas Hafiz\n\n\nDec 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
-    "href": "posts/r_sig/23_03_20_forloops/index.html#footnotes",
-    "title": "for-loops",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Tine Ivanic on Unsplash.↩︎"
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
+    "section": "",
+    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJun 3, 2024\n\n\nPlotting with ggplot2\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nApr 8, 2024\n\n\nColumn-wise operations in the tidyverse\n\n\nNicklas Hafiz\n\n\n6 min\n\n\n\n\n\n\n\nMar 25, 2024\n\n\nData wrangling in the tidyverse\n\n\nNicklas Hafiz\n\n\n12 min\n\n\n\n\n\n\n\nMar 22, 2024\n\n\nData sets\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nIntroduction to the tidyverse\n\n\nNicklas Hafiz\n\n\n7 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+  },
+  {
+    "objectID": "posts/r_sig/23_12_18_case_when/index.html",
+    "href": "posts/r_sig/23_12_18_case_when/index.html",
+    "title": "Case_when() function",
+    "section": "",
+    "text": "The case_when() function from the dplyr package of the tidyverse is a useful function for combining multiple ifelse() statements."
+  },
+  {
+    "objectID": "posts/r_sig/23_12_18_case_when/index.html#how-to-use-it",
+    "href": "posts/r_sig/23_12_18_case_when/index.html#how-to-use-it",
+    "title": "Case_when() function",
+    "section": "How to use it",
+    "text": "How to use it\nLet’s take a look at a little example. Let’s consider a very simple data frame containing only a column of different countries:\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\ndf &lt;- data.frame(country = c(rep(\"Deu\", 4), \"Mexico\", \"Peru\", \"Ghana\", \"China\", \"Spanien\"))\n\nNow, let’s suppose we want to add a second column containing the continent of the country. We can either use nested ifelse() statements, which makes the coed quite hard to read:\n\ndf$continent &lt;- ifelse(df$country %in% c(\"Deu\", \"Spanien\"), \n                       yes = \"Europe\", \n                       no = ifelse(\n                         df$country == \"Mexico\" | df$country == \"Peru\", \n                         yes = \"America\",\n                         no = ifelse(\n                           df$country == \"Ghana\", \n                           yes = \"Africa\",\n                           no = \"Asia\"\n                       )\n                       ))\n\ndf\n\n  country continent\n1     Deu    Europe\n2     Deu    Europe\n3     Deu    Europe\n4     Deu    Europe\n5  Mexico   America\n6    Peru   America\n7   Ghana    Africa\n8   China      Asia\n9 Spanien    Europe\n\n\ncase_when() has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are seperated by ~. So if the condition on the left side is met in a row, the function returns the value on the right side of ~:\n\ndf_2 &lt;- df %&gt;%\n  mutate(continent = case_when(country %in% c(\"Deu\", \"Spanien\") ~ \"Europe\", \n                               country %in% c(\"Mexico\", \"Peru\") ~ \"America\",\n                               country == \"Ghana\" ~ \"Africa\", \n                               TRUE ~ \"Another continent\"\n                                 )\n         )\ndf_2\n\n  country         continent\n1     Deu            Europe\n2     Deu            Europe\n3     Deu            Europe\n4     Deu            Europe\n5  Mexico           America\n6    Peru           America\n7   Ghana            Africa\n8   China Another continent\n9 Spanien            Europe\n\n\nWe wrap this statement into a mutate function to automatically create the new column continent from the output of case_when. The TRUE in the last row catches all conditions we haven’t dealt with further above. So all rows wich haven’t met any of the above conditions will get the label “Another continent”."
+  },
+  {
+    "objectID": "posts/r_sig/23_12_18_case_when/index.html#evaluation-order",
+    "href": "posts/r_sig/23_12_18_case_when/index.html#evaluation-order",
+    "title": "Case_when() function",
+    "section": "Evaluation order",
+    "text": "Evaluation order\ncase_when() goes from the top to the bottom. So if a row has met a statement, it is not considered further down. That’s why it makes sense to go from the most specific statements to the less specific ones. Otherwise the least specific ones might overwrite everything in the beginning:\n\ndf_3 &lt;- df %&gt;%\n  mutate(continent = case_when(country %in% c(df$country) ~ \"Other country\", \n                               country %in% c(\"Mexico\", \"Peru\") ~ \"America\",\n                               country == \"Ghana\" ~ \"Africa\", \n                               TRUE ~ \"Another continent\"\n                                 )\n         )\n\ndf_3  \n\n  country     continent\n1     Deu Other country\n2     Deu Other country\n3     Deu Other country\n4     Deu Other country\n5  Mexico Other country\n6    Peru Other country\n7   Ghana Other country\n8   China Other country\n9 Spanien Other country\n\n\nBecause our first statement already covers all rows, the rest is obsolete. This top-down working also makes the TRUE condition in our last line possible, because only those rows that haven’t been used yet will come this far, and all of them are catched (because TRUE always is true)."
+  },
+  {
+    "objectID": "posts/r_sig/23_11_06_renv/index.html",
+    "href": "posts/r_sig/23_11_06_renv/index.html",
+    "title": "Reproducability with renv",
+    "section": "",
+    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
+  },
+  {
+    "objectID": "posts/r_sig/23_11_06_renv/index.html#motivation",
+    "href": "posts/r_sig/23_11_06_renv/index.html#motivation",
+    "title": "Reproducability with renv",
+    "section": "",
+    "text": "Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package renv can help you with that."
+  },
+  {
+    "objectID": "posts/r_sig/23_11_06_renv/index.html#workflow",
+    "href": "posts/r_sig/23_11_06_renv/index.html#workflow",
+    "title": "Reproducability with renv",
+    "section": "Workflow",
+    "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
   },
   {
     "objectID": "posts/r_sig/24_03_22_datasets/index.html",
@@ -617,118 +539,100 @@
     "text": "Footnotes\n\n\nImage by Florian Schmetz on Unsplash.↩︎\nImage by Ilse Orsen on Unsplash.↩︎"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IQB Methods Team",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html",
+    "href": "posts/r_sig/23_07_31_apply/index.html",
+    "title": "The apply family",
     "section": "",
-    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
+    "text": "I can highly recommend the according chapter in R for Data Science in case you want to dive deeper."
   },
   {
-    "objectID": "docs/eatPackages/eatFDZ.html",
-    "href": "docs/eatPackages/eatFDZ.html",
-    "title": "eatFDZ",
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#for-loops",
+    "href": "posts/r_sig/23_07_31_apply/index.html#for-loops",
+    "title": "The apply family",
+    "section": "For-loops",
+    "text": "For-loops\nIn the last SIG we talked about for-loops.\nWhile for is definitely the most flexible of the looping options, we suggest you avoid it wherever you can, for the following two reasons:\n\n\nIt is not very expressive, i.e. takes a lot of code to do what you want.\n\n\nIt permits you to write horrible code.\n\n\nLet’s consider this example:\n\nexample_list &lt;- list(\n  \"vec_1\" = c(1:10),\n  \"vec_2\" = c(100:400),\n  \"vec_3\" = c(80:97, NA)\n)\nstr(example_list)\n\nList of 3\n $ vec_1: int [1:10] 1 2 3 4 5 6 7 8 9 10\n $ vec_2: int [1:301] 100 101 102 103 104 105 106 107 108 109 ...\n $ vec_3: int [1:19] 80 81 82 83 84 85 86 87 88 89 ...\n\n\nHere we have a list consisting of three vectors. Our goal is to sum them an output the result into a new vector. We could use a for-loop to do that:\n\nvec_sum &lt;- c()\nfor(i in 1: length(example_list)){\n  vec_sum[i] &lt;- sum(example_list[[i]], na.rm = TRUE)\n}\nvec_sum\n\n[1]    55 75250  1593\n\n\nOkay, that doesn’t look that complicated. But still, we need to define an empty vector at the beginning so we can save our sums, we need to iterate from 1:length(example_list), and manually select the \\(i^{th}\\) from the input list. That is not very expressive, and can be solved a lot easier. Enter, the apply-family:"
+  },
+  {
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#the-apply-family",
+    "href": "posts/r_sig/23_07_31_apply/index.html#the-apply-family",
+    "title": "The apply family",
+    "section": "The apply-family",
+    "text": "The apply-family\nThe apply-functions apply a function to a vector, list, matrix … and also always return a vector, list matrix …, depending on the specific function. Let’s rewrite our for-loop with sapply():\n\nvec_sum &lt;- sapply(example_list, sum)\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250    NA \n\n\nA lot less code and easier to understand! We just go over every list element and calculate its sum.\nIf we want to add another function argument, we can do that as well:\n\nvec_sum &lt;- sapply(example_list, sum, na.rm = TRUE)\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nWe can also define our own function:\n\nvec_sum &lt;- sapply(example_list, function(x){\n  res_sum &lt;- sum(x, na.rm = TRUE)\n  print(res_sum)\n  return(res_sum)\n})\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nHere we calculate the sum of object x, and then print it.\nFinally, which makes for even nicer code, we can define the function externally, to give it a concise name:\n\nprint_sum &lt;- function(vec){\n  res_sum &lt;- sum(vec, na.rm = TRUE)\n  print(res_sum)\n  return(res_sum)\n}\n\nvec_sum &lt;- sapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\nvec_sum\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nDepending of the output we want, we can choose different apply-functions:\n\nsapply()\nsapply() simplifies the result, so, e.g., it will return a vector if possible:\n\nsapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\n\n\nvapply()\nSimilar to sapply(), but we can pre-specify a return value, so it might be safer to use:\n\nvapply(example_list, print_sum, integer(1))\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\nvec_1 vec_2 vec_3 \n   55 75250  1593 \n\n\nBecause the result is an integer vector, we don’t get an error, but if we write this:\n\nvapply(example_list, print_sum, character(1))\n\n[1] 55\n\n\nError in vapply(example_list, print_sum, character(1)): values must be type 'character',\n but FUN(X[[1]]) result is type 'integer'\n\n\nThe function returns an error, because its output is an integer, and not a character vector.\n\n\nlapply()\nReturns a list:\n\nlapply(example_list, print_sum)\n\n[1] 55\n[1] 75250\n[1] 1593\n\n\n$vec_1\n[1] 55\n\n$vec_2\n[1] 75250\n\n$vec_3\n[1] 1593\n\n\n\n\n\n\n\n\nExercises\n\n\n\nWork with the iris data.frame (it is already included in Base R):\n\nExercise 1\nWrite a for-loop to determine the median of each column, if it is numeric. If not, return the column class with class(). Save the results in a character vector, so every element should be converted to character before saving it in the vector.\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  if(is.numeric(iris[, i])){\n    vec_median[i] &lt;- as.character(median(iris[, i], na.rm = TRUE))\n  } else{\n    vec_median[i] &lt;- class(iris[, i])\n  }\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\"\n\n\n\n\n\n\n\nExercise 2\n\nDefine the body of the for loop as its own function. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\ncheck_median &lt;- function(vec){\n  if(is.numeric(vec)){\n    result &lt;- median(vec, na.rm = TRUE)\n  } else{\n    result &lt;- class(vec)\n  }\n  ## Convert to character, so our function always returns the correct type\n  result &lt;- as.character(result)\n  return(result)\n}\n\n## Check it:\ncheck_median(c(100, 1000))\n\n[1] \"550\"\n\ncheck_median(c(\"a\", \"b\"))\n\n[1] \"character\"\n\n\n\n\n\n\nUse it in the for-loop.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  vec_median[i] &lt;- check_median(iris[, i])\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\"\n\n\n\n\n\n\n\nExercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
+  },
+  {
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#exercise-2",
+    "href": "posts/r_sig/23_07_31_apply/index.html#exercise-2",
+    "title": "The apply family",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nDefine the body of the for loop as its own function. This function should take a vector, and, if this vector is numeric, output the median as a character, otherwise the class of the vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\ncheck_median &lt;- function(vec){\n  if(is.numeric(vec)){\n    result &lt;- median(vec, na.rm = TRUE)\n  } else{\n    result &lt;- class(vec)\n  }\n  ## Convert to character, so our function always returns the correct type\n  result &lt;- as.character(result)\n  return(result)\n}\n\n## Check it:\ncheck_median(c(100, 1000))\n\n[1] \"550\"\n\ncheck_median(c(\"a\", \"b\"))\n\n[1] \"character\"\n\n\n\n\n\n\nUse it in the for-loop.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nvec_median &lt;- c()\nfor(i in 1:ncol(iris)){\n  vec_median[i] &lt;- check_median(iris[, i])\n}\n\nvec_median\n\n[1] \"5.8\"    \"3\"      \"4.35\"   \"1.3\"    \"factor\""
+  },
+  {
+    "objectID": "posts/r_sig/23_07_31_apply/index.html#exercise-3",
+    "href": "posts/r_sig/23_07_31_apply/index.html#exercise-3",
+    "title": "The apply family",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nRewrite the for-loop from Exercise 1 with functions from the apply-family, so it returns the following objects. Define the function that gets applied on every input element externally, so we have cleaner code.\n\nA vector.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nsapply(iris, check_median)\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nOr, even better:\n\nvapply(iris, check_median, character(1))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n       \"5.8\"          \"3\"       \"4.35\"        \"1.3\"     \"factor\" \n\n\nWow, that’s pretty nice, we condensed our function to half a line by defining the function somewhere else, and not using a for-loop!\n\n\n\n\nA list.\n\n\n\n\n\n\n\nCaution\n\n\n\n\n\n\nlapply(iris, check_median)\n\n$Sepal.Length\n[1] \"5.8\"\n\n$Sepal.Width\n[1] \"3\"\n\n$Petal.Length\n[1] \"4.35\"\n\n$Petal.Width\n[1] \"1.3\"\n\n$Species\n[1] \"factor\""
+  },
+  {
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html",
+    "title": "Cleaner Scripts",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nDocumentation",
-    "crumbs": [
-      "R-Sig",
-      "eat Packages",
-      "eatFDZ"
-    ]
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
-    "objectID": "docs/eatPackages/eatRep.html",
-    "href": "docs/eatPackages/eatRep.html",
-    "title": "eatRep",
+    "objectID": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "href": "posts/r_sig/23_10_09_cleaner/index.html#some-general-take-aways",
+    "title": "Cleaner Scripts",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\nDocumentation\n\nA vignette which demonstrates replication analyses with eatRep is here.\nThe internal structure of the package is documented here. This overview is primarily dedicated to developers who want to further improve or extend the package and therefore need to understand its structure.\nWorkshop materials concerning eatRep can also be found on the IQB network drives: i:\\Methoden\\02_IQB-interne_eat_Workshops\\eatRep_2021\\",
-    "crumbs": [
-      "R-Sig",
-      "eat Packages",
-      "eatRep"
-    ]
+    "text": "Markdown vs. Quarto vs. R-Skripte\n\n\nQuarto is more up to date than R-Markdown\nMarkdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.\nIn the end it’s a question of preference.\n\n\nWrite packages on top of the script.\n\n\nWrite down verion number (use sessionInfo()).\nOr, even better: use renv."
   },
   {
-    "objectID": "docs/eatPackages/eatCodebook.html",
-    "href": "docs/eatPackages/eatCodebook.html",
-    "title": "eatCodebook",
+    "objectID": "docs/git/index.html",
+    "href": "docs/git/index.html",
+    "title": "Pull requests with Github",
     "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated creation of scale manuals.\n\n\n\n\n\nDocumentation\n\n\n\n\nInfo page with several vignettes",
+    "text": "When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version.",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "eatCodebook"
+      "GitHub",
+      "Pull requests with Github"
     ]
   },
   {
-    "objectID": "docs/eatPackages/index.html",
-    "href": "docs/eatPackages/index.html",
-    "title": "Info on eat Packages",
-    "section": "",
-    "text": "see table down below and click on the links for more information on a package.",
+    "objectID": "docs/git/index.html#recommended-workflow",
+    "href": "docs/git/index.html#recommended-workflow",
+    "title": "Pull requests with Github",
+    "section": "Recommended Workflow",
+    "text": "Recommended Workflow\n\nPull all changes from the relevant branch. Normally, this will be the branch main, but it might also happen that you want to extend on another branch.\nCreate and checkout (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it.\nMake changes in your local repository.\nCommit them as often as possible. The more you commit, the more of you work gets saved regulary.\nIf you want to upload your changes, Push.\nRepeat 3 - 5 until you are done.\n\n\nInitiating a review\nOnce you are content with your changes and you want to finalize them, you can initiate a review:\n\nChange to the the Github page of the package (for example, eatTools repository) and start the pull request via “Compare & pull request”. This will open a new page, where you can customize your pull request.\nChoose your favorite reviewer under “Reviewer”. You can ask multiple people.\nEnter a comment for the request, specifying what you want the reviewer(s) to look for especially.\nClick on “create pull request” to start the request.\n\n\n\nReview Process\n\nNow the review process begins: The person that takes over the review assigns herself on the right side of the pull request page. Keep in mind our Code Conventions.\nThe reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code.\nIn the end, the reviewer delivers their final verdict: approve or request changes.\nNow it’s the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made.\nThe changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made.\nReiterate until the author and reviewer have reached an agreement.\nIf both are satisfied. On the GitHub Pull-request page, select “merge pull request into main” (or any other branch you want to and can merge on) at the bottom.\nFinally, the review branch can be deleted. Choose “delete” on the Github homepage. Then delete the local branch (i.e. in GitKraken) in the same way if necessary",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "Info on eat Packages"
+      "GitHub",
+      "Pull requests with Github"
     ]
   },
   {
-    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "title": "Info on eat Packages",
-    "section": "internal IQB R packages from the ‘eat’-family",
-    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski",
+    "objectID": "docs/git/index.html#please-note",
+    "href": "docs/git/index.html#please-note",
+    "title": "Pull requests with Github",
+    "section": "Please note",
+    "text": "Please note\nAs long as the master/main branch and the new branch are not merged again, there are two “parallel” branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check and be conscious about on which branch you are currently working on.",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "Info on eat Packages"
+      "GitHub",
+      "Pull requests with Github"
     ]
   },
   {
-    "objectID": "docs/eatPackages/index.html#installing-r-packages",
-    "href": "docs/eatPackages/index.html#installing-r-packages",
-    "title": "Info on eat Packages",
-    "section": "Installing R packages",
-    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages",
+    "objectID": "docs/git/index.html#git-workflow-im-terminal-nh",
+    "href": "docs/git/index.html#git-workflow-im-terminal-nh",
+    "title": "Pull requests with Github",
+    "section": "Git-Workflow im Terminal (NH)",
+    "text": "Git-Workflow im Terminal (NH)\n\nGegebenenfalls: Auf den mainbranch wechseln: git checkout main\nVerifizieren, dass man auf dem richtigen branch ist: git status\nOnlinebranch lokal herunterladen: git pull\nGegebenenfalls: Neuen branch “branch_2” erstellen, und direkt darauf wechseln: git checkout -b branch_2\n(Alle) Änderungen stagen: git add .\nGestagte Änderungen commiten (mit aussagekräftiger Commitmessage): git commit -m \"implemented new function\"\nCommits hochladen: git push",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "Info on eat Packages"
-    ]
-  },
-  {
-    "objectID": "docs/eatPackages/index.html#compatibility",
-    "href": "docs/eatPackages/index.html#compatibility",
-    "title": "Info on eat Packages",
-    "section": "Compatibility",
-    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored.",
-    "crumbs": [
-      "R-Sig",
-      "eat Packages",
-      "Info on eat Packages"
-    ]
-  },
-  {
-    "objectID": "docs/eatPackages/eatATA.html",
-    "href": "docs/eatPackages/eatATA.html",
-    "title": "eatATA",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nDocumentation\n\n\n\n\ntypical use of ‘eat ATA’: a Minimal Example\n\n\n‘eatATA’ Functionality\n\n\na Pilot Study Example\n\n\nReference manual",
-    "crumbs": [
-      "R-Sig",
-      "eat Packages",
-      "eatATA"
-    ]
-  },
-  {
-    "objectID": "docs/eatPackages/eatAnalysis.html",
-    "href": "docs/eatPackages/eatAnalysis.html",
-    "title": "eatAnalysis",
-    "section": "",
-    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nDocumentation\n\n\n\n\n-",
-    "crumbs": [
-      "R-Sig",
-      "eat Packages",
-      "eatAnalysis"
+      "GitHub",
+      "Pull requests with Github"
     ]
   },
   {
@@ -801,6 +705,156 @@
       "R-Sig",
       "Asserting Code",
       "Using Checkmate"
+    ]
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html",
+    "href": "docs/discussions/code_conventions.html",
+    "title": "Code-Konventionen",
+    "section": "",
+    "text": "Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat."
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#überblick",
+    "href": "docs/discussions/code_conventions.html#überblick",
+    "title": "Code-Konventionen",
+    "section": "",
+    "text": "Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat."
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#allgemeine-konventionen",
+    "href": "docs/discussions/code_conventions.html#allgemeine-konventionen",
+    "title": "Code-Konventionen",
+    "section": "Allgemeine Konventionen",
+    "text": "Allgemeine Konventionen\n\nUmfang von Code-Abschnitten\n\nGenerell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.\nGleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.\nIn R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.\n\nBei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.\nRigoroses testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.\n\nhttps://uptake.github.io/pkgnet/articles/pkgnet-intro.html\n\n\n\n\nBenennungskonventionen\n\nBei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.\nkurze Namen vs sprechende Namen =&gt; eher sprechende Namen\nFunktionen: eher Verben\nObjekte (die keine Funktionen sind): eher Substantive\nallgemein keine Dopplungen mit existierenden R-Objekten!\nObjekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?\n\nwenn sich Objekte substanziell ändern, nicht überschreiben\n\nhäufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, …\nArgumentreihenfolge? (Pipebarkeit =&gt; auch: Output-Steuerung)"
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#code-review",
+    "href": "docs/discussions/code_conventions.html#code-review",
+    "title": "Code-Konventionen",
+    "section": "Code Review",
+    "text": "Code Review\nOverview of the Git-Workflow can be found here.\n\nVorgehen\n\nPerson, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden.\nSind mehrere Reviewer zum Review assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen)\nÜbernimmt man ein Review, assigned man sich selbst den Pull-Request, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)\n\n\n\nWas muss bei der Anforderung eines Reviews beachtet werden?\n\nEher kleinschrittige, abgeschlossene Bestandteile reviewen lassen.\nPriorität festlegen\n\nhigh: innerhalb eines Tages\nmedium: innerhalb einer Woche\nlow: keine Zeitbegrenzung\n\n\n\n\nWas sollen die Reviewer machen?\n\nSich zum Review assignen, wenn man anfängt.\nBenennungskonventionen, Formatkonventionen\nVerständlichkeit\nTests auf Vollständigkeit überprüfen (Edge Cases, möglichst alles abgedeckt?)\n\n\nOptional:\n\n\nMit den Tests rumspielen, versuchen die Funktion failen zu lassen.\n\n\n\nPersonelle Aufteilung\n\neatPrepTBA: PF, NH, KAS, … (mal schauen)\neatPrep: KAS, PF, NH\neatPlot: NH, PF, KAS\neatModel: SW, KAS, BB\neatRep: SW, BB, KAS\neatTools: SW, KAS, BB, NH, PF\neatAnalysis: BB, SW, KAS\neatGADS: BB, KAS, NH\neatDB: BB, PF, NH\neatFDZ: BB, NH\neatCodebook: BB, SW, PF, NH\neatRecode: BB, NH\neatATA: BB, DD, ?\n\n\n\nKommunikation & Zeiterwartung\n\nPerson, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab …), oder eine Prioritätenfestlegung.\nIn Zukunft soll ein Standardprozedere definiert werden, in welchem festgelegt wird, in welcher Tiefe das Review erfolgen soll, und was standardmäßig gecheckt werden soll.\nLabel sollen einheitlich über die Repositories erstell und gentutzt werden (Bug/Enhancement …, Prio-Label)"
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#issues",
+    "href": "docs/discussions/code_conventions.html#issues",
+    "title": "Code-Konventionen",
+    "section": "Issues",
+    "text": "Issues\n\nWir nutzen GitHub-Projects um alle ToDos aus verschiedenen Repos an einem Ort zu sammeln.\n\nWichtige Issues aus jedem Repo sollten im Projekt hinzugefügt werden.\n\n\nIssues aus einem anderen Repository zum Projekt hinzufügen\n\nClick on Add item\n#beckerbenj/eatGADS\nFrom the suggested list you can choose the issue you want to add to the project, or create a new one.\n\nYou can filter for all open issues with is:issue is:open.\n\n\n\nIssue sorting\n\nColumn “Done” contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together.\nEverything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos."
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#mögliche-nächste-themen",
+    "href": "docs/discussions/code_conventions.html#mögliche-nächste-themen",
+    "title": "Code-Konventionen",
+    "section": "Mögliche nächste Themen",
+    "text": "Mögliche nächste Themen\n\nIndentierung?\nHäufige Argumentnamen\nDplyr und/oder pipen?\nKommentar- & Austauschsprache\n“Sprechender Code”? Vgl. best Coding Practices…\nfinales Ziel: styleR?\nTests (Abdeckung, Umsetzung, Style, …)\nschematische Paket-Dokumentationen (nächstes Thema!)\n\npotentiell interessantes R Paket zur Visualisierung: https://uptake.github.io/pkgnet/articles/pkgnet-intro.html\n\nPaketstruktur-Vignette/Dokumentation auf Quarto-Homepage\nLabels bei Pull-Requests und Issues\nUmgang mit failed Tests bei Pull-Requests (ggf. differenziert nach Stumi/Wimi)\nWorkflow Update Pull Requests (Wiedervorlage nach Einarbeitung von requested Changes)"
+  },
+  {
+    "objectID": "docs/eatPackages/eatModel.html",
+    "href": "docs/eatPackages/eatModel.html",
+    "title": "eatModel",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich\nDESCRIPTION on github\ngithub page, intern\n\n\n\n\n\n\nDescription\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "eatModel"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/eatTools.html",
+    "href": "docs/eatPackages/eatTools.html",
+    "title": "eatTools",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\nCRAN page\nCRAN page\n\n\n\n\n\n\nDescription\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nDocumentation\n\n\n\n\nReference manual",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "eatTools"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/eatPrep.html",
+    "href": "docs/eatPackages/eatPrep.html",
+    "title": "eatPrep",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nKaroline Sachse\nDESCRIPTION on github\ngithub page, internal\n\n\n\n\n\n\nDescription\nPreparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple datasets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool “AnalyseInput”, which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.\n\n\n\n\n\nDocumentation\n\n\n\n\ninternal: “i:/Methoden/02_IQB-interne_eat_Workshops/eatPrep_2021”",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "eatPrep"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/eatRecode.html",
+    "href": "docs/eatPackages/eatRecode.html",
+    "title": "eatRecode",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nCreate and apply recoding databases.\n\n\n\n\n\nDocumentation",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "eatRecode"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/eatFDZ.html",
+    "href": "docs/eatPackages/eatFDZ.html",
+    "title": "eatFDZ",
+    "section": "",
+    "text": "Info\n\n\n\n\n\ncontact\nlatest version\nsource\n\n\n\n\nBenjamin Becker\nDESCRIPTION on github\ngithub page\n\n\n\n\n\n\nDescription\nAutomated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nDocumentation",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "eatFDZ"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/index.html",
+    "href": "docs/eatPackages/index.html",
+    "title": "Info on eat Packages",
+    "section": "",
+    "text": "see table down below and click on the links for more information on a package.",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "Info on eat Packages"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "title": "Info on eat Packages",
+    "section": "internal IQB R packages from the ‘eat’-family",
+    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "Info on eat Packages"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#installing-r-packages",
+    "href": "docs/eatPackages/index.html#installing-r-packages",
+    "title": "Info on eat Packages",
+    "section": "Installing R packages",
+    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "Info on eat Packages"
+    ]
+  },
+  {
+    "objectID": "docs/eatPackages/index.html#compatibility",
+    "href": "docs/eatPackages/index.html#compatibility",
+    "title": "Info on eat Packages",
+    "section": "Compatibility",
+    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored.",
+    "crumbs": [
+      "R-Sig",
+      "eat Packages",
+      "Info on eat Packages"
     ]
   },
   {
@@ -1036,59 +1090,5 @@
       "Introduction",
       "Data.frames, Listen & Plots"
     ]
-  },
-  {
-    "objectID": "docs/reproduce/renv.html",
-    "href": "docs/reproduce/renv.html",
-    "title": "The renv-Package",
-    "section": "",
-    "text": "Reproducibility\nProject repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the renv-Package in R.\n\n\nrenv\nThe renv-package is intended for simple project-local R dependency management. Here you’ll find a more thorough introduction.\n\n\nSetup\n\nCreate an RStudio Project in the working directory that should be made reproducible.\nIf another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to Tools - Global Options - General. Maybe you will have to install renv for this version again.\nInitialise the project using renv::init(). This creates the basic infrastructure for the usage of renv.\n\n\nDependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.\nIf you want to install specific package versions, you can use renv::intit(bare = TRUE).\n\nThis sets up the renv project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.\n\nThe dependencies in the working directory can be obtained by renv::dependencies().\n\n\n\nIf you want specific package versions, you can use renv::install(packagename/@version-number). Local packages or packages from GitHub can be installed as well (see here).\nIn the end, packages should be installed in ./renv/library. A lockfile ./renv.lock is created, where the R version and the package versions are noted.\nNow you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using renv::snapshot().\nIf you want to restore the state of the project library as noted in the lockfile, use renv::restore().\n\n\n\nProject usage\n\nFor maximal reproducibility, check the lockfile for the R-version before working with renv. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).\nAs the packages are directly installed into the project working directory, you should be able to simply work with the renv-project as saved by the last user without doing anything.\n\n\n\nNote on Package Versions\nMRAN can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:\nError: install of package 'tidyselect' failed [error code 1]\nIn this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version 1.1.2 of tidyselect, so you install the version like so: renv::install(\"tidyselect@1.1.2\").",
-    "crumbs": [
-      "R-Sig",
-      "Reproducibility",
-      "The renv-Package"
-    ]
-  },
-  {
-    "objectID": "docs/FAQ/FAQ.html",
-    "href": "docs/FAQ/FAQ.html",
-    "title": "FAQ",
-    "section": "",
-    "text": "Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:\n1. Die Quadratwurzel aus \\(R^2\\) ziehen\n2. eine Fisher z-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird\n3. Rubins Regeln für metrische Variablen anwenden\n4. mit einer inversen z-Transformation den Wert wieder zurückrechnen und quadrieren\nHarel, O. (2009). The estimation of R2 and adjusted R2 in incomplete data sets using multiple imputation. Journal of Applied Statistics, 36(10), 1109-1118.\n\n\n\nIm Paket eatRep kann das über die Funktion pool.R2() berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird.\nAngenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) \\(R^2\\)-Werte, dann kann der gepoolte \\(R^2\\)-Wert folgendermaßen bestimmt werden:\n\nr2 &lt;- c(0.12,0.18,0.17,0.21,0.23)\neatRep::pool.R2(r2)"
-  },
-  {
-    "objectID": "docs/FAQ/FAQ.html#wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen",
-    "href": "docs/FAQ/FAQ.html#wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen",
-    "title": "FAQ",
-    "section": "",
-    "text": "Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:\n1. Die Quadratwurzel aus \\(R^2\\) ziehen\n2. eine Fisher z-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird\n3. Rubins Regeln für metrische Variablen anwenden\n4. mit einer inversen z-Transformation den Wert wieder zurückrechnen und quadrieren\nHarel, O. (2009). The estimation of R2 and adjusted R2 in incomplete data sets using multiple imputation. Journal of Applied Statistics, 36(10), 1109-1118.\n\n\n\nIm Paket eatRep kann das über die Funktion pool.R2() berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird.\nAngenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) \\(R^2\\)-Werte, dann kann der gepoolte \\(R^2\\)-Wert folgendermaßen bestimmt werden:\n\nr2 &lt;- c(0.12,0.18,0.17,0.21,0.23)\neatRep::pool.R2(r2)"
-  },
-  {
-    "objectID": "docs/FAQ/FAQ.html#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte",
-    "href": "docs/FAQ/FAQ.html#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte",
-    "title": "FAQ",
-    "section": "2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?",
-    "text": "2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?\nIn eatModel wird nur der erste Teil der zweiten Tabelle \\(item\\times [DIFvariable]\\) aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items in der ersten Gruppe der \\([DIFvariable]\\) leichter sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:\n\nlibrary(kableExtra)\nlibrary(eatTools)\nlibrary(eatModel)\ndata(data.ex08, package=\"TAM\")\ndat &lt;- data.frame ( id = 1:nrow(data.ex08[[\"resp\"]]), female = unlist(data.ex08[[\"facets\"]])-1, data.ex08[[\"resp\"]])\ndef &lt;- defineModel(dat, items= -c(1:2), id=\"id\", DIF.var = \"female\", software=\"tam\")\n\n14 subject(s) do not solve any item:\n   115 (10 false), 613 (10 false), 979 (10 false) ... \n7 subject(s) solved each item: 119 (10 correct), 514 (10 correct), 774 (10 correct) ... \nDataset is completely linked.\n'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.\nQ matrix specifies 1 dimension(s).\n\nrun &lt;- runModel(def)\nres &lt;- getResults(run)\n\n|*****|\n|-----|\n\nitem&lt;- itemFromRes(res)\n\nDas einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:\n\nitem6 &lt;- subset(roundDF(item,digits = 3), item == \"I0006\")\ncols  &lt;- c(\"item\", \"itemP\", \"est\", \"estDif\", \"absDif\", \"difIndex\", \"ETS\")\n# ausgewaehlte Spalten fuer Items 6 anzeigen lassen \nkbl(item6[,cols], row.names=FALSE) %&gt;% \n    kable_styling(bootstrap_options = \"striped\", full_width = FALSE, position = \"center\")\n\n\n\n\nitem\nitemP\nest\nestDif\nabsDif\ndifIndex\nETS\n\n\n\n\nI0006\n0.454\n0.226\n0.31\n0.62\n1\nB\n\n\n\n\n\n\n\nDie allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von item[which(item[,\"item\"] == \"I0006\"),\"estDif\"] bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1:\n\ntapply(dat[,\"I0006\"], dat[,\"female\"], mean)\n\n    0     1 \n0.410 0.498"
-  },
-  {
-    "objectID": "docs/FAQ/FAQ.html#zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen",
-    "href": "docs/FAQ/FAQ.html#zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen",
-    "title": "FAQ",
-    "section": "3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen",
-    "text": "3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen\nWenn in Mehrebenenmodellen Interaktionen geschätzt werden, hängt die Schätzung des Intercepts wie auch die der Haupteffekte von der gewählten Skala der Prädiktoren ab. Die Haupteffekte repräsentieren den Effekt eines Prädiktors an der Stelle, an der die anderen Prädiktoren null sind. Da die Null oftmals kein natürlicher Wert von Prädiktoren ist (z. B. ist die Interpretation eines Effekts an der Stelle Klassengröße = 0 i. d. R. nicht sehr sinnvoll), wird das Zentrieren der Prädiktoren empfohlen. Hier kommen zwei Varianten in Frage: Zentrierung am Gruppenmittelwert und Zentrierung am Gesamtmittelwert. Für einen Prädiktor \\(X\\), der an Individuum \\(i\\) (\\(\\forall i \\in \\{1,…,i,…,n\\}\\)) in Gruppe \\(j\\) (\\(\\forall j \\in \\{1,…,j,…,J\\}\\)) erhoben wird, bedeutet eine Zentrierung am Gesamtmittelwert, dass man von diesem individuellen Wert \\(x_{ij}\\) den Gesamtmittelwert \\(M_X\\) abzieht, gemäß: \\(X_{ij}-M_X\\). Eine Zentrierung am Gruppenmittelwert bedeutet, dass man vom individuellen Wert \\(x_{ij}\\) den Mittelwert der jeweiligen Gruppe abzieht, gemäß: \\(X_{ij}-M_{X_j}\\) Hier eine grafische Darstellung dieser Zentrierungsmöglichkeiten eines Prädiktors:\n\n\n\nZentrierungsmöglichkeiten\n\n\nHier ist derselbe Prädiktor in seinen drei Zentrierungsformen in Relation zu einem Outcome abgebildet:\n\n\n\ndrei Zentrierungsformen in Relation zu einem Outcome\n\n\nWenn man nun eine einfache lineare Regression eines Outcomes auf den Prädiktor rechnet, kann man die Haupteffekte (Slopes) des unzentrierten Prädiktors und des Grand-Mean-zentrierten Prädiktors genau gleich interpretieren: Der Regressionskoeffizient beschreibt die Veränderung des Outcomes, wenn der Prädiktor um eine Einheit ansteigt. Dies gilt nicht für den Group-Mean-zentrierten Prädiktor: Dieser repräsentiert die erwartete Veränderung des Outcomes bei Zunahme des Prädiktors um eine durchschnittliche Einheit innerhalb der Gruppen.\n\na. Zentrierung um den Gruppenmittelwert: Schätzung von Individual- und Aggregateffekten unabhängig voneinander.\nDie Zentrierung um den Gruppenmittelwert ermöglicht die Trennung der individuellen Variation innerhalb der Gruppen von der Variation zwischen den Gruppen. Dadurch können sowohl die Effekte auf der Individualebene als auch die Effekte auf der Gruppenebene unabhängig voneinander geschätzt werden.\n\nInterpretation von Level-1-Variablen-Interaktionen: Zeigt an, wie sich die lineare Beziehung zwischen Variablen innerhalb der Gruppen gestaltet.\nInterpretation von Level-2-Variablen-Interaktionen: Zeigt an, wie sich die lineare Beziehung der Variablen zwischen den Gruppen gestaltet – allerdings wird hier nicht voll kontrolliert für Level-1-Prädiktoren, sofern nicht zusätzlich noch die Gruppenmittelwerte der zu kontrollierenden Level-1-Variablen aufgenommen werden, sodass die Zentrierung um den Gruppenmittelwert für diesen Zweck von manchen Autor:innen als weniger sinnvoll erachtet wird (Algina & Swaminathan, 2011).\nInterpretation von Cross-Level-Interaktionen: Bei der Untersuchung von Interaktionen zeigt ein Interaktionseffekt zwischen einer um den Gruppenmittelwert zentrierten individuellen Variablen (Level-1) und einer gruppenbezogenen Variablen (Level-2), inwiefern der Effekt der individuellen Variablen von der gruppenbezogenen Variablen abhängt: Hat eine höhere Ausprägung auf einer Level-1-Variablen relativ zum Gruppenmittelwert auf dieser Variablen einen anderen Effekt auf das Kriterium, wenn die Ausprägung einer Level-2-Variablen für die Gruppe höher ist? Der Koeffizient sollte sich gemäß Algina und Swaminathan (2011) nicht bedeutsam unterscheiden von dem, der durch Zentrierung um den Gesamtmittelwert geschätzt wird, aber falls doch, empfehlen die Autoren, diese Cross-Level-Interaktion aus dem Modell zu entfernen. Andere Autor:innen empfehlen nur Group-Mean-Centering der Level-1- und Grand-Mean-Centering der Level-2-Prädiktoren bei Untersuchung von Cross-Level-Interaktionen, da so die Interpretation der Haupteffekte erleichtert wird (z.B. Bauer & Curran, 2005). Mehrere Autor:innen (z. B. Yaremych et al., 2023) plädieren bei Cross-Level-Interaktionen im Allgemeinen für diese Art der Zentrierung, da sie meistens den formulierten Cross-Level-Interaktions-Hypothesen entspricht.\n\n\n\nb. Zentrierung um den Gesamtmittelwert: Führt zu einfacher Interpretation des Intercepts, aber auch zu “Overall-Regression”.\nDie Zentrierung um den Gesamtmittelwert ermöglicht die Untersuchung der Effekte in Bezug auf den Mittelwert der gesamten Stichprobe. Das Intercept entspricht dem erwarteten Wert auf der Kriteriumsvariablen bei durchschnittlicher Ausprägung der Prädiktorvariablen. Die Effekte zwischen und innerhalb der Untersuchungseinheiten lassen sich nicht mehr getrennt interpretieren („Overall-Regression“).\n\nInterpretation von Level-1-Variablen-Interaktionen: Zeigt an, wie sich die lineare Beziehung der Variablen über alle Gruppen hinweg gestaltet.\nInterpretation von Level-2-Variablen-Interaktionen: Zeigt an, wie sich die lineare Beziehung der Variablen zwischen den Gruppen gestaltet (ggf. vollständig kontrolliert für Level-1-Prädiktoren). Diese Form der Zentrierung wird zu solchem Zweck meist empfohlen (Algina & Swaminathan, 2011).\nInterpretation von Cross-Level-Interaktionen: Bei der Untersuchung von Interaktionen zeigt ein Interaktionseffekt zwischen einer um den Gesamtmittelwert zentrierten individuellen Variablen (Level-1) und einer gruppenbezogenen Variablen (Level-2), wie der Effekt der individuellen Variablen über alle Gruppen hinweg von der gruppenbezogenen Variablen abhängt: Hat eine höhere absolute Ausprägung auf einer Level-1-Variablen einen anderen Effekt auf das Kriterium, wenn die Ausprägung einer Level-2-Variablen für die Gruppe höher ist? Algina und Swaminathan (2011) plädieren dafür, diese Cross-Level-Interaktion aus dem Modell zu entfernen, sollte sich der Effekt deutlich unterscheiden von der alternativen Schätzung nach Zentrierung um den Gruppenmittelwert.\n\n\n\nc. Keine Zentrierung: Ist selten sinnvoll bei Interaktionen im Modell. Vor allem dann nicht, wenn die Null für die Prädiktorvariablen kein sinnvoller Wert ist.\nAlle Empfehlungen gelten ebenso für kategoriale Prädiktoren, siehe z. B. Yaremych et al. (2023): “… we have demonstrated that centering guidelines for continuous predictors should be applied analogously to categorical predictors” (p. 8). Hierbei wird ein \\(k-\\)stufiger Prädiktor stets durch \\(k-1\\) “Coding-Variablen” repräsentiert. Ob diese durch Dummy-Kodierung, Effekt-Kodierung oder Kontrast-Kodierung gebildet werden, hängt von der intendierten Interpretation ab und liegt außerhalb des Fokus’ dieses Artikels."
-  },
-  {
-    "objectID": "docs/FAQ/FAQ.html#wie-groß-sollte-das-n-pro-item-idealerweise-sein",
-    "href": "docs/FAQ/FAQ.html#wie-groß-sollte-das-n-pro-item-idealerweise-sein",
-    "title": "FAQ",
-    "section": "4. Wie groß sollte das N pro Item idealerweise sein?",
-    "text": "4. Wie groß sollte das N pro Item idealerweise sein?\nGrundsätzlich stellt sich die Frage des N pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es hängt jedoch stets von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an \\(N&gt;100\\) orientieren. Im Studiendesign versucht man dabei, auf ein \\(N=150\\) zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktische notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:\n\nVERA-Pilotierung ohne DIF: hier wäre \\(N=150\\) ein vertretbarer Richtwert.\nVERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht: für eine verlässliche DIF-Analyse wäre \\(N=150\\) pro Geschlechtergruppe anzustreben. Da geschlecht einigermaßen gleichverteilt und erfahrungsgemäß nur wenige missing values hat, wäre hier \\(N=300\\) ein Minimum, \\(N=400\\) ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.\nPilotierung mit DIF-Analyse bzgl. SPF: Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre \\(N=150\\) in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen \\(N&gt;20000\\) schafft man sowas zwar, aber das wäre in kleineren Erhebungen wie VERA komplett unrealistisch. Hier müsste man also ggf. sowas wie Oversampling machen, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen “überrepräsentieren”.\nAnalysen bzgl. Migrationshintergrund: Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem N pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichproe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus \\(Migrationshintergrund\\times Geschlecht\\) hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein – es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.\n\n\nLiteratur\nAlgina, J., & Swaminathan, H. (2011). Centering in two-level nested designs. In J. Hox & K. Roberts (Eds.), The handbook of advanced multilevel data analysis (pp. 285–312). Routledge.\nBauer, D.J., & Curran, P.J. (2005). Probing interactions in fixed and multilevel regression: Inferential and graphical techniques. Multivariate Behavioral Research, 40, 373–400. https://doi.org/10.1207/s15327906mbr4003_5\nYaremych, H. E., Preacher, K. J., & Hedeker, D. (2023). Centering categorical predictors in multilevel models: Best practices and interpretation. Psychological Methods, 28(3), 613–630. https://doi.org/10.1037/met0000434"
-  },
-  {
-    "objectID": "docs/FAQ/FAQ.html#section",
-    "href": "docs/FAQ/FAQ.html#section",
-    "title": "FAQ",
-    "section": "",
-    "text": "Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx"
   }
 ]
