@@ -23,24 +23,7 @@
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<ul>
-<li><a href="https://quarto.org/">Quarto</a> is an open-source scientific and technical publishing system.</li>
-<li>It allows you to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate your code when rendering. No mor copy-pasting from tables. No more screenshoting plots. No more trying to get the references formatted correctly. And much more!</li>
-<li>One great thing about quarto: because you write your stuff in Markdown language (it’s not hard), you are free to choose into which format to export, and can change that easily. I could for example export my manuscript as PDF, and with just changing one word, I can export into word, HTML …</li>
-<li>You can also build slides and even websites (like the one you are currently on) with quarto.</li>
-<li>Great stuff!</li>
-</ul>
-</section>
-<section id="workflow" class="level1">
-<h1>Workflow</h1>
-<ul>
-<li>RStudio project</li>
-<li>Optional (but highly recommended): GitHub</li>
-<li>Optional (but highly recommended): <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/">renv</a></li>
-<li><code>File - New File - Quarto Document</code> manuscript (best is to split up the manuscript into chapters)</li>
-<li>R-Code either seperatly or within your manuscript</li>
-<li>Personal preference: Splitting up pretty much, makes it easier to keep an overview.</li>
-</ul>
+<p><a href="https://quarto.org/">Quarto</a> is an open-source scientific and technical publishing system. It allows us to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate your code when rendering. You can also build slides and even websites (like the one you are currently on) with quarto.</p>
 </section>
 <section id="components" class="level1">
 <h1>Components</h1>
@@ -73,6 +56,7 @@ Note the <code>format</code> field, which lets you quickly convert your document
 </section>
 <section id="code-chunks" class="level2">
 <h2 class="anchored" data-anchor-id="code-chunks">Code chunks</h2>
+<p>We can run code in different languages (like R, Julia, Python …) directly from our Quarto-file. Just write `<code>{r}` to start a R-chunk, and</code> to end the chunk.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -108,7 +92,38 @@ font-style: inherit;">head</span>(penguins)</span></code></pre></div>
 # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
 </div>
-<p>Chunk options:</p>
+<p>I can tweak the output via different chunk options, which are written on top of the chunk:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| echo: false</span></span>
+<span id="cb6-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| message: false</span></span>
+<span id="cb6-3"></span>
+<span id="cb6-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(palmerpenguins)</span>
+<span id="cb6-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb6-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(penguins)</span></code></pre></div>
+<p>becomes:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+3 Adelie  Torgersen           40.3          18                 195        3250
+4 Adelie  Torgersen           NA            NA                  NA          NA
+5 Adelie  Torgersen           36.7          19.3               193        3450
+6 Adelie  Torgersen           39.3          20.6               190        3650
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
 </section>
 <section id="tables" class="level2">
 <h2 class="anchored" data-anchor-id="tables">Tables</h2>
@@ -142,17 +157,17 @@ font-style: inherit;">head</span>(penguins)</span></code></pre></div>
 </table>
 <p>With <code>knitr::kable()</code> you can build them programmatically:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">penguins_species <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">penguins_species <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> penguins <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb7-2">  <span class="fu" style="color: #4758AB;
+<span id="cb9-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(species) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb7-3">  <span class="fu" style="color: #4758AB;
+<span id="cb9-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -163,13 +178,13 @@ background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>), </span>
-<span id="cb7-4">            <span class="at" style="color: #657422;
+<span id="cb9-4">            <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">n =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">n</span>()) </span>
-<span id="cb7-5"></span>
-<span id="cb7-6">knitr<span class="sc" style="color: #5E5E5E;
+<span id="cb9-5"></span>
+<span id="cb9-6">knitr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -204,22 +219,22 @@ font-style: inherit;">kable</span>(penguins_species)</span></code></pre></div>
 </div>
 </div>
 <p>For more complex tables, I’ve found the <a href="https://rempsyc.remi-theriault.com/articles/table">rempsyc</a> package which helps in building APA tables, but there are other options like <a href="https://davidgohel.github.io/flextable/">flextable</a> or <a href="https://gt.rstudio.com/">gt</a> as well:</p>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#| label: tbl-penguins</span></span>
-<span id="cb8-2"><span class="co" style="color: #5E5E5E;
+<span id="cb10-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#| tbl-cap: Table with penguins species flipper length.</span></span>
-<span id="cb8-3"></span>
-<span id="cb8-4"><span class="fu" style="color: #4758AB;
+<span id="cb10-3"></span>
+<span id="cb10-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(rempsyc)</span>
-<span id="cb8-5"></span>
-<span id="cb8-6"><span class="fu" style="color: #4758AB;
+<span id="cb10-5"></span>
+<span id="cb10-6"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">nice_table</span>(</span>
-<span id="cb8-7">  penguins_species</span>
-<span id="cb8-8">)</span></code></pre></div>
+<span id="cb10-7">  penguins_species</span>
+<span id="cb10-8">)</span></code></pre></div>
 <div class="cell">
 <div id="tbl-penguins" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -228,7 +243,7 @@ Table&nbsp;1: Table with penguins species flipper length.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-d38f0ec8{table-layout:auto;}.cl-d384fe74{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d384fe9c{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d388fab0{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-d388faba{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-d3890eb0{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3890eb1{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3890eba{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3890ebb{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3890ec4{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d38f0ec8"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d3890eb0"><p class="cl-d388fab0"><span class="cl-d384fe74">species</span></p></th><th class="cl-d3890eb0"><p class="cl-d388fab0"><span class="cl-d384fe74">mean_flipper_length</span></p></th><th class="cl-d3890eb0"><p class="cl-d388fab0"><span class="cl-d384fe9c">n</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d3890eb1"><p class="cl-d388faba"><span class="cl-d384fe74">Adelie</span></p></td><td class="cl-d3890eba"><p class="cl-d388fab0"><span class="cl-d384fe74">189.95</span></p></td><td class="cl-d3890eba"><p class="cl-d388fab0"><span class="cl-d384fe74">152</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d3890eb1"><p class="cl-d388faba"><span class="cl-d384fe74">Chinstrap</span></p></td><td class="cl-d3890eba"><p class="cl-d388fab0"><span class="cl-d384fe74">195.82</span></p></td><td class="cl-d3890eba"><p class="cl-d388fab0"><span class="cl-d384fe74">68</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d3890ebb"><p class="cl-d388faba"><span class="cl-d384fe74">Gentoo</span></p></td><td class="cl-d3890ec4"><p class="cl-d388fab0"><span class="cl-d384fe74">217.19</span></p></td><td class="cl-d3890ec4"><p class="cl-d388fab0"><span class="cl-d384fe74">124</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-a2d0a03a{table-layout:auto;}.cl-a2c6b638{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a2c6b64c{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a2ca2692{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-a2ca269c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-a2ca3cc2{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2ca3cc3{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2ca3ccc{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2ca3ccd{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2ca3cd6{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-a2d0a03a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-a2ca3cc2"><p class="cl-a2ca2692"><span class="cl-a2c6b638">species</span></p></th><th class="cl-a2ca3cc2"><p class="cl-a2ca2692"><span class="cl-a2c6b638">mean_flipper_length</span></p></th><th class="cl-a2ca3cc2"><p class="cl-a2ca2692"><span class="cl-a2c6b64c">n</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a2ca3cc3"><p class="cl-a2ca269c"><span class="cl-a2c6b638">Adelie</span></p></td><td class="cl-a2ca3ccc"><p class="cl-a2ca2692"><span class="cl-a2c6b638">189.95</span></p></td><td class="cl-a2ca3ccc"><p class="cl-a2ca2692"><span class="cl-a2c6b638">152</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2ca3cc3"><p class="cl-a2ca269c"><span class="cl-a2c6b638">Chinstrap</span></p></td><td class="cl-a2ca3ccc"><p class="cl-a2ca2692"><span class="cl-a2c6b638">195.82</span></p></td><td class="cl-a2ca3ccc"><p class="cl-a2ca2692"><span class="cl-a2c6b638">68</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2ca3ccd"><p class="cl-a2ca269c"><span class="cl-a2c6b638">Gentoo</span></p></td><td class="cl-a2ca3cd6"><p class="cl-a2ca2692"><span class="cl-a2c6b638">217.19</span></p></td><td class="cl-a2ca3cd6"><p class="cl-a2ca2692"><span class="cl-a2c6b638">124</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </figure>
@@ -294,15 +309,15 @@ To cite a reference in you text, you can use an @ in front of the tag like <code
 <h2 class="anchored" data-anchor-id="apaquarto">apaquarto</h2>
 <p>Alternatively, I’ve found (but not yet tested in a whole project) the <a href="https://wjschne.github.io/apaquarto/">apaquarto</a> extension. You can install via:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"home/my_project"</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Make sure the folder is empty</span></span>
-<span id="cb10-2"></span>
-<span id="cb10-3">quarto<span class="sc" style="color: #5E5E5E;
+<span id="cb12-2"></span>
+<span id="cb12-3">quarto<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -337,14 +352,14 @@ Hint
 <li>Make sure to set the working directory to an empty folder before installing:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"home/my_project"</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Make sure the folder is empty</span></span>
-<span id="cb11-2">quarto<span class="sc" style="color: #5E5E5E;
+<span id="cb13-2">quarto<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -380,11 +395,11 @@ Solution
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb12-2"></span>
-<span id="cb12-3">athletes <span class="ot" style="color: #003B4F;
+<span id="cb14-2"></span>
+<span id="cb14-3">athletes <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -401,7 +416,7 @@ background-color: null;
 font-style: inherit;">"athletes.rds"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb12-4">  <span class="fu" style="color: #4758AB;
+<span id="cb14-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -416,7 +431,7 @@ background-color: null;
 font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb12-5">  <span class="fu" style="color: #4758AB;
+<span id="cb14-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -429,15 +444,15 @@ background-color: null;
 font-style: inherit;">"Judo"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Beach Volleyball"</span>))</span>
-<span id="cb12-6"></span>
-<span id="cb12-7"><span class="do" style="color: #5E5E5E;
+<span id="cb14-6"></span>
+<span id="cb14-7"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Center height? Look into log-reg slides völkle. Also: how to interpret the regression weights?</span></span>
-<span id="cb12-8"></span>
-<span id="cb12-9"><span class="do" style="color: #5E5E5E;
+<span id="cb14-8"></span>
+<span id="cb14-9"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## This is not a course on logistic regression, use with care. </span></span>
-<span id="cb12-10">model <span class="ot" style="color: #003B4F;
+<span id="cb14-10">model <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -456,7 +471,7 @@ background-color: null;
 font-style: inherit;">link=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'logit'</span>))</span>
-<span id="cb12-11"><span class="fu" style="color: #4758AB;
+<span id="cb14-11"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(model)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -483,10 +498,10 @@ AIC: 7815.1
 
 Number of Fisher Scoring iterations: 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(report)</span>
-<span id="cb14-2"><span class="fu" style="color: #4758AB;
+<span id="cb16-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">report</span>(model)</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -520,7 +535,7 @@ Standardized parameters were obtained by fitting the model on a standardized
 version of the dataset. 95% Confidence Intervals (CIs) and p-values were
 computed using a Wald z-distribution approximation.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">report_table</span>(model)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -538,20 +553,20 @@ Tjur's R2        |             |                |       |        |            | 
 Sigma            |             |                |       |        |            |                   |    1.00
 Log_loss         |             |                |       |        |            |                   |    0.50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(broom)</span>
-<span id="cb20-2"><span class="fu" style="color: #4758AB;
+<span id="cb22-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(rempsyc)</span>
-<span id="cb20-3">model_broom <span class="ot" style="color: #003B4F;
+<span id="cb22-3">model_broom <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">tidy</span>(model)</span>
-<span id="cb20-4"></span>
-<span id="cb20-5"></span>
-<span id="cb20-6"><span class="fu" style="color: #4758AB;
+<span id="cb22-4"></span>
+<span id="cb22-5"></span>
+<span id="cb22-6"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">nice_table</span>(model_broom, <span class="at" style="color: #657422;
 background-color: null;
@@ -559,14 +574,14 @@ font-style: inherit;">broom =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"glm"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-d6de3a4a{table-layout:auto;}.cl-d6d4c820{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d6d4c82a{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d6d7cf66{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-d6d7cf7a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-d6d7ec94{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6d7eca8{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6d7eca9{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6d7ecb2{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6d7ecb3{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d6de3a4a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d6d7ec94"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">Term</span></p></th><th class="cl-d6d7ec94"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">estimate</span></p></th><th class="cl-d6d7ec94"><p class="cl-d6d7cf66"><span class="cl-d6d4c82a">SE</span></p></th><th class="cl-d6d7ec94"><p class="cl-d6d7cf66"><span class="cl-d6d4c82a">t</span></p></th><th class="cl-d6d7ec94"><p class="cl-d6d7cf66"><span class="cl-d6d4c82a">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d6d7eca8"><p class="cl-d6d7cf7a"><span class="cl-d6d4c820">(Intercept)</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">-4.78</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">0.73</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">-6.53</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6d7eca8"><p class="cl-d6d7cf7a"><span class="cl-d6d4c820">Height</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">0.02</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">0.00</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">5.01</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6d7eca8"><p class="cl-d6d7cf7a"><span class="cl-d6d4c820">SexM</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">-2.18</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">0.90</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">-2.41</span></p></td><td class="cl-d6d7eca9"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">.016*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6d7ecb2"><p class="cl-d6d7cf7a"><span class="cl-d6d4c820">Height × SexM</span></p></td><td class="cl-d6d7ecb3"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">0.01</span></p></td><td class="cl-d6d7ecb3"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">0.00</span></p></td><td class="cl-d6d7ecb3"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">1.71</span></p></td><td class="cl-d6d7ecb3"><p class="cl-d6d7cf66"><span class="cl-d6d4c820">.087</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-a6488340{table-layout:auto;}.cl-a6406160{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a640616a{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a6438002{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-a643800c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-a6438fb6{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a6438fb7{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a6438fc0{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a6438fc1{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a6438fc2{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-a6488340"><thead><tr style="overflow-wrap:break-word;"><th class="cl-a6438fb6"><p class="cl-a6438002"><span class="cl-a6406160">Term</span></p></th><th class="cl-a6438fb6"><p class="cl-a6438002"><span class="cl-a6406160">estimate</span></p></th><th class="cl-a6438fb6"><p class="cl-a6438002"><span class="cl-a640616a">SE</span></p></th><th class="cl-a6438fb6"><p class="cl-a6438002"><span class="cl-a640616a">t</span></p></th><th class="cl-a6438fb6"><p class="cl-a6438002"><span class="cl-a640616a">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a6438fb7"><p class="cl-a643800c"><span class="cl-a6406160">(Intercept)</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">-4.78</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">0.73</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">-6.53</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a6438fb7"><p class="cl-a643800c"><span class="cl-a6406160">Height</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">0.02</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">0.00</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">5.01</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a6438fb7"><p class="cl-a643800c"><span class="cl-a6406160">SexM</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">-2.18</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">0.90</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">-2.41</span></p></td><td class="cl-a6438fc0"><p class="cl-a6438002"><span class="cl-a6406160">.016*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a6438fc1"><p class="cl-a643800c"><span class="cl-a6406160">Height × SexM</span></p></td><td class="cl-a6438fc2"><p class="cl-a6438002"><span class="cl-a6406160">0.01</span></p></td><td class="cl-a6438fc2"><p class="cl-a6438002"><span class="cl-a6406160">0.00</span></p></td><td class="cl-a6438fc2"><p class="cl-a6438002"><span class="cl-a6406160">1.71</span></p></td><td class="cl-a6438fc2"><p class="cl-a6438002"><span class="cl-a6406160">.087</span></p></td></tr></tbody></table></div>
 </div>
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="do" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Or just build the table yourself. </span></span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="do" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Maybe plot predicitons, or at least data points with a line through it?</span></span></code></pre></div>
 </div>
