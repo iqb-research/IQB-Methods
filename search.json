@@ -291,7 +291,7 @@
     "href": "posts/r_sig/24_07_15_quarto_1/index.html#markdown-text",
     "title": "Reproducable manuscripts with Quarto",
     "section": "Markdown text",
-    "text": "Markdown text\nThe body of the document is written in markdown language. Some expressions:\n\n# for headers. Add as many # as you like for subheaders.\n**bold**: bold\n*italic*: italic\n`:code`\nLists: - for bullet points, 1. for numbered lists (beware: the line above the list has to be empty)\nLinebreaks: Two spaces at the end of a line.\nLinks: [text](url)"
+    "text": "Markdown text\nThe body of the document is written in markdown language. Some expressions:\n\n# for headers. Add as many # as you like for subheaders.\n**bold**: bold\n*italic*: italic\n``code\\\nLists: - for bullet points, 1. for numbered lists (beware: the line above the list has to be empty)\nLinebreaks: Two spaces at the end of a line.\nLinks: [text](url)"
   },
   {
     "objectID": "posts/r_sig/24_07_15_quarto_1/index.html#code-chunks",
