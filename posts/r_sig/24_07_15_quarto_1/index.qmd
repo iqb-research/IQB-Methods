@@ -47,7 +47,7 @@ The body of the document is written in markdown language. Some expressions:
 -   `#` for headers. Add as many `#` as you like for subheaders.
 -   `**bold**`: **bold**
 -   `*italic*`: **italic**
--   \``:`code\`
+-   \```code\`
 -   Lists: `-` for bullet points, `1.` for numbered lists (beware: the line above the list has to be empty)
 -   Linebreaks: Two spaces at the end of a line.
 -   Links: `[text](url)`
