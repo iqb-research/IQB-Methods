@@ -300,8 +300,6 @@ Citations are saved in `.bib` files. The `.bib` format can be chosen to download
 }
 ```
 
-The great thing is: from this format, you can generate all kinds of different citation styles. Just put `bibliographystyle:` with the wanted style into your YAML-header: `bibliographystyle: apa`
-
 Of course, you should still check if the fields are filled in correctly. If you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.\
 To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@darwin1859]` [@darwin1859].
 
