@@ -159,7 +159,7 @@ nice_table(
 
 ### Labels
 
-Tables that are build programmatically can be labeled with `#| label: tbl-judo` at the top of the chunk. This will always put the correct number in the caption and also lets you cross-reference the table in you text by writing `@tbl-judo` @tbl-judo.\
+Tables that are build programmatically can be labeled with `#| label: tbl-judo` at the top of the chunk. This will always put the correct number in the caption and also lets you cross-reference the table in your text by writing `@tbl-judo` @tbl-judo.\
 The [apaquarto](https://github.com/wjschne/apaquarto) template will take care of correctly rendering it to APA-style.\
 Captions can be written with `#| tbl-cap: German olympic medal winners in Judo.`.
 
