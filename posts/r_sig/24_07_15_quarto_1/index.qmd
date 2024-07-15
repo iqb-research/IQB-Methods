@@ -18,9 +18,9 @@ bibliographystyle: apa
 
 ## YAML header
 
-Quarto documents have the ending `.qmd`. 
+Quarto documents have the ending `.qmd`.
 
-The YAML header, which begins on the top of the document with `---`, and also ends with `---`,  contains global options for the document:
+The YAML header, which begins on the top of the document with `---`, and also ends with `---`, contains global options for the document:
 
 ```         
 ---
@@ -37,23 +37,24 @@ format: pdf
 ---
 ```
 
-An overview of possible YAML-fields can be found [here](https://quarto.org/docs/reference/formats/pdf.html).  
-Note the `format` field, which lets us quickly convert our document between `pdf`, `word` and `html`, and also lets us use one of many templates.  
+An overview of possible YAML-fields can be found [here](https://quarto.org/docs/reference/formats/pdf.html).\
+Note the `format` field, which lets us quickly convert our document between `pdf`, `word` and `html`, and also lets us use one of many templates.
 
 ## Markdown text
 
 The body of the document is written in markdown language. Some expressions:
 
 -   `#` for headers. Add as many `#` as you like for subheaders.
-- `**bold**`: **bold**
-- `*italic*`: **italic**
-- ``: `code`
-- Lists: `-` for bullet points, `1.` for numbered lists (beware: the line above the list has to be empty)
-- Linebreaks: Two spaces at the end of a line. 
-- Links: `[text](url)`
+-   `**bold**`: **bold**
+-   `*italic*`: **italic**
+-   \``:`code\`
+-   Lists: `-` for bullet points, `1.` for numbered lists (beware: the line above the list has to be empty)
+-   Linebreaks: Two spaces at the end of a line.
+-   Links: `[text](url)`
 
 ## Code chunks
-We can run code in different languages (like R, Julia, Python ...) directly from our Quarto-file. In RStudio you can press `Strg-Alt-i` to insert a new r code chunk. 
+
+We can run code in different languages (like R, Julia, Python ...) directly from our Quarto-file. In RStudio you can press `Strg-Alt-i` to insert a new r code chunk.
 
 ```{r}
 #| echo: true
@@ -63,18 +64,18 @@ athletes <- readRDS(file = here::here("raw_data", "athletes.rds"))
 head(athletes)
 ```
 
-We can tweak the code execution via different [execution options](https://quarto.org/docs/computations/execution-options.html), which are written on top of the chunk: 
+We can tweak the code execution via different [execution options](https://quarto.org/docs/computations/execution-options.html), which are written on top of the chunk:
 
-```r
+``` r
 #| echo: false
 #| message: false
 
 library(tidyverse)
 athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds"))
 head(athletes)
-
 ```
-becomes: 
+
+becomes:
 
 ```{r}
 #| echo: false
@@ -86,27 +87,27 @@ head(athletes)
 ```
 
 ## Tables
-Tables can be a bit tricky. The great thing is: once you have styled them, they get updated automatically if some data changes. 
-Also, there are a lot of different packages for building tables in markdown, here are some options: 
+
+Tables can be a bit tricky. The great thing is: once you have styled them, they get updated automatically if some data changes. Also, there are a lot of different packages for building tables in markdown, here are some options:
 
 ### Markdown
-For some simple tables, the normal markdown syntax might be enough, see [here](https://quarto.org/docs/authoring/tables.html). 
 
-```
+For some simple tables, the normal markdown syntax might be enough, see [here](https://quarto.org/docs/authoring/tables.html).
+
+```         
 | Column 1 | Column 2 | Column 3 |
 |----------|----------|----------|
 | A1       | B1       | C1       |
 | A2       | B2       | C2       |
-
 ```
+
 | Column 1 | Column 2 | Column 3 |
 |----------|----------|----------|
 | A1       | B1       | C1       |
 | A2       | B2       | C2       |
-
-
 
 ### Kable
+
 With `knitr::kable()` you can build tables programmatically from code chunks:
 
 ```{r}
@@ -120,11 +121,11 @@ judo_athletes_ger <- athletes %>%
 knitr::kable(judo_athletes_ger)
 ```
 
+### APA tables
 
-### APA tables 
-For APA tables, I've found the [rempsyc](https://rempsyc.remi-theriault.com/articles/table) package which helps in building APA tables, but there are other options like [flextable](https://davidgohel.github.io/flextable/) or [gt](https://gt.rstudio.com/)  as well:
+For APA tables, I've found the [rempsyc](https://rempsyc.remi-theriault.com/articles/table) package which helps in building APA tables, but there are other options like [flextable](https://davidgohel.github.io/flextable/) or [gt](https://gt.rstudio.com/) as well:
 
-```r
+``` r
 #| label: tbl-judo
 #| tbl-cap: Table with penguins species flipper length.
 
@@ -148,51 +149,61 @@ nice_table(
 )
 ```
 
-
 ### Labels
-Tables that are build programmatically can be labeled with `#| label: tbl-judo` at the top of the chunk.
-This will always put the correct number in the caption and also lets you cross-reference the table in you text by writing `@tbl-judo` @tbl-judo.  
-The [apaquarto](https://github.com/wjschne/apaquarto) template will take care of correctly rendering it to APA-style.  
+
+Tables that are build programmatically can be labeled with `#| label: tbl-judo` at the top of the chunk. This will always put the correct number in the caption and also lets you cross-reference the table in you text by writing `@tbl-judo` @tbl-judo.\
+The [apaquarto](https://github.com/wjschne/apaquarto) template will take care of correctly rendering it to APA-style.\
 Captions can be written with `#| tbl-cap: German olympic medal winners in Judo.`.
 
 <!-- ### Formating model output -->
+
 <!-- There are some packages out there that help you to format output of statistical models.  -->
 
 <!-- ```{r} -->
+
 <!-- #| echo: true -->
+
 <!-- #| message: false -->
+
 <!-- #| eval: false -->
 
 <!-- library(tidyverse) -->
 
 <!-- athletes <- readRDS(file = here::here("raw_data", "athletes.rds")) %>% -->
+
 <!--   mutate(Medal_bi = ifelse(is.na(Medal), 0, 1)) %>% -->
+
 <!--   filter(Sport %in% c("Basketball", "Judo", "Beach Volleyball")) -->
 
 <!-- ## Center height? Look into log-reg slides völkle. Also: how to interpret the regression weights? -->
 
 <!-- ## This is not a course on logistic regression, use with care. -->
+
 <!-- model <- glm(Medal_bi ~ Height * Sex, data = athletes, family = binomial(link = "logit")) -->
+
 <!-- summary(model) -->
 
 <!-- library(report) -->
+
 <!-- report(model) -->
+
 <!-- report_table(model) -->
 
 <!-- library(broom) -->
-<!-- library(rempsyc) -->
-<!-- model_broom <- tidy(model) -->
 
+<!-- library(rempsyc) -->
+
+<!-- model_broom <- tidy(model) -->
 
 <!-- nice_table(model_broom, broom = "glm") -->
 
-
 <!-- ## Or just build the table yourself. -->
+
 <!-- ``` -->
 
-
 ## Plots
-Plots can be very easily created from within a code chunk: 
+
+Plots can be very easily created from within a code chunk:
 
 ```{r}
 best_by_sport <- athletes %>%
@@ -230,9 +241,9 @@ p1 <- ggplot(
 p1
 ```
 
-Again, we can tweak the layout, captions etc. via the chunk options, see [here](https://quarto.org/docs/authoring/figures.html#computations) for an overview. 
+Again, we can tweak the layout, captions etc. via the chunk options, see [here](https://quarto.org/docs/authoring/figures.html#computations) for an overview.
 
-```
+```         
 #| fig-height: 8
 #| fig-width: 11
 
@@ -247,12 +258,11 @@ p1
 p1
 ```
 
-
-
 ## Citations
-Citations are saved in `.bib` files. The `.bib` format can be chosen to download or copy on almost every website, often next to APA and others. It looks like this: 
 
-```
+Citations are saved in `.bib` files. The `.bib` format can be chosen to download or copy on almost every website, often next to APA and others. It looks like this:
+
+```         
 @article{allport1936trait,
   title={Trait-names: A psycho-lexical study.},
   author={Allport, Gordon W and Odbert, Henry S},
@@ -280,26 +290,27 @@ Citations are saved in `.bib` files. The `.bib` format can be chosen to download
   title = {On the Origin of Species by Means of Natural Selection},
   year = 1859
 }
-
 ```
+
 The great thing is: from this format, you can generate all kinds of different citation styles. Just put `bibliographystyle:` with the wanted style into your YAML-header: `bibliographystyle: apa`
 
-Of course, you should still check if the fields are filled in correctly.
-If you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.  
+Of course, you should still check if the fields are filled in correctly. If you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.\
 To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@darwin1859]` [@darwin1859].
 
 ## CSS and output Hooks
 
-
 # Templates & APA
 
 ## Own Templates
-You can always create your [own template](https://quarto.org/docs/journals/templates.html) Luckily, some people have done a lot of the work for us, and therefore we can use templates provided for [specific journals](https://github.com/quarto-journals/). Oooor more generally, APA templates: 
+
+You can always create your [own template](https://quarto.org/docs/journals/templates.html) Luckily, some people have done a lot of the work for us, and therefore we can use templates provided for [specific journals](https://github.com/quarto-journals/). Oooor more generally, APA templates:
 
 ## Papaja
-There are some markdown templates that format your text in APA style. Most famously, the [`papaja`](https://github.com/crsh/papaja) package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.   
+
+There are some markdown templates that format your text in APA style. Most famously, the [`papaja`](https://github.com/crsh/papaja) package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.
 
 ## apaquarto
+
 Alternatively, I've found (but not yet tested in a whole project) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via:
 
 ```{r}
@@ -310,29 +321,28 @@ setwd("home/my_project") # Make sure the folder is empty
 quarto::quarto_use_template("wjschne/apaquarto")
 ```
 
-This will create the necessary files in your folder. Update the `.qmd` file with the same name as your folder. I'd suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts ...).  
-The template will label your tables and figures correctly, and format the bibliography as well as the whole document. 
-
+This will create the necessary files in your folder. Update the `.qmd` file with the same name as your folder. I'd suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts ...).\
+The template will label your tables and figures correctly, and format the bibliography as well as the whole document.
 
 # Exercises
 
-0. Set up a new RStudio project in a new directory. 
-1. Create a Quarto file. 
-2. Fill it with a "mini-Analysis" of the `characters` and `psych_stats` data sets. You can use the code from the [Plotting Exercise](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting_exercise.html), for now **not** in APA style (we will do this next week). This Quarto file should contain: 
+0.  Set up a new RStudio project in a new directory.
+1.  Create a Quarto file.
+2.  Fill it with a "mini-Analysis" of the `characters` and `psych_stats` data sets. You can use the code from the [Plotting Exercise](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting_exercise.html), for now **not** in APA style (we will do this next week). This Quarto file should contain:
 
-- A YAML header. 
-- Invisible code chunks for data preparation (you will have to merge the `characters` and `psych_stats` data sets). 
-- Some little text body (not important whats written there). 
-- At least two labeled tables that also get mentioned in the text body.
-- At least one plot that gets mentioned in the text body.
-- Own references. 
+-   A YAML header.
+-   Invisible code chunks for data preparation (you will have to merge the `characters` and `psych_stats` data sets).
+-   Some little text body (not important whats written there).
+-   At least two labeled tables that also get mentioned in the text body.
+-   At least one plot that gets mentioned in the text body.
+-   Own references.
 
-Don't spent too much time on what to write and on the code, you can just use the code we wrote in the previous plotting exercises.  
+Don't spent too much time on what to write and on the code, you can just use the code we wrote in the previous plotting exercises.
 
 ::: {.callout-tip collapse="true"}
 ## Hint
 
-Prepare your data with: 
+Prepare your data with:
 
 ```{r}
 # install.packages("tidyverse")
@@ -364,53 +374,58 @@ characters_stats <- merge(
   by.y = "char_id"
 )
 ```
-
 :::
 
-3. Render your file into pdf, word and html. 
-
-
+3.  Render your file into pdf, word and html.
 
 <!-- 0. Create a fresh, empty folder for this exercise. -->
+
 <!-- 1. Install the `apaquarto` template. -->
 
 <!-- ::: {.callout-tip collapse="true"} -->
+
 <!-- ## Hint -->
 
 <!-- - Make sure you have a current version of quarto installed. If not, download from [here](https://quarto.org/docs/download/) and install. Restart RStudio, it should find the new quarto installation automatically. -->
+
 <!-- - Make sure to set the working directory to an empty folder before installing: -->
 
 <!-- ```{r} -->
+
 <!-- #| eval: false -->
+
 <!-- #| echo: true -->
 
 <!-- setwd("home/my_project") # Make sure the folder is empty -->
+
 <!-- quarto::quarto_use_template("wjschne/apaquarto") -->
+
 <!-- ``` -->
 
 <!-- ::: -->
 
 <!-- 2. Create a RStudio project in your directory and open it. -->
+
 <!-- 3. Open the `.qmd` document and fill it with a "mini"-analysis of the [`athletes`](https://github.com/nickhaf/r_tutorial/blob/main/raw_data/athletes.rds) dataset. So update the YAML and the text body for your own needs. The analysis should contain: -->
 
 <!-- - at least two chapters -->
+
 <!-- - two own references (a book and an article) -->
 
 <!-- - some sort of table. Make it as complex as you like to try and play around with different packages and table options. -->
+
 <!-- - some plot -->
+
 <!-- - a linear regression with table. What kind? Maybe use the volleyball dataset instead? With a t-Test! -->
-
-
 
 <!-- 5. Convert your manuscript into a PDF. -->
 
-
-
 <!-- ```{r} -->
+
 <!-- ## Maybe plot predicitons, or at least data points with a line through it? -->
+
 <!-- ``` -->
 
 <!-- ::: -->
 
 <!-- 4. Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. It can contain files for functions, for data preperation etc. -->
-
