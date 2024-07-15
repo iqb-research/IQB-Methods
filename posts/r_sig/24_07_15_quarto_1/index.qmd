@@ -8,7 +8,15 @@ categories: [R, quarto]
 date: 07-15-2024
 bibliography: references.bib
 bibliographystyle: apa
+image: manuscript.jpg
+
 ---
+
+
+![](manuscript.jpg)[^1]
+
+[^1]: Image by [Towfiqu barbhuiya](https://unsplash.com/de/@towfiqu999999?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/eine-nahaufnahme-eines-papierstapels-auf-einem-tisch-KKHs1e2yiwc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
+
 
 # Introduction
 
