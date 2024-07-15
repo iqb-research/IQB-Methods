@@ -1412,6 +1412,18 @@
       ],
       "Hash": "76c9e04c712a05848ae7a23d2f170a40"
     },
+    "rempsyc": {
+      "Package": "rempsyc",
+      "Version": "0.1.8",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "dplyr",
+        "rlang"
+      ],
+      "Hash": "d6c9653b11061f748b5f1e1bdd59c679"
+    },
     "renv": {
       "Package": "renv",
       "Version": "1.0.3",
