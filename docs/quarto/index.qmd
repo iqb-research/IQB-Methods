@@ -10,7 +10,10 @@ This website was created using Quarto. It is hosted on GitHub. In this chapter w
 
 1.  As the website is hosted on GitHub, you can just clone the [repository](https://github.com/iqb-research/IQB-Methods).
 2.  Open the RStudio project with RStudio.
-3.  This website uses [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) to keep the project specific package library up to date. The needed packages are recorded in the `.lock`-file, but not uploaded to GitHub. So the **first thing you need to do** is to install the necessary packages into your local project library:
+3.  This website uses [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) to keep the project specific package library up to date. 
+
+### `renv`
+The needed packages are recorded in the `.lock`-file, but not uploaded to GitHub. So the **first thing you need to do** is to install the necessary packages into your local project library:
 
 ```{r, eval = FALSE}
 # install.packages("renv")
@@ -27,7 +30,7 @@ renv::install("eatGADS")
 You need to do this even if you have them already installed on your PC locally, because [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) uses a project specific library.  
 
 :::{.callout-important}
-Don't forget to update the `.lock` file with `renv::snapshot()` if you have added new packages in your code. 
+Don't forget to update the `.lock` file with `renv::snapshot()` if you have added new packages in your code. Otherwise the GitHub-Action will fail.
 :::
 
 
@@ -56,7 +59,7 @@ This creates the section `R Tutorials` with the subsection `Introduction`. `Intr
 
 ### quarto-files
 
-The quarto-files contain the actual content of the website. Just edit them like you would edit `.qmd`-files (or `.rmd`-files, as the rmarkdown syntax is quite similar). Here are some useful tips:
+The quarto-files contain the actual content of the website. Just edit them like you would edit `.qmd`-files (or `.rmd`-files, as the rmarkdown syntax is quite similar). An introduction to the basic quarto functions can be found in the [R SIG](https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/). Here are some additional useful tips:
 
 #### Linking
 
