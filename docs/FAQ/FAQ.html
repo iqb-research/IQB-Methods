@@ -100,6 +100,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -494,7 +496,70 @@ window.Quarto = {
 </section>
 <section id="dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte" class="level2">
 <h2 class="anchored" data-anchor-id="dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte">2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</h2>
-<p>In eatModel wird nur der erste Teil der zweiten Tabelle item*[DIFvariable] aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items <strong>in der ersten Gruppe</strong> der [DIFvariable] <strong>leichter</strong> sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert.</p>
+<p>In eatModel wird nur der erste Teil der zweiten Tabelle <span class="math inline">\(\text{item}\times\text{[DIFvariable]}\)</span> aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items <strong>in der ersten Gruppe</strong> der <span class="math inline">\(\text{[DIFvariable]}\)</span> <strong>leichter</strong> sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatTools)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatModel)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data.ex08, <span class="at">package=</span><span class="st">"TAM"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, data.ex08[[<span class="st">"resp"</span>]])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>) <span class="co">#some infos on the dataset:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>14 subject(s) do not solve any item:
+   115 (10 false), 613 (10 false), 979 (10 false) ... 
+7 subject(s) solved each item: 119 (10 correct), 514 (10 correct), 774 (10 correct) ... 
+Dataset is completely linked.
+'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
+Q matrix specifies 1 dimension(s).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>run <span class="ot">&lt;-</span> <span class="fu">runModel</span>(def)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">getResults</span>(run, <span class="at">verbose=</span><span class="cn">FALSE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>item <span class="ot">&lt;-</span> <span class="fu">itemFromRes</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>item6 <span class="ot">&lt;-</span> <span class="fu">subset</span>(<span class="fu">roundDF</span>(item,<span class="at">digits =</span> <span class="dv">3</span>), item <span class="sc">==</span> <span class="st">"I0006"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cols  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"item"</span>, <span class="st">"itemP"</span>, <span class="st">"est"</span>, <span class="st">"estDif"</span>, <span class="st">"absDif"</span>, <span class="st">"difIndex"</span>, <span class="st">"ETS"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ausgewaehlte Spalten fuer Items 6 anzeigen lassen </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(item6[,cols], <span class="at">row.names=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">item</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">itemP</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">est</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estDif</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">absDif</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">difIndex</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ETS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I0006</td>
+<td style="text-align: right;">0.454</td>
+<td style="text-align: right;">0.226</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">B</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von <code>item[which(item[,"item"] == "I0006"),"estDif"]</code> bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(dat[,<span class="st">"I0006"</span>], dat[,<span class="st">"female"</span>], mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    0     1 
+0.410 0.498 </code></pre>
+</div>
+</div>
 </section>
 <section id="zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen" class="level2">
 <h2 class="anchored" data-anchor-id="zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen">3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</h2>
