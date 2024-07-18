@@ -404,7 +404,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv"><code>renv</code></a></li>
+  </ul></li>
   <li><a href="#file-structure" id="toc-file-structure" class="nav-link" data-scroll-target="#file-structure">File structure</a>
   <ul class="collapse">
   <li><a href="#quarto.yml" id="toc-quarto.yml" class="nav-link" data-scroll-target="#quarto.yml"><code>_quarto.yml</code></a></li>
@@ -456,8 +459,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>As the website is hosted on GitHub, you can just clone the <a href="https://github.com/iqb-research/IQB-Methods">repository</a>.</li>
 <li>Open the RStudio project with RStudio.</li>
-<li>This website uses <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> to keep the project specific package library up to date. The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</li>
+<li>This website uses <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> to keep the project specific package library up to date.</li>
 </ol>
+<section id="renv" class="level3">
+<h3 class="anchored" data-anchor-id="renv"><code>renv</code></h3>
+<p>The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("renv")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -478,9 +484,10 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code.</p>
+<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail.</p>
 </div>
 </div>
+</section>
 </section>
 <section id="file-structure" class="level2">
 <h2 class="anchored" data-anchor-id="file-structure">File structure</h2>
@@ -502,7 +509,7 @@ Important
 </section>
 <section id="quarto-files" class="level3">
 <h3 class="anchored" data-anchor-id="quarto-files">quarto-files</h3>
-<p>The quarto-files contain the actual content of the website. Just edit them like you would edit <code>.qmd</code>-files (or <code>.rmd</code>-files, as the rmarkdown syntax is quite similar). Here are some useful tips:</p>
+<p>The quarto-files contain the actual content of the website. Just edit them like you would edit <code>.qmd</code>-files (or <code>.rmd</code>-files, as the rmarkdown syntax is quite similar). An introduction to the basic quarto functions can be found in the <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/">R SIG</a>. Here are some additional useful tips:</p>
 <section id="linking" class="level4">
 <h4 class="anchored" data-anchor-id="linking">Linking</h4>
 <p>You can easily link to other pages of this website, or to other websites:</p>
