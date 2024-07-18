@@ -2,29 +2,57 @@
 title: "Info on eat Packages"
 ---
 
-see table down below and click on the links for more information on a package.
+<html>
+<head>
+<style>
+table, th, td {
+  margin-bottom: 0px;
+}
+</style>
+</head>
+
+<body>
+
+<br>
+
+
+<table style="width:100%">
+  <tr>
+    <th><a href=""><img src="./images/empty_square.svg" style="width:70px;height:140px;"></th>
+    <th><a href="/docs/eatPackages/eatCodebook.qmd"><img src="./logos/eatCodebook.png" style="width:140px;height:140px;"></a></th>
+    <th><a href="/docs/eatPackages/eatGADS.qmd"><img src="./logos/eatGADS.png" style="width:140px;height:140px;"></a></th>
+    <th><a href="/docs/eatPackages/eatPlot.qmd"><img src="./logos/eatPlot.png" style="width:140px;height:140px;"></a></th>
+    <th><a href="/docs/eatPackages/eatRep.qmd"><img src="./logos/eatRep.png" style="width:140px;height:140px;"></a></th>
+    <th><a href="/docs/eatPackages/eatTools.qmd"><img src="./logos/eatTools.png" style="width:140px;height:140px;"></a></th>
+    <th style="width:95px"></th>
+  </tr>
+</table><!--
+--><table style="width:100%">
+  <tr>
+    <th><a href="/docs/eatPackages/eatFDZ.qmd"><img src="./logos/eatFDZ.png" style="width:140px;height:140px;"></a></th>
+    <th style="width:8%"></th>
+    <th><a href="/docs/eatPackages/eatRecode.qmd"><img src="./logos/eatRecode.png" style="width:140px;height:140px;"></a></th>
+    <th style="width:8%"></th>
+    <th><a href="/docs/eatPackages/eatAnalysis.qmd"><img src="./logos/eatAnalysis.png" style="width:140px;height:140px;"></a></th>
+    <th style="width:8%"></th>
+    <th><a href="/docs/eatPackages/eatATA.qmd"><img src="./logos/eatATA.png" style="width:140px;height:140px;"></a></th>
+    <th style="width:8%"></th>
+    <th><a href="/docs/eatPackages/eatModel.qmd"><img src="./logos/eatModel.png" style="width:140px;height:140px;"></a></th>
+    <th style="width:8%"></th>
+    <th><a href="/docs/eatPackages/eatPrep.qmd"><img src="./logos/eatPrep.png" style="width:140px;height:140px;"></a></th>
+    <th style="width:8%"></th>
+  </tr>
+</table>
+
+</body>
+</html>
+
+To get more detailed info on the individual eat-packages, click on the stickers or the package's names in the table down below. 
+
 
 ## internal IQB R packages from the 'eat'-family
 
 In order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat ("educational assessment tools") are continuously (further) developed. Currently, the following packages are maintained at the IQB:
-
-```{r, include=FALSE}
-#| Paketname       | Ansprechpartner:in                                  | mehr Infos                          |
-#|-------------------|----------------------------------|-------------------|
-#| **eatPrep**     | Karoline Sachse                                     | [more Info on eatPrep](eatPrep.qmd) |
-#| **eatModel**    | Sebastian Weirich                                   | [more Info on eatModel](eatModel.qmd) |
-#| **eatRep**      | Sebastian Weirich, Benjamin Becker                  | [more Info on eatRep](eatRep.qmd) |
-#| **eatGADS**     | Benjamin Becker                                     | [more Info on eatGADS](eatGADS.qmd) |
-#| **eatTools**    | Sebastian Weirich, Benjamin Becker, Karoline Sachse | [more Info on eatTools](eatTools.qmd) |
-#| **eatAnalysis** | Benjamin Becker, Sebastian Weirich, Karoline Sachse | [more Info on eatAnalysis](eatAnalysis.qmd) |
-#| **eatATA**      | Benjamin Becker                                     | [more Info on eatATA](eatATA.qmd) |
-#| **eatFDZ**      | Benjamin Becker                                     | [more Info on eatFDZ](eatFDZ.qmd) |
-#| **eatCodebook** | Benjamin Becker                                     | [more Info on eatCodebook](eatCodebook.qmd) |
-#| **eatRecode**   | Benjamin Becker, Nicklas Hafiz                      | [more Info on eatRecode](eatRecode.qmd) |
-#| **eatPlot**     | Nicklas Hafiz, Philipp Franikowski                  | [more Info on eatPlot](eatPlot.qmd) |
-```
-
-
 
 ```{r, echo=FALSE}
 #Paketname <- c("eatPrep", "eatModel", "eatRep", "eatGADS", "eatTools", 
@@ -80,7 +108,6 @@ knitr::kable(df_layout)
 
 ```
 
-
 ## Installing R packages
 
 Detailed instructions for installing the R packages can be found here: [installing R packages](http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren)
@@ -89,11 +116,11 @@ Detailed instructions for installing the R packages can be found here: [installi
 
 Most packages of the "eat" family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:
 
-- "eatTools" is a package with help functions required by other packages. "eatTools" does not depend on other "eat" packages.
-- eatPrep" requires "eatTools".
-- eatRep" needs "eatTools" and "eatGADS".
-- eatModel" requires "eatTools" and "eatRep" (and thus also "eatGADS"). The package optionally accesses the computer programme Conquest or the R package "TAM" for parameter estimation. For Conquest, the command line executable is sufficient, e.g. "console_Feb2007.exe"; "TAM" is installed when the package is loaded. "TAM" and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.
-- "eatGADS" requires "eatTools" and "eatDB".
+-   "eatTools" is a package with help functions required by other packages. "eatTools" does not depend on other "eat" packages.
+-   eatPrep" requires "eatTools".
+-   eatRep" needs "eatTools" and "eatGADS".
+-   eatModel" requires "eatTools" and "eatRep" (and thus also "eatGADS"). The package optionally accesses the computer programme Conquest or the R package "TAM" for parameter estimation. For Conquest, the command line executable is sufficient, e.g. "console_Feb2007.exe"; "TAM" is installed when the package is loaded. "TAM" and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.
+-   "eatGADS" requires "eatTools" and "eatDB".
 
 The interdependence also extends to different versions of the packages. For example, old versions of "eatRep" are not always compatible with new versions of "eatTools" (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.
 
