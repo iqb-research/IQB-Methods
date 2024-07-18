@@ -1,8 +1,10 @@
 ---
 title: "Using Checkmate"
-author: "Edna Grewers"
+#author: "Edna Grewers"
 date: 2023-12-01
 ---
+
+[*published by Edna Grewers*]{style="color:gray"}
 
 # Intro
 
@@ -25,7 +27,6 @@ install.packages("checkmate")
 ```{r}
 library(checkmate)
 ```
-
 
 ## Different Outputs
 
@@ -206,3 +207,6 @@ You can also check for unique values or missings in a similar way. For more info
 ?assert_list
 ?assert_data_frame
 ```
+
+
+[*published by Edna Grewers, December 1, 2023*]{style="color:gray"}
