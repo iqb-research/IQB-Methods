@@ -151,6 +151,7 @@ nice_table(
 #| tbl-cap: German olympic medal winners in Judo. 
 
 library(rempsyc)
+library(flextable) #necessary for nice_table(), somehow not required in rempsyc
 
 nice_table(
   judo_athletes_ger
