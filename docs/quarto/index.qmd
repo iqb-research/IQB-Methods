@@ -24,7 +24,12 @@ install.packages("eatGADS")
 renv::install("eatGADS")
 ```
 
-You need to do this even if you have them already installed on your PC locally, because [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) uses a project specific library.
+You need to do this even if you have them already installed on your PC locally, because [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) uses a project specific library.  
+
+:::{.callout-important}
+Don't forget to update the `.lock` file with `renv::snapshot()` if you have added new packages in your code. 
+:::
+
 
 ## File structure
 
