@@ -47,8 +47,7 @@ table, th, td {
 </body>
 </html>
 
-To get more detailed info on the individual eat-packages, click on the stickers or the package's names in the table down below. 
-
+To get more detailed info on the individual eat-packages, click on the stickers or the package's names in the table down below.
 
 ## internal IQB R packages from the 'eat'-family
 
@@ -117,9 +116,9 @@ Detailed instructions for installing the R packages can be found here: [installi
 Most packages of the "eat" family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:
 
 -   "eatTools" is a package with help functions required by other packages. "eatTools" does not depend on other "eat" packages.
--   eatPrep" requires "eatTools".
--   eatRep" needs "eatTools" and "eatGADS".
--   eatModel" requires "eatTools" and "eatRep" (and thus also "eatGADS"). The package optionally accesses the computer programme Conquest or the R package "TAM" for parameter estimation. For Conquest, the command line executable is sufficient, e.g. "console_Feb2007.exe"; "TAM" is installed when the package is loaded. "TAM" and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.
+-   "eatPrep" requires "eatTools".
+-   "eatRep" needs "eatTools" and "eatGADS".
+-   "eatModel" requires "eatTools" and "eatRep" (and thus also "eatGADS"). The package optionally accesses the computer programme Conquest or the R package "TAM" for parameter estimation. For Conquest, the command line executable is sufficient, e.g. "console_Feb2007.exe"; "TAM" is installed when the package is loaded. "TAM" and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.
 -   "eatGADS" requires "eatTools" and "eatDB".
 
 The interdependence also extends to different versions of the packages. For example, old versions of "eatRep" are not always compatible with new versions of "eatTools" (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.
