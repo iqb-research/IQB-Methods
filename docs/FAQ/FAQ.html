@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -502,8 +502,9 @@ window.Quarto = {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatTools)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatModel)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data.ex08, <span class="at">package=</span><span class="st">"TAM"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, data.ex08[[<span class="st">"resp"</span>]])</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>) <span class="co">#some infos on the dataset:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Gesamtdatensatz bauen, der sowohl Personen-ID, DIF-Variable als auch responses enthaelt</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, data.ex08[[<span class="st">"resp"</span>]])</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14 subject(s) do not solve any item:
    115 (10 false), 613 (10 false), 979 (10 false) ... 
@@ -552,7 +553,7 @@ Q matrix specifies 1 dimension(s).</code></pre>
 
 </div>
 </div>
-<p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von <code>item[which(item[,"item"] == "I0006"),"estDif"]</code> bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
+<p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von 0.3098146 bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(dat[,<span class="st">"I0006"</span>], dat[,<span class="st">"female"</span>], mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
