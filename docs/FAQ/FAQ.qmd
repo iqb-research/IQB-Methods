@@ -34,8 +34,9 @@ library(kableExtra)
 library(eatTools)
 library(eatModel)
 data(data.ex08, package="TAM")
+# Gesamtdatensatz bauen, der sowohl Personen-ID, DIF-Variable als auch responses enthaelt
 dat <- data.frame(id = 1:nrow(data.ex08[["resp"]]), female = unlist(data.ex08[["facets"]])-1, data.ex08[["resp"]])
-def <- defineModel(dat, items= -c(1:2), id="id", DIF.var = "female", software="tam") #some infos on the dataset:
+def <- defineModel(dat, items= -c(1:2), id="id", DIF.var = "female", software="tam")
 run <- runModel(def)
 res <- getResults(run, verbose=FALSE)
 item <- itemFromRes(res)
@@ -51,7 +52,7 @@ kbl(item6[,cols], row.names=FALSE) %>%
     kable_styling(bootstrap_options = "striped", full_width = FALSE, position = "center")
 ```
 
-Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `item[which(item[,"item"] == "I0006"),"estDif"]` bedeutet, dass das Item in der ersten Gruppe (also `female = 0`, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für `female = 0` geringer sein, als für `female = 1`: 
+Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `r item[which(item[,"item"] == "I0006"),"estDif"]` bedeutet, dass das Item in der ersten Gruppe (also `female = 0`, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für `female = 0` geringer sein, als für `female = 1`: 
 
 ```{r eval = TRUE}
 tapply(dat[,"I0006"], dat[,"female"], mean)
