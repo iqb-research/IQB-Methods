@@ -4,7 +4,6 @@ title: "Info on eat Packages"
 
 To get more detailed info on the individual eat-packages, click on the stickers or the package's names in the table down below.
 
-```{=html}
 <html>
 <head>
 <style>
@@ -48,8 +47,11 @@ table, th, td {
 
 </body>
 </html>
-```
-## internal IQB R packages from the 'eat'-family
+
+<br/><br/>
+
+
+## eat-Packages
 
 In order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat ("educational assessment tools") are continuously (further) developed. Currently, the following packages are maintained at the IQB:
 
