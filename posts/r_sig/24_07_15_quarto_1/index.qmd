@@ -164,51 +164,110 @@ Tables that are build programmatically can be labeled with `#| label: tbl-judo` 
 The [apaquarto](https://github.com/wjschne/apaquarto) template will take care of correctly rendering it to APA-style.\
 Captions can be written with `#| tbl-cap: German olympic medal winners in Judo.`.
 
-<!-- ### Formating model output -->
+### Formating model output
 
-<!-- There are some packages out there that help you to format output of statistical models.  -->
+There are some packages out there that help you to format output of statistical models. Let's fit a simple logistic regression model to predict an athletes medal win by country (Germany or Japan) in Judo:
 
-<!-- ```{r} -->
+```{r}
+#| echo: true
+#| message: false
 
-<!-- #| echo: true -->
+library(tidyverse)
 
-<!-- #| message: false -->
+athletes <- readRDS(file = here::here("raw_data", "athletes.rds")) %>%
+  mutate(Medal_bi = ifelse(is.na(Medal), 0, 1)) %>%
+  filter(Sport == "Judo", Region %in% c("Germany", "Japan"))
 
-<!-- #| eval: false -->
 
-<!-- library(tidyverse) -->
+model <- glm(Medal_bi ~ Region, family = binomial(link = "logit"), data = athletes)
 
-<!-- athletes <- readRDS(file = here::here("raw_data", "athletes.rds")) %>% -->
+```
 
-<!--   mutate(Medal_bi = ifelse(is.na(Medal), 0, 1)) %>% -->
+Normally, the output looks something like this:
 
-<!--   filter(Sport %in% c("Basketball", "Judo", "Beach Volleyball")) -->
+```{r}
+summary(model)
+```
 
-<!-- ## Center height? Look into log-reg slides völkle. Also: how to interpret the regression weights? -->
 
-<!-- ## This is not a course on logistic regression, use with care. -->
+Now we have multiple options to easily extract the results of this regression. Most prominently, there is the [broom](https://broom.tidymodels.org/) package:  
 
-<!-- model <- glm(Medal_bi ~ Height * Sex, data = athletes, family = binomial(link = "logit")) -->
+```{r}
+library(broom)
 
-<!-- summary(model) -->
+model_broom <- tidy(model)
+model_broom
+```
 
-<!-- library(report) -->
+If we want to convert the estimates to Odds:
 
-<!-- report(model) -->
+```{r}
+model_broom <- tidy(model, exponentiate = TRUE)
+model_broom
+```
 
-<!-- report_table(model) -->
+And if we want to extract the fit statistics: 
 
-<!-- library(broom) -->
+```{r}
+glance(model)
+```
 
-<!-- library(rempsyc) -->
 
-<!-- model_broom <- tidy(model) -->
 
-<!-- nice_table(model_broom, broom = "glm") -->
+:::{.callout-tip}
+This works with **many** different model types, from t-tests over linear models to GLMs and multi level models and even `lavaan` output. They might be split out over multiple packages, multi level models for example can be tidied with [broom.mixed](https://cran.r-project.org/web/packages/broom.mixed/vignettes/broom_mixed_intro.html).
+:::
 
-<!-- ## Or just build the table yourself. -->
+We can also let R write our report section for us ;):
 
-<!-- ``` -->
+```{r}
+#| warning: false
+#| 
+library(report)
+
+report(model)
+```
+
+:::{.callout-tip}
+## Automate in-text values
+Even when not using `report` or some similar package, we can still extract the values automatically from a model and put them programmatically into the text. This can be achieved by simply adding an **inline-codechunck** into our markdown text:
+
+```
+The model's intercept, corresponding to Region = Germany, is at `r model_broom %>% filter(term == "(Intercept)") %>% pull(estimate) %>% round(2)`. 
+```
+The model's intercept, corresponding to Region = Germany, is at `r model_broom %>% filter(term == "(Intercept)") %>% pull(estimate) %>% round(2)`. 
+
+:::{.callout-tip}
+Maybe put the data extraction into an own object to keep the text more readable: 
+
+```{r}
+model_intercept <- model_broom %>% filter(term == "(Intercept)") %>% pull(estimate) %>% round(2)
+```
+
+```
+The model's intercept, corresponding to Region = Germany, is at `r #| echo: true model_intercept`. 
+```
+The model's intercept, corresponding to Region = Germany, is at `r model_intercept`. 
+
+:::
+
+:::
+
+
+And of course, APA tables, either with [`report`](https://easystats.github.io/report/):
+
+```{r}
+report_table(model)
+```
+
+Or with [`rempsyc`](https://rempsyc.remi-theriault.com/)
+
+```{r}
+library(rempsyc)
+
+nice_table(model_broom, broom = "glm")
+```
+
 
 ## Plots
 
