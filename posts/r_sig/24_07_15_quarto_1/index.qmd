@@ -356,7 +356,7 @@ Citations are saved in `.bib` files. The `.bib` format can be chosen to download
 ```
 
 Of course, you should still check if the fields are filled in correctly. If you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.\
-To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@darwin1859]` [@darwin1859].  
+To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@allport1936trait]` [@allport1936trait].  
 
 ### Citation styles
 Again, because we have our references in a plain text format, we can easily convert between different citation styles. One way to do this is to provide th `csl` argument in the YAML header, like so:
@@ -378,6 +378,16 @@ format: pdf
 
 `.csl` files can just be put into your project folder. They define the citation style, and can for example be downloaded from [Zoteros style repository](https://www.zotero.org/styles). 
 
+### Reference section
+The references will be automatically generated at the end of your document. Alternatively, you can include it where you want with 
+``` 
+::: {#refs}
+:::
+
+```
+
+::: {#refs}
+:::
 
 # Templates & APA
 
