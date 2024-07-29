@@ -474,7 +474,7 @@ One idea would be a linear mixed model investigating the influence of the notabi
 
 ```{r mixed_model}
 library(lme4)
-library(lmerTest) # for pvalues of fixed effects. 
+# library(lmerTest) # for pvalues of fixed effects. 
 
 mod_dat <- characters_stats %>%
   dplyr::filter(question == "messy_neat") %>%
