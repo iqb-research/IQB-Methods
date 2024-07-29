@@ -269,7 +269,7 @@ nice_table(model_broom, broom = "glm")
 ## Plots
 Plots can be very easily created from within a code chunk:
 
-```{r}
+```{r plot_code}
 best_by_sport <- athletes %>%
   ## Get all gold medalists
   filter(Medal == "Gold") %>%
@@ -302,7 +302,6 @@ p1 <- ggplot(
   xlab("Sport") +
   ylab("Number of gold medal winners")
 
-p1
 ```
 
 Again, we can tweak the layout, captions etc. via the chunk options, see [here](https://quarto.org/docs/authoring/figures.html#computations) for an overview.
@@ -314,7 +313,7 @@ Again, we can tweak the layout, captions etc. via the chunk options, see [here](
 p1
 ```
 
-```{r}
+```{r plot output}
 #| fig-height: 8
 #| fig-width: 11
 #| echo: false
@@ -394,7 +393,7 @@ There are some markdown templates that format your text in APA style. Most famou
 
 Alternatively, I've found (but not yet tested in a whole project) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via:
 
-```{r}
+```{r setup apaquarto}
 #| eval: false
 #| echo: true
 
