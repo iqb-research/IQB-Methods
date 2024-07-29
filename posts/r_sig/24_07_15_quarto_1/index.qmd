@@ -473,19 +473,20 @@ characters_stats <- merge(
 One idea would be a linear mixed model investigating the influence of the notability rating on the rating on a specific item, like `messy_neat`
 
 ```{r mixed_model}
+#| echo: true
+#| eval: false
+
 library(lme4)
 # library(lmerTest) # for pvalues of fixed effects. 
 
 mod_dat <- characters_stats %>%
   dplyr::filter(question == "messy_neat") %>%
-  group_by(uni_name) %>%
+  dplyr::group_by(uni_name) %>%
   ## center for interpretability:
   mutate(notability_uni_mean = mean(notability, na.rm = TRUE)) %>%
   mutate(notability_centered = notability - notability_uni_mean)
 
 mod1 <- lmer(rating ~ notability_centered + (1|name) + (1|uni_name), data = mod_dat)
-
-summary(mod1)
 
 ```
 
