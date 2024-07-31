@@ -7,7 +7,7 @@ author:
 categories: [R, quarto]
 date: 07-15-2024
 bibliography: references.bib
-bibliographystyle: apa
+csl: ./../../../apa7.csl
 image: manuscript.jpg
 
 ---
@@ -40,7 +40,7 @@ author:
 categories: [R, quarto]
 date: 07-15-2024
 bibliography: references.bib
-bibliographystyle: apa
+csl: apa7.csl
 format: pdf
 ---
 ```
@@ -129,6 +129,8 @@ judo_athletes_ger <- athletes %>%
 knitr::kable(judo_athletes_ger)
 ```
 
+To get more styling options, mainly for HTML table output, you can use [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html).
+
 ### APA tables
 
 For APA tables, I've found the [rempsyc](https://rempsyc.remi-theriault.com/articles/table) package which helps in building APA tables, but there are other options like [flextable](https://davidgohel.github.io/flextable/) or [gt](https://gt.rstudio.com/) as well:
@@ -151,6 +153,7 @@ nice_table(
 #| tbl-cap: German olympic medal winners in Judo. 
 
 library(rempsyc)
+library(flextable) #necessary for nice_table(), somehow not required in rempsyc
 
 nice_table(
   judo_athletes_ger
@@ -163,57 +166,110 @@ Tables that are build programmatically can be labeled with `#| label: tbl-judo` 
 The [apaquarto](https://github.com/wjschne/apaquarto) template will take care of correctly rendering it to APA-style.\
 Captions can be written with `#| tbl-cap: German olympic medal winners in Judo.`.
 
-<!-- ### Formating model output -->
+## Formatting model output
 
-<!-- There are some packages out there that help you to format output of statistical models.  -->
-
-<!-- ```{r} -->
-
-<!-- #| echo: true -->
-
-<!-- #| message: false -->
-
-<!-- #| eval: false -->
-
-<!-- library(tidyverse) -->
-
-<!-- athletes <- readRDS(file = here::here("raw_data", "athletes.rds")) %>% -->
-
-<!--   mutate(Medal_bi = ifelse(is.na(Medal), 0, 1)) %>% -->
-
-<!--   filter(Sport %in% c("Basketball", "Judo", "Beach Volleyball")) -->
-
-<!-- ## Center height? Look into log-reg slides völkle. Also: how to interpret the regression weights? -->
-
-<!-- ## This is not a course on logistic regression, use with care. -->
-
-<!-- model <- glm(Medal_bi ~ Height * Sex, data = athletes, family = binomial(link = "logit")) -->
-
-<!-- summary(model) -->
-
-<!-- library(report) -->
-
-<!-- report(model) -->
-
-<!-- report_table(model) -->
-
-<!-- library(broom) -->
-
-<!-- library(rempsyc) -->
-
-<!-- model_broom <- tidy(model) -->
-
-<!-- nice_table(model_broom, broom = "glm") -->
-
-<!-- ## Or just build the table yourself. -->
-
-<!-- ``` -->
-
-## Plots
-
-Plots can be very easily created from within a code chunk:
+There are some packages out there that help you to format output of statistical models. Let's fit a simple logistic regression model to predict an athletes medal win by country (Germany or Japan) in Judo:
 
 ```{r}
+#| echo: true
+#| message: false
+
+library(tidyverse)
+
+athletes_judo <- readRDS(file = here::here("raw_data", "athletes.rds")) %>%
+  mutate(Medal_bi = ifelse(is.na(Medal), 0, 1)) %>%
+  filter(Sport == "Judo", Region %in% c("Germany", "Japan"))
+
+
+model <- glm(Medal_bi ~ Region, family = binomial(link = "logit"), data = athletes_judo)
+
+```
+
+Normally, the output looks something like this:
+
+```{r}
+summary(model)
+```
+
+### Tidy up!
+Now we have multiple options to easily extract the results of this regression. Most prominently, there is the [broom](https://broom.tidymodels.org/) package:  
+
+```{r}
+library(broom)
+
+model_broom <- tidy(model)
+model_broom
+```
+
+If we want to convert the estimates to Odds:
+
+```{r}
+model_broom <- tidy(model, exponentiate = TRUE)
+model_broom
+```
+
+And if we want to extract the fit statistics: 
+
+```{r}
+glance(model)
+```
+
+
+
+:::{.callout-tip}
+This works with **many** different model types, from t-tests over linear models to GLMs and multi level models and even `lavaan` output. They might be split out over multiple packages, multi level models for example can be tidied with [broom.mixed](https://cran.r-project.org/web/packages/broom.mixed/vignettes/broom_mixed_intro.html).
+:::
+
+### Reporting
+We can also let R write our report section for us ;):
+
+```{r}
+#| warning: false
+
+library(report)
+
+report(model)
+```
+
+If you want, take a look at [`report`](https://easystats.github.io/report/), it has many more functions to make the reporting workflow of your model a lot easier. 
+
+:::{.callout-note}
+## Automate in-text values
+Even when not using `report` or some similar package, we can still extract the values automatically from a model and put them programmatically into the text. This can be achieved by simply adding an **inline-codechunck** into our markdown text:
+
+![](./inline_code.png)
+
+The model's intercept, corresponding to Region = Germany, is at `r model_broom %>% filter(term == "(Intercept)") %>% pull(estimate) %>% round(2)`. 
+
+:::{.callout-tip}
+Maybe put the data extraction into an own object to keep the text more readable: 
+
+```{r}
+model_intercept <- model_broom %>% filter(term == "(Intercept)") %>% pull(estimate) %>% round(2)
+```
+
+![](./inline_code2.png)
+
+The model's intercept, corresponding to Region = Germany, is at `r model_intercept`. 
+
+:::
+
+:::
+
+### APA tables
+For example with [`rempsyc`](https://rempsyc.remi-theriault.com/):
+
+```{r}
+library(rempsyc)
+
+nice_table(model_broom, broom = "glm")
+```
+
+
+## Plots
+Plots can be very easily created from within a code chunk:
+
+```{r plot_code}
 best_by_sport <- athletes %>%
   ## Get all gold medalists
   filter(Medal == "Gold") %>%
@@ -246,7 +302,6 @@ p1 <- ggplot(
   xlab("Sport") +
   ylab("Number of gold medal winners")
 
-p1
 ```
 
 Again, we can tweak the layout, captions etc. via the chunk options, see [here](https://quarto.org/docs/authoring/figures.html#computations) for an overview.
@@ -258,7 +313,7 @@ Again, we can tweak the layout, captions etc. via the chunk options, see [here](
 p1
 ```
 
-```{r}
+```{r plot output}
 #| fig-height: 8
 #| fig-width: 11
 #| echo: false
@@ -301,9 +356,38 @@ Citations are saved in `.bib` files. The `.bib` format can be chosen to download
 ```
 
 Of course, you should still check if the fields are filled in correctly. If you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.\
-To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@darwin1859]` [@darwin1859].
+To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@allport1936trait]` [@allport1936trait].  
 
-## CSS and output Hooks
+### Citation styles
+Again, because we have our references in a plain text format, we can easily convert between different citation styles. One way to do this is to provide th `csl` argument in the YAML header, like so:
+
+```         
+---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: references.bib
+csl: apa7.csl
+format: pdf
+---
+```
+
+`.csl` files can just be put into your project folder. They define the citation style, and can for example be downloaded from [Zoteros style repository](https://www.zotero.org/styles). 
+
+### Reference section
+The references will be automatically generated at the end of your document. Alternatively, you can include it where you want with 
+``` 
+::: {#refs}
+:::
+
+```
+
+::: {#refs}
+:::
 
 # Templates & APA
 
@@ -319,7 +403,7 @@ There are some markdown templates that format your text in APA style. Most famou
 
 Alternatively, I've found (but not yet tested in a whole project) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via:
 
-```{r}
+```{r setup apaquarto}
 #| eval: false
 #| echo: true
 
@@ -330,22 +414,31 @@ quarto::quarto_use_template("wjschne/apaquarto")
 This will create the necessary files in your folder. Update the `.qmd` file with the same name as your folder. I'd suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts ...).\
 The template will label your tables and figures correctly, and format the bibliography as well as the whole document.
 
+::: {.callout-tip}
+## Split your project
+I recommend that you split up your project into many subfiles, that get merged in the end in a main document. In my opinion, this makes everything a lot easier to overview, because working with quarto makes it easy to just put **everything** from data preperation to reporting into one huge, confousing document. For example, you can put R-Functions into a own script and source it with `source(functions.R)`. You can also put each chapter into a own `.qmd` file, and merge them together in a main document. Take a look at [include](https://quarto.org/docs/authoring/includes.html) for some input on how to do that. 
+
+:::
+
 # Exercises
 
+::: {.panel-tabset}
+
+## Markdown Exercises
 0.  Set up a new RStudio project in a new directory.
-1.  Create a Quarto file.
+1.  Create an empty Quarto file.
 2.  Fill it with a "mini-Analysis" of the `characters` and `psych_stats` data sets. You can use the code from the [Plotting Exercise](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting_exercise.html), for now **not** in APA style (we will do this next week). This Quarto file should contain:
 
 -   A YAML header.
--   Invisible code chunks for data preparation (you will have to merge the `characters` and `psych_stats` data sets).
+-   Invisible code chunks for data preparation (you will have to merge the `characters` and `psych_stats` data sets, take a look at @tip-prep).
 -   Some little text body (not important whats written there).
--   At least two labeled tables that also get mentioned in the text body.
+-   A little labeled table that also gets mentioned in the text body.
 -   At least one plot that gets mentioned in the text body.
 -   Own references.
 
-Don't spent too much time on what to write and on the code, you can just use the code we wrote in the previous plotting exercises.
+Don't spent too much time on what to write and on the code, you can just copy the code we wrote in the previous plotting exercises.
 
-::: {.callout-tip collapse="true"}
+::: {#tip-prep .callout-tip collapse="true"}
 ## Hint
 
 Prepare your data with:
@@ -382,8 +475,36 @@ characters_stats <- merge(
 ```
 :::
 
-3.  Render your file into pdf, word and html.
 
+3. Add a small "mini-analysis", where you fit some kind of model and describe it in the text and/or in a table. 
+
+::: {.callout-tip collapse="true"}
+## Hint
+One idea would be a linear mixed model investigating the influence of the notability rating on the rating on a specific item, like `messy_neat`
+
+```{r mixed_model}
+#| echo: true
+#| eval: false
+
+library(lme4)
+library(lmerTest) # for pvalues of fixed effects. 
+
+mod_dat <- characters_stats %>%
+  dplyr::filter(question == "messy_neat") %>%
+  dplyr::group_by(uni_name) %>%
+  ## center for interpretability:
+  mutate(notability_uni_mean = mean(notability, na.rm = TRUE)) %>%
+  mutate(notability_centered = notability - notability_uni_mean)
+
+mod1 <- lmer(rating ~ notability_centered + (1|name) + (1|uni_name), data = mod_dat)
+
+```
+
+:::
+
+4.  Render your file into pdf, word and html.
+
+## APA Exercises
 <!-- 0. Create a fresh, empty folder for this exercise. -->
 
 <!-- 1. Install the `apaquarto` template. -->
@@ -422,7 +543,6 @@ characters_stats <- merge(
 
 <!-- - some plot -->
 
-<!-- - a linear regression with table. What kind? Maybe use the volleyball dataset instead? With a t-Test! -->
 
 <!-- 5. Convert your manuscript into a PDF. -->
 
@@ -434,4 +554,8 @@ characters_stats <- merge(
 
 <!-- ::: -->
 
+## Bonus
+
 <!-- 4. Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. It can contain files for functions, for data preperation etc. -->
+
+:::

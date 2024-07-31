@@ -27,18 +27,19 @@ eatRep::pool.R2(r2)
 
 ## 2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der "estDif"-Spalte?
 
-In eatModel wird nur der erste Teil der zweiten Tabelle $item\times [DIFvariable]$ aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items **in der ersten Gruppe** der $[DIFvariable]$ **leichter** sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:
+In eatModel wird nur der erste Teil der zweiten Tabelle $\text{item}\times\text{[DIFvariable]}$ aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items **in der ersten Gruppe** der $\text{[DIFvariable]}$ **leichter** sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:
 
 ```{r eval = TRUE,warning=FALSE,message=FALSE}
 library(kableExtra)
 library(eatTools)
 library(eatModel)
 data(data.ex08, package="TAM")
-dat <- data.frame ( id = 1:nrow(data.ex08[["resp"]]), female = unlist(data.ex08[["facets"]])-1, data.ex08[["resp"]])
+# Gesamtdatensatz bauen, der sowohl Personen-ID, DIF-Variable als auch responses enthaelt
+dat <- data.frame(id = 1:nrow(data.ex08[["resp"]]), female = unlist(data.ex08[["facets"]])-1, data.ex08[["resp"]])
 def <- defineModel(dat, items= -c(1:2), id="id", DIF.var = "female", software="tam")
 run <- runModel(def)
-res <- getResults(run)
-item<- itemFromRes(res)
+res <- getResults(run, verbose=FALSE)
+item <- itemFromRes(res)
 ```
 
 Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6: 
@@ -51,7 +52,7 @@ kbl(item6[,cols], row.names=FALSE) %>%
     kable_styling(bootstrap_options = "striped", full_width = FALSE, position = "center")
 ```
 
-Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `item[which(item[,"item"] == "I0006"),"estDif"]` bedeutet, dass das Item in der ersten Gruppe (also female = 0, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für female = 0 geringer sein, als für female = 1: 
+Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `r item[which(item[,"item"] == "I0006"),"estDif"]` bedeutet, dass das Item in der ersten Gruppe (also `female = 0`, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für `female = 0` geringer sein, als für `female = 1`: 
 
 ```{r eval = TRUE}
 tapply(dat[,"I0006"], dat[,"female"], mean)
