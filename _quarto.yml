@@ -53,8 +53,8 @@ website:
         contents:
           - docs/checkmate/checkmate.qmd
       - section: "eat Packages"
+        href: docs/eatPackages/index.qmd
         contents: 
-          - docs/eatPackages/index.qmd
           - docs/eatPackages/eatAnalysis.qmd
           - docs/eatPackages/eatATA.qmd
           - docs/eatPackages/eatCodebook.qmd
