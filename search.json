@@ -528,23 +528,21 @@
     "href": "docs/eatPackages/index.html",
     "title": "Info on eat Packages",
     "section": "",
-    "text": "see table down below and click on the links for more information on a package.",
+    "text": "To get more detailed info on the individual eat-packages, click on the stickers or the package’s names in the table down below.",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "Info on eat Packages"
+      "eat Packages"
     ]
   },
   {
-    "objectID": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
-    "href": "docs/eatPackages/index.html#internal-iqb-r-packages-from-the-eat-family",
+    "objectID": "docs/eatPackages/index.html#eat-packages",
+    "href": "docs/eatPackages/index.html#eat-packages",
     "title": "Info on eat Packages",
-    "section": "internal IQB R packages from the ‘eat’-family",
-    "text": "internal IQB R packages from the ‘eat’-family\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski",
+    "section": "eat-Packages",
+    "text": "eat-Packages\nIn order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat (“educational assessment tools”) are continuously (further) developed. Currently, the following packages are maintained at the IQB:\n\n\n\n\n\npackage name\nbrief description\ncontact\n\n\n\n\neatPrep\nPreparation of data sets.\nKaroline Sachse\n\n\neatModel\nInterface for ConQuest software.\nSebastian Weirich\n\n\neatRep\ncalculates characteristics for data with clustered multi-level structures with imputed data.\nSebastian Weirich, Benjamin Becker\n\n\neatGADS\nImport and data preparation of SPSS data sets in R.\nBenjamin Becker\n\n\neatTools\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\neatAnalysis\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\neatATA\nAutomated block occupation/automated test booklet creation.\nBenjamin Becker\n\n\neatFDZ\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\nBenjamin Becker\n\n\neatCodebook\nAutomated creation of scale manuals.\nBenjamin Becker\n\n\neatRecode\nCreate and apply recoding databases.\nBenjamin Becker, Nicklas Hafiz\n\n\neatPlot\nCreating plots from the eatRep output (main use: Bilduntstrend).\nNicklas Hafiz, Philipp Franikowski",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "Info on eat Packages"
+      "eat Packages"
     ]
   },
   {
@@ -555,8 +553,7 @@
     "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "Info on eat Packages"
+      "eat Packages"
     ]
   },
   {
@@ -564,11 +561,10 @@
     "href": "docs/eatPackages/index.html#compatibility",
     "title": "Info on eat Packages",
     "section": "Compatibility",
-    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\neatPrep” requires “eatTools”.\neatRep” needs “eatTools” and “eatGADS”.\neatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored.",
+    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\n“eatPrep” requires “eatTools”.\n“eatRep” needs “eatTools” and “eatGADS”.\n“eatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored.",
     "crumbs": [
       "R-Sig",
-      "eat Packages",
-      "Info on eat Packages"
+      "eat Packages"
     ]
   },
   {
