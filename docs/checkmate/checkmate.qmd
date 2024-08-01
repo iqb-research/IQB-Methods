@@ -4,6 +4,7 @@ author: "Edna Grewers"
 date: 2023-12-01
 ---
 
+
 # Intro
 
 With the checkmate package you can test, check and assert all kinds of arguments regarding type, length and much more. You can also write your own assert-functions.
@@ -25,7 +26,6 @@ install.packages("checkmate")
 ```{r}
 library(checkmate)
 ```
-
 
 ## Different Outputs
 
@@ -206,3 +206,4 @@ You can also check for unique values or missings in a similar way. For more info
 ?assert_list
 ?assert_data_frame
 ```
+
