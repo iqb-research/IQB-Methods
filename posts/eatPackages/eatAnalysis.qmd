@@ -1,5 +1,12 @@
 ---
 title: "eatAnalysis"
+author: 
+  - Benjamin Becker
+  - Sebastian Weirich
+  - Karoline Sachse
+description: Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.
+#image: tbd
+image-alt: eatAnalysis Sticker, the letters spelled HELP before a red background
 ---
 
 # Info
@@ -21,7 +28,6 @@ knitr::kable(info_anal)
 
 Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.
 
-
 ```{r, echo=FALSE}
 # **Dokumentation:** -
 doku_anal <- "-"
@@ -31,4 +37,3 @@ colnames(table) <- "Documentation"
 
 knitr::kable(table)
 ```
-

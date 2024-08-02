@@ -1,5 +1,11 @@
 ---
 title: "eatRecode"
+author:
+  - Benjamin Becker
+  - Nicklas Hafiz
+description: Create and apply recoding databases.
+#image: tbd
+image-alt: eatRecode Sticker, an index card drawer before a red background
 ---
 
 # Info
@@ -21,7 +27,6 @@ knitr::kable(info_recode)
 ### Description
 
 Create and apply recoding databases.
-
 
 ```{r, echo=FALSE}
 # **Documentation:** -

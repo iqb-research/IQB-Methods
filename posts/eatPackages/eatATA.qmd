@@ -1,5 +1,10 @@
 ---
 title: "eatATA"
+author:
+  - Benjamin Becker
+description: Automated block occupation/automated test booklet creation.
+#image: tbd
+image-alt: eatATA Sticker, several puzzle pieces before a red background
 ---
 
 # Info
@@ -20,7 +25,6 @@ knitr::kable(info_ata)
 ### Description
 
 Automated block occupation/automated test booklet creation.
-
 
 ```{r, echo=FALSE}
 # **Dokumentation:** [typical use of 'eat ATA': a Minimal Example](https://cran.r-project.org/web/packages/eatATA/vignettes/minimal_example.html), ['eatATA' Functionality](https://cran.r-project.org/web/packages/eatATA/vignettes/overview.html), [a Pilot Study Example](https://cran.r-project.org/web/packages/eatATA/vignettes/use_case_pilot_study.html), [Reference manual](https://cran.r-project.org/web/packages/eatATA/eatATA.pdf)

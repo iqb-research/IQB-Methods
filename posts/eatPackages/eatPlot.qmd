@@ -1,5 +1,10 @@
 ---
 title: "eatPlot"
+author:
+  - Nicklas Hafiz
+description: Creating plots from the eatRep output (main use: Bilduntstrend).
+#image: tbd
+image-alt: eatPlot Sticker, several paint brushes in a glass before a red background
 ---
 
 # Info
@@ -22,7 +27,7 @@ knitr::kable(info_plot)
 
 Creating plots from the eatRep output (main use: Bilduntstrend).
 
-**Dokumentation:** 
+**Dokumentation:**
 
 ```{r, echo=FALSE}
 # **Documentation:** [Info page with several vignettes](https://nickhaf.github.io/eatPlot/)

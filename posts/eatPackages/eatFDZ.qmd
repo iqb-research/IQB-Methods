@@ -1,5 +1,10 @@
 ---
 title: "eatFDZ"
+author:
+  - Benjamin Becker
+description: Automated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.
+#image: tbd
+image-alt: eatFDZ Sticker, a broom before a red background
 ---
 
 # Info
@@ -23,7 +28,6 @@ knitr::kable(info_fdz)
 ### Description
 
 Automated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.
-
 
 ```{r, echo=FALSE}
 # **Documentation:** -

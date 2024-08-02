@@ -1,0 +1,39 @@
+---
+title: "Newsletter"
+listing: 
+- id: eatPackages
+  contents: posts/eatPackages/*.qmd
+  type: default
+  sort: 
+    - "title"
+    - "author"
+  feed: true
+  image-align: left
+---
+
+## internal IQB R packages from the 'eat'-family
+
+In order to standardise and simplify the evaluation of the VERA pilot studies and the IQB educational trend, a number of R packages with the prefix eat ("educational assessment tools") are continuously (further) developed. Currently, the following packages are maintained at the IQB:
+
+:::{#eatPackages}
+:::
+
+
+## Installing R packages
+
+Detailed instructions for installing the R packages can be found here: [installing R packages](http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren)
+
+## Compatibility
+
+Most packages of the "eat" family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:
+
+-   "eatTools" is a package with help functions required by other packages. "eatTools" does not depend on other "eat" packages.
+-   eatPrep" requires "eatTools".
+-   eatRep" needs "eatTools" and "eatGADS".
+-   eatModel" requires "eatTools" and "eatRep" (and thus also "eatGADS"). The package optionally accesses the computer programme Conquest or the R package "TAM" for parameter estimation. For Conquest, the command line executable is sufficient, e.g. "console_Feb2007.exe"; "TAM" is installed when the package is loaded. "TAM" and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.
+-   "eatGADS" requires "eatTools" and "eatDB".
+
+The interdependence also extends to different versions of the packages. For example, old versions of "eatRep" are not always compatible with new versions of "eatTools" (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.
+
+Since individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored.
+

@@ -1,5 +1,10 @@
 ---
 title: "eatCodebook"
+author:
+  - Benjamin Becker
+description: Automated creation of scale manuals.
+#image: tbd
+image-alt: eatCodebook Sticker, an open book before a red background
 ---
 
 # Info
@@ -21,7 +26,6 @@ knitr::kable(info_codebook)
 ### Description
 
 Automated creation of scale manuals.
-
 
 ```{r, echo=FALSE}
 # **Documentation:** [Info page with several vignettes](https://beckerbenj.github.io/eatCodebook/)
