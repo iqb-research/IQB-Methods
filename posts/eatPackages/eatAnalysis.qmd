@@ -6,13 +6,15 @@ description: Various useful help functions, such as saving Excel files, saving a
 image-alt: eatAnalysis Sticker, the letters spelled HELP before a red background
 ---
 
+no bookmark link! (only Github)
+
 # Info
 
 ```{r, echo=FALSE}
 #6
 ansprech_anal <- "Benjamin Becker, Sebastian Weirich, Karoline Sachse"
 version_anal <- "[DESCRIPTION on github](https://github.com/beckerbenj/eatAnalysis/blob/master/DESCRIPTION)"
-quelle_anal <- "[github page](https://github.com/beckerbenj/eatAnalysis)"
+quelle_anal <- "[github page](https://github.com/beckerbenj/eatAnalysis)" # no bookbark link! links to GitHub
 descFunktion_anal <- "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses."
 
 info_anal <- data.frame(ansprech_anal, version_anal, quelle_anal)
