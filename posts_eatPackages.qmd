@@ -2,7 +2,7 @@
 title: "EAT-PACKAGES"
 listing: 
 - id: eatPackages
-  contents: posts/eatPackages/*.qmd
+  contents: posts/eatPackages
   type: default
   sort: 
     - "title"
