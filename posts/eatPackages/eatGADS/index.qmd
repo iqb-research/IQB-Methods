@@ -1,10 +1,9 @@
 ---
 title: "eatGADS"
-author:
-  - Benjamin Becker
+author: Benjamin Becker
 description: Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.
-#image: tbd
-image-alt: eatGADS Sticker, equipment for scientific drawing before a red background
+image: eatGADS.svg
+#image-alt: eatGADS Sticker, equipment for scientific drawing before a red background
 ---
 
 [bookmark link](https://beckerbenj.github.io/eatGADS/)
