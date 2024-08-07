@@ -2,12 +2,10 @@
 title: "eatRep"
 resources: 
     - "*.html"
-author:
-  - Sebastian Weirich
-  - Benjamin Becker
+author: Sebastian Weirich, Benjamin Becker
 description: Calculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.
-#image: tbd
-image-alt: eatRep Sticker, a trianguler geometrical form before a red background
+image: eatRep.svg
+#image-alt: eatRep Sticker, a trianguler geometrical form before a red background
 ---
 
 no bookmark link! (only CRAN: https://cran.r-project.org/web/packages/eatRep/index.html)
