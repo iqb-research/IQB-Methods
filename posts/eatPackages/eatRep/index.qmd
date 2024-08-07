@@ -4,7 +4,7 @@ resources:
     - "*.html"
 author: Sebastian Weirich, Benjamin Becker
 description: Calculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.
-image: eatRep.svg
+image: eatRep.png
 #image-alt: eatRep Sticker, a trianguler geometrical form before a red background
 ---
 
