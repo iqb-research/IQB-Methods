@@ -1,7 +1,12 @@
 ---
 title: "eatPlot"
+description: "Creating plots from the eatRep output (main use: Bildungstrend)."
+author: NA
+date: today
 image: eatPlot.png
 ---
+
+[bookmark link](https://nickhaf.github.io/eatPlot/)
 
 # Info
 
@@ -11,7 +16,7 @@ ansprech_plot <- "Nicklas Hafiz, Philipp Franikowski"
 version_plot <- "[DESCRIPTION on github](https://github.com/nickhaf/eatPlot/blob/main/DESCRIPTION)"
 quelle_plot <- "[github page](https://github.com/nickhaf/eatPlot)"
 
-descFunktion_plot <- "Creating plots from the eatRep output (main use: Bilduntstrend)."
+descFunktion_plot <- "Creating plots from the eatRep output (main use: Bildungstrend)."
 
 info_plot <- data.frame(ansprech_plot, version_plot, quelle_plot)
 colnames(info_plot) <- c("contact", "latest version", "source")
@@ -21,7 +26,7 @@ knitr::kable(info_plot)
 
 ### Description
 
-Creating plots from the eatRep output (main use: Bilduntstrend).
+Creating plots from the eatRep output (main use: Bildungstrend).
 
 **Dokumentation:**
 
