@@ -1,5 +1,6 @@
 ---
 title: "eatRecode"
+image: eatRecode.png
 ---
 
 # Info
@@ -21,7 +22,6 @@ knitr::kable(info_recode)
 ### Description
 
 Create and apply recoding databases.
-
 
 ```{r, echo=FALSE}
 # **Documentation:** -

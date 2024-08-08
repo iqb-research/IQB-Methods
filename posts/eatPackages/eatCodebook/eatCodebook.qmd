@@ -1,5 +1,6 @@
 ---
 title: "eatCodebook"
+image: eatCodebook.png
 ---
 
 # Info
@@ -21,7 +22,6 @@ knitr::kable(info_codebook)
 ### Description
 
 Automated creation of scale manuals.
-
 
 ```{r, echo=FALSE}
 # **Documentation:** [Info page with several vignettes](https://beckerbenj.github.io/eatCodebook/)

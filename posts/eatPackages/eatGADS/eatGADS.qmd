@@ -1,5 +1,6 @@
 ---
 title: "eatGADS"
+image: eatGADS.png
 ---
 
 # Info
@@ -20,7 +21,6 @@ knitr::kable(info_gads)
 ### Description
 
 Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.
-
 
 ```{r, echo=FALSE}
 # **Documentation:** [Info page with several vignettes](https://cran.r-project.org/web/packages/eatGADS/)

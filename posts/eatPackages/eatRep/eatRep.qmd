@@ -2,6 +2,7 @@
 title: "eatRep"
 resources: 
     - "*.html"
+image: eatRep.png
 ---
 
 # Info
@@ -25,7 +26,6 @@ Calculates means, standard deviations, variances, frequency tables, percentiles 
 
 ### Documentation
 
-1) A vignette which demonstrates replication analyses with eatRep is [here](https://cran.r-project.org/web//packages/eatRep/vignettes/eatRep.html).
-2) The internal structure of the package is documented [here](https://github.com/iqb-research/IQB-Methods/blob/main/_site/structure.html). This overview is primarily dedicated to developers who want to further improve or extend the package and therefore need to understand its structure. 
-3) Workshop materials concerning `eatRep` can also be found on the IQB network drives: `i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2021\`
-
+1)  A vignette which demonstrates replication analyses with eatRep is [here](https://cran.r-project.org/web//packages/eatRep/vignettes/eatRep.html).
+2)  The internal structure of the package is documented [here](https://github.com/iqb-research/IQB-Methods/blob/main/_site/structure.html). This overview is primarily dedicated to developers who want to further improve or extend the package and therefore need to understand its structure.
+3)  Workshop materials concerning `eatRep` can also be found on the IQB network drives: `i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2021\`

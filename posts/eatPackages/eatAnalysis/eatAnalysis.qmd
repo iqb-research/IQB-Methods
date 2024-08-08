@@ -1,5 +1,6 @@
 ---
 title: "eatAnalysis"
+image: eatAnalysis.png
 ---
 
 # Info
@@ -21,7 +22,6 @@ knitr::kable(info_anal)
 
 Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.
 
-
 ```{r, echo=FALSE}
 # **Dokumentation:** -
 doku_anal <- "-"
@@ -31,4 +31,3 @@ colnames(table) <- "Documentation"
 
 knitr::kable(table)
 ```
-

@@ -1,5 +1,6 @@
 ---
 title: "eatFDZ"
+image: eatFDZ.png
 ---
 
 # Info
@@ -23,7 +24,6 @@ knitr::kable(info_fdz)
 ### Description
 
 Automated anonymisation of data sets; comparison of pdf documents (e.g. scale manuals) and data sets.
-
 
 ```{r, echo=FALSE}
 # **Documentation:** -

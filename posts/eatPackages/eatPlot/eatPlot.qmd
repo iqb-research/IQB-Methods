@@ -1,5 +1,6 @@
 ---
 title: "eatPlot"
+image: eatPlot.png
 ---
 
 # Info
@@ -22,7 +23,7 @@ knitr::kable(info_plot)
 
 Creating plots from the eatRep output (main use: Bilduntstrend).
 
-**Dokumentation:** 
+**Dokumentation:**
 
 ```{r, echo=FALSE}
 # **Documentation:** [Info page with several vignettes](https://nickhaf.github.io/eatPlot/)
