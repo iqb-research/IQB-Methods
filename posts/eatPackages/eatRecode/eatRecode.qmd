@@ -1,39 +1,12 @@
 ---
 title: "eatRecode"
 description: Create and apply recoding databases.
-author: NA
-date: today
+author:
+  - name: Benjamin Becker, Nicklas Hafiz
+date: 08-08-2024
 image: eatRecode.png
 ---
 
-[bookmark link](https://beckerbenj.github.io/eatRecode/)
-
 # Info
 
-```{r, echo=FALSE}
-#10
-ansprech_recode <- "Benjamin Becker, Nicklas Hafiz"
-version_recode <- "[DESCRIPTION on github](https://github.com/beckerbenj/eatRecode/blob/main/DESCRIPTION)"
-quelle_recode <- "[github page](https://github.com/beckerbenj/eatRecode)"
-
-descFunktion_recode <- "Create and apply recoding databases."
-
-info_recode <- data.frame(ansprech_recode, version_recode, quelle_recode)
-colnames(info_recode) <- c("contact", "latest version", "source")
-
-knitr::kable(info_recode)
-```
-
-### Description
-
-Create and apply recoding databases.
-
-```{r, echo=FALSE}
-# **Documentation:** -
-doku_recode <- ""
-
-table <- data.frame(doku_recode, check.rows = FALSE)
-colnames(table) <- "Documentation"
-
-knitr::kable(table)
-```
+For more info see [eatRecode bookmark page](https://beckerbenj.github.io/eatRecode/). 

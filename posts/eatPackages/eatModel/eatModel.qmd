@@ -1,41 +1,15 @@
 ---
 title: "eatModel"
 description: Interface for ConQuest software.
-author: NA
-date: today
+author:
+  - name: Sebastian Weirich
+date: 08-08-2024
 image: eatModel.png
 ---
 
-no bookmark page! (only GitHub)
-
 # Info
-
-```{r, echo=FALSE}
-#2
-ansprech_model <- "Sebastian Weirich"
-version_model <- "[DESCRIPTION on github](https://github.com/weirichs/eatModel/blob/master/DESCRIPTION)"
-quelle_model <- "[github page](https://github.com/weirichs/eatModel), intern"
-# interne Quelle: i:\Methoden\99_eatZipVersionen\
-descFunktion_model <- "Serves as an interface for the ConQuest software. The required control files (script, labels, data set in 'fixed width' format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of 'eatModel' also allow the integration of the R package 'tam' and parallelisation."
-doku_model <- "intern"
-# interne Doku: Workshop: i:\Methoden\02_IQB-interne_eat_Workshops\Workshop_eat_Dez2016\03_eatModel\
-
-info_model <- data.frame(ansprech_model, version_model, quelle_model)
-colnames(info_model) <- c("contact", "latest version", "source")
-
-knitr::kable(info_model)
-```
-
-### Description
 
 Serves as an interface for the ConQuest software. The required control files (script, labels, data set in 'fixed width' format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of 'eatModel' also allow the integration of the R package 'tam' and parallelisation.
 
-```{r, echo=FALSE}
-# **Documentation:** (internal)
-doku_model <- "internal"
-# interne Doku: Workshop: i:\Methoden\02_IQB-interne_eat_Workshops\Workshop_eat_Dez2016\03_eatModel\
-table <- data.frame(doku_model, check.rows = FALSE)
-colnames(table) <- "Documentation"
+For more info see [eatModel Github page](https://github.com/weirichs/eatModel).
 
-knitr::kable(table)
-```

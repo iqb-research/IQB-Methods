@@ -1,38 +1,16 @@
 ---
 title: "eatGADS"
 description: Import and data preparation of SPSS data sets in R.
-author: NA
-date: today
+author:
+  - name: Benjamin Becker
+date: 08-08-2024
 image: eatGADS.png
 ---
 
-[bookmark link](https://beckerbenj.github.io/eatGADS/)
-
 # Info
-
-```{r, echo=FALSE}
-#4
-ansprech_gads <- "Benjamin Becker"
-version_gads <- "[CRAN page](https://cran.r-project.org/web/packages/eatGADS/index.html)"
-quelle_gads <- "[CRAN page](https://cran.r-project.org/web/packages/eatGADS/index.html)"
-descFunktion_gads <- "Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R."
-
-info_gads <- data.frame(ansprech_gads, version_gads, quelle_gads)
-colnames(info_gads) <- c("contact", "latest version", "source")
-
-knitr::kable(info_gads)
-```
-
-### Description
 
 Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.
 
-```{r, echo=FALSE}
-# **Documentation:** [Info page with several vignettes](https://cran.r-project.org/web/packages/eatGADS/)
-doku_gads <- "[Info page with several vignettes](https://cran.r-project.org/web/packages/eatGADS/)"
+For for info see [eatGADS bookmark page](https://beckerbenj.github.io/eatGADS/).
 
-table <- data.frame(doku_gads, check.rows = FALSE)
-colnames(table) <- "Documentation"
 
-knitr::kable(table)
-```
