@@ -2,7 +2,8 @@
 title: "Newsletter"
 listing: 
   contents: posts/newsletter
-  type: grid
+  type: default
   sort: "date desc" 
   feed: true
+  image-align: left
 ---
