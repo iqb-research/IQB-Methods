@@ -1,0 +1,34 @@
+---
+title: "eatCodebook"
+---
+
+# Info
+
+```{r, echo=FALSE}
+#9
+ansprech_codebook <- "Benjamin Becker"
+version_codebook <- "[DESCRIPTION on github](https://github.com/beckerbenj/eatCodebook/blob/main/DESCRIPTION)"
+quelle_codebook <- "[github page](https://github.com/beckerbenj/eatCodebook)"
+
+descFunktion_codebook <- "Automated creation of scale manuals."
+
+info_codebook <- data.frame(ansprech_codebook, version_codebook, quelle_codebook)
+colnames(info_codebook) <-  c("contact", "latest version", "source")
+
+knitr::kable(info_codebook)
+```
+
+### Description
+
+Automated creation of scale manuals.
+
+
+```{r, echo=FALSE}
+# **Documentation:** [Info page with several vignettes](https://beckerbenj.github.io/eatCodebook/)
+doku_codebook <- "[Info page with several vignettes](https://beckerbenj.github.io/eatCodebook/)"
+
+table <- data.frame(doku_codebook, check.rows = FALSE)
+colnames(table) <- "Documentation"
+
+knitr::kable(table)
+```
