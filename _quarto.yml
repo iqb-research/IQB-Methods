@@ -52,20 +52,6 @@ website:
       - section: "Asserting Code"
         contents:
           - docs/checkmate/checkmate.qmd
-      - section: "eat Packages"
-        href: docs/eatPackages/index.qmd
-        contents: 
-          - docs/eatPackages/eatAnalysis.qmd
-          - docs/eatPackages/eatATA.qmd
-          - docs/eatPackages/eatCodebook.qmd
-          - docs/eatPackages/eatFDZ.qmd
-          - docs/eatPackages/eatGADS.qmd
-          - docs/eatPackages/eatModel.qmd
-          - docs/eatPackages/eatPlot.qmd
-          - docs/eatPackages/eatPrep.qmd
-          - docs/eatPackages/eatRecode.qmd
-          - docs/eatPackages/eatRep.qmd
-          - docs/eatPackages/eatTools.qmd
       - section: "GitHub"
         contents:
           - docs/git/index.qmd
