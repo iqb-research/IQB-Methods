@@ -6,7 +6,9 @@ author:
   - affiliation: PhD student at the IQB, Methods team
 categories: [R, quarto]
 date: 07-15-2024
-bibliography: references.bib
+bibliography:  
+  - references.bib
+  - grateful-refs.bib
 csl: ./../../../apa7.csl
 image: manuscript.jpg
 
@@ -362,6 +364,34 @@ Citations are saved in `.bib` files. The `.bib` format can be chosen to download
 
 Of course, you should still check if the fields are filled in correctly. If you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.\
 To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@allport1936trait]` [@allport1936trait].  
+
+### Referencing R packages
+R packages are an important part of your analysis, and should be cited as such. The package [`grateful`](https://cran.r-project.org/web/packages/grateful/readme/README.html) helps you with that.  
+To use it, put a `grateful-refs.bib` file into your YAML header:
+
+```         
+---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: 
+  - references.bib
+  - grateful-refs.bib
+csl: apa7.csl
+format: pdf
+---
+```
+By using this list syntax, we can add multiple `.bib`-files to our quarto document. 
+Then we only have to call the citation function in a code chunk:
+
+```{r}
+grateful::cite_packages(output = "paragraph", out.dir = ".")
+```
+
 
 ### Citation styles
 Again, because we have our references in a plain text format, we can easily convert between different citation styles. One way to do this is to provide th `csl` argument in the YAML header, like so:
