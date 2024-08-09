@@ -1,0 +1,15 @@
+---
+title: "eatModel"
+description: Interface for ConQuest software.
+author:
+  - name: Sebastian Weirich
+date: 08-08-2024
+image: eatModel.png
+---
+
+# Info
+
+Serves as an interface for the ConQuest software. The required control files (script, labels, data set in 'fixed width' format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of 'eatModel' also allow the integration of the R package 'tam' and parallelisation.
+
+For more info see [eatModel Github page](https://github.com/weirichs/eatModel).
+
