@@ -1,5 +1,28 @@
 [
   {
+    "listing": "/posts_newsletter.html",
+    "items": [
+      "/posts/newsletter/24_01_12/index.html",
+      "/posts/newsletter/23_08_09/index.html"
+    ]
+  },
+  {
+    "listing": "/posts_eat.html",
+    "items": [
+      "/posts/eatPackages/eatATA/eatATA.html",
+      "/posts/eatPackages/eatAnalysis/eatAnalysis.html",
+      "/posts/eatPackages/eatCodebook/eatCodebook.html",
+      "/posts/eatPackages/eatFDZ/eatFDZ.html",
+      "/posts/eatPackages/eatGADS/eatGADS.html",
+      "/posts/eatPackages/eatModel/eatModel.html",
+      "/posts/eatPackages/eatPlot/eatPlot.html",
+      "/posts/eatPackages/eatPrep/eatPrep.html",
+      "/posts/eatPackages/eatRecode/eatRecode.html",
+      "/posts/eatPackages/eatRep/eatRep.html",
+      "/posts/eatPackages/eatTools/eatTools.html"
+    ]
+  },
+  {
     "listing": "/posts_r_sig.html",
     "items": [
       "/posts/r_sig/24_07_15_quarto_1/index.html",
@@ -13,13 +36,6 @@
       "/posts/r_sig/23_10_09_cleaner/index.html",
       "/posts/r_sig/23_07_31_apply/index.html",
       "/posts/r_sig/23_03_20_forloops/index.html"
-    ]
-  },
-  {
-    "listing": "/posts_newsletter.html",
-    "items": [
-      "/posts/newsletter/24_01_12/index.html",
-      "/posts/newsletter/23_08_09/index.html"
     ]
   }
 ]

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>IQB Methods Team</title>
+<link>https://iqb-research.github.io/IQB-Methods/posts_eat.html</link>
+<atom:link href="https://iqb-research.github.io/IQB-Methods/posts_eat.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.5.56</generator>
+<lastBuildDate>Thu, 08 Aug 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>eatATA</title>
+  <dc:creator>Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatATA/eatATA.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>For more info see <a href="https://cran.r-project.org/web/packages/eatATA/index.html">eatATA CRAN page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatATA/eatATA.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatATA/eatATA.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatAnalysis</title>
+  <dc:creator>Benjamin Becker, Sebastian Weirich, Karoline Sachse</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatAnalysis/eatAnalysis.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>For more info see <a href="https://github.com/beckerbenj/eatAnalysis">eatAnalysis Github page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatAnalysis/eatAnalysis.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatAnalysis/eatAnalysis.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatCodebook</title>
+  <dc:creator>Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatCodebook/eatCodebook.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>For more info see <a href="https://beckerbenj.github.io/eatCodebook/">eatCodebook bookmark page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatCodebook/eatCodebook.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatCodebook/eatCodebook.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatFDZ</title>
+  <dc:creator>Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatFDZ/eatFDZ.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>For more info see <a href="https://beckerbenj.github.io/eatFDZ/">eatFDZ bookmark page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatFDZ/eatFDZ.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatFDZ/eatFDZ.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatGADS</title>
+  <dc:creator>Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatGADS/eatGADS.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.</p>
+<p>For for info see <a href="https://beckerbenj.github.io/eatGADS/">eatGADS bookmark page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatGADS/eatGADS.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatGADS/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatModel</title>
+  <dc:creator>Sebastian Weirich</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatModel/eatModel.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>Serves as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.</p>
+<p>For more info see <a href="https://github.com/weirichs/eatModel">eatModel Github page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatModel/eatModel.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatModel/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatPlot</title>
+  <dc:creator>Nicklas Hafiz, Philipp Franikowski</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatPlot/eatPlot.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>For more info see <a href="https://nickhaf.github.io/eatPlot/">eatPlot bookmark page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatPlot/eatPlot.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatPlot/eatPlot.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatPrep</title>
+  <dc:creator>Karoline Sachse</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatPrep/eatPrep.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>Preparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple data sets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool “AnalyseInput”, which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.</p>
+<p>For more info see <a href="https://github.com/sachseka/eatPrep">eatPrep Github page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatPrep/eatPrep.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatPrep/eatPrep.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatRecode</title>
+  <dc:creator>Benjamin Becker, Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatRecode/eatRecode.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>For more info see <a href="https://beckerbenj.github.io/eatRecode/">eatRecode bookmark page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatRecode/eatRecode.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatRecode/eatRecode.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatRep</title>
+  <dc:creator>Sebastian Weirich, Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatRep/eatRep.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>Calculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.</p>
+<p>For more info see <a href="https://cran.r-project.org/web/packages/eatRep/index.html">eatRep CRAN page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatRep/eatRep.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatRep/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>eatTools</title>
+  <dc:creator>Sebastian Weirich, Benjamin Becker, Karoline Sachse</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatTools/eatTools.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="info" class="level1">
+<h1>Info</h1>
+<p>For more info see <a href="https://cran.r-project.org/web/packages/eatTools/index.html">eatTools CRAN page</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatTools/eatTools.html</guid>
+  <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatTools/eatTools.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+</channel>
+</rss>
