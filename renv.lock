@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.0",
+    "Version": "4.4.1",
     "Repositories": [
       {
         "Name": "BioCsoft",
@@ -336,6 +336,22 @@
         "R"
       ],
       "Hash": "543776ae6848fde2f48ff3816d0628bc"
+    },
+    "bayestestR": {
+      "Package": "bayestestR",
+      "Version": "0.13.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "datawizard",
+        "graphics",
+        "insight",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "4a6a2eebe2db1dfb1c792c4ed91e73dc"
     },
     "bit": {
       "Package": "bit",
@@ -684,6 +700,19 @@
       ],
       "Hash": "8ee9ac56ef633d0c7cab8b2ca87d683e"
     },
+    "datawizard": {
+      "Package": "datawizard",
+      "Version": "0.11.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "insight",
+        "stats",
+        "utils"
+      ],
+      "Hash": "b99dd5378fefe0f87f44fd1723b9c71e"
+    },
     "date": {
       "Package": "date",
       "Version": "1.2-42",
@@ -967,6 +996,23 @@
         "stringi"
       ],
       "Hash": "c941c5e9d3e3cc893a873c5f6c47fba3"
+    },
+    "effectsize": {
+      "Package": "effectsize",
+      "Version": "0.8.9",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "bayestestR",
+        "datawizard",
+        "insight",
+        "parameters",
+        "performance",
+        "stats",
+        "utils"
+      ],
+      "Hash": "7aceb5e07b6d48171c6b56714cc305ea"
     },
     "ellipsis": {
       "Package": "ellipsis",
@@ -1430,6 +1476,22 @@
       ],
       "Hash": "d6db1667059d027da730decdc214b959"
     },
+    "grateful": {
+      "Package": "grateful",
+      "Version": "0.2.4",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "knitr",
+        "remotes",
+        "renv",
+        "rmarkdown",
+        "rstudioapi",
+        "utils"
+      ],
+      "Hash": "f87d698662778b5bae252429742c23de"
+    },
     "gridExtra": {
       "Package": "gridExtra",
       "Version": "2.3",
@@ -1651,6 +1713,19 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "6154ec2223172bce8162d4153cda21f7"
+    },
+    "insight": {
+      "Package": "insight",
+      "Version": "0.20.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "9e968fb16772af41ca88ac3d51b09743"
     },
     "irtoys": {
       "Package": "irtoys",
@@ -2245,6 +2320,23 @@
       ],
       "Hash": "5410df8d22bd36e616f2a2343dbb328c"
     },
+    "parameters": {
+      "Package": "parameters",
+      "Version": "0.22.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "bayestestR",
+        "datawizard",
+        "graphics",
+        "insight",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "6060dd2f863d2285151148b0a0011e77"
+    },
     "pbapply": {
       "Package": "pbapply",
       "Version": "1.7-2",
@@ -2292,6 +2384,21 @@
         "RcppArmadillo"
       ],
       "Hash": "b0fa64575651e261cfa1fdb46025cb44"
+    },
+    "performance": {
+      "Package": "performance",
+      "Version": "0.12.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "bayestestR",
+        "datawizard",
+        "insight",
+        "stats",
+        "utils"
+      ],
+      "Hash": "dc72bffc62740d81375f740223e8dc19"
     },
     "pillar": {
       "Package": "pillar",
@@ -2682,6 +2789,25 @@
       ],
       "Hash": "41b847654f567341725473431dd0d5ab"
     },
+    "report": {
+      "Package": "report",
+      "Version": "0.5.8",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "bayestestR",
+        "datawizard",
+        "effectsize",
+        "insight",
+        "parameters",
+        "performance",
+        "stats",
+        "tools",
+        "utils"
+      ],
+      "Hash": "58f87069950a24a5d7785497a7063fc1"
+    },
     "reprex": {
       "Package": "reprex",
       "Version": "2.1.0",
@@ -3052,7 +3178,7 @@
     },
     "survival": {
       "Package": "survival",
-      "Version": "3.5-8",
+      "Version": "3.6-4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -3064,7 +3190,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "184d7799bca4ba8c3be72ea396f4b9a3"
+      "Hash": "e6e3071f471513e4b85f98ca041303c7"
     },
     "svglite": {
       "Package": "svglite",
