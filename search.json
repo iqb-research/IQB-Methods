@@ -4,7 +4,14 @@
     "href": "posts/newsletter/24_01_12/index.html",
     "title": "12-01-2024",
     "section": "",
-    "text": "Webseite\nDas Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:\nhttps://iqb-research.github.io/IQB-Methods/\n\n\nAnsprechpartner:innen während Benjamins Elternzeit\nBenjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:\n\nGADS BT22 - Sebastian\nFDZ Reporting - Nicklas\neatFDZ - Karoline\neatGADS - Philipp\n\n\n\neatTools\nDie Version 0.7.5 liegt nun auf CRAN und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen halveString() und mergeAttr(). Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden."
+    "text": "1"
+  },
+  {
+    "objectID": "posts/newsletter/24_01_12/index.html#footnotes",
+    "href": "posts/newsletter/24_01_12/index.html#footnotes",
+    "title": "12-01-2024",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Giulia May on Unsplash.↩︎"
   },
   {
     "objectID": "posts/r_sig/23_07_31_apply/index.html",
@@ -980,7 +987,7 @@
     "href": "posts_newsletter.html",
     "title": "Newsletter",
     "section": "",
-    "text": "12-01-2024\n\n\nNewsletter\n\n\n\nNicklas Hafiz\n\n\nDec 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "12-01-2024\n\n\n\n\n\nNewsletter\n\n\n\n\n\nDec 1, 2024\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\n\n\n\nNewsletter\n\n\n\n\n\nSep 8, 2023\n\n\nBenjamin Becker\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
