@@ -1,5 +1,8 @@
 /* css styles */
 
+
+/* meta data: author, date */
+
 #title-block-header.quarto-title-block.default .quarto-title-meta {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
