@@ -101,6 +101,27 @@ athletes <- readRDS(file = here::here("raw_data", "athletes.rds"))
 head(athletes)
 ```
 
+We can also define global execution options for the whole ´.qmd´ file in the YAML header:
+
+```
+---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: references.bib
+csl: apa7.csl
+format: pdf
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+```
+
 ## Tables
 
 Tables can be a bit tricky. The great thing is: once you have styled them, they get updated automatically if some data changes. Also, there are a lot of different packages for building tables in markdown, here are some options:
