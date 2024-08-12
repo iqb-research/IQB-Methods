@@ -21,7 +21,6 @@
 
 
 
-<p><img src="https://iqb-research.github.io/IQB-Methods/posts/newsletter/24_01_12/info.jpg" class="img-fluid"><sup>1</sup></p>
 <section id="webseite" class="level1">
 <h1>Webseite</h1>
 <p>Das Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:</p>
@@ -44,16 +43,9 @@
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@giuliamay">Giulia May</a> on <a href="https://unsplash.com/de/fotos/info-pfeil-beschilderung-8JFMYz-a8Xo">Unsplash</a>.↩︎</p></li>
-</ol>
-</section></div> ]]></description>
+ ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/posts/newsletter/24_01_12/</guid>
   <pubDate>Sun, 01 Dec 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/newsletter/24_01_12/info.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>09-08-2023</title>
@@ -65,7 +57,6 @@
 
 
 
-<p><img src="https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/eatGADS.png" class="img-fluid"></p>
 <section id="eatgads" class="level1">
 <h1>eatGADS</h1>
 <p>Die Funktion <code>insertVariable()</code> wurde in <code>relocateVariable()</code> umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.</p>
@@ -81,7 +72,6 @@
  ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/</guid>
   <pubDate>Fri, 08 Sep 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
 </rss>
