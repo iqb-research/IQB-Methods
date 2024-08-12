@@ -6,20 +6,66 @@
       version="2.0">
 <channel>
 <title>IQB Methods Team</title>
-<link>https://iqb-research.github.io/R-SIG/posts_newsletter.html</link>
-<atom:link href="https://iqb-research.github.io/R-SIG/posts_newsletter.xml" rel="self" type="application/rss+xml"/>
+<link>https://iqb-research.github.io/IQB-Methods/posts_newsletter.html</link>
+<atom:link href="https://iqb-research.github.io/IQB-Methods/posts_newsletter.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.433</generator>
-<lastBuildDate>Thu, 07 Sep 2023 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.555</generator>
+<lastBuildDate>Sat, 30 Nov 2024 23:00:00 GMT</lastBuildDate>
 <item>
-  <title>09-08-2023</title>
-  <dc:creator>Benjamin Becker</dc:creator>
-  <link>https://iqb-research.github.io/R-SIG/posts/newsletter/23_08_09/index.html</link>
+  <title>12-01-2024</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/newsletter/24_01_12/</link>
   <description><![CDATA[ 
 
 
 
 
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/newsletter/24_01_12/info.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="webseite" class="level1">
+<h1>Webseite</h1>
+<p>Das Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:</p>
+<p>https://iqb-research.github.io/IQB-Methods/</p>
+</section>
+<section id="ansprechpartnerinnen-während-benjamins-elternzeit" class="level1">
+<h1>Ansprechpartner:innen während Benjamins Elternzeit</h1>
+<p>Benjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:</p>
+<ul>
+<li>GADS BT22 - Sebastian</li>
+<li>FDZ Reporting - Nicklas</li>
+<li>eatFDZ - Karoline</li>
+<li>eatGADS - Philipp</li>
+</ul>
+</section>
+<section id="eattools" class="level1">
+<h1>eatTools</h1>
+<p>Die Version 0.7.5 liegt nun auf <a href="https://cran.r-project.org/web/packages/eatTools/index.html">CRAN</a> und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen <code>halveString()</code> und <code>mergeAttr()</code>. Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@giuliamay">Giulia May</a> on <a href="https://unsplash.com/de/fotos/info-pfeil-beschilderung-8JFMYz-a8Xo">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/newsletter/24_01_12/</guid>
+  <pubDate>Sat, 30 Nov 2024 23:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/newsletter/24_01_12/info.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>09-08-2023</title>
+  <dc:creator>Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/eatGADS.png" class="img-fluid"></p>
 <section id="eatgads" class="level1">
 <h1>eatGADS</h1>
 <p>Die Funktion <code>insertVariable()</code> wurde in <code>relocateVariable()</code> umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.</p>
@@ -33,8 +79,9 @@
 </section>
 
  ]]></description>
-  <guid>https://iqb-research.github.io/R-SIG/posts/newsletter/23_08_09/index.html</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/</guid>
   <pubDate>Thu, 07 Sep 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
 </rss>
