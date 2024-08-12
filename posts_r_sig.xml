@@ -177,6 +177,23 @@ font-style: inherit;">head</span>(athletes)</span></code></pre></div>
 6 Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan</code></pre>
 </div>
 </div>
+<p>We can also define global execution options for the whole ´.qmd´ file in the YAML header:</p>
+<pre><code>---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: references.bib
+csl: apa7.csl
+format: pdf
+execute:
+  echo: false
+  warning: false
+  message: false
+---</code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
 <p>Tables can be a bit tricky. The great thing is: once you have styled them, they get updated automatically if some data changes. Also, there are a lot of different packages for building tables in markdown, here are some options:</p>
@@ -213,12 +230,12 @@ font-style: inherit;">head</span>(athletes)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="kable">Kable</h3>
 <p>With <code>knitr::kable()</code> you can build tables programmatically from code chunks:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">judo_athletes_ger <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">judo_athletes_ger <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-2">  <span class="fu" style="color: #4758AB;
+<span id="cb10-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -235,16 +252,16 @@ background-color: null;
 font-style: inherit;">is.na</span>(Medal)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-3">  <span class="fu" style="color: #4758AB;
+<span id="cb10-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(Year, Name, Sex, Age, Height, Weight, Region, Medal) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-4">  <span class="fu" style="color: #4758AB;
+<span id="cb10-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">arrange</span>(Year, Sex)</span>
-<span id="cb9-5"></span>
-<span id="cb9-6">knitr<span class="sc" style="color: #5E5E5E;
+<span id="cb10-5"></span>
+<span id="cb10-6">knitr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -653,22 +670,22 @@ font-style: inherit;">kable</span>(judo_athletes_ger)</span></code></pre></div>
 <section id="apa-tables" class="level3">
 <h3 class="anchored" data-anchor-id="apa-tables">APA tables</h3>
 <p>For APA tables, I’ve found the <a href="https://rempsyc.remi-theriault.com/articles/table">rempsyc</a> package which helps in building APA tables, but there are other options like <a href="https://davidgohel.github.io/flextable/">flextable</a> or <a href="https://gt.rstudio.com/">gt</a> as well:</p>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#| label: tbl-judo</span></span>
-<span id="cb10-2"><span class="co" style="color: #5E5E5E;
+<span id="cb11-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#| tbl-cap: Table with penguins species flipper length.</span></span>
-<span id="cb10-3"></span>
-<span id="cb10-4"><span class="fu" style="color: #4758AB;
+<span id="cb11-3"></span>
+<span id="cb11-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(rempsyc)</span>
-<span id="cb10-5"></span>
-<span id="cb10-6"><span class="fu" style="color: #4758AB;
+<span id="cb11-5"></span>
+<span id="cb11-6"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">nice_table</span>(</span>
-<span id="cb10-7">  judo_athletes_ger</span>
-<span id="cb10-8">)</span></code></pre></div>
+<span id="cb11-7">  judo_athletes_ger</span>
+<span id="cb11-8">)</span></code></pre></div>
 <div class="cell">
 <div id="tbl-judo" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -677,7 +694,7 @@ Table&nbsp;1: German olympic medal winners in Judo.
 </figcaption>
 <div aria-describedby="tbl-judo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-b94a1838{table-layout:auto;}.cl-b94228f8{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b94535ac{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-b94535c0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-b9454e52{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b9454e5c{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b9454e5d{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b9454e5e{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b9454e66{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-b94a1838"><thead><tr style="overflow-wrap:break-word;"><th class="cl-b9454e52"><p class="cl-b94535ac"><span class="cl-b94228f8">Year</span></p></th><th class="cl-b9454e52"><p class="cl-b94535ac"><span class="cl-b94228f8">Name</span></p></th><th class="cl-b9454e52"><p class="cl-b94535ac"><span class="cl-b94228f8">Sex</span></p></th><th class="cl-b9454e52"><p class="cl-b94535ac"><span class="cl-b94228f8">Age</span></p></th><th class="cl-b9454e52"><p class="cl-b94535ac"><span class="cl-b94228f8">Height</span></p></th><th class="cl-b9454e52"><p class="cl-b94535ac"><span class="cl-b94228f8">Weight</span></p></th><th class="cl-b9454e52"><p class="cl-b94535ac"><span class="cl-b94228f8">Region</span></p></th><th class="cl-b9454e52"><p class="cl-b94535ac"><span class="cl-b94228f8">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,964</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Wolfgang Hofmann</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">23</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">177</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">80.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,964</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Klaus Glahn</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">22</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">187</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">101.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,972</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Paul Barth</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">26</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">181</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">90.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,972</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Klaus Glahn</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">30</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">187</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">101.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,972</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Dietmar Htger</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">25</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">172</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">70.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,976</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Gnther Neureuther</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">20</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">186</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">95.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,980</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Detlef Ultsch</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">24</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">170</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">80.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,980</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Dietmar Lorenz</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">30</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">180</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">93.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,980</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Harald Heinke</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">25</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">178</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">78.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,980</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Dietmar Lorenz</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">30</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">180</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">93.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,980</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Karl-Heinz Lehmann</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">23</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">169</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">71.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,984</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Frank Wieneke</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">22</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">179</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">78.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,984</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Arthur Schnabel</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">35</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">182</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">104.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,984</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Gnther Neureuther</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">28</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">186</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">95.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,988</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Frank Wieneke</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">26</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">179</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">78.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,988</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Marcus "Marc" Meiling</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">26</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">194</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">95.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,988</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Henry Sthr</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">28</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">194</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">120.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,988</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Sven Loll</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">24</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">182</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">71.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,988</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">24</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">178</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">78.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,992</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Richard Trautmann</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">23</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">168</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">65.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,992</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Udo Gnther Quellmalz</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">25</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">175</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">65.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,996</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Johanna Hagn</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">F</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">23</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">168</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8"></span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,996</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Udo Gnther Quellmalz</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">29</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">175</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">65.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,996</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Frank Mller</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">25</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">189</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">125.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,996</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Richard Trautmann</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">27</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">168</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">65.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">1,996</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Marko Spittka</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">25</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">179</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">88.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,000</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Anna-Maria Gradante</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">F</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">23</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">154</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">48.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,004</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Yvonne Bnisch</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">F</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">23</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">168</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">61.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,004</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Julia Matijass</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">F</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">30</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">161</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">48.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,004</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Annett Bhm</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">F</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">24</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">179</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">83.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,004</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Michael Jurack</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">25</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">190</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">100.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,008</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Ole Bischof</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">28</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">180</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">81.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,012</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Kerstin Thiele</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">F</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">25</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">168</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">70.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,012</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Dimitri Peters</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">28</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">188</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">100.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,012</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Ole Bischof</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">32</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">180</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">81.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5c"><p class="cl-b94535c0"><span class="cl-b94228f8">2,012</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Andreas Tlzer</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">M</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">32</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">192</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">131.00</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e5d"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b9454e5e"><p class="cl-b94535c0"><span class="cl-b94228f8">2,016</span></p></td><td class="cl-b9454e66"><p class="cl-b94535ac"><span class="cl-b94228f8">Laura Vargas Koch</span></p></td><td class="cl-b9454e66"><p class="cl-b94535ac"><span class="cl-b94228f8">F</span></p></td><td class="cl-b9454e66"><p class="cl-b94535ac"><span class="cl-b94228f8">26</span></p></td><td class="cl-b9454e66"><p class="cl-b94535ac"><span class="cl-b94228f8">173</span></p></td><td class="cl-b9454e66"><p class="cl-b94535ac"><span class="cl-b94228f8">70.00</span></p></td><td class="cl-b9454e66"><p class="cl-b94535ac"><span class="cl-b94228f8">Germany</span></p></td><td class="cl-b9454e66"><p class="cl-b94535ac"><span class="cl-b94228f8">Bronze</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-df2d6226{table-layout:auto;}.cl-df25893e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-df2887d8{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-df2887e2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-df289fd4{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df289fde{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df289fe8{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df289fe9{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-df289ff2{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-df2d6226"><thead><tr style="overflow-wrap:break-word;"><th class="cl-df289fd4"><p class="cl-df2887d8"><span class="cl-df25893e">Year</span></p></th><th class="cl-df289fd4"><p class="cl-df2887d8"><span class="cl-df25893e">Name</span></p></th><th class="cl-df289fd4"><p class="cl-df2887d8"><span class="cl-df25893e">Sex</span></p></th><th class="cl-df289fd4"><p class="cl-df2887d8"><span class="cl-df25893e">Age</span></p></th><th class="cl-df289fd4"><p class="cl-df2887d8"><span class="cl-df25893e">Height</span></p></th><th class="cl-df289fd4"><p class="cl-df2887d8"><span class="cl-df25893e">Weight</span></p></th><th class="cl-df289fd4"><p class="cl-df2887d8"><span class="cl-df25893e">Region</span></p></th><th class="cl-df289fd4"><p class="cl-df2887d8"><span class="cl-df25893e">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,964</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Wolfgang Hofmann</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">23</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">177</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">80.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,964</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Klaus Glahn</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">22</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">187</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">101.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,972</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Paul Barth</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">26</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">181</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">90.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,972</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Klaus Glahn</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">30</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">187</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">101.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,972</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Dietmar Htger</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">25</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">172</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">70.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,976</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Gnther Neureuther</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">20</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">186</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">95.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,980</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Detlef Ultsch</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">24</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">170</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">80.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,980</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Dietmar Lorenz</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">30</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">180</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">93.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,980</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Harald Heinke</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">25</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">178</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">78.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,980</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Dietmar Lorenz</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">30</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">180</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">93.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,980</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Karl-Heinz Lehmann</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">23</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">169</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">71.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,984</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Frank Wieneke</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">22</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">179</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">78.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,984</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Arthur Schnabel</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">35</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">182</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">104.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,984</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Gnther Neureuther</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">28</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">186</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">95.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,988</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Frank Wieneke</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">26</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">179</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">78.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,988</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Marcus "Marc" Meiling</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">26</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">194</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">95.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,988</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Henry Sthr</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">28</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">194</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">120.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,988</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Sven Loll</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">24</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">182</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">71.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,988</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">24</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">178</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">78.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,992</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Richard Trautmann</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">23</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">168</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">65.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,992</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Udo Gnther Quellmalz</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">25</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">175</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">65.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,996</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Johanna Hagn</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">F</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">23</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">168</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e"></span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,996</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Udo Gnther Quellmalz</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">29</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">175</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">65.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,996</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Frank Mller</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">25</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">189</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">125.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,996</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Richard Trautmann</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">27</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">168</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">65.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">1,996</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Marko Spittka</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">25</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">179</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">88.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,000</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Anna-Maria Gradante</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">F</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">23</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">154</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">48.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,004</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Yvonne Bnisch</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">F</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">23</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">168</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">61.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,004</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Julia Matijass</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">F</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">30</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">161</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">48.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,004</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Annett Bhm</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">F</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">24</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">179</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">83.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,004</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Michael Jurack</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">25</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">190</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">100.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,008</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Ole Bischof</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">28</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">180</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">81.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,012</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Kerstin Thiele</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">F</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">25</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">168</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">70.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,012</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Dimitri Peters</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">28</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">188</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">100.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,012</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Ole Bischof</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">32</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">180</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">81.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fde"><p class="cl-df2887e2"><span class="cl-df25893e">2,012</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Andreas Tlzer</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">M</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">32</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">192</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">131.00</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289fe8"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-df289fe9"><p class="cl-df2887e2"><span class="cl-df25893e">2,016</span></p></td><td class="cl-df289ff2"><p class="cl-df2887d8"><span class="cl-df25893e">Laura Vargas Koch</span></p></td><td class="cl-df289ff2"><p class="cl-df2887d8"><span class="cl-df25893e">F</span></p></td><td class="cl-df289ff2"><p class="cl-df2887d8"><span class="cl-df25893e">26</span></p></td><td class="cl-df289ff2"><p class="cl-df2887d8"><span class="cl-df25893e">173</span></p></td><td class="cl-df289ff2"><p class="cl-df2887d8"><span class="cl-df25893e">70.00</span></p></td><td class="cl-df289ff2"><p class="cl-df2887d8"><span class="cl-df25893e">Germany</span></p></td><td class="cl-df289ff2"><p class="cl-df2887d8"><span class="cl-df25893e">Bronze</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </figure>
@@ -694,11 +711,11 @@ Captions can be written with <code>#| tbl-cap: German olympic medal winners in J
 <div id="tabset-1-5" class="tab-pane" aria-labelledby="tabset-1-5-tab">
 <p>There are some packages out there that help you to format output of statistical models. Let’s fit a simple logistic regression model to predict an athletes medal win by country (Germany or Japan) in Judo:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb11-2"></span>
-<span id="cb11-3">athletes_judo <span class="ot" style="color: #003B4F;
+<span id="cb12-2"></span>
+<span id="cb12-3">athletes_judo <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -715,7 +732,7 @@ background-color: null;
 font-style: inherit;">"athletes.rds"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-4">  <span class="fu" style="color: #4758AB;
+<span id="cb12-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -730,7 +747,7 @@ background-color: null;
 font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-5">  <span class="fu" style="color: #4758AB;
+<span id="cb12-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -745,9 +762,9 @@ background-color: null;
 font-style: inherit;">"Germany"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Japan"</span>))</span>
-<span id="cb11-6"></span>
-<span id="cb11-7"></span>
-<span id="cb11-8">model <span class="ot" style="color: #003B4F;
+<span id="cb12-6"></span>
+<span id="cb12-7"></span>
+<span id="cb12-8">model <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -767,7 +784,7 @@ font-style: inherit;">data =</span> athletes_judo)</span></code></pre></div>
 </div>
 <p>Normally, the output looks something like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(model)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -796,16 +813,16 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h3 class="anchored" data-anchor-id="tidy-up">Tidy up!</h3>
 <p>Now we have multiple options to easily extract the results of this regression. Most prominently, there is the <a href="https://broom.tidymodels.org/">broom</a> package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(broom)</span>
-<span id="cb14-2"></span>
-<span id="cb14-3">model_broom <span class="ot" style="color: #003B4F;
+<span id="cb15-2"></span>
+<span id="cb15-3">model_broom <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">tidy</span>(model)</span>
-<span id="cb14-4">model_broom</span></code></pre></div>
+<span id="cb15-4">model_broom</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic       p.value
@@ -816,7 +833,7 @@ font-style: inherit;">tidy</span>(model)</span>
 </div>
 <p>If we want to convert the estimates to Odds:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">model_broom <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">model_broom <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -825,7 +842,7 @@ background-color: null;
 font-style: inherit;">exponentiate =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>)</span>
-<span id="cb16-2">model_broom</span></code></pre></div>
+<span id="cb17-2">model_broom</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic       p.value
@@ -836,7 +853,7 @@ font-style: inherit;">TRUE</span>)</span>
 </div>
 <p>And if we want to extract the fit statistics:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">glance</span>(model)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -864,11 +881,11 @@ Tip
 <h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
 <p>We can also let R write our report section for us ;):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(report)</span>
-<span id="cb20-2"></span>
-<span id="cb20-3"><span class="fu" style="color: #4758AB;
+<span id="cb21-2"></span>
+<span id="cb21-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">report</span>(model)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -911,7 +928,7 @@ Tip
 <div class="callout-body-container callout-body">
 <p>Maybe put the data extraction into an own object to keep the text more readable:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">model_intercept <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">model_intercept <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> model_broom <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -944,11 +961,11 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="apa-tables-1">APA tables</h3>
 <p>For example with <a href="https://rempsyc.remi-theriault.com/"><code>rempsyc</code></a>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(rempsyc)</span>
-<span id="cb23-2"></span>
-<span id="cb23-3"><span class="fu" style="color: #4758AB;
+<span id="cb24-2"></span>
+<span id="cb24-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">nice_table</span>(model_broom, <span class="at" style="color: #657422;
 background-color: null;
@@ -956,7 +973,7 @@ font-style: inherit;">broom =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"glm"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-ba1e8492{table-layout:auto;}.cl-ba19747a{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ba19748e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ba1b9610{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-ba1b961a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-ba1ba66e{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ba1ba678{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ba1ba679{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ba1ba682{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ba1ba683{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-ba1e8492"><thead><tr style="overflow-wrap:break-word;"><th class="cl-ba1ba66e"><p class="cl-ba1b9610"><span class="cl-ba19747a">Term</span></p></th><th class="cl-ba1ba66e"><p class="cl-ba1b9610"><span class="cl-ba19747a">estimate</span></p></th><th class="cl-ba1ba66e"><p class="cl-ba1b9610"><span class="cl-ba19748e">SE</span></p></th><th class="cl-ba1ba66e"><p class="cl-ba1b9610"><span class="cl-ba19748e">t</span></p></th><th class="cl-ba1ba66e"><p class="cl-ba1b9610"><span class="cl-ba19748e">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ba1ba678"><p class="cl-ba1b961a"><span class="cl-ba19747a">(Intercept)</span></p></td><td class="cl-ba1ba679"><p class="cl-ba1b9610"><span class="cl-ba19747a">0.38</span></p></td><td class="cl-ba1ba679"><p class="cl-ba1b9610"><span class="cl-ba19747a">0.19</span></p></td><td class="cl-ba1ba679"><p class="cl-ba1b9610"><span class="cl-ba19747a">-5.05</span></p></td><td class="cl-ba1ba679"><p class="cl-ba1b9610"><span class="cl-ba19747a">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ba1ba682"><p class="cl-ba1b961a"><span class="cl-ba19747a">RegionJapan</span></p></td><td class="cl-ba1ba683"><p class="cl-ba1b9610"><span class="cl-ba19747a">4.94</span></p></td><td class="cl-ba1ba683"><p class="cl-ba1b9610"><span class="cl-ba19747a">0.27</span></p></td><td class="cl-ba1ba683"><p class="cl-ba1b9610"><span class="cl-ba19747a">5.98</span></p></td><td class="cl-ba1ba683"><p class="cl-ba1b9610"><span class="cl-ba19747a">&lt; .001***</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-e001b2d8{table-layout:auto;}.cl-dffca518{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-dffca522{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-dffeca46{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-dffeca5a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-dffeda86{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-dffeda87{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-dffeda90{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-dffeda91{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-dffeda9a{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-e001b2d8"><thead><tr style="overflow-wrap:break-word;"><th class="cl-dffeda86"><p class="cl-dffeca46"><span class="cl-dffca518">Term</span></p></th><th class="cl-dffeda86"><p class="cl-dffeca46"><span class="cl-dffca518">estimate</span></p></th><th class="cl-dffeda86"><p class="cl-dffeca46"><span class="cl-dffca522">SE</span></p></th><th class="cl-dffeda86"><p class="cl-dffeca46"><span class="cl-dffca522">t</span></p></th><th class="cl-dffeda86"><p class="cl-dffeca46"><span class="cl-dffca522">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-dffeda87"><p class="cl-dffeca5a"><span class="cl-dffca518">(Intercept)</span></p></td><td class="cl-dffeda90"><p class="cl-dffeca46"><span class="cl-dffca518">0.38</span></p></td><td class="cl-dffeda90"><p class="cl-dffeca46"><span class="cl-dffca518">0.19</span></p></td><td class="cl-dffeda90"><p class="cl-dffeca46"><span class="cl-dffca518">-5.05</span></p></td><td class="cl-dffeda90"><p class="cl-dffeca46"><span class="cl-dffca518">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-dffeda91"><p class="cl-dffeca5a"><span class="cl-dffca518">RegionJapan</span></p></td><td class="cl-dffeda9a"><p class="cl-dffeca46"><span class="cl-dffca518">4.94</span></p></td><td class="cl-dffeda9a"><p class="cl-dffeca46"><span class="cl-dffca518">0.27</span></p></td><td class="cl-dffeda9a"><p class="cl-dffeca46"><span class="cl-dffca518">5.98</span></p></td><td class="cl-dffeda9a"><p class="cl-dffeca46"><span class="cl-dffca518">&lt; .001***</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -964,15 +981,15 @@ font-style: inherit;">"glm"</span>)</span></code></pre></div>
 <div id="tabset-1-6" class="tab-pane" aria-labelledby="tabset-1-6-tab">
 <p>Plots can be very easily created from within a code chunk:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">best_by_sport <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">best_by_sport <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb24-2">  <span class="do" style="color: #5E5E5E;
+<span id="cb25-2">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Get all gold medalists</span></span>
-<span id="cb24-3">  <span class="fu" style="color: #4758AB;
+<span id="cb25-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(Medal <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -981,63 +998,63 @@ background-color: null;
 font-style: inherit;">"Gold"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb24-4">  <span class="do" style="color: #5E5E5E;
+<span id="cb25-4">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Group them by sport and region</span></span>
-<span id="cb24-5">  <span class="fu" style="color: #4758AB;
+<span id="cb25-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(Sport, Region) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb24-6">  <span class="do" style="color: #5E5E5E;
+<span id="cb25-6">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## count the number of medals each country has per sport category</span></span>
-<span id="cb24-7">  <span class="fu" style="color: #4758AB;
+<span id="cb25-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">count</span>(Medal) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb24-8">  <span class="do" style="color: #5E5E5E;
+<span id="cb25-8">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Now only group by sport, so we can extract the maximum medal row by sport, and not by sport and country</span></span>
-<span id="cb24-9">  <span class="fu" style="color: #4758AB;
+<span id="cb25-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(Sport) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb24-10">  <span class="do" style="color: #5E5E5E;
+<span id="cb25-10">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Extract the country with the most medals</span></span>
-<span id="cb24-11">  <span class="fu" style="color: #4758AB;
+<span id="cb25-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">slice</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">which.max</span>(n))</span>
-<span id="cb24-12"></span>
-<span id="cb24-13"></span>
-<span id="cb24-14"></span>
-<span id="cb24-15">p1 <span class="ot" style="color: #003B4F;
+<span id="cb25-12"></span>
+<span id="cb25-13"></span>
+<span id="cb25-14"></span>
+<span id="cb25-15">p1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(</span>
-<span id="cb24-16">  <span class="at" style="color: #657422;
+<span id="cb25-16">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">data =</span> best_by_sport,</span>
-<span id="cb24-17">  <span class="fu" style="color: #4758AB;
+<span id="cb25-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">aes</span>(</span>
-<span id="cb24-18">    <span class="at" style="color: #657422;
+<span id="cb25-18">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> Sport,</span>
-<span id="cb24-19">    <span class="at" style="color: #657422;
+<span id="cb25-19">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> n</span>
-<span id="cb24-20">  )</span>
-<span id="cb24-21">) <span class="sc" style="color: #5E5E5E;
+<span id="cb25-20">  )</span>
+<span id="cb25-21">) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb24-22">  <span class="fu" style="color: #4758AB;
+<span id="cb25-22">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_col</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1050,7 +1067,7 @@ background-color: null;
 font-style: inherit;">reorder</span>(Sport, n))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb24-23">  <span class="fu" style="color: #4758AB;
+<span id="cb25-23">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_text</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1073,15 +1090,15 @@ background-color: null;
 font-style: inherit;">2.5</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb24-24">  <span class="fu" style="color: #4758AB;
+<span id="cb25-24">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_classic</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb24-25">  <span class="do" style="color: #5E5E5E;
+<span id="cb25-25">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## And turn the axis labels again, because the new theme has overwritten our theme</span></span>
-<span id="cb24-26">  <span class="fu" style="color: #4758AB;
+<span id="cb25-26">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1102,10 +1119,10 @@ background-color: null;
 font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb24-27">  <span class="do" style="color: #5E5E5E;
+<span id="cb25-27">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Specify which colors are used for the filling. They are from the package viridsLite, so you might need to install it.</span></span>
-<span id="cb24-28">  <span class="fu" style="color: #4758AB;
+<span id="cb25-28">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_fill_manual</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1118,21 +1135,21 @@ background-color: null;
 font-style: inherit;">19</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb24-29">  <span class="fu" style="color: #4758AB;
+<span id="cb25-29">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggtitle</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Country with the most Olympic gold medal winners by sport"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb24-30">  <span class="fu" style="color: #4758AB;
+<span id="cb25-30">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">xlab</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Sport"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb24-31">  <span class="fu" style="color: #4758AB;
+<span id="cb25-31">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ylab</span>(<span class="st" style="color: #20794D;
 background-color: null;
@@ -1204,7 +1221,7 @@ format: pdf
 ---</code></pre>
 <p>By using this list syntax, we can add multiple <code>.bib</code>-files to our quarto document. Then we only have to call the citation function in a code chunk:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">grateful<span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">grateful<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1310,14 +1327,14 @@ Xie, Y., Dervieux, C., &amp; Riederer, E. (2020). <em>R markdown cookbook</em>. 
 <h2 class="anchored" data-anchor-id="apaquarto">apaquarto</h2>
 <p>Alternatively, I’ve found (but not yet tested in a whole project) the <a href="https://wjschne.github.io/apaquarto/">apaquarto</a> extension. You can install via:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"home/my_project"</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Make sure the folder is empty</span></span>
-<span id="cb31-2">quarto<span class="sc" style="color: #5E5E5E;
+<span id="cb32-2">quarto<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1388,26 +1405,26 @@ Tip&nbsp;1: Hint
 <div class="callout-body-container callout-body">
 <p>Prepare your data with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># install.packages("tidyverse")</span></span>
-<span id="cb33-2"><span class="co" style="color: #5E5E5E;
+<span id="cb34-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># install.packages("here")</span></span>
-<span id="cb33-3"></span>
-<span id="cb33-4"><span class="fu" style="color: #4758AB;
+<span id="cb34-3"></span>
+<span id="cb34-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb33-5"><span class="fu" style="color: #4758AB;
+<span id="cb34-5"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(here)</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>here() starts at /home/runner/work/IQB-Methods/IQB-Methods</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="do" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Load the data</span></span>
-<span id="cb35-2">characters <span class="ot" style="color: #003B4F;
+<span id="cb36-2">characters <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1422,12 +1439,12 @@ background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"characters.rds"</span>))</span>
-<span id="cb35-3">psych_stats <span class="ot" style="color: #003B4F;
+<span id="cb36-3">psych_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">read.csv</span>(</span>
-<span id="cb35-4">  <span class="at" style="color: #657422;
+<span id="cb36-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1438,66 +1455,66 @@ background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"psych_stats.csv"</span>),</span>
-<span id="cb35-5">  <span class="at" style="color: #657422;
+<span id="cb36-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">";"</span></span>
-<span id="cb35-6">)</span>
-<span id="cb35-7"></span>
-<span id="cb35-8"><span class="do" style="color: #5E5E5E;
+<span id="cb36-6">)</span>
+<span id="cb36-7"></span>
+<span id="cb36-8"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Reshape into long format:</span></span>
-<span id="cb35-9">psych_stats <span class="ot" style="color: #003B4F;
+<span id="cb36-9">psych_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb35-10">  <span class="fu" style="color: #4758AB;
+<span id="cb36-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_longer</span>(</span>
-<span id="cb35-11">    <span class="at" style="color: #657422;
+<span id="cb36-11">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cols =</span> messy_neat<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span>innocent_jaded,</span>
-<span id="cb35-12">    <span class="at" style="color: #657422;
+<span id="cb36-12">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"question"</span>,</span>
-<span id="cb35-13">    <span class="at" style="color: #657422;
+<span id="cb36-13">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">values_to =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"rating"</span></span>
-<span id="cb35-14">  )</span>
-<span id="cb35-15"></span>
-<span id="cb35-16"><span class="do" style="color: #5E5E5E;
+<span id="cb36-14">  )</span>
+<span id="cb36-15"></span>
+<span id="cb36-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Merge it</span></span>
-<span id="cb35-17">characters_stats <span class="ot" style="color: #003B4F;
+<span id="cb36-17">characters_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">merge</span>(</span>
-<span id="cb35-18">  <span class="at" style="color: #657422;
+<span id="cb36-18">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> characters,</span>
-<span id="cb35-19">  <span class="at" style="color: #657422;
+<span id="cb36-19">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> psych_stats,</span>
-<span id="cb35-20">  <span class="at" style="color: #657422;
+<span id="cb36-20">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">by.x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"id"</span>,</span>
-<span id="cb35-21">  <span class="at" style="color: #657422;
+<span id="cb36-21">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">by.y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"char_id"</span></span>
-<span id="cb35-22">)</span></code></pre></div>
+<span id="cb36-22">)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1519,21 +1536,21 @@ Hint
 <div class="callout-body-container callout-body">
 <p>One idea would be a linear mixed model investigating the influence of the notability rating on the rating on a specific item, like <code>messy_neat</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(lme4)</span>
-<span id="cb36-2"><span class="fu" style="color: #4758AB;
+<span id="cb37-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(lmerTest) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># for pvalues of fixed effects. </span></span>
-<span id="cb36-3"></span>
-<span id="cb36-4">mod_dat <span class="ot" style="color: #003B4F;
+<span id="cb37-3"></span>
+<span id="cb37-4">mod_dat <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> characters_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb36-5">  dplyr<span class="sc" style="color: #5E5E5E;
+<span id="cb37-5">  dplyr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1544,17 +1561,17 @@ background-color: null;
 font-style: inherit;">"messy_neat"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb36-6">  dplyr<span class="sc" style="color: #5E5E5E;
+<span id="cb37-6">  dplyr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(uni_name) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb36-7">  <span class="do" style="color: #5E5E5E;
+<span id="cb37-7">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## center for interpretability:</span></span>
-<span id="cb36-8">  <span class="fu" style="color: #4758AB;
+<span id="cb37-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1567,15 +1584,15 @@ background-color: null;
 font-style: inherit;">TRUE</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb36-9">  <span class="fu" style="color: #4758AB;
+<span id="cb37-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">notability_centered =</span> notability <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> notability_uni_mean)</span>
-<span id="cb36-10"></span>
-<span id="cb36-11">mod1 <span class="ot" style="color: #003B4F;
+<span id="cb37-10"></span>
+<span id="cb37-11">mod1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1626,14 +1643,14 @@ Hint
 <li><p>Make sure to set the working directory to an empty folder before installing:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"home/my_project"</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Make sure the folder is empty</span></span>
-<span id="cb37-2">quarto<span class="sc" style="color: #5E5E5E;
+<span id="cb38-2">quarto<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
