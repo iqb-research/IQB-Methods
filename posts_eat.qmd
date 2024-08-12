@@ -1,12 +1,15 @@
 ---
 title: "eat Packages"
-listing: 
+listing:
+  id: packages
   contents: posts/eatPackages
   type: default
-  sort: "date desc" 
   feed: true
   image-align: left
 ---
+
+::: {#packages}
+:::
 
 ## Installing R packages
 
