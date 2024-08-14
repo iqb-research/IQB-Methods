@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.0",
+    "Version": "4.4.1",
     "Repositories": [
       {
         "Name": "BioCsoft",
@@ -924,10 +924,10 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "eatModel",
       "RemoteUsername": "weirichs",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "f6727428d6e3d3362c51d51ef815fbb45438d4f3",
+      "RemoteRepo": "eatModel",
+      "RemoteRef": "master",
+      "RemoteSha": "f1d30bcd079b01709487356993b211b9b4258278",
       "Requirements": [
         "Matrix",
         "R",
@@ -948,7 +948,7 @@
         "reshape2",
         "sirt"
       ],
-      "Hash": "28db54087a6e804c147d0a7ae7999af8"
+      "Hash": "a563a75494e8b356b4d80da6efb9f4b7"
     },
     "eatRep": {
       "Package": "eatRep",
@@ -1476,6 +1476,22 @@
       ],
       "Hash": "d6db1667059d027da730decdc214b959"
     },
+    "grateful": {
+      "Package": "grateful",
+      "Version": "0.2.4",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "knitr",
+        "remotes",
+        "renv",
+        "rmarkdown",
+        "rstudioapi",
+        "utils"
+      ],
+      "Hash": "f87d698662778b5bae252429742c23de"
+    },
     "gridExtra": {
       "Package": "gridExtra",
       "Version": "2.3",
@@ -1947,22 +1963,6 @@
         "utils"
       ],
       "Hash": "862f9d995f528f3051f524791955b20c"
-    },
-    "lmerTest": {
-      "Package": "lmerTest",
-      "Version": "3.1-3",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "MASS",
-        "R",
-        "ggplot2",
-        "lme4",
-        "methods",
-        "numDeriv",
-        "stats"
-      ],
-      "Hash": "f04948de84602afc23bfa9f5427e954d"
     },
     "ltm": {
       "Package": "ltm",
@@ -3178,7 +3178,7 @@
     },
     "survival": {
       "Package": "survival",
-      "Version": "3.5-8",
+      "Version": "3.6-4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -3190,7 +3190,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "184d7799bca4ba8c3be72ea396f4b9a3"
+      "Hash": "e6e3071f471513e4b85f98ca041303c7"
     },
     "svglite": {
       "Package": "svglite",
