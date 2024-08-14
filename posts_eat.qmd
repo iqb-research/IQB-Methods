@@ -2,28 +2,30 @@
 title: "eat Packages"
 listing: 
   contents:
-    - name: eatAnalysis
-      href: posts/eatPackages/eatAnalysis.qmd
-    - name: eatATA
-      href: posts/eatPackages/eatATA.qmd
-    - name: eatCodebook
-      href: https://beckerbenj.github.io/eatCodebook/
-    - name: eatFDZ
-      href: https://beckerbenj.github.io/eatFDZ/
-    - name: eatGADS
-      href: https://beckerbenj.github.io/eatGADS/
-    - name: eatModel
-      href: posts/eatPackages/eatModel.qmd
-    - name: eatPlot
-      href: https://nickhaf.github.io/eatPlot/
-    - name: eatPrep
-      href: posts/eatPackages/eatPrep.qmd
-    - name: eatRecode
-      href: https://beckerbenj.github.io/eatRecode/
-    - name: eatRep
-      href: posts/eatPackages/eatRep.qmd
-    - name: eatTools
-      href: posts/eatPackages/eatTools.qmd
+    # - name: eatAnalysis
+    #   href: posts/eatPackages/eatAnalysis.qmd
+    # - name: eatATA
+    #   href: posts/eatPackages/eatATA.qmd
+    # - name: eatCodebook
+    #   href: https://beckerbenj.github.io/eatCodebook/
+    # - name: eatFDZ
+    #   href: https://beckerbenj.github.io/eatFDZ/
+    # - name: eatGADS
+    #   href: https://beckerbenj.github.io/eatGADS/
+    # - name: eatModel
+    #   href: posts/eatPackages/eatModel.qmd
+    - title: eatPlot
+      path: https://nickhaf.github.io/eatPlot/
+      image: ./logos/eatPlot.svg
+      description: "Plotting eatRep output"
+    # - name: eatPrep
+    #   href: posts/eatPackages/eatPrep.qmd
+    # - name: eatRecode
+    #   href: https://beckerbenj.github.io/eatRecode/
+    # - name: eatRep
+    #   href: posts/eatPackages/eatRep.qmd
+    # - name: eatTools
+    #   href: posts/eatPackages/eatTools.qmd
   type: default
   sort: "date desc" 
   feed: true
