@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>IQB Methods Team</title>
+<link>https://iqb-research.github.io/IQB-Methods/posts_eat.html</link>
+<atom:link href="https://iqb-research.github.io/IQB-Methods/posts_eat.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.5.56</generator>
+<lastBuildDate>Wed, 14 Aug 2024 13:09:32 GMT</lastBuildDate>
+<item>
+  <title>eatPlot</title>
+  <link>https://iqb-research.github.io/IQB-Methods/</link>
+  <description>Plotting eatRep output</description>
+  <guid>https://iqb-research.github.io/IQB-Methods/</guid>
+  <pubDate>Wed, 14 Aug 2024 13:09:32 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatPlot.svg" medium="image" type="image/svg+xml"/>
+</item>
+</channel>
+</rss>
