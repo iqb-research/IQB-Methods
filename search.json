@@ -182,39 +182,18 @@
     "text": "Workflow\nFirst, initialize the project:\n\n# install.packages(renv)\nrenv::init()\n\nThis mainly will do two things:\n\nCreate a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.\nA .lock file, where the package versions get documented.\n\nBy the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. renv::init() will automatically setup the project with all the packages you have used in the project.\nThe rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use renv::install() which has some additional features compared to install.packages()). For example, you can install specific package versions: renv::install(\"dplyr@1.1.1\"). No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with library().\nThe next step is to write the package into your .lock file:\n\nrenv::snapshot()\n\nThis will update the .lock file with your new package.\nIf on the other hand you want to restore the packages from the .lock file, use:\n\nrenv::restore()\n\nThis will install the package version that is documented in the lock file into your project specific library.\nYou can update your dependencies to the latest version using:\n\nrenv::update()\n\nLook here for the offical documentation."
   },
   {
-    "objectID": "posts_help.html",
-    "href": "posts_help.html",
-    "title": "Help",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IQB Methods Team",
     "section": "",
-    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\ncontact: BB, SW, KAS\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: SW\n\n\ncontact: NH, PF\n\n\ncontact: KAS\n\n\ncontact: BB, NH\n\n\ncontact: SW, BB\n\n\ncontact: SW, BB, KAS"
+    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
   },
   {
-    "objectID": "posts_help.html#contact-for-eat-packages",
-    "href": "posts_help.html#contact-for-eat-packages",
-    "title": "Help",
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
     "section": "",
-    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\ncontact: BB, SW, KAS\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: SW\n\n\ncontact: NH, PF\n\n\ncontact: KAS\n\n\ncontact: BB, NH\n\n\ncontact: SW, BB\n\n\ncontact: SW, BB, KAS"
-  },
-  {
-    "objectID": "posts_help.html#faq",
-    "href": "posts_help.html#faq",
-    "title": "Help",
-    "section": "FAQ",
-    "text": "FAQ\n\nusing simple markdown (no styling)\n\n\nFAQ 1\n\nContent\n\n\n\nFAQ 2\n\nContent\n\n\n\nusing tabset pills\n\n\nFAQ 1FAQ 2\n\n\nmessage\n\n\nsome other message\n\n\n\n\n\n\nusing accordion (bootswatch)\n\n\n\n\nQuestion 1\n\n\n\n\nsome answer about the topic.\n\n\n\n\n\n\nusing html code\n\n\n  \n    \n      \n        Accordion Item #1\n      \n    \n    \n      \n        This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow.\n      \n    \n  \n  \n    \n      \n        Accordion Item #2\n      \n    \n    \n      \n        This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow.\n      \n    \n  \n  \n    \n      \n        Accordion Item #3\n      \n    \n    \n      \n        This is the third item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow."
-  },
-  {
-    "objectID": "posts_help.html#gh-issues",
-    "href": "posts_help.html#gh-issues",
-    "title": "Help",
-    "section": "gh issues",
-    "text": "gh issues\nlink to github issues?"
-  },
-  {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
-    "section": "",
-    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 15, 2024\n\n\nReproducable manuscripts with Quarto\n\n\nNicklas Hafiz\n\n\n14 min\n\n\n\n\n\n\n\nJun 3, 2024\n\n\nPlotting with ggplot2\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nApr 8, 2024\n\n\nColumn-wise operations in the tidyverse\n\n\nNicklas Hafiz\n\n\n6 min\n\n\n\n\n\n\n\nMar 25, 2024\n\n\nData wrangling in the tidyverse\n\n\nNicklas Hafiz\n\n\n12 min\n\n\n\n\n\n\n\nMar 22, 2024\n\n\nData sets\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nIntroduction to the tidyverse\n\n\nNicklas Hafiz\n\n\n7 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\nNo matching items"
+    "text": "12-01-2024\n\n\n\n\n\nNewsletter\n\n\n\n\n\nDec 1, 2024\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\n\n\n\nNewsletter\n\n\n\n\n\nSep 8, 2023\n\n\nBenjamin Becker\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "docs/checkmate/checkmate.html",
@@ -821,18 +800,11 @@
     "text": "Footnotes\n\n\nImage by Sinjin Thomas on Unsplash.↩︎\nMy Footnote.↩︎"
   },
   {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
     "section": "",
-    "text": "12-01-2024\n\n\n\n\n\nNewsletter\n\n\n\n\n\nDec 1, 2024\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\n\n\n\nNewsletter\n\n\n\n\n\nSep 8, 2023\n\n\nBenjamin Becker\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IQB Methods Team",
-    "section": "",
-    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
+    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nJul 15, 2024\n\n\nReproducable manuscripts with Quarto\n\n\nNicklas Hafiz\n\n\n14 min\n\n\n\n\n\n\n\nJun 3, 2024\n\n\nPlotting with ggplot2\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nApr 8, 2024\n\n\nColumn-wise operations in the tidyverse\n\n\nNicklas Hafiz\n\n\n6 min\n\n\n\n\n\n\n\nMar 25, 2024\n\n\nData wrangling in the tidyverse\n\n\nNicklas Hafiz\n\n\n12 min\n\n\n\n\n\n\n\nMar 22, 2024\n\n\nData sets\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nIntroduction to the tidyverse\n\n\nNicklas Hafiz\n\n\n7 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducability with renv\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/r_sig/24_01_26_tidyverse_intro/index.html",
