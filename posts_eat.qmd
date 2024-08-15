@@ -1,6 +1,7 @@
 ---
 title: "eat Packages"
-listing: 
+listing:
+  id: packages
   contents:
     # - name: eatAnalysis
     #   href: posts/eatPackages/eatAnalysis.qmd
@@ -27,10 +28,12 @@ listing:
     # - name: eatTools
     #   href: posts/eatPackages/eatTools.qmd
   type: default
-  sort: "date desc" 
   feed: true
   image-align: left
 ---
+
+::: {#packages}
+:::
 
 ## Installing R packages
 
