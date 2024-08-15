@@ -1,0 +1,17 @@
+---
+title: "eatRep"
+resources: 
+    - "*.html"
+description: Calculates characteristics for data with clustered multi-level structures with imputed data.
+author:
+  - name: Sebastian Weirich, Benjamin Becker
+date: 08-08-2024
+image: eatRep.png
+---
+
+# Info
+
+Calculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.
+
+For more info see [eatRep CRAN page](https://cran.r-project.org/web/packages/eatRep/index.html). 
+
