@@ -17,6 +17,8 @@ website:
         text: R-Sig
       - href: posts_newsletter.qmd
         text: Newsletter
+      - href: posts_help.qmd
+        text: help
       - href: docs/FAQ/FAQ.qmd
       - text: "Internal Documentation"
         menu: 
