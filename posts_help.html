@@ -293,7 +293,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#using-simple-markdown-no-styling" id="toc-using-simple-markdown-no-styling" class="nav-link active" data-scroll-target="#using-simple-markdown-no-styling">using simple markdown (no styling)</a></li>
+  <li><a href="#using-tabset-pills" id="toc-using-tabset-pills" class="nav-link" data-scroll-target="#using-tabset-pills">using tabset pills</a></li>
   <li><a href="#using-accordion-bootswatch" id="toc-using-accordion-bootswatch" class="nav-link" data-scroll-target="#using-accordion-bootswatch">using accordion (bootswatch)</a></li>
+  <li><a href="#using-html-code" id="toc-using-html-code" class="nav-link" data-scroll-target="#using-html-code">using html code</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts_help.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -333,8 +335,9 @@ FAQ 2
 </summary>
 Content
 </details>
-<section id="using-tabset-pills" class="level4">
-<h4 class="anchored" data-anchor-id="using-tabset-pills">using tabset pills</h4>
+</section>
+<section id="using-tabset-pills" class="level3">
+<h3 class="anchored" data-anchor-id="using-tabset-pills">using tabset pills</h3>
 <div class="nav-pills">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">FAQ 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">FAQ 2</a></li></ul>
@@ -348,7 +351,6 @@ Content
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="using-accordion-bootswatch" class="level3">
 <h3 class="anchored" data-anchor-id="using-accordion-bootswatch">using accordion (bootswatch)</h3>
@@ -366,20 +368,49 @@ Content
 </div>
 </div>
 </div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<pre><code>&lt;h2 class="accordion-header" id="headingOne"&gt;
-  &lt;button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"&gt;
-    Accordion Item #1
-  &lt;/button&gt;
-&lt;/h2&gt;
-&lt;div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style=""&gt;
-  &lt;div class="accordion-body"&gt;
-    &lt;strong&gt;This is the first item's accordion body.&lt;/strong&gt; It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the &lt;code&gt;.accordion-body&lt;/code&gt;, though the transition does limit overflow.
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+</section>
+<section id="using-html-code" class="level3">
+<h3 class="anchored">using html code</h3>
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header anchored" id="headingOne" data-anchor-id="using-html-code">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  <div></div></div>
+  <div class="accordion-item">
+    <h2 class="accordion-header anchored" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header anchored" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+
 
 
 </section>
