@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-12-18">
-<meta name="description" content="R-SIG 18.12.2023">
+<meta name="dcterms.date" content="2023-10-09">
+<meta name="description" content="R-SIG 09.10.2023">
 
-<title>Case_when() function – IQB Methods Team</title>
+<title>Cleaner Scripts – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -105,15 +71,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Case_when() function – IQB Methods Team">
-<meta property="og:description" content="R-SIG 18.12.2023">
+<meta property="og:title" content="Cleaner Scripts – IQB Methods Team">
+<meta property="og:description" content="R-SIG 09.10.2023">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -153,39 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Case_when() function</h1>
-                  <div>
-        <div class="description">
-          R-SIG 18.12.2023
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">R</div>
-                <div class="quarto-category">tidyverse</div>
-                <div class="quarto-category">data manipulation</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">December 18, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -193,120 +127,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-use-it" id="toc-how-to-use-it" class="nav-link active" data-scroll-target="#how-to-use-it">How to use it</a></li>
-  <li><a href="#evaluation-order" id="toc-evaluation-order" class="nav-link" data-scroll-target="#evaluation-order">Evaluation order</a></li>
+  <li><a href="#some-general-take-aways" id="toc-some-general-take-aways" class="nav-link active" data-scroll-target="#some-general-take-aways">Some general take-aways</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/r_sig/23_12_18_case_when/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/r_sig/23_10_09_cleaner/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cleaner Scripts</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">best practices</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    R-SIG 09.10.2023
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 9, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
-<p>The <code>case_when()</code> function from the <code>dplyr</code> package of the <code>tidyverse</code> is a useful function for combining multiple <code>ifelse()</code> statements.</p>
-<section id="how-to-use-it" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-it">How to use it</h2>
-<p>Let’s take a look at a little example. Let’s consider a very simple data frame containing only a column of different countries:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
 
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">country =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Deu"</span>, <span class="dv">4</span>), <span class="st">"Mexico"</span>, <span class="st">"Peru"</span>, <span class="st">"Ghana"</span>, <span class="st">"China"</span>, <span class="st">"Spanien"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now, let’s suppose we want to add a second column containing the continent of the country. We can either use nested <code>ifelse()</code> statements, which makes the coed quite hard to read:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>continent <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Deu"</span>, <span class="st">"Spanien"</span>), </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">yes =</span> <span class="st">"Europe"</span>, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">no =</span> <span class="fu">ifelse</span>(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                         df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Mexico"</span> <span class="sc">|</span> df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Peru"</span>, </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">yes =</span> <span class="st">"America"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">no =</span> <span class="fu">ifelse</span>(</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                           df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Ghana"</span>, </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                           <span class="at">yes =</span> <span class="st">"Africa"</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">no =</span> <span class="st">"Asia"</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                       )</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                       ))</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  country continent
-1     Deu    Europe
-2     Deu    Europe
-3     Deu    Europe
-4     Deu    Europe
-5  Mexico   America
-6    Peru   America
-7   Ghana    Africa
-8   China      Asia
-9 Spanien    Europe</code></pre>
-</div>
-</div>
-<p><code>case_when()</code> has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are seperated by <code>~</code>. So if the condition on the left side is met in a row, the function returns the value on the right side of <code>~</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">case_when</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Deu"</span>, <span class="st">"Spanien"</span>) <span class="sc">~</span> <span class="st">"Europe"</span>, </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                               country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Mexico"</span>, <span class="st">"Peru"</span>) <span class="sc">~</span> <span class="st">"America"</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                               country <span class="sc">==</span> <span class="st">"Ghana"</span> <span class="sc">~</span> <span class="st">"Africa"</span>, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Another continent"</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                                 )</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>df_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  country         continent
-1     Deu            Europe
-2     Deu            Europe
-3     Deu            Europe
-4     Deu            Europe
-5  Mexico           America
-6    Peru           America
-7   Ghana            Africa
-8   China Another continent
-9 Spanien            Europe</code></pre>
-</div>
-</div>
-<p>We wrap this statement into a mutate function to automatically create the new column continent from the output of <code>case_when</code>. The <code>TRUE</code> in the last row catches all conditions we haven’t dealt with further above. So all rows wich haven’t met any of the above conditions will get the label “Another continent”.</p>
-</section>
-<section id="evaluation-order" class="level2">
-<h2 class="anchored" data-anchor-id="evaluation-order">Evaluation order</h2>
-<p><code>case_when()</code> goes from the top to the bottom. So if a row has met a statement, it is not considered further down. That’s why it makes sense to go from the most specific statements to the less specific ones. Otherwise the least specific ones might overwrite everything in the beginning:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_3 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">case_when</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(df<span class="sc">$</span>country) <span class="sc">~</span> <span class="st">"Other country"</span>, </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                               country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Mexico"</span>, <span class="st">"Peru"</span>) <span class="sc">~</span> <span class="st">"America"</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                               country <span class="sc">==</span> <span class="st">"Ghana"</span> <span class="sc">~</span> <span class="st">"Africa"</span>, </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Another continent"</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                                 )</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>df_3  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  country     continent
-1     Deu Other country
-2     Deu Other country
-3     Deu Other country
-4     Deu Other country
-5  Mexico Other country
-6    Peru Other country
-7   Ghana Other country
-8   China Other country
-9 Spanien Other country</code></pre>
-</div>
-</div>
-<p>Because our first statement already covers all rows, the rest is obsolete. This top-down working also makes the <code>TRUE</code> condition in our last line possible, because only those rows that haven’t been used yet will come this far, and all of them are catched (because <code>TRUE</code> always is true).</p>
+<section id="some-general-take-aways" class="level2">
+<h2 class="anchored" data-anchor-id="some-general-take-aways">Some general take-aways</h2>
+<ol type="1">
+<li>Markdown vs.&nbsp;Quarto vs.&nbsp;R-Skripte</li>
+</ol>
+<ul>
+<li>Quarto is more up to date than R-Markdown</li>
+<li>Markdown has more dependencies, so I would now use .R-Scripts instead, if I don’t need the markdown features.</li>
+<li>In the end it’s a question of preference.</li>
+</ul>
+<ol type="1">
+<li>Write packages on top of the script.</li>
+</ol>
+<ul>
+<li>Write down verion number (use <code>sessionInfo()</code>).</li>
+<li>Or, even better: use <code>renv</code>.</li>
+</ul>
 
 
 </section>
@@ -737,4 +615,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/r_sig/23_12_18_case_when/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/r_sig/23_10_09_cleaner/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-03-22">
+<meta name="description" content="R-SIG 25.03.24">
 
-<title>Material for learning R – IQB Methods Team</title>
+<title>Data sets – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,9 +70,10 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Material for learning R – IQB Methods Team">
-<meta property="og:description" content="">
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Data sets – IQB Methods Team">
+<meta property="og:description" content="R-SIG 25.03.24">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -81,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">IQB Methods Team</span>
     </a>
   </div>
@@ -92,21 +95,21 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../posts_eat.html"> 
+    <a class="nav-link" href="../../../posts_eat.html"> 
 <span class="menu-text">eat Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts_learn.html"> 
+    <a class="nav-link" href="../../../posts_learn.html"> 
 <span class="menu-text">learn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts_newsletter.html"> 
+    <a class="nav-link" href="../../../posts_newsletter.html"> 
 <span class="menu-text">Newsletter</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../index.xml"> 
+    <a class="nav-link" href="../../../index.xml"> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
@@ -125,23 +128,39 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r-introduction" id="toc-r-introduction" class="nav-link active" data-scroll-target="#r-introduction">R Introduction</a></li>
+  <li><a href="#theory-olympic-athletes" id="toc-theory-olympic-athletes" class="nav-link active" data-scroll-target="#theory-olympic-athletes"><span class="header-section-number">1</span> Theory: Olympic athletes</a></li>
+  <li><a href="#exercises-fictional-characters" id="toc-exercises-fictional-characters" class="nav-link" data-scroll-target="#exercises-fictional-characters"><span class="header-section-number">2</span> Exercises: Fictional characters</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/r_sig/24_03_22_datasets/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Material for learning R</h1>
-</div>
+<h1 class="title">Data sets</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">tidyverse</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    R-SIG 25.03.24
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 22, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -151,14 +170,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="r-introduction" class="level1">
-<h1>R Introduction</h1>
-<p>An introduction to R with hands on examples and exercises can be found in <a href="https://nickhaf.github.io/r_tutorial/">Introduction to R</a>.</p>
+<p>We will use two data sets for some time in the R SIG now. One for the theory, and one for you to work on in the exercises.</p>
+<section id="theory-olympic-athletes" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="theory-olympic-athletes"><span class="header-section-number">1</span> Theory: Olympic athletes</h2>
+<p><img src="olympics.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>For the theory part of the workshop, we will mainly work with the <a href="https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results"><code>athletes</code></a> data set. It contains the Olympic athletes from 1896 to 2016, along with some basic stats, their sport and country, and the medals they won.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Goal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Our goal for the theory part of this workshop is to find the best country in each sport (operationalized by the number of gold medal winners from this country).</p>
+</div>
+</div>
+</section>
+<section id="exercises-fictional-characters" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercises-fictional-characters"><span class="header-section-number">2</span> Exercises: Fictional characters</h2>
+<p><img src="friends.jpg" class="img-fluid"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Over the course of this workshop, you can work on exercises to put the theoretical knowledge you acquired in the chapters to use. Most of these exercises will use the <a href="https://openpsychometrics.org/tests/characters/documentation/"><code>characters</code></a> data set, which contains psychometric ratings for different fictional characters, rated by a large number of people on a personality scale developed by the author of the questionnaire.</p>
+<p>You will load the data, prepare it for analyses and also plot it in the end.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Goal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The goal for the exercise part of this workshop is to build a character profile for a fictional universe of your choosing.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have looked at how to download these data sets in the <a href="https://nickhaf.github.io/r_tutorial/qmd/workflow/workflow_exercise.html#exercise-2-download-data">this exercise</a>.</p>
+</div>
+</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@floschmaezz?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Florian Schmetz</a> on <a href="https://unsplash.com/de/fotos/fbCtFV3FkfE?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Image by <a href="https://unsplash.com/de/@lgtts?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ilse Orsen</a> on <a href="https://unsplash.com/de/fotos/fwPHQB4kGzA?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -584,4 +657,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/r_sig/24_03_22_datasets/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
