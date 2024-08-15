@@ -193,7 +193,7 @@
     "href": "posts_newsletter.html",
     "title": "Newsletter",
     "section": "",
-    "text": "12-01-2024\n\n\nNewsletter\n\n\n\nNicklas Hafiz\n\n\nDec 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\nNewsletter\n\n\n\nBenjamin Becker\n\n\nSep 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "12-01-2024\n\n\n\n\n\nNewsletter\n\n\n\n\n\nDec 1, 2024\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\n\n\n\nNewsletter\n\n\n\n\n\nSep 8, 2023\n\n\nBenjamin Becker\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "docs/quarto/index.html",
@@ -517,14 +517,14 @@
     "href": "posts_eat.html",
     "title": "eat Packages",
     "section": "",
-    "text": "Detailed instructions for installing the R packages can be found here: installing R packages"
+    "text": "Automated block occupation/automated test booklet creation.\n\n\n\n\n\nAug 8, 2024\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVarious useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nAug 8, 2024\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated creation of scale manuals.\n\n\n\n\n\nAug 8, 2024\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nAug 8, 2024\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImport and data preparation of SPSS data sets in R.\n\n\n\n\n\nAug 8, 2024\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInterface for ConQuest software.\n\n\n\n\n\nAug 8, 2024\n\n\nSebastian Weirich\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreating plots from the eatRep output (main use: Bildungstrend).\n\n\n\n\n\nAug 8, 2024\n\n\nNicklas Hafiz, Philipp Franikowski\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreparation of data sets.\n\n\n\n\n\nAug 8, 2024\n\n\nKaroline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreate and apply recoding databases.\n\n\n\n\n\nAug 8, 2024\n\n\nBenjamin Becker, Nicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCalculates characteristics for data with clustered multi-level structures with imputed data.\n\n\n\n\n\nAug 8, 2024\n\n\nSebastian Weirich, Benjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nAug 8, 2024\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts_eat.html#installing-r-packages",
     "href": "posts_eat.html#installing-r-packages",
     "title": "eat Packages",
-    "section": "",
-    "text": "Detailed instructions for installing the R packages can be found here: installing R packages"
+    "section": "Installing R packages",
+    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
   },
   {
     "objectID": "posts_eat.html#compatibility",
@@ -1014,7 +1014,14 @@
     "href": "posts/newsletter/24_01_12/index.html",
     "title": "12-01-2024",
     "section": "",
-    "text": "Webseite\nDas Methoden-Team hat jetzt eine eigene Webseite, auf der das gesamte Material vom Methoden-Team gesammelt werden soll. Das betrifft vor allem Tutorials und Workshop-Material, Infos zu den verschiedenen eat-Paketen, Zusammenfassungen aus der R-SIG, den Newsletter und vieles mehr. Aktuell sind wir noch dabei, Material zusammenzutragen, schaut aber gerne schon einmal vorbei:\nhttps://iqb-research.github.io/IQB-Methods/\n\n\nAnsprechpartner:innen während Benjamins Elternzeit\nBenjamin als Hauptverantwortlicher für die folgenden Pakete wird nun temporär durch die genannten Personen als Ansprechpartner:innen bei Problemen und Bugs aber auch Feature Requests u.ä. vertreten:\n\nGADS BT22 - Sebastian\nFDZ Reporting - Nicklas\neatFDZ - Karoline\neatGADS - Philipp\n\n\n\neatTools\nDie Version 0.7.5 liegt nun auf CRAN und beinhaltet hauptsächlich kleinere Bugfixes in den Funktionen halveString() und mergeAttr(). Wenn ihr eine ältere Version habt, ist eine Aktualisierung nicht zwingend notwendig, aber empfehlenswert, u.a., weil damit auch Fehlermeldungen in anderen eat-Paketen etwas instruktiver und leichter verständlich werden."
+    "text": "1"
+  },
+  {
+    "objectID": "posts/newsletter/24_01_12/index.html#footnotes",
+    "href": "posts/newsletter/24_01_12/index.html#footnotes",
+    "title": "12-01-2024",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Giulia May on Unsplash.↩︎"
   },
   {
     "objectID": "posts/eatPackages/eatRecode/eatRecode.html",
