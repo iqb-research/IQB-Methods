@@ -37,23 +37,26 @@ some other message
 
 ### using accordion (bootswatch)
 
-
-
+::::: {.accordion}
 ::::: {.accordion-item}
 
 ::: {.accordion-header #faq1}
-::: {.accordion-button}
+::: {.accordion-button type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"}
 Question 1
 :::
 :::
 
-::: {.accordion-collapse #collapse1}
+::: {#collapseOne class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style=""}
 ::: {.accordion-body}
 some answer about the topic.
 :::
 :::
 
 :::::
+:::::
+
+
+
 
 
 <div class="accordion" id="accordionExample">
