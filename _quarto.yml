@@ -13,6 +13,8 @@ website:
     left:
       - href: posts_eat.qmd
         text: eat Packages
+      - href: docs/learn/index_learn.qmd
+        text: learn
       - href: posts_r_sig.qmd
         text: R-Sig
       - href: posts_newsletter.qmd
