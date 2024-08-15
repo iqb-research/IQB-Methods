@@ -56,6 +56,8 @@
 
 
 
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/eatGADS.png" class="img-fluid"></p>
 <section id="eatgads" class="level1">
 <h1>eatGADS</h1>
 <p>Die Funktion <code>insertVariable()</code> wurde in <code>relocateVariable()</code> umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.</p>
@@ -71,6 +73,7 @@
  ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/</guid>
   <pubDate>Thu, 07 Sep 2023 22:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/newsletter/23_08_09/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
 </rss>
