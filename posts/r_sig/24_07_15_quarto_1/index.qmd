@@ -6,7 +6,9 @@ author:
   - affiliation: PhD student at the IQB, Methods team
 categories: [R, quarto]
 date: 07-15-2024
-bibliography: references.bib
+bibliography:  
+  - references.bib
+  - grateful-refs.bib
 csl: ./../../../apa7.csl
 image: manuscript.jpg
 
@@ -22,7 +24,12 @@ image: manuscript.jpg
 
 [Quarto](https://quarto.org/) is an open-source scientific and technical publishing system. It allows us to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate our code when rendering. We can also build slides and even websites (like the one you are currently on).
 
+
+::: {.panel-tabset}
+
 # Components
+
+::: {.panel-tabset}
 
 ## YAML header
 
@@ -92,6 +99,27 @@ becomes:
 library(tidyverse)
 athletes <- readRDS(file = here::here("raw_data", "athletes.rds"))
 head(athletes)
+```
+
+We can also define global execution options for the whole ´.qmd´ file in the YAML header:
+
+```
+---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: references.bib
+csl: apa7.csl
+format: pdf
+execute:
+  echo: false
+  warning: false
+  message: false
+---
 ```
 
 ## Tables
@@ -358,6 +386,34 @@ Citations are saved in `.bib` files. The `.bib` format can be chosen to download
 Of course, you should still check if the fields are filled in correctly. If you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.\
 To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@allport1936trait]` [@allport1936trait].  
 
+### Referencing R packages
+R packages are an important part of your analysis, and should be cited as such. The package [`grateful`](https://cran.r-project.org/web/packages/grateful/readme/README.html) helps you with that.  
+To use it, put a `grateful-refs.bib` file into your YAML header:
+
+```         
+---
+title: "Reproducable manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: 
+  - references.bib
+  - grateful-refs.bib
+csl: apa7.csl
+format: pdf
+---
+```
+By using this list syntax, we can add multiple `.bib`-files to our quarto document. 
+Then we only have to call the citation function in a code chunk:
+
+```{r}
+grateful::cite_packages(output = "paragraph", out.dir = ".")
+```
+
+
 ### Citation styles
 Again, because we have our references in a plain text format, we can easily convert between different citation styles. One way to do this is to provide th `csl` argument in the YAML header, like so:
 
@@ -388,6 +444,7 @@ The references will be automatically generated at the end of your document. Alte
 
 ::: {#refs}
 :::
+:::
 
 # Templates & APA
 
@@ -412,11 +469,25 @@ quarto::quarto_use_template("wjschne/apaquarto")
 ```
 
 This will create the necessary files in your folder. Update the `.qmd` file with the same name as your folder. I'd suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts ...).\
-The template will label your tables and figures correctly, and format the bibliography as well as the whole document.
+The template will label your tables and figures correctly, and format the bibliography as well as the whole document.  
+The tables can be build with the packages presented in the last chapter. 
+
+## Word templates
+If you want a word file as output (maybe some journal or co-author requires you to), you can do that easily by setting `format: docx` in your yaml header. If you don't use a template like `apaquarto`, you can also style your own [word template](https://quarto.org/docs/output-formats/ms-word-templates.html) simply by changing the styles in a template word file and then load the template file into your quarto document with 
+
+```
+format:
+  docx:
+    reference-doc: custom-reference-doc.docx
+```
+in the YAML header. Take a look at the [official documentation](https://quarto.org/docs/output-formats/ms-word-templates.html) for more detailled info.
+
 
 ::: {.callout-tip}
 ## Split your project
 I recommend that you split up your project into many subfiles, that get merged in the end in a main document. In my opinion, this makes everything a lot easier to overview, because working with quarto makes it easy to just put **everything** from data preperation to reporting into one huge, confousing document. For example, you can put R-Functions into a own script and source it with `source(functions.R)`. You can also put each chapter into a own `.qmd` file, and merge them together in a main document. Take a look at [include](https://quarto.org/docs/authoring/includes.html) for some input on how to do that. 
+
+:::
 
 :::
 
@@ -425,6 +496,7 @@ I recommend that you split up your project into many subfiles, that get merged i
 ::: {.panel-tabset}
 
 ## Markdown Exercises
+
 0.  Set up a new RStudio project in a new directory.
 1.  Create an empty Quarto file.
 2.  Fill it with a "mini-Analysis" of the `characters` and `psych_stats` data sets. You can use the code from the [Plotting Exercise](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting_exercise.html), for now **not** in APA style (we will do this next week). This Quarto file should contain:
@@ -505,57 +577,37 @@ mod1 <- lmer(rating ~ notability_centered + (1|name) + (1|uni_name), data = mod_
 4.  Render your file into pdf, word and html.
 
 ## APA Exercises
-<!-- 0. Create a fresh, empty folder for this exercise. -->
 
-<!-- 1. Install the `apaquarto` template. -->
+0. Create a fresh, empty folder for this exercise.
+1. Install the `apaquarto` template.
 
-<!-- ::: {.callout-tip collapse="true"} -->
+::: {.callout-tip collapse="true"}
 
-<!-- ## Hint -->
+## Hint
 
-<!-- - Make sure you have a current version of quarto installed. If not, download from [here](https://quarto.org/docs/download/) and install. Restart RStudio, it should find the new quarto installation automatically. -->
+- Make sure you have a current version of quarto installed. If not, download from [here](https://quarto.org/docs/download/) and install. Restart RStudio, it should find the new quarto installation automatically.
 
-<!-- - Make sure to set the working directory to an empty folder before installing: -->
+- Make sure to set the working directory to an empty folder before installing:
 
-<!-- ```{r} -->
+```{r}
+#| eval: false
+#| echo: true
 
-<!-- #| eval: false -->
+setwd("home/my_project") # Make sure the folder is empty
+quarto::quarto_use_template("wjschne/apaquarto")
 
-<!-- #| echo: true -->
+```
 
-<!-- setwd("home/my_project") # Make sure the folder is empty -->
+:::
 
-<!-- quarto::quarto_use_template("wjschne/apaquarto") -->
+2. Create a RStudio project in your directory and open it.
 
-<!-- ``` -->
+3. Repeat the analysis you've done in the previous exercise (just copy the code), but this time focus on the APA formating aspect of everything. Try to use as many features we've talked about before in your script, especially the automatic table and figure captions and numeration. 
 
-<!-- ::: -->
-
-<!-- 2. Create a RStudio project in your directory and open it. -->
-
-<!-- 3. Open the `.qmd` document and fill it with a "mini"-analysis of the [`athletes`](https://github.com/nickhaf/r_tutorial/blob/main/raw_data/athletes.rds) dataset. So update the YAML and the text body for your own needs. The analysis should contain: -->
-
-<!-- - at least two chapters -->
-
-<!-- - two own references (a book and an article) -->
-
-<!-- - some sort of table. Make it as complex as you like to try and play around with different packages and table options. -->
-
-<!-- - some plot -->
-
-
-<!-- 5. Convert your manuscript into a PDF. -->
-
-<!-- ```{r} -->
-
-<!-- ## Maybe plot predicitons, or at least data points with a line through it? -->
-
-<!-- ``` -->
-
-<!-- ::: -->
+4. Convert your manuscript into a word file and a PDF.
 
 ## Bonus
 
-<!-- 4. Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. It can contain files for functions, for data preperation etc. -->
+5. Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. It can contain files for functions, for data preperation etc, and can be loaded into your main script with `source()`. Create another folder called `chapters` where you put the `.qmd` files for the single chapters of your work. In the parent directory use a main `.qmd` file that brings everything together (either with source, or, in the case of other `.qmd` files, with `{{< include _content.qmd >}}` ). 
 
 :::
