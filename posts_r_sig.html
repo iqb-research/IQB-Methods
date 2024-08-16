@@ -131,11 +131,11 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 <link rel="alternate" type="application/rss+xml" title="IQB Methods Team" href="posts_r_sig.xml" data-external="1"><meta property="og:title" content="R-SIG – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/preview_image.jpg">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -157,13 +157,32 @@ window.Quarto = {
 <span class="menu-text">eat Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts_learn.html"> 
-<span class="menu-text">learn</span></a>
+    <a class="nav-link active" href="./posts_r_sig.html" aria-current="page"> 
+<span class="menu-text">R-Sig</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./posts_newsletter.html"> 
 <span class="menu-text">Newsletter</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./docs/FAQ/FAQ.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-internal-documentation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Internal Documentation</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-internal-documentation">    
+        <li>
+    <a class="dropdown-item" href="./docs/quarto/index.html">
+ <span class="dropdown-text">Updating the website</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/discussions/code_conventions.html">
+ <span class="dropdown-text">Code-Konventionen</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -176,10 +195,155 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">R-SIG</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">R Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Material for learning R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://nickhaf.github.io/r_tutorial/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selfpaced R Workshop</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/R/ws1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/R/ws2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data.frames, Listen &amp; Plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/R/ws3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pakete und Daten laden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Cheat Sheets</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Reproducibility</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/reproduce/renv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The renv-Package</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Asserting Code</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/checkmate/checkmate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Checkmate</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">GitHub</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/git/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pull requests with Github</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -302,15 +466,15 @@ Reading Time
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="R,quarto" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1723797496233" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2681" data-listing-title-sort="Reproducable manuscripts with Quarto" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-categories="R,quarto" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1723797674013" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2681" data-listing-title-sort="Reproducable manuscripts with Quarto" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-image"><img loading="lazy" src="./docs/r_sig/24_07_15_quarto_1/manuscript.jpg" style="height: 40px;"></span>
+<span class="listing-image"><img loading="lazy" src="./posts/r_sig/24_07_15_quarto_1/manuscript.jpg" style="height: 40px;"></span>
 </td>
 <td>
 <span class="listing-date">Jul 15, 2024</span>
 </td>
 <td>
-<a href="./docs/r_sig/24_07_15_quarto_1/index.html" class="title listing-title">Reproducable manuscripts with Quarto</a>
+<a href="./posts/r_sig/24_07_15_quarto_1/index.html" class="title listing-title">Reproducable manuscripts with Quarto</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -319,15 +483,15 @@ Reading Time
 <span class="listing-reading-time">14 min</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="R,tidyverse,plots" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1723797496229" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19" data-listing-title-sort="Plotting with `ggplot2`" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-categories="R,tidyverse,plots" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1723797674013" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19" data-listing-title-sort="Plotting with `ggplot2`" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-image"><img loading="lazy" src="./docs/r_sig/24_06_03_ggplot2/plotting.jpg" style="height: 40px;"></span>
+<span class="listing-image"><img loading="lazy" src="./posts/r_sig/24_06_03_ggplot2/plotting.jpg" style="height: 40px;"></span>
 </td>
 <td>
 <span class="listing-date">Jun 3, 2024</span>
 </td>
 <td>
-<a href="./docs/r_sig/24_06_03_ggplot2/index.html" class="title listing-title">Plotting with <code>ggplot2</code></a>
+<a href="./posts/r_sig/24_06_03_ggplot2/index.html" class="title listing-title">Plotting with <code>ggplot2</code></a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -336,15 +500,15 @@ Reading Time
 <span class="listing-reading-time">1 min</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="R,tidyverse,loops" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1723797496229" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162" data-listing-title-sort="Column-wise operations in the tidyverse" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-categories="R,tidyverse,loops" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1723797674013" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162" data-listing-title-sort="Column-wise operations in the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-image"><img loading="lazy" src="./docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" style="height: 40px;"></span>
+<span class="listing-image"><img loading="lazy" src="./posts/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" style="height: 40px;"></span>
 </td>
 <td>
 <span class="listing-date">Apr 8, 2024</span>
 </td>
 <td>
-<a href="./docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="title listing-title">Column-wise operations in the tidyverse</a>
+<a href="./posts/r_sig/24_04_08_tidyverse_column_wise/index.html" class="title listing-title">Column-wise operations in the tidyverse</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -353,15 +517,15 @@ Reading Time
 <span class="listing-reading-time">6 min</span>
 </td>
 </tr>
-<tr data-index="3" data-categories="R,tidyverse" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1723797496229" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2265" data-listing-title-sort="Data wrangling in the tidyverse" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-categories="R,tidyverse" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1723797674009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2265" data-listing-title-sort="Data wrangling in the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-image"><img loading="lazy" src="./docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" style="height: 40px;"></span>
+<span class="listing-image"><img loading="lazy" src="./posts/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" style="height: 40px;"></span>
 </td>
 <td>
 <span class="listing-date">Mar 25, 2024</span>
 </td>
 <td>
-<a href="./docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="title listing-title">Data wrangling in the tidyverse</a>
+<a href="./posts/r_sig/24_03_25_tidyverse_wrangling/index.html" class="title listing-title">Data wrangling in the tidyverse</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -370,15 +534,15 @@ Reading Time
 <span class="listing-reading-time">12 min</span>
 </td>
 </tr>
-<tr data-index="4" data-categories="R,tidyverse" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1723797496225" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223" data-listing-title-sort="Data sets" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-categories="R,tidyverse" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1723797674009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223" data-listing-title-sort="Data sets" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-image"><img loading="lazy" src="./docs/r_sig/24_03_22_datasets/olympics.jpg" style="height: 40px;"></span>
+<span class="listing-image"><img loading="lazy" src="./posts/r_sig/24_03_22_datasets/olympics.jpg" style="height: 40px;"></span>
 </td>
 <td>
 <span class="listing-date">Mar 22, 2024</span>
 </td>
 <td>
-<a href="./docs/r_sig/24_03_22_datasets/index.html" class="title listing-title">Data sets</a>
+<a href="./posts/r_sig/24_03_22_datasets/index.html" class="title listing-title">Data sets</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -387,15 +551,15 @@ Reading Time
 <span class="listing-reading-time">2 min</span>
 </td>
 </tr>
-<tr data-index="5" data-categories="R,tidyverse" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1723797496221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231" data-listing-title-sort="Introduction to the tidyverse" data-listing-filename-sort="index.qmd">
+<tr data-index="5" data-categories="R,tidyverse" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1723797674005" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231" data-listing-title-sort="Introduction to the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-image"><img loading="lazy" src="./docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" style="height: 40px;"></span>
+<span class="listing-image"><img loading="lazy" src="./posts/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" style="height: 40px;"></span>
 </td>
 <td>
 <span class="listing-date">Feb 26, 2024</span>
 </td>
 <td>
-<a href="./docs/r_sig/24_01_26_tidyverse_intro/index.html" class="title listing-title">Introduction to the tidyverse</a>
+<a href="./posts/r_sig/24_01_26_tidyverse_intro/index.html" class="title listing-title">Introduction to the tidyverse</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -404,7 +568,7 @@ Reading Time
 <span class="listing-reading-time">7 min</span>
 </td>
 </tr>
-<tr data-index="6" data-categories="R,tidyverse,data manipulation" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1723797496221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="885" data-listing-title-sort="Case_when() function" data-listing-filename-sort="index.qmd">
+<tr data-index="6" data-categories="R,tidyverse,data manipulation" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1723797674005" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="885" data-listing-title-sort="Case_when() function" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
 </td>
@@ -412,7 +576,7 @@ Reading Time
 <span class="listing-date">Dec 18, 2023</span>
 </td>
 <td>
-<a href="./docs/r_sig/23_12_18_case_when/index.html" class="title listing-title">Case_when() function</a>
+<a href="./posts/r_sig/23_12_18_case_when/index.html" class="title listing-title">Case_when() function</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -421,7 +585,7 @@ Reading Time
 <span class="listing-reading-time">5 min</span>
 </td>
 </tr>
-<tr data-index="7" data-categories="R,renv,reproducability" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1723797496221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="306" data-listing-title-sort="Reproducability with renv" data-listing-filename-sort="index.qmd">
+<tr data-index="7" data-categories="R,renv,reproducability" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1723797674005" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="306" data-listing-title-sort="Reproducability with renv" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
 </td>
@@ -429,7 +593,7 @@ Reading Time
 <span class="listing-date">Oct 23, 2023</span>
 </td>
 <td>
-<a href="./docs/r_sig/23_11_06_renv/index.html" class="title listing-title">Reproducability with renv</a>
+<a href="./posts/r_sig/23_11_06_renv/index.html" class="title listing-title">Reproducability with renv</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -438,7 +602,7 @@ Reading Time
 <span class="listing-reading-time">2 min</span>
 </td>
 </tr>
-<tr data-index="8" data-categories="R,best practices" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1723797496221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71" data-listing-title-sort="Cleaner Scripts" data-listing-filename-sort="index.qmd">
+<tr data-index="8" data-categories="R,best practices" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1723797674005" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71" data-listing-title-sort="Cleaner Scripts" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
 </td>
@@ -446,7 +610,7 @@ Reading Time
 <span class="listing-date">Oct 9, 2023</span>
 </td>
 <td>
-<a href="./docs/r_sig/23_10_09_cleaner/index.html" class="title listing-title">Cleaner Scripts</a>
+<a href="./posts/r_sig/23_10_09_cleaner/index.html" class="title listing-title">Cleaner Scripts</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -455,7 +619,7 @@ Reading Time
 <span class="listing-reading-time">1 min</span>
 </td>
 </tr>
-<tr data-index="9" data-categories="R,loops" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1723797496221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="682" data-listing-title-sort="The apply family" data-listing-filename-sort="index.qmd">
+<tr data-index="9" data-categories="R,loops" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1723797674005" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="682" data-listing-title-sort="The apply family" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
 </td>
@@ -463,7 +627,7 @@ Reading Time
 <span class="listing-date">Jul 31, 2023</span>
 </td>
 <td>
-<a href="./docs/r_sig/23_07_31_apply/index.html" class="title listing-title">The apply family</a>
+<a href="./posts/r_sig/23_07_31_apply/index.html" class="title listing-title">The apply family</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
@@ -472,15 +636,15 @@ Reading Time
 <span class="listing-reading-time">4 min</span>
 </td>
 </tr>
-<tr data-index="10" data-categories="R,loops" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1723797496221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26" data-listing-title-sort="for-loops" data-listing-filename-sort="index.qmd">
+<tr data-index="10" data-categories="R,loops" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1723797674001" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26" data-listing-title-sort="for-loops" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-image"><img loading="lazy" src="./docs/r_sig/23_03_20_forloops/preview_image.jpg" style="height: 40px;"></span>
+<span class="listing-image"><img loading="lazy" src="./posts/r_sig/23_03_20_forloops/preview_image.jpg" style="height: 40px;"></span>
 </td>
 <td>
 <span class="listing-date">Mar 20, 2023</span>
 </td>
 <td>
-<a href="./docs/r_sig/23_03_20_forloops/index.html" class="title listing-title">for-loops</a>
+<a href="./posts/r_sig/23_03_20_forloops/index.html" class="title listing-title">for-loops</a>
 </td>
 <td>
 <span class="listing-author">Nicklas Hafiz</span>
