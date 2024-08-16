@@ -4,12 +4,16 @@ listing:
   contents: docs
   type: default
   feed: true
+  sort: "date desc" 
+  categories: true
   image-align: left
+#  fields: [image, date, title, author, reading-time]
 ---
 
 ## R-SIG
 
-[here](./posts_r_sig.qmd)
+To get an overview over the R-SIG topics see [here](./posts_r_sig.qmd). 
+
 
 ## Listing of all Tutorials/R-Sig files 
 
