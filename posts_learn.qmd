@@ -1,10 +1,15 @@
 ---
 title: "Welcome to our Learning Page"
+listing: 
+  contents: docs
+  type: default
+  feed: true
+  image-align: left
 ---
 
 ## R-SIG
 
 [here](./posts_r_sig.qmd)
 
-
+## Listing of all Tutorials/R-Sig files 
 
