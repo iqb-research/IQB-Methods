@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-02-26">
+<meta name="description" content="R-SIG 26.02.24">
+
+<title>Introduction to the tidyverse – IQB Methods Team</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Introduction to the tidyverse – IQB Methods Team">
+<meta property="og:description" content="R-SIG 26.02.24">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/preview_image.jpg">
+<meta property="og:site_name" content="IQB Methods Team">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">IQB Methods Team</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../posts_eat.html"> 
+<span class="menu-text">eat Packages</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../posts_r_sig.html"> 
+<span class="menu-text">R-Sig</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../posts_newsletter.html"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../docs/FAQ/FAQ.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-internal-documentation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Internal Documentation</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-internal-documentation">    
+        <li>
+    <a class="dropdown-item" href="../../../docs/quarto/index.html">
+ <span class="dropdown-text">Updating the website</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../docs/discussions/code_conventions.html">
+ <span class="dropdown-text">Code-Konventionen</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../index.xml"> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Introduction to the tidyverse</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Introduction to the tidyverse</h1>
+                  <div>
+        <div class="description">
+          R-SIG 26.02.24
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">tidyverse</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 26, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">R Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Material for learning R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://nickhaf.github.io/r_tutorial/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selfpaced R Workshop</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/R/ws1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/R/ws2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data.frames, Listen &amp; Plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/R/ws3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pakete und Daten laden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Cheat Sheets</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Reproducibility</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/reproduce/renv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The renv-Package</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Asserting Code</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/checkmate/checkmate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Checkmate</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">GitHub</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/git/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pull requests with Github</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#some-tidyverse-features" id="toc-some-tidyverse-features" class="nav-link" data-scroll-target="#some-tidyverse-features"><span class="header-section-number">2</span> Some tidyverse features</a>
+  <ul class="collapse">
+  <li><a href="#tibbles" id="toc-tibbles" class="nav-link" data-scroll-target="#tibbles"><span class="header-section-number">2.1</span> Tibbles</a></li>
+  <li><a href="#the-pipe-operator" id="toc-the-pipe-operator" class="nav-link" data-scroll-target="#the-pipe-operator"><span class="header-section-number">2.2</span> The Pipe Operator</a></li>
+  </ul></li>
+  <li><a href="#workstation-organization" id="toc-workstation-organization" class="nav-link" data-scroll-target="#workstation-organization"><span class="header-section-number">3</span> Workstation organization</a>
+  <ul class="collapse">
+  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects"><span class="header-section-number">3.1</span> RStudio Projects</a></li>
+  <li><a href="#code-organization" id="toc-code-organization" class="nav-link" data-scroll-target="#code-organization"><span class="header-section-number">3.2</span> Code organization</a></li>
+  <li><a href="#absolute-paths-vs.-relative-paths" id="toc-absolute-paths-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-paths-vs.-relative-paths"><span class="header-section-number">3.3</span> Absolute paths vs.&nbsp;relative paths</a></li>
+  </ul></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">4</span> Exercise</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/r_sig/24_01_26_tidyverse_intro/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p><img src="preview_image.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p><em>Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table.</em> (<a href="https://www.jstatsoft.org/article/view/v059i10">Wickham, 2014</a>).</p>
+<p>The <code>tidyverse</code> is composed of multiple packages, all following a common philosophy, and facilitating many aspects of coding in R, for example data wrangling and plotting. It is not really necessary to learn the <code>tidyverse</code> syntax in order to be proficient in R. However, I find it easier to understand and write Code in, at least in most cases. In the end, it is a question of preference what you want to learn and use. Most code will probably be composed from <code>base R</code> functions and <code>tidyverse</code> functions.</p>
+<p>You can find an overview of the included packages at the offical <a href="https://www.tidyverse.org/packages/">tidyverse documentation</a>.<br>
+A more thorough introduction into the <code>tidyverse</code> can be found <a href="https://jhudatascience.org/tidyversecourse/index.html">here</a>.</p>
+</section>
+<section id="some-tidyverse-features" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="some-tidyverse-features"><span class="header-section-number">2</span> Some tidyverse features</h2>
+<section id="tibbles" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="tibbles"><span class="header-section-number">2.1</span> Tibbles</h3>
+<p>A special type of data frame are the so called <code>tibbles</code>. Tibbles are a modern version of data frames and the standard data frame type of the <code>tidyverse</code>, as they have some advantageous characteristics (e.g., note the more informative printing of the data frame). So don’t be confused if you run into them, in general they behave like data frames. Take a look at the <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/#exercise">Exercises</a>, or at a more thorough <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html">Example</a> if you want to learn more.</p>
+</section>
+<section id="the-pipe-operator" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="the-pipe-operator"><span class="header-section-number">2.2</span> The Pipe Operator</h3>
+<p><code>tidyverse</code> code is often written using the pipe operator <code>%&gt;%</code> (read as ‘<em>then do</em>’), which makes it easy to connect multiple function calls.</p>
+<p>Some notes on the pipe syntax, also see <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/#exercise">Exercises</a>:</p>
+<ol type="1">
+<li>If we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets.</li>
+<li>The pipe operator will give the result of the last function as input into the next function.</li>
+<li>If we want to clearly state which of the function arguments should receive the input, we can write a <code>.</code>, which can be read as <em>output of the previous function call</em>.</li>
+</ol>
+</section>
+</section>
+<section id="workstation-organization" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="workstation-organization"><span class="header-section-number">3</span> Workstation organization</h2>
+<section id="rstudio-projects" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="rstudio-projects"><span class="header-section-number">3.1</span> RStudio Projects</h3>
+<p>Over time, it will become increasingly hard to organize all your files, working directories and workspaces in a sensible manner. A reasonable big project will consist of multiple script files, data, output and plots. To keep everything toghether, <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">RStudio Projects</a> can be used (highly recommended). Therefore, when starting a new project in R, the first thing you should do is to create a RStudio project.</p>
+<p>You can create a new RStudio project by clicking on <code>File - New Project</code> in the RStudio window. You can either create a totally new directory, or choose an already existing folder for the project.</p>
+</section>
+<section id="code-organization" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="code-organization"><span class="header-section-number">3.2</span> Code organization</h3>
+<p>Within your project folder, I would suggest that you create subfolders to save your Scripts, data, outputs … in. For example, you could create a folder named R, where all your R Scripts will go. You can do the same for data, plots etc. This will help you to structure your working directory and make it easier to find specific files.</p>
+</section>
+<section id="absolute-paths-vs.-relative-paths" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="absolute-paths-vs.-relative-paths"><span class="header-section-number">3.3</span> Absolute paths vs.&nbsp;relative paths</h3>
+<p>I can head to a specific file by using the full path (<strong>absolute path</strong>): <code>"C:/Users/hafiznij/Documents/GitHub/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/raw_data/winners.rda"</code>. This approach has some disadvantages: it will only work on <strong>my</strong> notebook. If I want to continue my project on another device, I will have to change the path. The same goes for other people who want to work with my project. So, to keep these paths more reproducable, we should always use <strong>relative paths</strong>: <code>"./raw_data/winners.rda"</code>. This will always work independently of the device I am working on, as long as I am in the correct <strong>working directory</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Network drives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>One exception might be paths to files on the IQB network drives, like <code>T:</code> … Because these are always the same for every one, absolute paths will work just fine for everything lying on here.</p>
+</div>
+</div>
+<p>The working directory is the path R is currently working in. I can obtain it by typing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/runner/work/IQB-Methods/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro"</code></pre>
+</div>
+</div>
+<p>Luckily, RStudio projects set the working directory automatically, so we don’t really have to deal with that.</p>
+<p>Now take a look at the working directory and the relative path I used for loading the <code>winners.rda</code>. Notice something? Correct, both paths combined equal the <strong>absolute path</strong> to the file. So by splitting it up, we obtain a more reproducible path, that works independently of where the current working directory is.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The <code>here</code> package
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Another great way to deal with the path confusion is to use the <code>here</code> package. It can build the paths relative to the directory where your R Studio project is saved in. For example, <code>"./raw_data/winners.rda"</code> becomes <code>here::here("raw_data", "winners.rda")</code>. This is not incredibly important right now, especially if you have all your files in the same folder. But it can become very valuable with increasing project complexity and file structure, so look into it if you want to get a head start! I also I have to use it sometimes during the tutorial because of the way I have organized my project, so don’t be confused! It is just another way to build file paths. Look <a href="https://here.r-lib.org/">here</a> (:D) if you want to learn more about the package.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="exercise"><span class="header-section-number">4</span> Exercise</h2>
+<ol start="0" type="1">
+<li><p>Create a new RStudio project. Create the folders <code>R</code>, <code>data</code> and <code>plots</code>. Create a new R-Script which lies in your <code>R</code> folder.</p></li>
+<li><p>Write the following code using the pipe-operator from the <code>tidyverse</code>:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">45</span><span class="sc">:</span><span class="dv">100</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">by =</span> <span class="fl">0.1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">45</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> ., <span class="at">by =</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26313</code></pre>
+</div>
+</div>
+<p>Much nicer to read, right?</p>
+<ol type="1">
+<li>If we don’t have any additional arguments we want to put into the function, we can just write the function name without any brackets, like we do at the end with <code>sum</code>.</li>
+<li>The pipe operator will give the result of the last function as input into the next function. That’s why we don’t have to specify the vector within the <code>mean()</code> function.</li>
+<li>If we want to clearly state which of the function arguments should receive the input, we can write a <code>.</code>, which can be read as <em>output of the previous function call</em>. That’s what we do in the <code>seq()</code> function. It calculates a sequence from <code>1</code> to the mean of <code>c(45:100)</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Install and load the <code>palmerpenguins</code> package.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("palmerpenguins")</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Transform the <code>penguins</code>-tibble (available after loading the package) into a <code>data.frame</code>.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>penguins_frame <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Compare how both objects (tibble and data.frame) are printed into the console. Which differences can you see?</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>penguins_frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      species    island bill_length_mm bill_depth_mm flipper_length_mm
+1      Adelie Torgersen           39.1          18.7               181
+2      Adelie Torgersen           39.5          17.4               186
+3      Adelie Torgersen           40.3          18.0               195
+4      Adelie Torgersen             NA            NA                NA
+5      Adelie Torgersen           36.7          19.3               193
+6      Adelie Torgersen           39.3          20.6               190
+7      Adelie Torgersen           38.9          17.8               181
+8      Adelie Torgersen           39.2          19.6               195
+9      Adelie Torgersen           34.1          18.1               193
+10     Adelie Torgersen           42.0          20.2               190
+11     Adelie Torgersen           37.8          17.1               186
+12     Adelie Torgersen           37.8          17.3               180
+13     Adelie Torgersen           41.1          17.6               182
+14     Adelie Torgersen           38.6          21.2               191
+15     Adelie Torgersen           34.6          21.1               198
+16     Adelie Torgersen           36.6          17.8               185
+17     Adelie Torgersen           38.7          19.0               195
+18     Adelie Torgersen           42.5          20.7               197
+19     Adelie Torgersen           34.4          18.4               184
+20     Adelie Torgersen           46.0          21.5               194
+21     Adelie    Biscoe           37.8          18.3               174
+22     Adelie    Biscoe           37.7          18.7               180
+23     Adelie    Biscoe           35.9          19.2               189
+24     Adelie    Biscoe           38.2          18.1               185
+25     Adelie    Biscoe           38.8          17.2               180
+26     Adelie    Biscoe           35.3          18.9               187
+27     Adelie    Biscoe           40.6          18.6               183
+28     Adelie    Biscoe           40.5          17.9               187
+29     Adelie    Biscoe           37.9          18.6               172
+30     Adelie    Biscoe           40.5          18.9               180
+31     Adelie     Dream           39.5          16.7               178
+32     Adelie     Dream           37.2          18.1               178
+33     Adelie     Dream           39.5          17.8               188
+34     Adelie     Dream           40.9          18.9               184
+35     Adelie     Dream           36.4          17.0               195
+36     Adelie     Dream           39.2          21.1               196
+37     Adelie     Dream           38.8          20.0               190
+38     Adelie     Dream           42.2          18.5               180
+39     Adelie     Dream           37.6          19.3               181
+40     Adelie     Dream           39.8          19.1               184
+41     Adelie     Dream           36.5          18.0               182
+42     Adelie     Dream           40.8          18.4               195
+43     Adelie     Dream           36.0          18.5               186
+44     Adelie     Dream           44.1          19.7               196
+45     Adelie     Dream           37.0          16.9               185
+46     Adelie     Dream           39.6          18.8               190
+47     Adelie     Dream           41.1          19.0               182
+48     Adelie     Dream           37.5          18.9               179
+49     Adelie     Dream           36.0          17.9               190
+50     Adelie     Dream           42.3          21.2               191
+51     Adelie    Biscoe           39.6          17.7               186
+52     Adelie    Biscoe           40.1          18.9               188
+53     Adelie    Biscoe           35.0          17.9               190
+54     Adelie    Biscoe           42.0          19.5               200
+55     Adelie    Biscoe           34.5          18.1               187
+56     Adelie    Biscoe           41.4          18.6               191
+57     Adelie    Biscoe           39.0          17.5               186
+58     Adelie    Biscoe           40.6          18.8               193
+59     Adelie    Biscoe           36.5          16.6               181
+60     Adelie    Biscoe           37.6          19.1               194
+61     Adelie    Biscoe           35.7          16.9               185
+62     Adelie    Biscoe           41.3          21.1               195
+63     Adelie    Biscoe           37.6          17.0               185
+64     Adelie    Biscoe           41.1          18.2               192
+65     Adelie    Biscoe           36.4          17.1               184
+66     Adelie    Biscoe           41.6          18.0               192
+67     Adelie    Biscoe           35.5          16.2               195
+68     Adelie    Biscoe           41.1          19.1               188
+69     Adelie Torgersen           35.9          16.6               190
+70     Adelie Torgersen           41.8          19.4               198
+71     Adelie Torgersen           33.5          19.0               190
+72     Adelie Torgersen           39.7          18.4               190
+73     Adelie Torgersen           39.6          17.2               196
+74     Adelie Torgersen           45.8          18.9               197
+75     Adelie Torgersen           35.5          17.5               190
+76     Adelie Torgersen           42.8          18.5               195
+77     Adelie Torgersen           40.9          16.8               191
+78     Adelie Torgersen           37.2          19.4               184
+79     Adelie Torgersen           36.2          16.1               187
+80     Adelie Torgersen           42.1          19.1               195
+81     Adelie Torgersen           34.6          17.2               189
+82     Adelie Torgersen           42.9          17.6               196
+83     Adelie Torgersen           36.7          18.8               187
+84     Adelie Torgersen           35.1          19.4               193
+85     Adelie     Dream           37.3          17.8               191
+86     Adelie     Dream           41.3          20.3               194
+87     Adelie     Dream           36.3          19.5               190
+88     Adelie     Dream           36.9          18.6               189
+89     Adelie     Dream           38.3          19.2               189
+90     Adelie     Dream           38.9          18.8               190
+91     Adelie     Dream           35.7          18.0               202
+92     Adelie     Dream           41.1          18.1               205
+93     Adelie     Dream           34.0          17.1               185
+94     Adelie     Dream           39.6          18.1               186
+95     Adelie     Dream           36.2          17.3               187
+96     Adelie     Dream           40.8          18.9               208
+97     Adelie     Dream           38.1          18.6               190
+98     Adelie     Dream           40.3          18.5               196
+99     Adelie     Dream           33.1          16.1               178
+100    Adelie     Dream           43.2          18.5               192
+101    Adelie    Biscoe           35.0          17.9               192
+102    Adelie    Biscoe           41.0          20.0               203
+103    Adelie    Biscoe           37.7          16.0               183
+104    Adelie    Biscoe           37.8          20.0               190
+105    Adelie    Biscoe           37.9          18.6               193
+106    Adelie    Biscoe           39.7          18.9               184
+107    Adelie    Biscoe           38.6          17.2               199
+108    Adelie    Biscoe           38.2          20.0               190
+109    Adelie    Biscoe           38.1          17.0               181
+110    Adelie    Biscoe           43.2          19.0               197
+111    Adelie    Biscoe           38.1          16.5               198
+112    Adelie    Biscoe           45.6          20.3               191
+113    Adelie    Biscoe           39.7          17.7               193
+114    Adelie    Biscoe           42.2          19.5               197
+115    Adelie    Biscoe           39.6          20.7               191
+116    Adelie    Biscoe           42.7          18.3               196
+117    Adelie Torgersen           38.6          17.0               188
+118    Adelie Torgersen           37.3          20.5               199
+119    Adelie Torgersen           35.7          17.0               189
+120    Adelie Torgersen           41.1          18.6               189
+121    Adelie Torgersen           36.2          17.2               187
+122    Adelie Torgersen           37.7          19.8               198
+123    Adelie Torgersen           40.2          17.0               176
+124    Adelie Torgersen           41.4          18.5               202
+125    Adelie Torgersen           35.2          15.9               186
+126    Adelie Torgersen           40.6          19.0               199
+127    Adelie Torgersen           38.8          17.6               191
+128    Adelie Torgersen           41.5          18.3               195
+129    Adelie Torgersen           39.0          17.1               191
+130    Adelie Torgersen           44.1          18.0               210
+131    Adelie Torgersen           38.5          17.9               190
+132    Adelie Torgersen           43.1          19.2               197
+133    Adelie     Dream           36.8          18.5               193
+134    Adelie     Dream           37.5          18.5               199
+135    Adelie     Dream           38.1          17.6               187
+136    Adelie     Dream           41.1          17.5               190
+137    Adelie     Dream           35.6          17.5               191
+138    Adelie     Dream           40.2          20.1               200
+139    Adelie     Dream           37.0          16.5               185
+140    Adelie     Dream           39.7          17.9               193
+141    Adelie     Dream           40.2          17.1               193
+142    Adelie     Dream           40.6          17.2               187
+143    Adelie     Dream           32.1          15.5               188
+144    Adelie     Dream           40.7          17.0               190
+145    Adelie     Dream           37.3          16.8               192
+146    Adelie     Dream           39.0          18.7               185
+147    Adelie     Dream           39.2          18.6               190
+148    Adelie     Dream           36.6          18.4               184
+149    Adelie     Dream           36.0          17.8               195
+150    Adelie     Dream           37.8          18.1               193
+151    Adelie     Dream           36.0          17.1               187
+152    Adelie     Dream           41.5          18.5               201
+153    Gentoo    Biscoe           46.1          13.2               211
+154    Gentoo    Biscoe           50.0          16.3               230
+155    Gentoo    Biscoe           48.7          14.1               210
+156    Gentoo    Biscoe           50.0          15.2               218
+157    Gentoo    Biscoe           47.6          14.5               215
+158    Gentoo    Biscoe           46.5          13.5               210
+159    Gentoo    Biscoe           45.4          14.6               211
+160    Gentoo    Biscoe           46.7          15.3               219
+161    Gentoo    Biscoe           43.3          13.4               209
+162    Gentoo    Biscoe           46.8          15.4               215
+163    Gentoo    Biscoe           40.9          13.7               214
+164    Gentoo    Biscoe           49.0          16.1               216
+165    Gentoo    Biscoe           45.5          13.7               214
+166    Gentoo    Biscoe           48.4          14.6               213
+167    Gentoo    Biscoe           45.8          14.6               210
+168    Gentoo    Biscoe           49.3          15.7               217
+169    Gentoo    Biscoe           42.0          13.5               210
+170    Gentoo    Biscoe           49.2          15.2               221
+171    Gentoo    Biscoe           46.2          14.5               209
+172    Gentoo    Biscoe           48.7          15.1               222
+173    Gentoo    Biscoe           50.2          14.3               218
+174    Gentoo    Biscoe           45.1          14.5               215
+175    Gentoo    Biscoe           46.5          14.5               213
+176    Gentoo    Biscoe           46.3          15.8               215
+177    Gentoo    Biscoe           42.9          13.1               215
+178    Gentoo    Biscoe           46.1          15.1               215
+179    Gentoo    Biscoe           44.5          14.3               216
+180    Gentoo    Biscoe           47.8          15.0               215
+181    Gentoo    Biscoe           48.2          14.3               210
+182    Gentoo    Biscoe           50.0          15.3               220
+183    Gentoo    Biscoe           47.3          15.3               222
+184    Gentoo    Biscoe           42.8          14.2               209
+185    Gentoo    Biscoe           45.1          14.5               207
+186    Gentoo    Biscoe           59.6          17.0               230
+187    Gentoo    Biscoe           49.1          14.8               220
+188    Gentoo    Biscoe           48.4          16.3               220
+189    Gentoo    Biscoe           42.6          13.7               213
+190    Gentoo    Biscoe           44.4          17.3               219
+191    Gentoo    Biscoe           44.0          13.6               208
+192    Gentoo    Biscoe           48.7          15.7               208
+193    Gentoo    Biscoe           42.7          13.7               208
+194    Gentoo    Biscoe           49.6          16.0               225
+195    Gentoo    Biscoe           45.3          13.7               210
+196    Gentoo    Biscoe           49.6          15.0               216
+197    Gentoo    Biscoe           50.5          15.9               222
+198    Gentoo    Biscoe           43.6          13.9               217
+199    Gentoo    Biscoe           45.5          13.9               210
+200    Gentoo    Biscoe           50.5          15.9               225
+201    Gentoo    Biscoe           44.9          13.3               213
+202    Gentoo    Biscoe           45.2          15.8               215
+203    Gentoo    Biscoe           46.6          14.2               210
+204    Gentoo    Biscoe           48.5          14.1               220
+205    Gentoo    Biscoe           45.1          14.4               210
+206    Gentoo    Biscoe           50.1          15.0               225
+207    Gentoo    Biscoe           46.5          14.4               217
+208    Gentoo    Biscoe           45.0          15.4               220
+209    Gentoo    Biscoe           43.8          13.9               208
+210    Gentoo    Biscoe           45.5          15.0               220
+211    Gentoo    Biscoe           43.2          14.5               208
+212    Gentoo    Biscoe           50.4          15.3               224
+213    Gentoo    Biscoe           45.3          13.8               208
+214    Gentoo    Biscoe           46.2          14.9               221
+215    Gentoo    Biscoe           45.7          13.9               214
+216    Gentoo    Biscoe           54.3          15.7               231
+217    Gentoo    Biscoe           45.8          14.2               219
+218    Gentoo    Biscoe           49.8          16.8               230
+219    Gentoo    Biscoe           46.2          14.4               214
+220    Gentoo    Biscoe           49.5          16.2               229
+221    Gentoo    Biscoe           43.5          14.2               220
+222    Gentoo    Biscoe           50.7          15.0               223
+223    Gentoo    Biscoe           47.7          15.0               216
+224    Gentoo    Biscoe           46.4          15.6               221
+225    Gentoo    Biscoe           48.2          15.6               221
+226    Gentoo    Biscoe           46.5          14.8               217
+227    Gentoo    Biscoe           46.4          15.0               216
+228    Gentoo    Biscoe           48.6          16.0               230
+229    Gentoo    Biscoe           47.5          14.2               209
+230    Gentoo    Biscoe           51.1          16.3               220
+231    Gentoo    Biscoe           45.2          13.8               215
+232    Gentoo    Biscoe           45.2          16.4               223
+233    Gentoo    Biscoe           49.1          14.5               212
+234    Gentoo    Biscoe           52.5          15.6               221
+235    Gentoo    Biscoe           47.4          14.6               212
+236    Gentoo    Biscoe           50.0          15.9               224
+237    Gentoo    Biscoe           44.9          13.8               212
+238    Gentoo    Biscoe           50.8          17.3               228
+239    Gentoo    Biscoe           43.4          14.4               218
+240    Gentoo    Biscoe           51.3          14.2               218
+241    Gentoo    Biscoe           47.5          14.0               212
+242    Gentoo    Biscoe           52.1          17.0               230
+243    Gentoo    Biscoe           47.5          15.0               218
+244    Gentoo    Biscoe           52.2          17.1               228
+245    Gentoo    Biscoe           45.5          14.5               212
+246    Gentoo    Biscoe           49.5          16.1               224
+247    Gentoo    Biscoe           44.5          14.7               214
+248    Gentoo    Biscoe           50.8          15.7               226
+249    Gentoo    Biscoe           49.4          15.8               216
+250    Gentoo    Biscoe           46.9          14.6               222
+251    Gentoo    Biscoe           48.4          14.4               203
+252    Gentoo    Biscoe           51.1          16.5               225
+253    Gentoo    Biscoe           48.5          15.0               219
+254    Gentoo    Biscoe           55.9          17.0               228
+255    Gentoo    Biscoe           47.2          15.5               215
+256    Gentoo    Biscoe           49.1          15.0               228
+257    Gentoo    Biscoe           47.3          13.8               216
+258    Gentoo    Biscoe           46.8          16.1               215
+259    Gentoo    Biscoe           41.7          14.7               210
+260    Gentoo    Biscoe           53.4          15.8               219
+261    Gentoo    Biscoe           43.3          14.0               208
+262    Gentoo    Biscoe           48.1          15.1               209
+263    Gentoo    Biscoe           50.5          15.2               216
+264    Gentoo    Biscoe           49.8          15.9               229
+265    Gentoo    Biscoe           43.5          15.2               213
+266    Gentoo    Biscoe           51.5          16.3               230
+267    Gentoo    Biscoe           46.2          14.1               217
+268    Gentoo    Biscoe           55.1          16.0               230
+269    Gentoo    Biscoe           44.5          15.7               217
+270    Gentoo    Biscoe           48.8          16.2               222
+271    Gentoo    Biscoe           47.2          13.7               214
+272    Gentoo    Biscoe             NA            NA                NA
+273    Gentoo    Biscoe           46.8          14.3               215
+274    Gentoo    Biscoe           50.4          15.7               222
+275    Gentoo    Biscoe           45.2          14.8               212
+276    Gentoo    Biscoe           49.9          16.1               213
+277 Chinstrap     Dream           46.5          17.9               192
+278 Chinstrap     Dream           50.0          19.5               196
+279 Chinstrap     Dream           51.3          19.2               193
+280 Chinstrap     Dream           45.4          18.7               188
+281 Chinstrap     Dream           52.7          19.8               197
+282 Chinstrap     Dream           45.2          17.8               198
+283 Chinstrap     Dream           46.1          18.2               178
+284 Chinstrap     Dream           51.3          18.2               197
+285 Chinstrap     Dream           46.0          18.9               195
+286 Chinstrap     Dream           51.3          19.9               198
+287 Chinstrap     Dream           46.6          17.8               193
+288 Chinstrap     Dream           51.7          20.3               194
+289 Chinstrap     Dream           47.0          17.3               185
+290 Chinstrap     Dream           52.0          18.1               201
+291 Chinstrap     Dream           45.9          17.1               190
+292 Chinstrap     Dream           50.5          19.6               201
+293 Chinstrap     Dream           50.3          20.0               197
+294 Chinstrap     Dream           58.0          17.8               181
+295 Chinstrap     Dream           46.4          18.6               190
+296 Chinstrap     Dream           49.2          18.2               195
+297 Chinstrap     Dream           42.4          17.3               181
+298 Chinstrap     Dream           48.5          17.5               191
+299 Chinstrap     Dream           43.2          16.6               187
+300 Chinstrap     Dream           50.6          19.4               193
+301 Chinstrap     Dream           46.7          17.9               195
+302 Chinstrap     Dream           52.0          19.0               197
+303 Chinstrap     Dream           50.5          18.4               200
+304 Chinstrap     Dream           49.5          19.0               200
+305 Chinstrap     Dream           46.4          17.8               191
+306 Chinstrap     Dream           52.8          20.0               205
+307 Chinstrap     Dream           40.9          16.6               187
+308 Chinstrap     Dream           54.2          20.8               201
+309 Chinstrap     Dream           42.5          16.7               187
+310 Chinstrap     Dream           51.0          18.8               203
+311 Chinstrap     Dream           49.7          18.6               195
+312 Chinstrap     Dream           47.5          16.8               199
+313 Chinstrap     Dream           47.6          18.3               195
+314 Chinstrap     Dream           52.0          20.7               210
+315 Chinstrap     Dream           46.9          16.6               192
+316 Chinstrap     Dream           53.5          19.9               205
+317 Chinstrap     Dream           49.0          19.5               210
+318 Chinstrap     Dream           46.2          17.5               187
+319 Chinstrap     Dream           50.9          19.1               196
+320 Chinstrap     Dream           45.5          17.0               196
+321 Chinstrap     Dream           50.9          17.9               196
+322 Chinstrap     Dream           50.8          18.5               201
+323 Chinstrap     Dream           50.1          17.9               190
+324 Chinstrap     Dream           49.0          19.6               212
+325 Chinstrap     Dream           51.5          18.7               187
+326 Chinstrap     Dream           49.8          17.3               198
+327 Chinstrap     Dream           48.1          16.4               199
+328 Chinstrap     Dream           51.4          19.0               201
+329 Chinstrap     Dream           45.7          17.3               193
+330 Chinstrap     Dream           50.7          19.7               203
+331 Chinstrap     Dream           42.5          17.3               187
+332 Chinstrap     Dream           52.2          18.8               197
+333 Chinstrap     Dream           45.2          16.6               191
+334 Chinstrap     Dream           49.3          19.9               203
+335 Chinstrap     Dream           50.2          18.8               202
+336 Chinstrap     Dream           45.6          19.4               194
+337 Chinstrap     Dream           51.9          19.5               206
+338 Chinstrap     Dream           46.8          16.5               189
+339 Chinstrap     Dream           45.7          17.0               195
+340 Chinstrap     Dream           55.8          19.8               207
+341 Chinstrap     Dream           43.5          18.1               202
+342 Chinstrap     Dream           49.6          18.2               193
+343 Chinstrap     Dream           50.8          19.0               210
+344 Chinstrap     Dream           50.2          18.7               198
+    body_mass_g    sex year
+1          3750   male 2007
+2          3800 female 2007
+3          3250 female 2007
+4            NA   &lt;NA&gt; 2007
+5          3450 female 2007
+6          3650   male 2007
+7          3625 female 2007
+8          4675   male 2007
+9          3475   &lt;NA&gt; 2007
+10         4250   &lt;NA&gt; 2007
+11         3300   &lt;NA&gt; 2007
+12         3700   &lt;NA&gt; 2007
+13         3200 female 2007
+14         3800   male 2007
+15         4400   male 2007
+16         3700 female 2007
+17         3450 female 2007
+18         4500   male 2007
+19         3325 female 2007
+20         4200   male 2007
+21         3400 female 2007
+22         3600   male 2007
+23         3800 female 2007
+24         3950   male 2007
+25         3800   male 2007
+26         3800 female 2007
+27         3550   male 2007
+28         3200 female 2007
+29         3150 female 2007
+30         3950   male 2007
+31         3250 female 2007
+32         3900   male 2007
+33         3300 female 2007
+34         3900   male 2007
+35         3325 female 2007
+36         4150   male 2007
+37         3950   male 2007
+38         3550 female 2007
+39         3300 female 2007
+40         4650   male 2007
+41         3150 female 2007
+42         3900   male 2007
+43         3100 female 2007
+44         4400   male 2007
+45         3000 female 2007
+46         4600   male 2007
+47         3425   male 2007
+48         2975   &lt;NA&gt; 2007
+49         3450 female 2007
+50         4150   male 2007
+51         3500 female 2008
+52         4300   male 2008
+53         3450 female 2008
+54         4050   male 2008
+55         2900 female 2008
+56         3700   male 2008
+57         3550 female 2008
+58         3800   male 2008
+59         2850 female 2008
+60         3750   male 2008
+61         3150 female 2008
+62         4400   male 2008
+63         3600 female 2008
+64         4050   male 2008
+65         2850 female 2008
+66         3950   male 2008
+67         3350 female 2008
+68         4100   male 2008
+69         3050 female 2008
+70         4450   male 2008
+71         3600 female 2008
+72         3900   male 2008
+73         3550 female 2008
+74         4150   male 2008
+75         3700 female 2008
+76         4250   male 2008
+77         3700 female 2008
+78         3900   male 2008
+79         3550 female 2008
+80         4000   male 2008
+81         3200 female 2008
+82         4700   male 2008
+83         3800 female 2008
+84         4200   male 2008
+85         3350 female 2008
+86         3550   male 2008
+87         3800   male 2008
+88         3500 female 2008
+89         3950   male 2008
+90         3600 female 2008
+91         3550 female 2008
+92         4300   male 2008
+93         3400 female 2008
+94         4450   male 2008
+95         3300 female 2008
+96         4300   male 2008
+97         3700 female 2008
+98         4350   male 2008
+99         2900 female 2008
+100        4100   male 2008
+101        3725 female 2009
+102        4725   male 2009
+103        3075 female 2009
+104        4250   male 2009
+105        2925 female 2009
+106        3550   male 2009
+107        3750 female 2009
+108        3900   male 2009
+109        3175 female 2009
+110        4775   male 2009
+111        3825 female 2009
+112        4600   male 2009
+113        3200 female 2009
+114        4275   male 2009
+115        3900 female 2009
+116        4075   male 2009
+117        2900 female 2009
+118        3775   male 2009
+119        3350 female 2009
+120        3325   male 2009
+121        3150 female 2009
+122        3500   male 2009
+123        3450 female 2009
+124        3875   male 2009
+125        3050 female 2009
+126        4000   male 2009
+127        3275 female 2009
+128        4300   male 2009
+129        3050 female 2009
+130        4000   male 2009
+131        3325 female 2009
+132        3500   male 2009
+133        3500 female 2009
+134        4475   male 2009
+135        3425 female 2009
+136        3900   male 2009
+137        3175 female 2009
+138        3975   male 2009
+139        3400 female 2009
+140        4250   male 2009
+141        3400 female 2009
+142        3475   male 2009
+143        3050 female 2009
+144        3725   male 2009
+145        3000 female 2009
+146        3650   male 2009
+147        4250   male 2009
+148        3475 female 2009
+149        3450 female 2009
+150        3750   male 2009
+151        3700 female 2009
+152        4000   male 2009
+153        4500 female 2007
+154        5700   male 2007
+155        4450 female 2007
+156        5700   male 2007
+157        5400   male 2007
+158        4550 female 2007
+159        4800 female 2007
+160        5200   male 2007
+161        4400 female 2007
+162        5150   male 2007
+163        4650 female 2007
+164        5550   male 2007
+165        4650 female 2007
+166        5850   male 2007
+167        4200 female 2007
+168        5850   male 2007
+169        4150 female 2007
+170        6300   male 2007
+171        4800 female 2007
+172        5350   male 2007
+173        5700   male 2007
+174        5000 female 2007
+175        4400 female 2007
+176        5050   male 2007
+177        5000 female 2007
+178        5100   male 2007
+179        4100   &lt;NA&gt; 2007
+180        5650   male 2007
+181        4600 female 2007
+182        5550   male 2007
+183        5250   male 2007
+184        4700 female 2007
+185        5050 female 2007
+186        6050   male 2007
+187        5150 female 2008
+188        5400   male 2008
+189        4950 female 2008
+190        5250   male 2008
+191        4350 female 2008
+192        5350   male 2008
+193        3950 female 2008
+194        5700   male 2008
+195        4300 female 2008
+196        4750   male 2008
+197        5550   male 2008
+198        4900 female 2008
+199        4200 female 2008
+200        5400   male 2008
+201        5100 female 2008
+202        5300   male 2008
+203        4850 female 2008
+204        5300   male 2008
+205        4400 female 2008
+206        5000   male 2008
+207        4900 female 2008
+208        5050   male 2008
+209        4300 female 2008
+210        5000   male 2008
+211        4450 female 2008
+212        5550   male 2008
+213        4200 female 2008
+214        5300   male 2008
+215        4400 female 2008
+216        5650   male 2008
+217        4700 female 2008
+218        5700   male 2008
+219        4650   &lt;NA&gt; 2008
+220        5800   male 2008
+221        4700 female 2008
+222        5550   male 2008
+223        4750 female 2008
+224        5000   male 2008
+225        5100   male 2008
+226        5200 female 2008
+227        4700 female 2008
+228        5800   male 2008
+229        4600 female 2008
+230        6000   male 2008
+231        4750 female 2008
+232        5950   male 2008
+233        4625 female 2009
+234        5450   male 2009
+235        4725 female 2009
+236        5350   male 2009
+237        4750 female 2009
+238        5600   male 2009
+239        4600 female 2009
+240        5300   male 2009
+241        4875 female 2009
+242        5550   male 2009
+243        4950 female 2009
+244        5400   male 2009
+245        4750 female 2009
+246        5650   male 2009
+247        4850 female 2009
+248        5200   male 2009
+249        4925   male 2009
+250        4875 female 2009
+251        4625 female 2009
+252        5250   male 2009
+253        4850 female 2009
+254        5600   male 2009
+255        4975 female 2009
+256        5500   male 2009
+257        4725   &lt;NA&gt; 2009
+258        5500   male 2009
+259        4700 female 2009
+260        5500   male 2009
+261        4575 female 2009
+262        5500   male 2009
+263        5000 female 2009
+264        5950   male 2009
+265        4650 female 2009
+266        5500   male 2009
+267        4375 female 2009
+268        5850   male 2009
+269        4875   &lt;NA&gt; 2009
+270        6000   male 2009
+271        4925 female 2009
+272          NA   &lt;NA&gt; 2009
+273        4850 female 2009
+274        5750   male 2009
+275        5200 female 2009
+276        5400   male 2009
+277        3500 female 2007
+278        3900   male 2007
+279        3650   male 2007
+280        3525 female 2007
+281        3725   male 2007
+282        3950 female 2007
+283        3250 female 2007
+284        3750   male 2007
+285        4150 female 2007
+286        3700   male 2007
+287        3800 female 2007
+288        3775   male 2007
+289        3700 female 2007
+290        4050   male 2007
+291        3575 female 2007
+292        4050   male 2007
+293        3300   male 2007
+294        3700 female 2007
+295        3450 female 2007
+296        4400   male 2007
+297        3600 female 2007
+298        3400   male 2007
+299        2900 female 2007
+300        3800   male 2007
+301        3300 female 2007
+302        4150   male 2007
+303        3400 female 2008
+304        3800   male 2008
+305        3700 female 2008
+306        4550   male 2008
+307        3200 female 2008
+308        4300   male 2008
+309        3350 female 2008
+310        4100   male 2008
+311        3600   male 2008
+312        3900 female 2008
+313        3850 female 2008
+314        4800   male 2008
+315        2700 female 2008
+316        4500   male 2008
+317        3950   male 2008
+318        3650 female 2008
+319        3550   male 2008
+320        3500 female 2008
+321        3675 female 2009
+322        4450   male 2009
+323        3400 female 2009
+324        4300   male 2009
+325        3250   male 2009
+326        3675 female 2009
+327        3325 female 2009
+328        3950   male 2009
+329        3600 female 2009
+330        4050   male 2009
+331        3350 female 2009
+332        3450   male 2009
+333        3250 female 2009
+334        4050   male 2009
+335        3800   male 2009
+336        3525 female 2009
+337        3950   male 2009
+338        3650 female 2009
+339        3650 female 2009
+340        4000   male 2009
+341        3400 female 2009
+342        3775   male 2009
+343        4100   male 2009
+344        3775 female 2009</code></pre>
+</div>
+</div>
+<ul>
+<li><code>tibbles</code> only print 10 rows by default, data.frames a lot more.</li>
+<li><code>tibbles</code> only print as many columns as possible in one row, which looks a lot cleaner.</li>
+<li>On top, the <code>tibble</code> shows us how many rows and columns there are in our data.</li>
+<li><code>NAs</code> are printed in red in <code>tibbles</code> (not in this output, but try it yourself).</li>
+<li>The data-type of each column is printed on top of the column in <code>tibbles</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Save your penguins <code>data.frame</code> and your penguins <code>tibble</code> as <code>.RDS</code> files in a dedicated <code>data</code> folder in your R-project. Use relative paths!</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(penguins, <span class="at">file =</span> <span class="st">"./data/penguins.RDS"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(penguins_frame, <span class="at">file =</span> <span class="st">"./data/penguins_frame.RDS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Load your penguins <code>data.frame</code> and your penguins <code>tibble</code> into R. Use the <code>here</code> package.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"penguins.RDS"</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"penguins_frame.RDS"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@barnimages?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Barn Images</a> on <a href="https://unsplash.com/de/fotos/verschiedene-handwerkzeuge-im-werkzeugregal-t5YUoHW6zRo?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/iqb-research\.github\.io\/IQB-Methods\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/r_sig/24_01_26_tidyverse_intro/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -14,24 +14,22 @@
 <item>
   <title>Reproducable manuscripts with Quarto</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/</link>
   <description><![CDATA[ 
 
 
 
 
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" class="img-fluid"><sup>1</sup></p>
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/manuscript.jpg" class="img-fluid"><sup>1</sup></p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p><a href="https://quarto.org/">Quarto</a> is an open-source scientific and technical publishing system. It allows us to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate our code when rendering. We can also build slides and even websites (like the one you are currently on).</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Components</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false">Templates &amp; APA</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">YAML header</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Markdown text</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false">Code chunks</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" aria-controls="tabset-1-4" aria-selected="false">Tables</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" aria-controls="tabset-1-5" aria-selected="false">Formatting model output</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" aria-controls="tabset-1-6" aria-selected="false">Plots</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" aria-controls="tabset-1-7" aria-selected="false">Citations</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+</section>
+<section id="components" class="level1">
+<h1>Components</h1>
+<section id="yaml-header" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header">YAML header</h2>
 <p>Quarto documents have the ending <code>.qmd</code>.</p>
 <p>The YAML header, which begins on the top of the document with <code>---</code>, and also ends with <code>---</code>, contains global options for the document:</p>
 <pre><code>---
@@ -48,8 +46,9 @@ format: pdf
 ---</code></pre>
 <p>An overview of possible YAML-fields can be found <a href="https://quarto.org/docs/reference/formats/pdf.html">here</a>.<br>
 Note the <code>format</code> field, which lets us quickly convert our document between <code>pdf</code>, <code>word</code> and <code>html</code>, and also lets us use one of many templates.</p>
-</div>
-<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+</section>
+<section id="markdown-text" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-text">Markdown text</h2>
 <p>The body of the document is written in markdown language. Some expressions:</p>
 <ul>
 <li><code>#</code> for headers. Add as many <code>#</code> as you like for subheaders.</li>
@@ -60,8 +59,9 @@ Note the <code>format</code> field, which lets us quickly convert our document b
 <li>Linebreaks: Two spaces at the end of a line.</li>
 <li>Links: <code>[text](url)</code></li>
 </ul>
-</div>
-<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
+</section>
+<section id="code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="code-chunks">Code chunks</h2>
 <p>We can run code in different languages (like R, Julia, Python …) directly from our Quarto-file. In RStudio you can press <code>Strg-Alt-i</code> to insert a new r code chunk.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
@@ -193,8 +193,9 @@ execute:
   warning: false
   message: false
 ---</code></pre>
-</div>
-<div id="tabset-1-4" class="tab-pane" aria-labelledby="tabset-1-4-tab">
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
 <p>Tables can be a bit tricky. The great thing is: once you have styled them, they get updated automatically if some data changes. Also, there are a lot of different packages for building tables in markdown, here are some options:</p>
 <section id="markdown" class="level3">
 <h3 class="anchored" data-anchor-id="markdown">Markdown</h3>
@@ -693,7 +694,7 @@ Table&nbsp;1: German olympic medal winners in Judo.
 </figcaption>
 <div aria-describedby="tbl-judo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-7c7fc4f0{table-layout:auto;}.cl-7c77fae0{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7c7af5a6{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-7c7af5b0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-7c7b0d7a{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7c7b0d84{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7c7b0d85{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7c7b0d8e{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7c7b0d98{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-7c7fc4f0"><thead><tr style="overflow-wrap:break-word;"><th class="cl-7c7b0d7a"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Year</span></p></th><th class="cl-7c7b0d7a"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Name</span></p></th><th class="cl-7c7b0d7a"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Sex</span></p></th><th class="cl-7c7b0d7a"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Age</span></p></th><th class="cl-7c7b0d7a"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Height</span></p></th><th class="cl-7c7b0d7a"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Weight</span></p></th><th class="cl-7c7b0d7a"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Region</span></p></th><th class="cl-7c7b0d7a"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,964</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Wolfgang Hofmann</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">23</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">177</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">80.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,964</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Klaus Glahn</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">22</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">187</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">101.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,972</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Paul Barth</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">26</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">181</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">90.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,972</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Klaus Glahn</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">30</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">187</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">101.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,972</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Dietmar Htger</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">25</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">172</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">70.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,976</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Gnther Neureuther</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">20</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">186</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">95.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,980</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Detlef Ultsch</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">24</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">170</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">80.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,980</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Dietmar Lorenz</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">30</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">180</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">93.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,980</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Harald Heinke</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">25</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">178</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">78.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,980</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Dietmar Lorenz</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">30</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">180</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">93.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,980</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Karl-Heinz Lehmann</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">23</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">169</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">71.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,984</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Frank Wieneke</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">22</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">179</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">78.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,984</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Arthur Schnabel</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">35</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">182</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">104.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,984</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Gnther Neureuther</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">28</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">186</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">95.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,988</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Frank Wieneke</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">26</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">179</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">78.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,988</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Marcus "Marc" Meiling</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">26</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">194</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">95.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,988</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Henry Sthr</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">28</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">194</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">120.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,988</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Sven Loll</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">24</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">182</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">71.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,988</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">24</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">178</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">78.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,992</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Richard Trautmann</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">23</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">168</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">65.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,992</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Udo Gnther Quellmalz</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">25</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">175</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">65.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,996</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Johanna Hagn</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">F</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">23</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">168</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0"></span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,996</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Udo Gnther Quellmalz</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">29</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">175</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">65.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,996</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Frank Mller</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">25</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">189</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">125.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,996</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Richard Trautmann</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">27</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">168</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">65.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">1,996</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Marko Spittka</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">25</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">179</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">88.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,000</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Anna-Maria Gradante</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">F</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">23</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">154</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">48.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,004</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Yvonne Bnisch</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">F</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">23</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">168</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">61.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,004</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Julia Matijass</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">F</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">30</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">161</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">48.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,004</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Annett Bhm</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">F</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">24</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">179</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">83.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,004</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Michael Jurack</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">25</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">190</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">100.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,008</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Ole Bischof</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">28</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">180</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">81.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,012</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Kerstin Thiele</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">F</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">25</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">168</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">70.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,012</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Dimitri Peters</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">28</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">188</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">100.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,012</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Ole Bischof</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">32</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">180</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">81.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d84"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,012</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Andreas Tlzer</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">M</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">32</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">192</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">131.00</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d85"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7c7b0d8e"><p class="cl-7c7af5b0"><span class="cl-7c77fae0">2,016</span></p></td><td class="cl-7c7b0d98"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Laura Vargas Koch</span></p></td><td class="cl-7c7b0d98"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">F</span></p></td><td class="cl-7c7b0d98"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">26</span></p></td><td class="cl-7c7b0d98"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">173</span></p></td><td class="cl-7c7b0d98"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">70.00</span></p></td><td class="cl-7c7b0d98"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Germany</span></p></td><td class="cl-7c7b0d98"><p class="cl-7c7af5a6"><span class="cl-7c77fae0">Bronze</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-1a0f552e{table-layout:auto;}.cl-1a074136{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1a0a683e{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-1a0a6852{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-1a0a8102{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1a0a810c{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1a0a810d{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1a0a8116{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1a0a8120{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-1a0f552e"><thead><tr style="overflow-wrap:break-word;"><th class="cl-1a0a8102"><p class="cl-1a0a683e"><span class="cl-1a074136">Year</span></p></th><th class="cl-1a0a8102"><p class="cl-1a0a683e"><span class="cl-1a074136">Name</span></p></th><th class="cl-1a0a8102"><p class="cl-1a0a683e"><span class="cl-1a074136">Sex</span></p></th><th class="cl-1a0a8102"><p class="cl-1a0a683e"><span class="cl-1a074136">Age</span></p></th><th class="cl-1a0a8102"><p class="cl-1a0a683e"><span class="cl-1a074136">Height</span></p></th><th class="cl-1a0a8102"><p class="cl-1a0a683e"><span class="cl-1a074136">Weight</span></p></th><th class="cl-1a0a8102"><p class="cl-1a0a683e"><span class="cl-1a074136">Region</span></p></th><th class="cl-1a0a8102"><p class="cl-1a0a683e"><span class="cl-1a074136">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,964</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Wolfgang Hofmann</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">23</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">177</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">80.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,964</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Klaus Glahn</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">22</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">187</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">101.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,972</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Paul Barth</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">26</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">181</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">90.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,972</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Klaus Glahn</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">30</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">187</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">101.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,972</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Dietmar Htger</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">25</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">172</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">70.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,976</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Gnther Neureuther</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">20</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">186</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">95.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,980</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Detlef Ultsch</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">24</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">170</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">80.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,980</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Dietmar Lorenz</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">30</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">180</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">93.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,980</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Harald Heinke</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">25</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">178</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">78.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,980</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Dietmar Lorenz</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">30</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">180</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">93.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,980</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Karl-Heinz Lehmann</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">23</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">169</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">71.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,984</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Frank Wieneke</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">22</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">179</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">78.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,984</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Arthur Schnabel</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">35</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">182</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">104.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,984</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Gnther Neureuther</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">28</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">186</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">95.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,988</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Frank Wieneke</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">26</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">179</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">78.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,988</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Marcus "Marc" Meiling</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">26</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">194</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">95.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,988</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Henry Sthr</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">28</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">194</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">120.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,988</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Sven Loll</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">24</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">182</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">71.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,988</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">24</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">178</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">78.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,992</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Richard Trautmann</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">23</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">168</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">65.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,992</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Udo Gnther Quellmalz</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">25</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">175</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">65.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,996</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Johanna Hagn</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">F</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">23</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">168</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136"></span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,996</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Udo Gnther Quellmalz</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">29</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">175</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">65.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,996</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Frank Mller</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">25</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">189</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">125.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,996</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Richard Trautmann</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">27</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">168</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">65.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">1,996</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Marko Spittka</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">25</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">179</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">88.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,000</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Anna-Maria Gradante</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">F</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">23</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">154</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">48.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,004</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Yvonne Bnisch</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">F</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">23</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">168</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">61.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,004</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Julia Matijass</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">F</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">30</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">161</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">48.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,004</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Annett Bhm</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">F</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">24</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">179</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">83.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,004</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Michael Jurack</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">25</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">190</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">100.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,008</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Ole Bischof</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">28</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">180</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">81.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,012</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Kerstin Thiele</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">F</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">25</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">168</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">70.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,012</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Dimitri Peters</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">28</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">188</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">100.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,012</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Ole Bischof</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">32</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">180</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">81.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a810c"><p class="cl-1a0a6852"><span class="cl-1a074136">2,012</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Andreas Tlzer</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">M</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">32</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">192</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">131.00</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a810d"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1a0a8116"><p class="cl-1a0a6852"><span class="cl-1a074136">2,016</span></p></td><td class="cl-1a0a8120"><p class="cl-1a0a683e"><span class="cl-1a074136">Laura Vargas Koch</span></p></td><td class="cl-1a0a8120"><p class="cl-1a0a683e"><span class="cl-1a074136">F</span></p></td><td class="cl-1a0a8120"><p class="cl-1a0a683e"><span class="cl-1a074136">26</span></p></td><td class="cl-1a0a8120"><p class="cl-1a0a683e"><span class="cl-1a074136">173</span></p></td><td class="cl-1a0a8120"><p class="cl-1a0a683e"><span class="cl-1a074136">70.00</span></p></td><td class="cl-1a0a8120"><p class="cl-1a0a683e"><span class="cl-1a074136">Germany</span></p></td><td class="cl-1a0a8120"><p class="cl-1a0a683e"><span class="cl-1a074136">Bronze</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </figure>
@@ -706,8 +707,9 @@ Table&nbsp;1: German olympic medal winners in Judo.
 The <a href="https://github.com/wjschne/apaquarto">apaquarto</a> template will take care of correctly rendering it to APA-style.<br>
 Captions can be written with <code>#| tbl-cap: German olympic medal winners in Judo.</code>.</p>
 </section>
-</div>
-<div id="tabset-1-5" class="tab-pane" aria-labelledby="tabset-1-5-tab">
+</section>
+<section id="formatting-model-output" class="level2">
+<h2 class="anchored" data-anchor-id="formatting-model-output">Formatting model output</h2>
 <p>There are some packages out there that help you to format output of statistical models. Let’s fit a simple logistic regression model to predict an athletes medal win by country (Germany or Japan) in Judo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
@@ -913,7 +915,7 @@ Automate in-text values
 </div>
 <div class="callout-body-container callout-body">
 <p>Even when not using <code>report</code> or some similar package, we can still extract the values automatically from a model and put them programmatically into the text. This can be achieved by simply adding an <strong>inline-codechunck</strong> into our markdown text:</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/inline_code.png" class="img-fluid"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/inline_code.png" class="img-fluid"></p>
 <p>The model’s intercept, corresponding to Region = Germany, is at 0.38.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -949,7 +951,7 @@ font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>)</span></code></pre></div>
 </div>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/inline_code2.png" class="img-fluid"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/inline_code2.png" class="img-fluid"></p>
 <p>The model’s intercept, corresponding to Region = Germany, is at 0.38.</p>
 </div>
 </div>
@@ -972,12 +974,13 @@ font-style: inherit;">broom =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"glm"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-7d50ee4a{table-layout:auto;}.cl-7d4bd798{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7d4bd7ac{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7d4e06bc{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-7d4e06c6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-7d4e16de{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7d4e16e8{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7d4e16e9{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7d4e16f2{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7d4e16f3{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-7d50ee4a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-7d4e16de"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">Term</span></p></th><th class="cl-7d4e16de"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">estimate</span></p></th><th class="cl-7d4e16de"><p class="cl-7d4e06bc"><span class="cl-7d4bd7ac">SE</span></p></th><th class="cl-7d4e16de"><p class="cl-7d4e06bc"><span class="cl-7d4bd7ac">t</span></p></th><th class="cl-7d4e16de"><p class="cl-7d4e06bc"><span class="cl-7d4bd7ac">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-7d4e16e8"><p class="cl-7d4e06c6"><span class="cl-7d4bd798">(Intercept)</span></p></td><td class="cl-7d4e16e9"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">0.38</span></p></td><td class="cl-7d4e16e9"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">0.19</span></p></td><td class="cl-7d4e16e9"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">-5.05</span></p></td><td class="cl-7d4e16e9"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7d4e16f2"><p class="cl-7d4e06c6"><span class="cl-7d4bd798">RegionJapan</span></p></td><td class="cl-7d4e16f3"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">4.94</span></p></td><td class="cl-7d4e16f3"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">0.27</span></p></td><td class="cl-7d4e16f3"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">5.98</span></p></td><td class="cl-7d4e16f3"><p class="cl-7d4e06bc"><span class="cl-7d4bd798">&lt; .001***</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-1ae79ab0{table-layout:auto;}.cl-1ae27bde{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1ae27be8{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1ae4a724{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-1ae4a738{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-1ae4b796{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ae4b7a0{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ae4b7aa{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ae4b7ab{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ae4b7b4{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-1ae79ab0"><thead><tr style="overflow-wrap:break-word;"><th class="cl-1ae4b796"><p class="cl-1ae4a724"><span class="cl-1ae27bde">Term</span></p></th><th class="cl-1ae4b796"><p class="cl-1ae4a724"><span class="cl-1ae27bde">estimate</span></p></th><th class="cl-1ae4b796"><p class="cl-1ae4a724"><span class="cl-1ae27be8">SE</span></p></th><th class="cl-1ae4b796"><p class="cl-1ae4a724"><span class="cl-1ae27be8">t</span></p></th><th class="cl-1ae4b796"><p class="cl-1ae4a724"><span class="cl-1ae27be8">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1ae4b7a0"><p class="cl-1ae4a738"><span class="cl-1ae27bde">(Intercept)</span></p></td><td class="cl-1ae4b7aa"><p class="cl-1ae4a724"><span class="cl-1ae27bde">0.38</span></p></td><td class="cl-1ae4b7aa"><p class="cl-1ae4a724"><span class="cl-1ae27bde">0.19</span></p></td><td class="cl-1ae4b7aa"><p class="cl-1ae4a724"><span class="cl-1ae27bde">-5.05</span></p></td><td class="cl-1ae4b7aa"><p class="cl-1ae4a724"><span class="cl-1ae27bde">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1ae4b7ab"><p class="cl-1ae4a738"><span class="cl-1ae27bde">RegionJapan</span></p></td><td class="cl-1ae4b7b4"><p class="cl-1ae4a724"><span class="cl-1ae27bde">4.94</span></p></td><td class="cl-1ae4b7b4"><p class="cl-1ae4a724"><span class="cl-1ae27bde">0.27</span></p></td><td class="cl-1ae4b7b4"><p class="cl-1ae4a724"><span class="cl-1ae27bde">5.98</span></p></td><td class="cl-1ae4b7b4"><p class="cl-1ae4a724"><span class="cl-1ae27bde">&lt; .001***</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
-</div>
-<div id="tabset-1-6" class="tab-pane" aria-labelledby="tabset-1-6-tab">
+</section>
+<section id="plots" class="level2">
+<h2 class="anchored" data-anchor-id="plots">Plots</h2>
 <p>Plots can be very easily created from within a code chunk:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">best_by_sport <span class="ot" style="color: #003B4F;
@@ -1163,13 +1166,14 @@ p1</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/index_files/figure-html/plot output-1.png" class="img-fluid figure-img" width="1056"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/index_files/figure-html/plot output-1.png" class="img-fluid figure-img" width="1056"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-<div id="tabset-1-7" class="tab-pane" aria-labelledby="tabset-1-7-tab">
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
 <p>Citations are saved in <code>.bib</code> files. The <code>.bib</code> format can be chosen to download or copy on almost every website, often next to APA and others. It looks like this:</p>
 <pre><code>@article{allport1936trait,
   title={Trait-names: A psycho-lexical study.},
@@ -1309,11 +1313,10 @@ Xie, Y., Dervieux, C., &amp; Riederer, E. (2020). <em>R markdown cookbook</em>. 
 </div>
 </div>
 </section>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-2" class="tab-pane" aria-labelledby="tabset-2-2-tab">
+</section>
+</section>
+<section id="templates-apa" class="level1">
+<h1>Templates &amp; APA</h1>
 <section id="own-templates" class="level2">
 <h2 class="anchored" data-anchor-id="own-templates">Own Templates</h2>
 <p>You can always create your <a href="https://quarto.org/docs/journals/templates.html">own template</a> Luckily, some people have done a lot of the work for us, and therefore we can use templates provided for <a href="https://github.com/quarto-journals/">specific journals</a>. Oooor more generally, APA templates:</p>
@@ -1324,22 +1327,43 @@ Xie, Y., Dervieux, C., &amp; Riederer, E. (2020). <em>R markdown cookbook</em>. 
 </section>
 <section id="apaquarto" class="level2">
 <h2 class="anchored" data-anchor-id="apaquarto">apaquarto</h2>
-<p>Alternatively, I’ve found (but not yet tested in a whole project) the <a href="https://wjschne.github.io/apaquarto/">apaquarto</a> extension. You can install via:</p>
+<p>Alternatively, I’ve found (but not yet tested in a whole project) the <a href="https://wjschne.github.io/apaquarto/">apaquarto</a> extension. You can install via the <strong>Terminal</strong> (not the R Console):</p>
+<pre><code>## Set the working directory
+cd path/to/my/folder
+
+## Use the Quarto Template
+quarto use wjschne/apaquarto</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Via R Console
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Alternativley, you can also try to install via the R Console, however, it didn’t work for quite some people:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"home/my_project"</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Make sure the folder is empty</span></span>
-<span id="cb32-2">quarto<span class="sc" style="color: #5E5E5E;
+<span id="cb33-2">quarto<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">quarto_use_template</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"wjschne/apaquarto"</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
 </div>
 <p>This will create the necessary files in your folder. Update the <code>.qmd</code> file with the same name as your folder. I’d suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts …).<br>
 The template will label your tables and figures correctly, and format the bibliography as well as the whole document.<br>
@@ -1366,16 +1390,13 @@ Split your project
 </div>
 </div>
 </section>
-</div>
-</div>
-</div>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" aria-controls="tabset-3-1" aria-selected="true">Markdown Exercises</a></li><li class="nav-item"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" aria-controls="tabset-3-2" aria-selected="false">APA Exercises</a></li><li class="nav-item"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" aria-controls="tabset-3-3" aria-selected="false">Bonus</a></li></ul>
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Markdown Exercises</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">APA Exercises</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false">Bonus</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" aria-labelledby="tabset-3-1-tab">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
 <ol start="0" type="1">
 <li>Set up a new RStudio project in a new directory.</li>
 <li>Create an empty Quarto file.</li>
@@ -1391,7 +1412,7 @@ Split your project
 </ul>
 <p>Don’t spent too much time on what to write and on the code, you can just copy the code we wrote in the previous plotting exercises.</p>
 <div id="tip-prep" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1400,30 +1421,30 @@ Tip&nbsp;1: Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Prepare your data with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># install.packages("tidyverse")</span></span>
-<span id="cb34-2"><span class="co" style="color: #5E5E5E;
+<span id="cb35-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># install.packages("here")</span></span>
-<span id="cb34-3"></span>
-<span id="cb34-4"><span class="fu" style="color: #4758AB;
+<span id="cb35-3"></span>
+<span id="cb35-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb34-5"><span class="fu" style="color: #4758AB;
+<span id="cb35-5"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(here)</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>here() starts at /home/runner/work/IQB-Methods/IQB-Methods</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><span class="do" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Load the data</span></span>
-<span id="cb36-2">characters <span class="ot" style="color: #003B4F;
+<span id="cb37-2">characters <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1438,12 +1459,12 @@ background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"characters.rds"</span>))</span>
-<span id="cb36-3">psych_stats <span class="ot" style="color: #003B4F;
+<span id="cb37-3">psych_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">read.csv</span>(</span>
-<span id="cb36-4">  <span class="at" style="color: #657422;
+<span id="cb37-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1454,66 +1475,66 @@ background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"psych_stats.csv"</span>),</span>
-<span id="cb36-5">  <span class="at" style="color: #657422;
+<span id="cb37-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">";"</span></span>
-<span id="cb36-6">)</span>
-<span id="cb36-7"></span>
-<span id="cb36-8"><span class="do" style="color: #5E5E5E;
+<span id="cb37-6">)</span>
+<span id="cb37-7"></span>
+<span id="cb37-8"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Reshape into long format:</span></span>
-<span id="cb36-9">psych_stats <span class="ot" style="color: #003B4F;
+<span id="cb37-9">psych_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb36-10">  <span class="fu" style="color: #4758AB;
+<span id="cb37-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_longer</span>(</span>
-<span id="cb36-11">    <span class="at" style="color: #657422;
+<span id="cb37-11">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cols =</span> messy_neat<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span>innocent_jaded,</span>
-<span id="cb36-12">    <span class="at" style="color: #657422;
+<span id="cb37-12">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"question"</span>,</span>
-<span id="cb36-13">    <span class="at" style="color: #657422;
+<span id="cb37-13">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">values_to =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"rating"</span></span>
-<span id="cb36-14">  )</span>
-<span id="cb36-15"></span>
-<span id="cb36-16"><span class="do" style="color: #5E5E5E;
+<span id="cb37-14">  )</span>
+<span id="cb37-15"></span>
+<span id="cb37-16"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Merge it</span></span>
-<span id="cb36-17">characters_stats <span class="ot" style="color: #003B4F;
+<span id="cb37-17">characters_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">merge</span>(</span>
-<span id="cb36-18">  <span class="at" style="color: #657422;
+<span id="cb37-18">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> characters,</span>
-<span id="cb36-19">  <span class="at" style="color: #657422;
+<span id="cb37-19">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> psych_stats,</span>
-<span id="cb36-20">  <span class="at" style="color: #657422;
+<span id="cb37-20">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">by.x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"id"</span>,</span>
-<span id="cb36-21">  <span class="at" style="color: #657422;
+<span id="cb37-21">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">by.y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"char_id"</span></span>
-<span id="cb36-22">)</span></code></pre></div>
+<span id="cb37-22">)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1522,7 +1543,7 @@ font-style: inherit;">"char_id"</span></span>
 <li>Add a small “mini-analysis”, where you fit some kind of model and describe it in the text and/or in a table.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1531,25 +1552,25 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>One idea would be a linear mixed model investigating the influence of the notability rating on the rating on a specific item, like <code>messy_neat</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(lme4)</span>
-<span id="cb37-2"><span class="fu" style="color: #4758AB;
+<span id="cb38-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(lmerTest) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># for pvalues of fixed effects. </span></span>
-<span id="cb37-3"></span>
-<span id="cb37-4">mod_dat <span class="ot" style="color: #003B4F;
+<span id="cb38-3"></span>
+<span id="cb38-4">mod_dat <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> characters_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb37-5">  dplyr<span class="sc" style="color: #5E5E5E;
+<span id="cb38-5">  dplyr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1560,17 +1581,17 @@ background-color: null;
 font-style: inherit;">"messy_neat"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb37-6">  dplyr<span class="sc" style="color: #5E5E5E;
+<span id="cb38-6">  dplyr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(uni_name) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb37-7">  <span class="do" style="color: #5E5E5E;
+<span id="cb38-7">  <span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## center for interpretability:</span></span>
-<span id="cb37-8">  <span class="fu" style="color: #4758AB;
+<span id="cb38-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1583,15 +1604,15 @@ background-color: null;
 font-style: inherit;">TRUE</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb37-9">  <span class="fu" style="color: #4758AB;
+<span id="cb38-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">notability_centered =</span> notability <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> notability_uni_mean)</span>
-<span id="cb37-10"></span>
-<span id="cb37-11">mod1 <span class="ot" style="color: #003B4F;
+<span id="cb38-10"></span>
+<span id="cb38-11">mod1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1620,13 +1641,13 @@ font-style: inherit;">data =</span> mod_dat)</span></code></pre></div>
 <li>Render your file into pdf, word and html.</li>
 </ol>
 </div>
-<div id="tabset-3-2" class="tab-pane" aria-labelledby="tabset-3-2-tab">
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <ol start="0" type="1">
 <li>Create a fresh, empty folder for this exercise.</li>
 <li>Install the <code>apaquarto</code> template.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1635,21 +1656,21 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>Make sure you have a current version of quarto installed. If not, download from <a href="https://quarto.org/docs/download/">here</a> and install. Restart RStudio, it should find the new quarto installation automatically.</p></li>
 <li><p>Make sure to set the working directory to an empty folder before installing:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"home/my_project"</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Make sure the folder is empty</span></span>
-<span id="cb38-2">quarto<span class="sc" style="color: #5E5E5E;
+<span id="cb39-2">quarto<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1666,7 +1687,7 @@ font-style: inherit;">"wjschne/apaquarto"</span>)</span></code></pre></div>
 <li><p>Convert your manuscript into a word file and a PDF.</p></li>
 </ol>
 </div>
-<div id="tabset-3-3" class="tab-pane" aria-labelledby="tabset-3-3-tab">
+<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
 <ol start="5" type="1">
 <li>Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don’t have a huge <code>.qmd</code> file containing everything. So try it! Create a folder called <code>docs</code> or something similar. It can contain files for functions, for data preperation etc, and can be loaded into your main script with <code>source()</code>. Create another folder called <code>chapters</code> where you put the <code>.qmd</code> files for the single chapters of your work. In the parent directory use a main <code>.qmd</code> file that brings everything together (either with source, or, in the case of other <code>.qmd</code> files, with <code>{{&lt; include _content.qmd &gt;}}</code> ).</li>
 </ol>
@@ -1686,20 +1707,21 @@ font-style: inherit;">"wjschne/apaquarto"</span>)</span></code></pre></div>
 </section></div> ]]></description>
   <category>R</category>
   <category>quarto</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/</guid>
   <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/manuscript.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Plotting with ggplot2</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/</link>
   <description><![CDATA[ 
 
 
 
 
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" class="img-fluid"><sup>1</sup></p>
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/plotting.jpg" class="img-fluid"><sup>1</sup></p>
 <p>A ggplot2-tutorial I’ve created can be found <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html">here</a>.</p>
 
 
@@ -1714,20 +1736,21 @@ font-style: inherit;">"wjschne/apaquarto"</span>)</span></code></pre></div>
   <category>R</category>
   <category>tidyverse</category>
   <category>plots</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/</guid>
   <pubDate>Mon, 03 Jun 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_06_03_ggplot2/plotting.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Column-wise operations in the tidyverse</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/</link>
   <description><![CDATA[ 
 
 
 
 
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" class="img-fluid"><sup>1</sup></p>
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" class="img-fluid"><sup>1</sup></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2653,20 +2676,21 @@ font-style: inherit;">$</span>innocent_jaded_standardized)</span></code></pre></
   <category>R</category>
   <category>tidyverse</category>
   <category>loops</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/</guid>
   <pubDate>Mon, 08 Apr 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Data wrangling in the tidyverse</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_25_tidyverse_wrangling/</link>
   <description><![CDATA[ 
 
 
 
 
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" class="img-fluid"><sup>1</sup></p>
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" class="img-fluid"><sup>1</sup></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4155,15 +4179,16 @@ font-style: inherit;">abs</span>(diff_shows)))</span></code></pre></div>
 </section></div> ]]></description>
   <category>R</category>
   <category>tidyverse</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_25_tidyverse_wrangling/</guid>
   <pubDate>Mon, 25 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Data sets</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_22_datasets/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -4171,7 +4196,7 @@ font-style: inherit;">abs</span>(diff_shows)))</span></code></pre></div>
 <p>We will use two data sets for some time in the R SIG now. One for the theory, and one for you to work on in the exercises.</p>
 <section id="theory-olympic-athletes" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="theory-olympic-athletes"><span class="header-section-number">1</span> Theory: Olympic athletes</h2>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" class="img-fluid"><sup>1</sup></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_22_datasets/olympics.jpg" class="img-fluid"><sup>1</sup></p>
 <p>For the theory part of the workshop, we will mainly work with the <a href="https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results"><code>athletes</code></a> data set. It contains the Olympic athletes from 1896 to 2016, along with some basic stats, their sport and country, and the medals they won.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -4189,7 +4214,7 @@ Goal
 </section>
 <section id="exercises-fictional-characters" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="exercises-fictional-characters"><span class="header-section-number">2</span> Exercises: Fictional characters</h2>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/friends.jpg" class="img-fluid"><sup>2</sup></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_22_datasets/friends.jpg" class="img-fluid"><sup>2</sup></p>
 <p>Over the course of this workshop, you can work on exercises to put the theoretical knowledge you acquired in the chapters to use. Most of these exercises will use the <a href="https://openpsychometrics.org/tests/characters/documentation/"><code>characters</code></a> data set, which contains psychometric ratings for different fictional characters, rated by a large number of people on a personality scale developed by the author of the questionnaire.</p>
 <p>You will load the data, prepare it for analyses and also plot it in the end.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
@@ -4232,20 +4257,21 @@ Tip
 </section></div> ]]></description>
   <category>R</category>
   <category>tidyverse</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_22_datasets/</guid>
   <pubDate>Fri, 22 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_03_22_datasets/olympics.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Introduction to the tidyverse</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/</link>
   <description><![CDATA[ 
 
 
 
 
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4308,7 +4334,7 @@ Network drives
 background-color: null;
 font-style: inherit;">getwd</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/runner/work/IQB-Methods/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro"</code></pre>
+<pre><code>[1] "/home/runner/work/IQB-Methods/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro"</code></pre>
 </div>
 </div>
 <p>Luckily, RStudio projects set the working directory automatically, so we don’t really have to deal with that.</p>
@@ -5315,15 +5341,16 @@ font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div>
 </section></div> ]]></description>
   <category>R</category>
   <category>tidyverse</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/</guid>
   <pubDate>Mon, 26 Feb 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Case_when() function</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -5618,14 +5645,15 @@ font-style: inherit;">"Another continent"</span></span>
   <category>R</category>
   <category>tidyverse</category>
   <category>data manipulation</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/</guid>
   <pubDate>Mon, 18 Dec 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Reproducability with renv</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -5689,14 +5717,15 @@ font-style: inherit;">update</span>()</span></code></pre></div>
   <category>R</category>
   <category>renv</category>
   <category>reproducability</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_11_06_renv/</guid>
   <pubDate>Mon, 23 Oct 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Cleaner Scripts</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -5725,14 +5754,15 @@ font-style: inherit;">update</span>()</span></code></pre></div>
  ]]></description>
   <category>R</category>
   <category>best practices</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_10_09_cleaner/</guid>
   <pubDate>Mon, 09 Oct 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>The apply family</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -5740,7 +5770,7 @@ font-style: inherit;">update</span>()</span></code></pre></div>
 <p>I can highly recommend the according chapter in <a href="https://r4ds.had.co.nz/iteration.html#iteration">R for Data Science</a> in case you want to dive deeper.</p>
 <section id="for-loops" class="level2">
 <h2 class="anchored" data-anchor-id="for-loops">For-loops</h2>
-<p>In the <a href="../../../docs/r_sig/23_03_20_forloops/index.html">last SIG</a> we talked about <a href="https://nickhaf.github.io/r_tutorial/qmd/loops/loops.html">for-loops</a>.<br>
+<p>In the <a href="../../../posts/r_sig/23_03_20_forloops/index.html">last SIG</a> we talked about <a href="https://nickhaf.github.io/r_tutorial/qmd/loops/loops.html">for-loops</a>.<br>
 While for is definitely the most flexible of the looping options, we suggest you avoid it wherever you can, for the following two reasons:</p>
 <ul>
 <li><ol type="1">
@@ -6356,19 +6386,20 @@ $Species
  ]]></description>
   <category>R</category>
   <category>loops</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_07_31_apply/</guid>
   <pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>for-loops</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/</link>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/</link>
   <description><![CDATA[ 
 
 
 
 
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
 <section id="for-loops" class="level2">
 <h2 class="anchored" data-anchor-id="for-loops">For-loops</h2>
 <p>In this session we talked about for-loops. Take a look <a href="https://nickhaf.github.io/r_tutorial/qmd/loops/loops.html">here</a> for the corresponding chapter in a workshop I’ve designed.</p>
@@ -6385,9 +6416,9 @@ $Species
 </section></div> ]]></description>
   <category>R</category>
   <category>loops</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/</guid>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/</guid>
   <pubDate>Mon, 20 Mar 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

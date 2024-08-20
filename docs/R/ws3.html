@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nicklas Hafiz">
-<meta name="dcterms.date" content="2023-12-17">
 
-<title>Updating the website – IQB Methods Team</title>
+<title>Pakete(-Installation), Workspace, Daten laden und speichern in R – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../docs/reproduce/renv.html" rel="next">
+<link href="../../docs/R/ws2.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Updating the website – IQB Methods Team">
+<meta property="og:title" content="Pakete(-Installation), Workspace, Daten laden und speichern in R – IQB Methods Team">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Updating the website</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">R Tutorials</li><li class="breadcrumb-item"><a href="../../docs/R/index.html">Introduction</a></li><li class="breadcrumb-item"><a href="../../docs/R/ws3.html">Pakete und Daten laden</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -197,22 +197,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">R Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/R/index.html" class="sidebar-item-text sidebar-link">
@@ -239,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/R/ws3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R/ws3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Pakete und Daten laden</span></a>
   </div>
 </li>
@@ -325,46 +325,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a>
+  <li><a href="#pakete-installieren-und-laden" id="toc-pakete-installieren-und-laden" class="nav-link active" data-scroll-target="#pakete-installieren-und-laden">1. Pakete installieren und laden</a></li>
+  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory">2. Working Directory</a></li>
+  <li><a href="#dateien-speichern-und-laden" id="toc-dateien-speichern-und-laden" class="nav-link" data-scroll-target="#dateien-speichern-und-laden">3. Dateien speichern und laden</a></li>
+  <li><a href="#andere-datei-formate" id="toc-andere-datei-formate" class="nav-link" data-scroll-target="#andere-datei-formate">4. Andere Datei-Formate</a>
   <ul class="collapse">
-  <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv"><code>renv</code></a></li>
+  <li><a href="#csv" id="toc-csv" class="nav-link" data-scroll-target="#csv">.csv</a></li>
+  <li><a href="#xlsx-excel" id="toc-xlsx-excel" class="nav-link" data-scroll-target="#xlsx-excel">.xlsx (Excel)</a></li>
+  <li><a href="#sav-spss" id="toc-sav-spss" class="nav-link" data-scroll-target="#sav-spss">.sav (SPSS)</a></li>
+  <li><a href="#dta-stata" id="toc-dta-stata" class="nav-link" data-scroll-target="#dta-stata">.dta (Stata)</a></li>
+  <li><a href="#dat-mplus" id="toc-dat-mplus" class="nav-link" data-scroll-target="#dat-mplus">.dat (Mplus)</a></li>
   </ul></li>
-  <li><a href="#file-structure" id="toc-file-structure" class="nav-link" data-scroll-target="#file-structure">File structure</a>
-  <ul class="collapse">
-  <li><a href="#quarto.yml" id="toc-quarto.yml" class="nav-link" data-scroll-target="#quarto.yml"><code>_quarto.yml</code></a></li>
-  <li><a href="#quarto-files" id="toc-quarto-files" class="nav-link" data-scroll-target="#quarto-files">quarto-files</a></li>
-  <li><a href="#editing-on-the-web-page" id="toc-editing-on-the-web-page" class="nav-link" data-scroll-target="#editing-on-the-web-page">Editing on the web page</a></li>
-  </ul></li>
-  <li><a href="#building-the-website" id="toc-building-the-website" class="nav-link" data-scroll-target="#building-the-website">Building the website</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/quarto/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R/ws3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">R Tutorials</li><li class="breadcrumb-item"><a href="../../docs/R/index.html">Introduction</a></li><li class="breadcrumb-item"><a href="../../docs/R/ws3.html">Pakete und Daten laden</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Updating the website</h1>
+<h1 class="title">Pakete(-Installation), Workspace, Daten laden und speichern in R</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Nicklas Hafiz </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 17, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -374,133 +361,174 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it.</p>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<ol type="1">
-<li>As the website is hosted on GitHub, you can just clone the <a href="https://github.com/iqb-research/IQB-Methods">repository</a>.</li>
-<li>Open the RStudio project with RStudio.</li>
-<li>This website uses <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> to keep the project specific package library up to date.</li>
-</ol>
-<section id="renv" class="level3">
-<h3 class="anchored" data-anchor-id="renv"><code>renv</code></h3>
-<p>The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</p>
+<section id="pakete-installieren-und-laden" class="level1">
+<h1>1. Pakete installieren und laden</h1>
+<p>Die Funktionalität von <code>base R</code> wird um ein vielfaches durch ein sehr umfangreiches Pakete-Universum ergänzt. Diese Erweiterungen werden für <code>R</code> <code>packages</code> oder <code>libraries</code> genannt. Im Prinzip kann jeder(r) eine solche <code>library</code> schreiben, deswegen ist bei der Nutzung neuer <code>libraries</code> etwas Vorsicht geboten. Es gibt jedoch eine Reihe sehr weit verbreiteter und hochwertiger <code>libraries</code>, deren Nutzung uneingeschränkt empfohlen werden kann.</p>
+<p>Liegen Pakete auf <code>CRAN</code>, können sie mithilfe von <code>install.packages()</code> installiert werden. Pakete, die ausschließlich auf Github verfügbar sind, können über <code>devtools::install_github()</code> installiert werden. Für nähere Informationen siehe auch: http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("renv")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket von CRAN installieren</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"car"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket von Github installieren</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"sachseka/eatPrep"</span>, <span class="at">upgrade =</span> <span class="st">"never"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If your files need their own packages, just install them like you would normally do with either:</p>
+<p>Achtung: Wenn ein Paket bereits geladen ist und eine Neuinstallation dieses Pakets versucht wird, kann dies zu Fehlern führen. In diesem Fall kann entweder die <code>R</code> Session neu gestartet oder das entsprechende Paket mit <code>detach()</code> “entladen” werden.</p>
+<p>Zur Verwendung von Paketen können einzelne Funktionen explizit über ihren Namespace angesprochen werden, ohne dass sie dafür explizit geladen werden müssen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"eatGADS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You need to do this even if you have them already installed on your PC locally, because <a href="../../posts/r_sig/23_11_06_renv/index.html"><code>renv</code></a> uses a project specific library.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Funktion verwenden, ohne Paket zu laden</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>some_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">recode</span>(some_data, <span class="st">"1 = 'a'; 2 = 'b'; 4 = 'd'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b" "a" "d"</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail.</p>
+<p>Oder das Paket wird vollständig geladen mithilfe des <code>library()</code> Befehls</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"car"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>some_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">recode</span>(some_data, <span class="st">"1 = 'a'; 2 = 'b'; 4 = 'd'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b" "a" "d"</code></pre>
+</div>
+</div>
+<p>Falls es mehrere Pakete gibt, die Funktionen mit demselben Namen beinhalten (zB <code>dplyr::recode()</code>), kann mit <code>car::recode()</code> sichergestellt werden, dass immer die gewünschte Funktion verwendet wird, auch wenn zusätzlich das Paket <code>dplyr</code> geladen wird.</p>
+</section>
+<section id="working-directory" class="level1">
+<h1>2. Working Directory</h1>
+<p>Wenn <code>R</code> geöffnet wird (ob über die GUI oder RStudio), wird ein aktives Working Dirctory festgelegt. In diesem Ordner sucht <code>R</code> dann standardmäßig nach Dateien bzw. speichert diese dort ab. Mit den Befehlen <code>getwd()</code> und <code>setwd()</code> kann das Working Directory ausgegeben und verändert werden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Working Directory ausgeben lassen</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Working Directory ändern</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"t:/_R"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Geändertes Working Directory überprüfen</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Achtung: Das Zeichen “<code>\</code>” ist in <code>R</code> reserviert. Um Probleme hierbei zu umgehen, kann stattdessen einfach das herkömmliche “<code>/</code>” verwendet werden.</p>
+<p>Verwendet man RStudio und öffnet eine neue RStudio-Session per Doppelklick auf eine abgespeicherte R-Syntax, wird das Working Directory automatisch in den Pfad gesetzt, in dem die Syntax liegt. Zusätzlich lässt sich das Working Directory in RStudio über ein Drop-Down Menü verändern.</p>
+<p><img src="Material_WSIII/wd_rstudio.jpg" class="img-fluid"></p>
+<p>Man kann Dateipfade also in relative bzw. absolute Dateipfade unterteilen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Working Directory und relativen Dateipfade verwenden</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"P:/R/03_Workshops_und_Tutorials/02_R_Einfuehrung/Material_WSIII"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"mtcars.RDS"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Absoluten Dateipfad verwenden (das Workingdirectory ist dabei egal)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"P:/R/03_Workshops_und_Tutorials/02_R_Einfuehrung/Material_WSIII/mtcars.RDS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wenn man in einem kleineren Projekt arbeitet und Syntaxen per Mail oder Repository austauscht (zum Beispiel einzelne Paper-Projekte mit Co-Autoren unterschiedlicher Institutionen), ist es ratsam, keine absoluten Pfade in seinen Syntaxen zu verwenden. Wenn man im Gegensatz dazu in größeren Projekten institutsintern arbeitet, in denen Datensätze auf gemeinsamen Laufwerken gespeichert sind, bietet sich die Verwendung von absoluten Pfaden an.</p>
+</section>
+<section id="dateien-speichern-und-laden" class="level1">
+<h1>3. Dateien speichern und laden</h1>
+<p>In <code>R</code> gibt es zwei R-spezifische Dateiformate, um Daten zu speichern: <code>RDS</code> und <code>RData</code>. Falls Daten nur für die Nutzung in späteren <code>R</code>-Sessions benötigt werden, empfiehlt sich immer die Nutzung eines dieser Formate. Andere Formate (<code>.csv</code>, <code>xlsx.</code>, <code>sav</code> usw.) sind im Vergleich deutlich fehleranfälliger. Zusätzlich können häufig Datensätze nicht in der exakt gleichen Formatierung wieder eingelesen werden.</p>
+<p><code>saveRDS()</code> dient zur Speicherung eines einzelnen Objekts in R, die die Endung <code>RDS</code> erhalten sollten. Beim Laden dieses Objekts wird dem Objekt ein neuer Name zugewiesen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispieldatensatz</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(mtcars, <span class="st">"Material_WSIII/mtcars.RDS"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"Material_WSIII/mtcars.RDS"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt betrachten</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>save()</code> dient zur Speicherung eines oder (in der Regel) mehrerer Objekte auf einmal, entsprechende Dateien sollten die Endung <code>RData</code> erhalten. Beim Laden dieser Objekte behalten diese ihren ursprünglichen Namen. Dies kann nervig sein, da mögliche andere Personen nicht wissen, welche Namen die gespeicherten Objekte hatten.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispieldatensätze</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>iris2 <span class="ot">&lt;-</span> iris</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekte speichern (file Argument explizit benennen!)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars2, iris2, <span class="at">file =</span> <span class="st">"Material_WSIII/stuff.RData"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekte laden</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"Material_WSIII/stuff.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ungünstig ist die Verwendung von <code>save</code> bzw. <code>load</code> auch deshalb, weil beim Laden dieser Objekte gegebenenfalls gleichlautende und bereits in der globalen Umgebung vorhandene Objekte überschrieben werden. Setzt man um den <code>load</code>-Befehl eine Klammer, erkennt man immerhin, welche Namen die gespeicherten Objekte hatten:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekte laden und hre Namen anzeigen lassen</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">load</span>(<span class="st">"Material_WSIII/stuff.RData"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wenn man überprüfen möchte, wie die in der globalen Umgebung geladenen Objekte heißen, kann man mithilfe des Befehls <code>ls()</code> die aktuell vorhanden Objekte in der globalen Umgebung überprüfen oder diese in RStudio unter <code>Environment</code> betrachten.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Welche Objekte liegen in der globalen Umgebung?</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "pandoc_dir"      "quarto_bin_path" "some_data"      </code></pre>
 </div>
 </div>
 </section>
+<section id="andere-datei-formate" class="level1">
+<h1>4. Andere Datei-Formate</h1>
+<section id="csv" class="level2">
+<h2 class="anchored" data-anchor-id="csv">.csv</h2>
+<p>Beim Speichern von comma seperated files (<code>.csv</code>) können die Funktionen <code>write.csv()</code> und <code>write.csv2()</code> verwendet werden, wobei letztere Funktion den deutschen Excel-Konventionen (“,” als Dezimaltrenner) entspricht.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(mtcars, <span class="st">"Material_WSIII/mtcars.csv"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"Material_WSIII/mtcars.csv"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt betrachten</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="file-structure" class="level2">
-<h2 class="anchored" data-anchor-id="file-structure">File structure</h2>
-<p>Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: <code>docs</code> or <code>posts</code>. <code>docs</code> contains most of the tutorial files: They are structured into sub folders, like <code>eatPackages</code> or <code>R</code>. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Make sure they are quarto-files with the <code>.qmd</code> ending.</p>
-<section id="quarto.yml" class="level3">
-<h3 class="anchored" data-anchor-id="quarto.yml"><code>_quarto.yml</code></h3>
-<p>On the highest directory level you can find the <code>_quarto.yml</code> file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give name the links to the websites:</p>
-<pre><code>    contents:
-      - section: "R Tutorials"
-        contents:
-          - section: "Introduction"
-            contents:
-             - docs/R/index.qmd
-             - href: https://nickhaf.github.io/r_tutorial/
-               text: Selfpaced R Workshop
-             - href: docs/R/ws1.qmd
-               text: Einführung</code></pre>
-<p>This creates the section <code>R Tutorials</code> with the subsection <code>Introduction</code>. <code>Introduction</code> consists of three pages: the <code>index.qmd</code> page, which is like the main page of this section, the page <code>Selfpaced R Workshop</code>, which actually is only a link to another website, and the page <code>Einführung</code>, which links to the qmd-file <code>ws1.qmd</code>. Just add your pages where appropriate.</p>
+<section id="xlsx-excel" class="level2">
+<h2 class="anchored" data-anchor-id="xlsx-excel">.xlsx (Excel)</h2>
+<p>Zum Einlesen von Excel files empfiehlt sich die Funktion <code>read_xlsx()</code> aus dem Paket <code>readxl</code>. Achtung! Da das Paket standardmäßig einen <code>tibble</code> ausgibt, eine Spezialform von <code>data.frames</code>, empfiehlt sich die Umwandlung zu einem <code>data.frame</code>. Da das Paket leider kein Schreiben von Excel files unterstützt, empfiehlt sich hierfür die Funktion <code>write_xlsx()</code> aus dem Paket <code>eatAnalysis</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>eatAnalysis<span class="sc">::</span><span class="fu">write_xlsx</span>(mtcars, <span class="st">"Material_WSIII/mtcars.xlsx"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"Material_WSIII/mtcars.xlsx"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dat)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="quarto-files" class="level3">
-<h3 class="anchored" data-anchor-id="quarto-files">quarto-files</h3>
-<p>The quarto-files contain the actual content of the website. Just edit them like you would edit <code>.qmd</code>-files (or <code>.rmd</code>-files, as the rmarkdown syntax is quite similar). An introduction to the basic quarto functions can be found in the <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/">R SIG</a>. Here are some additional useful tips:</p>
-<section id="linking" class="level4">
-<h4 class="anchored" data-anchor-id="linking">Linking</h4>
-<p>You can easily link to other pages of this website, or to other websites:</p>
-<p><code>[displayed text](link.de)</code></p>
-<p>You might need to use relative paths: <code>[renv](../../posts/r_sig/23_11_06_renv/index.qmd)</code>. This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
+<section id="sav-spss" class="level2">
+<h2 class="anchored" data-anchor-id="sav-spss">.sav (SPSS)</h2>
+<p>Zum Importieren von SPSS-Dateien bietet sich das Paket <code>eatGADS</code> an. Es ermöglicht das Einlesen von Daten in einem zwei-schrittigem Vorgehen. Zuerst werden die Daten eingelesen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>spss <span class="ot">&lt;-</span> eatGADS<span class="sc">::</span><span class="fu">import_spss</span>(<span class="st">"Material_WSIII/example.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Diese Datei enthält sämtliche Metadaten, die auch die originale spss-Datei beinhaltet (Variablen- und Wertelabel etc.). Diese können mithilfe von <code>extractMeta</code> abgefragt werden. Im Folgenden werden die Metadaten für die Variable <code>"PJgsep_a"</code> abgerufen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>eatGADS<span class="sc">::</span><span class="fu">extractMeta</span>(spss, <span class="st">"PJgsep_a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Um Analysen in R durchzuführen, müssen die Daten aus diesem Objekt nun mithilfe der <code>extractData()</code>-Funktion extrahiert werden. Diese ermöglicht zum einen Missingcodes anzuwenden, zum anderen gelabelte Variablen entweder als numerische, character oder Faktor-Variablen auszugeben.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> eatGADS<span class="sc">::</span><span class="fu">extractData</span>(spss, <span class="at">convertLabel =</span> <span class="st">"character"</span>, <span class="at">convertMiss =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="pictures" class="level4">
-<h4 class="anchored" data-anchor-id="pictures">Pictures</h4>
-<p>To add a picture to your website, save the picture in the same folder as your <code>.qmd</code>-file. Then you can display it with:</p>
-<p><code>![](my_image.jpg)</code></p>
-<p><img src="my_image.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<section id="dta-stata" class="level2">
+<h2 class="anchored" data-anchor-id="dta-stata">.dta (Stata)</h2>
+<p>Stata-Datein können mithilfe des Paktes <code>haven</code> sowohl gelesen als auch geschrieben werden.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">write_dta</span>(mtcars, <span class="st">"Material_WSIII/mtcars.dta"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"Material_WSIII/mtcars.dta"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dat)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="footnotes" class="level4">
-<h4 class="anchored" data-anchor-id="footnotes">Footnotes</h4>
-<p>You can add footnotes with:</p>
-<pre><code>Add a footnote[^2].
+<section id="dat-mplus" class="level2">
+<h2 class="anchored" data-anchor-id="dat-mplus">.dat (Mplus)</h2>
+<p>Häufig möchte man in Vorbereitung von Analysen mithilfe von <code>Mplus</code> Daten in <code>R</code> aufbereiten. Das Paket <code>MplusAutomation</code> beinhaltet die Funktion <code>prepareMplusData()</code>, die das schreiben von <code>.dat</code> Datein ermöglicht und zusätzlich einen Rohling für die Mplus-Analysesyntax erstellt. Außerdem beinhaltet das Paket zahlreiche Möglichkeiten verschiedene Analysen zu automatisieren.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>MplusAutomation<span class="sc">::</span><span class="fu">prepareMplusData</span>(mtcars, <span class="at">filename =</span> <span class="st">"Material_WSIII/mtcars.dat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
-[^2]: My Footnote.</code></pre>
-<p>Add a footnote<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-</section>
-<section id="callouts" class="level4">
-<h4 class="anchored" data-anchor-id="callouts">Callouts</h4>
-<p>You can add little information boxes like this:</p>
-<pre><code>::: callout-tip
-The R-SIG meets each every two weeks on Monday from 13:00 - 14:00.
-:::</code></pre>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The R-SIG meets each every two weeks on Monday from 13:00 - 14:00.</p>
-</div>
-</div>
-<p>There are multiple different options, take a look at the <a href="https://quarto.org/docs/authoring/callouts.html">documentation</a> for more.</p>
-</section>
-<section id="css-styles" class="level4">
-<h4 class="anchored" data-anchor-id="css-styles">CSS styles</h4>
-<p>You can tweak the appearence even more by using you own <a href="https://quarto.org/docs/output-formats/html-basics.html#css-styles">CSS-styles</a>.</p>
-</section>
-</section>
-<section id="editing-on-the-web-page" class="level3">
-<h3 class="anchored" data-anchor-id="editing-on-the-web-page">Editing on the web page</h3>
-<p>You can also find a small button called <code>Edit this page</code> next to the GitHub logo. This allows you to edit the page directly on GitHub.</p>
-</section>
-</section>
-<section id="building-the-website" class="level2">
-<h2 class="anchored" data-anchor-id="building-the-website">Building the website</h2>
-<p>To get a preview of your website, click on the <code>Render</code> button in R Studio. Make sure you are not working locally and not on the network drive, because you might run into admin right problems otherwise. The rendering is not really necessary, because the website will only be built online when you push to GitHub. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first. The website will already get updated if you just open a pull request that wants to merge into main.</p>
-</section>
-<section id="further-reading" class="level2">
-<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
-<p>The official documentation can be found <a href="https://quarto.org/docs/websites/">here</a>. A nice hands on tutorial on adding blog posts to an existing Quarto website can be found <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">here</a>, along with some additional tips on citations, footnotes etc.</p>
-
 
 </section>
+</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@sinjin_thomas?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Sinjin Thomas</a> on <a href="https://unsplash.com/de/fotos/brauner-und-schwarzer-kurzhaariger-hund-VpoS_qNXkxA?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>My Footnote.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -921,9 +949,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../docs/R/ws2.html" class="pagination-link" aria-label="Data.frames, Listen &amp; Plots">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data.frames, Listen &amp; Plots</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../docs/reproduce/renv.html" class="pagination-link" aria-label="The renv-Package">
+        <span class="nav-page-text">The renv-Package</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/quarto/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R/ws3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
