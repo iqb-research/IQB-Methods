@@ -6,11 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sebastian Weirich, Benjamin Becker">
-<meta name="dcterms.date" content="2024-08-08">
-<meta name="description" content="Calculates characteristics for data with clustered multi-level structures with imputed data.">
+<meta name="dcterms.date" content="2024-03-22">
+<meta name="description" content="R-SIG 25.03.24">
 
-<title>eatRep – IQB Methods Team</title>
+<title>Data sets – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,18 +71,16 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="eatRep – IQB Methods Team">
-<meta property="og:description" content="Calculates characteristics for data with clustered multi-level structures with imputed data.">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatRep/eatRep.png">
+<meta property="og:title" content="Data sets – IQB Methods Team">
+<meta property="og:description" content="R-SIG 25.03.24">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg">
 <meta property="og:site_name" content="IQB Methods Team">
-<meta property="og:image:height" content="672">
-<meta property="og:image:width" content="672">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -123,40 +120,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">eatRep</h1>
-                  <div>
-        <div class="description">
-          Calculates characteristics for data with clustered multi-level structures with imputed data.
-        </div>
-      </div>
-                </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Sebastian Weirich, Benjamin Becker </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">August 8, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -164,26 +128,110 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#info" id="toc-info" class="nav-link active" data-scroll-target="#info">Info</a></li>
+  <li><a href="#theory-olympic-athletes" id="toc-theory-olympic-athletes" class="nav-link active" data-scroll-target="#theory-olympic-athletes"><span class="header-section-number">1</span> Theory: Olympic athletes</a></li>
+  <li><a href="#exercises-fictional-characters" id="toc-exercises-fictional-characters" class="nav-link" data-scroll-target="#exercises-fictional-characters"><span class="header-section-number">2</span> Exercises: Fictional characters</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/eatPackages/eatRep/eatRep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/r_sig/24_03_22_datasets/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data sets</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">tidyverse</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    R-SIG 25.03.24
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 22, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
-<section id="info" class="level1">
-<h1>Info</h1>
-<p>Calculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.</p>
-<p>For more info see <a href="https://cran.r-project.org/web/packages/eatRep/index.html">eatRep CRAN page</a>.</p>
+
+<p>We will use two data sets for some time in the R SIG now. One for the theory, and one for you to work on in the exercises.</p>
+<section id="theory-olympic-athletes" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="theory-olympic-athletes"><span class="header-section-number">1</span> Theory: Olympic athletes</h2>
+<p><img src="olympics.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>For the theory part of the workshop, we will mainly work with the <a href="https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results"><code>athletes</code></a> data set. It contains the Olympic athletes from 1896 to 2016, along with some basic stats, their sport and country, and the medals they won.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Goal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Our goal for the theory part of this workshop is to find the best country in each sport (operationalized by the number of gold medal winners from this country).</p>
+</div>
+</div>
+</section>
+<section id="exercises-fictional-characters" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercises-fictional-characters"><span class="header-section-number">2</span> Exercises: Fictional characters</h2>
+<p><img src="friends.jpg" class="img-fluid"><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Over the course of this workshop, you can work on exercises to put the theoretical knowledge you acquired in the chapters to use. Most of these exercises will use the <a href="https://openpsychometrics.org/tests/characters/documentation/"><code>characters</code></a> data set, which contains psychometric ratings for different fictional characters, rated by a large number of people on a personality scale developed by the author of the questionnaire.</p>
+<p>You will load the data, prepare it for analyses and also plot it in the end.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Goal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The goal for the exercise part of this workshop is to build a character profile for a fictional universe of your choosing.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have looked at how to download these data sets in the <a href="https://nickhaf.github.io/r_tutorial/qmd/workflow/workflow_exercise.html#exercise-2-download-data">this exercise</a>.</p>
+</div>
+</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@floschmaezz?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Florian Schmetz</a> on <a href="https://unsplash.com/de/fotos/fbCtFV3FkfE?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Image by <a href="https://unsplash.com/de/@lgtts?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ilse Orsen</a> on <a href="https://unsplash.com/de/fotos/fwPHQB4kGzA?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -609,4 +657,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/eatPackages/eatRep/eatRep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/r_sig/24_03_22_datasets/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

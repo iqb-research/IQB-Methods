@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sebastian Weirich, Benjamin Becker">
-<meta name="dcterms.date" content="2024-08-08">
-<meta name="description" content="Calculates characteristics for data with clustered multi-level structures with imputed data.">
+<meta name="description" content="Tutorial on how to use the ‘renv’-package in R to make the BT21 reproducible.">
 
-<title>eatRep – IQB Methods Team</title>
+<title>The renv-Package – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,23 +69,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="eatRep – IQB Methods Team">
-<meta property="og:description" content="Calculates characteristics for data with clustered multi-level structures with imputed data.">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/posts/eatPackages/eatRep/eatRep.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="The renv-Package – IQB Methods Team">
+<meta property="og:description" content="Tutorial on how to use the ‘renv’-package in R to make the BT21 reproducible.">
 <meta property="og:site_name" content="IQB Methods Team">
-<meta property="og:image:height" content="672">
-<meta property="og:image:width" content="672">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">IQB Methods Team</span>
     </a>
   </div>
@@ -98,21 +93,21 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../posts_eat.html"> 
+    <a class="nav-link" href="../../posts_eat.html"> 
 <span class="menu-text">eat Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../posts_learn.html"> 
+    <a class="nav-link" href="../../posts_learn.html"> 
 <span class="menu-text">learn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../posts_newsletter.html"> 
+    <a class="nav-link" href="../../posts_newsletter.html"> 
 <span class="menu-text">Newsletter</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../index.xml"> 
+    <a class="nav-link" href="../../index.xml"> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
@@ -123,40 +118,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">eatRep</h1>
-                  <div>
-        <div class="description">
-          Calculates characteristics for data with clustered multi-level structures with imputed data.
-        </div>
-      </div>
-                </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Sebastian Weirich, Benjamin Becker </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">August 8, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -164,21 +126,84 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#info" id="toc-info" class="nav-link active" data-scroll-target="#info">Info</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link active" data-scroll-target="#reproducibility">Reproducibility</a></li>
+  <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv">renv</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#project-usage" id="toc-project-usage" class="nav-link" data-scroll-target="#project-usage">Project usage</a></li>
+  <li><a href="#note-on-package-versions" id="toc-note-on-package-versions" class="nav-link" data-scroll-target="#note-on-package-versions">Note on Package Versions</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/eatPackages/eatRep/eatRep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R_tutorials/renv.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The renv-Package</h1>
+</div>
+
+<div>
+  <div class="description">
+    Tutorial on how to use the ‘renv’-package in R to make the BT21 reproducible.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
-<section id="info" class="level1">
-<h1>Info</h1>
-<p>Calculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.</p>
-<p>For more info see <a href="https://cran.r-project.org/web/packages/eatRep/index.html">eatRep CRAN page</a>.</p>
+
+<section id="reproducibility" class="level1">
+<h1>Reproducibility</h1>
+<p>Project repo for reproducibility research. Currently, we are working on making the BT21 reproducible by using the <code>renv</code>-Package in R.</p>
+</section>
+<section id="renv" class="level1">
+<h1>renv</h1>
+<p>The <code>renv</code>-package is intended for simple project-local R dependency management. <a href="https://rstudio.github.io/renv/articles/renv.html">Here</a> you’ll find a more thorough introduction.</p>
+</section>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<ol type="1">
+<li>Create an RStudio Project in the working directory that should be made reproducible.</li>
+<li>If another R-version should be used, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to <code>Tools - Global Options - General</code>. Maybe you will have to install <code>renv</code> for this version again.</li>
+<li>Initialise the project using <code>renv::init()</code>. This creates the basic infrastructure for the usage of <code>renv</code>.</li>
+</ol>
+<ul>
+<li>Dependencies should be discovered automatically. It can take a while, if you’re doing this for the first time.</li>
+<li>If you want to install specific package versions, you can use <code>renv::intit(bare = TRUE)</code>.
+<ul>
+<li>This sets up the <code>renv</code> project without trying to find the used dependencies. Thus, you can install the specific versions manually afterwards.<br>
+</li>
+<li>The dependencies in the working directory can be obtained by <code>renv::dependencies()</code>.</li>
+</ul></li>
+</ul>
+<ol start="4" type="1">
+<li>If you want specific package versions, you can use <code>renv::install(packagename/@version-number)</code>. Local packages or packages from GitHub can be installed as well (see <a href="https://rstudio.github.io/renv/reference/install.html">here</a>).</li>
+<li>In the end, packages should be installed in <code>./renv/library</code>. A lockfile <code>./renv.lock</code> is created, where the R version and the package versions are noted.</li>
+<li>Now you can work with the project. If you update dependencies, for example when you install and/or load new packages, you can save the state of the project library to the lockfile using <code>renv::snapshot()</code>.</li>
+<li>If you want to restore the state of the project library as noted in the lockfile, use <code>renv::restore()</code>.</li>
+</ol>
+</section>
+<section id="project-usage" class="level1">
+<h1>Project usage</h1>
+<ol type="1">
+<li>For maximal reproducibility, check the lockfile for the R-version before working with <code>renv</code>. If another R-version is documented in the lockfile, you can change the R-version before reproducing an analysis, see 2).</li>
+<li>As the packages are directly installed into the project working directory, you should be able to simply work with the <code>renv</code>-project as saved by the last user without doing anything.</li>
+</ol>
+</section>
+<section id="note-on-package-versions" class="level1">
+<h1>Note on Package Versions</h1>
+<p><a href="https://mran.microsoft.com/">MRAN</a> can be used to get snapshots of R on any day back to 17.09.2014. Here, package versions on specific dates can be found, for example, when a script was finished on 06.05.22, the packages probably used can be obtained from here. Sometimes an error similar to this can occur:</p>
+<p><code>Error: install of package 'tidyselect' failed [error code 1]</code></p>
+<p>In this case it is possible to look up the package version on the respective date on MRAN and install this version manually. On 06.05.22, CRAN hosted Version <code>1.1.2</code> of <code>tidyselect</code>, so you install the version like so: <code>renv::install("tidyselect@1.1.2")</code>.</p>
 
 
 </section>
@@ -609,4 +634,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts/eatPackages/eatRep/eatRep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R_tutorials/renv.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
