@@ -5,7 +5,7 @@ author:
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
 date: 10-23-2023
-categories: [R, renv, reproducability, R-SIG]
+categories: [R, reproducability, R-SIG]
 ---
 
 ## Motivation
@@ -23,12 +23,16 @@ renv::init()
 
 This mainly will do two things:
 
-1.  Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.
+1.  Create a project specific package library in the folder `renv` in your working directory, which contains all the packages currently used by the project. This means different projects can use different package versions, and even different R-Versions.
 2.  A `.lock` file, where the package versions get documented.
 
 By the way, it doesn't matter if you do this in the beginning of your project, in between or at the end. `renv::init()` will automatically setup the project with all the packages you have used in the project.
 
 The rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use `renv::install()` which has some additional features compared to `install.packages())`. For example, you can install specific package versions: `renv::install("dplyr@1.1.1")`. No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with `library()`.
+
+:::{.callout-caution}
+In case you are using a `renv` project not locally but on the IQB-drive, the links won't work, and `renv` will have to download and install the packages newly into your directory. 
+:::
 
 The next step is to write the package into your `.lock` file:
 
@@ -44,7 +48,7 @@ If on the other hand you want to restore the packages from the `.lock` file, use
 renv::restore()
 ```
 
-This will install the package version that is documented in the lock file into your project specific library.
+This will install all packages that are not already in your project specific library with the package version that is documented in the lock file into your project specific library.
 
 You can update your dependencies to the latest version using:
 
