@@ -454,6 +454,7 @@ There are some markdown templates that format your text in APA style. Most famou
 ## apaquarto
 Alternatively, I've found (but not yet tested in a whole project) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via the **Terminal** (not the R Console):
 
+
 ```
 ## Set the working directory
 cd path/to/my/folder
@@ -461,6 +462,7 @@ cd path/to/my/folder
 ## Use the Quarto Template
 quarto use wjschne/apaquarto
 ```
+
 ::: {.callout-note collapse="true"}
 ## Via R Console
 Alternativley, you can also try to install via the R Console, however, it didn't work for quite some people:
