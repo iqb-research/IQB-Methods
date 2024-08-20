@@ -25,11 +25,7 @@ image: manuscript.jpg
 [Quarto](https://quarto.org/) is an open-source scientific and technical publishing system. It allows us to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate our code when rendering. We can also build slides and even websites (like the one you are currently on).
 
 
-::: {.panel-tabset}
-
 # Components
-
-::: {.panel-tabset}
 
 ## YAML header
 
@@ -444,7 +440,6 @@ The references will be automatically generated at the end of your document. Alte
 
 ::: {#refs}
 :::
-:::
 
 # Templates & APA
 
@@ -457,9 +452,20 @@ You can always create your [own template](https://quarto.org/docs/journals/templ
 There are some markdown templates that format your text in APA style. Most famously, the [`papaja`](https://github.com/crsh/papaja) package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.
 
 ## apaquarto
+Alternatively, I've found (but not yet tested in a whole project) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via the **Terminal** (not the R Console):
 
-Alternatively, I've found (but not yet tested in a whole project) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via:
 
+```
+## Set the working directory
+cd path/to/my/folder
+
+## Use the Quarto Template
+quarto use wjschne/apaquarto
+```
+
+::: {.callout-note collapse="true"}
+## Via R Console
+Alternativley, you can also try to install via the R Console, however, it didn't work for quite some people:
 ```{r setup apaquarto}
 #| eval: false
 #| echo: true
@@ -468,6 +474,7 @@ setwd("home/my_project") # Make sure the folder is empty
 quarto::quarto_use_template("wjschne/apaquarto")
 ```
 
+:::
 This will create the necessary files in your folder. Update the `.qmd` file with the same name as your folder. I'd suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts ...).\
 The template will label your tables and figures correctly, and format the bibliography as well as the whole document.  
 The tables can be build with the packages presented in the last chapter. 
@@ -486,8 +493,6 @@ in the YAML header. Take a look at the [official documentation](https://quarto.o
 ::: {.callout-tip}
 ## Split your project
 I recommend that you split up your project into many subfiles, that get merged in the end in a main document. In my opinion, this makes everything a lot easier to overview, because working with quarto makes it easy to just put **everything** from data preperation to reporting into one huge, confousing document. For example, you can put R-Functions into a own script and source it with `source(functions.R)`. You can also put each chapter into a own `.qmd` file, and merge them together in a main document. Take a look at [include](https://quarto.org/docs/authoring/includes.html) for some input on how to do that. 
-
-:::
 
 :::
 
