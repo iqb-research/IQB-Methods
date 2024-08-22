@@ -2,6 +2,7 @@
 title: "Updating the website"
 author: "Nicklas Hafiz"
 date: 12-17-2023
+categories: [R, quarto, reproducibility]
 ---
 
 This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it.
@@ -10,9 +11,10 @@ This website was created using Quarto. It is hosted on GitHub. In this chapter w
 
 1.  As the website is hosted on GitHub, you can just clone the [repository](https://github.com/iqb-research/IQB-Methods).
 2.  Open the RStudio project with RStudio.
-3.  This website uses [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) to keep the project specific package library up to date. 
+3.  This website uses [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) to keep the project specific package library up to date.
 
 ### `renv`
+
 The needed packages are recorded in the `.lock`-file, but not uploaded to GitHub. So the **first thing you need to do** is to install the necessary packages into your local project library:
 
 ```{r, eval = FALSE}
@@ -27,12 +29,11 @@ install.packages("eatGADS")
 renv::install("eatGADS")
 ```
 
-You need to do this even if you have them already installed on your PC locally, because [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) uses a project specific library.  
+You need to do this even if you have them already installed on your PC locally, because [`renv`](../../posts/r_sig/23_11_06_renv/index.qmd) uses a project specific library.
 
-:::{.callout-important}
+::: callout-important
 Don't forget to update the `.lock` file with `renv::snapshot()` if you have added new packages in your code. Otherwise the GitHub-Action will fail.
 :::
-
 
 ## File structure
 
@@ -94,27 +95,32 @@ Add a footnote[^2].
 [^2]: My Footnote.
 
 #### Callouts
+
 You can add little information boxes like this:
-```
+
+```         
 ::: callout-tip
 The R-SIG meets each every two weeks on Monday from 13:00 - 14:00.
 :::
 ```
+
 ::: callout-tip
 The R-SIG meets each every two weeks on Monday from 13:00 - 14:00.
 :::
 
-There are multiple different options, take a look at the [documentation](https://quarto.org/docs/authoring/callouts.html) for more. 
+There are multiple different options, take a look at the [documentation](https://quarto.org/docs/authoring/callouts.html) for more.
 
 #### CSS styles
-You can tweak the appearence even more by using you own [CSS-styles](https://quarto.org/docs/output-formats/html-basics.html#css-styles). 
+
+You can tweak the appearence even more by using you own [CSS-styles](https://quarto.org/docs/output-formats/html-basics.html#css-styles).
 
 ### Editing on the web page
-You can also find a small button called `Edit this page` next to the GitHub logo. This allows you to edit the page directly on GitHub. 
+
+You can also find a small button called `Edit this page` next to the GitHub logo. This allows you to edit the page directly on GitHub.
 
 ## Building the website
 
-To get a preview of your website, click on the `Render` button in R Studio. Make sure you are not working locally and not on the network drive, because you might run into admin right problems otherwise. The rendering is not really necessary, because the website will only be built online when you push to GitHub. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first. The website will already get updated if you just open a pull request that wants to merge into main. 
+To get a preview of your website, click on the `Render` button in R Studio. Make sure you are not working locally and not on the network drive, because you might run into admin right problems otherwise. The rendering is not really necessary, because the website will only be built online when you push to GitHub. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first. The website will already get updated if you just open a pull request that wants to merge into main.
 
 ## Further reading
 
