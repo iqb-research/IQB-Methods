@@ -2,8 +2,8 @@
 title: "Using Checkmate"
 author: "Edna Grewers"
 date: 2023-12-01
+categories:  [R, checkmate, tutorial]
 ---
-
 
 # Intro
 
@@ -206,4 +206,3 @@ You can also check for unique values or missings in a similar way. For more info
 ?assert_list
 ?assert_data_frame
 ```
-

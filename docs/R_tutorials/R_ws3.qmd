@@ -1,5 +1,7 @@
 ---
 title: "Pakete(-Installation), Workspace, Daten laden und speichern in R"
+author: NA
+categories: [R, tutorial]
 ---
 
 # 1. Pakete installieren und laden
@@ -85,7 +87,7 @@ dat <- readRDS("Material_WSIII/mtcars.RDS")
 head(dat)
 ```
 
-`save()` dient zur Speicherung eines oder (in der Regel) mehrerer Objekte auf einmal, entsprechende Dateien sollten die Endung `RData` erhalten. Beim Laden dieser Objekte behalten diese ihren ursprünglichen Namen. Dies kann nervig sein, da mögliche andere Personen nicht wissen, welche Namen die gespeicherten Objekte hatten. 
+`save()` dient zur Speicherung eines oder (in der Regel) mehrerer Objekte auf einmal, entsprechende Dateien sollten die Endung `RData` erhalten. Beim Laden dieser Objekte behalten diese ihren ursprünglichen Namen. Dies kann nervig sein, da mögliche andere Personen nicht wissen, welche Namen die gespeicherten Objekte hatten.
 
 ```{r RData, eval = FALSE}
 # Beispieldatensätze
@@ -97,7 +99,7 @@ save(mtcars2, iris2, file = "Material_WSIII/stuff.RData")
 load("Material_WSIII/stuff.RData")
 ```
 
-Ungünstig ist die Verwendung von `save` bzw. `load` auch deshalb, weil beim Laden dieser Objekte gegebenenfalls gleichlautende und bereits in der globalen Umgebung vorhandene Objekte überschrieben werden. Setzt man um den `load`-Befehl eine Klammer, erkennt man immerhin, welche Namen die gespeicherten Objekte hatten: 
+Ungünstig ist die Verwendung von `save` bzw. `load` auch deshalb, weil beim Laden dieser Objekte gegebenenfalls gleichlautende und bereits in der globalen Umgebung vorhandene Objekte überschrieben werden. Setzt man um den `load`-Befehl eine Klammer, erkennt man immerhin, welche Namen die gespeicherten Objekte hatten:
 
 ```{r RData2, eval = FALSE}
 # Objekte laden und hre Namen anzeigen lassen
