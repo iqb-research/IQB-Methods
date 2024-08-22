@@ -182,12 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Updating the website</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">R</div>
-    <div class="quarto-category">quarto</div>
-    <div class="quarto-category">reproducability</div>
-  </div>
-  </div>
+</div>
 
 
 
@@ -225,25 +220,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <section id="renv" class="level3">
 <h3 class="anchored" data-anchor-id="renv"><code>renv</code></h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure you’re using the R version recorded in the LOCK-file when working with <code>renv</code>. This makes things a bit easier. Of course, if the R version in the LOCK file is an old one, you can update it with <code>renv::snapshot()</code>.</p>
-</div>
-</div>
 <p>The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("renv")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can do this every time you start working on the website. Only packages that are not already in your project specific package library will be downloaded.</p>
 <p>If your files need their own packages, just install them like you would normally do with either:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
@@ -260,7 +241,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail. But be concious about what is updated. If you are using an old version in the project, or old package versions, you might downgrade the projects package versions. So run <code>renv::restore()</code> before, to make sure your project library is up to date. <code>renv</code> will show you in the console what is updated from which version to which version.</p>
+<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail.</p>
 </div>
 </div>
 </section>
