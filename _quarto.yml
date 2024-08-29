@@ -28,6 +28,11 @@ website:
       collapse-level: 1
       contents:
         - posts_learn.qmd
+        - section: "Test"
+          auto: docs/
+        - section: "Test 2"
+          contents: auto
+          
         - section: "R SIG"
           href: posts_r_sig.qmd
           contents:
