@@ -23,22 +23,39 @@ website:
       
   sidebar: 
     - title: "learn"
-      style: "docked"
+      style: "floating"
       search: true
       collapse-level: 1
       contents:
         - posts_learn.qmd
+        - section: R SIG
+          contents:
+            - docs/r_sig/23_03_20_forloops/index.qmd
+            - docs/r_sig/23_07_31_apply/index.qmd
+            - docs/r_sig/23_10_09_cleaner/index.qmd
         - section: "R Tutorials"
           contents:
-            - section: "Introduction"
-              contents:
-               - href: https://nickhaf.github.io/r_tutorial/
-                 text: Selfpaced R Workshop
-            - section: "Cheat Sheets"
-              contents:
-               - href: https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf
-                 text: Base R
-
+            - href: https://nickhaf.github.io/r_tutorial/
+              text: Selfpaced R Workshop (EN)
+            - href: https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf
+              text: "Cheat Sheet: Base R"
+            - docs/R_tutorials/R_ws1.qmd
+            - docs/R_tutorials/R_ws2.qmd
+            - docs/R_tutorials/R_ws3.qmd
+            - docs/R_tutorials/renv.qmd
+            - docs/R_tutorials/checkmate.qmd
+        - section: Github
+          contents:
+            - docs/git/index.qmd
+        - section: Quarto
+          contents:
+            - docs/quarto/index.qmd
+        - section: FAQ
+          contents:
+            - docs/FAQ/FAQ.qmd
+        - section: Other
+          contents:
+            - docs/discussions/code_conventions.qmd
 
 format:
   html:
