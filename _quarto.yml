@@ -27,6 +27,7 @@ website:
       search: true
       collapse-level: 1
       contents:
+        - posts_learn.qmd
         - section: "R Tutorials"
           contents:
             - section: "Introduction"
