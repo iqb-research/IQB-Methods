@@ -135,7 +135,7 @@ window.Quarto = {
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -176,10 +176,86 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./posts_learn.html">Welcome to our Learning Page</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts_learn.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Welcome to our Learning Page</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">R Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://nickhaf.github.io/r_tutorial/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selfpaced R Workshop</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Cheat Sheets</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -226,7 +302,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-categories="R,tidyverse,data manipulation,R-SIG" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1724929183409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="885">
+<div class="quarto-post image-left" data-index="0" data-categories="R,tidyverse,data manipulation,R-SIG" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1724929427448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="885">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/23_12_18_case_when/index.html" class="no-external"></a></p><a href="./docs/r_sig/23_12_18_case_when/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -268,7 +344,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="1" data-categories="R,best practices,R-SIG" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1724929183409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
+<div class="quarto-post image-left" data-index="1" data-categories="R,best practices,R-SIG" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1724929427448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/23_10_09_cleaner/index.html" class="no-external"></a></p><a href="./docs/r_sig/23_10_09_cleaner/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -307,7 +383,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="2" data-categories="code convention" data-listing-file-modified-sort="1724929183401" data-listing-reading-time-sort="5" data-listing-word-count-sort="819">
+<div class="quarto-post image-left" data-index="2" data-categories="code convention" data-listing-file-modified-sort="1724929427436" data-listing-reading-time-sort="5" data-listing-word-count-sort="819">
 <div class="thumbnail">
 <p><a href="./docs/discussions/code_conventions.html" class="no-external"></a></p><a href="./docs/discussions/code_conventions.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -337,7 +413,7 @@ NA
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="3" data-categories="R,tidyverse,loops,R-SIG" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1724929183417" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162">
+<div class="quarto-post image-left" data-index="3" data-categories="R,tidyverse,loops,R-SIG" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1724929427456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external"></a></p><a href="./docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external">
 <p><img loading="lazy" src="./docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" class="thumbnail-image"></p>
@@ -379,7 +455,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="4" data-categories="R,tutorial" data-listing-file-modified-sort="1724929183401" data-listing-reading-time-sort="9" data-listing-word-count-sort="1696">
+<div class="quarto-post image-left" data-index="4" data-categories="R,tutorial" data-listing-file-modified-sort="1724929427436" data-listing-reading-time-sort="9" data-listing-word-count-sort="1696">
 <div class="thumbnail">
 <p><a href="./docs/R_tutorials/R_ws2.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws2.html" class="no-external">
 <p class="card-img-top"><img src="docs/R_tutorials/R_ws2_files/figure-html/25a-1.png"  class="thumbnail-image card-img"/></p>
@@ -412,7 +488,7 @@ NA
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="5" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1724929183413" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223">
+<div class="quarto-post image-left" data-index="5" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1724929427452" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/24_03_22_datasets/index.html" class="no-external"></a></p><a href="./docs/r_sig/24_03_22_datasets/index.html" class="no-external">
 <p><img loading="lazy" src="./docs/r_sig/24_03_22_datasets/olympics.jpg" class="thumbnail-image"></p>
@@ -451,7 +527,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="6" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1724929183417" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2265">
+<div class="quarto-post image-left" data-index="6" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1724929427456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2265">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external"></a></p><a href="./docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external">
 <p><img loading="lazy" src="./docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" class="thumbnail-image"></p>
@@ -490,7 +566,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="7" data-categories="FAQ" data-listing-file-modified-sort="1724929183397" data-listing-reading-time-sort="9" data-listing-word-count-sort="1617">
+<div class="quarto-post image-left" data-index="7" data-categories="FAQ" data-listing-file-modified-sort="1724929427436" data-listing-reading-time-sort="9" data-listing-word-count-sort="1617">
 <div class="thumbnail">
 <p><a href="./docs/FAQ/FAQ.html" class="no-external"></a></p><a href="./docs/FAQ/FAQ.html" class="no-external">
 <p class="card-img-top"><img src="docs/FAQ/images/centering.jpeg"  class="thumbnail-image card-img"/></p>
@@ -522,7 +598,7 @@ NA
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="8" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1724929183409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231">
+<div class="quarto-post image-left" data-index="8" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1724929427448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external"></a></p><a href="./docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
 <p><img loading="lazy" src="./docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="thumbnail-image"></p>
@@ -561,7 +637,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="9" data-categories="R,tutorial" data-listing-file-modified-sort="1724929183401" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
+<div class="quarto-post image-left" data-index="9" data-categories="R,tutorial" data-listing-file-modified-sort="1724929427436" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
 <div class="thumbnail">
 <p><a href="./docs/R_tutorials/R_index.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -591,7 +667,7 @@ tutorial
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="10" data-categories="R,tutorial" data-listing-file-modified-sort="1724929183401" data-listing-reading-time-sort="6" data-listing-word-count-sort="1022">
+<div class="quarto-post image-left" data-index="10" data-categories="R,tutorial" data-listing-file-modified-sort="1724929427436" data-listing-reading-time-sort="6" data-listing-word-count-sort="1022">
 <div class="thumbnail">
 <p><a href="./docs/R_tutorials/R_ws3.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws3.html" class="no-external">
 <p class="card-img-top"><img src="docs/R_tutorials/Material_WSIII/wd_rstudio.jpg"  class="thumbnail-image card-img"/></p>
@@ -624,7 +700,7 @@ NA
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="11" data-categories="R,tidyverse,plots,R-SIG" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1724929183421" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19">
+<div class="quarto-post image-left" data-index="11" data-categories="R,tidyverse,plots,R-SIG" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1724929427456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/24_06_03_ggplot2/index.html" class="no-external"></a></p><a href="./docs/r_sig/24_06_03_ggplot2/index.html" class="no-external">
 <p><img loading="lazy" src="./docs/r_sig/24_06_03_ggplot2/plotting.jpg" class="thumbnail-image"></p>
@@ -666,7 +742,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="12" data-categories="github,tutorial,workflow" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1724929183401" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="615">
+<div class="quarto-post image-left" data-index="12" data-categories="github,tutorial,workflow" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1724929427436" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="615">
 <div class="thumbnail">
 <p><a href="./docs/git/index.html" class="no-external"></a></p><a href="./docs/git/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -705,7 +781,7 @@ Sebastian Weirich
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="13" data-categories="R,tutorial" data-listing-file-modified-sort="1724929183401" data-listing-reading-time-sort="19" data-listing-word-count-sort="3658">
+<div class="quarto-post image-left" data-index="13" data-categories="R,tutorial" data-listing-file-modified-sort="1724929427436" data-listing-reading-time-sort="19" data-listing-word-count-sort="3658">
 <div class="thumbnail">
 <p><a href="./docs/R_tutorials/R_ws1.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws1.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -738,7 +814,7 @@ NA
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="14" data-categories="R,renv,reproducability,R-SIG" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1724929183409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="306">
+<div class="quarto-post image-left" data-index="14" data-categories="R,renv,reproducability,R-SIG" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1724929427448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="306">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/23_11_06_renv/index.html" class="no-external"></a></p><a href="./docs/r_sig/23_11_06_renv/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -780,7 +856,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="15" data-categories="R,quarto,R-SIG" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1724929183421" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2719">
+<div class="quarto-post image-left" data-index="15" data-categories="R,quarto,R-SIG" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1724929427456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2719">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/24_07_15_quarto_1/index.html" class="no-external"></a></p><a href="./docs/r_sig/24_07_15_quarto_1/index.html" class="no-external">
 <p><img loading="lazy" src="./docs/r_sig/24_07_15_quarto_1/manuscript.jpg" class="thumbnail-image"></p>
@@ -819,7 +895,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="16" data-categories="R,loops,R-SIG" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1724929183409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="682">
+<div class="quarto-post image-left" data-index="16" data-categories="R,loops,R-SIG" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1724929427448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="682">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/23_07_31_apply/index.html" class="no-external"></a></p><a href="./docs/r_sig/23_07_31_apply/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -858,7 +934,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="17" data-categories="R,renv,reproducibility,tutorial" data-listing-file-modified-sort="1724929183401" data-listing-reading-time-sort="3" data-listing-word-count-sort="464">
+<div class="quarto-post image-left" data-index="17" data-categories="R,renv,reproducibility,tutorial" data-listing-file-modified-sort="1724929427436" data-listing-reading-time-sort="3" data-listing-word-count-sort="464">
 <div class="thumbnail">
 <p><a href="./docs/R_tutorials/renv.html" class="no-external"></a></p><a href="./docs/R_tutorials/renv.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -897,7 +973,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="18" data-categories="R,quarto,reproducibility" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1724929183401" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="850">
+<div class="quarto-post image-left" data-index="18" data-categories="R,quarto,reproducibility" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1724929427436" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="850">
 <div class="thumbnail">
 <p><a href="./docs/quarto/index.html" class="no-external"></a></p><a href="./docs/quarto/index.html" class="no-external">
 <p class="card-img-top"><img src="docs/quarto/my_image.jpg"  class="thumbnail-image card-img"/></p>
@@ -936,7 +1012,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="19" data-categories="R,checkmate,tutorial" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1724929183401" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
+<div class="quarto-post image-left" data-index="19" data-categories="R,checkmate,tutorial" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1724929427436" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
 <div class="thumbnail">
 <p><a href="./docs/R_tutorials/checkmate.html" class="no-external"></a></p><a href="./docs/R_tutorials/checkmate.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -975,7 +1051,7 @@ Edna Grewers
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="20" data-categories="R,loops,R-SIG" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1724929183409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26">
+<div class="quarto-post image-left" data-index="20" data-categories="R,loops,R-SIG" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1724929427444" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26">
 <div class="thumbnail">
 <p><a href="./docs/r_sig/23_03_20_forloops/index.html" class="no-external"></a></p><a href="./docs/r_sig/23_03_20_forloops/index.html" class="no-external">
 <p><img loading="lazy" src="./docs/r_sig/23_03_20_forloops/preview_image.jpg" class="thumbnail-image"></p>

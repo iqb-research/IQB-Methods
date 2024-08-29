@@ -508,21 +508,33 @@
     "href": "posts_learn.html",
     "title": "Welcome to our Learning Page",
     "section": "",
-    "text": "To get an overview over the R-SIG topics see here."
+    "text": "To get an overview over the R-SIG topics see here.",
+    "crumbs": [
+      "learn",
+      "Welcome to our Learning Page"
+    ]
   },
   {
     "objectID": "posts_learn.html#r-sig",
     "href": "posts_learn.html#r-sig",
     "title": "Welcome to our Learning Page",
     "section": "",
-    "text": "To get an overview over the R-SIG topics see here."
+    "text": "To get an overview over the R-SIG topics see here.",
+    "crumbs": [
+      "learn",
+      "Welcome to our Learning Page"
+    ]
   },
   {
     "objectID": "posts_learn.html#listing-of-all-tutorialsr-sig-files",
     "href": "posts_learn.html#listing-of-all-tutorialsr-sig-files",
     "title": "Welcome to our Learning Page",
     "section": "Listing of all Tutorials/R-Sig files",
-    "text": "Listing of all Tutorials/R-Sig files"
+    "text": "Listing of all Tutorials/R-Sig files",
+    "crumbs": [
+      "learn",
+      "Welcome to our Learning Page"
+    ]
   },
   {
     "objectID": "docs/discussions/code_conventions.html",
