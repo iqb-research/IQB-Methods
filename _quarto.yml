@@ -21,12 +21,22 @@ website:
       - icon: rss
       - href: index.xml
       
-sidebar:
-  - title: "learn"
-    style: docked
-    contents:
-      - posts_learn.qmd
-      - posts_r_sig.qmd
+  sidebar: 
+    - title: "learn"
+      style: "docked"
+      search: true
+      collapse-level: 1
+      contents:
+        - section: "R Tutorials"
+          contents:
+            - section: "Introduction"
+              contents:
+               - href: https://nickhaf.github.io/r_tutorial/
+                 text: Selfpaced R Workshop
+            - section: "Cheat Sheets"
+              contents:
+               - href: https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf
+                 text: Base R
 
 
 format:
