@@ -11,16 +11,22 @@ website:
   navbar:
     search: true
     left:
-      - href: posts_eat.qmd
-        text: eat Packages
-      - href: posts_learn.qmd
-        text: learn
-      - href: posts_newsletter.qmd
-        text: Newsletter
+      - text: "eat Packages"
+        href: posts_eat.qmd
+      - text: "learn"
+        href: posts_learn.qmd
+      - text: "Newsletter"
+        href: posts_newsletter.qmd
     right:
       - icon: rss
       - href: index.xml
-
+      
+sidebar:
+  - title: "learn"
+    style: docked
+    contents:
+      - posts_learn.qmd
+      - posts_r_sig.qmd
 
 
 format:
