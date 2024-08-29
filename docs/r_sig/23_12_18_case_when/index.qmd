@@ -1,0 +1,75 @@
+---
+title: "Case_when() function"
+description: "R-SIG 18.12.2023"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+date: 12-18-2023
+categories: [R, tidyverse, data manipulation, R-SIG]
+---
+
+
+
+The `case_when()` function from the `dplyr` package of the `tidyverse` is a useful function for combining multiple `ifelse()` statements. 
+
+## How to use it
+Let's take a look at a little example. Let's consider a very simple data frame containing only a column of different countries: 
+
+```{r}
+library(dplyr)
+
+df <- data.frame(country = c(rep("Deu", 4), "Mexico", "Peru", "Ghana", "China", "Spanien"))
+```
+
+
+Now, let's suppose we want to add a second column containing the continent of the country. We can either use nested `ifelse()` statements, which makes the coed quite hard to read: 
+
+```{r}
+
+df$continent <- ifelse(df$country %in% c("Deu", "Spanien"), 
+                       yes = "Europe", 
+                       no = ifelse(
+                         df$country == "Mexico" | df$country == "Peru", 
+                         yes = "America",
+                         no = ifelse(
+                           df$country == "Ghana", 
+                           yes = "Africa",
+                           no = "Asia"
+                       )
+                       ))
+
+df
+```
+
+`case_when()` has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are seperated by `~`. So if the condition on the left side is met in a row, the function returns the value on the right side of `~`:
+
+```{r}
+df_2 <- df %>%
+  mutate(continent = case_when(country %in% c("Deu", "Spanien") ~ "Europe", 
+                               country %in% c("Mexico", "Peru") ~ "America",
+                               country == "Ghana" ~ "Africa", 
+                               TRUE ~ "Another continent"
+                                 )
+         )
+df_2
+  
+```
+
+We wrap this statement into a mutate function to automatically create the new column continent from the output of `case_when`. The `TRUE` in the last row catches all conditions we haven't dealt with further above. So all rows wich haven't met any of the above conditions will get the label "Another continent". 
+
+## Evaluation order
+`case_when()` goes from the top to the bottom. So if a row has met a statement, it is not considered further down. That's why it makes sense to go from the most specific statements to the less specific ones. Otherwise the least specific ones might overwrite everything in the beginning: 
+
+```{r}
+df_3 <- df %>%
+  mutate(continent = case_when(country %in% c(df$country) ~ "Other country", 
+                               country %in% c("Mexico", "Peru") ~ "America",
+                               country == "Ghana" ~ "Africa", 
+                               TRUE ~ "Another continent"
+                                 )
+         )
+
+df_3  
+```
+Because our first statement already covers all rows, the rest is obsolete. This top-down working also makes the `TRUE` condition in our last line possible, because only those rows that haven't been used yet will come this far, and all of them are catched (because `TRUE` always is true). 
+

@@ -1,0 +1,419 @@
+---
+title: "Data wrangling in the tidyverse"
+description: "R-SIG 25.03.24"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, tidyverse, R-SIG]
+image: data_wrangling.jpg
+number-sections: true
+date: 03-25-2024
+---
+
+![](data_wrangling.jpg)[^1]
+
+[^1]: Image by [Bing Copilot](https://www.bing.com/images/create/data-wrangling/1-65fd4161357e424ab4710052a455ae76?id=%2bsYYE%2fjAx45kPemp84oShA%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG1.63cnYyWZaAlWJaaaluAw&FORM=SYDBIC)
+
+```{r, echo = FALSE, message = FALSE}
+source(here::here("output_hook.R"))
+```
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+The [`tidyverse`](https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/) provides many tools for wrangling data, from selecting, sorting or renaming columns over filtering specific rows according to complex conditions to building new columns according to values in other columns. 
+Let's take a look at the most important ones. We will use the (`athletes`)[] dataset in the examples:
+
+::: {.callout-caution icon="false" collapse="true"}
+## Load the data
+
+```{r message=FALSE}
+# install.packages("tidyverse")
+# install.packages("here")
+
+library(tidyverse)
+library(here)
+
+athletes <- readRDS(file = here::here(  "raw_data", "athletes.rds"))
+```
+:::
+
+
+## `select()` columns
+Selecting columns from a data.frame is pretty straight forward:
+
+```{r, output.lines = 4}
+athletes %>%
+  select(Year, Sport)
+```
+
+Note how we don't have to put the columns in `""`, and how we can simply seperate them by `,`.  
+`select()` becomes especially useful when combined with [selection helpers](https://dplyr.tidyverse.org/reference/select.html):
+
+```{r, output.lines = 4}
+## Select all columns starting with a Se
+athletes %>%
+  select(starts_with("Se"))
+
+## Select all columns containing the letters "ea"
+athletes %>%
+  select(contains("ea"))
+
+## Or, we can combine them:
+athletes %>% 
+  select(ends_with("t") & contains("igh"))
+```
+
+## `filter()` rows
+We can use `filter` to subset rows according to their values in specific columns: 
+
+```{r, output.lines = 4}
+## All Volleyballers
+athletes %>%
+  filter(Sport == "Volleyball") %>%
+  str
+
+## All Judoka between 50 and 100 kg
+athletes %>%
+  filter(Sport == "Judo", between(Weight, 50, 100)) %>%
+  str()
+
+## All athletes with missing height
+athletes %>%
+  filter(is.na(Height)) %>%
+  str()
+```
+
+Note how we can just write our conditions without connecting them with `&` (`filter()` does that automatically for us). Also, we don’t have to put the column names into "", because `filter()` knows that this are column names of the athletes data frame, which makes coding a bit more pleasant. Also, missing rows are automatically removed, which makes sense in many cases!
+
+## `pivot_...()` long/wide format
+To reshape data.frames from long to wide or wide to long format we can use `pivot_wider()` and `pivot_longer()`:
+
+Let's define a simpler data.frame first: 
+
+```{r}
+inhabitants_wide <- data.frame(
+  country = c("China", "India", "USA"),
+  inhabitants_2021 = c(1425893465, 1407563842, NA),
+  inhabitants_2022 = c(1425857720, 1420939232, 338903174)
+)
+inhabitants_wide
+```
+
+
+```{r}
+inhabitants_long <- inhabitants_wide %>%
+  pivot_longer(
+    ## Select the columns we want to reshape:
+    cols = starts_with("inhabitants"),
+    names_prefix = "inhabitants_",
+    ## Define a new column where the column names will go to:
+    names_to = "year",
+    ## Define a new column where the values will go to:
+    values_to = "inhabitants"
+  )
+
+head(inhabitants_long)
+```
+In other cases, it might happen that multiple variables are put into the same column, together with an identifier column:
+
+```{r, echo = FALSE}
+inhabitants_long_2 <- inhabitants_wide %>%
+  mutate(inhabitants_2021 = c(9597000, 3287000, 9834000)) %>%
+  rename(area = inhabitants_2021) %>%
+  pivot_longer(!country, names_to = "variable", values_to = "value") %>%
+  data.frame()
+```
+
+```{r}
+inhabitants_long_2
+```
+
+In that case it can make sense to spread the the distinct variables into two columns:
+
+```{r}
+inhabitants_wide_2 <- inhabitants_long_2 %>%
+  pivot_wider(
+    id_cols = "country",
+    names_from = "variable",
+    values_from = "value"
+  )
+
+inhabitants_wide_2
+```
+
+
+## `mutate()`
+With `mutate()` we can add new columns to a data.frame or edit existing ones:
+
+```{r, output.lines = 4}
+athletes %>%
+  mutate(new_column = NA) %>%
+  mutate(ID = as.character(ID)) %>%
+  str()
+```
+
+### Useful helpers
+Like `select()`, `mutate()` really starts to shine when helper functions are added. For example we can fill a new column according to values in other columns:
+```{r, output.lines = 10}
+## Build a new column indicating if this is a contact sport athlete
+athletes %>%
+  mutate(contact_sport = ifelse(Sport %in% c("Wrestling", "Boxing", "Judo", "Rugby", "Taekwondo", "Rugby Sevens"), 
+                                yes = TRUE, 
+                                no = FALSE)
+         ) %>%
+  select(Name, Sport, contact_sport) %>%
+  str
+```
+
+If we have to connect multiple `ifelse()` functions, it's better to use `dplyrs` [`case_when()`](https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/):
+
+```{r, output.lines = 10}
+## This gets complicated pretty quickly:
+athletes %>%
+  mutate(judo_weightclass = if_else(str_detect(Event, "Middleweight"), 
+                                  true = "Middleweight", 
+                                  false = if_else(str_detect(Event, "Half-Lightweight"), 
+                                        true = "Half-Lightweight", 
+                                        false = if_else(str_detect(Event, "Lightweight"), 
+                                                    true = "Lightweight", 
+                                                    false = NA)
+                                        ) 
+                                        )
+                                  ) %>% 
+  filter(Sport == "Judo") %>%
+  select(Name, Sport, Event, judo_weightclass) %>%
+  str
+
+## so do this instead:
+athletes %>%
+  mutate(judo_weightclass = case_when(str_detect(Event, "Middleweight") ~ "Middleweight", 
+                                      str_detect(Event, "Half-Lightweight") ~ "Half-Lightweight", 
+                                      str_detect(Event, "Lightweight") ~ "Lightweight",
+                                      TRUE ~ "other Weightclass" )
+         ) %>%
+  filter(Sport == "Judo") %>%
+  select(Name, Sport, Event, judo_weightclass) %>%
+  str()
+
+```
+
+### Programmatically using `mutate()`
+If you want to use `mutate()` programmatically within a loop or a function, take a look at [Column-wise operations in the tidyverse](https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_04_08_tidyverse_column_wise/)
+
+## `..._replace_...()`
+We can easily replace values in a column using `str_replace()` or `replace_na()`:
+
+```{r}
+athletes %>%
+  mutate(Sex = str_replace(Sex, "M", "Male")) %>%
+  mutate(Sex = str_replace(Sex, "F", "Female")) %>%
+  mutate(Height = replace_na(Height, 0)) %>%
+  select(Sex, Height) %>%
+  str()
+```
+
+
+## `group_by()`
+We can group our data by values in specific columns and perform some sort of operation on the groups. 
+If we wanted to know the number of medals each region has won, we can for example group by region and medal type, and then `count()` (another `tidyverse` function) the number of cases in each group:
+
+```{r, output.lines = 10}
+medal_counts <- athletes %>%
+  group_by(Region, Medal) %>%
+  count(Medal) 
+
+medal_counts
+```
+
+We can also `summarize()` data:
+
+```{r, output.lines = 10}
+## Let's see what the mean, min and max age of athletes was in each Region:
+athletes %>%
+  group_by(Region) %>%
+      summarize(mean_age = mean(Age, na.rm = TRUE), 
+                min_age = min(Age, na.rm = TRUE), 
+                max_age = max(Age, na.rm = TRUE)
+                )
+```
+
+
+## `..._join_..()` data.frames
+We have multiple options for merging data.frames in the `tidyverse`. `left_join()` can be used if we want to keep all rows of the first data.frame and only adds the rows of the second data.frame that have an identifier in the first data.frame, `right_join()` keeps all rows of the second data frame, and `full_join()` keeps all rows of both data frames.
+
+Let's merge a world coordinate data set onto our medal counts. This can be helpful if we want to plot the number of won medals in each country later on:
+
+```{r}
+world_coordinates <- readRDS(here::here("raw_data", "world_coordinates.rds"))
+```
+
+Only take gold medals into account: 
+```{r}
+medal_counts <- medal_counts %>% filter(Medal == "Gold")
+```
+
+To merge two data frames that include information that belongs together, we need a common column, on which we can combine them. In our case, this is the column containing the country. They are both named `region`, but one with an upper case `R`. This doesn't pose a problem, as we can define which columns should be taken from which data frame for merging with `join_by()`. Let's take a quick look before merging to check if there are any countries named differently in both data sets:
+
+
+```{r}
+medal_counts$Region[!(medal_counts$Region %in% world_coordinates$region)]
+```
+
+Looks like all of the countries in our `medal_countries` data frame can also be found in our `world_coordinates` frame. Only athletes without a country will be lost when merging, but that's ok for now, as we are interested in the country specific gold medal counts. So let's merge:
+
+```{r}
+medal_countries <- world_coordinates %>%
+  left_join(medal_counts, join_by(region == Region))
+
+head(medal_countries)
+```
+
+## Exercise
+0. Read the `characters.rds` and the `psych_stats.csv` into R (download [here](https://github.com/iqb-research/IQB-Methods/tree/main/raw_data)).
+
+::: {.callout-caution collapse="true"}
+## Solution
+```{r}
+characters <- readRDS(here::here(  "raw_data", "characters.rds"))
+psych_stats <- read.csv(here::here(  "raw_data", "psych_stats.csv"), sep = ";")
+```
+
+:::
+
+1. Reshape the `psych_stats` data frame so there are only three columns in the data set: `char_id`, `question` and `rating`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+You can select multiple columns like this: `column_1:column_10`.
+:::
+
+::: {.callout-caution collapse="true"}
+## Solution
+
+```{r}
+psych_stats_long <- psych_stats %>%
+  pivot_longer(cols = messy_neat:innocent_jaded, 
+               names_to = "question", 
+               values_to = "rating")
+
+head(psych_stats_long)
+
+```
+
+Now we have multiple rows for every character, but all question ratings are nicely aligned in one column.
+:::
+
+2. Merge the `characters` data frame and the `psych_stats_long` data frame on a common column. 
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Identify the common columns. Are they named the same in both data frames? Look at the documentation of `?join_by()` to see, how you can merge data frames that don't have identically named columns.
+:::
+
+::: {.callout-caution collapse="true"}
+## Solution
+
+First, let's take a look at both data sets again:
+
+```{r}
+str(characters)
+str(psych_stats)
+```
+
+It seems like both data frames have a column containing an ID for the character. We can use that column for merging:
+
+```{r}
+characters_stats <- characters %>%
+  right_join(psych_stats_long, join_by(id == char_id))
+
+str(characters_stats)
+```
+
+:::
+ 
+
+3. Remove all columns from your merged data frame that start with `"uni"`. Don't overwrite your old data, this is just for exercise and won't be worked with further on. 
+
+::: {.callout-tip collapse="true"}
+## Hint
+Take a look at the examples in `?select` to see how you can select all columns but those fulfilling a certain condition.
+:::
+
+::: { .callout-caution collapse="true"}
+
+```{r}
+characters_stats %>%
+  select(!starts_with("uni")) %>%
+  str()
+```
+
+:::
+
+
+4. Calculate the mean rating of all characters by show and question, so you get the mean rating of all characters in a show on each item. 
+
+::: { .callout-tip collapse="true"}
+## Hint
+Use `group_by()` and `summarise()`.
+
+:::
+
+::: { .callout-caution collapse="true"}
+
+```{r}
+characters_summary <- characters_stats %>%
+  group_by(uni_name, question) %>%
+  summarise(mean_rating = mean(rating, na.rm = TRUE))
+```
+
+:::
+
+5. Choose two of your favorite shows. Build a data frame that has two mean_rating columns, one for each show.
+
+::: {.callout-tip collapse="true"}
+## Hint
+You can get an overview of the used shows with `unique(characters_stats$uni_name)`
+First, filter your two shows from the `characters_stats` data.frame.  
+Second, reshape this data.frame into long format. 
+:::
+
+
+::: { .callout-caution collapse="true"}
+
+```{r}
+compare_shows <- characters_summary %>%
+  filter(str_detect(uni_name, c("Friends|How I Met Your Mother" ))) %>%
+  pivot_wider(
+    names_from = "uni_name",
+    values_from = "mean_rating")
+
+compare_shows
+```
+
+Now we could look at specific questions. For example the How I Met Your Mother characters seem to be rated a bit more slothful than the Friends characters. 
+  
+:::
+
+6. Now, add a column containing the difference in rating between both shows for each question to your new comparison data.frame. Then, sort the rows by descending size of difference between the ratings. So the row with the highest difference in mean rating between your two shows should be on top. 
+
+::: { .callout-tip collapse="true"}
+## Hint
+To work with columns within `mutate()` you could for example use `.$column_name`. 
+:::
+
+::: { .callout-caution collapse="true"}
+
+```{r}
+compare_shows %>%
+  mutate(diff_shows = .$Friends - .$"How I Met Your Mother") %>%
+  arrange(desc(abs(diff_shows)))
+  
+```
+
+`desc()` means descending, so we go from the largest value to the smallest.   
+`abs()` means absolute, so we get the absolute value instead of negative values in some cases. 
+:::

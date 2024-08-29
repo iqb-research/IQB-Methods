@@ -1,0 +1,20 @@
+---
+title: "Plotting with `ggplot2`"
+description: "R-SIG 03.06.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, tidyverse, plots, R-SIG]
+image: plotting.jpg
+date: 06-03-2024
+---
+
+![](plotting.jpg)[^1]
+
+[^1]: Image by [Bing Copilot](https://www.bing.com/images/create/a-scientist-moulding-a-plot-of-data-by-hand/1-66587edc1e8f43589fdc865731f162f6?id=Pw2nhqhO37f3lXFK0VoYZQ%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG2.1wR3ZVvAOQy3uyh0hWET&form=SYDBIC).
+
+```{r, echo = FALSE, message = FALSE}
+source(here::here("output_hook.R"))
+```
+
+A ggplot2-tutorial I've created can be found [here](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html). 
