@@ -36,10 +36,11 @@ website:
             - docs/r_sig/23_10_09_cleaner/index.qmd
             - docs/r_sig/23_11_06_renv/index.qmd
             - docs/r_sig/23_12_18_case_when/index.qmd
+            
             - docs/r_sig/24_01_26_tidyverse_intro/index.qmd
             - docs/r_sig/24_03_22_datasets/index.qmd
             - docs/r_sig/24_03_25_tidyverse_wrangling/index.qmd
-            - docs/r_sig/24-04_08_tidyverse_column_wise/index.qmd
+            - docs/r_sig/24_04_08_tidyverse_column_wise/index.qmd
             - docs/r_sig/24_06_03_ggplot2/index.qmd
             - docs/r_sig/24_07_15_quarto_1/index.qmd
         - section: "R Tutorials"
