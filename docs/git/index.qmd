@@ -2,49 +2,50 @@
 title: "Pull requests with Github"
 author: "Sebastian Weirich"
 date: 01-12-2024
+categories: [github, tutorial, workflow]
 ---
 
-When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version. 
+When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version.
 
 ## Recommended Workflow
-1. Pull all changes from the relevant branch. Normally, this will be the branch `main`, but it might also happen that you want to extend on another branch. 
-2. `Create` and `checkout` (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it. 
-3. Make changes in your local repository. 
-4. `Commit` them as often as possible. The more you commit, the more of you work gets saved regulary. 
-5. If you want to upload your changes, `Push`. 
-6. Repeat 3 - 5 until you are done. 
+
+1.  Pull all changes from the relevant branch. Normally, this will be the branch `main`, but it might also happen that you want to extend on another branch.
+2.  `Create` and `checkout` (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it.
+3.  Make changes in your local repository.
+4.  `Commit` them as often as possible. The more you commit, the more of you work gets saved regulary.
+5.  If you want to upload your changes, `Push`.
+6.  Repeat 3 - 5 until you are done.
 
 ### Initiating a review
+
 Once you are content with your changes and you want to finalize them, you can initiate a review:
 
-1.  Change to the the Github page of the package (for example, [eatTools repository](https://github.com/weirichs/eatTools)) and start the `pull request` via "Compare & pull request". This will open a new page, where you can customize your pull request. 
+1.  Change to the the Github page of the package (for example, [eatTools repository](https://github.com/weirichs/eatTools)) and start the `pull request` via "Compare & pull request". This will open a new page, where you can customize your pull request.
 2.  Choose your favorite reviewer under "Reviewer". You can ask multiple people.
-3.  Enter a comment for the request, specifying what you want the reviewer(s) to look for especially. 
+3.  Enter a comment for the request, specifying what you want the reviewer(s) to look for especially.
 4.  Click on "create pull request" to start the request.
 
 ### Review Process
 
-1. Now the review process begins: The person that takes over the review assigns herself on the right side of the pull request page. Keep in mind our [Code Conventions](https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html).
-2. The reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code. 
-3. In the end, the reviewer delivers their final verdict: `approve` or `request changes`. 
-4. Now it's the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made. 
-5. The changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made. 
-6. Reiterate until the author and reviewer have reached an agreement. 
-7. If both are satisfied. On the GitHub Pull-request page, select "merge pull request into main" (or any other branch you want to and can merge on) at the bottom. 
-8. Finally, the review branch can be deleted. Choose "delete" on the Github homepage. Then delete the local branch (i.e. in GitKraken) in the same way if necessary
+1.  Now the review process begins: The person that takes over the review assigns herself on the right side of the pull request page. Keep in mind our [Code Conventions](https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html).
+2.  The reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code.
+3.  In the end, the reviewer delivers their final verdict: `approve` or `request changes`.
+4.  Now it's the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made.
+5.  The changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made.
+6.  Reiterate until the author and reviewer have reached an agreement.
+7.  If both are satisfied. On the GitHub Pull-request page, select "merge pull request into main" (or any other branch you want to and can merge on) at the bottom.
+8.  Finally, the review branch can be deleted. Choose "delete" on the Github homepage. Then delete the local branch (i.e. in GitKraken) in the same way if necessary
 
 ## Please note
 
-As long as the master/main branch and the new branch are not merged again, there are two "parallel" branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check and be conscious about on which branch you are currently working on. 
+As long as the master/main branch and the new branch are not merged again, there are two "parallel" branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e. the master branch) of the package. As a developer, you always have to check and be conscious about on which branch you are currently working on.
 
 ## Git-Workflow im Terminal (NH)
 
-1. *Gegebenenfalls: Auf den mainbranch wechseln:* `git checkout main`
-2. Verifizieren, dass man auf dem richtigen branch ist: `git status`
-3. Onlinebranch lokal herunterladen: `git pull`
-4. *Gegebenenfalls: Neuen branch "branch_2" erstellen, und direkt darauf wechseln:* `git checkout -b branch_2`
-5. (Alle) Änderungen stagen: `git add .`
-6. Gestagte Änderungen commiten (mit aussagekräftiger Commitmessage): `git commit -m "implemented new function"`
-7. Commits hochladen: `git push`
-
-
+1.  *Gegebenenfalls: Auf den mainbranch wechseln:* `git checkout main`
+2.  Verifizieren, dass man auf dem richtigen branch ist: `git status`
+3.  Onlinebranch lokal herunterladen: `git pull`
+4.  *Gegebenenfalls: Neuen branch "branch_2" erstellen, und direkt darauf wechseln:* `git checkout -b branch_2`
+5.  (Alle) Änderungen stagen: `git add .`
+6.  Gestagte Änderungen commiten (mit aussagekräftiger Commitmessage): `git commit -m "implemented new function"`
+7.  Commits hochladen: `git push`
