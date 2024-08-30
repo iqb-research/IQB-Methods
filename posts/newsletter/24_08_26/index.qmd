@@ -17,23 +17,23 @@ hier der Methoden-Newsletter für die letzten Monate, in dem wir kurz Neuerungen
 
 ## eatPrepTBA & eatAutoCode
 
-eatPrepTBA zur Aufbereitung von Daten aus dem IQB-TestCenter und eatAutoCode zur Kodierung von KA1&2-Aufgaben im TBA-Kontext werden derzeit entwickelt. Eine ausführlichere Vorstellung der Pakete erfolgt nach dem erstem Release.
+eatPrepTBA zur Aufbereitung von Daten aus dem IQB-TestCenter und eatAutoCode zur Kodierung von KA1&2-Aufgaben im TBA-Kontext werden derzeit entwickelt. Eine ausführlichere Vorstellung der Pakete erfolgt nach dem ersten Release.
 
 ## eatPrep
 
-mbo-Kompatibilität: Das Handling der neuen Missings, "mbo" (https://iqb-berlin.github.io/coding-info/data-structures/missings.html), die perspektivisch die alten, "mbi", ersetzen, ist jetzt in eatPrep möglich. Dabei ist die Änderung von "mbi" zu "mbo" lediglich eine Namensänderung. Diese wurde eingeführt, damit direkt aus dem Label heraus klar ersichtlich wird, was gemeint ist; inhaltlich ändert sich nichts und "mbi" kann (wie im Paper&Pencil-Format üblich) auch weiterverwendet werden.
+mbo-Kompatibilität: Das Handling der neuen Missings, "mbo" [https://iqb-berlin.github.io/coding-info/data-structures/missings.html](https://iqb-berlin.github.io/coding-info/data-structures/missings.html), die perspektivisch die alten, "mbi", ersetzen, ist jetzt in eatPrep möglich. Dabei ist die Änderung von "mbi" zu "mbo" lediglich eine Namensänderung. Diese wurde eingeführt, damit direkt aus dem Label heraus klar ersichtlich wird, was gemeint ist; inhaltlich ändert sich nichts und "mbi" kann (wie im Paper&Pencil-Format üblich) auch weiterverwendet werden.
 
-Zwischen Juli und August gab es einen Bug mergeData(): Wenn mehr als zwei Datensätze in einer Liste gemergt wurden, wurde "mbd" gleichrangig mit validen Codes behandelt und überschrieb diese ggf., was aber auch in den zugehörigen Messages reported wurde (d. h. es ist hoffentlich immer aufgefallen). Der Bug ist nun behoben. Bitte achtet darauf, dass ihr eatPrep ab Version 1.0.1 benutzt.
+Zwischen Juli und August gab es einen Bug in `mergeData()`: Wenn mehr als zwei Datensätze in einer Liste gemergt wurden, wurde "mbd" gleichrangig mit validen Codes behandelt und überschrieb diese ggf., was aber auch in den zugehörigen Messages reported wurde (d. h. es ist hoffentlich immer aufgefallen). Der Bug ist nun behoben. Bitte achtet darauf, dass ihr eatPrep ab Version 1.0.1 benutzt.
 
-Feature Request für checkDesign()-Output: Redundanzen wurden gekürzt; der Output von checkDesign() ist jetzt hoffentlich besser lesbar, wenn es viele Abweichungen im Datensatz vom Testdesign gibt.
+Feature Request für `checkDesign()`-Output: Redundanzen wurden gekürzt; der Output von `checkDesign()` ist jetzt hoffentlich besser lesbar, wenn es viele Abweichungen im Datensatz vom Testdesign gibt.
 
-Die Funktion prep2GADS() kann nun sowohl rohe als auch gescorte Itemdatensätze inklusive aller Meta-Daten aus der IQB-DB in das GADSdat-Format exportieren. Für alle, die schon immer ihre Itemdatensätze inklusive der Meta-Daten (z. B. Labels der Auswahlantworten) archivieren wollten.
+Die Funktion `prep2GADS()` kann nun sowohl rohe als auch gescorte Itemdatensätze inklusive aller Meta-Daten aus der IQB-DB in das `GADSdat`-Format exportieren. Für alle, die schon immer ihre Itemdatensätze inklusive der Meta-Daten (z. B. Labels der Auswahlantworten) archivieren wollten.
 
-Wenn addLeadingZeros=TRUE gesetzt wurde, gab es bei ID-Variablen mit vielen Stellen in readSpss() oder automateDataPreparation() ein Problem. Dieses wurde in eatTools durch Überarbeitung der Funktion addLeadingZerosToCharInt() behoben.
+Wenn `addLeadingZeros=TRUE` gesetzt wurde, gab es bei ID-Variablen mit vielen Stellen in `readSpss()` oder `automateDataPreparation()` ein Problem. Dieses wurde in eatTools durch Überarbeitung der Funktion `addLeadingZerosToCharInt()` behoben.
 
 ## eatTools
 
-Bug in addLeadingZerosToCharInt(): Bei großen Zahlen mit über 10 Stellen kam es zum Abbruch der Funktion. Dies ist nun behoben.
+Bug in `addLeadingZerosToCharInt()`: Bei großen Zahlen mit über 10 Stellen kam es zum Abbruch der Funktion. Dies ist nun behoben.
 
 # Neuigkeiten zu Gruppen und Workshops
 
