@@ -9,7 +9,7 @@
 <link>https://iqb-research.github.io/IQB-Methods/posts_newsletter.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_newsletter.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.5.56</generator>
+<generator>quarto-1.5.57</generator>
 <lastBuildDate>Mon, 26 Aug 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>26-08-2024</title>
@@ -32,15 +32,15 @@
 </section>
 <section id="eatprep" class="level2">
 <h2 class="anchored" data-anchor-id="eatprep">eatPrep</h2>
-<p>mbo-Kompatibilität: Das Handling der neuen Missings, “mbo” (https://iqb-berlin.github.io/coding-info/data-structures/missings.html), die perspektivisch die alten, “mbi”, ersetzen, ist jetzt in eatPrep möglich. Dabei ist die Änderung von “mbi” zu “mbo” lediglich eine Namensänderung. Diese wurde eingeführt, damit direkt aus dem Label heraus klar ersichtlich wird, was gemeint ist; inhaltlich ändert sich nichts und “mbi” kann (wie im Paper&amp;Pencil-Format üblich) auch weiterverwendet werden.</p>
-<p>Zwischen Juli und August gab es einen Bug mergeData(): Wenn mehr als zwei Datensätze in einer Liste gemergt wurden, wurde “mbd” gleichrangig mit validen Codes behandelt und überschrieb diese ggf., was aber auch in den zugehörigen Messages reported wurde (d.&nbsp;h. es ist hoffentlich immer aufgefallen). Der Bug ist nun behoben. Bitte achtet darauf, dass ihr eatPrep ab Version 1.0.1 benutzt.</p>
-<p>Feature Request für checkDesign()-Output: Redundanzen wurden gekürzt; der Output von checkDesign() ist jetzt hoffentlich besser lesbar, wenn es viele Abweichungen im Datensatz vom Testdesign gibt.</p>
-<p>Die Funktion prep2GADS() kann nun sowohl rohe als auch gescorte Itemdatensätze inklusive aller Meta-Daten aus der IQB-DB in das GADSdat-Format exportieren. Für alle, die schon immer ihre Itemdatensätze inklusive der Meta-Daten (z. B. Labels der Auswahlantworten) archivieren wollten.</p>
-<p>Wenn addLeadingZeros=TRUE gesetzt wurde, gab es bei ID-Variablen mit vielen Stellen in readSpss() oder automateDataPreparation() ein Problem. Dieses wurde in eatTools durch Überarbeitung der Funktion addLeadingZerosToCharInt() behoben.</p>
+<p>mbo-Kompatibilität: Das Handling der neuen Missings, “mbo” <a href="https://iqb-berlin.github.io/coding-info/data-structures/missings.html">https://iqb-berlin.github.io/coding-info/data-structures/missings.html</a>, die perspektivisch die alten, “mbi”, ersetzen, ist jetzt in eatPrep möglich. Dabei ist die Änderung von “mbi” zu “mbo” lediglich eine Namensänderung. Diese wurde eingeführt, damit direkt aus dem Label heraus klar ersichtlich wird, was gemeint ist; inhaltlich ändert sich nichts und “mbi” kann (wie im Paper&amp;Pencil-Format üblich) auch weiterverwendet werden.</p>
+<p>Zwischen Juli und August gab es einen Bug <code>mergeData()</code>: Wenn mehr als zwei Datensätze in einer Liste gemergt wurden, wurde “mbd” gleichrangig mit validen Codes behandelt und überschrieb diese ggf., was aber auch in den zugehörigen Messages reported wurde (d.&nbsp;h. es ist hoffentlich immer aufgefallen). Der Bug ist nun behoben. Bitte achtet darauf, dass ihr eatPrep ab Version 1.0.1 benutzt.</p>
+<p>Feature Request für <code>checkDesign()</code>-Output: Redundanzen wurden gekürzt; der Output von <code>checkDesign()</code> ist jetzt hoffentlich besser lesbar, wenn es viele Abweichungen im Datensatz vom Testdesign gibt.</p>
+<p>Die Funktion <code>prep2GADS()</code> kann nun sowohl rohe als auch gescorte Itemdatensätze inklusive aller Meta-Daten aus der IQB-DB in das <code>GADSdat</code>-Format exportieren. Für alle, die schon immer ihre Itemdatensätze inklusive der Meta-Daten (z. B. Labels der Auswahlantworten) archivieren wollten.</p>
+<p>Wenn <code>addLeadingZeros=TRUE</code> gesetzt wurde, gab es bei ID-Variablen mit vielen Stellen in <code>readSpss()</code> oder <code>automateDataPreparation()</code> ein Problem. Dieses wurde in eatTools durch Überarbeitung der Funktion <code>addLeadingZerosToCharInt()</code> behoben.</p>
 </section>
 <section id="eattools" class="level2">
 <h2 class="anchored" data-anchor-id="eattools">eatTools</h2>
-<p>Bug in addLeadingZerosToCharInt(): Bei großen Zahlen mit über 10 Stellen kam es zum Abbruch der Funktion. Dies ist nun behoben.</p>
+<p>Bug in <code>addLeadingZerosToCharInt()</code>: Bei großen Zahlen mit über 10 Stellen kam es zum Abbruch der Funktion. Dies ist nun behoben.</p>
 </section>
 </section>
 <section id="neuigkeiten-zu-gruppen-und-workshops" class="level1">
