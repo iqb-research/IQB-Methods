@@ -1,0 +1,56 @@
+---
+title: "Reproducable manuscripts with Git"
+description: "R-SIG 09.09.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto, R-SIG, Git]
+date: 09-09-2024
+bibliography: references.bib
+---
+
+# Motivation
+We have already talked about [reproducable manuscripts with Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/). Now, one big plus of using a markdown language is that it is very easy to use with a version control systems like Git, enabling us to leverage the many advantages of version control.
+
+# Git
+Git is a version control system. Some advantages:
+
+- **History**: You can see the history of your project, who did what and when. Changes in the project can be easily tracked. 
+- **Collaboration**: You can easily work together with others on the same project.
+- **Backup**: Your project lies online, so you don't have to worry about backing it up. 
+
+Mainly it is used for working on code. However, markdown files are also text files, and can therefore be easily version controlled with Git.
+For this text I assume you are already kind of proficient in working with [GitHub](https://github.com/). If not, you can take a look at this [Getting Started Guide](https://docs.github.com/en/get-started/start-your-journey/hello-world).  
+If you want to dive deeper into reproducable workflows, I recommend @peikert2021reproducible. 
+
+# 
+Generally, there isn't much new stuff here, if you already work with GitHub. You set up your repo and track your R and Quarto files with Git. 
+
+
+In light of reproducability, this is as transparent as we can get. If we use GitHub throughout the whole project, and make the project public, everyone can track what we have done, which decisions we made and why.  
+We can use Issues to discuss certain points with coauthors. 
+We can use Pull Requests and Reviews to discuss changes in the manuscript or analysis. 
+
+# Example structure
+
+
+# GitHub Actions
+GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript:
+
+```
+
+
+```
+
+Don't commit rendered documents like PDF or HTML to GitHub, but build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the buil output document. 
+
+
+# Cavetas
+Some words of warning: Everything is online. So you should be carefull to upload sensitive data. 
+Also, the fact that the whole process would be visible to everyone might feel weird. Still, even if you leave the Repo on private, it still is a great thing!
+
+# Exercises
+
+1. Set up a GitHub repository for your next project.
+
+2. Use 
