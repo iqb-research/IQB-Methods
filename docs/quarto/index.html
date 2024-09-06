@@ -305,11 +305,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/R_tutorials/renv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The renv-Package</span></a>
-  </div>
-</li>
+ <span class="menu-text">docs/R_tutorials/renv.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/R_tutorials/checkmate.html" class="sidebar-item-text sidebar-link">
@@ -420,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
     <div class="quarto-category">quarto</div>
-    <div class="quarto-category">reproducibility</div>
+    <div class="quarto-category">renv</div>
   </div>
   </div>
 
@@ -456,21 +453,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>As the website is hosted on GitHub, you can just clone the <a href="https://github.com/iqb-research/IQB-Methods">repository</a>.</li>
 <li>Open the RStudio project with RStudio.</li>
-<li>This website uses <a href="../../posts/r_sig/23_11_06_renv/index.qmd"><code>renv</code></a> to keep the project specific package library up to date.</li>
+<li>This website uses <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> to keep the project specific package library up to date.</li>
 </ol>
 <section id="renv" class="level3">
 <h3 class="anchored" data-anchor-id="renv"><code>renv</code></h3>
-<p>The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("renv")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If your files need their own packages, just install them like you would normally do with either:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"eatGADS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You need to do this even if you have them already installed on your PC locally, because <a href="../../posts/r_sig/23_11_06_renv/index.qmd"><code>renv</code></a> uses a project specific library.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -481,7 +467,33 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail.</p>
+<p>Make sure you’re using the R version recorded in the LOCK-file when working with <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a>. This makes things a bit easier. Of course, if the R version in the LOCK file is an old one, you can update it with <code>renv::snapshot()</code>.</p>
+</div>
+</div>
+<p>Wandering what <code>renv</code> is? Check out the <a href="../../docs/r_sig/23_11_06_renv/index.html">renv Intro</a> for more information.</p>
+<p>The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("renv")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can do this every time you start working on the website. Only packages that are not already in your project specific package library will be downloaded.</p>
+<p>If your files need their own packages, just install them like you would normally do with either:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"eatGADS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You need to do this even if you have them already installed on your PC locally, because <code>renv</code> uses a project specific library.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail. But be concious about what is updated. If you are using an old version in the project, or old package versions, you might downgrade the projects package versions. So run <code>renv::restore()</code> before, to make sure your project library is up to date. <code>renv</code> will show you in the console what is updated from which version to which version.</p>
 </div>
 </div>
 </section>
@@ -511,7 +523,7 @@ Important
 <h4 class="anchored" data-anchor-id="linking">Linking</h4>
 <p>You can easily link to other pages of this website, or to other websites:</p>
 <p><code>[displayed text](link.de)</code></p>
-<p>You might need to use relative paths: <code>[renv](../../posts/r_sig/23_11_06_renv/index.qmd)</code>. This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
+<p>You might need to use relative paths: <code>[renv](../r_sig/23_11_06_renv/index.qmd)</code>. This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
 </section>
 <section id="pictures" class="level4">
 <h4 class="anchored" data-anchor-id="pictures">Pictures</h4>
