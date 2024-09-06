@@ -3,17 +3,11 @@ title: "Welcome to our Learning Page"
 listing: 
   contents: docs
   type: default
-  feed: true
-  sort: "date desc" 
+  sort: "title" 
   categories: true
+  feed: true
   image-align: left
-#  fields: [image, date, title, author, reading-time]
+  #image-height: 100px
 ---
 
-## R-SIG
-
-To get an overview over the R-SIG topics see [here](./posts_r_sig.qmd). 
-
-
-## Listing of all Tutorials/R-Sig files 
 

@@ -2,8 +2,13 @@
 title: "Using Checkmate"
 author: "Edna Grewers"
 date: 2023-12-01
+categories:  [R, checkmate, tutorial]
+image: ./images/checkmate.jpg
 ---
 
+![](./images/checkmate.jpg)[^1]
+
+[^1]: Image by [Felix mittermeier](https://unsplash.com/de/@felix_mittermeier) on [Unsplash](https://unsplash.com/de/fotos/schachfiguren-auf-dem-brett-nAjil1z3eLk)
 
 # Intro
 
@@ -206,4 +211,3 @@ You can also check for unique values or missings in a similar way. For more info
 ?assert_list
 ?assert_data_frame
 ```
-
