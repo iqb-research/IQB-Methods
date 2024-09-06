@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/posts_eat.html",
+    "items": []
+  },
+  {
     "listing": "/posts_newsletter.html",
     "items": [
       "/posts/newsletter/24_08_26/index.html",
@@ -32,10 +36,6 @@
       "/docs/R_tutorials/checkmate.html",
       "/docs/r_sig/23_03_20_forloops/index.html"
     ]
-  },
-  {
-    "listing": "/posts_eat.html",
-    "items": []
   },
   {
     "listing": "/posts_r_sig.html",
