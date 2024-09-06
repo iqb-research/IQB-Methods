@@ -17,6 +17,8 @@ website:
         href: posts_learn.qmd
       - text: "Newsletter"
         href: posts_newsletter.qmd
+      - text: "help"
+        href: posts_help.qmd
     right:
       - icon: rss
       - href: index.xml
