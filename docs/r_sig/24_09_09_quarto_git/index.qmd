@@ -23,7 +23,7 @@ Mainly it is used for working on code. However, markdown files are also text fil
 For this text I assume you are already kind of proficient in working with [GitHub](https://github.com/). If not, you can take a look at this [Getting Started Guide](https://docs.github.com/en/get-started/start-your-journey/hello-world).  
 
 ::: {.callout .callout-info}
-To make your project truly reproducable, you might want to also use [renv]().   
+To make your project truly reproducable, you might want to also use [renv](https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/).   
 If you want to dive even deeper into reproducable workflows, take a look at @peikert2021reproducible. 
 :::
 
@@ -39,26 +39,43 @@ GitHub Actions are a way to automate your workflow. You can set up a workflow th
 The setup is a bit more complex, the complete documentation can be found [here](https://quarto.org/docs/publishing/github-pages.html).   
 In this section, I'll present one possible workflow.  
 
+:::{.callout-warning}
+Even if your repository is private, publishing a document like shown in this workflow will make it public, so in theory everyone can see it. 
+:::
+
+### 1. _freeze
+
 First, you have to open your `_quarto.yml` file and add the following:
 
-```
+```{r}
+#| eval: false
+
 execute:
   freeze: auto
 ```
 
 This will create a `_freeze` folder containing all your executed code. If you youse `renv`, this isn't necessary, because the renv workflow will execute the code again.  
 
+### 2. render
+
 Now you can render your quarto project once, using the Terminal (not the Console):
 
 
-```
+```{r}
+#| eval: false
+
 quarto render
 ```
 
+Commit and push your changes!
+
+### 3. gh-pages branch
 
 After that, you have to set up a `gh-pages` branch (make sure you have commited all changes before building the branch), again in the Terminal:
 
-```
+```{r}
+#| eval: false
+
 git checkout --orphan gh-pages
 git reset --hard # make sure all changes are committed before running this!
 git commit --allow-empty -m "Initialising gh-pages branch"
@@ -67,15 +84,22 @@ git push origin gh-pages
 
 Your published content will be build from this branch. You don't have to touch it after setting it up, the Actions we'll build will take care of that. 
 
+### 4. publish
+
 Finally, you can publish your quarto document:
 
-```
+```{r}
+#| eval: FALSE
+
 quarto publish gh-pages documentname.qmd
 ```
 
+### 5. Action
 To trigger this publishing everytime you push to your main branch on GitHub, build a new directory in your project called `.github/workflows`. Into this directory, you put a file `publish.yml` and fill it with the following code:
 
-```
+```{r}
+#| eval: FALSE
+
 on:
   workflow_dispatch:
   push:
@@ -92,6 +116,12 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages:
+            any::rmarkdown
+            any::knitr
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
@@ -103,12 +133,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+:::{.callout-important}
+You need to check the Read and write permissions box under Workflow permissions in the Actions section of your repository Settings. 
+:::
+
+:::{.callout-note}
+I actually prefer the [renv workflow](https://quarto.org/docs/publishing/github-pages.html#executing-code), but you have to setup [renv](https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/) to use it. 
+:::
+
 # Caveats
 Some words of warning: Everything is online. So you should be carefull to upload sensitive data. 
 Also, the fact that the whole process would be visible to everyone might feel weird. Still, even if you leave the Repo on private, it still is a great thing!
 
 # Exercises
 
-1. Set up a GitHub repository for your next project.
-
-2. Use 
+1. Set up a GitHub repository for the quarto project you worked on in the last sessions. If you don't upload your stuff to a cloud. 
+2. Make up some small Issue that you can write into the Issue section on GitHub. 
+3. Fix this Issue on **a new branch**. Commmit the changes, using `closes #Issuenumber` in the commit message, push everything and open a pull request. 
+4. Assign someone from the group as reviewer. 
+5. Review a pull-request assigned to you. 
+6. Setup a actions workflow that automatically renders your document. 
