@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -154,7 +188,14 @@ div.csl-indent {
   <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
   <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
   <li><a href="#quarto-git" id="toc-quarto-git" class="nav-link" data-scroll-target="#quarto-git">Quarto + Git</a></li>
-  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions">GitHub Actions</a></li>
+  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions">GitHub Actions</a>
+  <ul class="collapse">
+  <li><a href="#freeze" id="toc-freeze" class="nav-link" data-scroll-target="#freeze">1. _freeze</a></li>
+  <li><a href="#render" id="toc-render" class="nav-link" data-scroll-target="#render">2. render</a></li>
+  <li><a href="#gh-pages-branch" id="toc-gh-pages-branch" class="nav-link" data-scroll-target="#gh-pages-branch">3. gh-pages branch</a></li>
+  <li><a href="#publish" id="toc-publish" class="nav-link" data-scroll-target="#publish">4. publish</a></li>
+  <li><a href="#action" id="toc-action" class="nav-link" data-scroll-target="#action">5. Action</a></li>
+  </ul></li>
   <li><a href="#caveats" id="toc-caveats" class="nav-link" data-scroll-target="#caveats">Caveats</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
@@ -218,7 +259,7 @@ div.csl-indent {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>To make your project truly reproducable, you might want to also use <a href="">renv</a>.<br>
+<p>To make your project truly reproducable, you might want to also use <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/">renv</a>.<br>
 If you want to dive even deeper into reproducable workflows, take a look at <span class="citation" data-cites="peikert2021reproducible">Peikert and Brandmaier (<a href="#ref-peikert2021reproducible" role="doc-biblioref">2021</a>)</span>.</p>
 </div>
 </div>
@@ -233,46 +274,120 @@ We can use Issues to discuss certain points with coauthors and can use Pull Requ
 <h1>GitHub Actions</h1>
 <p>It is considered bad practicew to commit rendered documents like PDF or HTML to GitHub. Instead, build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the built output document. GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript. The setup is a bit more complex, the complete documentation can be found <a href="https://quarto.org/docs/publishing/github-pages.html">here</a>.<br>
 In this section, I’ll present one possible workflow.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Even if your repository is private, publishing a document like shown in this workflow will make it public, so in theory everyone can see it.</p>
+</div>
+</div>
+<section id="freeze" class="level3">
+<h3 class="anchored" data-anchor-id="freeze">1. _freeze</h3>
 <p>First, you have to open your <code>_quarto.yml</code> file and add the following:</p>
-<pre><code>execute:
-  freeze: auto</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>execute<span class="sc">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  freeze<span class="sc">:</span> auto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>This will create a <code>_freeze</code> folder containing all your executed code. If you youse <code>renv</code>, this isn’t necessary, because the renv workflow will execute the code again.</p>
+</section>
+<section id="render" class="level3">
+<h3 class="anchored" data-anchor-id="render">2. render</h3>
 <p>Now you can render your quarto project once, using the Terminal (not the Console):</p>
-<pre><code>quarto render</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Commit and push your changes!</p>
+<div class="{callout-tip}">
+<p>Don’t commit your output file, like html. You can exclude it from appearing in your git-interface by adding <code>*.html</code> to your <code>.gitignore</code> file.</p>
+</div>
+</section>
+<section id="gh-pages-branch" class="level3">
+<h3 class="anchored" data-anchor-id="gh-pages-branch">3. gh-pages branch</h3>
 <p>After that, you have to set up a <code>gh-pages</code> branch (make sure you have commited all changes before building the branch), again in the Terminal:</p>
-<pre><code>git checkout --orphan gh-pages
-git reset --hard # make sure all changes are committed before running this!
-git commit --allow-empty -m "Initialising gh-pages branch"
-git push origin gh-pages</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git checkout <span class="sc">--</span>orphan gh<span class="sc">-</span>pages</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>git reset <span class="sc">--</span>hard <span class="co"># make sure all changes are committed before running this!</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">--</span>allow<span class="sc">-</span>empty <span class="sc">-</span>m <span class="st">"Initialising gh-pages branch"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>git push origin gh<span class="sc">-</span>pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Your published content will be build from this branch. You don’t have to touch it after setting it up, the Actions we’ll build will take care of that.</p>
+</section>
+<section id="publish" class="level3">
+<h3 class="anchored" data-anchor-id="publish">4. publish</h3>
 <p>Finally, you can publish your quarto document:</p>
-<pre><code>quarto publish gh-pages documentname.qmd</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>quarto publish gh<span class="sc">-</span>pages documentname.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="action" class="level3">
+<h3 class="anchored" data-anchor-id="action">5. Action</h3>
 <p>To trigger this publishing everytime you push to your main branch on GitHub, build a new directory in your project called <code>.github/workflows</code>. Into this directory, you put a file <code>publish.yml</code> and fill it with the following code:</p>
-<pre><code>on:
-  workflow_dispatch:
-  push:
-    branches: main
-
-name: Quarto Publish
-
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>on<span class="sc">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  workflow_dispatch<span class="sc">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  push<span class="sc">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    branches<span class="sc">:</span> main</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>name<span class="sc">:</span> Quarto Publish</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>jobs<span class="sc">:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  build<span class="sc">-</span>deploy<span class="sc">:</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    runs<span class="sc">-</span>on<span class="sc">:</span> ubuntu<span class="sc">-</span>latest</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    permissions<span class="sc">:</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      contents<span class="sc">:</span> write</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    steps<span class="sc">:</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> name<span class="sc">:</span> Check out repository</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        uses<span class="sc">:</span> actions<span class="sc">/</span>checkout<span class="sc">@</span>v4</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> uses<span class="sc">:</span> r<span class="sc">-</span>lib<span class="sc">/</span>actions<span class="sc">/</span>setup<span class="sc">-</span>r<span class="sc">@</span>v2</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> uses<span class="sc">:</span> r<span class="sc">-</span>lib<span class="sc">/</span>actions<span class="sc">/</span>setup<span class="sc">-</span>r<span class="sc">-</span>dependencies<span class="sc">@</span>v2</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        with<span class="sc">:</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>          packages<span class="sc">:</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>            any<span class="sc">::</span>rmarkdown</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>            any<span class="sc">::</span>knitr</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> name<span class="sc">:</span> Set up Quarto</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        uses<span class="sc">:</span> quarto<span class="sc">-</span>dev<span class="sc">/</span>quarto<span class="sc">-</span>actions<span class="sc">/</span>setup<span class="sc">@</span>v2</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> name<span class="sc">:</span> Render and Publish</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        uses<span class="sc">:</span> quarto<span class="sc">-</span>dev<span class="sc">/</span>quarto<span class="sc">-</span>actions<span class="sc">/</span>publish<span class="sc">@</span>v2</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        with<span class="sc">:</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>          target<span class="sc">:</span> gh<span class="sc">-</span>pages</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        env<span class="sc">:</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>          GITHUB_TOKEN<span class="sc">:</span> <span class="er">$</span>{{ secrets.GITHUB_TOKEN }}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You need to check the Read and write permissions box under Workflow permissions in the Actions section of your repository Settings.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I actually prefer the <a href="https://quarto.org/docs/publishing/github-pages.html#executing-code">renv workflow</a>, but you have to setup <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/">renv</a> to use it.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="caveats" class="level1">
 <h1>Caveats</h1>
@@ -281,8 +396,12 @@ jobs:
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
 <ol type="1">
-<li><p>Set up a GitHub repository for your next project.</p></li>
-<li><p>Use</p></li>
+<li>Set up a GitHub repository for the quarto project you worked on in the last sessions. If you don’t upload your stuff to a cloud.</li>
+<li>Make up some small Issue that you can write into the Issue section on GitHub.</li>
+<li>Fix this Issue on <strong>a new branch</strong>. Commmit the changes, using <code>closes #Issuenumber</code> in the commit message, push everything and open a pull request.</li>
+<li>Assign someone from the group as reviewer.</li>
+<li>Review a pull-request assigned to you.</li>
+<li>Setup a actions workflow that automatically renders your document.</li>
 </ol>
 
 
