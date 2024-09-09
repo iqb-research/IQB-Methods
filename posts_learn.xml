@@ -10,7 +10,118 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_learn.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 15 Jul 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 09 Sep 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Reproducable manuscripts with Git</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<p>We have already talked about <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/">reproducable manuscripts with Quarto</a>. Now, one big plus of writing in a markdown language is that it is very easy to use with a version control systems like Git, enabling us to leverage the many advantages of version control.</p>
+</section>
+<section id="git" class="level1">
+<h1>Git</h1>
+<p>Git is a version control system. Some advantages:</p>
+<ul>
+<li><strong>History</strong>: You can see the history of your project, who did what and when. Changes in the project can be easily tracked.</li>
+<li><strong>Collaboration</strong>: You can easily work together with others on the same project.</li>
+<li><strong>Backup</strong>: Your project lies online, so you don’t have to worry about backing it up.</li>
+</ul>
+<p>Mainly it is used for working on code. However, markdown files are also text files, and can therefore be easily version controlled with Git. For this text I assume you are already kind of proficient in working with <a href="https://github.com/">GitHub</a>. If not, you can take a look at this <a href="https://docs.github.com/en/get-started/start-your-journey/hello-world">Getting Started Guide</a>.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>To make your project truly reproducable, you might want to also use <a href="">renv</a>.<br>
+If you want to dive even deeper into reproducable workflows, take a look at <span class="citation" data-cites="peikert2021reproducible">Peikert and Brandmaier (2021)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="quarto-git" class="level1">
+<h1>Quarto + Git</h1>
+<p>Generally, there isn’t much new stuff here, if you already work with GitHub. You set up your repo and track your R and Quarto files with Git. In light of reproducability, this is as transparent as we can get. If we use GitHub throughout the whole project, and make the project public, everyone can track what we have done, which decisions we made and why.<br>
+We can use Issues to discuss certain points with coauthors and can use Pull Requests and Reviews to discuss changes in the manuscript or analysis.</p>
+</section>
+<section id="github-actions" class="level1">
+<h1>GitHub Actions</h1>
+<p>It is considered bad practicew to commit rendered documents like PDF or HTML to GitHub. Instead, build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the built output document. GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript. The setup is a bit more complex, the complete documentation can be found <a href="https://quarto.org/docs/publishing/github-pages.html">here</a>.<br>
+In this section, I’ll present one possible workflow.</p>
+<p>First, you have to open your <code>_quarto.yml</code> file and add the following:</p>
+<pre><code>execute:
+  freeze: auto</code></pre>
+<p>This will create a <code>_freeze</code> folder containing all your executed code. If you youse <code>renv</code>, this isn’t necessary, because the renv workflow will execute the code again.</p>
+<p>Now you can render your quarto project once, using the Terminal (not the Console):</p>
+<pre><code>quarto render</code></pre>
+<p>After that, you have to set up a <code>gh-pages</code> branch (make sure you have commited all changes before building the branch), again in the Terminal:</p>
+<pre><code>git checkout --orphan gh-pages
+git reset --hard # make sure all changes are committed before running this!
+git commit --allow-empty -m "Initialising gh-pages branch"
+git push origin gh-pages</code></pre>
+<p>Your published content will be build from this branch. You don’t have to touch it after setting it up, the Actions we’ll build will take care of that.</p>
+<p>Finally, you can publish your quarto document:</p>
+<pre><code>quarto publish gh-pages documentname.qmd</code></pre>
+<p>To trigger this publishing everytime you push to your main branch on GitHub, build a new directory in your project called <code>.github/workflows</code>. Into this directory, you put a file <code>publish.yml</code> and fill it with the following code:</p>
+<pre><code>on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+</section>
+<section id="caveats" class="level1">
+<h1>Caveats</h1>
+<p>Some words of warning: Everything is online. So you should be carefull to upload sensitive data. Also, the fact that the whole process would be visible to everyone might feel weird. Still, even if you leave the Repo on private, it still is a great thing!</p>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<ol type="1">
+<li><p>Set up a GitHub repository for your next project.</p></li>
+<li><p>Use</p></li>
+</ol>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-peikert2021reproducible" class="csl-entry">
+Peikert, Aaron, and Andreas M Brandmaier. 2021. <span>“A Reproducible Data Analysis Workflow with r Markdown, Git, Make, and Docker.”</span> <em>Quantitative and Computational Methods in Behavioral Sciences</em>, 1–27.
+</div>
+</div></section></div> ]]></description>
+  <category>R</category>
+  <category>quarto</category>
+  <category>R-SIG</category>
+  <category>Git</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/</guid>
+  <pubDate>Mon, 09 Sep 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Reproducable manuscripts with Quarto</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
@@ -693,7 +804,7 @@ Table&nbsp;1: German olympic medal winners in Judo.
 </figcaption>
 <div aria-describedby="tbl-judo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-c6820e06{table-layout:auto;}.cl-c67a3820{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c67d3480{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-c67d348a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-c67d4c7c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c67d4c90{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c67d4c9a{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c67d4c9b{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c67d4c9c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-c6820e06"><thead><tr style="overflow-wrap:break-word;"><th class="cl-c67d4c7c"><p class="cl-c67d3480"><span class="cl-c67a3820">Year</span></p></th><th class="cl-c67d4c7c"><p class="cl-c67d3480"><span class="cl-c67a3820">Name</span></p></th><th class="cl-c67d4c7c"><p class="cl-c67d3480"><span class="cl-c67a3820">Sex</span></p></th><th class="cl-c67d4c7c"><p class="cl-c67d3480"><span class="cl-c67a3820">Age</span></p></th><th class="cl-c67d4c7c"><p class="cl-c67d3480"><span class="cl-c67a3820">Height</span></p></th><th class="cl-c67d4c7c"><p class="cl-c67d3480"><span class="cl-c67a3820">Weight</span></p></th><th class="cl-c67d4c7c"><p class="cl-c67d3480"><span class="cl-c67a3820">Region</span></p></th><th class="cl-c67d4c7c"><p class="cl-c67d3480"><span class="cl-c67a3820">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,964</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Wolfgang Hofmann</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">23</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">177</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">80.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,964</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Klaus Glahn</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">22</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">187</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">101.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,972</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Paul Barth</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">26</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">181</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">90.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,972</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Klaus Glahn</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">30</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">187</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">101.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,972</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Dietmar Htger</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">25</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">172</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">70.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,976</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Gnther Neureuther</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">20</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">186</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">95.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,980</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Detlef Ultsch</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">24</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">170</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">80.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,980</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Dietmar Lorenz</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">30</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">180</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">93.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,980</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Harald Heinke</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">25</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">178</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">78.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,980</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Dietmar Lorenz</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">30</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">180</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">93.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,980</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Karl-Heinz Lehmann</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">23</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">169</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">71.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,984</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Frank Wieneke</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">22</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">179</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">78.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,984</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Arthur Schnabel</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">35</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">182</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">104.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,984</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Gnther Neureuther</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">28</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">186</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">95.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,988</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Frank Wieneke</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">26</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">179</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">78.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,988</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Marcus "Marc" Meiling</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">26</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">194</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">95.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,988</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Henry Sthr</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">28</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">194</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">120.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,988</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Sven Loll</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">24</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">182</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">71.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,988</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">24</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">178</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">78.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,992</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Richard Trautmann</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">23</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">168</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">65.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,992</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Udo Gnther Quellmalz</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">25</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">175</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">65.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,996</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Johanna Hagn</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">F</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">23</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">168</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820"></span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,996</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Udo Gnther Quellmalz</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">29</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">175</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">65.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,996</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Frank Mller</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">25</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">189</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">125.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,996</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Richard Trautmann</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">27</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">168</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">65.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">1,996</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Marko Spittka</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">25</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">179</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">88.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,000</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Anna-Maria Gradante</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">F</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">23</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">154</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">48.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,004</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Yvonne Bnisch</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">F</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">23</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">168</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">61.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,004</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Julia Matijass</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">F</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">30</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">161</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">48.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,004</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Annett Bhm</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">F</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">24</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">179</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">83.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,004</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Michael Jurack</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">25</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">190</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">100.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,008</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Ole Bischof</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">28</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">180</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">81.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,012</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Kerstin Thiele</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">F</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">25</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">168</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">70.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,012</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Dimitri Peters</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">28</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">188</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">100.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,012</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Ole Bischof</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">32</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">180</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">81.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c90"><p class="cl-c67d348a"><span class="cl-c67a3820">2,012</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Andreas Tlzer</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">M</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">32</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">192</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">131.00</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9a"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c67d4c9b"><p class="cl-c67d348a"><span class="cl-c67a3820">2,016</span></p></td><td class="cl-c67d4c9c"><p class="cl-c67d3480"><span class="cl-c67a3820">Laura Vargas Koch</span></p></td><td class="cl-c67d4c9c"><p class="cl-c67d3480"><span class="cl-c67a3820">F</span></p></td><td class="cl-c67d4c9c"><p class="cl-c67d3480"><span class="cl-c67a3820">26</span></p></td><td class="cl-c67d4c9c"><p class="cl-c67d3480"><span class="cl-c67a3820">173</span></p></td><td class="cl-c67d4c9c"><p class="cl-c67d3480"><span class="cl-c67a3820">70.00</span></p></td><td class="cl-c67d4c9c"><p class="cl-c67d3480"><span class="cl-c67a3820">Germany</span></p></td><td class="cl-c67d4c9c"><p class="cl-c67d3480"><span class="cl-c67a3820">Bronze</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-4c89e88a{table-layout:auto;}.cl-4c8232fc{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4c85217e{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-4c852188{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-4c853920{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4c85392a{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4c85392b{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4c853934{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4c853935{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-4c89e88a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-4c853920"><p class="cl-4c85217e"><span class="cl-4c8232fc">Year</span></p></th><th class="cl-4c853920"><p class="cl-4c85217e"><span class="cl-4c8232fc">Name</span></p></th><th class="cl-4c853920"><p class="cl-4c85217e"><span class="cl-4c8232fc">Sex</span></p></th><th class="cl-4c853920"><p class="cl-4c85217e"><span class="cl-4c8232fc">Age</span></p></th><th class="cl-4c853920"><p class="cl-4c85217e"><span class="cl-4c8232fc">Height</span></p></th><th class="cl-4c853920"><p class="cl-4c85217e"><span class="cl-4c8232fc">Weight</span></p></th><th class="cl-4c853920"><p class="cl-4c85217e"><span class="cl-4c8232fc">Region</span></p></th><th class="cl-4c853920"><p class="cl-4c85217e"><span class="cl-4c8232fc">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,964</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Wolfgang Hofmann</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">23</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">177</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">80.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,964</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Klaus Glahn</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">22</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">187</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">101.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,972</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Paul Barth</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">26</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">181</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">90.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,972</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Klaus Glahn</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">30</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">187</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">101.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,972</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Dietmar Htger</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">25</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">172</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">70.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,976</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Gnther Neureuther</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">20</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">186</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">95.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,980</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Detlef Ultsch</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">24</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">170</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">80.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,980</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Dietmar Lorenz</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">30</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">180</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">93.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,980</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Harald Heinke</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">25</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">178</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">78.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,980</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Dietmar Lorenz</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">30</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">180</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">93.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,980</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Karl-Heinz Lehmann</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">23</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">169</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">71.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,984</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Frank Wieneke</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">22</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">179</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">78.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,984</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Arthur Schnabel</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">35</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">182</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">104.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,984</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Gnther Neureuther</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">28</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">186</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">95.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,988</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Frank Wieneke</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">26</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">179</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">78.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,988</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Marcus "Marc" Meiling</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">26</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">194</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">95.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,988</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Henry Sthr</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">28</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">194</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">120.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,988</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Sven Loll</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">24</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">182</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">71.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,988</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">24</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">178</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">78.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,992</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Richard Trautmann</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">23</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">168</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">65.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,992</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Udo Gnther Quellmalz</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">25</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">175</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">65.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,996</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Johanna Hagn</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">F</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">23</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">168</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc"></span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,996</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Udo Gnther Quellmalz</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">29</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">175</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">65.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,996</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Frank Mller</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">25</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">189</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">125.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,996</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Richard Trautmann</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">27</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">168</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">65.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">1,996</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Marko Spittka</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">25</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">179</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">88.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,000</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Anna-Maria Gradante</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">F</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">23</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">154</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">48.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,004</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Yvonne Bnisch</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">F</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">23</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">168</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">61.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,004</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Julia Matijass</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">F</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">30</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">161</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">48.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,004</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Annett Bhm</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">F</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">24</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">179</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">83.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,004</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Michael Jurack</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">25</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">190</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">100.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,008</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Ole Bischof</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">28</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">180</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">81.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,012</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Kerstin Thiele</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">F</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">25</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">168</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">70.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,012</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Dimitri Peters</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">28</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">188</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">100.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,012</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Ole Bischof</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">32</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">180</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">81.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c85392a"><p class="cl-4c852188"><span class="cl-4c8232fc">2,012</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Andreas Tlzer</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">M</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">32</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">192</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">131.00</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c85392b"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4c853934"><p class="cl-4c852188"><span class="cl-4c8232fc">2,016</span></p></td><td class="cl-4c853935"><p class="cl-4c85217e"><span class="cl-4c8232fc">Laura Vargas Koch</span></p></td><td class="cl-4c853935"><p class="cl-4c85217e"><span class="cl-4c8232fc">F</span></p></td><td class="cl-4c853935"><p class="cl-4c85217e"><span class="cl-4c8232fc">26</span></p></td><td class="cl-4c853935"><p class="cl-4c85217e"><span class="cl-4c8232fc">173</span></p></td><td class="cl-4c853935"><p class="cl-4c85217e"><span class="cl-4c8232fc">70.00</span></p></td><td class="cl-4c853935"><p class="cl-4c85217e"><span class="cl-4c8232fc">Germany</span></p></td><td class="cl-4c853935"><p class="cl-4c85217e"><span class="cl-4c8232fc">Bronze</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </figure>
@@ -973,7 +1084,7 @@ font-style: inherit;">broom =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"glm"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-c75afd56{table-layout:auto;}.cl-c755f2fc{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c755f306{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c758138e{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-c7581398{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-c7582392{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7582393{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c758239c{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c758239d{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c758239e{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-c75afd56"><thead><tr style="overflow-wrap:break-word;"><th class="cl-c7582392"><p class="cl-c758138e"><span class="cl-c755f2fc">Term</span></p></th><th class="cl-c7582392"><p class="cl-c758138e"><span class="cl-c755f2fc">estimate</span></p></th><th class="cl-c7582392"><p class="cl-c758138e"><span class="cl-c755f306">SE</span></p></th><th class="cl-c7582392"><p class="cl-c758138e"><span class="cl-c755f306">t</span></p></th><th class="cl-c7582392"><p class="cl-c758138e"><span class="cl-c755f306">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c7582393"><p class="cl-c7581398"><span class="cl-c755f2fc">(Intercept)</span></p></td><td class="cl-c758239c"><p class="cl-c758138e"><span class="cl-c755f2fc">0.38</span></p></td><td class="cl-c758239c"><p class="cl-c758138e"><span class="cl-c755f2fc">0.19</span></p></td><td class="cl-c758239c"><p class="cl-c758138e"><span class="cl-c755f2fc">-5.05</span></p></td><td class="cl-c758239c"><p class="cl-c758138e"><span class="cl-c755f2fc">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c758239d"><p class="cl-c7581398"><span class="cl-c755f2fc">RegionJapan</span></p></td><td class="cl-c758239e"><p class="cl-c758138e"><span class="cl-c755f2fc">4.94</span></p></td><td class="cl-c758239e"><p class="cl-c758138e"><span class="cl-c755f2fc">0.27</span></p></td><td class="cl-c758239e"><p class="cl-c758138e"><span class="cl-c755f2fc">5.98</span></p></td><td class="cl-c758239e"><p class="cl-c758138e"><span class="cl-c755f2fc">&lt; .001***</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-4d5f24b4{table-layout:auto;}.cl-4d5a33a0{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4d5a33aa{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4d5c4550{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-4d5c455a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-4d5c5536{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d5c5540{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d5c554a{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d5c554b{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4d5c554c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-4d5f24b4"><thead><tr style="overflow-wrap:break-word;"><th class="cl-4d5c5536"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">Term</span></p></th><th class="cl-4d5c5536"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">estimate</span></p></th><th class="cl-4d5c5536"><p class="cl-4d5c4550"><span class="cl-4d5a33aa">SE</span></p></th><th class="cl-4d5c5536"><p class="cl-4d5c4550"><span class="cl-4d5a33aa">t</span></p></th><th class="cl-4d5c5536"><p class="cl-4d5c4550"><span class="cl-4d5a33aa">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-4d5c5540"><p class="cl-4d5c455a"><span class="cl-4d5a33a0">(Intercept)</span></p></td><td class="cl-4d5c554a"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">0.38</span></p></td><td class="cl-4d5c554a"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">0.19</span></p></td><td class="cl-4d5c554a"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">-5.05</span></p></td><td class="cl-4d5c554a"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4d5c554b"><p class="cl-4d5c455a"><span class="cl-4d5a33a0">RegionJapan</span></p></td><td class="cl-4d5c554c"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">4.94</span></p></td><td class="cl-4d5c554c"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">0.27</span></p></td><td class="cl-4d5c554c"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">5.98</span></p></td><td class="cl-4d5c554c"><p class="cl-4d5c4550"><span class="cl-4d5a33a0">&lt; .001***</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -5733,24 +5844,10 @@ font-style: inherit;">"Another continent"</span></span>
 <ol type="1">
 <li>As the website is hosted on GitHub, you can just clone the <a href="https://github.com/iqb-research/IQB-Methods">repository</a>.</li>
 <li>Open the RStudio project with RStudio.</li>
-<li>This website uses <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> to keep the project specific package library up to date.</li>
+<li>This website uses <a href="../../posts/r_sig/23_11_06_renv/index.qmd"><code>renv</code></a> to keep the project specific package library up to date.</li>
 </ol>
 <section id="renv" class="level3">
 <h3 class="anchored" data-anchor-id="renv"><code>renv</code></h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure you’re using the R version recorded in the LOCK-file when working with <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a>. This makes things a bit easier. Of course, if the R version in the LOCK file is an old one, you can update it with <code>renv::snapshot()</code>.</p>
-</div>
-</div>
-<p>Wandering what <code>renv</code> is? Check out the <a href="../../docs/r_sig/23_11_06_renv/index.html">renv Intro</a> for more information.</p>
 <p>The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
@@ -5762,7 +5859,6 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">restore</span>()</span></code></pre></div>
 </div>
-<p>You can do this every time you start working on the website. Only packages that are not already in your project specific package library will be downloaded.</p>
 <p>If your files need their own packages, just install them like you would normally do with either:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
@@ -5778,7 +5874,7 @@ font-style: inherit;">install</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"eatGADS"</span>)</span></code></pre></div>
 </div>
-<p>You need to do this even if you have them already installed on your PC locally, because <code>renv</code> uses a project specific library.</p>
+<p>You need to do this even if you have them already installed on your PC locally, because <a href="../../posts/r_sig/23_11_06_renv/index.qmd"><code>renv</code></a> uses a project specific library.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -5789,7 +5885,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail. But be concious about what is updated. If you are using an old version in the project, or old package versions, you might downgrade the projects package versions. So run <code>renv::restore()</code> before, to make sure your project library is up to date. <code>renv</code> will show you in the console what is updated from which version to which version.</p>
+<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail.</p>
 </div>
 </div>
 </section>
@@ -5819,7 +5915,7 @@ Important
 <h4 class="anchored" data-anchor-id="linking">Linking</h4>
 <p>You can easily link to other pages of this website, or to other websites:</p>
 <p><code>[displayed text](link.de)</code></p>
-<p>You might need to use relative paths: <code>[renv](../r_sig/23_11_06_renv/index.qmd)</code>. This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
+<p>You might need to use relative paths: <code>[renv](../../posts/r_sig/23_11_06_renv/index.qmd)</code>. This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
 </section>
 <section id="pictures" class="level4">
 <h4 class="anchored" data-anchor-id="pictures">Pictures</h4>
@@ -5887,7 +5983,7 @@ Tip
 </section></div> ]]></description>
   <category>R</category>
   <category>quarto</category>
-  <category>renv</category>
+  <category>reproducibility</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/quarto/</guid>
   <pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate>
 </item>
@@ -6559,13 +6655,11 @@ font-style: inherit;">colnames</span>(df))</span></code></pre></div>
 
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> can help you with that. Look <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started">here</a> for the offical getting started page.</p>
+<p>Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> can help you with that.</p>
 </section>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<p>First, create an RStudio Project in the working directory that should be made reproducible (if you haven’t already).<br>
-If another R-version should be used in your project, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to <code>Tools - Global Options - General</code>. Maybe you will have to install <code>renv</code> for this version again.</p>
-<p>Then, initialize the project:</p>
+<p>First, initialize the project:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -6576,26 +6670,13 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">init</span>()</span></code></pre></div>
 </div>
-<p>This will create the basic infrastructure for the usage of <code>renv</code> mainly will do two things:</p>
+<p>This mainly will do two things:</p>
 <ol type="1">
-<li>Create a project specific package library in the folder <code>renv</code> in your working directory, which contains all the packages currently used by the project. This means different projects can use different package versions, and even different R-Versions. Don’t be confused, the <code>renv</code> folder can get quite big and isn’t uploaded to GitHub by default.</li>
-<li>A <code>.lock</code> file, where the R version and the package versions get documented. From this <code>.lock</code> file we can restore the used packages.</li>
+<li>Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.</li>
+<li>A <code>.lock</code> file, where the package versions get documented.</li>
 </ol>
 <p>By the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. <code>renv::init()</code> will automatically setup the project with all the packages you have used in the project.</p>
 <p>The rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use <code>renv::install()</code> which has some additional features compared to <code>install.packages())</code>. For example, you can install specific package versions: <code>renv::install("dplyr@1.1.1")</code>. No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with <code>library()</code>.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In case you are using a <code>renv</code> project not locally but on the IQB-drive, the links won’t work, and <code>renv</code> will have to download and install the packages newly into your directory.</p>
-</div>
-</div>
 <p>The next step is to write the package into your <code>.lock</code> file:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">renv<span class="sc" style="color: #5E5E5E;
@@ -6613,7 +6694,7 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">restore</span>()</span></code></pre></div>
 </div>
-<p>This will install all packages that are not already in your project specific library with the package version that is documented in the lock file into your project specific library.</p>
+<p>This will install the package version that is documented in the lock file into your project specific library.</p>
 <p>You can update your dependencies to the latest version using:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">renv<span class="sc" style="color: #5E5E5E;
@@ -6622,47 +6703,7 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">update</span>()</span></code></pre></div>
 </div>
-</section>
-<section id="package-versions" class="level2">
-<h2 class="anchored" data-anchor-id="package-versions">Package Versions</h2>
-<p>If you want to install specific package versions, you can use</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">renv<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">intit</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">bare =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
-</div>
-<p>in the beginning. This sets up the <code>renv</code> project without trying to find the used dependencies. Thus, you can install the specific versions manually afterward:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">renv<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">install</span>(packagename<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">@</span>version<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>number)</span></code></pre></div>
-</div>
-<p>For example:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">renv<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">install</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div>
-</div>
-<p>Local packages or packages from GitHub can be installed as well (see <a href="https://rstudio.github.io/renv/reference/install.html">here</a>).</p>
-<p><a href="https://packagemanager.posit.co/client/#/">Posit Public Package Manager</a> contains the CRAN history of CRAN packages back to 2014. Package version historys can be found here easily, for example, when a script was finished on 06.05.22, we can look up which package version was the current one on that day.</p>
+<p>Look <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started">here</a> for the offical documentation.</p>
 
 
 </section>
@@ -6670,6 +6711,7 @@ font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div>
  ]]></description>
   <category>R</category>
   <category>renv</category>
+  <category>reproducability</category>
   <category>R-SIG</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/</guid>
   <pubDate>Mon, 23 Oct 2023 00:00:00 GMT</pubDate>
@@ -7536,7 +7578,7 @@ Optional:
  ]]></description>
   <category>code convention</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html</guid>
-  <pubDate>Fri, 06 Sep 2024 12:22:43 GMT</pubDate>
+  <pubDate>Mon, 09 Sep 2024 07:07:57 GMT</pubDate>
 </item>
 <item>
   <title>Data Frames, Listen und Grafiken in R</title>
@@ -8892,7 +8934,7 @@ font-style: inherit;">"Eine Verteilung"</span>)</span></code></pre></div>
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws2.html</guid>
-  <pubDate>Fri, 06 Sep 2024 12:22:43 GMT</pubDate>
+  <pubDate>Mon, 09 Sep 2024 07:07:57 GMT</pubDate>
 </item>
 <item>
   <title>FAQ</title>
@@ -9222,7 +9264,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ.html</guid>
-  <pubDate>Fri, 06 Sep 2024 12:22:43 GMT</pubDate>
+  <pubDate>Mon, 09 Sep 2024 07:07:57 GMT</pubDate>
 </item>
 <item>
   <title>Material for learning R</title>
@@ -9243,7 +9285,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_index.html</guid>
-  <pubDate>Fri, 06 Sep 2024 12:22:43 GMT</pubDate>
+  <pubDate>Mon, 09 Sep 2024 07:07:57 GMT</pubDate>
 </item>
 <item>
   <title>Pakete(-Installation), Workspace, Daten laden und speichern in R</title>
@@ -9687,1127 +9729,7 @@ font-style: inherit;">"Material_WSIII/mtcars.dat"</span>)</span></code></pre></d
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws3.html</guid>
-  <pubDate>Fri, 06 Sep 2024 12:22:43 GMT</pubDate>
-</item>
-<item>
-  <title>R Workshop Einführung</title>
-  <dc:creator>NA </dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="einleitung" class="level2">
-<h2 class="anchored" data-anchor-id="einleitung">1. Einleitung</h2>
-<p>R ist eine Programmiersprache für <strong>Datenmanipulation</strong>, <strong>statistische Datenanalyse</strong> und <strong>grafische Darstellung</strong> von Daten (Yanada, 2018).</p>
-<p><strong>Datenmanipulation:</strong></p>
-<ul>
-<li>Import und Export: Einlesen und Schreiben von SPSS-, Excel-, ASCII- oder trennzeichenbasierten Dateien</li>
-<li>Kopieren, verschieben, löschen, packen und entpacken von Dateien und Verzeichnissen</li>
-<li>Variablen- und Fallselektion, Rekodieren/Aggregieren von Variablen</li>
-<li>Umstrukturieren von Datensätzen (long/wide)</li>
-<li>Manipulation von Zeichenketten (Verknüpfen, extrahieren, ersetzen, z.B. auch mithilfe regulärer Ausdrücke: sehr mächtig, aber zuweilen kompliziert)</li>
-</ul>
-<p><strong>statistische Datenanalyse:</strong></p>
-<ul>
-<li>lineare und nichtlineare Regression</li>
-<li>Varianzanalyse</li>
-<li>Strukturgleichungsmodelle</li>
-<li>Mehrebenenanalyse</li>
-<li>Multiple Imputation</li>
-<li>Item-Response-Modelle</li>
-<li>decision trees</li>
-<li>mixed models, u.v.m.</li>
-</ul>
-<p><strong>grafische Darstellung von Daten:</strong></p>
-<ul>
-<li>Boxplots</li>
-<li>Histogramme</li>
-<li>Heat Maps</li>
-</ul>
-</section>
-<section id="r-als-taschenrechner" class="level2">
-<h2 class="anchored" data-anchor-id="r-als-taschenrechner">2. R als Taschenrechner</h2>
-<p>In der R Konsole kann man (mathematische) Funktionen eingeben und sie evaluieren lassen. Im einfachsten Fall funktioniert das wie ein Taschenrechner.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-</div>
-<p>Das Dezimaltrennzeichen in R ist ein Punkt, kein Komma.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.25</code></pre>
-</div>
-</div>
-<p>Exponentialschreibweise:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 8</code></pre>
-</div>
-</div>
-<p>Obwohl es nicht so aussieht, werden bei diesen Operationen im Hintergrund Funktionen ausgeführt. So kann man sich beispielsweise die Wurzel aus 2 einfach in Exponentialschreibweise oder mithilfe der Wurzelfunktion ausgeben lassen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">^</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.414214</code></pre>
-</div>
-</div>
-<p>Wurzelfunktion:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.414214</code></pre>
-</div>
-</div>
-<p>Allgemein gilt auch in R: “Punktrechnung vor Strichrechnung”:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 8</code></pre>
-</div>
-</div>
-</section>
-<section id="grundlagen" class="level2">
-<h2 class="anchored" data-anchor-id="grundlagen">3. Grundlagen</h2>
-<p>R ist zugleich eine Sprache und eine Umgebung für statistische Datenbearbeitung. R ist objektbasiert. Alles in R ist ein Objekt: Zahlen, Vektoren, Matrizen, Funktionen. Das grundlegende Funktionsprinzip ist dabei: “Definiere ein Objekt und weise ihm einen Wert zu.” Im einfachsten Fall wird im folgenden Beispiel das Objekt <strong><code>b</code></strong> erzeugt und ihm der Wert 2 zugewiesen. Um sich den Wert von <strong><code>b</code></strong> anzeigen zu lassen, kann man <strong><code>b</code></strong> einfach in die Konsole tippen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb17-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<p><code>b</code>** ist nun intern gespeichert und kann ebenfalls für Zuweisungen benutzt werden. Hier wird ein neues Objekt <strong><code>d</code></strong> erzeugt und ihm als Wert die Quadratwurzel von <strong><code>b</code></strong> zugewiesen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(b)</span></code></pre></div>
-</div>
-<p>Möglich ist es auch, <strong><code>b</code></strong> wieder mit einem anderen Wert zu überschreiben:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> b</span>
-<span id="cb20-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 200</code></pre>
-</div>
-</div>
-<p>Mit dem Befehl <strong><code>class</code></strong> kann man sich die Klasse von <strong><code>b</code></strong> anzeigen lassen.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(b)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "numeric"</code></pre>
-</div>
-</div>
-<p>Die wichtigsten Klassen für skalare Objekt (also solche, die nur aus einem einzigen Element bestehen), sind</p>
-<ul>
-<li><strong><code>numeric</code></strong>: reelle Ziffer oder Zahlen</li>
-<li><strong><code>character</code></strong>: Zeichenkette</li>
-<li><strong><code>logical</code></strong>: logischer Wert, der nur zwei Zustände annehmen kann, <strong><code>TRUE</code></strong> oder <strong><code>FALSE</code></strong></li>
-</ul>
-<p>Im folgenden verschiedene Beispiele für character- bzw. logische Zuweisungen, hier jeweils wiederum nur für die Länge 1. Zuweisungen der Klasse character erfolgen mit hochgestellten Anführungszeichen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hallo"</span></span>
-<span id="cb24-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(d)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">length</span>(d)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-<p>Wenn einem Objekt die Zahl 220 in hochgestellten Anführungszeichen zugewiesen wird, wird der Wert nicht als numerisch, sondern als character behandelt:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">e <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"220"</span></span>
-<span id="cb28-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(e)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-</div>
-<p>Wenn einem Objekt der Austruck TRUE in hochgestellten Anführungszeichen zugewiesen wird, wird der Wert nicht als logical, sondern als character behandelt:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">f <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span></span>
-<span id="cb30-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(f)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "logical"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1">g <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"TRUE"</span></span>
-<span id="cb32-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(g)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-</div>
-<section id="vektoren" class="level3">
-<h3 class="anchored" data-anchor-id="vektoren">3.1 Vektoren</h3>
-<p>Vektoren sind definiert als eine Reihe von Elementen <em>derselben</em> Klasse. Sie können unter anderem mit der Funktion <strong><code>c()</code></strong> erzeugt werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">89</span>)</span>
-<span id="cb34-2">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"gut"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"schlecht"</span>)</span>
-<span id="cb34-3">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
-</div>
-<p>Ähnlich wie in den vorher aufgeführten Beispielen kann man sich mit verschiedenen Befehlen verschiedene Eigenschaften dieser Vektoren zeigen lassen, etwa ihre Länge (= die Anzahl ihrer Elemente) mit <strong><code>length()</code></strong>, oder ihre Klasse mit <strong><code>class()</code></strong>. Bestimmte Funktionen wiederum kann man sinnvoll nur für numerische Vektoren anweden (z.B. <strong><code>sum()</code></strong>, <strong><code>mean()</code></strong>, <strong><code>min()</code></strong>, <strong><code>max()</code></strong> etc. Andere wiederum sind nur für Vektoren der Klasse character sinnvoll, etwa <strong><code>nchar()</code></strong>, das einem die Anzahl der Zeichen einer Zeichenkette gibt. Ganz allgemein gilt: Funktionen, die man auf Skalare anwenden kann, kann man in der Regel auch auf Vektoren anwenden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">skalar <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb35-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(skalar)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.414214</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">vektor <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">89</span>)</span>
-<span id="cb37-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(vektor)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.000000 2.000000 1.414214 1.414214 9.433981</code></pre>
-</div>
-</div>
-<p>Die Funktion <strong><code>sqrt</code></strong> gibt dabei genauso viele Elemente zurück, wie der Vektor besitzt, den man der Funktion übergeben hat. Das ist nicht bei allen Funktionen so; die <strong><code>mean</code></strong>-Funktion gibt (sinnvollerweise) immer nur ein Element zurück.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">skalar <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb39-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(skalar)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">vektor <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">89</span>)</span>
-<span id="cb41-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(vektor)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 19.6</code></pre>
-</div>
-</div>
-<p>Was passiert, wenn man Vektoren “unzulässig” definiert, also beispielsweise die Regel, dass alle Elemente dieselbe Klasse haben müssen, missachtet? Vektoren werden in die “kleinste gemeinsame Klasse” umgewandelt. Es gibt hier keine Warnmeldung, und manchmal führt das zu unerwünschten Nebenwirkungen. Zuerst betrachten wir einen Vektor, der aus Elementen der Klasse numeric, character und logical besteht:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>,<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hallo"</span>,<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>,<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span>
-<span id="cb43-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "1"     "6"     "hallo" "TRUE"  "11"    "FALSE"</code></pre>
-</div>
-</div>
-<p>Der gesamte Vektor wird als character definiert:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(b)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-</div>
-<p>Besteht der Vektor nur aus Elementen der Klassen numeric und logical, wird der Vektor als numeric definiert:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>,<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>,<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span>
-<span id="cb47-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  1  6  1 11  0</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(b)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "numeric"</code></pre>
-</div>
-</div>
-<p>An diesen Bespielen erkennt man prototypisch, wie R sich bei “widersinnigen” Benutzereingaben verhält: Anstatt bei formal falschen oder unsinnigen Eingaben wie <strong><code>nchar(15)</code></strong> eine Fehlermeldung auszugeben, wird versucht zu “antizipieren”, was der Benutzer gemeint oder beabsichtigt haben könnte. Bei <strong><code>nchar(15)</code></strong> wird also zunächst der numerische Ausdruck in einen character-Ausdruck umgewandelt und anschließend die Anzahl der Zeichen dieses Ausdrucks ausgegeben. Intern wertet R statt <strong><code>nchar(15)</code></strong> folgenden Ausdruck aus: <strong><code>nchar("15")</code></strong> bzw. <strong><code>nchar(as.character(15))</code></strong>. Ein solches oder ähnliches Verhalten wendet R in unzähligen Fällen an, und daraus ergeben sich zugleich Vor- und Nachteile: es erlaubt dem Anwender, syntaktisch “unsauberen” Code zu verwenden, ohne dass es zu Fehlermeldungen kommt. In der Regel erhält man das gewünschte Ergebnis. Außerdem kann man R-Syntaxen teils sehr sparsam und “schreibfaul” erstellen; <strong><code>nchar(15)</code></strong> ist ja viel kürzer als <strong><code>nchar(as.character(15))</code></strong>. Dass R diese Nachlässigkeiten erlaubt, hat aber auch Nachteile: die syntaktische Logik der R-Sprache ist dadurch weniger transparent, und falls es doch zu Fehlermeldungen kommt, sind diese erstmal weniger verständlich.</p>
-<p>Alternative Möglichkeiten, Vektoren zu erzeugen. Alle Zahlen von 1 bis 20:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span></span></code></pre></div>
-</div>
-<p>Erzeuge eine Zahlenreihe von -2 bis +2 in Intervallen von 0.2:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.2</span>) </span></code></pre></div>
-</div>
-<p>Repliziere die Ziffer 4 dreimal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
-</div>
-<p>Repliziere die Zahlenfolge von 1 bis 4 dreimal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
-</div>
-<p>Repliziere in der Zahlenfolge von 1 bis 4 jede einzelne Ziffer dreimal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">each=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
-</div>
-<p>Repliziere in der Zahlenfolge von 1 bis 4 jede einzelne Ziffer dreimal, und repliziere den egsamten Vektor zweimal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">each=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">times =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)</span></code></pre></div>
-</div>
-<p>Repliziere in der Zahlenfolge von 1 bis 4 die 1 einmal, die 2 zweimal, die 3 dreimal, etc.:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>)</span></code></pre></div>
-</div>
-</section>
-<section id="navigation-in-vektoren-subsetting" class="level3">
-<h3 class="anchored" data-anchor-id="navigation-in-vektoren-subsetting">3.2 Navigation in Vektoren (subsetting)</h3>
-<p>Mithilfe eckiger Klammern kann man sich einzelne Elemente eines Vektors anzeigen lassen oder auch verändern.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>)</span></code></pre></div>
-</div>
-<p>Der gesamte Vektor <strong><code>b</code></strong> besteht aus fünf Zahlen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.000000 1.414214 1.732051 2.000000 2.236068</code></pre>
-</div>
-</div>
-<p>Mit <strong><code>b[2]</code></strong> kann man sich nur das zweite Element des Vektors anzeigen lassen; mit <strong><code>b[2] &lt;- 1000</code></strong> kann man das zweite Element durch die Zahl 1000 ersetzen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1">b[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1000</span></span>
-<span id="cb61-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]    1.000000 1000.000000    1.732051    2.000000    2.236068</code></pre>
-</div>
-</div>
-<p>Mit <strong><code>b[4:5] &lt;- c(400, 500)</code></strong> kann man das vierte und fünfte Element durch die Zahlen 400 und 500 ersetzen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1">b[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">400</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">500</span>)</span>
-<span id="cb63-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]    1.000000 1000.000000    1.732051  400.000000  500.000000</code></pre>
-</div>
-</div>
-<p>Hier ein weiteres Beispiel für ein syntaktisch “fehlerhaftes” Subsetting, das trotzdem funktioniert. Man würde erwarten, dass <strong><code>b[4:5] &lt;- 45</code></strong> eine Fehlermeldung gibt: <em>zwei</em> Elemente in einem Vektor sollen durch <em>eine</em> Zahl ersetzt werden. Die “sauberere” Lösung wäre <strong><code>b[4:5] &lt;- c(45, 45)</code></strong>. Dennoch funktionier auch <strong><code>b[4:5] &lt;- 45</code></strong>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1">b[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">45</span></span>
-<span id="cb65-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]    1.000000 1000.000000    1.732051   45.000000   45.000000</code></pre>
-</div>
-</div>
-<p>Weitere “unzulässige” Operationen haben wieder denselben Effekt wie oben beschrieben. Ersetze ich ein Element des numerischen Vektors durch ein character-Element, wird der gesamte Vektor ebenfalls nach character umgewandelt.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1">b[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hallo"</span></span>
-<span id="cb67-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(b)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "hallo"            "1000"             "1.73205080756888" "45"              
-[5] "45"              </code></pre>
-</div>
-</div>
-</section>
-<section id="funktionsliste-i-deskriptive-statistiken-für-numerische-vektoren" class="level3">
-<h3 class="anchored" data-anchor-id="funktionsliste-i-deskriptive-statistiken-für-numerische-vektoren">3.3 Funktionsliste I: Deskriptive Statistiken für numerische Vektoren</h3>
-<p>Alle Funktionen, die sich sinnvoll auf numerische Vektoren anwenden lassen, können hier in ihrer Vollständigkeit nicht aufgeführt werden. Im Folgenden sollen jedoch die gebräuchlichsten und am häufigsten verwendeten aufgelistet werden:</p>
-<ul>
-<li><p><strong><code>sum()</code></strong>. Berechnet die Summe aller Elemente eines Vektors. Nicht definiert für nicht-numerische Vektoren.</p></li>
-<li><p><strong><code>mean()</code></strong>. Arithmetischer Mittelwert aller Elemente eines Vektors. Nicht definiert für nicht-numerische Vektoren.</p></li>
-<li><p><strong><code>sd()</code></strong>. Standardabweichung</p></li>
-<li><p><strong><code>var()</code></strong>. Varianz</p></li>
-<li><p><strong><code>min()</code></strong>. Minimum</p></li>
-<li><p><strong><code>max()</code></strong>. Maximum</p></li>
-<li><p><strong><code>scale()</code></strong>. Funktion zum Zentrieren oder <em>z</em>-Standardisieren. Die Funktion besitzt zusätzliche Argumente, je nachdem ob standardisiert oder nur zentriert werden soll. Für die zusätzlichen Argumente sind Standardeinstellungen (defaults) definiert – also “Voreinstellungen” der Argumente, die benutzt werden, wenn der Anwender die Funktionsargumente selbst nicht explizit definiert. Ein Vektor <strong><code>a &lt;- rnorm(100, mean = 2, sd = 8)</code></strong> mit Mittelwert 2 und Standardabweichung 8 wird mit <strong><code>scale(a, center = TRUE, scale = FALSE)</code></strong> zentriert und mit <strong><code>scale(a, center = TRUE, scale = TRUE)</code></strong> standardisiert. (Bei <strong><code>scale(a, center = FALSE, scale = FALSE)</code></strong> passiert einfach gar nichts; der Vektor wird 1:1 so zurückgegeben, wie er war.)</p></li>
-<li><p><strong><code>table()</code></strong> gibt eine Häufigkeitsverteilung aller Werte eines Vektors. Das ist sowohl für numerische als auch für nicht-numerische Vektoren möglich und für letztere häufig sinnvoller.</p></li>
-<li><p><strong><code>sort()</code></strong>. Elemente auf- oder absteigend sortieren. Geht auch für nicht-numerische Vektoren (bei character-Vektoren wird in diesem Fall sortiert, bei Faktoren nach Ordnung der factor levels). Auch <strong><code>sort()</code></strong> enthält zusätzliche Argumente mit Voreinstellungen, z.B. das Argument <strong><code>decreasing</code></strong>, das angibt, ob auf- oder absteigend sortiert werden soll. Der default ist hier <strong><code>decreasing = FALSE</code></strong>; es wird also standardmäßig aufsteigend sortiert.</p></li>
-<li><p><strong><code>order()</code></strong> funktioniert ähnlich wie <strong><code>sort()</code></strong>, gibt aber anstelle des Vektor-Wertes die Position zurück. Am einfachsten lässt sich das mit einem character-Vektor veranschaulichen – hier erkennt man auch, dass verschiedene R-Funktionen zueinander häufig redundant sind; es gibt verschiedene syntaktische Möglichkeiten, ein und dasselbe Ergebnis zu erhalten. Das macht R zum einen recht flexibel, zum anderen nicht unbedingt übersichtlich.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1">vek <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"oh"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"je"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"mi"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"neh"</span>)</span>
-<span id="cb71-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sort</span>(vek)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "je"  "mi"  "neh" "oh" </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb73" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">order</span>(vek)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 3 4 1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb75" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1">vek[<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">order</span>(vek)]</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "je"  "mi"  "neh" "oh" </code></pre>
-</div>
-</div>
-<ul>
-<li><p><strong><code>rev()</code></strong> kehrt die Reihenfolge der Elemente eines Vektors um</p></li>
-<li><p><strong><code>unique()</code></strong> zeigt die Elemente des Vektors und lässt alle mehrfach vorhandenen Werte aus.</p></li>
-<li><p><strong><code>duplicated()</code></strong> gibt einen logischen Vektor zurück, der für jedes Element anzeigt, ob es einzigartig ist (FALSE) oder mindestens zweimal vorkommt (TRUE)</p></li>
-<li><p><strong><code>which()</code></strong> gibt zurück, an welcher Stelle (oder welchen Stellen) eines Vektors sich ein bestimmtes Element befindet, z.B. <strong><code>which(x == 5)</code></strong>, oder eine bestimmte Bedingung erfüllt ist <strong><code>which(x &gt; 5)</code></strong>, oder <strong><code>which(x != 5)</code></strong></p></li>
-</ul>
-<p>Das sind, wie gesagt, bei weitem nicht alle Funktionen für numerische Vektoren. Wenn man eine bestimmte Operation durchführen möchte und den R-Befehl nicht kennt, hilft es häufig, die gewünschte Operation bei Google mit dem Zusatz “R” oder “R CRAN” einzugeben, vorzugsweise in englisch, z.B. “R sort by more than one variable”.</p>
-</section>
-<section id="funktionsliste-ii-bearbeiten-von-character-vektoren" class="level3">
-<h3 class="anchored" data-anchor-id="funktionsliste-ii-bearbeiten-von-character-vektoren">3.4 Funktionsliste II: Bearbeiten von character-Vektoren</h3>
-<p>Im Anwendungsfall von Large-scale Assessments im Bildungsforschungsbereich kommen character-Vektoren bspw. in Variablen- oder Itemnamen vor. Weniger häufig begegnet man ihnen unter anderem auch in Freitextfeldern in Schülerfragebögen. R bietet zahlreiche Möglichkeiten zur Bearbeitung von character-Vektoren, die auch reguläre Ausdrücke einschließen. Hier sollen nur die wichtigsten anhand prominenter Anwendungsfälle genannt werden. Man könnte sich beispielsweise vorstellen, in einem großen Datensatz mit vielen Variablen bestimmte Spalten oder Variablen identifizieren beziehungsweise verändern zu wollen. Der beispielhaft verwendete Vektor mit Variablennamen sei der folgende:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb77" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1">varnamen <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"idstud"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"idclass"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10101a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10102a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10102b"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10103a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10201a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10301"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"sex"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15511a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15612a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15712b"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15712c"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15712d"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hisced"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"parid"</span>)</span></code></pre></div>
-</div>
-<p>Insgesamt gibt es hier nur 14 Variablen – in großen Large-scale Datensätzen hat man es ja zuweilen mit 1000 variablen und mehr zu tun.</p>
-<section id="die-funktion-grep" class="level4">
-<h4 class="anchored" data-anchor-id="die-funktion-grep">Die Funktion <strong><code>grep()</code></strong></h4>
-<p><strong><code>grep()</code></strong> erlaubt, einen character-vektor nach einem bestimmten Muster zu durchsuchen. Zurückgegeben werden alle Positionen, an denen dieses Muster auftritt. Man kann sich das ein bisschen wie die Suchfunktion in Word vorstellen. <strong><code>grep()</code></strong> hat verschiedene Argumente – <strong><code>pattern</code></strong> gibt das Muster an, <em>was</em> gesucht werden soll, <strong><code>x</code></strong> gibt den character-Vektor an, <em>in dem</em> gesucht werden soll, und <strong><code>value</code></strong> gibt als logisches Argument an, ob der Wert selbst oder seine Position zurückgegeben werden soll. Die Flexibilität von <strong><code>grep()</code></strong> rührt unter anderem auch daher, dass man als Suchmuster (<strong><code>pattern</code></strong>) auch reguläre Ausdrücke verwenden kann.</p>
-<ul>
-<li><p><strong><code>grep(pattern="id", x=varnamen)</code></strong> findet die Positionen der Variablennamen, die ein “id” im Variablennamen haben.</p></li>
-<li><p><strong><code>grep(pattern="id", x=varnamen, value=TRUE)</code></strong> zeigt die Variablennamen an, die ein “id” im Variablennamen haben.</p></li>
-<li><p><strong><code>grep(pattern="^id", x=varnamen, value=TRUE)</code></strong> zeigt die Variablennamen an, die mit einem “id” im Variablennamen <em>beginnen</em>. (Der “Haken” vor dem “id” besagt, dass der Variablenname mit “id” beginnen muss)</p></li>
-<li><p>Wenn ich id-Variablen finden will, mit aber nicht sicher bin, ob die in dem Datensatz groß oder klein geschrieben sind, ich aber im Zweifel beide haben will, kann man die “Oder”-verknüpfung nehmen (genaueres im Abschnitt “Logische Operatoren”): <strong><code>grep(pattern="ID|id", x=varnamen, value=TRUE)</code></strong></p></li>
-<li><p>Auch den letzten Befehl kann man “einengen”, dass nur die Variablennamen gesucht werden sollen, die mit einem groß oder kleingeschriebenen “ID” beginnen: <strong><code>grep(pattern="^ID|^id", x=varnamen, value=TRUE)</code></strong></p></li>
-<li><p>Das ist auch sinnvoll, wenn ich beispielsweise alle Variablennamen der Deutsch-Items identifizieren will und weiß, Deutsch-Items beginnen mit einem groß geschriebenen “D”: <strong><code>grep(pattern="^D", x=varnamen, value=TRUE)</code></strong></p></li>
-<li><p>Genauso kann man auch nur die Variablennamen suchen, die mit einem klein geschriebenen “a” <em>aufhören</em>: <strong><code>grep(pattern="a$", x=varnamen, value=TRUE)</code></strong>. Das “$”-Zeichen gibt an, dass nach dem Zeichen “a” der Variablenname zuende sein muss.</p></li>
-<li><p>Möglich (aber etwas komplizierter) sind auch Verknüpfungen der Art: Finde alle Variablennamen, die mit einem “D” beginnen und einem “a” aufhören. Hier handelt es sich um eine logische Verknüpfung zweier Bedingungen – genauer wird darauf im folgenden Abschnitt “Logische Operatoren” eingegangen. In R kann man das auf verschiedenen Wegen realisieren; eine Möglichkeit soll hier kurz demonstriert werden:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb78" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1">beginnt_mit_D <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">grep</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">pattern=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"^D"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>varnamen, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">value=</span><span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span>
-<span id="cb78-2">endet_mit_a   <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">grep</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">pattern=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"a$"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>varnamen, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">value=</span><span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span>
-<span id="cb78-3">beides        <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">intersect</span>(beginnt_mit_D, endet_mit_a)</span>
-<span id="cb78-4">beides</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "D10101a" "D10102a" "D10103a" "D10201a"</code></pre>
-</div>
-</div>
-</section>
-<section id="die-funktionen-gsub-substr-substring-nchar-und-strsplit" class="level4">
-<h4 class="anchored" data-anchor-id="die-funktionen-gsub-substr-substring-nchar-und-strsplit">Die Funktionen <strong><code>gsub()</code></strong>, <strong><code>substr()</code></strong>, <strong><code>substring()</code></strong>, <strong><code>nchar()</code></strong> und <strong><code>strsplit()</code></strong></h4>
-<ul>
-<li><p><strong><code>gsub()</code></strong> erlaubt es, Teile eines character-Vektors zu ersetzen. Sollen bspw. in der Variablenliste alle Namen, die mit “D101” beginnen, durch “D201” ersetzt werden, geht das mit <strong><code>gsub(pattern = "D101", replacement = "D201", x = varnamen)</code></strong>. Hier ist es wichtig, die Stelligkeit zu beachten; <strong><code>gsub(pattern = "D1", replacement = "D2", x = varnamen)</code></strong> würde auch z.B. “D102” durch “D202” ersetzen. Möglich, aber nicht notwendig ist hier auch, die Ersetzung nur durchzuführen, wenn “D101” am Anfang des strings steht: <strong><code>gsub(pattern = "^D101", replacement = "D201", x = varnamen)</code></strong>.</p></li>
-<li><p><strong><code>substr()</code></strong> erlaubt es, bestimmte Teile eines character-Vektors “auszuschneiden”: wenn man bspw. nur die ersten 4 Zeichen ausschneiden will, geht das mit <strong><code>substr(x = varnamen, start = 1, stop = 4)</code></strong>. Zeichenketten mit weniger als 4 Zeichen (hier etwa der Variablenname “sex”) werden dabei so beibehalten, wie sie waren.</p></li>
-<li><p>Möchte man von dem character-Vektor nur am Anfang bspw. das erste Zeichen entfernen und alle anderen beibehalten (egal, wie viele es sind), bietet sich die Funktion <strong><code>substring()</code></strong> an: <strong><code>substring(text = varnamen, first = 2)</code></strong></p></li>
-<li><p><strong><code>nchar()</code></strong> einem für jedes Element die Anzahl von Zeichen (Buchstaben und Ziffern): <strong><code>nchar(varnamen)</code></strong></p></li>
-<li><p><strong><code>strsplit()</code></strong> teilt einen character-Vektor an einem definierten Zeichen</p></li>
-</ul>
-</section>
-<section id="die-funktion-paste" class="level4">
-<h4 class="anchored" data-anchor-id="die-funktion-paste">Die Funktion <strong><code>paste()</code></strong></h4>
-<p>Die Funktion erlaubt es, character-Vektoren aus einzelnen Elementen “zusammenzubauen”. Soll beispielsweise an den Variablennamens-Vektor <strong><code>varnamen</code></strong> das Jahr der Erhebung mit angefügt werden, geht das mit folgendem Ausdruck: <strong><code>paste(varnamen, "2012", sep="_")</code></strong>. An jeden Variablennamen wurde nun die Jahreszahl 2012 angefügt. Der Argument <strong><code>sep</code></strong> gibt dabei das Zeichen an, das als “Trenner” zweischen dem ursprünglichen Ausdruck und dem “Suffix” 2012 verwendet werden soll. <strong><code>paste()</code></strong> ist eine recht mächtige Funktion, so kann man bspw. auch an jeden Variablennamen die laufende Nummer anhängen, die er im character-Vektor einnimmt: <strong><code>paste(varnamen, 1:length(varnamen), sep="_")</code></strong>. Es ist auch möglich, alle Elemente des Vektor zu einem einzigen großen String zusammenzubinden: <strong><code>paste(varnamen, collapse="_")</code></strong>. Die wichtige, aber häufig Verwirrung stiftende Unterscheidung liegt hierbei zwischen den Separationsargumenten <strong><code>sep</code></strong> und <strong><code>collapse</code></strong>. <strong><code>sep</code></strong> definiert das Trennzeichen für die einzelnen Terme; <strong><code>collapse</code></strong> (ggf.) das Trennzeichen, mit dem die Ergebnisse zusammengefügt werden (sofern sie zusammengefügt werden sollen). Die Hilfeseite der <strong><code>paste</code></strong>-Funktion liefert einige anschauliche Beispiele, die die Unterscheidung zwischen beiden verdeutlichen.</p>
-</section>
-<section id="funktionen-aus-eattools" class="level4">
-<h4 class="anchored" data-anchor-id="funktionen-aus-eattools">Funktionen aus <strong><code>eatTools</code></strong></h4>
-<p>Im Laufe der Datenaufbereitungsprozeduren am IQB wurden die obenstehenden Funktionen teils erweitert. Ohne Anspruch auf Vollständigkeit sollen weitere Möglichkeiten der Zeichenkettenmanipulation kurz genannt werden:</p>
-<ul>
-<li><p><strong><code>eatTools::crop()</code></strong> entfernt führende oder abschließende Leerzeichen (bzw. ein frei definiertes Zeichen) aus einem character-Vektor. Das ist bspw. dann sinnvoll, wenn in inakkurat aufbereiteten Datensätzen z.B. anstatt einer <code>1</code> der Wert <code>1</code> (also mit einem unbeabsichtrigten leerzeichen eingetragen wurde. Hier werden (nur der Anschaulichkeit zuliebe) alle führenden und abschließenden “D”s aus den Variablennamen entfernt: <strong><code>eatTools::crop(varnamen, char = "D")</code></strong></p></li>
-<li><p><strong><code>eatTools::removeNumeric()</code></strong> entfernt alle Ziffern aus einem character-Vektor: <strong><code>eatTools::removeNumeric(varnamen)</code></strong></p></li>
-<li><p><strong><code>eatTools::removeNonNumeric()</code></strong> entfernt alle Buchstaben aus einem character-Vektor und lässt nur die Ziffern übrig. Manche Elemente von <strong><code>varnamen</code></strong> sind hinterher leer. <strong><code>eatTools::removeNonNumeric(varnamen)</code></strong></p></li>
-<li><p><strong><code>eatTools::removePattern()</code></strong> entfernt ein bestimmtes Muster aus einem character-Vektor: <strong><code>eatTools::removePattern(string = varnamen, pattern = "id")</code></strong></p></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="logische-operatoren" class="level2">
-<h2 class="anchored" data-anchor-id="logische-operatoren">4. Logische Operatoren</h2>
-<p>Allgemeines zu logischen Operatoren kann man auf der gleichnamigen Wikipediaseite finden: https://de.wikipedia.org/wiki/Logischer_Operator<br>
-Für sämtliche Operatoren gibt es eine Entsprechung in R. Die Syntax ist dabei (weitgehend) äquivalent zu den angegeben Beispielen für C, C++, Java und PHP auf der Wikipediaseite. Der Wahrheitswert, der in R zurückgegeben wird, hat die Klasse <strong><code>logical</code></strong> und kann 2 Werte annehmen: TRUE oder FALSE. Der Wahrheitswert kann wiederum einem Objekt zugewiesen werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb80" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1">istWahr <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span> </span>
-<span id="cb80-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(istWahr)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "logical"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb82" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1">istWahr</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-</div>
-<section id="logische-operatoren-ohne-verknüpfung" class="level4">
-<h4 class="anchored" data-anchor-id="logische-operatoren-ohne-verknüpfung">Logische Operatoren ohne Verknüpfung</h4>
-<ul>
-<li><strong>ist größer als</strong>: <code>4 &gt; 3</code></li>
-<li><strong>ist kleiner als</strong>: <code>4 &lt; 3</code></li>
-<li><strong>ist größer oder gleich</strong>: <code>4 &gt;= 3</code></li>
-<li><strong>ist kleiner oder gleich</strong>: <code>4 &lt;= 3</code></li>
-<li><strong>ist gleich</strong>: <code>4 == 3</code></li>
-<li><strong>ist ungleich</strong>: <code>4 != 3</code></li>
-</ul>
-</section>
-<section id="logische-operatoren-mit-verknüpfungen" class="level4">
-<h4 class="anchored" data-anchor-id="logische-operatoren-mit-verknüpfungen">Logische Operatoren mit Verknüpfungen</h4>
-<ul>
-<li><strong>Bedingung a UND Bedingung b sind erfüllt</strong>: <code>4 &gt; 3 &amp; is.numeric(5)</code></li>
-<li><strong>Bedingung a ODER Bedingung b ist erfüllt</strong>: <code>4 &gt; 3 | is.numeric(5)</code></li>
-<li><strong>ENTWEDER Bedingung a ODER Bedingung b ist erfüllt</strong>: <code>xor(4 &gt; 3, is.numeric(5))</code>. Hier wird <code>FALSE</code> zurückgegeben, da <em>beide</em> Bedingungen erfüllt sind, und eben nicht nur entweder a oder b.</li>
-<li><strong>Bedingung b ist nicht erfüllt</strong>: <code>!is.numeric("a")</code>. Hier wird <code>TRUE</code> zurückgegeben, denn es ist ja wahr, dass “a” <em>nicht</em> numerisch ist.</li>
-</ul>
-</section>
-<section id="arbeiten-mit-vektorwertigen-logischen-verknüpfungen" class="level4">
-<h4 class="anchored" data-anchor-id="arbeiten-mit-vektorwertigen-logischen-verknüpfungen">Arbeiten mit vektorwertigen logischen Verknüpfungen</h4>
-<p>In den oberen Beispielen wurden logische Abfragen immer nur für ein Objekt der Länge 1 durchgeführt. Man kann diese Funktionen aber auch auf Vektoren anwenden. Dazu folgendes hypothetisches Beispiel: ein großer Datensatz mit vielen Variablen soll in Mplus ausgewertet werden. In Mplus dürfen Variablennamen jedoch nur maximal 6 Zeichen haben. Gibt es also in dem Variablennamens-Vektor <strong><code>varnamen</code></strong> Variablennamen mit unerlaubter Länge? Um das zu prüfen, geht man in mehreren Schritten vor:</p>
-<ol type="1">
-<li>Zeige für jedes Element im Variablennamens-Vektor die Anzahl von Buchstaben an.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb84" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1">anzahl <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">nchar</span>(varnamen)</span></code></pre></div>
-</div>
-<ol start="2" type="1">
-<li>Prüfe, für welche Variablennamen die zulässige Zeichenanzahl überschritten ist. Dazu wird ein logischer Vektor erzeugt, der den Wert <strong><code>TRUE</code></strong> annimmt, wenn die Zeichenanzahl maximal 6 beträgt, andernfalls <strong><code>FALSE</code></strong>.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb85" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1">erlaubt <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anzahl <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span></span>
-<span id="cb85-2">erlaubt</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
-[13] FALSE FALSE  TRUE  TRUE</code></pre>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Nun wird geprüft, ob diese Bedingung für alle Variablennamen erfüllt ist. Dazu können die Funktionen <strong><code>all()</code></strong> oder <strong><code>any()</code></strong> benutzt werden. <strong><code>all()</code></strong> fragt: Haben alle Elemente des Vektors <strong><code>erlaubt</code></strong> den Wahrheitswert <strong><code>TRUE</code></strong>? <strong><code>any()</code></strong> fragt: Gibt es irgendein Element in dem Vektors <strong><code>erlaubt</code></strong>, das den Wahrheitswert <strong><code>FALSE</code></strong> hat?</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb87" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">all</span>(erlaubt)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb89" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(erlaubt <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Ja, einige Variablennamen haben eine größere Zeichenanzahl als 6. Man kann die Variablennamen auf die ersten 6 Zeichen reduzieren:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb91" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1">varnamen_neu <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">substr</span>(varnamen, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>)</span></code></pre></div>
-</div>
-<ol start="4" type="1">
-<li>Variablennamen müssen jedoch stets einzigartig (unique) sein. Ist das jetzt noch der Fall? Dazu verwendet man die oben beschriebene Funktion <strong><code>duplicated()</code></strong> in Verbindung mit <strong><code>any</code></strong>:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb92" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">duplicated</span>(varnamen_neu))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<p>Der Wahrheitswert ist <strong><code>TRUE</code></strong>, es gibt also mindestens zwei Variablennamen, die jetzt identisch sind. An dieser Stelle könnte es passieren, dass man erstmal nicht weiter weiß. Eine Möglichkeit wäre, zu googlen: “r make unique”. So findet man eine Funktion namens <strong><code>make.unique</code></strong>, die es erlaubt, duplizierte Werte in character-Vektoren zu ersetzen, so dass sie einzigartig werden. Unglücklicherweise werden dadurch die Variablennamen wieder länger, als sie sein dürfen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb94" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1">varnamen_neu2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">make.unique</span>(varnamen_neu)</span>
-<span id="cb94-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">nchar</span>(varnamen_neu2)<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<p>Tatsächlich gibt es für dieses Problem also keine einfache, “triviale” Lösung. Man könnte entweder vollständig willkürliche Namen vergeben, die dann aber keine Rückschlüsse auf die ursprüngliche Variablenbedeutung mehr zulassen, oder man experimentiert, beruhend auf folgenden Überlegungen: <strong><code>make.unique</code></strong> fügt an nicht-unique Variablennamen einen Punkt und eine laufende Nummer an, also zwei zusätzliche Zeichen. Also dürfte man nur die ersten 4 Zeichen der Variablennamen beibehalten:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb96" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1">varnamen_neu3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">make.unique</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">substr</span>(varnamen, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>))</span>
-<span id="cb96-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">nchar</span>(varnamen_neu3)<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb98" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">duplicated</span>(varnamen_neu3))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb100" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1">varnamen_neu3</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "idst"   "idcl"   "D101"   "D101.1" "D101.2" "D101.3" "D102"   "D103"  
- [9] "sex"    "M155"   "M156"   "M157"   "M157.1" "M157.2" "hisc"   "pari"  </code></pre>
-</div>
-</div>
-<p>Hundertprotentig schön ist auch diese Variante nicht, weil nun auch von bereits einzigartigen Variablennamen nur die ersten vier Zeichen übrig behalten worden sind, obwohl es hier ja hätten sechs sein dürfen. Sofern eine solche Operation im Arbeitsalltag also häufiger gebraucht wird, wäre es günstig, sich dafür eine eigene Funktion zu schreiben, um diese Prozesse weniger umständlich zu gestalten. Dazu aber an anderer Stelle mehr.</p>
-</section>
-</section>
-<section id="fehlende-werte-missing-values" class="level2">
-<h2 class="anchored" data-anchor-id="fehlende-werte-missing-values">5. Fehlende Werte (missing values)</h2>
-<p>Fehlende Werte werden in R mit <strong><code>NA</code></strong> (not available) gekennzeichnet. Im Folgenden geht es nicht darum, wie in statistischen Analysen mit fehlenden Werten umgegangen werden kann, sondern wie man sie in R technisch behandelt. Dazu soll beispielhaft ein numerischer Vektor betrachtet werden, der fehlende Werte enthält:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb102" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1">numvek <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span>
-<span id="cb102-2">numvek[<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">19</span>)] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NA</span></span></code></pre></div>
-</div>
-<section id="die-häufigsten-im-zusammenhang-mit-fehlenden-werten-gebräuchlichen-funktionen-sind" class="level4">
-<h4 class="anchored" data-anchor-id="die-häufigsten-im-zusammenhang-mit-fehlenden-werten-gebräuchlichen-funktionen-sind">Die häufigsten im Zusammenhang mit fehlenden Werten gebräuchlichen Funktionen sind:</h4>
-<ul>
-<li><p><strong><code>is.na()</code></strong> gibt einen Vektor der Klasse <strong><code>logical</code></strong> zurück, dessen Wert <strong><code>TRUE</code></strong> ist, wenn es sich um einen fehlenden Wert handelt: <strong><code>is.na(numvek)</code></strong>. Wenn man lediglich wissen, ob es überhaupt irgendwelche fehlenden Werte gibt, kann man das mit <strong><code>any()</code></strong> verbinden: <strong><code>any(is.na(numvek))</code></strong>. Wenn man wissen will, an welcher Stelle die fehlenden Werte stehen, geht <strong><code>which(is.na(numvek))</code></strong></p></li>
-<li><p><strong>Achtung!</strong> Anders als man vielleicht vermuten würde, funktioniert <strong><code>which(numvek == NA)</code></strong> nicht!</p></li>
-<li><p>Wenn ich nur die beobachteten Werte aus <strong><code>numvek</code></strong> extrahieren möchte, also alles ausschließen, was <strong><code>NA</code></strong> ist, geht das mit <strong><code>na.omit(numvek)</code></strong>. Dieser Vektor ist mit nur noch 16 Elementen folglich kürzer als der ursprüngliche mit 20 Elementen: <strong><code>length(na.omit(numvek))</code></strong></p></li>
-<li><p>Möchte man sich beispielsweise den Mittelwert eines Vektors anzeigen lassen, der fehlende Werte enthält, ist das Ergebnis ebenfalls <strong><code>NA</code></strong>: <strong><code>mean(numvek)</code></strong>. Meist will man jedoch einfach das arithmetisches Mittel aller <em>beobachteten</em> Werte. Dazu könnte man einfach den Mittelwert unter Ausschluss der fehlenden Werte bestimmen: <strong><code>mean(na.omit(numvek))</code></strong>. Das ist dasselbe, wie wenn man in der Funktion <strong><code>mean()</code></strong> mit einem zusätzlichen Argument definiert, dass fehlende Werte vor der Berechnung ausgeschlossen werden sollen: <strong><code>mean(numvek, na.rm = TRUE)</code></strong>. Man sieht wieder, dass verschiedene syntaktische Umsetzungen zu dem gewünschten Ergebnis führen können. Das logische Argument <strong><code>na.rm</code></strong> ist für viele Funktionen definiert, so etwa <strong><code>var()</code></strong>, <strong><code>sd()</code></strong>, <strong><code>lm()</code></strong>, <strong><code>glm()</code></strong>, etc.</p></li>
-</ul>
-</section>
-<section id="fehlende-werte-in-character-vektoren" class="level4">
-<h4 class="anchored" data-anchor-id="fehlende-werte-in-character-vektoren">Fehlende Werte in character-Vektoren</h4>
-<p>Hier gilt im Grunde dasselbe wie für numerische Vektoren. Auf ein paar Fallstricke soll hingewiesen werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb103" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1">charvek <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"France"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Belgium"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Poland"</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NA</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Denmark"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"NA"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Austria"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>)</span>
-<span id="cb103-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">which</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">is.na</span>(charvek))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
-<p>Auch in character-Vektoren müssen fehlende Werte <em>ohne</em> hochgestellte Anführungszeichen eingetragen werden; der sechste Wert <strong><code>"NA"</code></strong> wird nicht als fehlender Wert verstanden. Ebensowenig der achte Wert, der einfach ein leerer String ist. Letzteres ist insofern relevant, dass, wenn man etwa csv-Dateien mit R einliest, leere Zellen manchmal als leere Strings eingelesen werden, obwohl man sie eigentlich wie fehlende Werte behandelt wissen will. Um das <strong><code>"NA"</code></strong> und den leeren String in einen wirklichen fehlenden Wert umzuwandeln, kann beispielsweise die <strong><code>recode()</code></strong>-Funktion aus dem Paket <strong><code>car</code></strong> verwendet werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb105" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1">charvek_neu <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> car<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">recode</span>(charvek, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"'NA'=NA; ''=NA"</span>)</span>
-<span id="cb105-2">charvek_neu</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "France"  "Belgium" "Poland"  NA        "Denmark" NA        "Austria"
-[8] NA       </code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="gut-zu-wissen" class="level2">
-<h2 class="anchored" data-anchor-id="gut-zu-wissen">6. Gut zu wissen</h2>
-<p>Den Überblick über die vorhandenen Funktionen und Pakete zu behalten, ist nahezu unmöglich; allein auf CRAN gibt es tausende von R-Paketen. Aus unserer subjektiven Sicht sollen daher die wichtigsten Funktionen, die sich im Laufe des IQB-Lebens als unverzichtbar herausgestellt haben, hier kurz ohne Anspruch auf Vollständigkeit aufgelistet werden. Wo nötig, werden Links für weiterführende Literatur angegeben:</p>
-
-
-</section>
-
- ]]></description>
-  <category>R</category>
-  <category>tutorial</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</guid>
-  <pubDate>Fri, 06 Sep 2024 12:22:43 GMT</pubDate>
+  <pubDate>Mon, 09 Sep 2024 07:07:57 GMT</pubDate>
 </item>
 </channel>
 </rss>
