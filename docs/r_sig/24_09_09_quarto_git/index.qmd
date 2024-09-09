@@ -69,6 +69,10 @@ quarto render
 
 Commit and push your changes!
 
+:::{callout-tip}
+Don't commit your output file, like html. You can exclude it from appearing in your git-interface by adding `*.html` to your `.gitignore` file. 
+:::
+
 ### 3. gh-pages branch
 
 After that, you have to set up a `gh-pages` branch (make sure you have commited all changes before building the branch), again in the Terminal:
