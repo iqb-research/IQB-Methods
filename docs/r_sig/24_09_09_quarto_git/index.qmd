@@ -10,7 +10,7 @@ bibliography: references.bib
 ---
 
 # Motivation
-We have already talked about [reproducable manuscripts with Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/). Now, one big plus of using a markdown language is that it is very easy to use with a version control systems like Git, enabling us to leverage the many advantages of version control.
+We have already talked about [reproducable manuscripts with Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/). Now, one big plus of writing in a markdown language is that it is very easy to use with a version control systems like Git, enabling us to leverage the many advantages of version control.
 
 # Git
 Git is a version control system. Some advantages:
@@ -22,18 +22,15 @@ Git is a version control system. Some advantages:
 Mainly it is used for working on code. However, markdown files are also text files, and can therefore be easily version controlled with Git.
 For this text I assume you are already kind of proficient in working with [GitHub](https://github.com/). If not, you can take a look at this [Getting Started Guide](https://docs.github.com/en/get-started/start-your-journey/hello-world).  
 
-Combination with renv. 
-If you want to dive deeper into reproducable workflows, I recommend @peikert2021reproducible. 
+::: {.callout .callout-info}
+To make your project truly reproducable, you might want to also use [renv]().   
+If you want to dive even deeper into reproducable workflows, take a look at @peikert2021reproducible. 
+:::
 
-# 
+# Quarto + Git
 Generally, there isn't much new stuff here, if you already work with GitHub. You set up your repo and track your R and Quarto files with Git. 
-
-
 In light of reproducability, this is as transparent as we can get. If we use GitHub throughout the whole project, and make the project public, everyone can track what we have done, which decisions we made and why.  
-We can use Issues to discuss certain points with coauthors. 
-We can use Pull Requests and Reviews to discuss changes in the manuscript or analysis. 
-
-# Example structure
+We can use Issues to discuss certain points with coauthors and can use Pull Requests and Reviews to discuss changes in the manuscript or analysis. 
 
 
 # GitHub Actions
