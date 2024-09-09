@@ -34,17 +34,76 @@ We can use Issues to discuss certain points with coauthors and can use Pull Requ
 
 
 # GitHub Actions
-GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript:
+It is considered bad practicew to commit rendered documents like PDF or HTML to GitHub. Instead, build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the built output document. 
+GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript. 
+The setup is a bit more complex, the complete documentation can be found [here](https://quarto.org/docs/publishing/github-pages.html).   
+In this section, I'll present one possible workflow.  
 
+First, you have to open your `_quarto.yml` file and add the following:
+
+```
+execute:
+  freeze: auto
+```
+
+This will create a `_freeze` folder containing all your executed code. If you youse `renv`, this isn't necessary, because the renv workflow will execute the code again.  
+
+Now you can render your quarto project once, using the Terminal (not the Console):
+
+
+```
+quarto render
 ```
 
 
+After that, you have to set up a `gh-pages` branch (make sure you have commited all changes before building the branch), again in the Terminal:
+
+```
+git checkout --orphan gh-pages
+git reset --hard # make sure all changes are committed before running this!
+git commit --allow-empty -m "Initialising gh-pages branch"
+git push origin gh-pages
 ```
 
-Don't commit rendered documents like PDF or HTML to GitHub, but build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the buil output document. 
+Your published content will be build from this branch. You don't have to touch it after setting it up, the Actions we'll build will take care of that. 
 
+Finally, you can publish your quarto document:
 
-# Cavetas
+```
+quarto publish gh-pages documentname.qmd
+```
+
+To trigger this publishing everytime you push to your main branch on GitHub, build a new directory in your project called `.github/workflows`. Into this directory, you put a file `publish.yml` and fill it with the following code:
+
+```
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+# Caveats
 Some words of warning: Everything is online. So you should be carefull to upload sensitive data. 
 Also, the fact that the whole process would be visible to everyone might feel weird. Still, even if you leave the Repo on private, it still is a great thing!
 
