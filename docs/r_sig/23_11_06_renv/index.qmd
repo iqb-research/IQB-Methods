@@ -5,30 +5,38 @@ author:
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
 date: 10-23-2023
-categories: [R, renv, reproducability, R-SIG]
+categories: [R, renv, R-SIG]
 ---
 
 ## Motivation
 
-Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package [renv](https://rstudio.github.io/renv/articles/renv.html) can help you with that.
+Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package [renv](https://rstudio.github.io/renv/articles/renv.html) can help you with that. Look [here](https://rstudio.github.io/renv/articles/renv.html#getting-started) for the offical getting started page.
+
 
 ## Workflow
 
-First, initialize the project:
+First, create an RStudio Project in the working directory that should be made reproducible (if you haven't already).  
+If another R-version should be used in your project, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to `Tools - Global Options - General`. Maybe you will have to install `renv` for this version again.
+
+Then, initialize the project:
 
 ```{r, eval = FALSE}
 # install.packages(renv)
 renv::init()
 ```
 
-This mainly will do two things:
+This will create the basic infrastructure for the usage of `renv` mainly will do two things:
 
-1.  Create a project specific package library, which contains all the packages currently used by the project. This means different projects can use different package versions.
-2.  A `.lock` file, where the package versions get documented.
+1.  Create a project specific package library in the folder `renv` in your working directory, which contains all the packages currently used by the project. This means different projects can use different package versions, and even different R-Versions. Don't be confused, the `renv` folder can get quite big and isn't uploaded to GitHub by default. 
+2.  A `.lock` file, where the R version and the package versions get documented. From this `.lock` file we can restore the used packages.
 
 By the way, it doesn't matter if you do this in the beginning of your project, in between or at the end. `renv::init()` will automatically setup the project with all the packages you have used in the project.
 
 The rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use `renv::install()` which has some additional features compared to `install.packages())`. For example, you can install specific package versions: `renv::install("dplyr@1.1.1")`. No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with `library()`.
+
+:::{.callout-caution}
+In case you are using a `renv` project not locally but on the IQB-drive, the links won't work, and `renv` will have to download and install the packages newly into your directory. 
+:::
 
 The next step is to write the package into your `.lock` file:
 
@@ -44,7 +52,7 @@ If on the other hand you want to restore the packages from the `.lock` file, use
 renv::restore()
 ```
 
-This will install the package version that is documented in the lock file into your project specific library.
+This will install all packages that are not already in your project specific library with the package version that is documented in the lock file into your project specific library.
 
 You can update your dependencies to the latest version using:
 
@@ -52,4 +60,23 @@ You can update your dependencies to the latest version using:
 renv::update()
 ```
 
-Look [here](https://rstudio.github.io/renv/articles/renv.html#getting-started) for the offical documentation.
+## Package Versions
+If you want to install specific package versions, you can use 
+```{r, eval = FALSE}
+renv::intit(bare = TRUE)
+```
+
+in the beginning. This sets up the `renv` project without trying to find the used dependencies. Thus, you can install the specific versions manually afterward:
+
+```{r, eval = FALSE}
+renv::install(packagename/@version-number)
+```
+
+For example: 
+```{r, eval = FALSE}
+renv::install("tidyselect@1.1.2")
+```
+
+Local packages or packages from GitHub can be installed as well (see [here](https://rstudio.github.io/renv/reference/install.html)).
+
+[Posit Public Package Manager](https://packagemanager.posit.co/client/#/) contains the CRAN history of CRAN packages back to 2014. Package version historys can be found here easily, for example, when a script was finished on 06.05.22, we can look up which package version was the current one on that day.
