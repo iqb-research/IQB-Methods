@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-10-23">
 <meta name="description" content="R-SIG 23.10.2023">
 
-<title>Reproducability with renv – IQB Methods Team</title>
+<title>Reproducibility with renv – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,8 +107,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Reproducability with renv – IQB Methods Team">
+<meta property="og:title" content="Reproducibility with renv – IQB Methods Team">
 <meta property="og:description" content="R-SIG 23.10.2023">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -162,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../posts_r_sig.html">R SIG</a></li><li class="breadcrumb-item"><a href="../../../docs/r_sig/23_11_06_renv/index.html">Reproducability with renv</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../posts_r_sig.html">R SIG</a></li><li class="breadcrumb-item"><a href="../../../docs/r_sig/23_11_06_renv/index.html">Reproducibility with renv</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -218,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/r_sig/23_11_06_renv/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Reproducability with renv</span></a>
+ <span class="menu-text">Reproducibility with renv</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -260,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/r_sig/24_07_15_quarto_1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducable manuscripts with Quarto</span></a>
+ <span class="menu-text">Reproducible manuscripts with Quarto</span></a>
   </div>
 </li>
       </ul>
@@ -402,9 +403,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../posts_r_sig.html">R SIG</a></li><li class="breadcrumb-item"><a href="../../../docs/r_sig/23_11_06_renv/index.html">Reproducability with renv</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../posts_r_sig.html">R SIG</a></li><li class="breadcrumb-item"><a href="../../../docs/r_sig/23_11_06_renv/index.html">Reproducibility with renv</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Reproducability with renv</h1>
+<h1 class="title">Reproducibility with renv</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
     <div class="quarto-category">renv</div>
@@ -437,6 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><img src="renv.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
 <p>Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> can help you with that. Look <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started">here</a> for the offical getting started page.</p>
@@ -505,7 +507,13 @@ Caution
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@nagaranbasaran?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Nagara Oyodo</a> on <a href="https://unsplash.com/de/fotos/grune-pflanze-auf-grauem-fels-kE0o9syjDZQ">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
