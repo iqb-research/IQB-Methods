@@ -1,5 +1,5 @@
 ---
-title: "Reproducable manuscripts with Quarto"
+title: "Reproducible manuscripts with Quarto"
 description: "R-SIG 15.07.2024"
 author: 
   - name: Nicklas Hafiz
@@ -11,19 +11,15 @@ bibliography:
   - grateful-refs.bib
 csl: ./../../../apa7.csl
 image: manuscript.jpg
-
 ---
-
 
 ![](manuscript.jpg)[^1]
 
 [^1]: Image by [Towfiqu barbhuiya](https://unsplash.com/de/@towfiqu999999?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/eine-nahaufnahme-eines-papierstapels-auf-einem-tisch-KKHs1e2yiwc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
 
-
 # Introduction
 
-[Quarto](https://quarto.org/) is an open-source scientific and technical publishing system. It allows us to combine code and markdown text to produce reproducable manuscripts that can automatically incorporate and evaluate our code when rendering. We can also build slides and even websites (like the one you are currently on).
-
+[Quarto](https://quarto.org/) is an open-source scientific and technical publishing system. It allows us to combine code and markdown text to produce reproducible manuscripts that can automatically incorporate and evaluate our code when rendering. We can also build slides and even websites (like the one you are currently on).
 
 # Components
 
@@ -35,7 +31,7 @@ The YAML header, which begins on the top of the document with `---`, and also en
 
 ```         
 ---
-title: "Reproducable manuscripts with Quarto"
+title: "Reproducible manuscripts with Quarto"
 description: "R-SIG 15.07.2024"
 author: 
   - name: Nicklas Hafiz
@@ -58,7 +54,7 @@ The body of the document is written in markdown language. Some expressions:
 -   `#` for headers. Add as many `#` as you like for subheaders.
 -   `**bold**`: **bold**
 -   `*italic*`: **italic**
--   \```code\`
+-   \`\``code\`
 -   Lists: `-` for bullet points, `1.` for numbered lists (beware: the line above the list has to be empty)
 -   Linebreaks: Two spaces at the end of a line.
 -   Links: `[text](url)`
@@ -99,9 +95,9 @@ head(athletes)
 
 We can also define global execution options for the whole ´.qmd´ file in the YAML header:
 
-```
+```         
 ---
-title: "Reproducable manuscripts with Quarto"
+title: "Reproducible manuscripts with Quarto"
 description: "R-SIG 15.07.2024"
 author: 
   - name: Nicklas Hafiz
@@ -216,7 +212,8 @@ summary(model)
 ```
 
 ### Tidy up!
-Now we have multiple options to easily extract the results of this regression. Most prominently, there is the [broom](https://broom.tidymodels.org/) package:  
+
+Now we have multiple options to easily extract the results of this regression. Most prominently, there is the [broom](https://broom.tidymodels.org/) package:
 
 ```{r}
 library(broom)
@@ -232,19 +229,18 @@ model_broom <- tidy(model, exponentiate = TRUE)
 model_broom
 ```
 
-And if we want to extract the fit statistics: 
+And if we want to extract the fit statistics:
 
 ```{r}
 glance(model)
 ```
 
-
-
-:::{.callout-tip}
+::: callout-tip
 This works with **many** different model types, from t-tests over linear models to GLMs and multi level models and even `lavaan` output. They might be split out over multiple packages, multi level models for example can be tidied with [broom.mixed](https://cran.r-project.org/web/packages/broom.mixed/vignettes/broom_mixed_intro.html).
 :::
 
 ### Reporting
+
 We can also let R write our report section for us ;):
 
 ```{r}
@@ -255,18 +251,19 @@ library(report)
 report(model)
 ```
 
-If you want, take a look at [`report`](https://easystats.github.io/report/), it has many more functions to make the reporting workflow of your model a lot easier. 
+If you want, take a look at [`report`](https://easystats.github.io/report/), it has many more functions to make the reporting workflow of your model a lot easier.
 
-:::{.callout-note}
+::: callout-note
 ## Automate in-text values
+
 Even when not using `report` or some similar package, we can still extract the values automatically from a model and put them programmatically into the text. This can be achieved by simply adding an **inline-codechunck** into our markdown text:
 
 ![](./inline_code.png)
 
-The model's intercept, corresponding to Region = Germany, is at `r model_broom %>% filter(term == "(Intercept)") %>% pull(estimate) %>% round(2)`. 
+The model's intercept, corresponding to Region = Germany, is at `r model_broom %>% filter(term == "(Intercept)") %>% pull(estimate) %>% round(2)`.
 
-:::{.callout-tip}
-Maybe put the data extraction into an own object to keep the text more readable: 
+::: callout-tip
+Maybe put the data extraction into an own object to keep the text more readable:
 
 ```{r}
 model_intercept <- model_broom %>% filter(term == "(Intercept)") %>% pull(estimate) %>% round(2)
@@ -274,13 +271,12 @@ model_intercept <- model_broom %>% filter(term == "(Intercept)") %>% pull(estima
 
 ![](./inline_code2.png)
 
-The model's intercept, corresponding to Region = Germany, is at `r model_intercept`. 
-
+The model's intercept, corresponding to Region = Germany, is at `r model_intercept`.
 :::
-
 :::
 
 ### APA tables
+
 For example with [`rempsyc`](https://rempsyc.remi-theriault.com/):
 
 ```{r}
@@ -289,8 +285,8 @@ library(rempsyc)
 nice_table(model_broom, broom = "glm")
 ```
 
-
 ## Plots
+
 Plots can be very easily created from within a code chunk:
 
 ```{r plot_code}
@@ -380,15 +376,16 @@ Citations are saved in `.bib` files. The `.bib` format can be chosen to download
 ```
 
 Of course, you should still check if the fields are filled in correctly. If you have created a `references.bib` file in your project directory, you can include it in your quarto document by adding `bibliography: references.bib` to your YAML header.\
-To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@allport1936trait]` [@allport1936trait].  
+To cite a reference in you text, you can use an `@` in front of the tag like `@darwin1859` @darwin1859 , or `[@allport1936trait]` [@allport1936trait].
 
 ### Referencing R packages
-R packages are an important part of your analysis, and should be cited as such. The package [`grateful`](https://cran.r-project.org/web/packages/grateful/readme/README.html) helps you with that.  
+
+R packages are an important part of your analysis, and should be cited as such. The package [`grateful`](https://cran.r-project.org/web/packages/grateful/readme/README.html) helps you with that.\
 To use it, put a `grateful-refs.bib` file into your YAML header:
 
 ```         
 ---
-title: "Reproducable manuscripts with Quarto"
+title: "Reproducible manuscripts with Quarto"
 description: "R-SIG 15.07.2024"
 author: 
   - name: Nicklas Hafiz
@@ -402,20 +399,20 @@ csl: apa7.csl
 format: pdf
 ---
 ```
-By using this list syntax, we can add multiple `.bib`-files to our quarto document. 
-Then we only have to call the citation function in a code chunk:
+
+By using this list syntax, we can add multiple `.bib`-files to our quarto document. Then we only have to call the citation function in a code chunk:
 
 ```{r}
 grateful::cite_packages(output = "paragraph", out.dir = ".")
 ```
 
-
 ### Citation styles
+
 Again, because we have our references in a plain text format, we can easily convert between different citation styles. One way to do this is to provide th `csl` argument in the YAML header, like so:
 
 ```         
 ---
-title: "Reproducable manuscripts with Quarto"
+title: "Reproducible manuscripts with Quarto"
 description: "R-SIG 15.07.2024"
 author: 
   - name: Nicklas Hafiz
@@ -428,14 +425,15 @@ format: pdf
 ---
 ```
 
-`.csl` files can just be put into your project folder. They define the citation style, and can for example be downloaded from [Zoteros style repository](https://www.zotero.org/styles). 
+`.csl` files can just be put into your project folder. They define the citation style, and can for example be downloaded from [Zoteros style repository](https://www.zotero.org/styles).
 
 ### Reference section
-The references will be automatically generated at the end of your document. Alternatively, you can include it where you want with 
-``` 
+
+The references will be automatically generated at the end of your document. Alternatively, you can include it where you want with
+
+```         
 ::: {#refs}
 :::
-
 ```
 
 ::: {#refs}
@@ -452,10 +450,10 @@ You can always create your [own template](https://quarto.org/docs/journals/templ
 There are some markdown templates that format your text in APA style. Most famously, the [`papaja`](https://github.com/crsh/papaja) package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.
 
 ## apaquarto
+
 Alternatively, I've found (but not yet tested in a whole project) the [apaquarto](https://wjschne.github.io/apaquarto/) extension. You can install via the **Terminal** (not the R Console):
 
-
-```
+```         
 ## Set the working directory
 cd path/to/my/folder
 
@@ -465,7 +463,9 @@ quarto use wjschne/apaquarto
 
 ::: {.callout-note collapse="true"}
 ## Via R Console
+
 Alternativley, you can also try to install via the R Console, however, it didn't work for quite some people:
+
 ```{r setup apaquarto}
 #| eval: false
 #| echo: true
@@ -473,33 +473,33 @@ Alternativley, you can also try to install via the R Console, however, it didn't
 setwd("home/my_project") # Make sure the folder is empty
 quarto::quarto_use_template("wjschne/apaquarto")
 ```
-
 :::
+
 This will create the necessary files in your folder. Update the `.qmd` file with the same name as your folder. I'd suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts ...).\
-The template will label your tables and figures correctly, and format the bibliography as well as the whole document.  
-The tables can be build with the packages presented in the last chapter. 
+The template will label your tables and figures correctly, and format the bibliography as well as the whole document.\
+The tables can be build with the packages presented in the last chapter.
 
 ## Word templates
-If you want a word file as output (maybe some journal or co-author requires you to), you can do that easily by setting `format: docx` in your yaml header. If you don't use a template like `apaquarto`, you can also style your own [word template](https://quarto.org/docs/output-formats/ms-word-templates.html) simply by changing the styles in a template word file and then load the template file into your quarto document with 
 
-```
+If you want a word file as output (maybe some journal or co-author requires you to), you can do that easily by setting `format: docx` in your yaml header. If you don't use a template like `apaquarto`, you can also style your own [word template](https://quarto.org/docs/output-formats/ms-word-templates.html) simply by changing the styles in a template word file and then load the template file into your quarto document with
+
+```         
 format:
   docx:
     reference-doc: custom-reference-doc.docx
 ```
+
 in the YAML header. Take a look at the [official documentation](https://quarto.org/docs/output-formats/ms-word-templates.html) for more detailled info.
 
-
-::: {.callout-tip}
+::: callout-tip
 ## Split your project
-I recommend that you split up your project into many subfiles, that get merged in the end in a main document. In my opinion, this makes everything a lot easier to overview, because working with quarto makes it easy to just put **everything** from data preperation to reporting into one huge, confousing document. For example, you can put R-Functions into a own script and source it with `source(functions.R)`. You can also put each chapter into a own `.qmd` file, and merge them together in a main document. Take a look at [include](https://quarto.org/docs/authoring/includes.html) for some input on how to do that. 
 
+I recommend that you split up your project into many subfiles, that get merged in the end in a main document. In my opinion, this makes everything a lot easier to overview, because working with quarto makes it easy to just put **everything** from data preperation to reporting into one huge, confousing document. For example, you can put R-Functions into a own script and source it with `source(functions.R)`. You can also put each chapter into a own `.qmd` file, and merge them together in a main document. Take a look at [include](https://quarto.org/docs/authoring/includes.html) for some input on how to do that.
 :::
 
 # Exercises
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Markdown Exercises
 
 0.  Set up a new RStudio project in a new directory.
@@ -552,11 +552,11 @@ characters_stats <- merge(
 ```
 :::
 
-
-3. Add a small "mini-analysis", where you fit some kind of model and describe it in the text and/or in a table. 
+3.  Add a small "mini-analysis", where you fit some kind of model and describe it in the text and/or in a table.
 
 ::: {.callout-tip collapse="true"}
 ## Hint
+
 One idea would be a linear mixed model investigating the influence of the notability rating on the rating on a specific item, like `messy_neat`
 
 ```{r mixed_model}
@@ -576,23 +576,21 @@ mod_dat <- characters_stats %>%
 mod1 <- lmer(rating ~ notability_centered + (1|name) + (1|uni_name), data = mod_dat)
 
 ```
-
 :::
 
 4.  Render your file into pdf, word and html.
 
 ## APA Exercises
 
-0. Create a fresh, empty folder for this exercise.
-1. Install the `apaquarto` template.
+0.  Create a fresh, empty folder for this exercise.
+1.  Install the `apaquarto` template.
 
 ::: {.callout-tip collapse="true"}
-
 ## Hint
 
-- Make sure you have a current version of quarto installed. If not, download from [here](https://quarto.org/docs/download/) and install. Restart RStudio, it should find the new quarto installation automatically.
+-   Make sure you have a current version of quarto installed. If not, download from [here](https://quarto.org/docs/download/) and install. Restart RStudio, it should find the new quarto installation automatically.
 
-- Make sure to set the working directory to an empty folder before installing:
+-   Make sure to set the working directory to an empty folder before installing:
 
 ```{r}
 #| eval: false
@@ -602,17 +600,15 @@ setwd("home/my_project") # Make sure the folder is empty
 quarto::quarto_use_template("wjschne/apaquarto")
 
 ```
-
 :::
 
-2. Create a RStudio project in your directory and open it.
+2.  Create a RStudio project in your directory and open it.
 
-3. Repeat the analysis you've done in the previous exercise (just copy the code), but this time focus on the APA formating aspect of everything. Try to use as many features we've talked about before in your script, especially the automatic table and figure captions and numeration. 
+3.  Repeat the analysis you've done in the previous exercise (just copy the code), but this time focus on the APA formating aspect of everything. Try to use as many features we've talked about before in your script, especially the automatic table and figure captions and numeration.
 
-4. Convert your manuscript into a word file and a PDF.
+4.  Convert your manuscript into a word file and a PDF.
 
 ## Bonus
 
-5. Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. It can contain files for functions, for data preperation etc, and can be loaded into your main script with `source()`. Create another folder called `chapters` where you put the `.qmd` files for the single chapters of your work. In the parent directory use a main `.qmd` file that brings everything together (either with source, or, in the case of other `.qmd` files, with `{{< include _content.qmd >}}` ). 
-
+5.  Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. It can contain files for functions, for data preperation etc, and can be loaded into your main script with `source()`. Create another folder called `chapters` where you put the `.qmd` files for the single chapters of your work. In the parent directory use a main `.qmd` file that brings everything together (either with source, or, in the case of other `.qmd` files, with `{{< include _content.qmd >}}` ).
 :::
