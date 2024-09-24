@@ -5,7 +5,7 @@ date: 24-09-2024
 categories: [github, tutorial]
 ---
 
-Embedd my slides here!
+{{< revealjs file="github_intro_slides.html" height="500px" class="ratio ratio-16x9" >}}
 
 
 
