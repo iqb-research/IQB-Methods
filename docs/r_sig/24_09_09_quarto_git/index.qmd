@@ -47,18 +47,17 @@ In this section, I'll present one possible workflow.
 Even if your repository is private, publishing a document like shown in this workflow will make it public, so in theory everyone can see it.
 :::
 
-### 1. \_freeze
+### 1. `renv`
 
-First, you have to open your `_quarto.yml` file and add the following:
+First, you have to [setup `renv`](https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/).
 
 ```{r}
 #| eval: false
 
-execute:
-  freeze: auto
+renv::init()
 ```
 
-This will create a `_freeze` folder containing all your executed code. If you youse `renv`, this isn't necessary, because the renv workflow will execute the code again.
+This will create a `.LOCK` file containing the package versions and a folder in which your project specific packages are saved. 
 
 ### 2. render
 
@@ -124,14 +123,18 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages:
-            any::rmarkdown
-            any::knitr
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.1'
+
+      - name: Install R Dependencies
+        uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 1
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
@@ -146,7 +149,7 @@ You need to check the Read and write permissions box under Workflow permissions 
 :::
 
 ::: callout-note
-I actually prefer the [renv workflow](https://quarto.org/docs/publishing/github-pages.html#executing-code), but you have to setup [renv](https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/) to use it.
+There are [other workflows](https://quarto.org/docs/publishing/github-pages.html#github-action) available as well. 
 :::
 
 # Caveats
