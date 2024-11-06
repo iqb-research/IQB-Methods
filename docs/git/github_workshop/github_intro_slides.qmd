@@ -1,0 +1,183 @@
+---
+title: "Einführung in Github"
+author: "Nicklas Hafiz"
+format: letterbox-revealjs
+date: 24-09-2024
+lang: de
+categories: [github, tutorial]
+---
+
+HTML Slides bereitstellen, und PDF Export erklären (evtl. auf learn)
+
+# Motivation
+ 
+## Nachvollziehbarkeit/Version Control
+
+## Dateibenennung
+
+
+## Version Control
+Alle Arbeitsschritte, die irgendwann (in Git) gespeichert wurden, sind nachvollziehbar.
+
+
+
+## Kollaboration
+
+## ## {background-image="images/keyboard.jpg" background-size="1225px"}
+
+::: {.absolute left="2.5%" top="2.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0);"}
+
+PC-Abstürze kurz vor Abgabe sind kein Weltuntergang mehr.
+
+:::
+
+![](./images/pc.jpg)
+
+
+
+## 
+
+- Überschreiben von Datein
+- Mit der falschen `final-v10_commented_NH_03.docx` weiterarbeiten. 
+- Etwas in Datei X ändern, aber die Änderung in allen abhängingen Datein vergessen (hier hilft uns [Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/) auch ungemein). 
+
+## Commits 
+https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
+
+
+## Git
+:::: {.columns} 
+::: {.column width="50%"}
+- Version Control System
+- Entwickelt von Linus Torvalds
+- Erlaubt das Tracken von (Plain Text) files: 
+    - Code
+    - Präsentationen
+    - Manuskripte 
+    - Webseiten
+    - ... 
+:::
+::: {.column widht="40%"}
+![](./images/torvalds.jpg)
+:::
+::::
+
+## GitHub
+- 
+
+## Workflow
+
+## Eigenes Repository erstellen
+- Es können auch alle möglichen geklont werden. 
+
+
+# Tools
+
+
+## RStudio
+Setup:
+
+## Terminal
+
+## GitHub Desktop
+
+## Many more
+
+# Kollaboratives Arbeiten
+
+## Übung 1
+
+:::{.callout-note}
+## Aufgabe
+Einige dich mit der Person neben dir, wer wen zum Repository einlädt. Tut das dann, sodass ihr eines eurer Repositories zu zweit oder zu dritt bearbeiten könnt.  
+:::
+
+:::{.callout-tip}
+Gehe oben in der Kopfzeile auf `Settings` und dann in der Seitenleiste links auf `Collaborators and teams`. Hier kannst du jetzt den GitHub-Username einer Person zum Repository hinzufügen. 
+:::
+
+## Übung 2
+:::{.callout-caution}
+## Aufgabe 
+Clone das Repository (wenn noch nicht geschehen). 
+:::
+
+
+## Übung 3
+:::{.callout-caution}
+## Aufgabe 1
+Erstellt euch gegenseitig einen Issue, den die andere Person dann bearbeiten soll. Das kann so etwas sein wie "Add two numbers" o.ä. Wichtig ist, dass aus der Beschreibung klar wird, was getan werden soll. Assignt die andere Person zu diesem Issue. 
+:::
+
+
+:::{.callout-caution}
+## Aufgabe 2
+Erstelle einen eigenen Branch, auf dem du den dir zugewiesenen issue in der nächsten Aufgabe bearbeiten wirst. 
+
+:::
+
+## Übung 3
+:::{.callout-caution}
+## Aufgabe 3
+Bearbeite jetzt den dir assignten Issue **ersteinmal in einer neuen R-Datei**. Erstellt euch also eine neue R-Datei im Repository Ordner und löst den Issue darin. 
+:::
+
+:::{.callout-caution}
+## Aufgabe 4
+Jetzt kommt der spannende Part: stage, committe und pushe deine Änderungen. 
+
+:::{.callout-tip}
+Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue automatisch geschlossen, sobald die Pull-Request gemerged wird. 
+:::
+
+:::
+
+
+
+## Übung 3
+:::{.callout-caution}
+## Aufgabe 5
+Erstelle eine Pull-Request, und Assigne die andere Person als Reviewer. 
+:::
+
+:::{.callout-caution}
+## Aufgabe 5
+Reviewe die dir assignte Pull-Request. Verlange mind. eine kleine Änderung. 
+:::
+
+:::{.callout-caution}
+## Aufgabe 6
+Arbeite die Änderung, die von dir verlangt wurde, ein und pushe erneut. Nutze dafür einfach den selben Branch, den du vorher für deine Pull-Request verwendet hast. Dadurch wird sie automatisch geupdated. Verlange ein erneutes Review. 
+:::
+
+:::{.callout-caution}
+## Aufgabe 7
+Reviewe die Pull-Request der anderen Person erneut. Approve diesmal. 
+:::
+
+:::{.callout-caution}
+## Aufgabe 8
+Merge deine Pull-Request
+:::
+
+## Merge Conflicts
+
+
+## Übung
+
+
+## Vokabelliste (in ungefährere Reihenfolge vom typischen Workflow)
+- Repository:
+- clone:
+- stage: 
+- commit:
+- pull:
+- push:
+- merge:
+
+
+## Bildquellen
+
+- PC: Foto von <a href="https://unsplash.com/de/@shots_of_aspartame?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Julia Joppien</a> auf <a href="https://unsplash.com/de/fotos/zerbrochener-monitor-auf-dem-boden-XFUqd0u5U7w?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Torvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg
+      
