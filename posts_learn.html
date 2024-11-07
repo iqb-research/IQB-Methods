@@ -72,132 +72,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-for-beginners .list');
+    const listingTargetEl = window.document.querySelector('#listing-learn-page .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-for-beginners'] = new List('listing-for-beginners', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-r_sig .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: [],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-r_sig'] = new List('listing-r_sig', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-statistische-Fragen .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-statistische-Fragen'] = new List('listing-statistische-Fragen', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-Workflow .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-Workflow'] = new List('listing-Workflow', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-advanced .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-advanced'] = new List('listing-advanced', options);
+    window['quarto-listings']['listing-learn-page'] = new List('listing-learn-page', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -242,7 +130,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Welcome to our Learning Page – IQB Methods Team">
+<link rel="alternate" type="application/rss+xml" title="IQB Methods Team" href="posts_learn.xml" data-external="1"><meta property="og:title" content="Welcome to our Learning Page – IQB Methods Team">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -522,18 +410,8 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#for-beginners" id="toc-for-beginners" class="nav-link active" data-scroll-target="#for-beginners">for beginners</a></li>
-  <li><a href="#r-sig" id="toc-r-sig" class="nav-link" data-scroll-target="#r-sig">R-SIG</a></li>
-  <li><a href="#statistische-fragen" id="toc-statistische-fragen" class="nav-link" data-scroll-target="#statistische-fragen">statistische Fragen</a></li>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
-  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced">advanced</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts_learn.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -557,327 +435,99 @@ window.Quarto = {
 </header>
 
 
-<section id="for-beginners" class="level2">
-<h2 class="anchored" data-anchor-id="for-beginners">for beginners</h2>
-<div class="{for-beginners}">
-
-</div>
-</section>
-<section id="r-sig" class="level2">
-<h2 class="anchored" data-anchor-id="r-sig">R-SIG</h2>
-<div class="{r_sig}">
-
-</div>
-</section>
-<section id="statistische-fragen" class="level2">
-<h2 class="anchored" data-anchor-id="statistische-fragen">statistische Fragen</h2>
-<div class="{statistische-Fragen}">
-
-</div>
-</section>
-<section id="workflow" class="level2">
-<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<div class="{Workflow}">
-
-</div>
-</section>
-<section id="advanced" class="level2">
-<h2 class="anchored" data-anchor-id="advanced">advanced</h2>
-<div class="{advanced}">
+<div class="{learn-page}">
 
 </div>
 
 
 
-</section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-for-beginners">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,tutorial" data-listing-file-modified-sort="1730990405190" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
-<div class="thumbnail">
-<p><a href="./docs/R_tutorials/R_ws2.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws2.html" class="no-external">
-<p><img loading="lazy" src="./docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
-</a><p><a href="./docs/R_tutorials/R_ws2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/R_tutorials/R_ws2.html" class="no-external">Data Frames, Listen und Grafiken in R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/R_tutorials/R_ws2.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/R_tutorials/R_ws2.html" class="no-external"><sup>1</sup></a>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-learn-page">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0">
+<a href="" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="docs/R_tutorials/images/einführung.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+for beginners
+</h5>
+<div class="card-text listing-description">
+here you can find R tutorials to start your R journey.
 </div>
 </div>
-<div class="metadata">
-<p><a href="./docs/R_tutorials/R_ws2.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws2.html" class="no-external">
-<div class="listing-author">
-NA
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,tutorial" data-listing-file-modified-sort="1730990405190" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
-<div class="thumbnail">
-<p><a href="./docs/R_tutorials/R_index.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_index.html" class="no-external">
-<p><img loading="lazy" src="./docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
-</a><p><a href="./docs/R_tutorials/R_index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/R_tutorials/R_index.html" class="no-external">Material for learning R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/R_tutorials/R_index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/R_tutorials/R_index.html" class="no-external"><sup>1</sup></a>
+<div class="g-col-1" data-index="1">
+<a href="" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="docs/R_tutorials/images/einführung.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+r_sig
+</h5>
+<div class="card-text listing-description">
+here you can find all the input that was discussed in R-SIG.
 </div>
 </div>
-<div class="metadata">
-<p><a href="./docs/R_tutorials/R_index.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_index.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,tutorial" data-listing-file-modified-sort="1730990405190" data-listing-reading-time-sort="6" data-listing-word-count-sort="1029">
-<div class="thumbnail">
-<p><a href="./docs/R_tutorials/R_ws3.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws3.html" class="no-external">
-<p><img loading="lazy" src="./docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
-</a><p><a href="./docs/R_tutorials/R_ws3.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/R_tutorials/R_ws3.html" class="no-external">Pakete(-Installation), Workspace, Daten laden und speichern in R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/R_tutorials/R_ws3.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/R_tutorials/R_ws3.html" class="no-external"><sup>1</sup></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./docs/R_tutorials/R_ws3.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws3.html" class="no-external">
-<div class="listing-author">
-NA
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,tutorial" data-listing-file-modified-sort="1730990405190" data-listing-reading-time-sort="19" data-listing-word-count-sort="3665">
-<div class="thumbnail">
-<p><a href="./docs/R_tutorials/R_ws1.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws1.html" class="no-external">
-<p><img loading="lazy" src="./docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
-</a><p><a href="./docs/R_tutorials/R_ws1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/R_tutorials/R_ws1.html" class="no-external">R Workshop Einführung</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/R_tutorials/R_ws1.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/R_tutorials/R_ws1.html" class="no-external"><sup>1</sup></a>
+<div class="g-col-1" data-index="2">
+<a href="" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="docs/R_tutorials/images/einführung.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+questions about statistics
+</h5>
+<div class="card-text listing-description">
+here you can find some answers to common questions about statistics or our r-packages.
 </div>
 </div>
-<div class="metadata">
-<p><a href="./docs/R_tutorials/R_ws1.html" class="no-external"></a></p><a href="./docs/R_tutorials/R_ws1.html" class="no-external">
-<div class="listing-author">
-NA
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,checkmate,tutorial" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1730990405190" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
-<div class="thumbnail">
-<p><a href="./docs/R_tutorials/checkmate.html" class="no-external"></a></p><a href="./docs/R_tutorials/checkmate.html" class="no-external">
-<p><img loading="lazy" src="./docs/R_tutorials/images/checkmate.jpg" class="thumbnail-image"></p>
-</a><p><a href="./docs/R_tutorials/checkmate.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/R_tutorials/checkmate.html" class="no-external">Using Checkmate</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/R_tutorials/checkmate.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/R_tutorials/checkmate.html" class="no-external"><sup>1</sup></a>
+<div class="g-col-1" data-index="3">
+<a href="" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="docs/R_tutorials/images/einführung.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Workflow
+</h5>
+<div class="card-text listing-description">
+here you can find tutorials about the general workflow when working with RStudio or Github.
 </div>
 </div>
-<div class="metadata">
-<a href="./docs/R_tutorials/checkmate.html" class="no-external">
-<div class="listing-date">
-Dec 1, 2023
-</div>
-<div class="listing-author">
-Edna Grewers
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="4">
+<a href="" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="docs/R_tutorials/images/einführung.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+advanced
+</h5>
+<div class="card-text listing-description">
+here you can find some more advanced R tutorials.
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><div class="quarto-listing quarto-listing-container-default" id="listing-r_sig">
-<div class="list quarto-listing-default">
-
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><div class="quarto-listing quarto-listing-container-default" id="listing-statistische-Fragen">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="FAQ" data-listing-file-modified-sort="1730990405190" data-listing-reading-time-sort="9" data-listing-word-count-sort="1617">
-<div class="thumbnail">
-<p><a href="./docs/FAQ/FAQ.html" class="no-external"></a></p><a href="./docs/FAQ/FAQ.html" class="no-external">
-<p class="card-img-top"><img src="docs/FAQ/images/centering.jpeg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./docs/FAQ/FAQ.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/FAQ/FAQ.html" class="no-external">FAQ</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/FAQ/FAQ.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/FAQ/FAQ.html" class="no-external">Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:<br>
-1. Die Quadratwurzel aus <span class="math inline">\(R^2\)</span> ziehen<br>
-2. eine Fisher <em>z</em>-Transformation durchführen, damit der…<br><br><em></em></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./docs/FAQ/FAQ.html" class="no-external"></a></p><a href="./docs/FAQ/FAQ.html" class="no-external">
-<div class="listing-author">
-NA
 </div>
 </a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><div class="quarto-listing quarto-listing-container-default" id="listing-Workflow">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="code convention" data-listing-file-modified-sort="1730990405206" data-listing-reading-time-sort="5" data-listing-word-count-sort="824">
-<div class="thumbnail">
-<p><a href="./docs/discussions/code_conventions.html" class="no-external"></a></p><a href="./docs/discussions/code_conventions.html" class="no-external">
-<p><img loading="lazy" src="./docs/discussions/conventions.jpg" class="thumbnail-image"></p>
-</a><p><a href="./docs/discussions/code_conventions.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/discussions/code_conventions.html" class="no-external">Code-Konventionen</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/discussions/code_conventions.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/discussions/code_conventions.html" class="no-external"><sup>1</sup></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./docs/discussions/code_conventions.html" class="no-external"></a></p><a href="./docs/discussions/code_conventions.html" class="no-external">
-<div class="listing-author">
-NA
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="github,tutorial,workflow" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1730990405218" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
-<div class="thumbnail">
-<p><a href="./docs/git/index.html" class="no-external"></a></p><a href="./docs/git/index.html" class="no-external">
-<p><img loading="lazy" src="./docs/git/github.jpg" class="thumbnail-image"></p>
-</a><p><a href="./docs/git/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/git/index.html" class="no-external">Pull requests with Github</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/git/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/git/index.html" class="no-external"><sup>1</sup></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./docs/git/index.html" class="no-external">
-<div class="listing-date">
-Jan 12, 2024
-</div>
-<div class="listing-author">
-Sebastian Weirich
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,quarto,renv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1730990405218" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="990">
-<div class="thumbnail">
-<p><a href="./docs/quarto/index.html" class="no-external"></a></p><a href="./docs/quarto/index.html" class="no-external">
-<p class="card-img-top"><img src="docs/quarto/my_image.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./docs/quarto/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/quarto/index.html" class="no-external">Updating the website</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/quarto/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/quarto/index.html" class="no-external">This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./docs/quarto/index.html" class="no-external">
-<div class="listing-date">
-Dec 17, 2023
-</div>
-<div class="listing-author">
-Nicklas Hafiz
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><div class="quarto-listing quarto-listing-container-default" id="listing-advanced">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,checkmate,tutorial" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1730990405190" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
-<div class="thumbnail">
-<p><a href="./docs/R_tutorials/checkmate.html" class="no-external"></a></p><a href="./docs/R_tutorials/checkmate.html" class="no-external">
-<p><img loading="lazy" src="./docs/R_tutorials/images/checkmate.jpg" class="thumbnail-image"></p>
-</a><p><a href="./docs/R_tutorials/checkmate.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./docs/R_tutorials/checkmate.html" class="no-external">Using Checkmate</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./docs/R_tutorials/checkmate.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./docs/R_tutorials/checkmate.html" class="no-external"><sup>1</sup></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./docs/R_tutorials/checkmate.html" class="no-external">
-<div class="listing-date">
-Dec 1, 2023
-</div>
-<div class="listing-author">
-Edna Grewers
-</div>
-</a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
@@ -1318,4 +968,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts_learn.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts_learn.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
