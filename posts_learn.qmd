@@ -1,11 +1,39 @@
 ---
 title: "Welcome to our Learning Page"
-listing: 
-  contents: docs
-  type: default
+listing:
+  id: learn-page
+  type: grid
+  feed: true
+  contents:
+    - title: "for beginners"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find R tutorials to start your R journey."
+    - title: "r_sig"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find all the input that was discussed in R-SIG."
+    - title: "questions about statistics"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find some answers to common questions about statistics or our r-packages." 
+    - title: "Workflow"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find tutorials about the general workflow when working with RStudio or Github."
+    - title: "advanced"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find some more advanced R tutorials."
+
   #sort: "title" 
   #categories: true
   #feed: true
   #image-align: left
   #image-height: 100px
 ---
+
+:::{learn-page}
+:::
+
+
