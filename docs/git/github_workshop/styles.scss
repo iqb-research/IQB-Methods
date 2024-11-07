@@ -1,0 +1,143 @@
+/*-- scss:defaults --*/
+
+$theme-darkblue: #01364C;
+$theme-blue: #00e0e0;
+$theme-white: #E1E8EB;
+$theme-yellow: #F4BA02;
+$theme-red: #9B1B34;
+$theme-timberwolf: #F8F8F8;
+$theme-brown: #472120;
+$theme-green: #aaa938;
+
+$link-color: $theme-blue;
+$body-bg: $theme-timberwolf;
+$body-color: $theme_darkblue;
+
+$theme-highlight: $theme_yellow;
+$theme-inlinecode: $theme_red;
+$theme-background: $theme_timberwolf;
+$theme-codeblock: $theme_darkblue;
+
+$code-block-border-color: lighten($body-bg, 70%);
+$code-block-bg: $theme-codeblock;
+$code-color: $theme-inlinecode;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$presentation-heading-font: 'Roboto Condensed', san-serif;
+
+/*-- scss:rules --*/
+
+.absolute {
+    font-family: 'Roboto Condensed', san-serif;
+    font-size:2em;
+    padding: 0.5em 0.5em;
+    background-color: rgba(248, 248, 248, .0);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 1rem 0 rgba(248, 248, 248, .5);
+    border-radius: 5px;
+}
+
+.highlight{
+    color: $theme-highlight;
+    font-weight: bold;
+}
+
+.lightblue{
+    color: $theme-blue;
+    font-weight: bold;
+}
+
+.red{
+    color: $theme-red;
+    font-weight: bold;
+}
+
+.brown{
+    color: $theme-brown;
+    font-weight: bold;
+}
+
+.green{
+    color: $theme-green;
+    font-weight: bold;
+}
+
+.link{
+    color: $link-color;
+}
+
+.table-striped {
+    > tbody > tr:nth-of-type(odd) > * {
+      background-color: $theme_white;
+    }
+  }
+
+
+.reveal pre code {
+  background-color: $theme-white;
+  color: $theme-darkblue;
+}
+
+.reveal div.sourceCode {
+  border: none;
+  border-radius: 0px;
+  margin-bottom: 10px !important;
+}
+
+.title {
+  font-size: 120px !important;
+  color: $body-bg !important;
+}
+
+.quarto-title-author-name {
+  font-size: 100px;
+  color: $body-bg !important;
+}
+
+.date {
+  font-size: 80px;
+  color: $body-bg !important;
+}
+
+.small {
+  font-size: 20px;
+}
+
+.small-latex {
+  font-size: 30px;
+}
+
+
+input[type="range"] {
+  background: $body-bg; // Set your desired background color:
+
+  &::-webkit-slider-runnable-track {
+    background: $theme-highlight; // Change this to your desired color
+  }
+
+  &::-webkit-slider-thumb {
+    background: $theme-darkblue; // Change this to your desired color
+    width: 7px; // Set your desired width
+    height: 7px; // Set your desired height
+  }
+
+  &::-moz-range-track {
+    background: $theme-highlight; // Change this to your desired color
+  }
+
+  &::-moz-range-thumb {
+    background: $theme-darkblue; // Change this to your desired color
+    width: 7px; // Set your desired width
+    height: 7px; // Set your desired height
+  }
+}
+
+.plot-frame {
+  border: 2px solid #000; /* Black border, you can change the color */
+  padding: 10px; /* Padding around the plot */
+  border-radius: 5px; /* Optional: rounded corners */
+  background-color: #f8f8f8; /* Optional: background color */
+}

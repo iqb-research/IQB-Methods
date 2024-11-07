@@ -1,8 +1,13 @@
 ---
 title: "Einführung in Github"
+title-slide-attributes:
+  data-background-image: ./images/github.jpg
+  data-background-size: cover
+  data-background-opacity: "0"
 author: "Nicklas Hafiz"
-format: letterbox-revealjs
-date: 24-09-2024
+format: 
+  letterbox-revealjs:
+    theme: styles.scss
 lang: de
 categories: [github, tutorial]
 ---
@@ -11,38 +16,55 @@ HTML Slides bereitstellen, und PDF Export erklären (evtl. auf learn)
 
 # Motivation
  
+ - Cloud Speicherung
+ - Version Control
+ - Ordnung
+ - Kollaboration
+
+
+
+## {background-image="images/pc.jpg" background-size="1225px"}
+
+::: {.absolute left="2.5%" top="2.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
+
+Alles liegt \
+Online.
+
+:::
+
+
+
 ## Nachvollziehbarkeit/Version Control
+
+\
+
+[Wer hat was, wann, warum geändert?]{.highlight}
+
+\
+
+- Alles kann einfach dokumentiert werden, und zwar sehr eng verzahnt mit dem Code/Text den man ändert. 
+- Alle Arbeitsschritte, die irgendwann (in Git) gespeichert wurden, sind nachvollziehbar.
+
 
 ## Dateibenennung
 
 
-## Version Control
-Alle Arbeitsschritte, die irgendwann (in Git) gespeichert wurden, sind nachvollziehbar.
-
-
-
 ## Kollaboration
 
-## ## {background-image="images/keyboard.jpg" background-size="1225px"}
-
-::: {.absolute left="2.5%" top="2.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0);"}
-
-PC-Abstürze kurz vor Abgabe sind kein Weltuntergang mehr.
-
-:::
-
-![](./images/pc.jpg)
+- Gemeinsames Arbeiten an Projekten
+- Viele Open Source Projekte auf GitHub
+- Gleichzeitiges Arbeiten an Dateien, Organisation über Issues ...
 
 
 
-## 
 
-- Überschreiben von Datein
+
+## Verwandte Probleme, die mit Git nicht mehr auftreten
+
+- Überschreiben von Datein.
 - Mit der falschen `final-v10_commented_NH_03.docx` weiterarbeiten. 
-- Etwas in Datei X ändern, aber die Änderung in allen abhängingen Datein vergessen (hier hilft uns [Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/) auch ungemein). 
+- (Etwas in Datei X ändern, aber die Änderung in allen abhängingen Datein vergessen (hier hilft uns vor allem [Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/) auch ungemein)). 
 
-## Commits 
-https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
 
 
 ## Git
@@ -58,7 +80,7 @@ https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/publ
     - ... 
 :::
 ::: {.column widht="40%"}
-![](./images/torvalds.jpg)
+![](./images/torvalds.jpg){.image-right}
 :::
 ::::
 
@@ -67,25 +89,153 @@ https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/publ
 
 ## Workflow
 
-## Eigenes Repository erstellen
-- Es können auch alle möglichen geklont werden. 
+```{mermaid}
+```
 
 
-# Tools
-
-
-## RStudio
-Setup:
+## Editoren
 
 ## Terminal
-
 ## GitHub Desktop
+## RStudio
 
-## Many more
+
+# Viele mehr ...
+
+## RStudio
+
+## {background-image="images/babyfeet.jpg" background-size="1225px"}
+
+::: {.absolute right="1.5%" top="1.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
+
+Erste Schritte.
+
+:::
+
+
+## Eigenes Repository erstellen
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+![](./images/new_repo.png)
+:::
+::: {.column width="50%"}
+:::{.callout-warning}
+## Übung
+Erstelle dein erstes eigenes Repository. 
+:::
+
+:::
+:::
+
+
+
+## Clone
+
+```
+git clone url
+```
+
+["Herunterladen"]{.highlight} des Repositories auf den eigenen Rechner.
+
+:::{.columns}
+
+::: {.column width="50%"}
+![](./images/clone.png)
+
+:::
+
+::: {.column width="50%"}
+:::{.callout-warning}
+## Übung
+Clone das gerade erstellte Repository.
+:::
+:::
+:::
+
+## Lokales Arbeiten
+Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen. 
+
+:::{.callout-important}
+Arbeiten auf Netzlaufwerk evtl. fehlerbehaftet?
+:::
+
+:::{.callout-warning}
+## Übung
+Erstelle eine .txt Datei in deinem lokalen Repository-Ordner. Schreibe in die Datei `Hello World!` und speichere sie ab.
+:::
+
+## Stage
+
+```
+git add filename
+```
+```
+git add .
+```
+
+[Auswählen]{.highlight} der Datein, die zum Commit hinzugefügt werden sollen. 
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+![GitHub Desktop](./images/stage.png)
+
+:::
+
+::: {.column width="50%}
+
+RStudio
+:::
+
+:::
+
+
+## Commits 
+
+```
+git commit -m "useful commit message"
+```
+
+[Speichern]{.highlight} der Änderungen, mit kurzer Beschreibung was gemacht wurde ([Commit Message]{.highlight}). 
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+![](./images/commit.png)
+
+:::
+
+::: {.column width="50%}
+
+:::{.callout-warning}
+## Übung
+Commite deine gerade gestagte Datei. 
+:::
+
+:::
+:::
+
+
+## Push
+```
+git push
+```
+[Hochladen]{.highlight} der Commits in das Online-Repository. 
+
+## Übung 
+
+
+
+
 
 # Kollaboratives Arbeiten
 
-## Übung 1
+## Übung 
 
 :::{.callout-note}
 ## Aufgabe
@@ -166,6 +316,11 @@ Merge deine Pull-Request
 ## Übung
 
 
+## Im Blick behalten 
+
+:::{.callout-important}
+Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches wie konkrete BT-Ergebnisse, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen.   
+
 ## Vokabelliste (in ungefährere Reihenfolge vom typischen Workflow)
 - Repository:
 - clone:
@@ -177,7 +332,9 @@ Merge deine Pull-Request
 
 
 ## Bildquellen
-
+- GitHub: Foto von <a href="https://unsplash.com/de/@synkevych?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Roman Synkevych</a> auf <a href="https://unsplash.com/de/fotos/blau-schwarzes-pinguin-pluschtier-UT8LMo-wlyk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - PC: Foto von <a href="https://unsplash.com/de/@shots_of_aspartame?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Julia Joppien</a> auf <a href="https://unsplash.com/de/fotos/zerbrochener-monitor-auf-dem-boden-XFUqd0u5U7w?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Torvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg
-      
+- Babyfeet: Foto von <a href="https://unsplash.com/de/@omarlopez1?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Omar Lopez</a> auf <a href="https://unsplash.com/de/fotos/person-die-babyfusse-halt-vTknj2OxDVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Commit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
+
