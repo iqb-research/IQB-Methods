@@ -2,10 +2,10 @@
 title: "Welcome to our Learning Page"
 listing: 
   - id: for-beginners
-    contents: docs/R_tutorials
+    contents: "docs/R_tutorials/*.qmd"
     type: default
-  - id: R-SIG
-    contents: docs/r_sig
+  - id: r_sig
+    contents: "docs/r_sig/*.qmd"
     type: default
   - id: statistische-Fragen
     contents: docs/FAQ
@@ -26,3 +26,26 @@ listing:
   #image-align: left
   #image-height: 100px
 ---
+
+## for beginners
+
+:::{for-beginners}
+:::
+
+## R-SIG
+
+:::{r_sig}
+:::
+
+## statistische Fragen
+
+:::{statistische-Fragen}
+:::
+## Workflow
+
+:::{Workflow}
+:::
+## advanced
+
+:::{advanced}
+:::
