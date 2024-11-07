@@ -1,8 +1,25 @@
 ---
 title: "Welcome to our Learning Page"
 listing: 
-  contents: docs
-  type: default
+  - id: for-beginners
+    contents: docs/R_tutorials
+    type: default
+  - id: R-SIG
+    contents: docs/r_sig
+    type: default
+  - id: statistische-Fragen
+    contents: docs/FAQ
+    type: default
+  - id: Workflow
+    contents:
+      - docs/discussions
+      - docs/git
+      - docs/quarto
+    type: default
+  - id: advanced
+    contents: docs/R_tutorials/checkmate.qmd
+    type: default
+
   #sort: "title" 
   #categories: true
   #feed: true
