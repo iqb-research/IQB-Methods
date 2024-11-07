@@ -1,24 +1,30 @@
 ---
 title: "Welcome to our Learning Page"
-listing: 
-  - id: for-beginners
-    contents: "docs/R_tutorials/*.qmd"
-    type: default
-  - id: r_sig
-    contents: "docs/r_sig/*.qmd"
-    type: default
-  - id: statistische-Fragen
-    contents: docs/FAQ
-    type: default
-  - id: Workflow
-    contents:
-      - docs/discussions
-      - docs/git
-      - docs/quarto
-    type: default
-  - id: advanced
-    contents: docs/R_tutorials/checkmate.qmd
-    type: default
+listing:
+  id: learn-page
+  type: grid
+  feed: true
+  contents:
+    - title: "for beginners"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find R tutorials to start your R journey."
+    - title: "r_sig"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find all the input that was discussed in R-SIG."
+    - title: "questions about statistics"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find some answers to common questions about statistics or our r-packages." 
+    - title: "Workflow"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find tutorials about the general workflow when working with RStudio or Github."
+    - title: "advanced"
+      #path:
+      image: docs/R_tutorials/images/einführung.jpg
+      description: "here you can find some more advanced R tutorials."
 
   #sort: "title" 
   #categories: true
@@ -27,25 +33,7 @@ listing:
   #image-height: 100px
 ---
 
-## for beginners
-
-:::{for-beginners}
+:::{learn-page}
 :::
 
-## R-SIG
 
-:::{r_sig}
-:::
-
-## statistische Fragen
-
-:::{statistische-Fragen}
-:::
-## Workflow
-
-:::{Workflow}
-:::
-## advanced
-
-:::{advanced}
-:::
