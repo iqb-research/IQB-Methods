@@ -188,13 +188,17 @@ git add .
 
 ::: {.column width="50%}
 
-RStudio
+:::{.callout-warning}
+## Übung
+Stage deine gerade bearbeitete Datei. 
 :::
 
 :::
 
+:::
 
-## Commits 
+
+## Commit
 
 ```
 git commit -m "useful commit message"
@@ -212,11 +216,23 @@ git commit -m "useful commit message"
 
 ::: {.column width="50%}
 
-:::{.callout-warning}
-## Übung
-Commite deine gerade gestagte Datei. 
+RStudio
+:::
 :::
 
+## 
+
+:::{.columns}
+
+::: {.column width="50%"}
+![](./images/commit_message.jpg)
+:::
+::: {.column width="50%"}
+
+:::{.callout-warning}
+## Übung
+Commite deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Message. 
+:::
 :::
 :::
 
@@ -225,55 +241,89 @@ Commite deine gerade gestagte Datei.
 ```
 git push
 ```
+
+
+
 [Hochladen]{.highlight} der Commits in das Online-Repository. 
 
+
+:::{.columns}
+::: {.column width="50%"}
+
+![](./images/push.png)
+
+:::
+
+::: {.column width="50%}
+
+:::{.callout-warning}
 ## Übung 
+Pushe deinen Commit. Schaue dann im Online-Repository nach, ob die geänderte Datei dort auch erscheint.
+:::
+:::
+:::
 
 
 
+# Das Wars auch schon!
+
+# Na gut, noch nicht ganz. Wir können den Worklow erweitern:
 
 
 # Kollaboratives Arbeiten
 
-## Übung 
+## Branches
+mermaid Grafik
 
-:::{.callout-note}
-## Aufgabe
-Einige dich mit der Person neben dir, wer wen zum Repository einlädt. Tut das dann, sodass ihr eines eurer Repositories zu zweit oder zu dritt bearbeiten könnt.  
+## Pull Requests
+
+## Mehrere Leute
+
+## Issues
+
+## Verlinken von Issues und Pull Requests
+Jeder Issue und jede Pull-Request hat eine ID. Diese kann genutzt werden, um alles untereinander zu verlinken. 
+
+
+## Übung: Kollaboratives Arbeiten
+
+:::{.callout-caution}
+## Übung
+Einige dich mit der Person neben dir, wer wen zum zu Beginn erstellten Repository einlädt. Tut das dann, sodass ihr eines eurer Repositories zu zweit oder zu dritt bearbeiten könnt.  
 :::
 
 :::{.callout-tip}
-Gehe oben in der Kopfzeile auf `Settings` und dann in der Seitenleiste links auf `Collaborators and teams`. Hier kannst du jetzt den GitHub-Username einer Person zum Repository hinzufügen. 
+Gehe oben in der Kopfzeile des Repos auf `Settings` und dann in der Seitenleiste links auf `Collaborators and teams`. Hier kannst du jetzt den GitHub-Username einer Person zum Repository hinzufügen. 
 :::
 
-## Übung 2
+## Übung: Clonen
 :::{.callout-caution}
-## Aufgabe 
+## Übung 
 Clone das Repository (wenn noch nicht geschehen). 
 :::
 
 
-## Übung 3
+## Übung: Issues
 :::{.callout-caution}
-## Aufgabe 1
+## Übung 1
 Erstellt euch gegenseitig einen Issue, den die andere Person dann bearbeiten soll. Das kann so etwas sein wie "Add two numbers" o.ä. Wichtig ist, dass aus der Beschreibung klar wird, was getan werden soll. Assignt die andere Person zu diesem Issue. 
 :::
 
 
 :::{.callout-caution}
-## Aufgabe 2
-Erstelle einen eigenen Branch, auf dem du den dir zugewiesenen issue in der nächsten Aufgabe bearbeiten wirst. 
+## Übung 2
+Erstelle einen eigenen Branch, auf dem du den dir zugewiesenen Issue in der nächsten Übung bearbeiten wirst. 
 
 :::
 
-## Übung 3
+## Übung: Issues
 :::{.callout-caution}
-## Aufgabe 3
+## Übung 3
 Bearbeite jetzt den dir assignten Issue **ersteinmal in einer neuen R-Datei**. Erstellt euch also eine neue R-Datei im Repository Ordner und löst den Issue darin. 
 :::
 
 :::{.callout-caution}
-## Aufgabe 4
+## Übung 4
 Jetzt kommt der spannende Part: stage, committe und pushe deine Änderungen. 
 
 :::{.callout-tip}
@@ -284,29 +334,29 @@ Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue au
 
 
 
-## Übung 3
+## Übung: Pull-Requests
 :::{.callout-caution}
-## Aufgabe 5
+## Übung 5
 Erstelle eine Pull-Request, und Assigne die andere Person als Reviewer. 
 :::
 
 :::{.callout-caution}
-## Aufgabe 5
+## Übung 5
 Reviewe die dir assignte Pull-Request. Verlange mind. eine kleine Änderung. 
 :::
 
 :::{.callout-caution}
-## Aufgabe 6
+## Übung 6
 Arbeite die Änderung, die von dir verlangt wurde, ein und pushe erneut. Nutze dafür einfach den selben Branch, den du vorher für deine Pull-Request verwendet hast. Dadurch wird sie automatisch geupdated. Verlange ein erneutes Review. 
 :::
 
 :::{.callout-caution}
-## Aufgabe 7
+## Übung 7
 Reviewe die Pull-Request der anderen Person erneut. Approve diesmal. 
 :::
 
 :::{.callout-caution}
-## Aufgabe 8
+## Übung 8
 Merge deine Pull-Request
 :::
 
@@ -320,9 +370,11 @@ Merge deine Pull-Request
 
 :::{.callout-important}
 Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches wie konkrete BT-Ergebnisse, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen.   
+:::
+
 
 ## Vokabelliste (in ungefährere Reihenfolge vom typischen Workflow)
-- Repository:
+- Repository/Repo:
 - clone:
 - stage: 
 - commit:
