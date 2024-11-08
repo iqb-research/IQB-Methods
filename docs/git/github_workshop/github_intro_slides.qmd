@@ -21,7 +21,8 @@ HTML Slides bereitstellen, und PDF Export erklären (evtl. auf learn)
  - Ordnung
  - Kollaboration
 
-
+##
+Open Science
 
 ## {background-image="images/pc.jpg" background-size="1225px"}
 
@@ -37,13 +38,16 @@ Online.
 ## Nachvollziehbarkeit/Version Control
 
 \
+\
 
 [Wer hat was, wann, warum geändert?]{.highlight}
 
-\
 
-- Alles kann einfach dokumentiert werden, und zwar sehr eng verzahnt mit dem Code/Text den man ändert. 
-- Alle Arbeitsschritte, die irgendwann (in Git) gespeichert wurden, sind nachvollziehbar.
+## Nachvollziehbarkeit/Version Control
+
+- Dokumentation eng verzahnt mit Code/Text. 
+- Alle Arbeitsschritte sind nachvollziehbar.
+- Jeder Projektstand ist wiederherstellbar. 
 
 
 ## Dateibenennung
@@ -54,9 +58,6 @@ Online.
 - Gemeinsames Arbeiten an Projekten
 - Viele Open Source Projekte auf GitHub
 - Gleichzeitiges Arbeiten an Dateien, Organisation über Issues ...
-
-
-
 
 
 ## Verwandte Probleme, die mit Git nicht mehr auftreten
@@ -87,22 +88,51 @@ Online.
 ## GitHub
 - 
 
-## Workflow
+## Workflow {.center}
 
 ```{mermaid}
+flowchart TD
+    A["Repository online"] -- clone --> B("Repository lokal")
+    B -- bearbeiten --> C("Repository lokal")
+    C -- stage/commit --> D["Änderungen lokal"]
+    D -- push --> A
 ```
 
 
 ## Editoren
+- Terminal
+- GitHub Desktop
+- RStudio
+- Viele mehr ...
 
 ## Terminal
-## GitHub Desktop
-## RStudio
+![](./images/terminal.png)
+
+Ansonsten Windows Powershell/Linux Terminal öffnen, Pfad setzen (z.B. `cd C:\Users\hafiznij\Documents\GitHub\IQB-Methods`) und dann von dort aus arbeiten. 
 
 
-# Viele mehr ...
+## Visuelle Editoren
 
-## RStudio
+:::: {.columns} 
+::: {.column width="50%"}
+### Github Desktop
+
+![](./images/github_desktop.PNG)
+
+:::
+::: {.column width="50%"}
+### RStudio Integration 
+
+![](./images/rstudio.png)
+
+:::
+:::
+
+## RStudio Setup
+`Tools - Global Options`
+
+![](./images/rstudio_config.png)
+
 
 ## {background-image="images/babyfeet.jpg" background-size="1225px"}
 
@@ -110,6 +140,24 @@ Online.
 
 Erste Schritte.
 
+:::
+
+## Konfigurieren von Git
+Einmal, in einem Terminal (z.B. das in RStudio, oder Windows Powershell):
+
+```
+git config --global user.name 'Your Name'
+git config --global user.email 'your@email.com'
+```
+
+:::{.callout-caution}
+## Übung
+Tu das bitte einmal für deinen GitHub-Username und deine GitHub-email. Checke dann noch einmal ob das geklappt hat:
+
+```
+git config --global user.name
+git config --global user.email
+```
 :::
 
 
@@ -215,8 +263,8 @@ git commit -m "useful commit message"
 :::
 
 ::: {.column width="50%}
+![](./images/rstudio_commit.png)
 
-RStudio
 :::
 :::
 
@@ -265,24 +313,41 @@ Pushe deinen Commit. Schaue dann im Online-Repository nach, ob die geänderte Da
 
 
 
-# Das Wars auch schon!
+# Das wars auch schon!
 
 # Na gut, noch nicht ganz. Wir können den Worklow erweitern:
+
+## .gitignore
 
 
 # Kollaboratives Arbeiten
 
 ## Branches
-mermaid Grafik
 
-## Pull Requests
+![](./images/branches.PNG)
+
+## Pull Requests/Merge
+![](./images/branch_pullrequest.PNG)
 
 ## Mehrere Leute
+- Jede*r arbeitet auf eigenen branches. 
+- Regelmäßiges mergen: Entweder in main, oder von main pullen und dann in den eigenen branch mergen:
+
+```
+git checkout dmgr2      # gets you "on branch dmgr2"
+git fetch origin        # gets you up to date with origin
+git merge origin/master
+```
+
 
 ## Issues
 
 ## Verlinken von Issues und Pull Requests
 Jeder Issue und jede Pull-Request hat eine ID. Diese kann genutzt werden, um alles untereinander zu verlinken. 
+
+## Reviews
+
+## Review auf neuem Branch updaten
 
 
 ## Übung: Kollaboratives Arbeiten
@@ -360,6 +425,13 @@ Reviewe die Pull-Request der anderen Person erneut. Approve diesmal.
 Merge deine Pull-Request
 :::
 
+## 
+:::{.callout-caution}
+## Übung 
+Schaue dir die Commit-History an und browse das Repository zu einem beliebigen Commit. 
+:::
+
+
 ## Merge Conflicts
 
 
@@ -382,6 +454,8 @@ Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zw
 - push:
 - merge:
 
+
+# Use Git!
 
 ## Bildquellen
 - GitHub: Foto von <a href="https://unsplash.com/de/@synkevych?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Roman Synkevych</a> auf <a href="https://unsplash.com/de/fotos/blau-schwarzes-pinguin-pluschtier-UT8LMo-wlyk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
