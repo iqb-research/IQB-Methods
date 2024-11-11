@@ -12,62 +12,89 @@ lang: de
 categories: [github, tutorial]
 ---
 
-HTML Slides bereitstellen, und PDF Export erklären (evtl. auf learn)
+## Zu diesen Folien
+HTML-Folien können in PDF umgewandelt werden, und dann mit Drucken aus dem Browser abgespeichert werden, falls ihr darin kommentieren wollt. 
 
 ## Fahrplan
 
-# Motivation
-Tracken von Datein:
- - Cloud Speicherung
- - Version Control
- - Ordnung
- - Kollaboration
+1. Motivation
+1. Workflow: Alleine
+1. Workflow: Kollaborativ
 
-##
-Open Science
 
 ## {background-image="images/pc.jpg" background-size="1225px"}
 
 ::: {.absolute left="2.5%" top="2.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
 
-Alles liegt \
-Online.
-
+Problem: Rechner stürzt ab. 
 :::
 
+## {background-image="images/pc.jpg" background-size="1225px"}
+
+::: {.absolute left="2.5%" top="2.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
+
+Lösung: Alles liegt online.  
+:::
+
+## Problem: Wie dokumentiert man das nachvollziehbar? 
+
+![](./images/email_replies.png)
+
+## Lösung: Verzahnung von Dokumentation, Diskussion und Code
+![](./images/git_doku.png)
 
 
-## Nachvollziehbarkeit/Version Control
+## Problem: Wer hat was, wann, warum geändert?
 
-\
-\
-
-[Wer hat was, wann, warum geändert?]{.highlight}
+![](./images/folder.png)
 
 
-## Nachvollziehbarkeit/Version Control
+## Lösung: Version Control
+![](./images/commit_history.png)
 
-- Dokumentation eng verzahnt mit Code/Text. 
-- Alle Arbeitsschritte sind nachvollziehbar.
-- Jeder Projektstand ist wiederherstellbar. 
-
-
-## Dateibenennung
+## Problem: Dateibenennung
 
 
-## Kollaboration
-
-- Gemeinsames Arbeiten an Projekten
-- Viele Open Source Projekte auf GitHub
-- Gleichzeitiges Arbeiten an Dateien, Organisation über Issues ...
-- Kein ewiger Mailverlauf. 
-
-
-## Verwandte Probleme, die mit Git nicht mehr auftreten
-
+## Problem: Dateibenennung
 - Überschreiben von Datein.
 - Mit der falschen `final-v10_commented_NH_03.docx` weiterarbeiten. 
 - (Etwas in Datei X ändern, aber die Änderung in allen abhängingen Datein vergessen (hier hilft uns vor allem [Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/) auch ungemein)). 
+
+## Lösung: Version Control - Wiederherstellung jedes Projektstands
+:::{.columns}
+:::{.column width="50%"}
+
+![](./images/commit_history_browse.png)
+
+:::
+
+::: {.column width="50%"}
+![](./images/bt_browse.png)
+:::
+:::
+
+## 
+Problem: Hin-und Herschicken von Skripten, Texten etc. Alle haben eine andere Ordnung, und irgendwann wirds schwer, etwas zu finden. Und wenn man gleichzeitig am gleichen Skript arbeiten will ...
+
+\
+
+![](./images/anhang.png)
+
+
+## Lösung: Branches
+![](./images/branches_solution.png)
+
+
+## Lösung: Reviews
+![](./images/reviews.png)
+
+## Open Source Kollaboration
+![](./images/dplyr_github.png)
+
+
+## {.center}
+[Open \
+ Science]{.r-fit-text .highlight}
 
 
 
@@ -89,8 +116,18 @@ Online.
 ::::
 
 ## GitHub
-- 
 
+:::{.columns}
+:::{.column width="50%"}
+- Onlinedienst für Git-Repositories
+- "Soziales Netzwerk für Git-Nutende und Entwickler*innen"
+- Gehört Microsoft. 
+:::
+:::{.column width="50%"}
+![](./images/github_logo.png)
+
+:::
+:::
 ## Workflow {.center}
 
 ```{mermaid}
@@ -231,6 +268,9 @@ Clone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erste
 
 ```
 :::
+
+## Exkurs: Fork
+Wenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre. 
 
 ## Lokales Arbeiten
 Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen. 
@@ -545,7 +585,7 @@ Schaue dir die Commit-History an und browse das Repository zu einem beliebigen C
 ## Im Blick behalten 
 
 :::{.callout-important}
-Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches wie konkrete BT-Ergebnisse, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen.   
+Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches wie konkrete BT-Ergebnisse oder -Kapitel, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen.   
 :::
 
 
@@ -567,11 +607,14 @@ Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zw
 
 
 # Use Git!
+Um Git wirklich zu lernen, ist noch ein bisschen mehr Übung nötig. Wendet es also am besten mal auf ein passendes eigenes Projekt an. Es lohnt sich! 
 
 ## Bildquellen
 - GitHub: Foto von <a href="https://unsplash.com/de/@synkevych?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Roman Synkevych</a> auf <a href="https://unsplash.com/de/fotos/blau-schwarzes-pinguin-pluschtier-UT8LMo-wlyk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - PC: Foto von <a href="https://unsplash.com/de/@shots_of_aspartame?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Julia Joppien</a> auf <a href="https://unsplash.com/de/fotos/zerbrochener-monitor-auf-dem-boden-XFUqd0u5U7w?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Wolke: Foto von <a href="https://unsplash.com/de/@arteum?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Arteum.ro</a> auf <a href="https://unsplash.com/de/fotos/weisse-wolken-bGlH3TIzGGE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Torvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg
+- GitHub Logo: Von <a href="https://en.wikipedia.org/wiki/GitHub" class="extiw" title="w:GitHub">GitHub</a> - <a rel="nofollow" class="external free" href="https://github.com/logos">https://github.com/logos</a>, <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=130805002">Link</a>
 - Babyfeet: Foto von <a href="https://unsplash.com/de/@omarlopez1?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Omar Lopez</a> auf <a href="https://unsplash.com/de/fotos/person-die-babyfusse-halt-vTknj2OxDVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Commit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
 
