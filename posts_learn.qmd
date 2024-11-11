@@ -10,20 +10,20 @@ listing:
       image: docs/R_tutorials/images/einführung.jpg
       description: "here you can find R tutorials to start your R journey."
     - title: "r_sig"
+      path: posts_r_sig.qmd
+      image: docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg
+      description: "here you can find all the articles that were discussed in R-SIG."
+    - title: "statistical questions"
       #path:
-      image: docs/R_tutorials/images/einführung.jpg
-      description: "here you can find all the input that was discussed in R-SIG."
-    - title: "questions about statistics"
-      #path:
-      image: docs/R_tutorials/images/einführung.jpg
+      image: docs/FAQ/images/centering.jpeg
       description: "here you can find some answers to common questions about statistics or our r-packages." 
     - title: "Workflow"
       #path:
-      image: docs/R_tutorials/images/einführung.jpg
-      description: "here you can find tutorials about the general workflow when working with RStudio or Github."
+      image: docs/git/github.jpg
+      description: "here you can find articles about the general workflow when working with RStudio or Github."
     - title: "advanced"
       #path:
-      image: docs/R_tutorials/images/einführung.jpg
+      image: docs/R_tutorials/images/checkmate.jpg
       description: "here you can find some more advanced R tutorials."
 ---
 
