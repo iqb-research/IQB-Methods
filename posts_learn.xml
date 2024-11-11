@@ -10,79 +10,7 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_learn.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 11 Nov 2024 15:12:34 GMT</lastBuildDate>
-<item>
-  <title>Workflow</title>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/workflow.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-workflow">
-<div class="list quarto-listing-default">
-
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div> ]]></description>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/workflow.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>advanced</title>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/advanced.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-advanced">
-<div class="list quarto-listing-default">
-
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div> ]]></description>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/advanced.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>beginners</title>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-beginners">
-<div class="list quarto-listing-default">
-
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div> ]]></description>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
-</item>
+<lastBuildDate>Mon, 11 Nov 2024 15:15:17 GMT</lastBuildDate>
 <item>
   <title>R-SIG</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/posts_r_sig.html</link>
@@ -168,7 +96,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/posts_r_sig.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -192,8 +120,80 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/statisticalQuestions.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Workflow</title>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/workflow.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-workflow">
+<div class="list quarto-listing-default">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div> ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/workflow.html</guid>
+  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>advanced</title>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/advanced.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-advanced">
+<div class="list quarto-listing-default">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div> ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/advanced.html</guid>
+  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>beginners</title>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-beginners">
+<div class="list quarto-listing-default">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div> ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</guid>
+  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
