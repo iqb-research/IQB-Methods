@@ -968,16 +968,30 @@
   {
     "objectID": "docs/advanced.html",
     "href": "docs/advanced.html",
-    "title": "advanced",
+    "title": "Advanced R",
     "section": "",
-    "text": "No matching items"
+    "text": "Welcome to our advanced learn page. Here you can find more advanced material, links and articles about R, RStudio and more."
+  },
+  {
+    "objectID": "docs/advanced.html#articles-and-workshops",
+    "href": "docs/advanced.html#articles-and-workshops",
+    "title": "Advanced R",
+    "section": "Articles and Workshops",
+    "text": "Articles and Workshops"
   },
   {
     "objectID": "docs/workflow.html",
     "href": "docs/workflow.html",
     "title": "Workflow",
     "section": "",
-    "text": "No matching items"
+    "text": "Welcome to our workflow learn page. Here you can find articles explaining how to work with Git/Github and Quarto, or some info about our code conventions."
+  },
+  {
+    "objectID": "docs/workflow.html#articles-and-workshops",
+    "href": "docs/workflow.html#articles-and-workshops",
+    "title": "Workflow",
+    "section": "Articles and Workshops",
+    "text": "Articles and Workshops"
   },
   {
     "objectID": "docs/discussions/code_conventions.html",
@@ -1273,7 +1287,21 @@
     "href": "docs/beginners.html",
     "title": "Starting with R",
     "section": "",
-    "text": "Welcome to our beginners learn page. Here you can find material, links and articles to start you R journey.\n\nR Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R.\nThere is also this Cheat Sheet: Base R to get an Overview for all basic functions in R.\n\n\nArticles and Workshops\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to our beginners learn page. Here you can find material, links and articles to start you R journey."
+  },
+  {
+    "objectID": "docs/beginners.html#r-introduction",
+    "href": "docs/beginners.html#r-introduction",
+    "title": "Starting with R",
+    "section": "R Introduction",
+    "text": "R Introduction\nAn introduction to R with hands on examples and exercises can be found in Introduction to R.\nThere is also this Cheat Sheet: Base R to get an Overview for all basic functions in R."
+  },
+  {
+    "objectID": "docs/beginners.html#articles-and-workshops",
+    "href": "docs/beginners.html#articles-and-workshops",
+    "title": "Starting with R",
+    "section": "Articles and Workshops",
+    "text": "Articles and Workshops"
   },
   {
     "objectID": "docs/r_sig/24_04_08_tidyverse_column_wise/index.html",
@@ -1568,7 +1596,14 @@
     "href": "docs/statisticalQuestions.html",
     "title": "Statistical Questions",
     "section": "",
-    "text": "No matching items"
+    "text": "Welcome to our questions learn page. Here you can find articles about common questions regarding statistics or our IQB internal eat-packages."
+  },
+  {
+    "objectID": "docs/statisticalQuestions.html#articles-and-workshops",
+    "href": "docs/statisticalQuestions.html#articles-and-workshops",
+    "title": "Statistical Questions",
+    "section": "Articles and Workshops",
+    "text": "Articles and Workshops"
   },
   {
     "objectID": "posts_newsletter.html",

@@ -10,7 +10,7 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_learn.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 11 Nov 2024 15:45:15 GMT</lastBuildDate>
+<lastBuildDate>Mon, 11 Nov 2024 15:54:17 GMT</lastBuildDate>
 <item>
   <title>R-SIG</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/posts_r_sig.html</link>
@@ -96,7 +96,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/posts_r_sig.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:45:15 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:54:17 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -108,13 +108,13 @@ No matching items
 
 
 <p>Welcome to our beginners learn page. Here you can find material, links and articles to start you R journey.</p>
-<section id="r-introduction" class="level1">
-<h1>R Introduction</h1>
+<section id="r-introduction" class="level2">
+<h2 class="anchored" data-anchor-id="r-introduction">R Introduction</h2>
 <p>An introduction to R with hands on examples and exercises can be found in <a href="https://nickhaf.github.io/r_tutorial/">Introduction to R</a>.</p>
 <p>There is also this <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">Cheat Sheet: Base R</a> to get an Overview for all basic functions in R.</p>
 </section>
-<section id="articles-and-workshops" class="level1">
-<h1>Articles and Workshops</h1>
+<section id="articles-and-workshops" class="level2">
+<h2 class="anchored" data-anchor-id="articles-and-workshops">Articles and Workshops</h2>
 <div class="{beginners}">
 
 </div>
@@ -132,7 +132,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/beginners.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:45:15 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:54:17 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -143,9 +143,16 @@ No matching items
 
 
 
+<p>Welcome to our workflow learn page. Here you can find articles explaining how to work with Git/Github and Quarto, or some info about our code conventions.</p>
+<section id="articles-and-workshops" class="level2">
+<h2 class="anchored" data-anchor-id="articles-and-workshops">Articles and Workshops</h2>
+<div class="{workflow}">
+
+</div>
 
 
 
+</section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-workflow">
 <div class="list quarto-listing-default">
@@ -156,31 +163,76 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/workflow.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:45:15 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:54:17 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>advanced</title>
+  <title>Advanced R</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</link>
   <description><![CDATA[ 
 
 
 
 
+<p>Welcome to our advanced learn page. Here you can find more advanced material, links and articles about R, RStudio and more.</p>
+<section id="articles-and-workshops" class="level2">
+<h2 class="anchored" data-anchor-id="articles-and-workshops">Articles and Workshops</h2>
+<div class="{advanced}">
+
+</div>
 
 
 
+</section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-advanced">
 <div class="list quarto-listing-default">
-
+<div class="quarto-post image-right" data-index="0" data-categories="R,checkmate,tutorial" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1731340261618" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
+<div class="thumbnail">
+<p><a href="../docs/R_tutorials/checkmate.html" class="no-external"></a></p><a href="../docs/R_tutorials/checkmate.html" class="no-external">
+<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" class="thumbnail-image"></p>
+</a><p><a href="../docs/R_tutorials/checkmate.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../docs/R_tutorials/checkmate.html" class="no-external">Using Checkmate</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../docs/R_tutorials/checkmate.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('checkmate'); return false;">
+checkmate
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<div class="listing-description">
+<a href="../docs/R_tutorials/checkmate.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/R_tutorials/checkmate.html --></a>
+</div>
+</div>
+<div class="metadata">
+<a href="../docs/R_tutorials/checkmate.html" class="no-external">
+<div class="listing-date">
+Dec 1, 2023
+</div>
+<div class="listing-author">
+Edna Grewers
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:45:15 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:54:17 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -191,9 +243,16 @@ No matching items
 
 
 
+<p>Welcome to our questions learn page. Here you can find articles about common questions regarding statistics or our IQB internal eat-packages.</p>
+<section id="articles-and-workshops" class="level2">
+<h2 class="anchored" data-anchor-id="articles-and-workshops">Articles and Workshops</h2>
+<div class="{statistical-questions}">
+
+</div>
 
 
 
+</section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-statistical-questions">
 <div class="list quarto-listing-default">
@@ -204,7 +263,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/statisticalQuestions.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:45:15 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:54:17 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
