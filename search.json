@@ -4,7 +4,7 @@
     "href": "posts_learn.html",
     "title": "Welcome to our Learning Page",
     "section": "",
-    "text": "Workflow\n\n\nhere you can find articles about the general workflow when working with RStudio or Github.\n\n\n\n\n\n\n\n\n\n\n\n\n\nadvanced\n\n\nhere you can find some more advanced R tutorials.\n\n\n\n\n\n\n\n\n\n\n\n\n\nfor beginners\n\n\nhere you can find R tutorials to start your R journey.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nr_sig\n\n\nhere you can find all the articles that were discussed in R-SIG.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistical questions\n\n\nhere you can find some answers to common questions about statistics or our r-packages.\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Workflow\n\n\nhere you can find articles about the general workflow when working with RStudio or Github.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nadvanced\n\n\nhere you can find some more advanced R tutorials.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfor beginners\n\n\nhere you can find R tutorials to start your R journey.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nr_sig\n\n\nhere you can find all the articles that were discussed in R-SIG.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstatistical questions\n\n\nhere you can find some answers to common questions about statistics or our r-packages.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "learn",
       "Welcome to our Learning Page"
@@ -88,20 +88,16 @@
     "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\n“eatPrep” requires “eatTools”.\n“eatRep” needs “eatTools” and “eatGADS”.\n“eatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
   },
   {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
+    "objectID": "docs/learnPage/statisticalQuestions.html",
+    "href": "docs/learnPage/statisticalQuestions.html",
+    "title": "Statistical Questions",
     "section": "",
-    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nSep 9, 2024\n\n\nReproducible manuscripts with Git\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nJul 15, 2024\n\n\nReproducible manuscripts with Quarto\n\n\nNicklas Hafiz\n\n\n14 min\n\n\n\n\n\n\n\nJun 3, 2024\n\n\nPlotting with ggplot2\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nApr 8, 2024\n\n\nColumn-wise operations in the tidyverse\n\n\nNicklas Hafiz\n\n\n6 min\n\n\n\n\n\n\n\nMar 25, 2024\n\n\nData wrangling in the tidyverse\n\n\nNicklas Hafiz\n\n\n12 min\n\n\n\n\n\n\n\nMar 22, 2024\n\n\nData sets\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nIntroduction to the tidyverse\n\n\nNicklas Hafiz\n\n\n7 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducibility with renv\n\n\nNicklas Hafiz\n\n\n3 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "learn",
-      "R SIG"
-    ]
+    "text": "No matching items"
   },
   {
-    "objectID": "docs/learnPage/beginners.html",
-    "href": "docs/learnPage/beginners.html",
-    "title": "beginners",
+    "objectID": "docs/learnPage/advanced.html",
+    "href": "docs/learnPage/advanced.html",
+    "title": "advanced",
     "section": "",
     "text": "No matching items"
   },
@@ -1557,16 +1553,20 @@
     ]
   },
   {
-    "objectID": "docs/learnPage/advanced.html",
-    "href": "docs/learnPage/advanced.html",
-    "title": "advanced",
+    "objectID": "docs/learnPage/posts_r_sig.html",
+    "href": "docs/learnPage/posts_r_sig.html",
+    "title": "R-SIG",
     "section": "",
-    "text": "No matching items"
+    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "learn",
+      "R SIG"
+    ]
   },
   {
-    "objectID": "docs/learnPage/statisticalQuestions.html",
-    "href": "docs/learnPage/statisticalQuestions.html",
-    "title": "Statistical Questions",
+    "objectID": "docs/learnPage/beginners.html",
+    "href": "docs/learnPage/beginners.html",
+    "title": "beginners",
     "section": "",
     "text": "No matching items"
   },

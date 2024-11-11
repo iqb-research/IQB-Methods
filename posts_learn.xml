@@ -10,7 +10,55 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_learn.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 11 Nov 2024 15:08:59 GMT</lastBuildDate>
+<lastBuildDate>Mon, 11 Nov 2024 15:12:34 GMT</lastBuildDate>
+<item>
+  <title>Workflow</title>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/workflow.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-workflow">
+<div class="list quarto-listing-default">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div> ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/workflow.html</guid>
+  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>advanced</title>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/advanced.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-advanced">
+<div class="list quarto-listing-default">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div> ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/advanced.html</guid>
+  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>beginners</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</link>
@@ -32,12 +80,12 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:08:59 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>R-SIG</title>
-  <link>https://iqb-research.github.io/IQB-Methods/posts_r_sig.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/posts_r_sig.html</link>
   <description><![CDATA[ 
 
 
@@ -88,25 +136,6 @@ No matching items
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 <div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
@@ -118,13 +147,13 @@ No matching items
 <th>
 </th>
 <th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+Date
 </th>
 <th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+Title
 </th>
 <th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
+Author
 </th>
 <th>
 Reading Time
@@ -132,219 +161,39 @@ Reading Time
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="R,quarto,R-SIG,Git" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1731337541315" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="990" data-listing-title-sort="Reproducible manuscripts with Git" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Sep 9, 2024</span>
-</td>
-<td>
-<a href="./docs/r_sig/24_09_09_quarto_git/index.html" class="title listing-title">Reproducible manuscripts with Git</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">5 min</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="R,quarto,R-SIG" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1731337541311" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2747" data-listing-title-sort="Reproducible manuscripts with Quarto" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Jul 15, 2024</span>
-</td>
-<td>
-<a href="./docs/r_sig/24_07_15_quarto_1/index.html" class="title listing-title">Reproducible manuscripts with Quarto</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">14 min</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="R,tidyverse,plots,R-SIG" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1731337541311" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19" data-listing-title-sort="Plotting with `ggplot2`" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Jun 3, 2024</span>
-</td>
-<td>
-<a href="./docs/r_sig/24_06_03_ggplot2/index.html" class="title listing-title">Plotting with <code>ggplot2</code></a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="R,tidyverse,loops,R-SIG" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1731337541311" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162" data-listing-title-sort="Column-wise operations in the tidyverse" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Apr 8, 2024</span>
-</td>
-<td>
-<a href="./docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="title listing-title">Column-wise operations in the tidyverse</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">6 min</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1731337541311" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2265" data-listing-title-sort="Data wrangling in the tidyverse" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Mar 25, 2024</span>
-</td>
-<td>
-<a href="./docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="title listing-title">Data wrangling in the tidyverse</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">12 min</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1731337541307" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223" data-listing-title-sort="Data sets" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Mar 22, 2024</span>
-</td>
-<td>
-<a href="./docs/r_sig/24_03_22_datasets/index.html" class="title listing-title">Data sets</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">2 min</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1731337541303" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231" data-listing-title-sort="Introduction to the tidyverse" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Feb 26, 2024</span>
-</td>
-<td>
-<a href="./docs/r_sig/24_01_26_tidyverse_intro/index.html" class="title listing-title">Introduction to the tidyverse</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">7 min</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="R,tidyverse,data manipulation,R-SIG" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1731337541303" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886" data-listing-title-sort="Case_when() function" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Dec 18, 2023</span>
-</td>
-<td>
-<a href="./docs/r_sig/23_12_18_case_when/index.html" class="title listing-title">Case_when() function</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">5 min</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="R,renv,R-SIG" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1731337541279" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581" data-listing-title-sort="Reproducibility with renv" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Oct 23, 2023</span>
-</td>
-<td>
-<a href="./docs/r_sig/23_11_06_renv/index.html" class="title listing-title">Reproducibility with renv</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">3 min</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="R,best practices,R-SIG" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1731337541279" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="76" data-listing-title-sort="Cleaner Scripts" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Oct 9, 2023</span>
-</td>
-<td>
-<a href="./docs/r_sig/23_10_09_cleaner/index.html" class="title listing-title">Cleaner Scripts</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="R,loops,R-SIG" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1731337541263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691" data-listing-title-sort="The apply family" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/apply_family.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Jul 31, 2023</span>
-</td>
-<td>
-<a href="./docs/r_sig/23_07_31_apply/index.html" class="title listing-title">The apply family</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">4 min</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="R,loops,R-SIG" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1731337541255" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26" data-listing-title-sort="for-loops" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Mar 20, 2023</span>
-</td>
-<td>
-<a href="./docs/r_sig/23_03_20_forloops/index.html" class="title listing-title">for-loops</a>
-</td>
-<td>
-<span class="listing-author">Nicklas Hafiz</span>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
 </div> ]]></description>
-  <guid>https://iqb-research.github.io/IQB-Methods/posts_r_sig.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:08:59 GMT</pubDate>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/posts_r_sig.html</guid>
+  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Statistical Questions</title>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/statisticalQuestions.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-statistical-questions">
+<div class="list quarto-listing-default">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div> ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/statisticalQuestions.html</guid>
+  <pubDate>Mon, 11 Nov 2024 15:12:34 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

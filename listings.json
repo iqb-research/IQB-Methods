@@ -2,8 +2,11 @@
   {
     "listing": "/posts_learn.html",
     "items": [
+      "/docs/learnPage/workflow.html",
+      "/docs/learnPage/advanced.html",
       "/docs/learnPage/beginners.html",
-      "/posts_r_sig.html"
+      "/docs/learnPage/posts_r_sig.html",
+      "/docs/learnPage/statisticalQuestions.html"
     ]
   },
   {
@@ -11,28 +14,7 @@
     "items": []
   },
   {
-    "listing": "/posts_r_sig.html",
-    "items": [
-      "/docs/r_sig/24_09_09_quarto_git/index.html",
-      "/docs/r_sig/24_07_15_quarto_1/index.html",
-      "/docs/r_sig/24_06_03_ggplot2/index.html",
-      "/docs/r_sig/24_04_08_tidyverse_column_wise/index.html",
-      "/docs/r_sig/24_03_25_tidyverse_wrangling/index.html",
-      "/docs/r_sig/24_03_22_datasets/index.html",
-      "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
-      "/docs/r_sig/23_12_18_case_when/index.html",
-      "/docs/r_sig/23_11_06_renv/index.html",
-      "/docs/r_sig/23_10_09_cleaner/index.html",
-      "/docs/r_sig/23_07_31_apply/index.html",
-      "/docs/r_sig/23_03_20_forloops/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/learnPage/beginners.html",
-    "items": []
-  },
-  {
-    "listing": "/docs/learnPage/workflow.html",
+    "listing": "/docs/learnPage/statisticalQuestions.html",
     "items": []
   },
   {
@@ -40,7 +22,15 @@
     "items": []
   },
   {
-    "listing": "/docs/learnPage/statisticalQuestions.html",
+    "listing": "/docs/learnPage/workflow.html",
+    "items": []
+  },
+  {
+    "listing": "/docs/learnPage/posts_r_sig.html",
+    "items": []
+  },
+  {
+    "listing": "/docs/learnPage/beginners.html",
     "items": []
   },
   {
