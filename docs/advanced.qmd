@@ -1,5 +1,5 @@
 ---
-title: "advanced"
+title: "Advanced R"
 listing:
   id: advanced
   type: default
@@ -7,5 +7,12 @@ listing:
   categories: true
   sort: "title"
   contents:
-    - docs/R_tutorials/checkmate.qmd
+    - R_tutorials/checkmate.qmd
 ---
+
+Welcome to our advanced learn page. Here you can find more advanced material, links and articles about R, RStudio and more.
+
+## Articles and Workshops
+
+::: {advanced}
+:::
