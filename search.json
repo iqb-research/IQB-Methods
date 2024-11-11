@@ -11,60 +11,92 @@
     ]
   },
   {
-    "objectID": "posts/newsletter/24_01_12/index.html",
-    "href": "posts/newsletter/24_01_12/index.html",
-    "title": "12-01-2024",
+    "objectID": "posts/newsletter/24_08_26/index.html",
+    "href": "posts/newsletter/24_08_26/index.html",
+    "title": "26-08-2024",
     "section": "",
-    "text": "1"
+    "text": "Liebe IQBler:innen,\nhier der Methoden-Newsletter für die letzten Monate, in dem wir kurz Neuerungen in den R-Paketen der eat-Reihe vorstellen, Updates zu Gruppen und Workshops geben und über sonstige methodische Entscheidungen am Institut informieren."
   },
   {
-    "objectID": "posts/newsletter/24_01_12/index.html#footnotes",
-    "href": "posts/newsletter/24_01_12/index.html#footnotes",
-    "title": "12-01-2024",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Giulia May on Unsplash.↩︎"
+    "objectID": "posts/newsletter/24_08_26/index.html#eatpreptba-eatautocode",
+    "href": "posts/newsletter/24_08_26/index.html#eatpreptba-eatautocode",
+    "title": "26-08-2024",
+    "section": "eatPrepTBA & eatAutoCode",
+    "text": "eatPrepTBA & eatAutoCode\neatPrepTBA zur Aufbereitung von Daten aus dem IQB-TestCenter und eatAutoCode zur Kodierung von KA1&2-Aufgaben im TBA-Kontext werden derzeit entwickelt. Eine ausführlichere Vorstellung der Pakete erfolgt nach dem ersten Release."
   },
   {
-    "objectID": "posts/newsletter/23_08_09/index.html",
-    "href": "posts/newsletter/23_08_09/index.html",
-    "title": "09-08-2023",
+    "objectID": "posts/newsletter/24_08_26/index.html#eatprep",
+    "href": "posts/newsletter/24_08_26/index.html#eatprep",
+    "title": "26-08-2024",
+    "section": "eatPrep",
+    "text": "eatPrep\nmbo-Kompatibilität: Das Handling der neuen Missings, “mbo” https://iqb-berlin.github.io/coding-info/data-structures/missings.html, die perspektivisch die alten, “mbi”, ersetzen, ist jetzt in eatPrep möglich. Dabei ist die Änderung von “mbi” zu “mbo” lediglich eine Namensänderung. Diese wurde eingeführt, damit direkt aus dem Label heraus klar ersichtlich wird, was gemeint ist; inhaltlich ändert sich nichts und “mbi” kann (wie im Paper&Pencil-Format üblich) auch weiterverwendet werden.\nZwischen Juli und August gab es einen Bug in mergeData(): Wenn mehr als zwei Datensätze in einer Liste gemergt wurden, wurde “mbd” gleichrangig mit validen Codes behandelt und überschrieb diese ggf., was aber auch in den zugehörigen Messages reported wurde (d. h. es ist hoffentlich immer aufgefallen). Der Bug ist nun behoben. Bitte achtet darauf, dass ihr eatPrep ab Version 1.0.1 benutzt.\nFeature Request für checkDesign()-Output: Redundanzen wurden gekürzt; der Output von checkDesign() ist jetzt hoffentlich besser lesbar, wenn es viele Abweichungen im Datensatz vom Testdesign gibt.\nDie Funktion prep2GADS() kann nun sowohl rohe als auch gescorte Itemdatensätze inklusive aller Meta-Daten aus der IQB-DB in das GADSdat-Format exportieren. Für alle, die schon immer ihre Itemdatensätze inklusive der Meta-Daten (z. B. Labels der Auswahlantworten) archivieren wollten.\nWenn addLeadingZeros=TRUE gesetzt wurde, gab es bei ID-Variablen mit vielen Stellen in readSpss() oder automateDataPreparation() ein Problem. Dieses wurde in eatTools durch Überarbeitung der Funktion addLeadingZerosToCharInt() behoben."
+  },
+  {
+    "objectID": "posts/newsletter/24_08_26/index.html#eattools",
+    "href": "posts/newsletter/24_08_26/index.html#eattools",
+    "title": "26-08-2024",
+    "section": "eatTools",
+    "text": "eatTools\nBug in addLeadingZerosToCharInt(): Bei großen Zahlen mit über 10 Stellen kam es zum Abbruch der Funktion. Dies ist nun behoben."
+  },
+  {
+    "objectID": "posts/newsletter/24_08_26/index.html#workshops",
+    "href": "posts/newsletter/24_08_26/index.html#workshops",
+    "title": "26-08-2024",
+    "section": "Workshops",
+    "text": "Workshops\nGeplant sind je ein Workshop zu:\neatPrep\neatModel\nGithub allgemein\nBei Interesse tragt euch gerne in folgende Liste ein:\nt:\\ ein t:\\SIG\\SIG Methoden\\Workshops\\InteresseWorkshops.xlsx\nDanach doodeln wir Termine mit allen Interessierten."
+  },
+  {
+    "objectID": "posts/newsletter/24_08_26/index.html#r-sig",
+    "href": "posts/newsletter/24_08_26/index.html#r-sig",
+    "title": "26-08-2024",
+    "section": "R-SIG",
+    "text": "R-SIG\nSchaut gerne auf der Methoden-Seite vorbei, wenn ihr einen Überblick über vergangene und zukünftige Themen bekommen wollt:\nhttps://iqb-research.github.io/IQB-Methods/posts_r_sig.html\nMitgebrachte R-Probleme können aber auch weiterhin besprochen werden. Meldet euch gerne bei Nicklas, wenn er euch hinzufügen soll."
+  },
+  {
+    "objectID": "posts/newsletter/24_08_26/index.html#sig-methoden",
+    "href": "posts/newsletter/24_08_26/index.html#sig-methoden",
+    "title": "26-08-2024",
+    "section": "SIG Methoden",
+    "text": "SIG Methoden\n\nLesegruppe\nDie Lesegruppe war in der Sommerpause. Am 10. September treffen wir uns wieder zur Besprechung von:\nSchroeders, U., & Gnambs, T. (2024, July 24). Sample Size Planning in Item Response Theory: A Tutorial. https://doi.org/10.31234/osf.io/hv6zt\nInteressierte sind herzlich willkommen! Meldet euch gerne bei Karoline, wenn sie euch hinzufügen soll.\n\n\nAustauschrunde\nDie Liste für methodische Fragen am IQB ist daueroffen; tragt Fragen gerne anonym und unkompliziert in folgendes Dokument ein:\nt:\\SIG\\SIG Methoden\\Liste methodischer Fragen.docx\nViele Grüße\nEuer Methoden-Team (Sebastian, Karoline, Benjamin, Philipp, Kristoph, Janine, Edna, Alina, Nicklas)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IQB Methods Team",
     "section": "",
-    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
   },
   {
-    "objectID": "posts_help.html",
-    "href": "posts_help.html",
-    "title": "Help",
+    "objectID": "posts_eat.html",
+    "href": "posts_eat.html",
+    "title": "eat Packages",
     "section": "",
-    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\ncontact: BB, SW, KAS\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: SW\n\n\ncontact: NH, PF\n\n\ncontact: KAS\n\n\ncontact: BB, NH\n\n\ncontact: SW, BB\n\n\ncontact: SW, BB, KAS"
+    "text": "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated creation of scale manuals.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nSebastian Weirich\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreating plots from the eatRep output (main use: Bildungstrend).\n\n\n\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple data sets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool ‘AnalyseInput’, which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.\n\n\n\n\n\nKaroline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreate and apply recoding databases.\n\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nSebastian Weirich, Benjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts_help.html#contact-for-eat-packages",
-    "href": "posts_help.html#contact-for-eat-packages",
-    "title": "Help",
+    "objectID": "posts_eat.html#installing-r-packages",
+    "href": "posts_eat.html#installing-r-packages",
+    "title": "eat Packages",
+    "section": "Installing R packages",
+    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
+  },
+  {
+    "objectID": "posts_eat.html#compatibility",
+    "href": "posts_eat.html#compatibility",
+    "title": "eat Packages",
+    "section": "Compatibility",
+    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\n“eatPrep” requires “eatTools”.\n“eatRep” needs “eatTools” and “eatGADS”.\n“eatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
+  },
+  {
+    "objectID": "posts_r_sig.html",
+    "href": "posts_r_sig.html",
+    "title": "R-SIG",
     "section": "",
-    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\ncontact: BB, SW, KAS\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: SW\n\n\ncontact: NH, PF\n\n\ncontact: KAS\n\n\ncontact: BB, NH\n\n\ncontact: SW, BB\n\n\ncontact: SW, BB, KAS"
-  },
-  {
-    "objectID": "posts_help.html#faq",
-    "href": "posts_help.html#faq",
-    "title": "Help",
-    "section": "FAQ",
-    "text": "FAQ\n\n\nQuestion 1\n\nSome example answer."
-  },
-  {
-    "objectID": "posts_help.html#current-issues-on-github",
-    "href": "posts_help.html#current-issues-on-github",
-    "title": "Help",
-    "section": "Current Issues on Github",
-    "text": "Current Issues on Github"
-  },
-  {
-    "objectID": "posts_newsletter.html",
-    "href": "posts_newsletter.html",
-    "title": "Newsletter",
-    "section": "",
-    "text": "26-08-2024\n\n\n\n\n\nNewsletter\n\n\n\n\n\nAug 26, 2024\n\n\nKaroline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n12-01-2024\n\n\n\n\n\nNewsletter\n\n\n\n\n\nJan 12, 2024\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\n\n\n\nNewsletter\n\n\n\n\n\nAug 9, 2023\n\n\nBenjamin Becker\n\n\n\n\n\n\nNo matching items"
+    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nSep 9, 2024\n\n\nReproducible manuscripts with Git\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nJul 15, 2024\n\n\nReproducible manuscripts with Quarto\n\n\nNicklas Hafiz\n\n\n14 min\n\n\n\n\n\n\n\nJun 3, 2024\n\n\nPlotting with ggplot2\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nApr 8, 2024\n\n\nColumn-wise operations in the tidyverse\n\n\nNicklas Hafiz\n\n\n6 min\n\n\n\n\n\n\n\nMar 25, 2024\n\n\nData wrangling in the tidyverse\n\n\nNicklas Hafiz\n\n\n12 min\n\n\n\n\n\n\n\nMar 22, 2024\n\n\nData sets\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nIntroduction to the tidyverse\n\n\nNicklas Hafiz\n\n\n7 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducibility with renv\n\n\nNicklas Hafiz\n\n\n3 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "learn",
+      "R SIG"
+    ]
   },
   {
     "objectID": "docs/git/index.html",
@@ -1511,98 +1543,66 @@
     ]
   },
   {
-    "objectID": "posts_r_sig.html",
-    "href": "posts_r_sig.html",
-    "title": "R-SIG",
-    "section": "",
-    "text": "In the “R Special Interest Group” (R-SIG) we talk about all kinds of topics related to coding in R. It takes place every other week, so drop by if you’re interested!\n\nStructure\nEach session will focus on a specific topic/exercise, with a little input in the beginning, and a longer exercise part afterwards.\nYou also have the opportunity to bring in R-related questions which we will discuss in the end for 10 - 15 minutes. Please send them in the Friday before the next session.\nA suggestion for a timetable we can loosely follow:\n\n13:00 - 13:15: Input\n13:15 - 13:35: Exercise time :)\n13:35 - 13:50: Discuss exercises\n13:50 - 14:10: Questions\n\n\n\nFuture Topics\nHere a list of possible topics for the next sessions.\n\ntidyverse\n\nIntroduction\nData wrangling\nPlotting with ggplot2\n\nRecap of “Advanced Basics”:\n\nOwn functions\nloops\napply-family\n\nPackage development and how it might be relevant for scientific analyses:\n\nOwn functions\nStructure of projects\nTesting!\n\nCode Review: How to improve code I (or somebody else) has written. You can send in your code, it might be a nice way of getting feedback you won’t get otherwise. (Code review is very common in programming, as it can be very helpful to get some feedback or learn about different ways of doing stuff).\nCoding Kata: The website Codewars let’s you solve different coding challenges.\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\nReading Time\n\n\n\n\n\n\n\n\n\nSep 9, 2024\n\n\nReproducible manuscripts with Git\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nJul 15, 2024\n\n\nReproducible manuscripts with Quarto\n\n\nNicklas Hafiz\n\n\n14 min\n\n\n\n\n\n\n\nJun 3, 2024\n\n\nPlotting with ggplot2\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nApr 8, 2024\n\n\nColumn-wise operations in the tidyverse\n\n\nNicklas Hafiz\n\n\n6 min\n\n\n\n\n\n\n\nMar 25, 2024\n\n\nData wrangling in the tidyverse\n\n\nNicklas Hafiz\n\n\n12 min\n\n\n\n\n\n\n\nMar 22, 2024\n\n\nData sets\n\n\nNicklas Hafiz\n\n\n2 min\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nIntroduction to the tidyverse\n\n\nNicklas Hafiz\n\n\n7 min\n\n\n\n\n\n\n\nDec 18, 2023\n\n\nCase_when() function\n\n\nNicklas Hafiz\n\n\n5 min\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nReproducibility with renv\n\n\nNicklas Hafiz\n\n\n3 min\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nCleaner Scripts\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nThe apply family\n\n\nNicklas Hafiz\n\n\n4 min\n\n\n\n\n\n\n\nMar 20, 2023\n\n\nfor-loops\n\n\nNicklas Hafiz\n\n\n1 min\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "learn",
-      "R SIG"
-    ]
-  },
-  {
-    "objectID": "posts_eat.html",
-    "href": "posts_eat.html",
-    "title": "eat Packages",
-    "section": "",
-    "text": "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated creation of scale manuals.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nSebastian Weirich\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreating plots from the eatRep output (main use: Bildungstrend).\n\n\n\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple data sets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool ‘AnalyseInput’, which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.\n\n\n\n\n\nKaroline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreate and apply recoding databases.\n\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nSebastian Weirich, Benjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts_eat.html#installing-r-packages",
-    "href": "posts_eat.html#installing-r-packages",
-    "title": "eat Packages",
-    "section": "Installing R packages",
-    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
-  },
-  {
-    "objectID": "posts_eat.html#compatibility",
-    "href": "posts_eat.html#compatibility",
-    "title": "eat Packages",
-    "section": "Compatibility",
-    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\n“eatPrep” requires “eatTools”.\n“eatRep” needs “eatTools” and “eatGADS”.\n“eatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IQB Methods Team",
-    "section": "",
-    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
-  },
-  {
-    "objectID": "posts/newsletter/24_08_26/index.html",
-    "href": "posts/newsletter/24_08_26/index.html",
-    "title": "26-08-2024",
-    "section": "",
-    "text": "Liebe IQBler:innen,\nhier der Methoden-Newsletter für die letzten Monate, in dem wir kurz Neuerungen in den R-Paketen der eat-Reihe vorstellen, Updates zu Gruppen und Workshops geben und über sonstige methodische Entscheidungen am Institut informieren."
-  },
-  {
-    "objectID": "posts/newsletter/24_08_26/index.html#eatpreptba-eatautocode",
-    "href": "posts/newsletter/24_08_26/index.html#eatpreptba-eatautocode",
-    "title": "26-08-2024",
-    "section": "eatPrepTBA & eatAutoCode",
-    "text": "eatPrepTBA & eatAutoCode\neatPrepTBA zur Aufbereitung von Daten aus dem IQB-TestCenter und eatAutoCode zur Kodierung von KA1&2-Aufgaben im TBA-Kontext werden derzeit entwickelt. Eine ausführlichere Vorstellung der Pakete erfolgt nach dem ersten Release."
-  },
-  {
-    "objectID": "posts/newsletter/24_08_26/index.html#eatprep",
-    "href": "posts/newsletter/24_08_26/index.html#eatprep",
-    "title": "26-08-2024",
-    "section": "eatPrep",
-    "text": "eatPrep\nmbo-Kompatibilität: Das Handling der neuen Missings, “mbo” https://iqb-berlin.github.io/coding-info/data-structures/missings.html, die perspektivisch die alten, “mbi”, ersetzen, ist jetzt in eatPrep möglich. Dabei ist die Änderung von “mbi” zu “mbo” lediglich eine Namensänderung. Diese wurde eingeführt, damit direkt aus dem Label heraus klar ersichtlich wird, was gemeint ist; inhaltlich ändert sich nichts und “mbi” kann (wie im Paper&Pencil-Format üblich) auch weiterverwendet werden.\nZwischen Juli und August gab es einen Bug in mergeData(): Wenn mehr als zwei Datensätze in einer Liste gemergt wurden, wurde “mbd” gleichrangig mit validen Codes behandelt und überschrieb diese ggf., was aber auch in den zugehörigen Messages reported wurde (d. h. es ist hoffentlich immer aufgefallen). Der Bug ist nun behoben. Bitte achtet darauf, dass ihr eatPrep ab Version 1.0.1 benutzt.\nFeature Request für checkDesign()-Output: Redundanzen wurden gekürzt; der Output von checkDesign() ist jetzt hoffentlich besser lesbar, wenn es viele Abweichungen im Datensatz vom Testdesign gibt.\nDie Funktion prep2GADS() kann nun sowohl rohe als auch gescorte Itemdatensätze inklusive aller Meta-Daten aus der IQB-DB in das GADSdat-Format exportieren. Für alle, die schon immer ihre Itemdatensätze inklusive der Meta-Daten (z. B. Labels der Auswahlantworten) archivieren wollten.\nWenn addLeadingZeros=TRUE gesetzt wurde, gab es bei ID-Variablen mit vielen Stellen in readSpss() oder automateDataPreparation() ein Problem. Dieses wurde in eatTools durch Überarbeitung der Funktion addLeadingZerosToCharInt() behoben."
-  },
-  {
-    "objectID": "posts/newsletter/24_08_26/index.html#eattools",
-    "href": "posts/newsletter/24_08_26/index.html#eattools",
-    "title": "26-08-2024",
-    "section": "eatTools",
-    "text": "eatTools\nBug in addLeadingZerosToCharInt(): Bei großen Zahlen mit über 10 Stellen kam es zum Abbruch der Funktion. Dies ist nun behoben."
-  },
-  {
-    "objectID": "posts/newsletter/24_08_26/index.html#workshops",
-    "href": "posts/newsletter/24_08_26/index.html#workshops",
-    "title": "26-08-2024",
-    "section": "Workshops",
-    "text": "Workshops\nGeplant sind je ein Workshop zu:\neatPrep\neatModel\nGithub allgemein\nBei Interesse tragt euch gerne in folgende Liste ein:\nt:\\ ein t:\\SIG\\SIG Methoden\\Workshops\\InteresseWorkshops.xlsx\nDanach doodeln wir Termine mit allen Interessierten."
-  },
-  {
-    "objectID": "posts/newsletter/24_08_26/index.html#r-sig",
-    "href": "posts/newsletter/24_08_26/index.html#r-sig",
-    "title": "26-08-2024",
-    "section": "R-SIG",
-    "text": "R-SIG\nSchaut gerne auf der Methoden-Seite vorbei, wenn ihr einen Überblick über vergangene und zukünftige Themen bekommen wollt:\nhttps://iqb-research.github.io/IQB-Methods/posts_r_sig.html\nMitgebrachte R-Probleme können aber auch weiterhin besprochen werden. Meldet euch gerne bei Nicklas, wenn er euch hinzufügen soll."
-  },
-  {
-    "objectID": "posts/newsletter/24_08_26/index.html#sig-methoden",
-    "href": "posts/newsletter/24_08_26/index.html#sig-methoden",
-    "title": "26-08-2024",
-    "section": "SIG Methoden",
-    "text": "SIG Methoden\n\nLesegruppe\nDie Lesegruppe war in der Sommerpause. Am 10. September treffen wir uns wieder zur Besprechung von:\nSchroeders, U., & Gnambs, T. (2024, July 24). Sample Size Planning in Item Response Theory: A Tutorial. https://doi.org/10.31234/osf.io/hv6zt\nInteressierte sind herzlich willkommen! Meldet euch gerne bei Karoline, wenn sie euch hinzufügen soll.\n\n\nAustauschrunde\nDie Liste für methodische Fragen am IQB ist daueroffen; tragt Fragen gerne anonym und unkompliziert in folgendes Dokument ein:\nt:\\SIG\\SIG Methoden\\Liste methodischer Fragen.docx\nViele Grüße\nEuer Methoden-Team (Sebastian, Karoline, Benjamin, Philipp, Kristoph, Janine, Edna, Alina, Nicklas)"
-  },
-  {
-    "objectID": "posts/learnPage/beginners.html",
-    "href": "posts/learnPage/beginners.html",
+    "objectID": "docs/learnPage/beginners.html",
+    "href": "docs/learnPage/beginners.html",
     "title": "beginners",
     "section": "",
     "text": "No matching items"
+  },
+  {
+    "objectID": "posts_newsletter.html",
+    "href": "posts_newsletter.html",
+    "title": "Newsletter",
+    "section": "",
+    "text": "26-08-2024\n\n\n\n\n\nNewsletter\n\n\n\n\n\nAug 26, 2024\n\n\nKaroline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n12-01-2024\n\n\n\n\n\nNewsletter\n\n\n\n\n\nJan 12, 2024\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n09-08-2023\n\n\n\n\n\nNewsletter\n\n\n\n\n\nAug 9, 2023\n\n\nBenjamin Becker\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts_help.html",
+    "href": "posts_help.html",
+    "title": "Help",
+    "section": "",
+    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\ncontact: BB, SW, KAS\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: SW\n\n\ncontact: NH, PF\n\n\ncontact: KAS\n\n\ncontact: BB, NH\n\n\ncontact: SW, BB\n\n\ncontact: SW, BB, KAS"
+  },
+  {
+    "objectID": "posts_help.html#contact-for-eat-packages",
+    "href": "posts_help.html#contact-for-eat-packages",
+    "title": "Help",
+    "section": "",
+    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\ncontact: BB, SW, KAS\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: BB\n\n\ncontact: SW\n\n\ncontact: NH, PF\n\n\ncontact: KAS\n\n\ncontact: BB, NH\n\n\ncontact: SW, BB\n\n\ncontact: SW, BB, KAS"
+  },
+  {
+    "objectID": "posts_help.html#faq",
+    "href": "posts_help.html#faq",
+    "title": "Help",
+    "section": "FAQ",
+    "text": "FAQ\n\n\nQuestion 1\n\nSome example answer."
+  },
+  {
+    "objectID": "posts_help.html#current-issues-on-github",
+    "href": "posts_help.html#current-issues-on-github",
+    "title": "Help",
+    "section": "Current Issues on Github",
+    "text": "Current Issues on Github"
+  },
+  {
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+  },
+  {
+    "objectID": "posts/newsletter/24_01_12/index.html",
+    "href": "posts/newsletter/24_01_12/index.html",
+    "title": "12-01-2024",
+    "section": "",
+    "text": "1"
+  },
+  {
+    "objectID": "posts/newsletter/24_01_12/index.html#footnotes",
+    "href": "posts/newsletter/24_01_12/index.html#footnotes",
+    "title": "12-01-2024",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Giulia May on Unsplash.↩︎"
   }
 ]
