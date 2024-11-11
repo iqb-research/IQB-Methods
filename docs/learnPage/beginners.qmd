@@ -1,5 +1,5 @@
 ---
-title: "beginners"
+title: "Starting with R"
 listing:
   id: beginners
   type: default
@@ -12,3 +12,16 @@ listing:
     - docs/R_tutorials/R_ws3.qmd
     - docs/R_tutorials/index.qmd
 ---
+
+Welcome to our beginners learn page. Here you can find material, links and articles to start you R journey.
+
+# R Introduction
+
+An introduction to R with hands on examples and exercises can be found in [Introduction to R](https://nickhaf.github.io/r_tutorial/).
+
+There is also this [Cheat Sheet: Base R](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf) to get an Overview for all basic functions in R. 
+
+# Articles and Workshops
+
+::: {beginners}
+:::
