@@ -1,11 +1,17 @@
 [
   {
     "listing": "/posts_learn.html",
-    "items": []
+    "items": [
+      "/posts/learnPage/beginners.html"
+    ]
   },
   {
-    "listing": "/posts_eat.html",
-    "items": []
+    "listing": "/posts_newsletter.html",
+    "items": [
+      "/posts/newsletter/24_08_26/index.html",
+      "/posts/newsletter/24_01_12/index.html",
+      "/posts/newsletter/23_08_09/index.html"
+    ]
   },
   {
     "listing": "/posts_r_sig.html",
@@ -25,11 +31,11 @@
     ]
   },
   {
-    "listing": "/posts_newsletter.html",
-    "items": [
-      "/posts/newsletter/24_08_26/index.html",
-      "/posts/newsletter/24_01_12/index.html",
-      "/posts/newsletter/23_08_09/index.html"
-    ]
+    "listing": "/posts_eat.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/learnPage/beginners.html",
+    "items": []
   }
 ]
