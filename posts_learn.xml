@@ -10,7 +10,7 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_learn.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 11 Nov 2024 15:15:17 GMT</lastBuildDate>
+<lastBuildDate>Mon, 11 Nov 2024 15:22:12 GMT</lastBuildDate>
 <item>
   <title>R-SIG</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/posts_r_sig.html</link>
@@ -96,8 +96,44 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/posts_r_sig.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:22:12 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Starting with R</title>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Welcome to our beginners learn page. Here you can find material, links and articles to start you R journey.</p>
+<section id="r-introduction" class="level1">
+<h1>R Introduction</h1>
+<p>An introduction to R with hands on examples and exercises can be found in <a href="https://nickhaf.github.io/r_tutorial/">Introduction to R</a>.</p>
+<p>There is also this <a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">Cheat Sheet: Base R</a> to get an Overview for all basic functions in R.</p>
+</section>
+<section id="articles-and-workshops" class="level1">
+<h1>Articles and Workshops</h1>
+<div class="{beginners}">
+
+</div>
+
+
+
+</section>
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-beginners">
+<div class="list quarto-listing-default">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div> ]]></description>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</guid>
+  <pubDate>Mon, 11 Nov 2024 15:22:12 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Statistical Questions</title>
@@ -120,7 +156,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/statisticalQuestions.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:22:12 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -144,7 +180,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/workflow.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:22:12 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -168,32 +204,8 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/advanced.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
+  <pubDate>Mon, 11 Nov 2024 15:22:12 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>beginners</title>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-beginners">
-<div class="list quarto-listing-default">
-
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div> ]]></description>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/learnPage/beginners.html</guid>
-  <pubDate>Mon, 11 Nov 2024 15:15:17 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
