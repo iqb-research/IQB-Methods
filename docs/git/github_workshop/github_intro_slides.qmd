@@ -299,7 +299,7 @@ git add .
 
 ::: {.column width="50%"}
 
-![GitHub Desktop](./images/stage.png)
+![](./images/stage.png)
 
 :::
 
@@ -348,7 +348,7 @@ git commit -m "useful commit message"
 
 :::{.callout-warning}
 ## Übung
-Commite deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Message. Wenn du Zwei Commits daraus machen willst, committe erst nur die gestagte `.txt` Datei, und Stage und Committe danach die anderen Datein.
+Committe deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Message. Wenn du Zwei Commits daraus machen willst, committe erst nur die gestagte `.txt` Datei, und Stage und Committe danach die anderen Datein.
 :::
 :::
 :::
@@ -385,7 +385,7 @@ Pushe deinen Commits. Schaue dann im Online-Repository nach, ob die geänderte D
 git pull
 ```
 
-Damit laden wir die neuesten Änderungen aus dem Online-Repository herunter. Vor allem beim Kollaborativen Arbeiten sollte das gemacht werden, bevor man mit der eigenen Arbeit beginnt. 
+Damit laden wir die neuesten Änderungen aus dem Online-Repository herunter. Vor allem beim kollaborativen Arbeiten sollte das gemacht werden, bevor man mit der eigenen Arbeit beginnt. 
 
 # Das wars auch schon!
 
@@ -406,7 +406,14 @@ Nach Möglichkeit wollen wir vor allem die plain-Text Datein tracken. Wenn wir z
 :::
 
 
-# Kollaboratives Arbeiten
+
+## {background-image="images/ants.jpg" background-size="1225px"}
+
+::: {.absolute left="3%" top="1.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
+
+Kollaboratives Arbeiten
+
+:::
 
 ## Branches
 
@@ -427,6 +434,10 @@ git checkout -b new_branch
 ::: {.column width="50%"}
 ![](./images/new_branch_desktop.png)
 :::
+:::
+
+:::{.callout-note}
+Vergiss nicht, vor der Erstellung zu pullen, damit die neuste Projekt-Version für den neuen branch genutzt wird. 
 :::
 
 ## Branches 
@@ -617,4 +628,6 @@ Um Git wirklich zu lernen, ist noch ein bisschen mehr Übung nötig. Wendet es a
 - GitHub Logo: Von <a href="https://en.wikipedia.org/wiki/GitHub" class="extiw" title="w:GitHub">GitHub</a> - <a rel="nofollow" class="external free" href="https://github.com/logos">https://github.com/logos</a>, <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=130805002">Link</a>
 - Babyfeet: Foto von <a href="https://unsplash.com/de/@omarlopez1?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Omar Lopez</a> auf <a href="https://unsplash.com/de/fotos/person-die-babyfusse-halt-vTknj2OxDVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Commit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
+- Ants: Foto von <a href="https://unsplash.com/de/@pixelatelier?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christian Holzinger</a> auf <a href="https://unsplash.com/de/fotos/eine-gruppe-kleiner-gruner-pflanzen-die-aus-dem-boden-spriessen-NK06SbuCbio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+      
 
