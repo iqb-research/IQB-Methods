@@ -7,9 +7,9 @@ listing:
   categories: true
   sort: "title"
   contents:
-    - docs/R_tutorials/R_ws1.qmd
-    - docs/R_tutorials/R_ws2.qmd
-    - docs/R_tutorials/R_ws3.qmd
+    - "docs/R_tutorials/R_ws1.qmd"
+    - "docs/R_tutorials/R_ws2.qmd"
+    - "docs/R_tutorials/R_ws3.qmd"
 ---
 
 Welcome to our beginners learn page. Here you can find material, links and articles to start you R journey.

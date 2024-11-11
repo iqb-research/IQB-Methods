@@ -5,23 +5,23 @@ listing:
   type: grid
   feed: true
   contents:
-    - name: "Starting with R"
+    - title: "Starting with R"
       path: docs/beginners.qmd
       image: docs/R_tutorials/images/einführung.jpg
       description: "here you can find R tutorials to start your R journey."
-    - name: "R-SIG"
+    - title: "R-SIG"
       path: docs/posts_r_sig.qmd
       image: docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg
       description: "here you can find all the articles that were discussed in R-SIG."
-    - name: "statistical questions"
+    - title: "statistical questions"
       path: docs/statisticalQuestions.qmd
       image: docs/FAQ/images/centering.jpeg
       description: "here you can find some answers to common questions about statistics or our r-packages." 
-    - name: "Workflow"
+    - title: "Workflow"
       path: docs/workflow.qmd
       image: docs/git/github.jpg
       description: "here you can find articles about the general workflow when working with RStudio or Github."
-    - name: "advanced"
+    - title: "advanced"
       path: docs/advanced.qmd
       image: docs/R_tutorials/images/checkmate.jpg
       description: "here you can find some more advanced R tutorials."
