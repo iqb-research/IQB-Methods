@@ -591,6 +591,18 @@ Schaue dir die Commit-History an und browse das Repository zu einem beliebigen C
 
 ## Übung
 
+:::{.callout-caution}
+Pullt die Änderungen von `main`, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt [in der gleichen Datei]{.highlight} in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen merge conflict erzeugen. 
+:::
+
+:::{.callout-caution}
+## Übung
+Pusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen Mergekonflikt. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen Mergekonflikt erzeugen. Löse ihn!
+:::
+
+Wenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den Mergekonflikt lösen muss.
+
+
 ## Browse project
 
 ## Im Blick behalten 
