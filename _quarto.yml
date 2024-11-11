@@ -31,7 +31,7 @@ website:
       contents:
         - posts_learn.qmd
         - section: "R SIG"
-          href: posts_r_sig.qmd
+          href: docs/learnPage/posts_r_sig.qmd
           contents:
             - docs/r_sig/23_03_20_forloops/index.qmd
             - docs/r_sig/23_07_31_apply/index.qmd

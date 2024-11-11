@@ -10,7 +10,7 @@ listing:
       image: docs/R_tutorials/images/einführung.jpg
       description: "here you can find R tutorials to start your R journey."
     - title: "r_sig"
-      path: posts_r_sig.qmd
+      path: docs/learnPage/posts_r_sig.qmd
       image: docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg
       description: "here you can find all the articles that were discussed in R-SIG."
     - title: "statistical questions"
