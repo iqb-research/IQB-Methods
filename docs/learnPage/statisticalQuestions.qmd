@@ -1,0 +1,11 @@
+---
+title: "Statistical Questions"
+listing:
+  id: statistical-questions
+  type: default
+  feed: true
+  categories: true
+  sort: "title"
+  contents:
+    - docs/FAQ/FAQ.qmd
+---

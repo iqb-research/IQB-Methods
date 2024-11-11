@@ -1,0 +1,13 @@
+---
+title: "Workflow"
+listing:
+  id: workflow
+  type: default
+  feed: true
+  categories: true
+  sort: "title"
+  contents:
+    - docs/git/index.qmd
+    - docs/quarto/index.qmd
+    - docs/discussions/code_conventions.qmd
+---

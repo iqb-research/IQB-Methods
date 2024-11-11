@@ -1,0 +1,11 @@
+---
+title: "advanced"
+listing:
+  id: advanced
+  type: default
+  feed: true
+  categories: true
+  sort: "title"
+  contents:
+    - docs/R_tutorials/checkmate.qmd
+---
