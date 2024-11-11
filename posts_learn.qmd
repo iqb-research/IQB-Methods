@@ -6,7 +6,7 @@ listing:
   feed: true
   contents:
     - title: "for beginners"
-      #path:
+      path: posts/learnPage/beginners.qmd
       image: docs/R_tutorials/images/einführung.jpg
       description: "here you can find R tutorials to start your R journey."
     - title: "r_sig"
@@ -25,15 +25,7 @@ listing:
       #path:
       image: docs/R_tutorials/images/einführung.jpg
       description: "here you can find some more advanced R tutorials."
-
-  #sort: "title" 
-  #categories: true
-  #feed: true
-  #image-align: left
-  #image-height: 100px
 ---
 
-:::{learn-page}
+::: {learn-page}
 :::
-
-

@@ -1,0 +1,14 @@
+---
+title: "beginners"
+listing:
+  id: beginners
+  type: default
+  feed: true
+  categories: true
+  sort: "title"
+  contents:
+    - docs/R_tutorials/R_ws1.qmd
+    - docs/R_tutorials/R_ws2.qmd
+    - docs/R_tutorials/R_ws3.qmd
+    - docs/R_tutorials/index.qmd
+---
