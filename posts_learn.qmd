@@ -6,7 +6,7 @@ listing:
   feed: true
   contents:
     - title: "for beginners"
-      path: posts/learnPage/beginners.qmd
+      path: docs/learnPage/beginners.qmd
       image: docs/R_tutorials/images/einführung.jpg
       description: "here you can find R tutorials to start your R journey."
     - title: "r_sig"
