@@ -15,12 +15,19 @@ categories: [github, tutorial]
 ## Zu diesen Folien
 HTML-Folien können in PDF umgewandelt werden, und dann mit Drucken aus dem Browser abgespeichert werden, falls ihr darin kommentieren wollt. 
 
-## Fahrplan
+![](./images/print_html.PNG)
+
+## {background-image="images/map.jpg" background-size="1225px"}
+
+::: {.absolute left=10% right="10%" top="7.5%" style="font-size:1em; padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, .7); backdrop-filter: blur(5px); box-shadow: 0 0 1rem 0 rgba(255, 255, 255, .5); border-radius: 10px"}
+
+**Roadmap**
 
 1. Motivation
 1. Workflow: Alleine
 1. Workflow: Kollaborativ
 
+:::
 
 ## Git
 :::: {.columns} 
@@ -45,7 +52,7 @@ HTML-Folien können in PDF umgewandelt werden, und dann mit Drucken aus dem Brow
 :::{.columns}
 :::{.column width="50%"}
 - Onlinedienst für Git-Repositories
-- "Soziales Netzwerk" für Git-Nutende und Entwickler*innen
+- "Soziales Netzwerk" für Git-Nutzende und Entwickler*innen
 - Gehört Microsoft. 
 - Open Source Alternative: GitLab
 :::
@@ -54,6 +61,8 @@ HTML-Folien können in PDF umgewandelt werden, und dann mit Drucken aus dem Brow
 
 :::
 :::
+
+# Warum Git?
 
 ## {background-image="images/pc.jpg" background-size="1225px"}
 
@@ -262,13 +271,6 @@ Das hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische `.gi
 ## Lokales Arbeiten
 ![](./images/workflow_4.PNG)
 
-## Lokales Arbeiten
-Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen. 
-
-:::{.callout-important}
-Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten. 
-:::
-
 
 ## Clone
 
@@ -285,17 +287,26 @@ Clone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erste
 ```
 :::
 
+
+:::{.callout-important}
+Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten. 
+:::
+
+
 ## Exkurs: Fork
 Wenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre. 
 
-## Editieren
+
+## Lokales Arbeiten
+Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen. 
+
 :::{.callout-warning}
 ## Übung
 Erstelle eine .txt Datei in deinem lokalen Repository-Ordner. Schreibe in die Datei `Hello World!` und speichere sie ab.
 :::
 
 ## Stage
-![](./images/workflow_4.PNG)
+![](./images/workflow_5.PNG)
 
 
 ## Stage
@@ -397,7 +408,7 @@ Pushe deinen Commits. Schaue dann im Online-Repository nach, ob die geänderte D
 :::
 
 ## Pull
-![](./images/workflow_2.PNG)
+![](./images/workflow_3.PNG)
 
 ## Pull
 ```
@@ -595,7 +606,7 @@ Reviewe die Pull-Request der anderen Person erneut. Approve diesmal.
 ## Übung: Merge
 :::{.callout-caution}
 ## Übung
-Merge deine Pull-Request
+Merge deine Pull-Request.
 :::
 
 :::{.callout-caution}
