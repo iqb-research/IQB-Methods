@@ -1,0 +1,681 @@
+---
+title: "Einführung in Github"
+title-slide-attributes:
+  data-background-image: ./images/github.jpg
+  data-background-size: cover
+  data-background-opacity: "0"
+author: "Nicklas Hafiz"
+format: 
+  letterbox-revealjs:
+    theme: styles.scss
+lang: de
+categories: [github, tutorial]
+---
+
+## Zu diesen Folien
+HTML-Folien können in PDF umgewandelt werden, und dann mit Drucken aus dem Browser abgespeichert werden, falls ihr darin kommentieren wollt. 
+
+## Fahrplan
+
+1. Motivation
+1. Workflow: Alleine
+1. Workflow: Kollaborativ
+
+
+## Git
+:::: {.columns} 
+::: {.column width="50%"}
+- Version Control System
+- Entwickelt von Linus Torvalds
+- Erlaubt das Tracken von (Plain Text) files: 
+    - Code
+    - Präsentationen
+    - Manuskripte 
+    - Webseiten
+    - ... 
+:::
+::: {.column widht="40%"}
+![](./images/torvalds.jpg){.image-right}
+:::
+::::
+
+
+## GitHub
+
+:::{.columns}
+:::{.column width="50%"}
+- Onlinedienst für Git-Repositories
+- "Soziales Netzwerk" für Git-Nutende und Entwickler*innen
+- Gehört Microsoft. 
+- Open Source Alternative: GitLab
+:::
+:::{.column width="50%"}
+![](./images/github_logo.png)
+
+:::
+:::
+
+## {background-image="images/pc.jpg" background-size="1225px"}
+
+::: {.absolute left="0%" top="0%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
+
+Vor Git: Rechner stürzt ab. 
+:::
+
+## {background-image="images/cloud.jpg" background-size="1225px"}
+
+::: {.absolute left="2.5%" bottom="1.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#01364C;"}
+
+Mit Git: Alles liegt online.  
+:::
+
+## Vor Git: Wie dokumentiert man das nachvollziehbar? 
+
+![](./images/email_replies.png)
+
+## Mit Git: Verzahnung von Dokumentation, Diskussion und Code
+![](./images/git_doku.png)
+
+
+## Vor Git: Wer hat was, wann, warum geändert?
+
+![](./images/folder.png)
+
+
+## Mit Git: Version Control
+![](./images/commit_history.png)
+
+
+
+## Vor Git: Dateibenennung
+
+:::{.columns}
+:::{.column width="50%"}
+- Überschreiben von Datein.
+- Mit der falschen `final-v10_commented_NH_03.docx` weiterarbeiten. 
+- Etwas in Datei X ändern, aber die Änderung in allen abhängingen Datein vergessen (hier hilft uns vor allem [Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/) auch ungemein). 
+:::
+:::{.column width="50%"}
+![](./images/file_names.PNG)
+:::
+:::
+
+
+## Mit Git: Version Control - Wiederherstellung jedes Projektstands
+:::{.columns}
+:::{.column width="50%"}
+
+![](./images/commit_history_browse.png)
+
+:::
+
+::: {.column width="50%"}
+![](./images/bt_browse.png)
+:::
+:::
+
+## Vor Git: Kollaboration über Email
+Beim Hin-und Herschicken von Skripten, Texten etc. kommt eventuell mal etwas durcheinander. Und wenn man parallel an einem Skript arbeiten will wird es sehr abspracheintensiv ...
+
+\
+
+![](./images/anhang.png)
+
+
+## Mit Git: Branches
+![](./images/branches_solution.png)
+
+
+## Mit Git: Reviews
+![](./images/reviews.png)
+
+## Open Source Kollaboration
+![](./images/dplyr_github.png)
+
+
+## {.center}
+[Open \
+ Science]{.r-fit-text .highlight}
+
+
+## Workflow 
+
+![](./images/workflow_1.PNG)
+
+## Editoren
+- Terminal
+- GitHub Desktop
+- RStudio
+- Viele mehr ...
+
+## Terminal
+![](./images/terminal.png)
+
+Ansonsten Windows Powershell/Linux Terminal öffnen, Pfad setzen (z.B. `cd C:\Users\hafiznij\Documents\GitHub\IQB-Methods`) und dann von dort aus arbeiten. 
+
+
+## Visuelle Editoren
+
+:::: {.columns} 
+::: {.column width="50%"}
+### Github Desktop
+
+![](./images/github_desktop.PNG)
+
+:::
+::: {.column width="50%"}
+### RStudio Integration 
+
+![](./images/rstudio.png)
+
+:::
+:::
+
+## RStudio Setup
+`Tools - Global Options`
+
+:::{.columns}
+:::{.column width="60%"}
+![](./images/rstudio_config.png)
+
+:::
+:::{.column-width="40%"}
+Diese Integration macht am meisten in der Verbindung mit einem RStudio-Projekt Sinn. 
+
+:::
+
+:::
+
+## {background-image="images/babyfeet.jpg" background-size="1225px"}
+
+::: {.absolute right="1.5%" top="1.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
+
+Erste Schritte.
+
+:::
+
+## Konfigurieren von Git
+Einmalig, in einem Terminal (z.B. das in RStudio, oder Windows Powershell):
+
+```
+git config --global user.name 'Your Name'
+git config --global user.email 'your@email.com'
+```
+
+:::{.callout-caution}
+## Übung
+Tu das bitte einmal für deinen GitHub-Username und deine GitHub-email. Checke dann noch einmal ob das geklappt hat:
+
+```
+git config --global user.name
+git config --global user.email
+```
+:::
+
+## Eigenes Repository erstellen
+![](./images/workflow_2.PNG)
+
+## Eigenes Repository erstellen
+:::{.columns}
+
+::: {.column width="50%"}
+![](./images/new_repo.png)
+:::
+::: {.column width="50%"}
+:::{.callout-warning}
+## Übung
+Erstelle dein erstes eigenes Repository. 
+:::
+
+:::
+:::
+
+## Clone/Erster Pull
+![](./images/workflow_3.PNG)
+
+
+## Clone
+
+```
+git clone url
+```
+
+["Herunterladen"]{.highlight} des Repositories auf den eigenen Rechner.
+
+:::{.columns}
+
+::: {.column width="50%"}
+![](./images/clone.png)
+
+:::
+
+::: {.column width="50%"}
+In RStudio:
+
+`New Project - Version Control - Git`
+
+Das hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische `.gitignore` Datei erstellt wird.
+
+:::
+:::
+
+## Lokales Arbeiten
+![](./images/workflow_4.PNG)
+
+## Lokales Arbeiten
+Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen. 
+
+:::{.callout-important}
+Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten. 
+:::
+
+
+## Clone
+
+:::{.callout-warning}
+## Übung
+Clone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (`File - New Project - Existing Directory`), sowie eine `.gitignore` Datei mit folgendem Inhalt: 
+
+```
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+```
+:::
+
+## Exkurs: Fork
+Wenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre. 
+
+## Editieren
+:::{.callout-warning}
+## Übung
+Erstelle eine .txt Datei in deinem lokalen Repository-Ordner. Schreibe in die Datei `Hello World!` und speichere sie ab.
+:::
+
+## Stage
+![](./images/workflow_4.PNG)
+
+
+## Stage
+
+```
+git add filename
+```
+```
+git add .
+```
+
+[Auswählen]{.highlight} der Datein, die zum Commit hinzugefügt werden sollen. 
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+![](./images/stage.png)
+
+:::
+
+::: {.column width="50%}
+
+:::{.callout-warning}
+## Übung
+Stage deine gerade bearbeitete Datei, sowie das erstellte RStudio-Projekt und die `.gitignore` Datei. Ganz sauber wäre es, erst einmal nur die `.txt` Datei zu stagen, und dann die anderen Datein, um daraus insgesamt zwei Commits zu machen.
+:::
+
+:::
+
+:::
+
+## Commit
+![](./images/workflow_5.PNG)
+
+
+## Commit
+
+```
+git commit -m "useful commit message"
+```
+
+[Speichern]{.highlight} der Änderungen, mit kurzer Beschreibung was gemacht wurde ([Commit Message]{.highlight}). 
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+![](./images/commit.png)
+
+:::
+
+::: {.column width="50%}
+![](./images/rstudio_commit.png)
+
+:::
+:::
+
+## 
+
+:::{.columns}
+
+::: {.column width="50%"}
+![](./images/commit_message.jpg)
+:::
+::: {.column width="50%"}
+
+:::{.callout-warning}
+## Übung
+Committe deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Message. Wenn du Zwei Commits daraus machen willst, committe erst nur die gestagte `.txt` Datei, und Stage und Committe danach die anderen Datein.
+:::
+:::
+:::
+
+## Push
+![](./images/workflow_6.PNG)
+
+## Push
+```
+git push
+```
+
+[Hochladen]{.highlight} der Commits in das Online-Repository. 
+
+:::{.columns}
+::: {.column width="50%"}
+
+![](./images/push.png)
+
+:::
+
+::: {.column width="50%}
+
+:::{.callout-warning}
+## Übung 
+Pushe deinen Commits. Schaue dann im Online-Repository nach, ob die geänderte Datei dort auch erscheint.
+:::
+:::
+:::
+
+## Pull
+![](./images/workflow_2.PNG)
+
+## Pull
+```
+git pull
+```
+
+Damit laden wir die neuesten Änderungen aus dem Online-Repository herunter. Vor allem beim kollaborativen Arbeiten sollte das gemacht werden, bevor man mit der eigenen Arbeit beginnt. 
+
+## .gitignore
+Die `.gitignore` Datei wird im Repository-Ordner erstellt und enthält Datein, die nicht getrackt werden sollen (z.B. große Datensätze, Hilfsdatein ...). 
+
+```
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+```
+
+:::{.callout-tip}
+Nach Möglichkeit wollen wir vor allem die plain-Text Datein tracken. Wenn wir z.B. mit Quarto arbeiten, wollen wir die `.qmd` Datein tracken, aber nicht unbedingt die `.html` Datein, die darus erzeugt werden.
+:::
+
+# Das wars auch schon!
+
+# Na gut, noch nicht ganz. Wir können den Worklow erweitern:
+
+
+
+
+## {background-image="images/ants.jpg" background-size="1225px"}
+
+::: {.absolute left="3%" top="1.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
+
+Kollaboratives Arbeiten
+
+:::
+
+## Branches
+
+![](./images/branches.PNG)
+
+## Branches
+
+```
+git checkout -b new_branch
+```
+
+:::{.columns}
+::: {.column width="50%"}
+![](./images/new_branch_desktop.png)
+:::
+
+::: {.column width="50%"}
+![](./images/new_branch.png)
+:::
+:::
+
+:::{.callout-note}
+Vergiss nicht, vor der Erstellung zu pullen, damit die neuste Projekt-Version für den neuen branch genutzt wird. 
+:::
+
+## Branches 
+
+![](./images/branch_checkout.png)
+
+## Pull Requests/Merge
+![](./images/branch_pullrequest.PNG)
+
+## Pull Requests
+![](./images/pull_request.png)
+
+## Pull Requests
+![](./images/pull_request_2.png)
+
+## Reviewer, Assignees, Labels
+![](./images/pull_request_3.png)
+
+## Reviews
+Wenn eine Person als Reviewer angefragt wurde, sollte man mit dem Mergen warten, bis das Review abgeschlossen ist. 
+
+![](./images/review.png)
+
+## Reviews
+![](./images/review_comment.png)
+
+
+## Reviews
+![](./images/review_approve.png)
+
+## Review: Änderungen einarbeiten
+Die verlangten Änderungen können direkt auf dem Branch, auf dem die Pull-Request erstellt wurde, vorgenommen werden. Dann committet und pusht man ganz normal, und die Pull-Request wird automatisch geupdated.
+
+Alternativ kann man einen neuen Branch `my_branch_2` vom aktuellen Branch `my_branch_1` abzweigen: 
+
+```
+git checkout -b my_branch_2 my_branch_1
+```
+
+... und dann eine neue Pull-Request erstellen. 
+
+## Issues
+![](./images/issues.png)
+
+
+## Verlinken von Issues und Pull Requests
+Jeder Issue und jede Pull-Request hat eine ID. Diese kann genutzt werden, um alles untereinander zu verlinken. Z.B. können Issue-IDs in Commit-Messages vermerkt werden, um automatisch Issues zu schließen:
+
+```
+closes #34
+```
+
+
+## Mehrere Leute: Empfehlungen
+- Jede*r arbeitet auf eigenen Branches. 
+- Regelmäßiges mergen: Entweder in `main`, oder von `main` pullen und dann in den eigenen Branch mergen:
+
+```
+git checkout my_branch    # wechseln auf eigenen branch
+git fetch origin          # lokal updaten 
+git merge origin/main     # mergen von main in eigenen branch
+```
+
+- Reviews sollten möglichst zügig bearbeitet werden, da oft mit dem Review weitergearbeitet werden muss. 
+- Gemergte Branches löschen, um Ordnung zu halten (lokal und online).
+
+## Übung: Kollaboratives Arbeiten
+
+:::{.callout-caution}
+## Übung
+Einige dich mit der Person neben dir, wer wen zum zu Beginn erstellten Repository einlädt. Tut das dann, sodass ihr eines eurer Repositories zu zweit oder zu dritt bearbeiten könnt.  
+:::
+
+:::{.callout-tip}
+Gehe oben in der Kopfzeile des Repos auf `Settings` und dann in der Seitenleiste links auf `Collaborators and teams`. Hier kannst du jetzt den GitHub-Username einer Person zum Repository hinzufügen. 
+:::
+
+## Übung: Clonen
+:::{.callout-caution}
+## Übung 
+Clone das Repository (wenn noch nicht geschehen). 
+:::
+
+
+## Übung: Issues
+:::{.callout-caution}
+## Übung 1
+Erstellt euch gegenseitig einen Issue, den die andere Person dann bearbeiten soll. Das kann so etwas sein wie "Add two numbers" o.ä. Wichtig ist, dass aus der Beschreibung klar wird, was getan werden soll. Assignt die andere Person zu diesem Issue. 
+:::
+
+
+:::{.callout-caution}
+## Übung 2
+Erstelle einen eigenen Branch, auf dem du den dir zugewiesenen Issue in der nächsten Übung bearbeiten wirst. 
+
+::: 
+
+## Übung: Issues
+:::{.callout-caution}
+## Übung 1
+Bearbeite jetzt den dir assignten Issue **ersteinmal in einer neuen R-Datei**. Erstellt euch also eine neue R-Datei im Repository Ordner und löst den Issue darin. 
+:::
+
+:::{.callout-caution}
+## Übung 2
+Jetzt kommt der spannende Part: stage, committe und pushe deine Änderungen.  
+\
+Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue automatisch geschlossen, sobald die Pull-Request gemerged wird. 
+
+:::
+
+
+
+## Übung: Pull-Requests
+:::{.callout-caution}
+## Übung 
+Erstelle eine Pull-Request, und Assigne die andere Person als Reviewer. 
+:::
+
+## Übung: Review
+:::{.callout-caution}
+## Übung 1
+Reviewe dann die andere, dir assignte Pull-Request. Verlange mind. eine kleine Änderung. 
+:::
+
+:::{.callout-caution}
+## Übung 2
+Arbeite die Änderung, die von dir verlangt wurde, ein und pushe erneut. Nutze dafür einfach den selben Branch, den du vorher für deine Pull-Request verwendet hast. Dadurch wird sie automatisch geupdated. Verlange ein erneutes Review. 
+:::
+
+:::{.callout-caution}
+## Übung 3
+Reviewe die Pull-Request der anderen Person erneut. Approve diesmal. 
+:::
+
+## Übung: Merge
+:::{.callout-caution}
+## Übung
+Merge deine Pull-Request
+:::
+
+:::{.callout-caution}
+## Übung 
+Mist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte rückgängig gemacht werden soll. 
+\
+Browse das Repository  zu dem Commit, der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung. 
+:::
+
+
+## Merge Conflicts
+:::{.columns}
+::: {.column width="60%"}
+- "Git-Magie" funktioniert wirklich gut. 
+- Manchmal weiß Git aber nicht, welche von zwei Änderungen aktueller ist: [Merge-Conflicts]{.highlight}.
+- Diese müssen manuell gelöst werden.
+:::
+
+::: {.column width="40%"}
+![](./images/magic_tree.jpg){.image-right}
+
+:::
+:::
+
+## Tipps zum Vermeiden von Merge Conflicts
+
+- Absprachen treffen, wer was bearbeitet. Am einfachsten geht das über den Assign-Button bei Issues und Pull-Requests.
+- Regelmaßiges Pullen, um auf dem neusten Stand zu bleiben.
+- Regelmäßiges Mergen in den Hauptbranch (z.B. `main`, oder ein `development`-Branch), damit die einzelnen Branches nicht zu sehr divergieren. 
+
+
+## Übung
+
+:::{.callout-caution}
+Pullt die Änderungen von `main`, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt [in der gleichen Datei]{.highlight} in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen merge conflict erzeugen. 
+:::
+
+:::{.callout-caution}
+## Übung
+Pusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen merge conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen merge conflict erzeugen. Löse ihn!
+:::
+
+Wenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den merge conflict lösen muss.
+
+## 
+
+:::{.callout-important}
+Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches, wie konkrete BT-Ergebnisse oder -Kapitel, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen.   
+:::
+
+
+## Workflow Empfehlungen
+
+- Pullen zu Beginn nicht vergessen, vor allem wenn man neue Branches erstellt. 
+- Lieber eher kleinere Pull-Requests machen. Leichter zu reviewen, einfacher zu mergen und man bleibt enger an der aktuellen Entwicklung dran. 
+- Main in den eigenen Branch reinmergen, falls man da länger drauf arbeitet. Das erspart ausufernede Merge-Conflicts später. 
+- Möglichst viele thematisch abgetrennte Einheiten committen. 
+
+## Vokabelliste (in ungefährere Reihenfolge vom typischen Workflow)
+- Repository/Repo:
+- clone:
+- stage: 
+- commit:
+- pull:
+- push:
+- merge:
+
+
+# Use Git!
+Um Git wirklich zu lernen, ist noch ein bisschen mehr Übung nötig. Wendet es also am besten mal auf ein passendes eigenes Projekt an. Es lohnt sich! 
+
+## Bildquellen
+- GitHub: Foto von <a href="https://unsplash.com/de/@synkevych?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Roman Synkevych</a> auf <a href="https://unsplash.com/de/fotos/blau-schwarzes-pinguin-pluschtier-UT8LMo-wlyk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- PC: Foto von <a href="https://unsplash.com/de/@shots_of_aspartame?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Julia Joppien</a> auf <a href="https://unsplash.com/de/fotos/zerbrochener-monitor-auf-dem-boden-XFUqd0u5U7w?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Wolke: Foto von <a href="https://unsplash.com/de/@arteum?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Arteum.ro</a> auf <a href="https://unsplash.com/de/fotos/weisse-wolken-bGlH3TIzGGE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Torvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg
+- GitHub Logo: Von <a href="https://en.wikipedia.org/wiki/GitHub" class="extiw" title="w:GitHub">GitHub</a> - <a rel="nofollow" class="external free" href="https://github.com/logos">https://github.com/logos</a>, <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=130805002">Link</a>
+- Babyfeet: Foto von <a href="https://unsplash.com/de/@omarlopez1?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Omar Lopez</a> auf <a href="https://unsplash.com/de/fotos/person-die-babyfusse-halt-vTknj2OxDVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Commit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
+- Ants: Foto von <a href="https://unsplash.com/de/@pixelatelier?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christian Holzinger</a> auf <a href="https://unsplash.com/de/fotos/eine-gruppe-kleiner-gruner-pflanzen-die-aus-dem-boden-spriessen-NK06SbuCbio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Magic Tree: Foto von <a href="https://unsplash.com/de/@merittthomas?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Meritt Thomas</a> auf <a href="https://unsplash.com/de/fotos/graue-felsen-auf-dem-boden-in-der-nahe-von-grunen-baumen-zqIOvV-D3JQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+           
+
