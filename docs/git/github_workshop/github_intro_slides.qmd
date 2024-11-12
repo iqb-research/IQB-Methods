@@ -96,7 +96,7 @@ Mit Git: Alles liegt online.
 - Etwas in Datei X ändern, aber die Änderung in allen abhängingen Datein vergessen (hier hilft uns vor allem [Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/) auch ungemein). 
 :::
 :::{.column width="50%"}
-example pic
+![](./images/file_names.PNG)
 :::
 :::
 
@@ -138,16 +138,9 @@ Beim Hin-und Herschicken von Skripten, Texten etc. kommt eventuell mal etwas dur
  Science]{.r-fit-text .highlight}
 
 
-## Workflow {.center}
+## Workflow 
 
-```{mermaid}
-flowchart TD
-    A["Repository online"] -- clone --> B("Repository lokal")
-    B -- bearbeiten --> C("Repository lokal")
-    C -- stage/commit --> D["Änderungen lokal"]
-    D -- push --> A
-```
-
+![](./images/workflow_1.PNG)
 
 ## Editoren
 - Terminal
@@ -219,10 +212,10 @@ git config --global user.email
 ```
 :::
 
+## Eigenes Repository erstellen
+![](./images/workflow_2.PNG)
 
 ## Eigenes Repository erstellen
-
-
 :::{.columns}
 
 ::: {.column width="50%"}
@@ -237,6 +230,8 @@ Erstelle dein erstes eigenes Repository.
 :::
 :::
 
+## Clone/Erster Pull
+![](./images/workflow_3.PNG)
 
 
 ## Clone
@@ -263,6 +258,9 @@ Das hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische `.gi
 
 :::
 :::
+
+## Lokales Arbeiten
+![](./images/workflow_4.PNG)
 
 ## Lokales Arbeiten
 Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen. 
@@ -297,6 +295,10 @@ Erstelle eine .txt Datei in deinem lokalen Repository-Ordner. Schreibe in die Da
 :::
 
 ## Stage
+![](./images/workflow_4.PNG)
+
+
+## Stage
 
 ```
 git add filename
@@ -325,6 +327,9 @@ Stage deine gerade bearbeitete Datei, sowie das erstellte RStudio-Projekt und di
 :::
 
 :::
+
+## Commit
+![](./images/workflow_5.PNG)
 
 
 ## Commit
@@ -365,16 +370,15 @@ Committe deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Messag
 :::
 :::
 
+## Push
+![](./images/workflow_6.PNG)
 
 ## Push
 ```
 git push
 ```
 
-
-
 [Hochladen]{.highlight} der Commits in das Online-Repository. 
-
 
 :::{.columns}
 ::: {.column width="50%"}
@@ -391,6 +395,9 @@ Pushe deinen Commits. Schaue dann im Online-Repository nach, ob die geänderte D
 :::
 :::
 :::
+
+## Pull
+![](./images/workflow_2.PNG)
 
 ## Pull
 ```
@@ -581,7 +588,7 @@ Arbeite die Änderung, die von dir verlangt wurde, ein und pushe erneut. Nutze d
 :::
 
 :::{.callout-caution}
-## Übung 7
+## Übung 3
 Reviewe die Pull-Request der anderen Person erneut. Approve diesmal. 
 :::
 
@@ -591,18 +598,27 @@ Reviewe die Pull-Request der anderen Person erneut. Approve diesmal.
 Merge deine Pull-Request
 :::
 
-## 
 :::{.callout-caution}
 ## Übung 
-Mist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte Rückgängig gemacht werden soll. 
+Mist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte rückgängig gemacht werden soll. 
 \
 Browse das Repository  zu dem Commit, der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung. 
 :::
 
 
 ## Merge Conflicts
-In erstaunlich vielen Fällen funktioniert die "Git-Magie" von alleine, und es gibt keine Probleme beim mergen. Manchmal kommt es aber vor, dass Git nicht weiß, wie es zwei Änderungen in einer Datei zusammenführen soll, z.B. wenn vom gleichen Branch zwei verschiedene Branches abgezweigt und dann die gleiche Datei bearbeitet wurde. Dann kann es zu [Merge-Konflikten]{.highlight} kommen, die wir manuell lösen müssen.
+:::{.columns}
+::: {.column width="60%"}
+- "Git-Magie" funktioniert wirklich gut. 
+- Manchmal weiß Git aber nicht, welche von zwei Änderungen aktueller ist: [Merge-Conflicts]{.highlight}.
+- Diese müssen manuell gelöst werden.
+:::
 
+::: {.column width="40%"}
+![](./images/magic_tree.jpg){.image-right}
+
+:::
+:::
 
 ## Tipps zum Vermeiden von Merge Conflicts
 
@@ -619,18 +635,15 @@ Pullt die Änderungen von `main`, damit ihr beide auf dem aktuellen Stand seid. 
 
 :::{.callout-caution}
 ## Übung
-Pusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen Mergekonflikt. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen Mergekonflikt erzeugen. Löse ihn!
+Pusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen merge conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen merge conflict erzeugen. Löse ihn!
 :::
 
-Wenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den Mergekonflikt lösen muss.
+Wenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den merge conflict lösen muss.
 
-
-## Browse project
-
-## Im Blick behalten 
+## 
 
 :::{.callout-important}
-Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches wie konkrete BT-Ergebnisse oder -Kapitel, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen.   
+Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches, wie konkrete BT-Ergebnisse oder -Kapitel, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen.   
 :::
 
 
@@ -663,5 +676,6 @@ Um Git wirklich zu lernen, ist noch ein bisschen mehr Übung nötig. Wendet es a
 - Babyfeet: Foto von <a href="https://unsplash.com/de/@omarlopez1?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Omar Lopez</a> auf <a href="https://unsplash.com/de/fotos/person-die-babyfusse-halt-vTknj2OxDVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Commit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
 - Ants: Foto von <a href="https://unsplash.com/de/@pixelatelier?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christian Holzinger</a> auf <a href="https://unsplash.com/de/fotos/eine-gruppe-kleiner-gruner-pflanzen-die-aus-dem-boden-spriessen-NK06SbuCbio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-      
+- Magic Tree: Foto von <a href="https://unsplash.com/de/@merittthomas?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Meritt Thomas</a> auf <a href="https://unsplash.com/de/fotos/graue-felsen-auf-dem-boden-in-der-nahe-von-grunen-baumen-zqIOvV-D3JQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+           
 
