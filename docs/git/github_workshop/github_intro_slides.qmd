@@ -22,82 +22,6 @@ HTML-Folien können in PDF umgewandelt werden, und dann mit Drucken aus dem Brow
 1. Workflow: Kollaborativ
 
 
-## {background-image="images/pc.jpg" background-size="1225px"}
-
-::: {.absolute left="2.5%" top="2.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
-
-Problem: Rechner stürzt ab. 
-:::
-
-## {background-image="images/pc.jpg" background-size="1225px"}
-
-::: {.absolute left="2.5%" top="2.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
-
-Lösung: Alles liegt online.  
-:::
-
-## Problem: Wie dokumentiert man das nachvollziehbar? 
-
-![](./images/email_replies.png)
-
-## Lösung: Verzahnung von Dokumentation, Diskussion und Code
-![](./images/git_doku.png)
-
-
-## Problem: Wer hat was, wann, warum geändert?
-
-![](./images/folder.png)
-
-
-## Lösung: Version Control
-![](./images/commit_history.png)
-
-## Problem: Dateibenennung
-
-
-## Problem: Dateibenennung
-- Überschreiben von Datein.
-- Mit der falschen `final-v10_commented_NH_03.docx` weiterarbeiten. 
-- (Etwas in Datei X ändern, aber die Änderung in allen abhängingen Datein vergessen (hier hilft uns vor allem [Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/) auch ungemein)). 
-
-## Lösung: Version Control - Wiederherstellung jedes Projektstands
-:::{.columns}
-:::{.column width="50%"}
-
-![](./images/commit_history_browse.png)
-
-:::
-
-::: {.column width="50%"}
-![](./images/bt_browse.png)
-:::
-:::
-
-## 
-Problem: Hin-und Herschicken von Skripten, Texten etc. Alle haben eine andere Ordnung, und irgendwann wirds schwer, etwas zu finden. Und wenn man gleichzeitig am gleichen Skript arbeiten will ...
-
-\
-
-![](./images/anhang.png)
-
-
-## Lösung: Branches
-![](./images/branches_solution.png)
-
-
-## Lösung: Reviews
-![](./images/reviews.png)
-
-## Open Source Kollaboration
-![](./images/dplyr_github.png)
-
-
-## {.center}
-[Open \
- Science]{.r-fit-text .highlight}
-
-
-
 ## Git
 :::: {.columns} 
 ::: {.column width="50%"}
@@ -115,19 +39,105 @@ Problem: Hin-und Herschicken von Skripten, Texten etc. Alle haben eine andere Or
 :::
 ::::
 
+
 ## GitHub
 
 :::{.columns}
 :::{.column width="50%"}
 - Onlinedienst für Git-Repositories
-- "Soziales Netzwerk für Git-Nutende und Entwickler*innen"
+- "Soziales Netzwerk" für Git-Nutende und Entwickler*innen
 - Gehört Microsoft. 
+- Open Source Alternative: GitLab
 :::
 :::{.column width="50%"}
 ![](./images/github_logo.png)
 
 :::
 :::
+
+## {background-image="images/pc.jpg" background-size="1225px"}
+
+::: {.absolute left="0%" top="0%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;"}
+
+Vor Git: Rechner stürzt ab. 
+:::
+
+## {background-image="images/cloud.jpg" background-size="1225px"}
+
+::: {.absolute left="2.5%" bottom="1.5%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#01364C;"}
+
+Mit Git: Alles liegt online.  
+:::
+
+## Vor Git: Wie dokumentiert man das nachvollziehbar? 
+
+![](./images/email_replies.png)
+
+## Mit Git: Verzahnung von Dokumentation, Diskussion und Code
+![](./images/git_doku.png)
+
+
+## Vor Git: Wer hat was, wann, warum geändert?
+
+![](./images/folder.png)
+
+
+## Mit Git: Version Control
+![](./images/commit_history.png)
+
+
+
+## Vor Git: Dateibenennung
+
+:::{.columns}
+:::{.column width="50%"}
+- Überschreiben von Datein.
+- Mit der falschen `final-v10_commented_NH_03.docx` weiterarbeiten. 
+- Etwas in Datei X ändern, aber die Änderung in allen abhängingen Datein vergessen (hier hilft uns vor allem [Quarto](https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/) auch ungemein). 
+:::
+:::{.column width="50%"}
+example pic
+:::
+:::
+
+
+## Mit Git: Version Control - Wiederherstellung jedes Projektstands
+:::{.columns}
+:::{.column width="50%"}
+
+![](./images/commit_history_browse.png)
+
+:::
+
+::: {.column width="50%"}
+![](./images/bt_browse.png)
+:::
+:::
+
+## Vor Git: Kollaboration über Email
+Beim Hin-und Herschicken von Skripten, Texten etc. kommt eventuell mal etwas durcheinander. Und wenn man parallel an einem Skript arbeiten will wird es sehr abspracheintensiv ...
+
+\
+
+![](./images/anhang.png)
+
+
+## Mit Git: Branches
+![](./images/branches_solution.png)
+
+
+## Mit Git: Reviews
+![](./images/reviews.png)
+
+## Open Source Kollaboration
+![](./images/dplyr_github.png)
+
+
+## {.center}
+[Open \
+ Science]{.r-fit-text .highlight}
+
+
 ## Workflow {.center}
 
 ```{mermaid}
@@ -192,7 +202,7 @@ Erste Schritte.
 :::
 
 ## Konfigurieren von Git
-Einmal, in einem Terminal (z.B. das in RStudio, oder Windows Powershell):
+Einmalig, in einem Terminal (z.B. das in RStudio, oder Windows Powershell):
 
 ```
 git config --global user.name 'Your Name'
@@ -254,6 +264,14 @@ Das hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische `.gi
 :::
 :::
 
+## Lokales Arbeiten
+Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen. 
+
+:::{.callout-important}
+Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten. 
+:::
+
+
 ## Clone
 
 :::{.callout-warning}
@@ -272,13 +290,7 @@ Clone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erste
 ## Exkurs: Fork
 Wenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre. 
 
-## Lokales Arbeiten
-Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen. 
-
-:::{.callout-important}
-Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten. 
-:::
-
+## Editieren
 :::{.callout-warning}
 ## Übung
 Erstelle eine .txt Datei in deinem lokalen Repository-Ordner. Schreibe in die Datei `Hello World!` und speichere sie ab.
@@ -387,12 +399,8 @@ git pull
 
 Damit laden wir die neuesten Änderungen aus dem Online-Repository herunter. Vor allem beim kollaborativen Arbeiten sollte das gemacht werden, bevor man mit der eigenen Arbeit beginnt. 
 
-# Das wars auch schon!
-
-# Na gut, noch nicht ganz. Wir können den Worklow erweitern:
-
 ## .gitignore
-Die `.gitignore` Datei wird im Repository-Ordner erstellt und enthält Datein, die nicht getrackt werden sollen. 
+Die `.gitignore` Datei wird im Repository-Ordner erstellt und enthält Datein, die nicht getrackt werden sollen (z.B. große Datensätze, Hilfsdatein ...). 
 
 ```
 .Rproj.user
@@ -404,6 +412,11 @@ Die `.gitignore` Datei wird im Repository-Ordner erstellt und enthält Datein, d
 :::{.callout-tip}
 Nach Möglichkeit wollen wir vor allem die plain-Text Datein tracken. Wenn wir z.B. mit Quarto arbeiten, wollen wir die `.qmd` Datein tracken, aber nicht unbedingt die `.html` Datein, die darus erzeugt werden.
 :::
+
+# Das wars auch schon!
+
+# Na gut, noch nicht ganz. Wir können den Worklow erweitern:
+
 
 
 
@@ -427,12 +440,11 @@ git checkout -b new_branch
 
 :::{.columns}
 ::: {.column width="50%"}
-![](./images/new_branch.png)
-
+![](./images/new_branch_desktop.png)
 :::
 
 ::: {.column width="50%"}
-![](./images/new_branch_desktop.png)
+![](./images/new_branch.png)
 :::
 :::
 
@@ -469,9 +481,9 @@ Wenn eine Person als Reviewer angefragt wurde, sollte man mit dem Mergen warten,
 ![](./images/review_approve.png)
 
 ## Review: Änderungen einarbeiten
-Die verlangten Änderungen können entweder direkt auf dem Branch, auf dem die Pull-Request erstellt wurde, vorgenommen werden. Dann committed und pusht man ganz normal, und die Pull-Request wird automatisch geupdated.
+Die verlangten Änderungen können direkt auf dem Branch, auf dem die Pull-Request erstellt wurde, vorgenommen werden. Dann committet und pusht man ganz normal, und die Pull-Request wird automatisch geupdated.
 
-Alternativ kann man einen neuen Branche  `my_branch_2` vom aktuellen Branch `my_branch_1` abzweigen: 
+Alternativ kann man einen neuen Branch `my_branch_2` vom aktuellen Branch `my_branch_1` abzweigen: 
 
 ```
 git checkout -b my_branch_2 my_branch_1
@@ -484,7 +496,7 @@ git checkout -b my_branch_2 my_branch_1
 
 
 ## Verlinken von Issues und Pull Requests
-Jeder Issue und jede Pull-Request hat eine ID. Diese kann genutzt werden, um alles untereinander zu verlinken. Z.B. können Issuenummern in Commit-Messages vermerkt werden, um automatisch Issues zu schließen:
+Jeder Issue und jede Pull-Request hat eine ID. Diese kann genutzt werden, um alles untereinander zu verlinken. Z.B. können Issue-IDs in Commit-Messages vermerkt werden, um automatisch Issues zu schließen:
 
 ```
 closes #34
@@ -493,7 +505,7 @@ closes #34
 
 ## Mehrere Leute: Empfehlungen
 - Jede*r arbeitet auf eigenen Branches. 
-- Regelmäßiges mergen: Entweder in main, oder von main pullen und dann in den eigenen branch mergen:
+- Regelmäßiges mergen: Entweder in `main`, oder von `main` pullen und dann in den eigenen Branch mergen:
 
 ```
 git checkout my_branch    # wechseln auf eigenen branch
@@ -537,17 +549,15 @@ Erstelle einen eigenen Branch, auf dem du den dir zugewiesenen Issue in der näc
 
 ## Übung: Issues
 :::{.callout-caution}
-## Übung 3
+## Übung 1
 Bearbeite jetzt den dir assignten Issue **ersteinmal in einer neuen R-Datei**. Erstellt euch also eine neue R-Datei im Repository Ordner und löst den Issue darin. 
 :::
 
 :::{.callout-caution}
-## Übung 4
-Jetzt kommt der spannende Part: stage, committe und pushe deine Änderungen. 
-
-:::{.callout-tip}
+## Übung 2
+Jetzt kommt der spannende Part: stage, committe und pushe deine Änderungen.  
+\
 Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue automatisch geschlossen, sobald die Pull-Request gemerged wird. 
-:::
 
 :::
 
@@ -555,17 +565,18 @@ Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue au
 
 ## Übung: Pull-Requests
 :::{.callout-caution}
-## Übung 5
+## Übung 
 Erstelle eine Pull-Request, und Assigne die andere Person als Reviewer. 
 :::
 
+## Übung: Review
 :::{.callout-caution}
-## Übung 5
-Reviewe die dir assignte Pull-Request. Verlange mind. eine kleine Änderung. 
+## Übung 1
+Reviewe dann die andere, dir assignte Pull-Request. Verlange mind. eine kleine Änderung. 
 :::
 
 :::{.callout-caution}
-## Übung 6
+## Übung 2
 Arbeite die Änderung, die von dir verlangt wurde, ein und pushe erneut. Nutze dafür einfach den selben Branch, den du vorher für deine Pull-Request verwendet hast. Dadurch wird sie automatisch geupdated. Verlange ein erneutes Review. 
 :::
 
@@ -574,19 +585,30 @@ Arbeite die Änderung, die von dir verlangt wurde, ein und pushe erneut. Nutze d
 Reviewe die Pull-Request der anderen Person erneut. Approve diesmal. 
 :::
 
+## Übung: Merge
 :::{.callout-caution}
-## Übung 8
+## Übung
 Merge deine Pull-Request
 :::
 
 ## 
 :::{.callout-caution}
 ## Übung 
-Schaue dir die Commit-History an und browse das Repository zu einem beliebigen Commit. 
+Mist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte Rückgängig gemacht werden soll. 
+\
+Browse das Repository  zu dem Commit, der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung. 
 :::
 
 
 ## Merge Conflicts
+In erstaunlich vielen Fällen funktioniert die "Git-Magie" von alleine, und es gibt keine Probleme beim mergen. Manchmal kommt es aber vor, dass Git nicht weiß, wie es zwei Änderungen in einer Datei zusammenführen soll, z.B. wenn vom gleichen Branch zwei verschiedene Branches abgezweigt und dann die gleiche Datei bearbeitet wurde. Dann kann es zu [Merge-Konflikten]{.highlight} kommen, die wir manuell lösen müssen.
+
+
+## Tipps zum Vermeiden von Merge Conflicts
+
+- Absprachen treffen, wer was bearbeitet. Am einfachsten geht das über den Assign-Button bei Issues und Pull-Requests.
+- Regelmaßiges Pullen, um auf dem neusten Stand zu bleiben.
+- Regelmäßiges Mergen in den Hauptbranch (z.B. `main`, oder ein `development`-Branch), damit die einzelnen Branches nicht zu sehr divergieren. 
 
 
 ## Übung
