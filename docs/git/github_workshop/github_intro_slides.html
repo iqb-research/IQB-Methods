@@ -342,14 +342,18 @@ Nicklas Hafiz
 <section id="zu-diesen-folien" class="slide level2">
 <h2>Zu diesen Folien</h2>
 <p>HTML-Folien können in PDF umgewandelt werden, und dann mit Drucken aus dem Browser abgespeichert werden, falls ihr darin kommentieren wollt.</p>
-</section>
-<section id="fahrplan" class="slide level2">
-<h2>Fahrplan</h2>
+
+<img data-src="./images/print_html.PNG" class="r-stretch"></section>
+<section id="section" class="slide level2" data-background-image="images/map.jpg" data-background-size="1225px">
+<h2></h2>
+<div class="absolute" style="font-size:1em; padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, .7); backdrop-filter: blur(5px); box-shadow: 0 0 1rem 0 rgba(255, 255, 255, .5); border-radius: 10pxtop: 7.5%; left: 10%; right: 10%; ">
+<p><strong>Roadmap</strong></p>
 <ol type="1">
 <li>Motivation</li>
 <li>Workflow: Alleine</li>
 <li>Workflow: Kollaborativ</li>
 </ol>
+</div>
 </section>
 <section id="git" class="slide level2">
 <h2>Git</h2>
@@ -377,7 +381,7 @@ Nicklas Hafiz
 <div class="column" style="width:50%;">
 <ul>
 <li>Onlinedienst für Git-Repositories</li>
-<li>“Soziales Netzwerk” für Git-Nutende und Entwickler*innen</li>
+<li>“Soziales Netzwerk” für Git-Nutzende und Entwickler*innen</li>
 <li>Gehört Microsoft.</li>
 <li>Open Source Alternative: GitLab</li>
 </ul>
@@ -385,13 +389,18 @@ Nicklas Hafiz
 <p><img data-src="./images/github_logo.png"></p>
 </div></div>
 </section>
-<section id="section" class="slide level2" data-background-image="images/pc.jpg" data-background-size="1225px">
+<section>
+<section id="warum-git" class="title-slide slide level1 center">
+<h1>Warum Git?</h1>
+
+</section>
+<section id="section-1" class="slide level2" data-background-image="images/pc.jpg" data-background-size="1225px">
 <h2></h2>
 <div class="absolute" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;top: 0%; left: 0%; ">
 <p>Vor Git: Rechner stürzt ab.</p>
 </div>
 </section>
-<section id="section-1" class="slide level2" data-background-image="images/cloud.jpg" data-background-size="1225px">
+<section id="section-2" class="slide level2" data-background-image="images/cloud.jpg" data-background-size="1225px">
 <h2></h2>
 <div class="absolute" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#01364C;left: 2.5%; bottom: 1.5%; ">
 <p>Mit Git: Alles liegt online.</p>
@@ -454,7 +463,7 @@ Nicklas Hafiz
 <h2>Open Source Kollaboration</h2>
 
 <img data-src="./images/dplyr_github.png" class="r-stretch"></section>
-<section id="section-2" class="slide level2 center">
+<section id="section-3" class="slide level2 center">
 <h2></h2>
 <p><span class="r-fit-text highlight">Open<br>
 Science</span></p>
@@ -499,7 +508,7 @@ Science</span></p>
 </div>
 </div>
 </section>
-<section id="section-3" class="slide level2" data-background-image="images/babyfeet.jpg" data-background-size="1225px">
+<section id="section-4" class="slide level2" data-background-image="images/babyfeet.jpg" data-background-size="1225px">
 <h2></h2>
 <div class="absolute" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;top: 1.5%; right: 1.5%; ">
 <p>Erste Schritte.</p>
@@ -572,23 +581,6 @@ git config --global user.email</code></pre>
 <h2>Lokales Arbeiten</h2>
 
 <img data-src="./images/workflow_4.PNG" class="r-stretch"></section>
-<section id="lokales-arbeiten-1" class="slide level2">
-<h2>Lokales Arbeiten</h2>
-<p>Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen.</p>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Wichtig</strong></p>
-</div>
-<div class="callout-content">
-<p>Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten.</p>
-</div>
-</div>
-</div>
-</section>
 <section id="clone-1" class="slide level2">
 <h2>Clone</h2>
 <div class="callout callout-warning callout-titled callout-style-default">
@@ -609,13 +601,27 @@ git config --global user.email</code></pre>
 </div>
 </div>
 </div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Wichtig</strong></p>
+</div>
+<div class="callout-content">
+<p>Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="exkurs-fork" class="slide level2">
 <h2>Exkurs: Fork</h2>
 <p>Wenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre.</p>
 </section>
-<section id="editieren" class="slide level2">
-<h2>Editieren</h2>
+<section id="lokales-arbeiten-1" class="slide level2">
+<h2>Lokales Arbeiten</h2>
+<p>Änderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen.</p>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -633,7 +639,7 @@ git config --global user.email</code></pre>
 <section id="stage" class="slide level2">
 <h2>Stage</h2>
 
-<img data-src="./images/workflow_4.PNG" class="r-stretch"></section>
+<img data-src="./images/workflow_5.PNG" class="r-stretch"></section>
 <section id="stage-1" class="slide level2">
 <h2>Stage</h2>
 <pre><code>git add filename</code></pre>
@@ -673,7 +679,7 @@ git config --global user.email</code></pre>
 <p><img data-src="./images/rstudio_commit.png"></p>
 </div></div>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -724,7 +730,7 @@ git config --global user.email</code></pre>
 <section id="pull" class="slide level2">
 <h2>Pull</h2>
 
-<img data-src="./images/workflow_2.PNG" class="r-stretch"></section>
+<img data-src="./images/workflow_3.PNG" class="r-stretch"></section>
 <section id="pull-1" class="slide level2">
 <h2>Pull</h2>
 <pre><code>git pull</code></pre>
@@ -750,7 +756,7 @@ git config --global user.email</code></pre>
 </div>
 </div>
 </div>
-</section>
+</section></section>
 <section id="das-wars-auch-schon" class="title-slide slide level1 center">
 <h1>Das wars auch schon!</h1>
 
@@ -761,7 +767,7 @@ git config --global user.email</code></pre>
 <h1>Na gut, noch nicht ganz. Wir können den Worklow erweitern:</h1>
 
 </section>
-<section id="section-5" class="slide level2" data-background-image="images/ants.jpg" data-background-size="1225px">
+<section id="section-6" class="slide level2" data-background-image="images/ants.jpg" data-background-size="1225px">
 <h2></h2>
 <div class="absolute" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8;top: 1.5%; left: 3%; ">
 <p>Kollaboratives Arbeiten</p>
@@ -1031,7 +1037,7 @@ Wenn du in die Commit-Message <code>closes #Issuenumber</code> schreibst, wird d
 <p><strong>Übung</strong></p>
 </div>
 <div class="callout-content">
-<p>Merge deine Pull-Request</p>
+<p>Merge deine Pull-Request.</p>
 </div>
 </div>
 </div>
@@ -1101,7 +1107,7 @@ Browse das Repository zu dem Commit, der vor dem ersten Review deiner Datei gema
 </div>
 <p>Wenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den merge conflict lösen muss.</p>
 </section>
-<section id="section-6" class="slide level2">
+<section id="section-7" class="slide level2">
 <h2></h2>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">

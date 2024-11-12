@@ -1497,11 +1497,11 @@
     "text": "Zu diesen Folien\nHTML-Folien können in PDF umgewandelt werden, und dann mit Drucken aus dem Browser abgespeichert werden, falls ihr darin kommentieren wollt."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#fahrplan",
-    "href": "docs/git/github_workshop/github_intro_slides.html#fahrplan",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section",
     "title": "Einführung in Github",
-    "section": "Fahrplan",
-    "text": "Fahrplan\n\nMotivation\nWorkflow: Alleine\nWorkflow: Kollaborativ"
+    "section": "",
+    "text": "Roadmap\n\nMotivation\nWorkflow: Alleine\nWorkflow: Kollaborativ"
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#git",
@@ -1515,18 +1515,18 @@
     "href": "docs/git/github_workshop/github_intro_slides.html#github",
     "title": "Einführung in Github",
     "section": "GitHub",
-    "text": "GitHub\n\n\n\nOnlinedienst für Git-Repositories\n“Soziales Netzwerk” für Git-Nutende und Entwickler*innen\nGehört Microsoft.\nOpen Source Alternative: GitLab"
+    "text": "GitHub\n\n\n\nOnlinedienst für Git-Repositories\n“Soziales Netzwerk” für Git-Nutzende und Entwickler*innen\nGehört Microsoft.\nOpen Source Alternative: GitLab"
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-1",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-1",
     "title": "Einführung in Github",
     "section": "",
     "text": "Vor Git: Rechner stürzt ab."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-1",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-1",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-2",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-2",
     "title": "Einführung in Github",
     "section": "",
     "text": "Mit Git: Alles liegt online."
@@ -1602,8 +1602,8 @@
     "text": "Open Source Kollaboration"
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-2",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-2",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-3",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-3",
     "title": "Einführung in Github",
     "section": "",
     "text": "Open\nScience"
@@ -1644,8 +1644,8 @@
     "text": "RStudio Setup\nTools - Global Options\n\n\n\n\nDiese Integration macht am meisten in der Verbindung mit einem RStudio-Projekt Sinn."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-3",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-3",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-4",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-4",
     "title": "Einführung in Github",
     "section": "",
     "text": "Erste Schritte."
@@ -1693,18 +1693,11 @@
     "text": "Lokales Arbeiten"
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten-1",
-    "href": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten-1",
-    "title": "Einführung in Github",
-    "section": "Lokales Arbeiten",
-    "text": "Lokales Arbeiten\nÄnderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen.\n\n\n\n\n\n\nWichtig\n\n\nArbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten."
-  },
-  {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#clone-1",
     "href": "docs/git/github_workshop/github_intro_slides.html#clone-1",
     "title": "Einführung in Github",
     "section": "Clone",
-    "text": "Clone\n\n\n\n\n\n\nÜbung\n\n\nClone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (File - New Project - Existing Directory), sowie eine .gitignore Datei mit folgendem Inhalt:\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata"
+    "text": "Clone\n\n\n\n\n\n\nÜbung\n\n\nClone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (File - New Project - Existing Directory), sowie eine .gitignore Datei mit folgendem Inhalt:\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n\n\n\n\n\n\n\n\n\n\nWichtig\n\n\nArbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#exkurs-fork",
@@ -1714,11 +1707,11 @@
     "text": "Exkurs: Fork\nWenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#editieren",
-    "href": "docs/git/github_workshop/github_intro_slides.html#editieren",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten-1",
+    "href": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten-1",
     "title": "Einführung in Github",
-    "section": "Editieren",
-    "text": "Editieren\n\n\n\n\n\n\nÜbung\n\n\nErstelle eine .txt Datei in deinem lokalen Repository-Ordner. Schreibe in die Datei Hello World! und speichere sie ab."
+    "section": "Lokales Arbeiten",
+    "text": "Lokales Arbeiten\nÄnderungen im Repository werden lokal auf dem eigenen Rechner vorgenommen.\n\n\n\n\n\n\nÜbung\n\n\nErstelle eine .txt Datei in deinem lokalen Repository-Ordner. Schreibe in die Datei Hello World! und speichere sie ab."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#stage",
@@ -1749,8 +1742,8 @@
     "text": "Commit\ngit commit -m \"useful commit message\"\nSpeichern der Änderungen, mit kurzer Beschreibung was gemacht wurde (Commit Message)."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-4",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-4",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-5",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-5",
     "title": "Einführung in Github",
     "section": "",
     "text": "Übung\n\n\nCommitte deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Message. Wenn du Zwei Commits daraus machen willst, committe erst nur die gestagte .txt Datei, und Stage und Committe danach die anderen Datein."
@@ -1791,8 +1784,8 @@
     "text": ".gitignore\nDie .gitignore Datei wird im Repository-Ordner erstellt und enthält Datein, die nicht getrackt werden sollen (z.B. große Datensätze, Hilfsdatein …).\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n\n\n\n\n\n\nTipp\n\n\nNach Möglichkeit wollen wir vor allem die plain-Text Datein tracken. Wenn wir z.B. mit Quarto arbeiten, wollen wir die .qmd Datein tracken, aber nicht unbedingt die .html Datein, die darus erzeugt werden."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-5",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-5",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-6",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-6",
     "title": "Einführung in Github",
     "section": "",
     "text": "Kollaboratives Arbeiten"
@@ -1942,7 +1935,7 @@
     "href": "docs/git/github_workshop/github_intro_slides.html#übung-merge",
     "title": "Einführung in Github",
     "section": "Übung: Merge",
-    "text": "Übung: Merge\n\n\n\n\n\n\nÜbung\n\n\nMerge deine Pull-Request\n\n\n\n\n\n\n\n\n\nÜbung\n\n\nMist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte rückgängig gemacht werden soll.\nBrowse das Repository zu dem Commit, der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung."
+    "text": "Übung: Merge\n\n\n\n\n\n\nÜbung\n\n\nMerge deine Pull-Request.\n\n\n\n\n\n\n\n\n\nÜbung\n\n\nMist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte rückgängig gemacht werden soll.\nBrowse das Repository zu dem Commit, der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#merge-conflicts",
@@ -1966,8 +1959,8 @@
     "text": "Übung\n\n\n\n\n\n\nVorsicht\n\n\nPullt die Änderungen von main, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt in der gleichen Datei in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen merge conflict erzeugen.\n\n\n\n\n\n\n\n\n\nÜbung\n\n\nPusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen merge conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen merge conflict erzeugen. Löse ihn!\n\n\n\nWenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den merge conflict lösen muss."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-6",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-6",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-7",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-7",
     "title": "Einführung in Github",
     "section": "",
     "text": "Wichtig\n\n\nDenkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches, wie konkrete BT-Ergebnisse oder -Kapitel, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen."
