@@ -144,11 +144,12 @@ Beim Hin-und Herschicken von Skripten, Texten etc. kommt eventuell mal etwas dur
 ## Open Source Kollaboration
 ![](./images/dplyr_github.png)
 
+## {background-image="images/open.jpg" background-size="1225px"}
 
-## {.center}
-[Open \
- Science]{.r-fit-text .highlight}
+::: {.absolute left="27%" bottom="0%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8; font-size:3em;"}
 
+Science
+:::
 
 ## Workflow 
 
@@ -189,9 +190,8 @@ Ansonsten Windows Powershell/Linux Terminal öffnen, Pfad setzen (z.B. `cd C:\Us
 :::{.columns}
 :::{.column width="60%"}
 ![](./images/rstudio_config.png)
-
 :::
-:::{.column-width="40%"}
+:::{.column width="40%"}
 Diese Integration macht am meisten in der Verbindung mit einem RStudio-Projekt Sinn. 
 
 :::
@@ -685,16 +685,6 @@ Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zw
 - Main in den eigenen Branch reinmergen, falls man da länger drauf arbeitet. Das erspart ausufernede Merge-Conflicts später. 
 - Möglichst viele thematisch abgetrennte Einheiten committen. 
 
-## Vokabelliste (in ungefährere Reihenfolge vom typischen Workflow)
-- Repository/Repo:
-- clone:
-- stage: 
-- commit:
-- pull:
-- push:
-- merge:
-
-
 # Use Git!
 Um Git wirklich zu lernen, ist noch ein bisschen mehr Übung nötig. Wendet es also am besten mal auf ein passendes eigenes Projekt an. Es lohnt sich! 
 
@@ -704,6 +694,8 @@ Um Git wirklich zu lernen, ist noch ein bisschen mehr Übung nötig. Wendet es a
 - Wolke: Foto von <a href="https://unsplash.com/de/@arteum?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Arteum.ro</a> auf <a href="https://unsplash.com/de/fotos/weisse-wolken-bGlH3TIzGGE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Torvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg
 - GitHub Logo: Von <a href="https://en.wikipedia.org/wiki/GitHub" class="extiw" title="w:GitHub">GitHub</a> - <a rel="nofollow" class="external free" href="https://github.com/logos">https://github.com/logos</a>, <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=130805002">Link</a>
+- Foto von <a href="https://unsplash.com/de/@sonance?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Viktor Forgacs</a> auf <a href="https://unsplash.com/de/fotos/rot-weisse-offene-neonbeschilderung-LNwIJHUtED4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Open: Foto von <a href="https://unsplash.com/de/@sonance?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Viktor Forgacs</a> auf <a href="https://unsplash.com/de/fotos/rot-weisse-offene-neonbeschilderung-LNwIJHUtED4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Babyfeet: Foto von <a href="https://unsplash.com/de/@omarlopez1?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Omar Lopez</a> auf <a href="https://unsplash.com/de/fotos/person-die-babyfusse-halt-vTknj2OxDVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Commit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
 - Ants: Foto von <a href="https://unsplash.com/de/@pixelatelier?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christian Holzinger</a> auf <a href="https://unsplash.com/de/fotos/eine-gruppe-kleiner-gruner-pflanzen-die-aus-dem-boden-spriessen-NK06SbuCbio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
