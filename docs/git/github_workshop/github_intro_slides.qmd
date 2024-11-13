@@ -271,8 +271,6 @@ Das hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische `.gi
 :::
 :::
 
-## Lokales Arbeiten
-![](./images/workflow_4.PNG)
 
 
 ## Clone
@@ -298,6 +296,9 @@ Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich i
 
 ## Exkurs: Fork
 Wenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre. 
+
+## Lokales Arbeiten
+![](./images/workflow_4.PNG)
 
 
 ## Lokales Arbeiten
