@@ -215,7 +215,7 @@
     "href": "docs/git/github_workshop/github_intro_slides.html#section-3",
     "title": "Einführung in Github",
     "section": "",
-    "text": "Open\nScience"
+    "text": "Science"
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#workflow",
@@ -596,18 +596,11 @@
     "text": "Workflow Empfehlungen\n\nPullen zu Beginn nicht vergessen, vor allem wenn man neue Branches erstellt.\nLieber eher kleinere Pull-Requests machen. Leichter zu reviewen, einfacher zu mergen und man bleibt enger an der aktuellen Entwicklung dran.\nMain in den eigenen Branch reinmergen, falls man da länger drauf arbeitet. Das erspart ausufernede Merge-Conflicts später.\nMöglichst viele thematisch abgetrennte Einheiten committen."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#vokabelliste-in-ungefährere-reihenfolge-vom-typischen-workflow",
-    "href": "docs/git/github_workshop/github_intro_slides.html#vokabelliste-in-ungefährere-reihenfolge-vom-typischen-workflow",
-    "title": "Einführung in Github",
-    "section": "Vokabelliste (in ungefährere Reihenfolge vom typischen Workflow)",
-    "text": "Vokabelliste (in ungefährere Reihenfolge vom typischen Workflow)\n\nRepository/Repo:\nclone:\nstage:\ncommit:\npull:\npush:\nmerge:"
-  },
-  {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#bildquellen",
     "href": "docs/git/github_workshop/github_intro_slides.html#bildquellen",
     "title": "Einführung in Github",
     "section": "Bildquellen",
-    "text": "Bildquellen\n\nGitHub: Foto von Roman Synkevych auf Unsplash\nPC: Foto von Julia Joppien auf Unsplash\nWolke: Foto von Arteum.ro auf Unsplash\nTorvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg\nGitHub Logo: Von GitHub - https://github.com/logos, CC BY 4.0, Link\nBabyfeet: Foto von Omar Lopez auf Unsplash\nCommit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg\nAnts: Foto von Christian Holzinger auf Unsplash\nMagic Tree: Foto von Meritt Thomas auf Unsplash"
+    "text": "Bildquellen\n\nGitHub: Foto von Roman Synkevych auf Unsplash\nPC: Foto von Julia Joppien auf Unsplash\nWolke: Foto von Arteum.ro auf Unsplash\nTorvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg\nGitHub Logo: Von GitHub - https://github.com/logos, CC BY 4.0, Link\nFoto von Viktor Forgacs auf Unsplash\nOpen: Foto von Viktor Forgacs auf Unsplash\nBabyfeet: Foto von Omar Lopez auf Unsplash\nCommit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg\nAnts: Foto von Christian Holzinger auf Unsplash\nMagic Tree: Foto von Meritt Thomas auf Unsplash"
   },
   {
     "objectID": "docs/r_sig/24_01_26_tidyverse_intro/index.html",
