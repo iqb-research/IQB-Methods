@@ -243,7 +243,7 @@ Erstelle dein erstes eigenes Repository.
 ![](./images/workflow_3.PNG)
 
 
-## Clone
+## Clone  {#sec-clone}
 
 ```
 git clone url
@@ -276,7 +276,7 @@ Das hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische `.gi
 
 :::{.callout-warning}
 ## Übung
-Clone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (`File - New Project - Existing Directory`), sowie eine `.gitignore` Datei mit folgendem Inhalt: 
+[Clone](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/clone) das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (`File - New Project - Existing Directory`), sowie eine `.gitignore` Datei mit folgendem Inhalt: 
 
 ```
 .Rproj.user
@@ -332,7 +332,7 @@ git add .
 
 :::{.callout-warning}
 ## Übung
-Stage deine gerade bearbeitete Datei, sowie das erstellte RStudio-Projekt und die `.gitignore` Datei. Ganz sauber wäre es, erst einmal nur die `.txt` Datei zu stagen, und dann die anderen Datein, um daraus insgesamt zwei Commits zu machen.
+[Stage](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/stage) deine gerade bearbeitete Datei, sowie das erstellte RStudio-Projekt und die `.gitignore` Datei. Ganz sauber wäre es, erst einmal nur die `.txt` Datei zu stagen, und dann die anderen Datein, um daraus insgesamt zwei Commits zu machen.
 :::
 
 :::
@@ -376,7 +376,7 @@ git commit -m "useful commit message"
 
 :::{.callout-warning}
 ## Übung
-Committe deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Message. Wenn du Zwei Commits daraus machen willst, committe erst nur die gestagte `.txt` Datei, und Stage und Committe danach die anderen Datein.
+[Committe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/commit-1) deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Message. Wenn du Zwei Commits daraus machen willst, committe erst nur die gestagte `.txt` Datei, und Stage und Committe danach die anderen Datein.
 :::
 :::
 :::
@@ -520,6 +520,8 @@ Jeder Issue und jede Pull-Request hat eine ID. Diese kann genutzt werden, um all
 closes #34
 ```
 
+## Merge
+Das ist einfach der Prozess, wenn ein Branch in einen anderen überführt wird. Meistens wird das nach einer angenommenen Pull-Request gemacht, geht aber auch völlig ohne. 
 
 ## Mehrere Leute: Empfehlungen
 - Jede*r arbeitet auf eigenen Branches. 
@@ -548,20 +550,20 @@ Gehe oben in der Kopfzeile des Repos auf `Settings` und dann in der Seitenleiste
 ## Übung: Clonen
 :::{.callout-caution}
 ## Übung 
-Clone das Repository (wenn noch nicht geschehen). 
+[Clone](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/clone) das Repository (wenn noch nicht geschehen). 
 :::
 
 
 ## Übung: Issues
 :::{.callout-caution}
 ## Übung 1
-Erstellt euch gegenseitig einen Issue, den die andere Person dann bearbeiten soll. Das kann so etwas sein wie "Add two numbers" o.ä. Wichtig ist, dass aus der Beschreibung klar wird, was getan werden soll. Assignt die andere Person zu diesem Issue. 
+Erstellt euch gegenseitig einen [Issue](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/issues), den die andere Person dann bearbeiten soll. Das kann so etwas sein wie "Add two numbers" o.ä. Wichtig ist, dass aus der Beschreibung klar wird, was getan werden soll. Assignt die andere Person zu diesem Issue. 
 :::
 
 
 :::{.callout-caution}
 ## Übung 2
-Erstelle einen eigenen Branch, auf dem du den dir zugewiesenen Issue in der nächsten Übung bearbeiten wirst. 
+Erstelle einen eigenen [Branch](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/branches-1), auf dem du den dir zugewiesenen Issue in der nächsten Übung bearbeiten wirst. 
 
 ::: 
 
@@ -573,7 +575,7 @@ Bearbeite jetzt den dir assignten Issue **ersteinmal in einer neuen R-Datei**. E
 
 :::{.callout-caution}
 ## Übung 2
-Jetzt kommt der spannende Part: stage, committe und pushe deine Änderungen.  
+Jetzt kommt der spannende Part: [stage](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/stage-1), [committe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/commit-1) und [pushe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) deine Änderungen.  
 \
 Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue automatisch geschlossen, sobald die Pull-Request gemerged wird. 
 
@@ -584,18 +586,18 @@ Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue au
 ## Übung: Pull-Requests
 :::{.callout-caution}
 ## Übung 
-Erstelle eine Pull-Request, und Assigne die andere Person als Reviewer. 
+Erstelle eine [Pull-Request](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/pull-requests), und wähle die andere Person als [Reviewer]( https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/reviewer-assignees-labels). 
 :::
 
 ## Übung: Review
 :::{.callout-caution}
 ## Übung 1
-Reviewe dann die andere, dir assignte Pull-Request. Verlange mind. eine kleine Änderung. 
+[Reviewe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/reviews) dann die andere, dir assignte Pull-Request. Verlange mind. eine kleine [Änderung](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/reviews-1). 
 :::
 
 :::{.callout-caution}
 ## Übung 2
-Arbeite die Änderung, die von dir verlangt wurde, ein und pushe erneut. Nutze dafür einfach den selben Branch, den du vorher für deine Pull-Request verwendet hast. Dadurch wird sie automatisch geupdated. Verlange ein erneutes Review. 
+[Arbeite die Änderung](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/review-%C3%A4nderungen-einarbeiten), die von dir verlangt wurde, ein und [pushe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) erneut. Nutze dafür einfach den selben Branch, den du vorher für deine Pull-Request verwendet hast. Dadurch wird sie automatisch geupdated. Verlange ein erneutes Review. 
 :::
 
 :::{.callout-caution}
@@ -613,7 +615,7 @@ Merge deine Pull-Request.
 ## Übung 
 Mist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte rückgängig gemacht werden soll. 
 \
-Browse das Repository  zu dem Commit, der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung. 
+[Browse das Repository  zu dem Commit](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/mit-git-version-control---wiederherstellung-jedes-projektstands), der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung. 
 :::
 
 
@@ -656,12 +658,12 @@ Eine ausführliche Dokumentation findet sich in den [GitHub Docs](https://docs.g
 ## Übung
 
 :::{.callout-caution}
-Pullt die Änderungen von `main`, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt [in der gleichen Datei]{.highlight} in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen merge conflict erzeugen. 
+[Pullt](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/pull-1) die Änderungen von `main`, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt [in der gleichen Datei]{.highlight} in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen merge conflict erzeugen. 
 :::
 
 :::{.callout-caution}
 ## Übung
-Pusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen merge conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen merge conflict erzeugen. Löse ihn!
+[Pusht](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen merge conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen merge conflict erzeugen. [Löse ihn!](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/merge-conflicts-lösen)
 :::
 
 Wenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den merge conflict lösen muss.
