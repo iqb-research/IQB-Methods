@@ -1679,8 +1679,8 @@
     "text": "Clone/Erster Pull"
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#clone",
-    "href": "docs/git/github_workshop/github_intro_slides.html#clone",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#sec-clone",
+    "href": "docs/git/github_workshop/github_intro_slides.html#sec-clone",
     "title": "Einführung in Github",
     "section": "Clone",
     "text": "Clone\ngit clone url\n“Herunterladen” des Repositories auf den eigenen Rechner.\n\n\n\n\nIn RStudio:\nNew Project - Version Control - Git\nDas hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische .gitignore Datei erstellt wird."
@@ -1693,8 +1693,8 @@
     "text": "Lokales Arbeiten"
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#clone-1",
-    "href": "docs/git/github_workshop/github_intro_slides.html#clone-1",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#clone",
+    "href": "docs/git/github_workshop/github_intro_slides.html#clone",
     "title": "Einführung in Github",
     "section": "Clone",
     "text": "Clone\n\n\n\n\n\n\nÜbung\n\n\nClone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (File - New Project - Existing Directory), sowie eine .gitignore Datei mit folgendem Inhalt:\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n\n\n\n\n\n\n\n\n\n\nWichtig\n\n\nArbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten."
@@ -1882,6 +1882,13 @@
     "text": "Verlinken von Issues und Pull Requests\nJeder Issue und jede Pull-Request hat eine ID. Diese kann genutzt werden, um alles untereinander zu verlinken. Z.B. können Issue-IDs in Commit-Messages vermerkt werden, um automatisch Issues zu schließen:\ncloses #34"
   },
   {
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#merge",
+    "href": "docs/git/github_workshop/github_intro_slides.html#merge",
+    "title": "Einführung in Github",
+    "section": "Merge",
+    "text": "Merge\nDas ist einfach der Prozess, wenn ein Branch in einen anderen überführt wird. Meistens wird das nach einer angenommenen Pull-Request gemacht, geht aber auch völlig ohne."
+  },
+  {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#mehrere-leute-empfehlungen",
     "href": "docs/git/github_workshop/github_intro_slides.html#mehrere-leute-empfehlungen",
     "title": "Einführung in Github",
@@ -1921,7 +1928,7 @@
     "href": "docs/git/github_workshop/github_intro_slides.html#übung-pull-requests",
     "title": "Einführung in Github",
     "section": "Übung: Pull-Requests",
-    "text": "Übung: Pull-Requests\n\n\n\n\n\n\nÜbung\n\n\nErstelle eine Pull-Request, und Assigne die andere Person als Reviewer."
+    "text": "Übung: Pull-Requests\n\n\n\n\n\n\nÜbung\n\n\nErstelle eine Pull-Request, und wähle die andere Person als Reviewer."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#übung-review",
@@ -1943,6 +1950,13 @@
     "title": "Einführung in Github",
     "section": "Merge Conflicts",
     "text": "Merge Conflicts\n\n\n\n“Git-Magie” funktioniert wirklich gut.\nManchmal weiß Git aber nicht, welche von zwei Änderungen aktueller ist: Merge-Conflicts.\nDiese müssen manuell gelöst werden."
+  },
+  {
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#merge-conflicts-lösen",
+    "href": "docs/git/github_workshop/github_intro_slides.html#merge-conflicts-lösen",
+    "title": "Einführung in Github",
+    "section": "Merge Conflicts lösen",
+    "text": "Merge Conflicts lösen\n\n\nKlick auf Resolve conflicts.\nDas öffnet, unabhängig vom Editor (z.B. GitHub online, VS Code), einen Texteditor, indem die Datei so bearbeiten werden kann, wie sie am Ende aussehen soll.\nKonflikte sind mit &lt;&lt;&lt;&lt;&lt;&lt;&lt;, ======= und &gt;&gt;&gt;&gt;&gt;&gt;&gt; markiert. Wir können uns entscheiden, welche Änderungen wir behalten wollen.\nDie Konflikt-Marker müssen ebenfalls gelöscht werden, sodass die Datei am Ende genauso aussieht, wie sie auch commitet werden soll.\nWenn fertig, klick auf Mark as resolved.\nCommitten & Mergen.\n\n\n\n\nEine ausführliche Dokumentation findet sich in den GitHub Docs."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#tipps-zum-vermeiden-von-merge-conflicts",
