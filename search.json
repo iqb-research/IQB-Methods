@@ -302,11 +302,11 @@
     "text": "Clone\n\n\n\n\n\n\nÜbung\n\n\nClone das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (File - New Project - Existing Directory), sowie eine .gitignore Datei mit folgendem Inhalt:\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n\n\n\n\n\n\n\n\n\n\nWichtig\n\n\nArbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich immer lokal auf dem eigenen Rechner arbeiten."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#exkurs-fork",
-    "href": "docs/git/github_workshop/github_intro_slides.html#exkurs-fork",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-5",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-5",
     "title": "Einführung in Github",
-    "section": "Exkurs: Fork",
-    "text": "Exkurs: Fork\nWenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre."
+    "section": "",
+    "text": "Exkurs: Fork\nRepository online kopieren. An diesem kann weitergearbeitet werden, als ob es ein eigenes Repository wäre."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten",
@@ -351,8 +351,8 @@
     "text": "Commit\ngit commit -m \"useful commit message\"\nSpeichern der Änderungen, mit kurzer Beschreibung was gemacht wurde (Commit Message)."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-5",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-5",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-6",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-6",
     "title": "Einführung in Github",
     "section": "",
     "text": "Übung\n\n\nCommitte deine gerade gestagte Datei mit einer kurzen, prägnanten Commit Message. Wenn du Zwei Commits daraus machen willst, committe erst nur die gestagte .txt Datei, und Stage und Committe danach die anderen Datein."
@@ -393,8 +393,8 @@
     "text": ".gitignore\nDie .gitignore Datei wird im Repository-Ordner erstellt und enthält Datein, die nicht getrackt werden sollen (z.B. große Datensätze, Hilfsdatein …).\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\n\n\n\n\n\n\nTipp\n\n\nNach Möglichkeit wollen wir vor allem die plain-Text Datein tracken. Wenn wir z.B. mit Quarto arbeiten, wollen wir die .qmd Datein tracken, aber nicht unbedingt die .html Datein, die darus erzeugt werden."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-6",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-6",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-7",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-7",
     "title": "Einführung in Github",
     "section": "",
     "text": "Kollaboratives Arbeiten"
@@ -582,8 +582,8 @@
     "text": "Übung\n\n\n\n\n\n\nVorsicht\n\n\nPullt die Änderungen von main, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt in der gleichen Datei in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen merge conflict erzeugen.\n\n\n\n\n\n\n\n\n\nÜbung\n\n\nPusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen merge conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen merge conflict erzeugen. Löse ihn!\n\n\n\nWenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den merge conflict lösen muss."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-7",
-    "href": "docs/git/github_workshop/github_intro_slides.html#section-7",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#section-8",
+    "href": "docs/git/github_workshop/github_intro_slides.html#section-8",
     "title": "Einführung in Github",
     "section": "",
     "text": "Wichtig\n\n\nDenkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zwar kann man Repositories auf privat stellen, aber Daten oder ähnliches, wie konkrete BT-Ergebnisse oder -Kapitel, die noch nicht veröffentlich wurden, sollte eher auf den Laufwerken belassen."
@@ -600,7 +600,7 @@
     "href": "docs/git/github_workshop/github_intro_slides.html#bildquellen",
     "title": "Einführung in Github",
     "section": "Bildquellen",
-    "text": "Bildquellen\n\nGitHub: Foto von Roman Synkevych auf Unsplash\nPC: Foto von Julia Joppien auf Unsplash\nWolke: Foto von Arteum.ro auf Unsplash\nTorvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg\nGitHub Logo: Von GitHub - https://github.com/logos, CC BY 4.0, Link\nFoto von Viktor Forgacs auf Unsplash\nOpen: Foto von Viktor Forgacs auf Unsplash\nBabyfeet: Foto von Omar Lopez auf Unsplash\nCommit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg\nAnts: Foto von Christian Holzinger auf Unsplash\nMagic Tree: Foto von Meritt Thomas auf Unsplash"
+    "text": "Bildquellen\n\nGitHub: Foto von Roman Synkevych auf Unsplash\nPC: Foto von Julia Joppien auf Unsplash\nWolke: Foto von Arteum.ro auf Unsplash\nTorvalds: https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg\nGitHub Logo: Von GitHub - https://github.com/logos, CC BY 4.0, Link\nFoto von Viktor Forgacs auf Unsplash\nOpen: Foto von Viktor Forgacs auf Unsplash\nBabyfeet: Foto von Omar Lopez auf Unsplash\nFork: Foto von Ursula Gamez auf Unsplash\nCommit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg\nAnts: Foto von Christian Holzinger auf Unsplash\nMagic Tree: Foto von Meritt Thomas auf Unsplash"
   },
   {
     "objectID": "docs/r_sig/24_01_26_tidyverse_intro/index.html",
