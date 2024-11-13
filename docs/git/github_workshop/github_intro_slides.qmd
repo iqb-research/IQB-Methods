@@ -277,7 +277,7 @@ Das hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische `.gi
 
 :::{.callout-warning}
 ## Übung
-[Clone](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/clone) das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (`File - New Project - Existing Directory`), sowie eine `.gitignore` Datei mit folgendem Inhalt: 
+[Clone](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/sec-clone) das gerade erstellte Repository. Wenn du nicht RStudio dafür nutzt, erstelle außerdem ein RStudio-Projekt in dem geklonten Ordner (`File - New Project - Existing Directory`), sowie eine `.gitignore` Datei mit folgendem Inhalt: 
 
 ```
 .Rproj.user
@@ -333,7 +333,7 @@ git add .
 
 :::{.callout-warning}
 ## Übung
-[Stage](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/stage) deine gerade bearbeitete Datei, sowie das erstellte RStudio-Projekt und die `.gitignore` Datei. Ganz sauber wäre es, erst einmal nur die `.txt` Datei zu stagen, und dann die anderen Datein, um daraus insgesamt zwei Commits zu machen.
+[Stage](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/stage-1) deine gerade bearbeitete Datei, sowie das erstellte RStudio-Projekt und die `.gitignore` Datei. Ganz sauber wäre es, erst einmal nur die `.txt` Datei zu stagen, und dann die anderen Datein, um daraus insgesamt zwei Commits zu machen.
 :::
 
 :::
@@ -551,7 +551,7 @@ Gehe oben in der Kopfzeile des Repos auf `Settings` und dann in der Seitenleiste
 ## Übung: Clonen
 :::{.callout-caution}
 ## Übung 
-[Clone](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/clone) das Repository (wenn noch nicht geschehen). 
+[Clone](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/sec-clone) das Repository (wenn noch nicht geschehen). 
 :::
 
 
@@ -576,7 +576,7 @@ Bearbeite jetzt den dir assignten Issue **ersteinmal in einer neuen R-Datei**. E
 
 :::{.callout-caution}
 ## Übung 2
-Jetzt kommt der spannende Part: [stage](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/stage-1), [committe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/commit-1) und [pushe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) deine Änderungen.  
+Jetzt kommt der spannende Part: [stage](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/stage-1-1), [committe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/commit-1) und [pushe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) deine Änderungen.  
 \
 Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue automatisch geschlossen, sobald die Pull-Request gemerged wird. 
 
