@@ -627,19 +627,19 @@ Reviewe die Pull-Request der anderen Person erneut. Approve diesmal.
 
 ## Übung: Merge
 :::{.callout-caution}
-## Übung
+## Übung 1
 Merge deine Pull-Request.
 :::
 
 :::{.callout-caution}
-## Übung 
+## Übung 2
 Mist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte rückgängig gemacht werden soll. 
 \
 [Browse das Repository  zu dem Commit](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/mit-git-version-control---wiederherstellung-jedes-projektstands), der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung. 
 :::
 
 
-## Merge Conflicts
+## Merge-Conflicts
 :::{.columns}
 ::: {.column width="60%"}
 - "Git-Magie" funktioniert wirklich gut. 
@@ -653,13 +653,13 @@ Mist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, un
 :::
 :::
 
-## Merge Conflicts lösen
+## Merge-Conflicts lösen
 
 ::: small-latex
 1. Klick auf `Resolve conflicts`. 
 1. Das öffnet, unabhängig vom Editor (z.B. GitHub online, VS Code), einen Texteditor, indem die Datei so bearbeiten werden kann, wie sie am Ende aussehen soll. 
 1. Konflikte sind mit `<<<<<<<`, `=======` und `>>>>>>>` markiert. Wir können uns entscheiden, welche Änderungen wir behalten wollen. 
-1. Die Konflikt-Marker müssen ebenfalls gelöscht werden, sodass die Datei am Ende genauso aussieht, wie sie auch commitet werden soll. 
+1. Die Konflikt-Marker müssen ebenfalls gelöscht werden, sodass die Datei am Ende genauso aussieht, wie sie auch committet werden soll. 
 1. Wenn fertig, klick auf `Mark as resolved`. 
 1. Committen & Mergen. 
 :::
@@ -668,7 +668,7 @@ Mist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, un
 Eine ausführliche Dokumentation findet sich in den [GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github). 
 :::
 
-## Tipps zum Vermeiden von Merge Conflicts
+## Tipps zum Vermeiden von Merge-Conflicts
 
 - Absprachen treffen, wer was bearbeitet. Am einfachsten geht das über den Assign-Button bei Issues und Pull-Requests.
 - Regelmaßiges Pullen, um auf dem neusten Stand zu bleiben.
@@ -678,15 +678,16 @@ Eine ausführliche Dokumentation findet sich in den [GitHub Docs](https://docs.g
 ## Übung
 
 :::{.callout-caution}
-[Pullt](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/pull-1) die Änderungen von `main`, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt [in der gleichen Datei]{.highlight} in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen merge conflict erzeugen. 
+## Übung 1
+[Pullt](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/pull-1) die Änderungen von `main`, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt [in der gleichen Datei]{.highlight} in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen Merge-Conflict erzeugen. 
 :::
 
 :::{.callout-caution}
-## Übung
-[Pusht](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen merge conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen merge conflict erzeugen. [Löse ihn!](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/merge-conflicts-lösen)
+## Übung 2
+[Pusht](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen Merge-Conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen Merge-Conflict erzeugen. [Löse ihn!](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/merge-conflicts-lösen)
 :::
 
-Wenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den merge conflict lösen muss.
+Wenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den Merge-Conflict lösen muss.
 
 ## 
 
@@ -699,11 +700,11 @@ Denkt daran, dass alles was ihr in GitHub hochladet, auch im Internet landet. Zw
 
 - Pullen zu Beginn nicht vergessen, vor allem wenn man neue Branches erstellt. 
 - Lieber eher kleinere Pull-Requests machen. Leichter zu reviewen, einfacher zu mergen und man bleibt enger an der aktuellen Entwicklung dran. 
-- Main in den eigenen Branch reinmergen, falls man da länger drauf arbeitet. Das erspart ausufernede Merge-Conflicts später. 
+- `Main` in den eigenen Branch reinmergen, falls man da länger drauf arbeitet. Das erspart später ausufernede Merge-Conflicts. 
 - Möglichst viele thematisch abgetrennte Einheiten committen. 
 
 # Use Git!
-Um Git wirklich zu lernen, ist noch ein bisschen mehr Übung nötig. Wendet es also am besten mal auf ein passendes eigenes Projekt an. Es lohnt sich! 
+Wendet Git am besten mal auf ein passendes eigenes Projekt an, noch sicherer im Umgang damit zu werden. Es lohnt sich! 
 
 ## Bildquellen
 - GitHub: Foto von <a href="https://unsplash.com/de/@synkevych?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Roman Synkevych</a> auf <a href="https://unsplash.com/de/fotos/blau-schwarzes-pinguin-pluschtier-UT8LMo-wlyk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
