@@ -595,7 +595,7 @@ Bearbeite jetzt den dir assignten Issue **ersteinmal in einer neuen R-Datei**. E
 
 :::{.callout-caution}
 ## Übung 2
-Jetzt kommt der spannende Part: [stage](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/stage-1-1), [committe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/commit-1) und [pushe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) deine Änderungen.  
+Jetzt kommt der spannende Part: [stage](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/stage-1), [committe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/commit-1) und [pushe](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/push-1) deine Änderungen.  
 \
 Wenn du in die Commit-Message `closes #Issuenumber` schreibst, wird der Issue automatisch geschlossen, sobald die Pull-Request gemerged wird. 
 
