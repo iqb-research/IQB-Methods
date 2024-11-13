@@ -295,13 +295,6 @@
     "text": "Clone\ngit clone url\n“Herunterladen” des Repositories auf den eigenen Rechner.\n\n\n\n\nIn RStudio:\nNew Project - Version Control - Git\nDas hat den Vorteil, dass direkt ein RStudio-Projekt und eine R-spezifische .gitignore Datei erstellt wird."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten",
-    "href": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten",
-    "title": "Einführung in Github",
-    "section": "Lokales Arbeiten",
-    "text": "Lokales Arbeiten"
-  },
-  {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#clone",
     "href": "docs/git/github_workshop/github_intro_slides.html#clone",
     "title": "Einführung in Github",
@@ -314,6 +307,13 @@
     "title": "Einführung in Github",
     "section": "Exkurs: Fork",
     "text": "Exkurs: Fork\nWenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre."
+  },
+  {
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten",
+    "href": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten",
+    "title": "Einführung in Github",
+    "section": "Lokales Arbeiten",
+    "text": "Lokales Arbeiten"
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#lokales-arbeiten-1",
