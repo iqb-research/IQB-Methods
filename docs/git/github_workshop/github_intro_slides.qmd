@@ -294,8 +294,16 @@ Arbeiten auf Netzlaufwerk kann zu Problemen mit Git führen! Deswegen wirklich i
 :::
 
 
-## Exkurs: Fork
-Wenn ihr keine Rechte habt, um in einem öffentlichen Repository mitzuarbeiten, könnt ihr es in der Regel online kopieren (forken), und dann an dieser Kopie arbeiten, als ob es euer eigenes Repository wäre. 
+## {background-image="images/fork.jpg" background-size="1225px"}
+
+::: {.absolute left="0%" top="0%" style="padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, 0); backdrop-filter: blur(0px); box-shadow: 0 0 0rem 0 rgba(255, 255, 255, 0); color:#F8F8F8; font-size: 1.1em;"}
+
+**Exkurs: Fork** \
+Repository online kopieren. An diesem kann weitergearbeitet werden, als ob es ein eigenes Repository wäre. 
+:::
+
+
+
 
 ## Lokales Arbeiten
 ![](./images/workflow_4.PNG)
@@ -698,6 +706,7 @@ Um Git wirklich zu lernen, ist noch ein bisschen mehr Übung nötig. Wendet es a
 - Foto von <a href="https://unsplash.com/de/@sonance?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Viktor Forgacs</a> auf <a href="https://unsplash.com/de/fotos/rot-weisse-offene-neonbeschilderung-LNwIJHUtED4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Open: Foto von <a href="https://unsplash.com/de/@sonance?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Viktor Forgacs</a> auf <a href="https://unsplash.com/de/fotos/rot-weisse-offene-neonbeschilderung-LNwIJHUtED4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Babyfeet: Foto von <a href="https://unsplash.com/de/@omarlopez1?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Omar Lopez</a> auf <a href="https://unsplash.com/de/fotos/person-die-babyfusse-halt-vTknj2OxDVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Fork: Foto von <a href="https://unsplash.com/de/@ugsdreamer?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ursula Gamez</a> auf <a href="https://unsplash.com/de/fotos/drei-graue-metallgabeln-werfen-schatten-auf-grune-oberflache-bmxYEhqLVEk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Commit message: https://raw.githubusercontent.com/denitdao/o-rly-collection/refs/heads/main/public/book_covers/useless-git-commit-message.jpg
 - Ants: Foto von <a href="https://unsplash.com/de/@pixelatelier?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Christian Holzinger</a> auf <a href="https://unsplash.com/de/fotos/eine-gruppe-kleiner-gruner-pflanzen-die-aus-dem-boden-spriessen-NK06SbuCbio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - Magic Tree: Foto von <a href="https://unsplash.com/de/@merittthomas?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Meritt Thomas</a> auf <a href="https://unsplash.com/de/fotos/graue-felsen-auf-dem-boden-in-der-nahe-von-grunen-baumen-zqIOvV-D3JQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
