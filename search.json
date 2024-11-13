@@ -551,35 +551,35 @@
     "href": "docs/git/github_workshop/github_intro_slides.html#übung-merge",
     "title": "Einführung in Github",
     "section": "Übung: Merge",
-    "text": "Übung: Merge\n\n\n\n\n\n\nÜbung\n\n\nMerge deine Pull-Request.\n\n\n\n\n\n\n\n\n\nÜbung\n\n\nMist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte rückgängig gemacht werden soll.\nBrowse das Repository zu dem Commit, der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung."
+    "text": "Übung: Merge\n\n\n\n\n\n\nÜbung 1\n\n\nMerge deine Pull-Request.\n\n\n\n\n\n\n\n\n\nÜbung 2\n\n\nMist! Dein Reviewer meldet dir zurück, dass es einen Fehler beim Review gab, und das Review bitte rückgängig gemacht werden soll.\nBrowse das Repository zu dem Commit, der vor dem ersten Review deiner Datei gemacht wurde und schaue in deiner R-Datei nach, was davor drin stand. Theoretisch ließe sich das auch alles über Git-Befehle wiederherstellen, das Browsen reicht uns jetzt aber erst einmal für diese Übung."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#merge-conflicts",
     "href": "docs/git/github_workshop/github_intro_slides.html#merge-conflicts",
     "title": "Einführung in Github",
-    "section": "Merge Conflicts",
-    "text": "Merge Conflicts\n\n\n\n“Git-Magie” funktioniert wirklich gut.\nManchmal weiß Git aber nicht, welche von zwei Änderungen aktueller ist: Merge-Conflicts.\nDiese müssen manuell gelöst werden."
+    "section": "Merge-Conflicts",
+    "text": "Merge-Conflicts\n\n\n\n“Git-Magie” funktioniert wirklich gut.\nManchmal weiß Git aber nicht, welche von zwei Änderungen aktueller ist: Merge-Conflicts.\nDiese müssen manuell gelöst werden."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#merge-conflicts-lösen",
     "href": "docs/git/github_workshop/github_intro_slides.html#merge-conflicts-lösen",
     "title": "Einführung in Github",
-    "section": "Merge Conflicts lösen",
-    "text": "Merge Conflicts lösen\n\n\nKlick auf Resolve conflicts.\nDas öffnet, unabhängig vom Editor (z.B. GitHub online, VS Code), einen Texteditor, indem die Datei so bearbeiten werden kann, wie sie am Ende aussehen soll.\nKonflikte sind mit &lt;&lt;&lt;&lt;&lt;&lt;&lt;, ======= und &gt;&gt;&gt;&gt;&gt;&gt;&gt; markiert. Wir können uns entscheiden, welche Änderungen wir behalten wollen.\nDie Konflikt-Marker müssen ebenfalls gelöscht werden, sodass die Datei am Ende genauso aussieht, wie sie auch commitet werden soll.\nWenn fertig, klick auf Mark as resolved.\nCommitten & Mergen.\n\n\n\n\nEine ausführliche Dokumentation findet sich in den GitHub Docs."
+    "section": "Merge-Conflicts lösen",
+    "text": "Merge-Conflicts lösen\n\n\nKlick auf Resolve conflicts.\nDas öffnet, unabhängig vom Editor (z.B. GitHub online, VS Code), einen Texteditor, indem die Datei so bearbeiten werden kann, wie sie am Ende aussehen soll.\nKonflikte sind mit &lt;&lt;&lt;&lt;&lt;&lt;&lt;, ======= und &gt;&gt;&gt;&gt;&gt;&gt;&gt; markiert. Wir können uns entscheiden, welche Änderungen wir behalten wollen.\nDie Konflikt-Marker müssen ebenfalls gelöscht werden, sodass die Datei am Ende genauso aussieht, wie sie auch committet werden soll.\nWenn fertig, klick auf Mark as resolved.\nCommitten & Mergen.\n\n\n\n\nEine ausführliche Dokumentation findet sich in den GitHub Docs."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#tipps-zum-vermeiden-von-merge-conflicts",
     "href": "docs/git/github_workshop/github_intro_slides.html#tipps-zum-vermeiden-von-merge-conflicts",
     "title": "Einführung in Github",
-    "section": "Tipps zum Vermeiden von Merge Conflicts",
-    "text": "Tipps zum Vermeiden von Merge Conflicts\n\nAbsprachen treffen, wer was bearbeitet. Am einfachsten geht das über den Assign-Button bei Issues und Pull-Requests.\nRegelmaßiges Pullen, um auf dem neusten Stand zu bleiben.\nRegelmäßiges Mergen in den Hauptbranch (z.B. main, oder ein development-Branch), damit die einzelnen Branches nicht zu sehr divergieren."
+    "section": "Tipps zum Vermeiden von Merge-Conflicts",
+    "text": "Tipps zum Vermeiden von Merge-Conflicts\n\nAbsprachen treffen, wer was bearbeitet. Am einfachsten geht das über den Assign-Button bei Issues und Pull-Requests.\nRegelmaßiges Pullen, um auf dem neusten Stand zu bleiben.\nRegelmäßiges Mergen in den Hauptbranch (z.B. main, oder ein development-Branch), damit die einzelnen Branches nicht zu sehr divergieren."
   },
   {
-    "objectID": "docs/git/github_workshop/github_intro_slides.html#übung-12",
-    "href": "docs/git/github_workshop/github_intro_slides.html#übung-12",
+    "objectID": "docs/git/github_workshop/github_intro_slides.html#übung-10",
+    "href": "docs/git/github_workshop/github_intro_slides.html#übung-10",
     "title": "Einführung in Github",
     "section": "Übung",
-    "text": "Übung\n\n\n\n\n\n\nVorsicht\n\n\nPullt die Änderungen von main, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt in der gleichen Datei in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen merge conflict erzeugen.\n\n\n\n\n\n\n\n\n\nÜbung\n\n\nPusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen merge conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen merge conflict erzeugen. Löse ihn!\n\n\n\nWenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den merge conflict lösen muss."
+    "text": "Übung\n\n\n\n\n\n\nÜbung 1\n\n\nPullt die Änderungen von main, damit ihr beide auf dem aktuellen Stand seid. Erstellt dann jeweils einen neuen Branch, auf dem ihr jetzt in der gleichen Datei in der gleichen Zeile Änderungen vornehmt. Das wird hoffentlich einen Merge-Conflict erzeugen.\n\n\n\n\n\n\n\n\n\nÜbung 2\n\n\nPusht eure Änderungen, und einigt euch, wer zuerst mergt. Diese Person bekommt noch keinen Merge-Conflict. Sobald gemergt wurde, kann die andere Person mergen. Das wird einen Merge-Conflict erzeugen. Löse ihn!\n\n\n\nWenn ihr wollt, könnt ihr danach nochmal tauschen, sodass die andere Person den Merge-Conflict lösen muss."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#section-8",
@@ -593,7 +593,7 @@
     "href": "docs/git/github_workshop/github_intro_slides.html#workflow-empfehlungen",
     "title": "Einführung in Github",
     "section": "Workflow Empfehlungen",
-    "text": "Workflow Empfehlungen\n\nPullen zu Beginn nicht vergessen, vor allem wenn man neue Branches erstellt.\nLieber eher kleinere Pull-Requests machen. Leichter zu reviewen, einfacher zu mergen und man bleibt enger an der aktuellen Entwicklung dran.\nMain in den eigenen Branch reinmergen, falls man da länger drauf arbeitet. Das erspart ausufernede Merge-Conflicts später.\nMöglichst viele thematisch abgetrennte Einheiten committen."
+    "text": "Workflow Empfehlungen\n\nPullen zu Beginn nicht vergessen, vor allem wenn man neue Branches erstellt.\nLieber eher kleinere Pull-Requests machen. Leichter zu reviewen, einfacher zu mergen und man bleibt enger an der aktuellen Entwicklung dran.\nMain in den eigenen Branch reinmergen, falls man da länger drauf arbeitet. Das erspart später ausufernede Merge-Conflicts.\nMöglichst viele thematisch abgetrennte Einheiten committen."
   },
   {
     "objectID": "docs/git/github_workshop/github_intro_slides.html#bildquellen",
