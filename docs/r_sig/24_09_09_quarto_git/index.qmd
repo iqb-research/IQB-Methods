@@ -40,7 +40,7 @@ We can use Issues to discuss certain points with coauthors and can use Pull Requ
 
 # GitHub Actions
 
-It is considered bad practicew to commit rendered documents like PDF or HTML to GitHub. Instead, build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the built output document. GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript. The setup is a bit more complex, the complete documentation can be found [here](https://quarto.org/docs/publishing/github-pages.html).\
+It is considered bad practice to commit rendered documents like PDF or HTML to GitHub. Instead, build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the built output document. GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript. The setup is a bit more complex, the complete documentation can be found [here](https://quarto.org/docs/publishing/github-pages.html).\
 In this section, I'll present one possible workflow.
 
 ::: callout-warning
@@ -146,6 +146,10 @@ jobs:
 
 ::: callout-important
 You need to check the Read and write permissions box under Workflow permissions in the Actions section of your repository Settings.
+:::
+
+::: callout-tip
+You can find the link to the published site under `Settings - Pages`. Copy it to put in the `About` field of your repo.
 :::
 
 ::: callout-note
