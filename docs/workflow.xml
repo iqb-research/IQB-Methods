@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>IQB Methods Team</title>
+<link>https://iqb-research.github.io/IQB-Methods/docs/workflow.html</link>
+<atom:link href="https://iqb-research.github.io/IQB-Methods/docs/workflow.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<image>
+<url>https://iqb-research.github.io/IQB-Methods/./images/flow.jpg</url>
+<title>IQB Methods Team</title>
+<link>https://iqb-research.github.io/IQB-Methods/docs/workflow.html</link>
+</image>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Fri, 12 Jan 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Pull requests with Github</title>
+  <dc:creator>Sebastian Weirich</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/git/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" class="img-fluid"><sup>1</sup></p>
+<p>When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version.</p>
+<section id="recommended-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-workflow">Recommended Workflow</h2>
+<ol type="1">
+<li>Pull all changes from the relevant branch. Normally, this will be the branch <code>main</code>, but it might also happen that you want to extend on another branch.</li>
+<li><code>Create</code> and <code>checkout</code> (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it.</li>
+<li>Make changes in your local repository.</li>
+<li><code>Commit</code> them as often as possible. The more you commit, the more of you work gets saved regulary.</li>
+<li>If you want to upload your changes, <code>Push</code>.</li>
+<li>Repeat 3 - 5 until you are done.</li>
+</ol>
+<section id="initiating-a-review" class="level3">
+<h3 class="anchored" data-anchor-id="initiating-a-review">Initiating a review</h3>
+<p>Once you are content with your changes and you want to finalize them, you can initiate a review:</p>
+<ol type="1">
+<li>Change to the the Github page of the package (for example, <a href="https://github.com/weirichs/eatTools">eatTools repository</a>) and start the <code>pull request</code> via “Compare &amp; pull request”. This will open a new page, where you can customize your pull request.</li>
+<li>Choose your favorite reviewer under “Reviewer”. You can ask multiple people.</li>
+<li>Enter a comment for the request, specifying what you want the reviewer(s) to look for especially.</li>
+<li>Click on “create pull request” to start the request.</li>
+</ol>
+</section>
+<section id="review-process" class="level3">
+<h3 class="anchored" data-anchor-id="review-process">Review Process</h3>
+<ol type="1">
+<li>Now the review process begins: The person that takes over the review assigns herself on the right side of the pull request page. Keep in mind our <a href="https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html">Code Conventions</a>.</li>
+<li>The reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code.</li>
+<li>In the end, the reviewer delivers their final verdict: <code>approve</code> or <code>request changes</code>.</li>
+<li>Now it’s the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made.</li>
+<li>The changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made.</li>
+<li>Reiterate until the author and reviewer have reached an agreement.</li>
+<li>If both are satisfied. On the GitHub Pull-request page, select “merge pull request into main” (or any other branch you want to and can merge on) at the bottom.</li>
+<li>Finally, the review branch can be deleted. Choose “delete” on the Github homepage. Then delete the local branch (i.e.&nbsp;in GitKraken) in the same way if necessary</li>
+</ol>
+</section>
+</section>
+<section id="please-note" class="level2">
+<h2 class="anchored" data-anchor-id="please-note">Please note</h2>
+<p>As long as the master/main branch and the new branch are not merged again, there are two “parallel” branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e.&nbsp;the master branch) of the package. As a developer, you always have to check and be conscious about on which branch you are currently working on.</p>
+</section>
+<section id="git-workflow-im-terminal-nh" class="level2">
+<h2 class="anchored" data-anchor-id="git-workflow-im-terminal-nh">Git-Workflow im Terminal (NH)</h2>
+<ol type="1">
+<li><em>Gegebenenfalls: Auf den mainbranch wechseln:</em> <code>git checkout main</code></li>
+<li>Verifizieren, dass man auf dem richtigen branch ist: <code>git status</code></li>
+<li>Onlinebranch lokal herunterladen: <code>git pull</code></li>
+<li><em>Gegebenenfalls: Neuen branch “branch_2” erstellen, und direkt darauf wechseln:</em> <code>git checkout -b branch_2</code></li>
+<li>(Alle) Änderungen stagen: <code>git add .</code></li>
+<li>Gestagte Änderungen commiten (mit aussagekräftiger Commitmessage): <code>git commit -m "implemented new function"</code></li>
+<li>Commits hochladen: <code>git push</code></li>
+</ol>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@synkevych?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Roman Synkevych</a> on <a href="https://unsplash.com/de/fotos/blau-schwarzes-pinguin-pluschtier-UT8LMo-wlyk">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>github</category>
+  <category>tutorial</category>
+  <category>workflow</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/git/</guid>
+  <pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Updating the website</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/quarto/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<ol type="1">
+<li>As the website is hosted on GitHub, you can just clone the <a href="https://github.com/iqb-research/IQB-Methods">repository</a>.</li>
+<li>Open the RStudio project with RStudio.</li>
+<li>This website uses <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> to keep the project specific package library up to date.</li>
+</ol>
+<section id="renv" class="level3">
+<h3 class="anchored" data-anchor-id="renv"><code>renv</code></h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure you’re using the R version recorded in the LOCK-file when working with <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a>. This makes things a bit easier. Of course, if the R version in the LOCK file is an old one, you can update it with <code>renv::snapshot()</code>.</p>
+</div>
+</div>
+<p>Wandering what <code>renv</code> is? Check out the <a href="../../docs/r_sig/23_11_06_renv/index.html">renv Intro</a> for more information.</p>
+<p>The needed packages are recorded in the <code>.lock</code>-file, but not uploaded to GitHub. So the <strong>first thing you need to do</strong> is to install the necessary packages into your local project library:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("renv")</span></span>
+<span id="cb1-2">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">restore</span>()</span></code></pre></div>
+</div>
+<p>You can do this every time you start working on the website. Only packages that are not already in your project specific package library will be downloaded.</p>
+<p>If your files need their own packages, just install them like you would normally do with either:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eatGADS"</span>)</span>
+<span id="cb2-2">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eatGADS"</span>)</span></code></pre></div>
+</div>
+<p>You need to do this even if you have them already installed on your PC locally, because <code>renv</code> uses a project specific library.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t forget to update the <code>.lock</code> file with <code>renv::snapshot()</code> if you have added new packages in your code. Otherwise the GitHub-Action will fail. But be concious about what is updated. If you are using an old version in the project, or old package versions, you might downgrade the projects package versions. So run <code>renv::restore()</code> before, to make sure your project library is up to date. <code>renv</code> will show you in the console what is updated from which version to which version.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="file-structure" class="level2">
+<h2 class="anchored" data-anchor-id="file-structure">File structure</h2>
+<p>Basically you just need to know where to put your files. Everything else will be taken care of by pushing to GitHub. Files can go into one of two folders: <code>docs</code> or <code>posts</code>. <code>docs</code> contains most of the tutorial files: They are structured into sub folders, like <code>eatPackages</code> or <code>R</code>. Here the quarto-files can be found that contain the actual website content. Edit them or add new ones. Make sure they are quarto-files with the <code>.qmd</code> ending.</p>
+<section id="quarto.yml" class="level3">
+<h3 class="anchored" data-anchor-id="quarto.yml"><code>_quarto.yml</code></h3>
+<p>On the highest directory level you can find the <code>_quarto.yml</code> file. It defines the structure of the website. If you want your new page to be displayed in the website navigation, you have to add it here. You can define different sections and give name the links to the websites:</p>
+<pre><code>    contents:
+      - section: "R Tutorials"
+        contents:
+          - section: "Introduction"
+            contents:
+             - docs/R/index.qmd
+             - href: https://nickhaf.github.io/r_tutorial/
+               text: Selfpaced R Workshop
+             - href: docs/R/ws1.qmd
+               text: Einführung</code></pre>
+<p>This creates the section <code>R Tutorials</code> with the subsection <code>Introduction</code>. <code>Introduction</code> consists of three pages: the <code>index.qmd</code> page, which is like the main page of this section, the page <code>Selfpaced R Workshop</code>, which actually is only a link to another website, and the page <code>Einführung</code>, which links to the qmd-file <code>ws1.qmd</code>. Just add your pages where appropriate.</p>
+</section>
+<section id="quarto-files" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-files">quarto-files</h3>
+<p>The quarto-files contain the actual content of the website. Just edit them like you would edit <code>.qmd</code>-files (or <code>.rmd</code>-files, as the rmarkdown syntax is quite similar). An introduction to the basic quarto functions can be found in the <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_07_15_quarto_1/">R SIG</a>. Here are some additional useful tips:</p>
+<section id="linking" class="level4">
+<h4 class="anchored" data-anchor-id="linking">Linking</h4>
+<p>You can easily link to other pages of this website, or to other websites:</p>
+<p><code>[displayed text](link.de)</code></p>
+<p>You might need to use relative paths: <code>[renv](../r_sig/23_11_06_renv/index.qmd)</code>. This will link to the <code>renv</code> page in the <code>posts</code> directory.</p>
+</section>
+<section id="pictures" class="level4">
+<h4 class="anchored" data-anchor-id="pictures">Pictures</h4>
+<p>To add a picture to your website, save the picture in the same folder as your <code>.qmd</code>-file. Then you can display it with:</p>
+<p><code>![](my_image.jpg)</code></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/quarto/my_image.jpg" class="img-fluid"><sup>1</sup></p>
+</section>
+<section id="footnotes" class="level4">
+<h4 class="anchored" data-anchor-id="footnotes">Footnotes</h4>
+<p>You can add footnotes with:</p>
+<pre><code>Add a footnote[^2].
+
+[^2]: My Footnote.</code></pre>
+<p>Add a footnote<sup>2</sup>.</p>
+</section>
+<section id="callouts" class="level4">
+<h4 class="anchored" data-anchor-id="callouts">Callouts</h4>
+<p>You can add little information boxes like this:</p>
+<pre><code>::: callout-tip
+The R-SIG meets each every two weeks on Monday from 13:00 - 14:00.
+:::</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The R-SIG meets each every two weeks on Monday from 13:00 - 14:00.</p>
+</div>
+</div>
+<p>There are multiple different options, take a look at the <a href="https://quarto.org/docs/authoring/callouts.html">documentation</a> for more.</p>
+</section>
+<section id="css-styles" class="level4">
+<h4 class="anchored" data-anchor-id="css-styles">CSS styles</h4>
+<p>You can tweak the appearence even more by using you own <a href="https://quarto.org/docs/output-formats/html-basics.html#css-styles">CSS-styles</a>.</p>
+</section>
+</section>
+<section id="editing-on-the-web-page" class="level3">
+<h3 class="anchored" data-anchor-id="editing-on-the-web-page">Editing on the web page</h3>
+<p>You can also find a small button called <code>Edit this page</code> next to the GitHub logo. This allows you to edit the page directly on GitHub.</p>
+</section>
+</section>
+<section id="building-the-website" class="level2">
+<h2 class="anchored" data-anchor-id="building-the-website">Building the website</h2>
+<p>To get a preview of your website, click on the <code>Render</code> button in R Studio. Make sure you are not working locally and not on the network drive, because you might run into admin right problems otherwise. The rendering is not really necessary, because the website will only be built online when you push to GitHub. It will take a while (up to 20 min or more, depending on the size of the website) until the website is updated, as some checks are run first. The website will already get updated if you just open a pull request that wants to merge into main.</p>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<p>The official documentation can be found <a href="https://quarto.org/docs/websites/">here</a>. A nice hands on tutorial on adding blog posts to an existing Quarto website can be found <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">here</a>, along with some additional tips on citations, footnotes etc.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@sinjin_thomas?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Sinjin Thomas</a> on <a href="https://unsplash.com/de/fotos/brauner-und-schwarzer-kurzhaariger-hund-VpoS_qNXkxA?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.↩︎</p></li>
+<li id="fn2"><p>My Footnote.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>quarto</category>
+  <category>renv</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/quarto/</guid>
+  <pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Code-Konventionen</title>
+  <dc:creator>NA </dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/discussions/conventions.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="überblick" class="level2">
+<h2 class="anchored" data-anchor-id="überblick">Überblick</h2>
+<p>Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat.</p>
+</section>
+<section id="allgemeine-konventionen" class="level2">
+<h2 class="anchored" data-anchor-id="allgemeine-konventionen">Allgemeine Konventionen</h2>
+<section id="umfang-von-code-abschnitten" class="level3">
+<h3 class="anchored" data-anchor-id="umfang-von-code-abschnitten">Umfang von Code-Abschnitten</h3>
+<ul>
+<li>Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.</li>
+<li>Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.</li>
+<li>In R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.
+<ul>
+<li>Bei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.</li>
+<li>Rigoroses testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.<br>
+</li>
+<li>https://uptake.github.io/pkgnet/articles/pkgnet-intro.html</li>
+</ul></li>
+</ul>
+</section>
+<section id="benennungskonventionen" class="level3">
+<h3 class="anchored" data-anchor-id="benennungskonventionen">Benennungskonventionen</h3>
+<ul>
+<li>Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.</li>
+<li>kurze Namen vs sprechende Namen =&gt; eher sprechende Namen</li>
+<li>Funktionen: eher Verben</li>
+<li>Objekte (die keine Funktionen sind): eher Substantive</li>
+<li>allgemein keine Dopplungen mit existierenden R-Objekten!</li>
+<li>Objekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?
+<ul>
+<li>wenn sich Objekte substanziell ändern, nicht überschreiben</li>
+</ul></li>
+<li>häufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, …</li>
+<li>Argumentreihenfolge? (Pipebarkeit =&gt; auch: Output-Steuerung)</li>
+</ul>
+</section>
+</section>
+<section id="code-review" class="level2">
+<h2 class="anchored" data-anchor-id="code-review">Code Review</h2>
+<p>Overview of the Git-Workflow can be found <a href="https://iqb-research.github.io/IQB-Methods/docs/git/">here</a>.</p>
+<section id="vorgehen" class="level3">
+<h3 class="anchored" data-anchor-id="vorgehen">Vorgehen</h3>
+<ul>
+<li>Person, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden.</li>
+<li>Sind mehrere Reviewer zum <strong>Review</strong> assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen)</li>
+<li>Übernimmt man ein Review, assigned man sich selbst den <strong>Pull-Request</strong>, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)</li>
+</ul>
+</section>
+<section id="was-muss-bei-der-anforderung-eines-reviews-beachtet-werden" class="level3">
+<h3 class="anchored" data-anchor-id="was-muss-bei-der-anforderung-eines-reviews-beachtet-werden">Was muss bei der Anforderung eines Reviews beachtet werden?</h3>
+<ul>
+<li>Eher kleinschrittige, abgeschlossene Bestandteile reviewen lassen.</li>
+<li>Priorität festlegen
+<ul>
+<li>high: innerhalb eines Tages</li>
+<li>medium: innerhalb einer Woche</li>
+<li>low: keine Zeitbegrenzung</li>
+</ul></li>
+</ul>
+</section>
+<section id="was-sollen-die-reviewer-machen" class="level3">
+<h3 class="anchored" data-anchor-id="was-sollen-die-reviewer-machen">Was sollen die Reviewer machen?</h3>
+<ul>
+<li><strong>Sich zum Review assignen, wenn man anfängt.</strong></li>
+<li>Benennungskonventionen, Formatkonventionen</li>
+<li>Verständlichkeit</li>
+<li>Tests auf Vollständigkeit überprüfen (Edge Cases, möglichst alles abgedeckt?)</li>
+</ul>
+<ins>
+Optional:
+</ins>
+<ul>
+<li>Mit den Tests rumspielen, versuchen die Funktion failen zu lassen.</li>
+</ul>
+</section>
+<section id="personelle-aufteilung" class="level3">
+<h3 class="anchored" data-anchor-id="personelle-aufteilung">Personelle Aufteilung</h3>
+<ul>
+<li>eatPrepTBA: PF, NH, KAS, … (mal schauen)</li>
+<li>eatPrep: KAS, PF, NH</li>
+<li>eatPlot: NH, PF, KAS</li>
+<li>eatModel: SW, KAS, BB</li>
+<li>eatRep: SW, BB, KAS</li>
+<li>eatTools: SW, KAS, BB, NH, PF</li>
+<li>eatAnalysis: BB, SW, KAS</li>
+<li>eatGADS: BB, KAS, NH</li>
+<li>eatDB: BB, PF, NH</li>
+<li>eatFDZ: BB, NH</li>
+<li>eatCodebook: BB, SW, PF, NH</li>
+<li>eatRecode: BB, NH</li>
+<li>eatATA: BB, DD, ?</li>
+</ul>
+</section>
+<section id="kommunikation-zeiterwartung" class="level3">
+<h3 class="anchored" data-anchor-id="kommunikation-zeiterwartung">Kommunikation &amp; Zeiterwartung</h3>
+<ul>
+<li>Person, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab …), oder eine Prioritätenfestlegung.</li>
+<li>In Zukunft soll ein Standardprozedere definiert werden, in welchem festgelegt wird, in welcher Tiefe das Review erfolgen soll, und was standardmäßig gecheckt werden soll.</li>
+<li>Label sollen einheitlich über die Repositories erstell und gentutzt werden (Bug/Enhancement …, Prio-Label)</li>
+</ul>
+</section>
+</section>
+<section id="issues" class="level2">
+<h2 class="anchored" data-anchor-id="issues">Issues</h2>
+<ul>
+<li>Wir nutzen <a href="https://github.com/orgs/iqb-research/projects/5/views/14">GitHub-Projects</a> um alle ToDos aus verschiedenen Repos an einem Ort zu sammeln.<br>
+</li>
+<li>Wichtige Issues aus jedem Repo sollten im Projekt hinzugefügt werden.</li>
+</ul>
+<section id="issues-aus-einem-anderen-repository-zum-projekt-hinzufügen" class="level3">
+<h3 class="anchored" data-anchor-id="issues-aus-einem-anderen-repository-zum-projekt-hinzufügen">Issues aus einem anderen Repository zum Projekt hinzufügen</h3>
+<ol type="1">
+<li>Click on <code>Add item</code></li>
+<li><code>#beckerbenj/eatGADS</code></li>
+<li>From the suggested list you can choose the issue you want to add to the project, or create a new one.<br>
+</li>
+<li>You can filter for all open issues with <code>is:issue is:open</code>.</li>
+</ol>
+</section>
+<section id="issue-sorting" class="level3">
+<h3 class="anchored" data-anchor-id="issue-sorting">Issue sorting</h3>
+<ul>
+<li>Column “Done” contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together.</li>
+<li>Everything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos.</li>
+</ul>
+</section>
+</section>
+<section id="mögliche-nächste-themen" class="level2">
+<h2 class="anchored" data-anchor-id="mögliche-nächste-themen">Mögliche nächste Themen</h2>
+<ul>
+<li>Indentierung?</li>
+<li>Häufige Argumentnamen</li>
+<li>Dplyr und/oder pipen?</li>
+<li>Kommentar- &amp; Austauschsprache</li>
+<li>“Sprechender Code”? Vgl. best Coding Practices…</li>
+<li>finales Ziel: styleR?</li>
+<li>Tests (Abdeckung, Umsetzung, Style, …)</li>
+<li>schematische Paket-Dokumentationen (nächstes Thema!)
+<ul>
+<li>potentiell interessantes R Paket zur Visualisierung: https://uptake.github.io/pkgnet/articles/pkgnet-intro.html</li>
+</ul></li>
+<li>Paketstruktur-Vignette/Dokumentation auf Quarto-Homepage</li>
+<li>Labels bei Pull-Requests und Issues</li>
+<li>Umgang mit failed Tests bei Pull-Requests (ggf. differenziert nach Stumi/Wimi)</li>
+<li>Workflow Update Pull Requests (Wiedervorlage nach Einarbeitung von requested Changes)</li>
+</ul>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@swipe9?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Swipe</a> on <a href="https://unsplash.com/de/fotos/eine-kamera-die-auf-einem-stativ-in-einem-bankettsaal-aufgestellt-ist-AwBKMgnAM3o">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>code convention</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html</guid>
+  <pubDate>Fri, 22 Nov 2024 13:16:41 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/discussions/conventions.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

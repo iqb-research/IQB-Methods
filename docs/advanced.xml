@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>IQB Methods Team</title>
+<link>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</link>
+<atom:link href="https://iqb-research.github.io/IQB-Methods/docs/advanced.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Fri, 01 Dec 2023 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Using Checkmate</title>
+  <dc:creator>Edna Grewers</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/checkmate.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="intro" class="level1">
+<h1>Intro</h1>
+<p>With the checkmate package you can test, check and assert all kinds of arguments regarding type, length and much more. You can also write your own assert-functions.</p>
+<p>In this Vignette you can get a broad understand how the package works, how the output looks like and some example functions. For more details and a complete overview go to <a href="https://cran.r-project.org/web/packages/checkmate/index.html">CRAN</a>, specifically the <a href="https://cran.r-project.org/web/packages/checkmate/checkmate.pdf">checkmate.pdf</a> or use the following line of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lsf.str</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"package:checkmate"</span>)</span></code></pre></div>
+</div>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>Install the package from <code>CRAN</code> with the following code. Then load it in your library.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"checkmate"</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(checkmate)</span></code></pre></div>
+</div>
+</section>
+<section id="different-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="different-outputs">Different Outputs</h2>
+<p>There are three main functions that we use: <code>test</code>, <code>check</code> and <code>assert</code>, which do similar things but produce different outputs. All functions have two ways to write them: <code>test_numeric()</code> with an underscore and <code>testNumeric()</code> with a capital Letter, but they both work the same. For simplicity we’ll just use one option.</p>
+<p>To show the differences in outputs we check arguments for numeric input, as an example. See below to see checks for different types or attributes.</p>
+<p><strong>Test</strong></p>
+<p>Test-functions test whether an argument has certain attributes and gives you <code>TRUE</code> or <code>FALSE</code> output.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">test_numeric</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">test_numeric</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hallo"</span>) </span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p><strong>Check</strong></p>
+<p>Check-functions check whether an argument has certain attributes and gives you <code>TRUE</code> or a <code>string</code> containing an error message as an output. In the string you can see what kind of argument you should have given, and what you did wrong.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_numeric</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_numeric</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hallo"</span>) </span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Must be of type 'numeric', not 'character'"</code></pre>
+</div>
+</div>
+<p><strong>Assert</strong></p>
+<p>Assert-functions assert whether an argument has certain attributes and throw an <code>error message</code> if you it doesn’t. When you did everything correct, it doesn’t create an output. The <code>error message</code> contains the <code>string</code> from the <code>check</code>-functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_numeric</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span>
+<span id="cb12-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_numeric</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hallo"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): Assertion on '"hallo"' failed: Must be of type 'numeric', not 'character'.</code></pre>
+</div>
+</div>
+<p>If you save an <code>assert_numeric()</code> object into a variable x, it will contain the original object that you asserted.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_numeric</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span>
+<span id="cb14-2">x</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6 5 4 3 2 1 4</code></pre>
+</div>
+</div>
+</section>
+<section id="checking-for-type" class="level2">
+<h2 class="anchored" data-anchor-id="checking-for-type">Checking for Type</h2>
+<p>With <code>lsf.str()</code> you can see all functions of the package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lsf.str</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"package:checkmate"</span>)</span></code></pre></div>
+</div>
+<p>You can check for specific types of arguments e.g.&nbsp;<code>numeric</code>, <code>number</code>, <code>integer</code>, <code>double</code>, <code>character</code>, <code>string</code>, <code>logical</code>, <code>flag</code>, <code>missing</code>, or data structure e.g.&nbsp;<code>list</code>, <code>data_frame</code>, <code>array</code> and so on. You can also look for attributes e.g.&nbsp;<code>true</code>, <code>subset</code>, <code>named</code> or <code>atomic</code>, and much more.</p>
+<p>Depending on what kind of output you want, you choose your function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_list</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>())</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_list</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Must be of type 'list', not 'integer'"</code></pre>
+</div>
+</div>
+<p>If you are looking for a specific function you can use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ls</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"package:checkmate"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pattern =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"atomic"</span>) </span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "assert_atomic"        "assert_atomic_vector" "check_atomic"        
+[4] "check_atomic_vector"  "expect_atomic"        "expect_atomic_vector"
+[7] "test_atomic"          "test_atomic_vector"  </code></pre>
+</div>
+</div>
+<section id="checking-for-type-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="checking-for-type-data-frames">Checking for Type: Data Frames</h3>
+<p>If you want to check the types of elements of a more complex data structure like a <code>list</code> or a <code>data frame</code>, you have to look at the arguments of the functions. Both have the argument <code>types</code>.</p>
+<p>First we create an example data frame with rows and columns named. It has numeric and character elements.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">klein =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mittel =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>, groß <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"7"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"8"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"9"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">row.names =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"C"</span>))</span>
+<span id="cb23-2">df</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  klein mittel groß
+A     1      4    7
+B     2      5    8
+C     3      6    9</code></pre>
+</div>
+</div>
+<p>Now we can check for the types of the elements using the <code>types</code> argument. You can look at the whole data frame with <code>df</code>, at single columns using <code>df[1]</code> or <code>df[klein]</code> or at single rows using <code>df[1,]</code>. The error message will tell you the first element that has a type you didn’t check for.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># checking the whole data frame</span></span>
+<span id="cb25-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_data_frame</span>(df, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">types =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"character"</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_data_frame</span>(df, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "May only contain the following types: {numeric}, but element 3 has type 'character'"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># checking individual columns</span></span>
+<span id="cb29-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_data_frame</span>(df[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_data_frame</span>(df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"klein"</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_data_frame</span>(df[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "May only contain the following types: {numeric}, but element 1 has type 'character'"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># checking for individual rows</span></span>
+<span id="cb35-2">df[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  klein mittel groß
+A     1      4    7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_data_frame</span>(df[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "May only contain the following types: {numeric}, but element 3 has type 'character'"</code></pre>
+</div>
+</div>
+<p>You can also check the type of individual elements with <code>df[1,1]</code> or just the content of the columns by loosing the attributes of the data frame with <code>df$klein</code> or <code>df[,1]</code>. In this example they all have type <code>integer</code>. Now <code>check_data_frame()</code> doesn’t work anymore, because the data is no longer a data frame. You can use the normal checks from above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_data_frame</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>klein, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Must be of type 'data.frame', not 'integer'"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_integer</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>klein)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_numeric</span>(df[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>])</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_double</span>(df[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>])</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Must be of type 'double', not 'integer'"</code></pre>
+</div>
+</div>
+</section>
+<section id="checking-for-type-lists" class="level3">
+<h3 class="anchored" data-anchor-id="checking-for-type-lists">Checking for Type: Lists</h3>
+<p>Lists work the same way. We create an example list a, with named elements of different types.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zahlen =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mon =</span> month.abb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">creator =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"IQB"</span>)</span>
+<span id="cb47-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_list</span>(a, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">types =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"character"</span>))</span>
+<span id="cb47-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_character</span>(a<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>mon)</span></code></pre></div>
+</div>
+</section>
+</section>
+<section id="checking-for-length" class="level2">
+<h2 class="anchored" data-anchor-id="checking-for-length">Checking for Length</h2>
+<p>You can check if an argument is <code>scalar</code>, but you cannot check for arbitrary lengths this way.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_scalar</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_scalar</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Must have length 1"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ls</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"package:checkmate"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pattern =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"length"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+</div>
+<p>To check for arbitrary length of an argument, you have to use the <code>len</code> argument from the <code>test</code>, <code>check</code> or <code>assert</code> functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">len =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">len =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Must have length 11, but has length 12"</code></pre>
+</div>
+</div>
+<p>There are some other attributes you can check like this, e.g.&nbsp;<code>min.len</code>, <code>max.len</code>, <code>unique</code> or the length of elements in character vectors using <code>n.chars</code>, <code>min.chars</code> or <code>max.chars</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n.chars =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min.chars =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n.chars =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "All elements must have exactly 2 characters, but element 1 has 3 chararacters"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n.chars =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max.chars =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "All elements must have at most 2 characters, but element 1 has 3 characters"</code></pre>
+</div>
+</div>
+<p>For more info what arguments you can check, type <code>?check_character</code> in the console.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1">?check_character</span></code></pre></div>
+</div>
+<p>You can also check the lengths of <strong>lists</strong> or the length of columns/rows of a <strong>data frame</strong> in a similar way by using our example objects from above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_list</span>(a, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">len =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min.len =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max.len =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb65-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_data_frame</span>(df, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min.cols =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max.cols =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ncols =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="checking-names-via-subset" class="level2">
+<h2 class="anchored" data-anchor-id="checking-names-via-subset">Checking Names via Subset</h2>
+<p>You cannot check the names of complex objects directly. With the <strong>list</strong> or <strong>data_frame</strong> functions you can only check if the objects is named at all, or if the names are unique via the arguments <code>names</code> for lists and <code>col.names</code> or `<code>row.names</code> for data frames. Again using our example objects.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># a &lt;- list(zahlen = 1:9, mon = month.abb, creator = "IQB")</span></span>
+<span id="cb66-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># df &lt;- data.frame(klein = 1:3, mittel = 4:6, groß = c("7", "8", "9"), row.names = c("A", "B", "C"))</span></span>
+<span id="cb66-3"></span>
+<span id="cb66-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_list</span>(a, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"named"</span>)</span>
+<span id="cb66-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_data_frame</span>(df, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col.names =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"unique"</span>)</span></code></pre></div>
+</div>
+<p>You can check for specific names by using the <code>subset</code> functions. You can check whether the object give the argument <code>choices</code> contains <code>x</code>. If <code>x</code> is not a subset of <code>choices</code> you’ll get an error message.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># lists</span></span>
+<span id="cb67-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_subset</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mon"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">choices =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(a))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># data frames</span></span>
+<span id="cb69-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">check_subset</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"klein"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mittel"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"groß"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"größer"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">choices =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(df))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Must be a subset of {'klein','mittel','groß'}, but has additional elements {'größer'}"</code></pre>
+</div>
+</div>
+<p>You can also check for unique values or missings in a similar way. For more info see the help functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1">?assert_list</span>
+<span id="cb71-2">?assert_data_frame</span></code></pre></div>
+</div>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@felix_mittermeier">Felix mittermeier</a> on <a href="https://unsplash.com/de/fotos/schachfiguren-auf-dem-brett-nAjil1z3eLk">Unsplash</a>↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>checkmate</category>
+  <category>tutorial</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/checkmate.html</guid>
+  <pubDate>Fri, 01 Dec 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>
