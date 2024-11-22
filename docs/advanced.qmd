@@ -1,5 +1,6 @@
 ---
 title: "Advanced R"
+iamge: images/martian.jpg
 listing:
   id: advanced
   type: default
@@ -9,6 +10,11 @@ listing:
   contents:
     - "R_tutorials/checkmate.qmd"
 ---
+
+![](./images/martian.jpg)[^1]
+
+[^1]: Foto von <a href="https://unsplash.com/de/@lobosnico?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nicolas Lobos</a> auf <a href="https://unsplash.com/de/fotos/fotografie-eines-astronauten-der-tagsuber-neben-einer-felsformation-steht-NR_tXTuyTak?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+      
 
 Welcome to our advanced learn page. Here you can find more advanced material, links and articles about R, RStudio and more.
 

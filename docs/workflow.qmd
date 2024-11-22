@@ -1,5 +1,6 @@
 ---
 title: "Workflow"
+image: ./images/flow.jpg
 listing:
   id: workflow
   type: default
@@ -11,6 +12,11 @@ listing:
     - "quarto/index.qmd"
     - "discussions/code_conventions.qmd"
 ---
+
+![](./images/flow.jpg)[^1]
+
+[^1]: Foto von <a href="https://unsplash.com/de/@8moments?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Simon Berger</a> auf <a href="https://unsplash.com/de/fotos/zeitrafferfotografie-von-bach-und-gelbem-ahornblatt-auf-grauem-felsen-uKK-aXYdsYo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+      
 
 Welcome to our workflow learn page. Here you can find articles explaining how to work with Git/Github and Quarto, or some info about our code conventions.
 
