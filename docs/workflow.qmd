@@ -6,11 +6,15 @@ listing:
   type: default
   feed: true
   categories: true
-  sort: "title"
+  sort: false
   contents:
-    - "copilot/copilot.qmd"
+    - "git/github_workshop/github_intro_slides.qmd"
     - "git/index.qmd"
+    - "copilot/copilot.qmd"
     - "quarto/index.qmd"
+    - "24_07_15_quarto_1/index.qmd"
+    - "24_09_09_quarto_git/index.qmd"
+    - "r_sig/23_11_06_renv/index.qmd"
     - "discussions/code_conventions.qmd"
 ---
 
