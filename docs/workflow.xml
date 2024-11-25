@@ -15,7 +15,45 @@
 <link>https://iqb-research.github.io/IQB-Methods/docs/workflow.html</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Fri, 12 Jan 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 25 Jan 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>GitHub Copilot in R-Studio</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/copilot/copilot.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/copilot/astronaut.jpg" class="img-fluid"><sup>1</sup></p>
+<p>GitHub Copilot is an <em>AI pair programmer that offers autocomplete-style suggestions as you code</em>. It is possible to integrate GitHub Copilot into R-Studio to speed up annoying coding tasks and get suggestions for code snippets.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>To make the Copilot available in RStudio, you either need to have a <a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot">subscription to GitHub Copilot</a>, or (recommended) a <a href="https://github.com/education">GitHub Education</a> account. It is free for students and faculty members. To get GitHub Education, you might need to upload a certificate showing that you are either a student, or affiliated with an university. For IQB-Members, it might be enough to upload a confirmation of your employment as researcher at the IQB, which you could request at IQB-Personal.<br>
+After obtaining some sort of confirmation, you can follow <a href="https://docs.posit.co/ide/user/ide/guide/tools/copilot.html">this guide</a> to connect GitHub Copilot with RStudio.</p>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>After installation, Copilot will make code suggestions, which you can accept by pressing <code>Tab</code>. <code>Enter/Return</code> will ignore the suggestion. If you want to give Copilot some additional instructions, you can just write them into a comment over the line you want the code suggestions in:</p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/copilot/copilot_example.png" class="img-fluid"></p>
+<p>Generally, the suggestions work best for smaller, compartimentalized problems.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@nasa?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">NASA</a> on <a href="https://unsplash.com/de/fotos/buzz-aldrin-Qu3xLeochLc?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>Git</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/copilot/copilot.html</guid>
+  <pubDate>Thu, 25 Jan 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/copilot/astronaut.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Pull requests with Github</title>
   <dc:creator>Sebastian Weirich</dc:creator>
@@ -436,7 +474,7 @@ Optional:
 </section></div> ]]></description>
   <category>code convention</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html</guid>
-  <pubDate>Fri, 22 Nov 2024 13:23:07 GMT</pubDate>
+  <pubDate>Mon, 25 Nov 2024 10:08:26 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/discussions/conventions.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

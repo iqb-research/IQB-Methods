@@ -28,6 +28,21 @@
     ]
   },
   {
+    "listing": "/docs/advanced.html",
+    "items": [
+      "/docs/R_tutorials/checkmate.html"
+    ]
+  },
+  {
+    "listing": "/docs/workflow.html",
+    "items": [
+      "/docs/discussions/code_conventions.html",
+      "/docs/copilot/copilot.html",
+      "/docs/git/index.html",
+      "/docs/quarto/index.html"
+    ]
+  },
+  {
     "listing": "/docs/posts_r_sig.html",
     "items": [
       "/docs/r_sig/24_09_09_quarto_git/index.html",
@@ -42,20 +57,6 @@
       "/docs/r_sig/23_10_09_cleaner/index.html",
       "/docs/r_sig/23_07_31_apply/index.html",
       "/docs/r_sig/23_03_20_forloops/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/workflow.html",
-    "items": [
-      "/docs/discussions/code_conventions.html",
-      "/docs/git/index.html",
-      "/docs/quarto/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/advanced.html",
-    "items": [
-      "/docs/R_tutorials/checkmate.html"
     ]
   },
   {
