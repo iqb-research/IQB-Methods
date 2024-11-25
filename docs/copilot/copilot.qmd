@@ -17,7 +17,7 @@ GitHub Copilot is an *AI pair programmer that offers autocomplete-style suggesti
 ## Setup
 
 To make the Copilot available in RStudio, you either need to have a [subscription to GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot), or (recommended) a [GitHub Education](https://github.com/education) account. It is free for students and faculty members. To get GitHub Education, you might need to upload a certificate showing that you are either a student, or affiliated with an university. For IQB-Members, it might be enough to upload a confirmation of your employment as researcher at the IQB, which you could request at IQB-Personal.  
-After obtaining some sort of confirmation, you can follow [this guide](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html) to connect GitHub Copilot with RStudio. 
+After obtaining some sort of confirmation, you can follow [this guide](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html) or [this guide](https://tilburg.ai/2023/12/github-copilot-for-r/) to connect GitHub Copilot with RStudio. 
 
 
 ## Usage
