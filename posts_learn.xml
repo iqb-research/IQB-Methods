@@ -10,7 +10,7 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_learn.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 25 Nov 2024 10:10:44 GMT</lastBuildDate>
+<lastBuildDate>Mon, 25 Nov 2024 12:50:42 GMT</lastBuildDate>
 <item>
   <title>R-SIG</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/posts_r_sig.html</link>
@@ -108,7 +108,7 @@ Reading Time
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="R,quarto,R-SIG,Git" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1732529249503" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1014" data-listing-title-sort="Reproducible manuscripts with Git" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-categories="R,quarto,R-SIG,Git" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1732538845815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1014" data-listing-title-sort="Reproducible manuscripts with Git" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" style="height: 40px;"></span>
 </td>
@@ -125,7 +125,7 @@ Reading Time
 <span class="listing-reading-time">6 min</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="R,quarto,R-SIG" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1732529249503" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2747" data-listing-title-sort="Reproducible manuscripts with Quarto" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-categories="R,quarto,R-SIG" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1732538845811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2747" data-listing-title-sort="Reproducible manuscripts with Quarto" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" style="height: 40px;"></span>
 </td>
@@ -142,7 +142,7 @@ Reading Time
 <span class="listing-reading-time">14 min</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="R,tidyverse,plots,R-SIG" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1732529249499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19" data-listing-title-sort="Plotting with `ggplot2`" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-categories="R,tidyverse,plots,R-SIG" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1732538845811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19" data-listing-title-sort="Plotting with `ggplot2`" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" style="height: 40px;"></span>
 </td>
@@ -159,7 +159,7 @@ Reading Time
 <span class="listing-reading-time">1 min</span>
 </td>
 </tr>
-<tr data-index="3" data-categories="R,tidyverse,loops,R-SIG" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1732529249499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162" data-listing-title-sort="Column-wise operations in the tidyverse" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-categories="R,tidyverse,loops,R-SIG" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1732538845811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162" data-listing-title-sort="Column-wise operations in the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" style="height: 40px;"></span>
 </td>
@@ -176,7 +176,7 @@ Reading Time
 <span class="listing-reading-time">6 min</span>
 </td>
 </tr>
-<tr data-index="4" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1732529249499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2265" data-listing-title-sort="Data wrangling in the tidyverse" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1732538845811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2265" data-listing-title-sort="Data wrangling in the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" style="height: 40px;"></span>
 </td>
@@ -193,7 +193,7 @@ Reading Time
 <span class="listing-reading-time">12 min</span>
 </td>
 </tr>
-<tr data-index="5" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1732529249495" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223" data-listing-title-sort="Data sets" data-listing-filename-sort="index.qmd">
+<tr data-index="5" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1732538845807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223" data-listing-title-sort="Data sets" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" style="height: 40px;"></span>
 </td>
@@ -210,7 +210,7 @@ Reading Time
 <span class="listing-reading-time">2 min</span>
 </td>
 </tr>
-<tr data-index="6" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1732529249491" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231" data-listing-title-sort="Introduction to the tidyverse" data-listing-filename-sort="index.qmd">
+<tr data-index="6" data-categories="R,tidyverse,R-SIG" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1732538845803" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231" data-listing-title-sort="Introduction to the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" style="height: 40px;"></span>
 </td>
@@ -227,7 +227,7 @@ Reading Time
 <span class="listing-reading-time">7 min</span>
 </td>
 </tr>
-<tr data-index="7" data-categories="R,tidyverse,data manipulation,R-SIG" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1732529249491" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886" data-listing-title-sort="Case_when() function" data-listing-filename-sort="index.qmd">
+<tr data-index="7" data-categories="R,tidyverse,data manipulation,R-SIG" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1732538845803" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886" data-listing-title-sort="Case_when() function" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" style="height: 40px;"></span>
 </td>
@@ -244,7 +244,7 @@ Reading Time
 <span class="listing-reading-time">5 min</span>
 </td>
 </tr>
-<tr data-index="8" data-categories="R,renv,R-SIG" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1732529249471" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581" data-listing-title-sort="Reproducibility with renv" data-listing-filename-sort="index.qmd">
+<tr data-index="8" data-categories="R,renv,R-SIG" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1732538845783" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581" data-listing-title-sort="Reproducibility with renv" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" style="height: 40px;"></span>
 </td>
@@ -261,7 +261,7 @@ Reading Time
 <span class="listing-reading-time">3 min</span>
 </td>
 </tr>
-<tr data-index="9" data-categories="R,best practices,R-SIG" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1732529249471" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="76" data-listing-title-sort="Cleaner Scripts" data-listing-filename-sort="index.qmd">
+<tr data-index="9" data-categories="R,best practices,R-SIG" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1732538845783" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="76" data-listing-title-sort="Cleaner Scripts" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" style="height: 40px;"></span>
 </td>
@@ -278,7 +278,7 @@ Reading Time
 <span class="listing-reading-time">1 min</span>
 </td>
 </tr>
-<tr data-index="10" data-categories="R,loops,R-SIG" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1732529249451" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691" data-listing-title-sort="The apply family" data-listing-filename-sort="index.qmd">
+<tr data-index="10" data-categories="R,loops,R-SIG" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1732538845763" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691" data-listing-title-sort="The apply family" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/apply_family.jpg" style="height: 40px;"></span>
 </td>
@@ -295,7 +295,7 @@ Reading Time
 <span class="listing-reading-time">4 min</span>
 </td>
 </tr>
-<tr data-index="11" data-categories="R,loops,R-SIG" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1732529249443" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26" data-listing-title-sort="for-loops" data-listing-filename-sort="index.qmd">
+<tr data-index="11" data-categories="R,loops,R-SIG" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1732538845755" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26" data-listing-title-sort="for-loops" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" style="height: 40px;"></span>
 </td>
@@ -319,7 +319,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/posts_r_sig.html</guid>
-  <pubDate>Mon, 25 Nov 2024 10:10:44 GMT</pubDate>
+  <pubDate>Mon, 25 Nov 2024 12:50:42 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -350,7 +350,7 @@ No matching items
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-beginners">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,tutorial" data-listing-file-modified-sort="1732529249207" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
+<div class="quarto-post image-right" data-index="0" data-categories="R,tutorial" data-listing-file-modified-sort="1732538845523" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
 <div class="thumbnail">
 <p><a href="../docs/R_tutorials/R_ws2.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws2.html" class="no-external">
 <p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
@@ -383,7 +383,7 @@ NA
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,tutorial" data-listing-file-modified-sort="1732529249207" data-listing-reading-time-sort="6" data-listing-word-count-sort="1029">
+<div class="quarto-post image-right" data-index="1" data-categories="R,tutorial" data-listing-file-modified-sort="1732538845523" data-listing-reading-time-sort="6" data-listing-word-count-sort="1029">
 <div class="thumbnail">
 <p><a href="../docs/R_tutorials/R_ws3.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws3.html" class="no-external">
 <p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
@@ -416,7 +416,7 @@ NA
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,tutorial" data-listing-file-modified-sort="1732529249207" data-listing-reading-time-sort="19" data-listing-word-count-sort="3665">
+<div class="quarto-post image-right" data-index="2" data-categories="R,tutorial" data-listing-file-modified-sort="1732538845523" data-listing-reading-time-sort="19" data-listing-word-count-sort="3665">
 <div class="thumbnail">
 <p><a href="../docs/R_tutorials/R_ws1.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws1.html" class="no-external">
 <p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
@@ -460,7 +460,7 @@ No matching items
 </ol>
 </section></div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/beginners.html</guid>
-  <pubDate>Mon, 25 Nov 2024 10:10:44 GMT</pubDate>
+  <pubDate>Mon, 25 Nov 2024 12:50:42 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -486,7 +486,7 @@ No matching items
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-workflow">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="code convention" data-listing-file-modified-sort="1732529249231" data-listing-reading-time-sort="5" data-listing-word-count-sort="824">
+<div class="quarto-post image-right" data-index="0" data-categories="code convention" data-listing-file-modified-sort="1732538845543" data-listing-reading-time-sort="5" data-listing-word-count-sort="824">
 <div class="thumbnail">
 <p><a href="../docs/discussions/code_conventions.html" class="no-external"></a></p><a href="../docs/discussions/code_conventions.html" class="no-external">
 <p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/discussions/conventions.jpg" class="thumbnail-image"></p>
@@ -516,7 +516,7 @@ NA
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,Git" data-listing-date-sort="1706140800000" data-listing-file-modified-sort="1732529249231" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="199">
+<div class="quarto-post image-right" data-index="1" data-categories="R,Git" data-listing-date-sort="1706140800000" data-listing-file-modified-sort="1732538845543" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="202">
 <div class="thumbnail">
 <p><a href="../docs/copilot/copilot.html" class="no-external"></a></p><a href="../docs/copilot/copilot.html" class="no-external">
 <p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/copilot/astronaut.jpg" class="thumbnail-image"></p>
@@ -552,7 +552,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="github,tutorial,workflow" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1732529249391" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
+<div class="quarto-post image-right" data-index="2" data-categories="github,tutorial,workflow" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1732538845703" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
 <div class="thumbnail">
 <p><a href="../docs/git/index.html" class="no-external"></a></p><a href="../docs/git/index.html" class="no-external">
 <p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" class="thumbnail-image"></p>
@@ -591,7 +591,7 @@ Sebastian Weirich
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,quarto,renv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1732529249439" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="990">
+<div class="quarto-post image-right" data-index="3" data-categories="R,quarto,renv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1732538845751" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="990">
 <div class="thumbnail">
 <p><a href="../docs/quarto/index.html" class="no-external"></a></p><a href="../docs/quarto/index.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:workflow:docs/quarto/index.html -->
@@ -641,7 +641,7 @@ No matching items
 </ol>
 </section></div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/workflow.html</guid>
-  <pubDate>Mon, 25 Nov 2024 10:10:44 GMT</pubDate>
+  <pubDate>Mon, 25 Nov 2024 12:50:42 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -667,7 +667,7 @@ No matching items
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-advanced">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,checkmate,tutorial" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1732529249207" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
+<div class="quarto-post image-right" data-index="0" data-categories="R,checkmate,tutorial" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1732538845523" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
 <div class="thumbnail">
 <p><a href="../docs/R_tutorials/checkmate.html" class="no-external"></a></p><a href="../docs/R_tutorials/checkmate.html" class="no-external">
 <p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" class="thumbnail-image"></p>
@@ -717,7 +717,7 @@ No matching items
 </ol>
 </section></div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</guid>
-  <pubDate>Mon, 25 Nov 2024 10:10:44 GMT</pubDate>
+  <pubDate>Mon, 25 Nov 2024 12:50:42 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -741,7 +741,7 @@ No matching items
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-statistical-questions">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="FAQ" data-listing-file-modified-sort="1732529249207" data-listing-reading-time-sort="9" data-listing-word-count-sort="1617">
+<div class="quarto-post image-right" data-index="0" data-categories="FAQ" data-listing-file-modified-sort="1732538845519" data-listing-reading-time-sort="9" data-listing-word-count-sort="1617">
 <div class="thumbnail">
 <p><a href="../docs/FAQ/FAQ.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:statistical-questions:docs/FAQ/FAQ.html -->
@@ -777,7 +777,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/statisticalQuestions.html</guid>
-  <pubDate>Mon, 25 Nov 2024 10:10:44 GMT</pubDate>
+  <pubDate>Mon, 25 Nov 2024 12:50:42 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
