@@ -15,7 +15,2076 @@
 <link>https://iqb-research.github.io/IQB-Methods/docs/workflow.html</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Thu, 25 Jan 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 09 Sep 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Reproducible manuscripts with Git</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<p>We have already talked about <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/">reproducible manuscripts with Quarto</a>. Now, one big plus of writing in a markdown language is that it is very easy to use with a version control systems like Git, enabling us to leverage the many advantages of version control.</p>
+</section>
+<section id="git" class="level1">
+<h1>Git</h1>
+<p>Git is a version control system. Some advantages:</p>
+<ul>
+<li><strong>History</strong>: You can see the history of your project, who did what and when. Changes in the project can be easily tracked.</li>
+<li><strong>Collaboration</strong>: You can easily work together with others on the same project.</li>
+<li><strong>Backup</strong>: Your project lies online, so you don’t have to worry about backing it up.</li>
+</ul>
+<p>Mainly it is used for working on code. However, markdown files are also text files, and can therefore be easily version controlled with Git. For this text I assume you are already kind of proficient in working with <a href="https://github.com/">GitHub</a>. If not, you can take a look at this <a href="https://docs.github.com/en/get-started/start-your-journey/hello-world">Getting Started Guide</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To make your project truly reproducible, you might want to also use <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/">renv</a>.<br>
+If you want to dive even deeper into reproducible workflows, take a look at <span class="citation" data-cites="peikert2021reproducible">Peikert and Brandmaier (2021)</span>.</p>
+</div>
+</div>
+</section>
+<section id="quarto-git" class="level1">
+<h1>Quarto + Git</h1>
+<p>Generally, there isn’t much new stuff here, if you already work with GitHub. You set up your repo and track your R and Quarto files with Git. In light of reproducability, this is as transparent as we can get. If we use GitHub throughout the whole project, and make the project public, everyone can track what we have done, which decisions we made and why.<br>
+We can use Issues to discuss certain points with coauthors and can use Pull Requests and Reviews to discuss changes in the manuscript or analysis.</p>
+</section>
+<section id="github-actions" class="level1">
+<h1>GitHub Actions</h1>
+<p>It is considered bad practice to commit rendered documents like PDF or HTML to GitHub. Instead, build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the built output document. GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript. The setup is a bit more complex, the complete documentation can be found <a href="https://quarto.org/docs/publishing/github-pages.html">here</a>.<br>
+In this section, I’ll present one possible workflow.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Even if your repository is private, publishing a document like shown in this workflow will make it public, so in theory everyone can see it.</p>
+</div>
+</div>
+<section id="renv" class="level3">
+<h3 class="anchored" data-anchor-id="renv">1. <code>renv</code></h3>
+<p>First, you have to <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/">setup <code>renv</code></a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">init</span>()</span></code></pre></div>
+</div>
+<p>This will create a <code>.LOCK</code> file containing the package versions and a folder in which your project specific packages are saved.</p>
+</section>
+<section id="render" class="level3">
+<h3 class="anchored" data-anchor-id="render">2. render</h3>
+<p>Now you can render your quarto project once, using the Terminal (not the Console):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">quarto render</span></code></pre></div>
+</div>
+<p>Commit and push your changes!</p>
+<div class="{callout-tip}">
+<p>Don’t commit your output file, like html. You can exclude it from appearing in your git-interface by adding <code>*.html</code> to your <code>.gitignore</code> file.</p>
+</div>
+</section>
+<section id="gh-pages-branch" class="level3">
+<h3 class="anchored" data-anchor-id="gh-pages-branch">3. gh-pages branch</h3>
+<p>After that, you have to set up a <code>gh-pages</code> branch (make sure you have commited all changes before building the branch), again in the Terminal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">git checkout <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>orphan gh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pages</span>
+<span id="cb3-2">git reset <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>hard <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># make sure all changes are committed before running this!</span></span>
+<span id="cb3-3">git commit <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>allow<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>empty <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Initialising gh-pages branch"</span></span>
+<span id="cb3-4">git push origin gh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pages</span></code></pre></div>
+</div>
+<p>Your published content will be build from this branch. You don’t have to touch it after setting it up, the Actions we’ll build will take care of that.</p>
+</section>
+<section id="publish" class="level3">
+<h3 class="anchored" data-anchor-id="publish">4. publish</h3>
+<p>Finally, you can publish your quarto document:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">quarto publish gh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pages documentname.qmd</span></code></pre></div>
+</div>
+</section>
+<section id="action" class="level3">
+<h3 class="anchored" data-anchor-id="action">5. Action</h3>
+<p>To trigger this publishing everytime you push to your main branch on GitHub, build a new directory in your project called <code>.github/workflows</code>. Into this directory, you put a file <code>publish.yml</code> and fill it with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">on<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-2">  workflow_dispatch<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-3">  push<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-4">    branches<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> main</span>
+<span id="cb5-5"></span>
+<span id="cb5-6">name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Quarto Publish</span>
+<span id="cb5-7"></span>
+<span id="cb5-8">jobs<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-9">  build<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>deploy<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-10">    runs<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>on<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> ubuntu<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>latest</span>
+<span id="cb5-11">    permissions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-12">      contents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> write</span>
+<span id="cb5-13">    steps<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-14">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Check out repository</span>
+<span id="cb5-15">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>checkout<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v4</span>
+<span id="cb5-16"></span>
+<span id="cb5-17">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Set up Quarto</span>
+<span id="cb5-18">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>dev<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>setup<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v2</span>
+<span id="cb5-19"></span>
+<span id="cb5-20">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Install R</span>
+<span id="cb5-21">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>lib<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>setup<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v2</span>
+<span id="cb5-22">        with<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-23">          r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>version<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'4.4.1'</span></span>
+<span id="cb5-24"></span>
+<span id="cb5-25">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Install R Dependencies</span>
+<span id="cb5-26">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>lib<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>setup<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v2</span>
+<span id="cb5-27">        with<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-28">          cache<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>version<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-29"></span>
+<span id="cb5-30">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Render and Publish</span>
+<span id="cb5-31">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>dev<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>publish<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v2</span>
+<span id="cb5-32">        with<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-33">          target<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> gh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pages</span>
+<span id="cb5-34">        env<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-35">          GITHUB_TOKEN<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span>{{ secrets.GITHUB_TOKEN }}</span></code></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You need to check the Read and write permissions box under Workflow permissions in the Actions section of your repository Settings.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can find the link to the published site under <code>Settings - Pages</code>. Copy it to put in the <code>About</code> field of your repo.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are <a href="https://quarto.org/docs/publishing/github-pages.html#github-action">other workflows</a> available as well.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="caveats" class="level1">
+<h1>Caveats</h1>
+<p>Some words of warning: Everything is online. So you should be carefull to upload sensitive data. Also, the fact that the whole process would be visible to everyone might feel weird. Still, even if you leave the Repo on private, it still is a great thing!</p>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Set up a GitHub repository for the quarto project you worked on in the last sessions. If you don’t upload your stuff to a cloud.</li>
+<li>Make up some small Issue that you can write into the Issue section on GitHub.</li>
+<li>Fix this Issue on <strong>a new branch</strong>. Commmit the changes, using <code>closes #Issuenumber</code> in the commit message, push everything and open a pull request.</li>
+<li>Assign someone from the group as reviewer.</li>
+<li>Review a pull-request assigned to you.</li>
+<li>Setup a actions workflow that automatically renders your document.</li>
+</ol>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-peikert2021reproducible" class="csl-entry">
+Peikert, Aaron, and Andreas M Brandmaier. 2021. <span>“A Reproducible Data Analysis Workflow with r Markdown, Git, Make, and Docker.”</span> <em>Quantitative and Computational Methods in Behavioral Sciences</em>, 1–27.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@towfiqu999999?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Towfiqu barbhuiya</a> on <a href="https://unsplash.com/de/fotos/eine-nahaufnahme-eines-papierstapels-auf-einem-tisch-KKHs1e2yiwc?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>quarto</category>
+  <category>R-SIG</category>
+  <category>Git</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/</guid>
+  <pubDate>Mon, 09 Sep 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Reproducible manuscripts with Quarto</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p><a href="https://quarto.org/">Quarto</a> is an open-source scientific and technical publishing system. It allows us to combine code and markdown text to produce reproducible manuscripts that can automatically incorporate and evaluate our code when rendering. We can also build slides and even websites (like the one you are currently on).</p>
+</section>
+<section id="components" class="level1">
+<h1>Components</h1>
+<section id="yaml-header" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header">YAML header</h2>
+<p>Quarto documents have the ending <code>.qmd</code>.</p>
+<p>The YAML header, which begins on the top of the document with <code>---</code>, and also ends with <code>---</code>, contains global options for the document:</p>
+<pre><code>---
+title: "Reproducible manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: references.bib
+csl: apa7.csl
+format: pdf
+---</code></pre>
+<p>An overview of possible YAML-fields can be found <a href="https://quarto.org/docs/reference/formats/pdf.html">here</a>.<br>
+Note the <code>format</code> field, which lets us quickly convert our document between <code>pdf</code>, <code>word</code> and <code>html</code>, and also lets us use one of many templates.</p>
+</section>
+<section id="markdown-text" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-text">Markdown text</h2>
+<p>The body of the document is written in markdown language. Some expressions:</p>
+<ul>
+<li><code>#</code> for headers. Add as many <code>#</code> as you like for subheaders.</li>
+<li><code>**bold**</code>: <strong>bold</strong></li>
+<li><code>*italic*</code>: <strong>italic</strong></li>
+<li>``<code>code\</code></li>
+<li>Lists: <code>-</code> for bullet points, <code>1.</code> for numbered lists (beware: the line above the list has to be empty)</li>
+<li>Linebreaks: Two spaces at the end of a line.</li>
+<li>Links: <code>[text](url)</code></li>
+</ul>
+</section>
+<section id="code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="code-chunks">Code chunks</h2>
+<p>We can run code in different languages (like R, Julia, Python …) directly from our Quarto-file. In RStudio you can press <code>Strg-Alt-i</code> to insert a new r code chunk.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">athletes <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"athletes.rds"</span>))</span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(athletes)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  NOC     ID                  Name Sex Age Height Weight        Team
+1 AFG 132181           Najam Yahya   M  NA     NA     NA Afghanistan
+2 AFG  87371 Ahmad Jahan Nuristani   M  NA     NA     NA Afghanistan
+3 AFG  44977     Mohammad Halilula   M  28    163     57 Afghanistan
+4 AFG    502     Ahmad Shah Abouwi   M  NA     NA     NA Afghanistan
+5 AFG 109153    Shakar Khan Shakar   M  24     NA     74 Afghanistan
+6 AFG  29626  Sultan Mohammad Dost   M  28    168     73 Afghanistan
+        Games Year Season      City     Sport
+1 1956 Summer 1956 Summer Melbourne    Hockey
+2 1948 Summer 1948 Summer    London    Hockey
+3 1980 Summer 1980 Summer    Moskva Wrestling
+4 1956 Summer 1956 Summer Melbourne    Hockey
+5 1964 Summer 1964 Summer     Tokyo Wrestling
+6 1960 Summer 1960 Summer      Roma Wrestling
+                                    Event Medal      Region
+1                     Hockey Men's Hockey  &lt;NA&gt; Afghanistan
+2                     Hockey Men's Hockey  &lt;NA&gt; Afghanistan
+3 Wrestling Men's Bantamweight, Freestyle  &lt;NA&gt; Afghanistan
+4                     Hockey Men's Hockey  &lt;NA&gt; Afghanistan
+5 Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan
+6 Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan</code></pre>
+</div>
+</div>
+<p>We can tweak the code execution via different <a href="https://quarto.org/docs/computations/execution-options.html">execution options</a>, which are written on top of the chunk:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| echo: false</span></span>
+<span id="cb6-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| message: false</span></span>
+<span id="cb6-3"></span>
+<span id="cb6-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb6-5">athletes <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"athletes.rds"</span>))</span>
+<span id="cb6-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(athletes)</span></code></pre></div>
+<p>becomes:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  NOC     ID                  Name Sex Age Height Weight        Team
+1 AFG 132181           Najam Yahya   M  NA     NA     NA Afghanistan
+2 AFG  87371 Ahmad Jahan Nuristani   M  NA     NA     NA Afghanistan
+3 AFG  44977     Mohammad Halilula   M  28    163     57 Afghanistan
+4 AFG    502     Ahmad Shah Abouwi   M  NA     NA     NA Afghanistan
+5 AFG 109153    Shakar Khan Shakar   M  24     NA     74 Afghanistan
+6 AFG  29626  Sultan Mohammad Dost   M  28    168     73 Afghanistan
+        Games Year Season      City     Sport
+1 1956 Summer 1956 Summer Melbourne    Hockey
+2 1948 Summer 1948 Summer    London    Hockey
+3 1980 Summer 1980 Summer    Moskva Wrestling
+4 1956 Summer 1956 Summer Melbourne    Hockey
+5 1964 Summer 1964 Summer     Tokyo Wrestling
+6 1960 Summer 1960 Summer      Roma Wrestling
+                                    Event Medal      Region
+1                     Hockey Men's Hockey  &lt;NA&gt; Afghanistan
+2                     Hockey Men's Hockey  &lt;NA&gt; Afghanistan
+3 Wrestling Men's Bantamweight, Freestyle  &lt;NA&gt; Afghanistan
+4                     Hockey Men's Hockey  &lt;NA&gt; Afghanistan
+5 Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan
+6 Wrestling Men's Welterweight, Freestyle  &lt;NA&gt; Afghanistan</code></pre>
+</div>
+</div>
+<p>We can also define global execution options for the whole ´.qmd´ file in the YAML header:</p>
+<pre><code>---
+title: "Reproducible manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: references.bib
+csl: apa7.csl
+format: pdf
+execute:
+  echo: false
+  warning: false
+  message: false
+---</code></pre>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+<p>Tables can be a bit tricky. The great thing is: once you have styled them, they get updated automatically if some data changes. Also, there are a lot of different packages for building tables in markdown, here are some options:</p>
+<section id="markdown" class="level3">
+<h3 class="anchored" data-anchor-id="markdown">Markdown</h3>
+<p>For some simple tables, the normal markdown syntax might be enough, see <a href="https://quarto.org/docs/authoring/tables.html">here</a>.</p>
+<pre><code>| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| A1       | B1       | C1       |
+| A2       | B2       | C2       |</code></pre>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1</td>
+<td>B1</td>
+<td>C1</td>
+</tr>
+<tr class="even">
+<td>A2</td>
+<td>B2</td>
+<td>C2</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kable" class="level3">
+<h3 class="anchored" data-anchor-id="kable">Kable</h3>
+<p>With <code>knitr::kable()</code> you can build tables programmatically from code chunks:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">judo_athletes_ger <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb10-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Judo"</span>, Region <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Germany"</span>, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(Medal)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb10-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Year, Name, Sex, Age, Height, Weight, Region, Medal) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb10-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(Year, Sex)</span>
+<span id="cb10-5"></span>
+<span id="cb10-6">knitr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(judo_athletes_ger)</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 38%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Year</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Sex</th>
+<th style="text-align: right;">Age</th>
+<th style="text-align: right;">Height</th>
+<th style="text-align: right;">Weight</th>
+<th style="text-align: left;">Region</th>
+<th style="text-align: left;">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1964</td>
+<td style="text-align: left;">Wolfgang Hofmann</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">177</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1964</td>
+<td style="text-align: left;">Klaus Glahn</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1972</td>
+<td style="text-align: left;">Paul Barth</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1972</td>
+<td style="text-align: left;">Klaus Glahn</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1972</td>
+<td style="text-align: left;">Dietmar Htger</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">172</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1976</td>
+<td style="text-align: left;">Gnther Neureuther</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1980</td>
+<td style="text-align: left;">Detlef Ultsch</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1980</td>
+<td style="text-align: left;">Dietmar Lorenz</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Gold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1980</td>
+<td style="text-align: left;">Harald Heinke</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">178</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1980</td>
+<td style="text-align: left;">Dietmar Lorenz</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1980</td>
+<td style="text-align: left;">Karl-Heinz Lehmann</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">169</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1984</td>
+<td style="text-align: left;">Frank Wieneke</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">179</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Gold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1984</td>
+<td style="text-align: left;">Arthur Schnabel</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1984</td>
+<td style="text-align: left;">Gnther Neureuther</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1988</td>
+<td style="text-align: left;">Frank Wieneke</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">179</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1988</td>
+<td style="text-align: left;">Marcus “Marc” Meiling</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1988</td>
+<td style="text-align: left;">Henry Sthr</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1988</td>
+<td style="text-align: left;">Sven Loll</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1988</td>
+<td style="text-align: left;">Torsten Brcht (Oehmigen-)</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">178</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1992</td>
+<td style="text-align: left;">Richard Trautmann</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1992</td>
+<td style="text-align: left;">Udo Gnther Quellmalz</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1996</td>
+<td style="text-align: left;">Johanna Hagn</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1996</td>
+<td style="text-align: left;">Udo Gnther Quellmalz</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Gold</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1996</td>
+<td style="text-align: left;">Frank Mller</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">189</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1996</td>
+<td style="text-align: left;">Richard Trautmann</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1996</td>
+<td style="text-align: left;">Marko Spittka</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">179</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">Anna-Maria Gradante</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2004</td>
+<td style="text-align: left;">Yvonne Bnisch</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Gold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2004</td>
+<td style="text-align: left;">Julia Matijass</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">161</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2004</td>
+<td style="text-align: left;">Annett Bhm</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">179</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2004</td>
+<td style="text-align: left;">Michael Jurack</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2008</td>
+<td style="text-align: left;">Ole Bischof</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Gold</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2012</td>
+<td style="text-align: left;">Kerstin Thiele</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2012</td>
+<td style="text-align: left;">Dimitri Peters</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">188</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2012</td>
+<td style="text-align: left;">Ole Bischof</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Silver</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2012</td>
+<td style="text-align: left;">Andreas Tlzer</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">131</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">Laura Vargas Koch</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">173</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">Bronze</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>To get more styling options, mainly for HTML table output, you can use <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">kableExtra</a>.</p>
+</section>
+<section id="apa-tables" class="level3">
+<h3 class="anchored" data-anchor-id="apa-tables">APA tables</h3>
+<p>For APA tables, I’ve found the <a href="https://rempsyc.remi-theriault.com/articles/table">rempsyc</a> package which helps in building APA tables, but there are other options like <a href="https://davidgohel.github.io/flextable/">flextable</a> or <a href="https://gt.rstudio.com/">gt</a> as well:</p>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| label: tbl-judo</span></span>
+<span id="cb11-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| tbl-cap: Table with penguins species flipper length.</span></span>
+<span id="cb11-3"></span>
+<span id="cb11-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rempsyc)</span>
+<span id="cb11-5"></span>
+<span id="cb11-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nice_table</span>(</span>
+<span id="cb11-7">  judo_athletes_ger</span>
+<span id="cb11-8">)</span></code></pre></div>
+<div class="cell">
+<div id="tbl-judo" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-judo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: German olympic medal winners in Judo.
+</figcaption>
+<div aria-describedby="tbl-judo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-0c0339fc{table-layout:auto;}.cl-0bfb6f92{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0bfe6850{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-0bfe685a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-0bfe80b0{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0bfe80ba{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0bfe80c4{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0bfe80c5{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0bfe80ce{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-0c0339fc"><thead><tr style="overflow-wrap:break-word;"><th class="cl-0bfe80b0"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Year</span></p></th><th class="cl-0bfe80b0"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Name</span></p></th><th class="cl-0bfe80b0"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Sex</span></p></th><th class="cl-0bfe80b0"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Age</span></p></th><th class="cl-0bfe80b0"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Height</span></p></th><th class="cl-0bfe80b0"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Weight</span></p></th><th class="cl-0bfe80b0"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Region</span></p></th><th class="cl-0bfe80b0"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,964</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Wolfgang Hofmann</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">23</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">177</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">80.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,964</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Klaus Glahn</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">22</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">187</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">101.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,972</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Paul Barth</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">26</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">181</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">90.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,972</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Klaus Glahn</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">30</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">187</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">101.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,972</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Dietmar Htger</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">25</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">172</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">70.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,976</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Gnther Neureuther</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">20</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">186</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">95.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,980</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Detlef Ultsch</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">24</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">170</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">80.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,980</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Dietmar Lorenz</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">30</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">180</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">93.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,980</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Harald Heinke</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">25</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">178</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">78.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,980</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Dietmar Lorenz</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">30</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">180</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">93.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,980</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Karl-Heinz Lehmann</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">23</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">169</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">71.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,984</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Frank Wieneke</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">22</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">179</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">78.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,984</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Arthur Schnabel</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">35</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">182</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">104.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,984</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Gnther Neureuther</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">28</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">186</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">95.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,988</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Frank Wieneke</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">26</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">179</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">78.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,988</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Marcus "Marc" Meiling</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">26</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">194</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">95.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,988</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Henry Sthr</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">28</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">194</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">120.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,988</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Sven Loll</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">24</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">182</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">71.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,988</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">24</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">178</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">78.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,992</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Richard Trautmann</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">23</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">168</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">65.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,992</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Udo Gnther Quellmalz</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">25</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">175</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">65.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,996</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Johanna Hagn</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">F</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">23</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">168</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92"></span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,996</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Udo Gnther Quellmalz</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">29</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">175</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">65.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,996</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Frank Mller</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">25</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">189</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">125.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,996</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Richard Trautmann</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">27</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">168</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">65.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">1,996</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Marko Spittka</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">25</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">179</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">88.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,000</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Anna-Maria Gradante</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">F</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">23</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">154</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">48.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,004</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Yvonne Bnisch</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">F</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">23</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">168</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">61.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,004</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Julia Matijass</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">F</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">30</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">161</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">48.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,004</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Annett Bhm</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">F</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">24</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">179</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">83.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,004</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Michael Jurack</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">25</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">190</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">100.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,008</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Ole Bischof</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">28</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">180</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">81.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,012</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Kerstin Thiele</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">F</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">25</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">168</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">70.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,012</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Dimitri Peters</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">28</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">188</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">100.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,012</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Ole Bischof</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">32</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">180</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">81.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80ba"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,012</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Andreas Tlzer</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">M</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">32</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">192</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">131.00</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80c4"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0bfe80c5"><p class="cl-0bfe685a"><span class="cl-0bfb6f92">2,016</span></p></td><td class="cl-0bfe80ce"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Laura Vargas Koch</span></p></td><td class="cl-0bfe80ce"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">F</span></p></td><td class="cl-0bfe80ce"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">26</span></p></td><td class="cl-0bfe80ce"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">173</span></p></td><td class="cl-0bfe80ce"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">70.00</span></p></td><td class="cl-0bfe80ce"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Germany</span></p></td><td class="cl-0bfe80ce"><p class="cl-0bfe6850"><span class="cl-0bfb6f92">Bronze</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="labels" class="level3">
+<h3 class="anchored" data-anchor-id="labels">Labels</h3>
+<p>Tables that are build programmatically can be labeled with <code>#| label: tbl-judo</code> at the top of the chunk. This will always put the correct number in the caption and also lets you cross-reference the table in your text by writing <code>@tbl-judo</code> Table&nbsp;1.<br>
+The <a href="https://github.com/wjschne/apaquarto">apaquarto</a> template will take care of correctly rendering it to APA-style.<br>
+Captions can be written with <code>#| tbl-cap: German olympic medal winners in Judo.</code>.</p>
+</section>
+</section>
+<section id="formatting-model-output" class="level2">
+<h2 class="anchored" data-anchor-id="formatting-model-output">Formatting model output</h2>
+<p>There are some packages out there that help you to format output of statistical models. Let’s fit a simple logistic regression model to predict an athletes medal win by country (Germany or Japan) in Judo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb12-2"></span>
+<span id="cb12-3">athletes_judo <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"athletes.rds"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb12-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Medal_bi =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(Medal), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb12-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Sport <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Judo"</span>, Region <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Germany"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Japan"</span>))</span>
+<span id="cb12-6"></span>
+<span id="cb12-7"></span>
+<span id="cb12-8">model <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glm</span>(Medal_bi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> Region, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">binomial</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"logit"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> athletes_judo)</span></code></pre></div>
+</div>
+<p>Normally, the output looks something like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(model)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Medal_bi ~ Region, family = binomial(link = "logit"), 
+    data = athletes_judo)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -0.9740     0.1930  -5.048 4.46e-07 ***
+RegionJapan   1.5982     0.2671   5.983 2.19e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 364.15  on 263  degrees of freedom
+Residual deviance: 325.42  on 262  degrees of freedom
+AIC: 329.42
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<section id="tidy-up" class="level3">
+<h3 class="anchored" data-anchor-id="tidy-up">Tidy up!</h3>
+<p>Now we have multiple options to easily extract the results of this regression. Most prominently, there is the <a href="https://broom.tidymodels.org/">broom</a> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(broom)</span>
+<span id="cb15-2"></span>
+<span id="cb15-3">model_broom <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidy</span>(model)</span>
+<span id="cb15-4">model_broom</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic       p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+1 (Intercept)   -0.974     0.193     -5.05 0.000000446  
+2 RegionJapan    1.60      0.267      5.98 0.00000000219</code></pre>
+</div>
+</div>
+<p>If we want to convert the estimates to Odds:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">model_broom <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidy</span>(model, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">exponentiate =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb17-2">model_broom</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic       p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+1 (Intercept)    0.378     0.193     -5.05 0.000000446  
+2 RegionJapan    4.94      0.267      5.98 0.00000000219</code></pre>
+</div>
+</div>
+<p>And if we want to extract the fit statistics:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glance</span>(model)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 8
+  null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs
+          &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;
+1          364.     263  -163.  329.  337.     325.         262   264</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This works with <strong>many</strong> different model types, from t-tests over linear models to GLMs and multi level models and even <code>lavaan</code> output. They might be split out over multiple packages, multi level models for example can be tidied with <a href="https://cran.r-project.org/web/packages/broom.mixed/vignettes/broom_mixed_intro.html">broom.mixed</a>.</p>
+</div>
+</div>
+</section>
+<section id="reporting" class="level3">
+<h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
+<p>We can also let R write our report section for us ;):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(report)</span>
+<span id="cb21-2"></span>
+<span id="cb21-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">report</span>(model)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>We fitted a logistic model (estimated using ML) to predict Medal_bi with Region
+(formula: Medal_bi ~ Region). The model's explanatory power is moderate (Tjur's
+R2 = 0.14). The model's intercept, corresponding to Region = Germany, is at
+-0.97 (95% CI [-1.36, -0.61], p &lt; .001). Within this model:
+
+  - The effect of Region [Japan] is statistically significant and positive (beta
+= 1.60, 95% CI [1.08, 2.13], p &lt; .001; Std. beta = 1.60, 95% CI [1.08, 2.13])
+
+Standardized parameters were obtained by fitting the model on a standardized
+version of the dataset. 95% Confidence Intervals (CIs) and p-values were
+computed using a Wald z-distribution approximation.</code></pre>
+</div>
+</div>
+<p>If you want, take a look at <a href="https://easystats.github.io/report/"><code>report</code></a>, it has many more functions to make the reporting workflow of your model a lot easier.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Automate in-text values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Even when not using <code>report</code> or some similar package, we can still extract the values automatically from a model and put them programmatically into the text. This can be achieved by simply adding an <strong>inline-codechunck</strong> into our markdown text:</p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/inline_code.png" class="img-fluid"></p>
+<p>The model’s intercept, corresponding to Region = Germany, is at 0.38.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Maybe put the data extraction into an own object to keep the text more readable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">model_intercept <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> model_broom <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(term <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(Intercept)"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pull</span>(estimate) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+</div>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/inline_code2.png" class="img-fluid"></p>
+<p>The model’s intercept, corresponding to Region = Germany, is at 0.38.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="apa-tables-1" class="level3">
+<h3 class="anchored" data-anchor-id="apa-tables-1">APA tables</h3>
+<p>For example with <a href="https://rempsyc.remi-theriault.com/"><code>rempsyc</code></a>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rempsyc)</span>
+<span id="cb24-2"></span>
+<span id="cb24-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nice_table</span>(model_broom, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">broom =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"glm"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-0cd48eb2{table-layout:auto;}.cl-0ccf9380{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0ccf938a{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0cd1ac1a{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-0cd1ac24{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-0cd1bbc4{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0cd1bbc5{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0cd1bbce{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0cd1bbd8{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0cd1bbe2{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-0cd48eb2"><thead><tr style="overflow-wrap:break-word;"><th class="cl-0cd1bbc4"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">Term</span></p></th><th class="cl-0cd1bbc4"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">estimate</span></p></th><th class="cl-0cd1bbc4"><p class="cl-0cd1ac1a"><span class="cl-0ccf938a">SE</span></p></th><th class="cl-0cd1bbc4"><p class="cl-0cd1ac1a"><span class="cl-0ccf938a">t</span></p></th><th class="cl-0cd1bbc4"><p class="cl-0cd1ac1a"><span class="cl-0ccf938a">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-0cd1bbc5"><p class="cl-0cd1ac24"><span class="cl-0ccf9380">(Intercept)</span></p></td><td class="cl-0cd1bbce"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">0.38</span></p></td><td class="cl-0cd1bbce"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">0.19</span></p></td><td class="cl-0cd1bbce"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">-5.05</span></p></td><td class="cl-0cd1bbce"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0cd1bbd8"><p class="cl-0cd1ac24"><span class="cl-0ccf9380">RegionJapan</span></p></td><td class="cl-0cd1bbe2"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">4.94</span></p></td><td class="cl-0cd1bbe2"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">0.27</span></p></td><td class="cl-0cd1bbe2"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">5.98</span></p></td><td class="cl-0cd1bbe2"><p class="cl-0cd1ac1a"><span class="cl-0ccf9380">&lt; .001***</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+</section>
+<section id="plots" class="level2">
+<h2 class="anchored" data-anchor-id="plots">Plots</h2>
+<p>Plots can be very easily created from within a code chunk:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">best_by_sport <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb25-2">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Get all gold medalists</span></span>
+<span id="cb25-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Medal <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Gold"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb25-4">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Group them by sport and region</span></span>
+<span id="cb25-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sport, Region) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb25-6">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## count the number of medals each country has per sport category</span></span>
+<span id="cb25-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">count</span>(Medal) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb25-8">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Now only group by sport, so we can extract the maximum medal row by sport, and not by sport and country</span></span>
+<span id="cb25-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sport) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb25-10">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Extract the country with the most medals</span></span>
+<span id="cb25-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">slice</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">which.max</span>(n))</span>
+<span id="cb25-12"></span>
+<span id="cb25-13"></span>
+<span id="cb25-14"></span>
+<span id="cb25-15">p1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(</span>
+<span id="cb25-16">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> best_by_sport,</span>
+<span id="cb25-17">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(</span>
+<span id="cb25-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> Sport,</span>
+<span id="cb25-19">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> n</span>
+<span id="cb25-20">  )</span>
+<span id="cb25-21">) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb25-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_col</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> Region, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reorder</span>(Sport, n))) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb25-23">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_text</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label =</span> Region), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hjust =</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.5</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb25-24">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_classic</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb25-25">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## And turn the axis labels again, because the new theme has overwritten our theme</span></span>
+<span id="cb25-26">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.text.x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">vjust =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hjust =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb25-27">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Specify which colors are used for the filling. They are from the package viridsLite, so you might need to install it.</span></span>
+<span id="cb25-28">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_manual</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values =</span> viridisLite<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">viridis</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb25-29">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggtitle</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Country with the most Olympic gold medal winners by sport"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb25-30">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xlab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sport"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb25-31">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ylab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Number of gold medal winners"</span>)</span></code></pre></div>
+</div>
+<p>Again, we can tweak the layout, captions etc. via the chunk options, see <a href="https://quarto.org/docs/authoring/figures.html#computations">here</a> for an overview.</p>
+<pre><code>#| fig-height: 8
+#| fig-width: 11
+
+p1</code></pre>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/index_files/figure-html/plot output-1.png" class="img-fluid figure-img" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<p>Citations are saved in <code>.bib</code> files. The <code>.bib</code> format can be chosen to download or copy on almost every website, often next to APA and others. It looks like this:</p>
+<pre><code>@article{allport1936trait,
+  title={Trait-names: A psycho-lexical study.},
+  author={Allport, Gordon W and Odbert, Henry S},
+  journal={Psychological monographs},
+  volume={47},
+  number={1},
+  pages={i},
+  year={1936},
+  publisher={Psychological Review Company}
+}
+
+@book{darwin1859,
+  added-at = {2008-05-27T04:02:47.000+0200},
+  address = {London},
+  author = {Darwin, Charles},
+  biburl = {https://www.bibsonomy.org/bibtex/2d70d713c717fb28384fb073c9f6dfbc2/neilernst},
+  citeulike-article-id = {2376343},
+  interhash = {c738acbb887362be5b0e6abc51be42d3},
+  intrahash = {d70d713c717fb28384fb073c9f6dfbc2},
+  keywords = {evolution},
+  note = { or the Preservation of Favored Races in the Struggle for Life},
+  priority = {2},
+  publisher = {Murray},
+  timestamp = {2008-05-27T04:02:47.000+0200},
+  title = {On the Origin of Species by Means of Natural Selection},
+  year = 1859
+}</code></pre>
+<p>Of course, you should still check if the fields are filled in correctly. If you have created a <code>references.bib</code> file in your project directory, you can include it in your quarto document by adding <code>bibliography: references.bib</code> to your YAML header.<br>
+To cite a reference in you text, you can use an <code>@</code> in front of the tag like <code>@darwin1859</code> <span class="citation" data-cites="darwin1859">Darwin (1859)</span> , or <code>[@allport1936trait]</code> <span class="citation" data-cites="allport1936trait">(Allport &amp; Odbert, 1936)</span>.</p>
+<section id="referencing-r-packages" class="level3">
+<h3 class="anchored" data-anchor-id="referencing-r-packages">Referencing R packages</h3>
+<p>R packages are an important part of your analysis, and should be cited as such. The package <a href="https://cran.r-project.org/web/packages/grateful/readme/README.html"><code>grateful</code></a> helps you with that.<br>
+To use it, put a <code>grateful-refs.bib</code> file into your YAML header:</p>
+<pre><code>---
+title: "Reproducible manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: 
+  - references.bib
+  - grateful-refs.bib
+csl: apa7.csl
+format: pdf
+---</code></pre>
+<p>By using this list syntax, we can add multiple <code>.bib</code>-files to our quarto document. Then we only have to call the citation function in a code chunk:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">grateful<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cite_packages</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">output =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"paragraph"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">out.dir =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"."</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<p>We used R version 4.4.2 <span class="citation" data-cites="base">(R Core Team, 2024)</span> and the following R packages: flextable v. 0.9.6 <span class="citation" data-cites="flextable">(Gohel &amp; Skintzos, 2024)</span>, here v. 1.0.1 <span class="citation" data-cites="here">(Müller, 2020)</span>, knitr v. 1.46 <span class="citation" data-cites="knitr2014 knitr2015 knitr2024">(Xie, 2014, 2015, 2024)</span>, rempsyc v. 0.1.8 <span class="citation" data-cites="rempsyc">(Thériault, 2023)</span>, report v. 0.5.8 <span class="citation" data-cites="report">(Makowski et al., 2023)</span>, rmarkdown v. 2.27 <span class="citation" data-cites="rmarkdown2018 rmarkdown2020 rmarkdown2024">(Allaire et al., 2024; Xie et al., 2018, 2020)</span>, tidyverse v. 2.0.0 <span class="citation" data-cites="tidyverse">(Wickham et al., 2019)</span>, viridisLite v. 0.4.2 <span class="citation" data-cites="viridisLite">(Garnier et al., 2023)</span>.</p>
+</div>
+</div>
+</section>
+<section id="citation-styles" class="level3">
+<h3 class="anchored" data-anchor-id="citation-styles">Citation styles</h3>
+<p>Again, because we have our references in a plain text format, we can easily convert between different citation styles. One way to do this is to provide th <code>csl</code> argument in the YAML header, like so:</p>
+<pre><code>---
+title: "Reproducible manuscripts with Quarto"
+description: "R-SIG 15.07.2024"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, quarto]
+date: 07-15-2024
+bibliography: references.bib
+csl: apa7.csl
+format: pdf
+---</code></pre>
+<p><code>.csl</code> files can just be put into your project folder. They define the citation style, and can for example be downloaded from <a href="https://www.zotero.org/styles">Zoteros style repository</a>.</p>
+</section>
+<section id="reference-section" class="level3">
+<h3 class="anchored" data-anchor-id="reference-section">Reference section</h3>
+<p>The references will be automatically generated at the end of your document. Alternatively, you can include it where you want with</p>
+<pre><code>::: {#refs}
+:::</code></pre>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2">
+<div id="ref-rmarkdown2024" class="csl-entry">
+Allaire, J., Xie, Y., Dervieux, C., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W., &amp; Iannone, R. (2024). <em><span class="nocase">rmarkdown</span>: Dynamic documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>
+</div>
+<div id="ref-allport1936trait" class="csl-entry">
+Allport, G. W., &amp; Odbert, H. S. (1936). Trait-names: A psycho-lexical study. <em>Psychological Monographs</em>, <em>47</em>(1).
+</div>
+<div id="ref-darwin1859" class="csl-entry">
+Darwin, C. (1859). <em>On the origin of species by means of natural selection</em>. Murray.
+</div>
+<div id="ref-viridisLite" class="csl-entry">
+Garnier, Simon, Ross, Noam, Rudis, Robert, Camargo, Pedro, A., Sciaini, Marco, Scherer, &amp; Cédric. (2023). <em><span class="nocase">viridis(Lite)</span> - colorblind-friendly color maps for r</em>. <a href="https://doi.org/10.5281/zenodo.4678327">https://doi.org/10.5281/zenodo.4678327</a>
+</div>
+<div id="ref-flextable" class="csl-entry">
+Gohel, D., &amp; Skintzos, P. (2024). <em><span class="nocase">flextable</span>: Functions for tabular reporting</em>. <a href="https://ardata-fr.github.io/flextable-book/">https://ardata-fr.github.io/flextable-book/</a>
+</div>
+<div id="ref-report" class="csl-entry">
+Makowski, D., Lüdecke, D., Patil, I., Thériault, R., Ben-Shachar, M. S., &amp; Wiernik, B. M. (2023). Automated results reporting as a practical tool to improve reproducibility and methodological best practices adoption. <em>CRAN</em>. <a href="https://easystats.github.io/report/">https://easystats.github.io/report/</a>
+</div>
+<div id="ref-here" class="csl-entry">
+Müller, K. (2020). <em><span class="nocase">here</span>: A simpler way to find your files</em>. <a href="https://here.r-lib.org/">https://here.r-lib.org/</a>
+</div>
+<div id="ref-base" class="csl-entry">
+R Core Team. (2024). <em><span>R</span>: A language and environment for statistical computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>
+</div>
+<div id="ref-rempsyc" class="csl-entry">
+Thériault, R. (2023). <span class="nocase">rempsyc</span>: Convenience functions for psychology. <em>Journal of Open Source Software</em>, <em>8</em>(87), 5466. <a href="https://doi.org/10.21105/joss.05466">https://doi.org/10.21105/joss.05466</a>
+</div>
+<div id="ref-tidyverse" class="csl-entry">
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to the <span class="nocase">tidyverse</span>. <em>Journal of Open Source Software</em>, <em>4</em>(43), 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>
+</div>
+<div id="ref-knitr2014" class="csl-entry">
+Xie, Y. (2014). <span class="nocase">knitr</span>: A comprehensive tool for reproducible research in <span>R</span>. In V. Stodden, F. Leisch, &amp; R. D. Peng (Eds.), <em>Implementing reproducible computational research</em>. Chapman; Hall/CRC.
+</div>
+<div id="ref-knitr2015" class="csl-entry">
+Xie, Y. (2015). <em>Dynamic documents with <span>R</span> and knitr</em> (2nd ed.). Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>
+</div>
+<div id="ref-knitr2024" class="csl-entry">
+Xie, Y. (2024). <em><span class="nocase">knitr</span>: A general-purpose package for dynamic report generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>
+</div>
+<div id="ref-rmarkdown2018" class="csl-entry">
+Xie, Y., Allaire, J. J., &amp; Grolemund, G. (2018). <em>R markdown: The definitive guide</em>. Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>
+</div>
+<div id="ref-rmarkdown2020" class="csl-entry">
+Xie, Y., Dervieux, C., &amp; Riederer, E. (2020). <em>R markdown cookbook</em>. Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="templates-apa" class="level1">
+<h1>Templates &amp; APA</h1>
+<section id="own-templates" class="level2">
+<h2 class="anchored" data-anchor-id="own-templates">Own Templates</h2>
+<p>You can always create your <a href="https://quarto.org/docs/journals/templates.html">own template</a> Luckily, some people have done a lot of the work for us, and therefore we can use templates provided for <a href="https://github.com/quarto-journals/">specific journals</a>. Oooor more generally, APA templates:</p>
+</section>
+<section id="papaja" class="level2">
+<h2 class="anchored" data-anchor-id="papaja">Papaja</h2>
+<p>There are some markdown templates that format your text in APA style. Most famously, the <a href="https://github.com/crsh/papaja"><code>papaja</code></a> package lets you write APA conform manuscripts. Sadly only in R Markdown, not in Quarto.</p>
+</section>
+<section id="apaquarto" class="level2">
+<h2 class="anchored" data-anchor-id="apaquarto">apaquarto</h2>
+<p>Alternatively, I’ve found (but not yet tested in a whole project) the <a href="https://wjschne.github.io/apaquarto/">apaquarto</a> extension. You can install via the <strong>Terminal</strong> (not the R Console):</p>
+<pre><code>## Set the working directory
+cd path/to/my/folder
+
+## Use the Quarto Template
+quarto use wjschne/apaquarto</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Via R Console
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Alternativley, you can also try to install via the R Console, however, it didn’t work for quite some people:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"home/my_project"</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Make sure the folder is empty</span></span>
+<span id="cb33-2">quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">quarto_use_template</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"wjschne/apaquarto"</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>This will create the necessary files in your folder. Update the <code>.qmd</code> file with the same name as your folder. I’d suggest to also create a RStudio-project there, and maybe structure your files into multiple folders (data, R-Scripts …).<br>
+The template will label your tables and figures correctly, and format the bibliography as well as the whole document.<br>
+The tables can be build with the packages presented in the last chapter.</p>
+</section>
+<section id="word-templates" class="level2">
+<h2 class="anchored" data-anchor-id="word-templates">Word templates</h2>
+<p>If you want a word file as output (maybe some journal or co-author requires you to), you can do that easily by setting <code>format: docx</code> in your yaml header. If you don’t use a template like <code>apaquarto</code>, you can also style your own <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">word template</a> simply by changing the styles in a template word file and then load the template file into your quarto document with</p>
+<pre><code>format:
+  docx:
+    reference-doc: custom-reference-doc.docx</code></pre>
+<p>in the YAML header. Take a look at the <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">official documentation</a> for more detailled info.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Split your project
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I recommend that you split up your project into many subfiles, that get merged in the end in a main document. In my opinion, this makes everything a lot easier to overview, because working with quarto makes it easy to just put <strong>everything</strong> from data preperation to reporting into one huge, confousing document. For example, you can put R-Functions into a own script and source it with <code>source(functions.R)</code>. You can also put each chapter into a own <code>.qmd</code> file, and merge them together in a main document. Take a look at <a href="https://quarto.org/docs/authoring/includes.html">include</a> for some input on how to do that.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Markdown Exercises</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">APA Exercises</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false">Bonus</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<ol start="0" type="1">
+<li>Set up a new RStudio project in a new directory.</li>
+<li>Create an empty Quarto file.</li>
+<li>Fill it with a “mini-Analysis” of the <code>characters</code> and <code>psych_stats</code> data sets. You can use the code from the <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting_exercise.html">Plotting Exercise</a>, for now <strong>not</strong> in APA style (we will do this next week). This Quarto file should contain:</li>
+</ol>
+<ul>
+<li>A YAML header.</li>
+<li>Invisible code chunks for data preparation (you will have to merge the <code>characters</code> and <code>psych_stats</code> data sets, take a look at Tip&nbsp;1).</li>
+<li>Some little text body (not important whats written there).</li>
+<li>A little labeled table that also gets mentioned in the text body.</li>
+<li>At least one plot that gets mentioned in the text body.</li>
+<li>Own references.</li>
+</ul>
+<p>Don’t spent too much time on what to write and on the code, you can just copy the code we wrote in the previous plotting exercises.</p>
+<div id="tip-prep" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;1: Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Prepare your data with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("tidyverse")</span></span>
+<span id="cb35-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("here")</span></span>
+<span id="cb35-3"></span>
+<span id="cb35-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb35-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(here)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /home/runner/work/IQB-Methods/IQB-Methods</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Load the data</span></span>
+<span id="cb37-2">characters <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"characters.rds"</span>))</span>
+<span id="cb37-3">psych_stats <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read.csv</span>(</span>
+<span id="cb37-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">file =</span> here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"psych_stats.csv"</span>),</span>
+<span id="cb37-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">";"</span></span>
+<span id="cb37-6">)</span>
+<span id="cb37-7"></span>
+<span id="cb37-8"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Reshape into long format:</span></span>
+<span id="cb37-9">psych_stats <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb37-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pivot_longer</span>(</span>
+<span id="cb37-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cols =</span> messy_neat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>innocent_jaded,</span>
+<span id="cb37-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"question"</span>,</span>
+<span id="cb37-13">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values_to =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rating"</span></span>
+<span id="cb37-14">  )</span>
+<span id="cb37-15"></span>
+<span id="cb37-16"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Merge it</span></span>
+<span id="cb37-17">characters_stats <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">merge</span>(</span>
+<span id="cb37-18">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> characters,</span>
+<span id="cb37-19">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> psych_stats,</span>
+<span id="cb37-20">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by.x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"id"</span>,</span>
+<span id="cb37-21">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by.y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"char_id"</span></span>
+<span id="cb37-22">)</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Add a small “mini-analysis”, where you fit some kind of model and describe it in the text and/or in a table.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>One idea would be a linear mixed model investigating the influence of the notability rating on the rating on a specific item, like <code>messy_neat</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(lme4)</span>
+<span id="cb38-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(lmerTest) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># for pvalues of fixed effects. </span></span>
+<span id="cb38-3"></span>
+<span id="cb38-4">mod_dat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> characters_stats <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb38-5">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(question <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"messy_neat"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb38-6">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(uni_name) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb38-7">  <span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## center for interpretability:</span></span>
+<span id="cb38-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">notability_uni_mean =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(notability, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb38-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">notability_centered =</span> notability <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> notability_uni_mean)</span>
+<span id="cb38-10"></span>
+<span id="cb38-11">mod1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lmer</span>(rating <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> notability_centered <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span>name) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span>uni_name), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> mod_dat)</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Render your file into pdf, word and html.</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<ol start="0" type="1">
+<li>Create a fresh, empty folder for this exercise.</li>
+<li>Install the <code>apaquarto</code> template.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Make sure you have a current version of quarto installed. If not, download from <a href="https://quarto.org/docs/download/">here</a> and install. Restart RStudio, it should find the new quarto installation automatically.</p></li>
+<li><p>Make sure to set the working directory to an empty folder before installing:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"home/my_project"</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Make sure the folder is empty</span></span>
+<span id="cb39-2">quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">quarto_use_template</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"wjschne/apaquarto"</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>Create a RStudio project in your directory and open it.</p></li>
+<li><p>Repeat the analysis you’ve done in the previous exercise (just copy the code), but this time focus on the APA formating aspect of everything. Try to use as many features we’ve talked about before in your script, especially the automatic table and figure captions and numeration.</p></li>
+<li><p>Convert your manuscript into a word file and a PDF.</p></li>
+</ol>
+</div>
+<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
+<ol start="5" type="1">
+<li>Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don’t have a huge <code>.qmd</code> file containing everything. So try it! Create a folder called <code>docs</code> or something similar. It can contain files for functions, for data preperation etc, and can be loaded into your main script with <code>source()</code>. Create another folder called <code>chapters</code> where you put the <code>.qmd</code> files for the single chapters of your work. In the parent directory use a main <code>.qmd</code> file that brings everything together (either with source, or, in the case of other <code>.qmd</code> files, with <code>{{&lt; include _content.qmd &gt;}}</code> ).</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@towfiqu999999?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Towfiqu barbhuiya</a> on <a href="https://unsplash.com/de/fotos/eine-nahaufnahme-eines-papierstapels-auf-einem-tisch-KKHs1e2yiwc?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>quarto</category>
+  <category>R-SIG</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/</guid>
+  <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>GitHub Copilot in R-Studio</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
@@ -306,6 +2375,151 @@ Tip
   <pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Reproducibility with renv</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>Package versions will change over time. The same goes for R versions. As a consequence, they might work different in the future, which can make it difficult to reproduce your scripts. Therefore it is considered good practice to note down the package and R-versions you use. The package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> can help you with that. Look <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started">here</a> for the offical getting started page.</p>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<p>First, create an RStudio Project in the working directory that should be made reproducible (if you haven’t already).<br>
+If another R-version should be used in your project, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to <code>Tools - Global Options - General</code>. Maybe you will have to install <code>renv</code> for this version again.</p>
+<p>Then, initialize the project:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages(renv)</span></span>
+<span id="cb1-2">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">init</span>()</span></code></pre></div>
+</div>
+<p>This will create the basic infrastructure for the usage of <code>renv</code> mainly will do two things:</p>
+<ol type="1">
+<li>Create a project specific package library in the folder <code>renv</code> in your working directory, which contains all the packages currently used by the project. This means different projects can use different package versions, and even different R-Versions. Don’t be confused, the <code>renv</code> folder can get quite big and isn’t uploaded to GitHub by default.</li>
+<li>A <code>.lock</code> file, where the R version and the package versions get documented. From this <code>.lock</code> file we can restore the used packages.</li>
+</ol>
+<p>By the way, it doesn’t matter if you do this in the beginning of your project, in between or at the end. <code>renv::init()</code> will automatically setup the project with all the packages you have used in the project.</p>
+<p>The rest of your workflow is pretty similar to what you are used to: If you need a new package for you project, you install it like you normally would. You can also use <code>renv::install()</code> which has some additional features compared to <code>install.packages())</code>. For example, you can install specific package versions: <code>renv::install("dplyr@1.1.1")</code>. No matter which one you use: The package will be installed into a global cache, and a link to that package will be put into your project specific library. Then you load your package like you normally would with <code>library()</code>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In case you are using a <code>renv</code> project not locally but on the IQB-drive, the links won’t work, and <code>renv</code> will have to download and install the packages newly into your directory.</p>
+</div>
+</div>
+<p>The next step is to write the package into your <code>.lock</code> file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">snapshot</span>()</span></code></pre></div>
+</div>
+<p>This will update the <code>.lock</code> file with your new package.</p>
+<p>If on the other hand you want to restore the packages from the <code>.lock</code> file, use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">restore</span>()</span></code></pre></div>
+</div>
+<p>This will install all packages that are not already in your project specific library with the package version that is documented in the lock file into your project specific library.</p>
+<p>You can update your dependencies to the latest version using:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">update</span>()</span></code></pre></div>
+</div>
+</section>
+<section id="package-versions" class="level2">
+<h2 class="anchored" data-anchor-id="package-versions">Package Versions</h2>
+<p>If you want to install specific package versions, you can use</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">intit</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bare =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div>
+</div>
+<p>in the beginning. This sets up the <code>renv</code> project without trying to find the used dependencies. Thus, you can install the specific versions manually afterward:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install</span>(packagename<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">@</span>version<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>number)</span></code></pre></div>
+</div>
+<p>For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div>
+</div>
+<p>Local packages or packages from GitHub can be installed as well (see <a href="https://rstudio.github.io/renv/reference/install.html">here</a>).</p>
+<p><a href="https://packagemanager.posit.co/client/#/">Posit Public Package Manager</a> contains the CRAN history of CRAN packages back to 2014. Package version historys can be found here easily, for example, when a script was finished on 06.05.22, we can look up which package version was the current one on that day.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@nagaranbasaran?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Nagara Oyodo</a> on <a href="https://unsplash.com/de/fotos/grune-pflanze-auf-grauem-fels-kE0o9syjDZQ">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>renv</category>
+  <category>R-SIG</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/</guid>
+  <pubDate>Mon, 23 Oct 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>github</category>
+  <category>tutorial</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</guid>
+  <pubDate>Mon, 25 Nov 2024 12:57:18 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
   <title>Code-Konventionen</title>
   <dc:creator>NA </dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html</link>
@@ -474,7 +2688,7 @@ Optional:
 </section></div> ]]></description>
   <category>code convention</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html</guid>
-  <pubDate>Mon, 25 Nov 2024 12:48:21 GMT</pubDate>
+  <pubDate>Mon, 25 Nov 2024 12:57:18 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/discussions/conventions.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

@@ -36,10 +36,14 @@
   {
     "listing": "/docs/workflow.html",
     "items": [
-      "/docs/discussions/code_conventions.html",
-      "/docs/copilot/copilot.html",
+      "/docs/git/github_workshop/github_intro_slides.html",
       "/docs/git/index.html",
-      "/docs/quarto/index.html"
+      "/docs/copilot/copilot.html",
+      "/docs/quarto/index.html",
+      "/docs/r_sig/24_07_15_quarto_1/index.html",
+      "/docs/r_sig/24_09_09_quarto_git/index.html",
+      "/docs/r_sig/23_11_06_renv/index.html",
+      "/docs/discussions/code_conventions.html"
     ]
   },
   {
