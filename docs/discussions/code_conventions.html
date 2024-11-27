@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-a0daae77369ec8044f554e5c1e796bd5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -363,6 +363,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#umfang-von-code-abschnitten" id="toc-umfang-von-code-abschnitten" class="nav-link" data-scroll-target="#umfang-von-code-abschnitten">Umfang von Code-Abschnitten</a></li>
   <li><a href="#benennungskonventionen" id="toc-benennungskonventionen" class="nav-link" data-scroll-target="#benennungskonventionen">Benennungskonventionen</a></li>
+  <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
   </ul></li>
   <li><a href="#code-review" id="toc-code-review" class="nav-link" data-scroll-target="#code-review">Code Review</a>
   <ul class="collapse">
@@ -421,66 +422,65 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="allgemeine-konventionen">Allgemeine Konventionen</h2>
 <section id="umfang-von-code-abschnitten" class="level3">
 <h3 class="anchored" data-anchor-id="umfang-von-code-abschnitten">Umfang von Code-Abschnitten</h3>
-<ul>
+<ol type="1">
 <li>Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.</li>
 <li>Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.</li>
 <li>In R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.
 <ul>
 <li>Bei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.</li>
-<li>Rigoroses testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.<br>
-</li>
-<li>https://uptake.github.io/pkgnet/articles/pkgnet-intro.html</li>
+<li>Rigoroses Testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.</li>
 </ul></li>
-</ul>
+</ol>
 </section>
 <section id="benennungskonventionen" class="level3">
 <h3 class="anchored" data-anchor-id="benennungskonventionen">Benennungskonventionen</h3>
-<ul>
+<ol type="1">
 <li>Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.</li>
-<li>kurze Namen vs sprechende Namen =&gt; eher sprechende Namen</li>
-<li>Funktionen: eher Verben</li>
-<li>Objekte (die keine Funktionen sind): eher Substantive</li>
-<li>allgemein keine Dopplungen mit existierenden R-Objekten!</li>
-<li>Objekt-Modifikation: Sprechende Namen, Nummern oder Überschreiben?
-<ul>
-<li>wenn sich Objekte substanziell ändern, nicht überschreiben</li>
-</ul></li>
-<li>häufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, …</li>
-<li>Argumentreihenfolge? (Pipebarkeit =&gt; auch: Output-Steuerung)</li>
-</ul>
+<li>Es sollten eher sprechende Namen als möglichst kurse Namen verwendet werden.</li>
+<li>Funktionsnamen sollten aus Verben bestehen.</li>
+<li>Objektnamen (die keine Funktionen sind) sollten Substantive sein.</li>
+<li>Dopplungen mit existierenden R-Objekten sollten vermieden werdeen.</li>
+<li>Bei der Objekt-Modifikation sollten Objekte nicht überschreiben werden, wenn sie sich substanziell ändern.</li>
+<li>Einige häufige Argumentnamen: <code>dat</code>, <code>path/file/filePath/filename</code>, <code>dir/folder</code>, …</li>
+<li>Bei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden.</li>
+</ol>
+</section>
+<section id="dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="dependencies">Dependencies</h3>
+<p><a href="https://uptake.github.io/pkgnet/articles/pkgnet-intro.html">pkgnet</a> kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren.</p>
 </section>
 </section>
 <section id="code-review" class="level2">
 <h2 class="anchored" data-anchor-id="code-review">Code Review</h2>
-<p>Overview of the Git-Workflow can be found <a href="https://iqb-research.github.io/IQB-Methods/docs/git/">here</a>.</p>
+<p>Eine übersicht zum GitHub-Workflow findet sich <a href="https://iqb-research.github.io/IQB-Methods/docs/git/">hier</a>. Eine etwas ausführlicheres Tutorial zur Einführung in GitHub, aber auch zu Pull-Requests und Code-Reviews findet sich <a href="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/title-slide">hier</a>.</p>
 <section id="vorgehen" class="level3">
 <h3 class="anchored" data-anchor-id="vorgehen">Vorgehen</h3>
-<ul>
+<ol type="1">
 <li>Person, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden.</li>
 <li>Sind mehrere Reviewer zum <strong>Review</strong> assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen)</li>
 <li>Übernimmt man ein Review, assigned man sich selbst den <strong>Pull-Request</strong>, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)</li>
-</ul>
+</ol>
 </section>
 <section id="was-muss-bei-der-anforderung-eines-reviews-beachtet-werden" class="level3">
 <h3 class="anchored" data-anchor-id="was-muss-bei-der-anforderung-eines-reviews-beachtet-werden">Was muss bei der Anforderung eines Reviews beachtet werden?</h3>
-<ul>
+<ol type="1">
 <li>Eher kleinschrittige, abgeschlossene Bestandteile reviewen lassen.</li>
-<li>Priorität festlegen
+<li>Priorität festlegen:
 <ul>
 <li>high: innerhalb eines Tages</li>
 <li>medium: innerhalb einer Woche</li>
 <li>low: keine Zeitbegrenzung</li>
 </ul></li>
-</ul>
+</ol>
 </section>
 <section id="was-sollen-die-reviewer-machen" class="level3">
 <h3 class="anchored" data-anchor-id="was-sollen-die-reviewer-machen">Was sollen die Reviewer machen?</h3>
-<ul>
+<ol type="1">
 <li><strong>Sich zum Review assignen, wenn man anfängt.</strong></li>
-<li>Benennungskonventionen, Formatkonventionen</li>
-<li>Verständlichkeit</li>
-<li>Tests auf Vollständigkeit überprüfen (Edge Cases, möglichst alles abgedeckt?)</li>
-</ul>
+<li>Achten ob Benennungskonventionen und Formatkonventionen eingehalten wurden.</li>
+<li>Prüfen, ob der code verständlich geschrieben ist und möglichst keine erklärenden Kommentare benötigt.</li>
+<li>Tests auf Vollständigkeit überprüfen (sind mögliche Edge Cases (NA, negative Werte, hohe/niedrige Werte, anderer data type …) abgedeckt?).</li>
+</ol>
 <ins>
 Optional:
 </ins>
@@ -508,11 +508,10 @@ Optional:
 </section>
 <section id="kommunikation-zeiterwartung" class="level3">
 <h3 class="anchored" data-anchor-id="kommunikation-zeiterwartung">Kommunikation &amp; Zeiterwartung</h3>
-<ul>
+<ol type="1">
 <li>Person, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab …), oder eine Prioritätenfestlegung.</li>
-<li>In Zukunft soll ein Standardprozedere definiert werden, in welchem festgelegt wird, in welcher Tiefe das Review erfolgen soll, und was standardmäßig gecheckt werden soll.</li>
-<li>Label sollen einheitlich über die Repositories erstell und gentutzt werden (Bug/Enhancement …, Prio-Label)</li>
-</ul>
+<li>Label sollen einheitlich über die Repositories erstell und genutzt werden (Bug/Enhancement …, Prio-Label)</li>
+</ol>
 </section>
 </section>
 <section id="issues" class="level2">
@@ -652,8 +651,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -764,7 +761,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
