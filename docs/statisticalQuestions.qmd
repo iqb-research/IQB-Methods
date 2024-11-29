@@ -7,7 +7,10 @@ listing:
   categories: true
   sort: "title"
   contents:
-    - "FAQ/FAQ.qmd"
+    - "FAQ/FAQ1_Imputationen"
+    - "FAQ/FAQ2_eatModel-Conquest"
+    - "FAQ/FAQ3_Mehrebenenmodelle"
+    - "FAQ/FAQ4_NproItem"
 ---
 
 Welcome to our questions learn page. Here you can find articles about common questions regarding statistics or our IQB internal eat-packages.
