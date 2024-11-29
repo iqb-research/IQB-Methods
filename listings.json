@@ -15,36 +15,7 @@
   },
   {
     "listing": "/docs/statisticalQuestions.html",
-    "items": [
-      "/docs/FAQ/FAQ.html"
-    ]
-  },
-  {
-    "listing": "/docs/beginners.html",
-    "items": [
-      "/docs/R_tutorials/R_ws2.html",
-      "/docs/R_tutorials/R_ws3.html",
-      "/docs/R_tutorials/R_ws1.html"
-    ]
-  },
-  {
-    "listing": "/docs/advanced.html",
-    "items": [
-      "/docs/R_tutorials/checkmate.html"
-    ]
-  },
-  {
-    "listing": "/docs/workflow.html",
-    "items": [
-      "/docs/git/github_workshop/github_intro_slides.html",
-      "/docs/git/index.html",
-      "/docs/copilot/copilot.html",
-      "/docs/quarto/index.html",
-      "/docs/r_sig/24_07_15_quarto_1/index.html",
-      "/docs/r_sig/24_09_09_quarto_git/index.html",
-      "/docs/r_sig/23_11_06_renv/index.html",
-      "/docs/discussions/code_conventions.html"
-    ]
+    "items": []
   },
   {
     "listing": "/docs/posts_r_sig.html",
@@ -61,6 +32,33 @@
       "/docs/r_sig/23_10_09_cleaner/index.html",
       "/docs/r_sig/23_07_31_apply/index.html",
       "/docs/r_sig/23_03_20_forloops/index.html"
+    ]
+  },
+  {
+    "listing": "/docs/workflow.html",
+    "items": [
+      "/docs/git/github_workshop/github_intro_slides.html",
+      "/docs/git/index.html",
+      "/docs/copilot/copilot.html",
+      "/docs/quarto/index.html",
+      "/docs/r_sig/24_07_15_quarto_1/index.html",
+      "/docs/r_sig/24_09_09_quarto_git/index.html",
+      "/docs/r_sig/23_11_06_renv/index.html",
+      "/docs/discussions/code_conventions.html"
+    ]
+  },
+  {
+    "listing": "/docs/advanced.html",
+    "items": [
+      "/docs/R_tutorials/checkmate.html"
+    ]
+  },
+  {
+    "listing": "/docs/beginners.html",
+    "items": [
+      "/docs/R_tutorials/R_ws2.html",
+      "/docs/R_tutorials/R_ws3.html",
+      "/docs/R_tutorials/R_ws1.html"
     ]
   },
   {

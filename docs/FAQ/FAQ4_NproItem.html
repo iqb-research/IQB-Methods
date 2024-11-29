@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="NA">
 
-<title>IQB Methods Team</title>
+<title>FAQ: Wie groß sollte das N pro Item idealerweise sein? – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d89fc942f684c7f97fb3c2cf2bc0f3e1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d89fc942f684c7f97fb3c2cf2bc0f3e1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,14 +68,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="IQB Methods Team">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="FAQ: Wie groß sollte das N pro Item idealerweise sein? – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/logos/eatTools.png">
 <meta property="og:site_name" content="IQB Methods Team">
-<meta property="og:image:height" content="672">
-<meta property="og:image:width" content="672">
 </head>
 
 <body class="nav-fixed">
@@ -84,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">IQB Methods Team</span>
     </a>
   </div>
@@ -95,25 +122,25 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./posts_eat.html"> 
+    <a class="nav-link" href="../../posts_eat.html"> 
 <span class="menu-text">eat Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts_learn.html"> 
+    <a class="nav-link" href="../../posts_learn.html"> 
 <span class="menu-text">learn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts_newsletter.html"> 
+    <a class="nav-link" href="../../posts_newsletter.html"> 
 <span class="menu-text">Newsletter</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts_help.html"> 
+    <a class="nav-link" href="../../posts_help.html"> 
 <span class="menu-text">help</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> 
+    <a class="nav-link" href="../../index.xml"> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
@@ -127,21 +154,36 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/FAQ/FAQ4_NproItem.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">IQB Methods Team</h1>
-</div>
+<h1 class="title">FAQ: Wie groß sollte das N pro Item idealerweise sein?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">FAQ</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>NA </p>
+          </div>
+  </div>
     
   
     
@@ -152,85 +194,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This website hosts all kind of material around R, programming, statistics and psychological methods.</p>
-
-<style>
-table, th, td {
-  margin-bottom: 0px;
-  padding: 0px;
-  margin-top: -18px;
-}
-</style>
-
-<p><br></p>
-<table style="width:900px">
-<tbody><tr>
-<th style="width:75px">
-</th>
-
-<th style="width:150px">
-<a href="https://weirichs.github.io/eatTools/index.html"><img src="./logos/eatTools.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatFDZ/"><img src="./logos/eatFDZ.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatCodebook/"><img src="./logos/eatCodebook.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatATA/"><img src="./logos/eatATA.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-</th>
-<th style="width:75px">
-</th>
-</tr>
-</tbody></table>
-<table style="width:900px">
-<tbody><tr>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/eatGADS.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatRecode/"><img src="./logos/eatRecode.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<img src="./logos/eat.png" style="width:150px;height:150px;">
-</th>
-<th style="width:150px">
-<a href="https://sachseka.github.io/eatPrep/"><img src="./logos/eatPrep.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<img src="./logos/eatPrepTBA.png" style="width:150px;height:150px;">
-</th>
-<th style="width:150px">
-</th>
-</tr>
-</tbody></table>
-<table style="width:900px">
-<tbody><tr>
-<th style="width:75px">
-</th>
-<th style="width:150px">
-<a href="https://github.com/weirichs/eatModel"><img src="./logos/eatModel.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://cran.r-project.org/web/packages/eatRep/"><img src="./logos/eatRep.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatAnalysis/index.html"><img src="./logos/eatAnalysis.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://nickhaf.github.io/eatPlot/"><img src="./logos/eatPlot.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-</th>
-<th style="width:75px">
-</th>
-</tr>
-</tbody></table>
+<p>Grundsätzlich stellt sich die Frage des <em>N</em> pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es gibt jedoch Daumenregeln und es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an <span class="math inline">\(N&gt;100\)</span> orientieren. Im Studiendesign versucht man dabei, auf ein <span class="math inline">\(N=150\)</span> zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:</p>
+<ul>
+<li><strong>VERA-Pilotierung ohne DIF:</strong> hier wäre <span class="math inline">\(N=150\)</span> ein vertretbarer Richtwert.</li>
+<li><strong>VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:</strong> für eine verlässliche DIF-Analyse wäre <span class="math inline">\(N=150\)</span> <em>pro Geschlechtergruppe</em> anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier <span class="math inline">\(N=300\)</span> ein Minimum, <span class="math inline">\(N=400\)</span> ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.</li>
+<li><strong>Pilotierung mit DIF-Analyse bzgl. SPF:</strong> Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre <span class="math inline">\(N=150\)</span> in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen <span class="math inline">\(N&gt;20000\)</span> ist das zwar möglich, aber in kleineren Erhebungen wie VERA-Pilotierungen wäre das komplett unrealistisch. Hier müsste man also ggf. ein Oversampling anstreben, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen “überrepräsentieren”.</li>
+<li><strong>Analysen bzgl. Migrationshintergrund:</strong> Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem <em>N</em> pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus <span class="math inline">\(\text{Migrationshintergrund}\times \text{Geschlecht}\)</span> hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein – es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.</li>
+</ul>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -655,4 +631,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/FAQ/FAQ4_NproItem.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

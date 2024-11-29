@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="NA">
 
-<title>IQB Methods Team</title>
+<title>FAQ: DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte? – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d89fc942f684c7f97fb3c2cf2bc0f3e1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d89fc942f684c7f97fb3c2cf2bc0f3e1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,15 +101,43 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="IQB Methods Team">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="FAQ: DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte? – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/logos/eatTools.png">
 <meta property="og:site_name" content="IQB Methods Team">
-<meta property="og:image:height" content="672">
-<meta property="og:image:width" content="672">
 </head>
 
 <body class="nav-fixed">
@@ -84,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">IQB Methods Team</span>
     </a>
   </div>
@@ -95,25 +158,25 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./posts_eat.html"> 
+    <a class="nav-link" href="../../posts_eat.html"> 
 <span class="menu-text">eat Packages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts_learn.html"> 
+    <a class="nav-link" href="../../posts_learn.html"> 
 <span class="menu-text">learn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts_newsletter.html"> 
+    <a class="nav-link" href="../../posts_newsletter.html"> 
 <span class="menu-text">Newsletter</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts_help.html"> 
+    <a class="nav-link" href="../../posts_help.html"> 
 <span class="menu-text">help</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> 
+    <a class="nav-link" href="../../index.xml"> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
@@ -127,21 +190,36 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/FAQ/FAQ2_eatModel-Conquest.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">IQB Methods Team</h1>
-</div>
+<h1 class="title">FAQ: DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">FAQ</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>NA </p>
+          </div>
+  </div>
     
   
     
@@ -152,85 +230,77 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This website hosts all kind of material around R, programming, statistics and psychological methods.</p>
-
-<style>
-table, th, td {
-  margin-bottom: 0px;
-  padding: 0px;
-  margin-top: -18px;
-}
-</style>
-
-<p><br></p>
-<table style="width:900px">
-<tbody><tr>
-<th style="width:75px">
-</th>
-
-<th style="width:150px">
-<a href="https://weirichs.github.io/eatTools/index.html"><img src="./logos/eatTools.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatFDZ/"><img src="./logos/eatFDZ.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatCodebook/"><img src="./logos/eatCodebook.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatATA/"><img src="./logos/eatATA.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-</th>
-<th style="width:75px">
-</th>
+<p>In eatModel wird nur der erste Teil der zweiten Tabelle <span class="math inline">\(\text{item}\times\text{[DIFvariable]}\)</span> aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items <strong>in der ersten Gruppe</strong> der <span class="math inline">\(\text{[DIFvariable]}\)</span> <strong>leichter</strong> sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatTools)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatModel)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data.ex08, <span class="at">package=</span><span class="st">"TAM"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Gesamtdatensatz bauen, der sowohl Personen-ID, DIF-Variable als auch responses enthaelt</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, data.ex08[[<span class="st">"resp"</span>]])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>14 subject(s) do not solve any item:
+   115 (10 false), 613 (10 false), 979 (10 false) ... 
+7 subject(s) solved each item: 119 (10 correct), 514 (10 correct), 774 (10 correct) ... 
+Dataset is completely linked.
+'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
+Q matrix specifies 1 dimension(s).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>run <span class="ot">&lt;-</span> <span class="fu">runModel</span>(def)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">getResults</span>(run, <span class="at">verbose=</span><span class="cn">FALSE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>item <span class="ot">&lt;-</span> <span class="fu">itemFromRes</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>item6 <span class="ot">&lt;-</span> <span class="fu">subset</span>(<span class="fu">roundDF</span>(item,<span class="at">digits =</span> <span class="dv">3</span>), item <span class="sc">==</span> <span class="st">"I0006"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>cols  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"item"</span>, <span class="st">"itemP"</span>, <span class="st">"est"</span>, <span class="st">"estDif"</span>, <span class="st">"absDif"</span>, <span class="st">"difIndex"</span>, <span class="st">"ETS"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ausgewaehlte Spalten fuer Items 6 anzeigen lassen </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(item6[,cols], <span class="at">row.names=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">item</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">itemP</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">est</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estDif</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">absDif</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">difIndex</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ETS</th>
 </tr>
-</tbody></table>
-<table style="width:900px">
-<tbody><tr>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/eatGADS.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatRecode/"><img src="./logos/eatRecode.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<img src="./logos/eat.png" style="width:150px;height:150px;">
-</th>
-<th style="width:150px">
-<a href="https://sachseka.github.io/eatPrep/"><img src="./logos/eatPrep.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<img src="./logos/eatPrepTBA.png" style="width:150px;height:150px;">
-</th>
-<th style="width:150px">
-</th>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I0006</td>
+<td style="text-align: right;">0.454</td>
+<td style="text-align: right;">0.226</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">B</td>
 </tr>
-</tbody></table>
-<table style="width:900px">
-<tbody><tr>
-<th style="width:75px">
-</th>
-<th style="width:150px">
-<a href="https://github.com/weirichs/eatModel"><img src="./logos/eatModel.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://cran.r-project.org/web/packages/eatRep/"><img src="./logos/eatRep.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://beckerbenj.github.io/eatAnalysis/index.html"><img src="./logos/eatAnalysis.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-<a href="https://nickhaf.github.io/eatPlot/"><img src="./logos/eatPlot.png" style="width:150px;height:150px;"></a>
-</th>
-<th style="width:150px">
-</th>
-<th style="width:75px">
-</th>
-</tr>
-</tbody></table>
+</tbody>
+</table>
 
 
+</div>
+</div>
+<p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von 0.3098146 bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(dat[,<span class="st">"I0006"</span>], dat[,<span class="st">"female"</span>], mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    0     1 
+0.410 0.498 </code></pre>
+</div>
+</div>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -655,4 +725,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/FAQ/FAQ2_eatModel-Conquest.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
