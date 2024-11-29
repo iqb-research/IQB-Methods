@@ -10,7 +10,7 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/statisticalQuestions.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Fri, 29 Nov 2024 17:18:11 GMT</lastBuildDate>
+<lastBuildDate>Fri, 29 Nov 2024 17:28:19 GMT</lastBuildDate>
 <item>
   <title>FAQ: Wie poole ich mein \(R^2\) richtig über mehrere (bspw. 15) Imputationen?</title>
   <dc:creator>NA </dc:creator>
@@ -66,7 +66,7 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Fri, 29 Nov 2024 17:18:11 GMT</pubDate>
+  <pubDate>Fri, 29 Nov 2024 17:28:19 GMT</pubDate>
 </item>
 <item>
   <title>FAQ: DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</title>
@@ -298,7 +298,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Fri, 29 Nov 2024 17:18:11 GMT</pubDate>
+  <pubDate>Fri, 29 Nov 2024 17:28:19 GMT</pubDate>
 </item>
 <item>
   <title>FAQ: Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</title>
@@ -362,7 +362,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Fri, 29 Nov 2024 17:18:11 GMT</pubDate>
+  <pubDate>Fri, 29 Nov 2024 17:28:19 GMT</pubDate>
 </item>
 <item>
   <title>FAQ: Wie groß sollte das N pro Item idealerweise sein?</title>
@@ -390,7 +390,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Fri, 29 Nov 2024 17:18:11 GMT</pubDate>
+  <pubDate>Fri, 29 Nov 2024 17:28:19 GMT</pubDate>
 </item>
 </channel>
 </rss>
