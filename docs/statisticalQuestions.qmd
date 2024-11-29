@@ -4,13 +4,13 @@ listing:
   id: statistical-questions
   type: default
   feed: true
-  categories: true
-  sort: "title"
+  categories: unnumbered
+  sort: false
   contents:
-    - "FAQ/FAQ1_Imputationen"
-    - "FAQ/FAQ2_eatModel-Conquest"
-    - "FAQ/FAQ3_Mehrebenenmodelle"
-    - "FAQ/FAQ4_NproItem"
+    - "FAQ/FAQ1_Imputationen.qmd"
+    - "FAQ/FAQ2_eatModel-Conquest.qmd"
+    - "FAQ/FAQ3_Mehrebenenmodelle.qmd"
+    - "FAQ/FAQ4_NproItem.qmd"
 ---
 
 Welcome to our questions learn page. Here you can find articles about common questions regarding statistics or our IQB internal eat-packages.
