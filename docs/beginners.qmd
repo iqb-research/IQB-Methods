@@ -5,7 +5,7 @@ listing:
   id: beginners
   type: default
   feed: true
-  categories: true
+  categories: unnumbered
   sort: "title"
   contents:
     - "R_tutorials/R_ws1.qmd"
