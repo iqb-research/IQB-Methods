@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sebastian Weirich">
+<meta name="dcterms.date" content="2024-01-12">
 
-<title>Material for learning R – IQB Methods Team</title>
+<title>Pull requests with Github – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Material for learning R – IQB Methods Team">
+<meta property="og:title" content="Pull requests with Github – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -130,19 +132,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r-introduction" id="toc-r-introduction" class="nav-link active" data-scroll-target="#r-introduction">R Introduction</a></li>
+  <li><a href="#recommended-workflow" id="toc-recommended-workflow" class="nav-link active" data-scroll-target="#recommended-workflow">Recommended Workflow</a>
+  <ul class="collapse">
+  <li><a href="#initiating-a-review" id="toc-initiating-a-review" class="nav-link" data-scroll-target="#initiating-a-review">Initiating a review</a></li>
+  <li><a href="#review-process" id="toc-review-process" class="nav-link" data-scroll-target="#review-process">Review Process</a></li>
+  </ul></li>
+  <li><a href="#please-note" id="toc-please-note" class="nav-link" data-scroll-target="#please-note">Please note</a></li>
+  <li><a href="#git-workflow-im-terminal-nh" id="toc-git-workflow-im-terminal-nh" class="nav-link" data-scroll-target="#git-workflow-im-terminal-nh">Git-Workflow im Terminal (NH)</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R_tutorials/R_index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/git/github_pullrequests.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Material for learning R</h1>
+<h1 class="title">Pull requests with Github</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">R</div>
+    <div class="quarto-category">github</div>
     <div class="quarto-category">tutorial</div>
+    <div class="quarto-category">workflow</div>
   </div>
   </div>
 
@@ -150,7 +159,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sebastian Weirich </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 12, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -160,10 +181,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="images\einführung.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<section id="r-introduction" class="level1">
-<h1>R Introduction</h1>
-<p>An introduction to R with hands on examples and exercises can be found in <a href="https://nickhaf.github.io/r_tutorial/">Introduction to R</a>.</p>
+<p><img src="github.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version.</p>
+<section id="recommended-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-workflow">Recommended Workflow</h2>
+<ol type="1">
+<li>Pull all changes from the relevant branch. Normally, this will be the branch <code>main</code>, but it might also happen that you want to extend on another branch.</li>
+<li><code>Create</code> and <code>checkout</code> (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it.</li>
+<li>Make changes in your local repository.</li>
+<li><code>Commit</code> them as often as possible. The more you commit, the more of you work gets saved regulary.</li>
+<li>If you want to upload your changes, <code>Push</code>.</li>
+<li>Repeat 3 - 5 until you are done.</li>
+</ol>
+<section id="initiating-a-review" class="level3">
+<h3 class="anchored" data-anchor-id="initiating-a-review">Initiating a review</h3>
+<p>Once you are content with your changes and you want to finalize them, you can initiate a review:</p>
+<ol type="1">
+<li>Change to the the Github page of the package (for example, <a href="https://github.com/weirichs/eatTools">eatTools repository</a>) and start the <code>pull request</code> via “Compare &amp; pull request”. This will open a new page, where you can customize your pull request.</li>
+<li>Choose your favorite reviewer under “Reviewer”. You can ask multiple people.</li>
+<li>Enter a comment for the request, specifying what you want the reviewer(s) to look for especially.</li>
+<li>Click on “create pull request” to start the request.</li>
+</ol>
+</section>
+<section id="review-process" class="level3">
+<h3 class="anchored" data-anchor-id="review-process">Review Process</h3>
+<ol type="1">
+<li>Now the review process begins: The person that takes over the review assigns herself on the right side of the pull request page. Keep in mind our <a href="https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html">Code Conventions</a>.</li>
+<li>The reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code.</li>
+<li>In the end, the reviewer delivers their final verdict: <code>approve</code> or <code>request changes</code>.</li>
+<li>Now it’s the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made.</li>
+<li>The changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made.</li>
+<li>Reiterate until the author and reviewer have reached an agreement.</li>
+<li>If both are satisfied. On the GitHub Pull-request page, select “merge pull request into main” (or any other branch you want to and can merge on) at the bottom.</li>
+<li>Finally, the review branch can be deleted. Choose “delete” on the Github homepage. Then delete the local branch (i.e.&nbsp;in GitKraken) in the same way if necessary</li>
+</ol>
+</section>
+</section>
+<section id="please-note" class="level2">
+<h2 class="anchored" data-anchor-id="please-note">Please note</h2>
+<p>As long as the master/main branch and the new branch are not merged again, there are two “parallel” branches. The background to this is that - as long as developers are working in the new branch - users can always download the latest working version (i.e.&nbsp;the master branch) of the package. As a developer, you always have to check and be conscious about on which branch you are currently working on.</p>
+</section>
+<section id="git-workflow-im-terminal-nh" class="level2">
+<h2 class="anchored" data-anchor-id="git-workflow-im-terminal-nh">Git-Workflow im Terminal (NH)</h2>
+<ol type="1">
+<li><em>Gegebenenfalls: Auf den mainbranch wechseln:</em> <code>git checkout main</code></li>
+<li>Verifizieren, dass man auf dem richtigen branch ist: <code>git status</code></li>
+<li>Onlinebranch lokal herunterladen: <code>git pull</code></li>
+<li><em>Gegebenenfalls: Neuen branch “branch_2” erstellen, und direkt darauf wechseln:</em> <code>git checkout -b branch_2</code></li>
+<li>(Alle) Änderungen stagen: <code>git add .</code></li>
+<li>Gestagte Änderungen commiten (mit aussagekräftiger Commitmessage): <code>git commit -m "implemented new function"</code></li>
+<li>Commits hochladen: <code>git push</code></li>
+</ol>
 
 
 </section>
@@ -172,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@vantaymedia?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Van Tay Media</a> on <a href="https://unsplash.com/de/fotos/frauen-die-laptops-benutzen-9buwiennNqg">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@synkevych?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Roman Synkevych</a> on <a href="https://unsplash.com/de/fotos/blau-schwarzes-pinguin-pluschtier-UT8LMo-wlyk">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -597,4 +665,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R_tutorials/R_index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/git/github_pullrequests.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
