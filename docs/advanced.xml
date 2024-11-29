@@ -50,6 +50,376 @@ After obtaining some sort of confirmation, you can follow <a href="https://docs.
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/copilot/astronaut.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
+  <title>Reproducible manuscripts with Git</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<p>We have already talked about <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/">reproducible manuscripts with Quarto</a>. Now, one big plus of writing in a markdown language is that it is very easy to use with a version control systems like Git, enabling us to leverage the many advantages of version control.</p>
+</section>
+<section id="git" class="level1">
+<h1>Git</h1>
+<p>Git is a version control system. Some advantages:</p>
+<ul>
+<li><strong>History</strong>: You can see the history of your project, who did what and when. Changes in the project can be easily tracked.</li>
+<li><strong>Collaboration</strong>: You can easily work together with others on the same project.</li>
+<li><strong>Backup</strong>: Your project lies online, so you don’t have to worry about backing it up.</li>
+</ul>
+<p>Mainly it is used for working on code. However, markdown files are also text files, and can therefore be easily version controlled with Git. For this text I assume you are already kind of proficient in working with <a href="https://github.com/">GitHub</a>. If not, you can take a look at this <a href="https://docs.github.com/en/get-started/start-your-journey/hello-world">Getting Started Guide</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To make your project truly reproducible, you might want to also use <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/">renv</a>.<br>
+If you want to dive even deeper into reproducible workflows, take a look at <span class="citation" data-cites="peikert2021reproducible">Peikert and Brandmaier (2021)</span>.</p>
+</div>
+</div>
+</section>
+<section id="quarto-git" class="level1">
+<h1>Quarto + Git</h1>
+<p>Generally, there isn’t much new stuff here, if you already work with GitHub. You set up your repo and track your R and Quarto files with Git. In light of reproducability, this is as transparent as we can get. If we use GitHub throughout the whole project, and make the project public, everyone can track what we have done, which decisions we made and why.<br>
+We can use Issues to discuss certain points with coauthors and can use Pull Requests and Reviews to discuss changes in the manuscript or analysis.</p>
+</section>
+<section id="github-actions" class="level1">
+<h1>GitHub Actions</h1>
+<p>It is considered bad practice to commit rendered documents like PDF or HTML to GitHub. Instead, build them with GitHub Actions. This way, it is always clear what the current version is, and how your code relates to the built output document. GitHub Actions are a way to automate your workflow. You can set up a workflow that runs every time you push to your repository. This can be used to check your code, run tests, or even build your manuscript. The setup is a bit more complex, the complete documentation can be found <a href="https://quarto.org/docs/publishing/github-pages.html">here</a>.<br>
+In this section, I’ll present one possible workflow.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Even if your repository is private, publishing a document like shown in this workflow will make it public, so in theory everyone can see it.</p>
+</div>
+</div>
+<section id="renv" class="level3">
+<h3 class="anchored" data-anchor-id="renv">1. <code>renv</code></h3>
+<p>First, you have to <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/">setup <code>renv</code></a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">init</span>()</span></code></pre></div>
+</div>
+<p>This will create a <code>.LOCK</code> file containing the package versions and a folder in which your project specific packages are saved.</p>
+</section>
+<section id="render" class="level3">
+<h3 class="anchored" data-anchor-id="render">2. render</h3>
+<p>Now you can render your quarto project once, using the Terminal (not the Console):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">quarto render</span></code></pre></div>
+</div>
+<p>Commit and push your changes!</p>
+<div class="{callout-tip}">
+<p>Don’t commit your output file, like html. You can exclude it from appearing in your git-interface by adding <code>*.html</code> to your <code>.gitignore</code> file.</p>
+</div>
+</section>
+<section id="gh-pages-branch" class="level3">
+<h3 class="anchored" data-anchor-id="gh-pages-branch">3. gh-pages branch</h3>
+<p>After that, you have to set up a <code>gh-pages</code> branch (make sure you have commited all changes before building the branch), again in the Terminal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">git checkout <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>orphan gh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pages</span>
+<span id="cb3-2">git reset <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>hard <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># make sure all changes are committed before running this!</span></span>
+<span id="cb3-3">git commit <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>allow<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>empty <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Initialising gh-pages branch"</span></span>
+<span id="cb3-4">git push origin gh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pages</span></code></pre></div>
+</div>
+<p>Your published content will be build from this branch. You don’t have to touch it after setting it up, the Actions we’ll build will take care of that.</p>
+</section>
+<section id="publish" class="level3">
+<h3 class="anchored" data-anchor-id="publish">4. publish</h3>
+<p>Finally, you can publish your quarto document:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">quarto publish gh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pages documentname.qmd</span></code></pre></div>
+</div>
+</section>
+<section id="action" class="level3">
+<h3 class="anchored" data-anchor-id="action">5. Action</h3>
+<p>To trigger this publishing everytime you push to your main branch on GitHub, build a new directory in your project called <code>.github/workflows</code>. Into this directory, you put a file <code>publish.yml</code> and fill it with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">on<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-2">  workflow_dispatch<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-3">  push<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-4">    branches<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> main</span>
+<span id="cb5-5"></span>
+<span id="cb5-6">name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Quarto Publish</span>
+<span id="cb5-7"></span>
+<span id="cb5-8">jobs<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-9">  build<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>deploy<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-10">    runs<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>on<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> ubuntu<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>latest</span>
+<span id="cb5-11">    permissions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-12">      contents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> write</span>
+<span id="cb5-13">    steps<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-14">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Check out repository</span>
+<span id="cb5-15">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>checkout<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v4</span>
+<span id="cb5-16"></span>
+<span id="cb5-17">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Set up Quarto</span>
+<span id="cb5-18">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>dev<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>setup<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v2</span>
+<span id="cb5-19"></span>
+<span id="cb5-20">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Install R</span>
+<span id="cb5-21">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>lib<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>setup<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v2</span>
+<span id="cb5-22">        with<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-23">          r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>version<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'4.4.1'</span></span>
+<span id="cb5-24"></span>
+<span id="cb5-25">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Install R Dependencies</span>
+<span id="cb5-26">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>lib<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>setup<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>renv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v2</span>
+<span id="cb5-27">        with<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-28">          cache<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>version<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-29"></span>
+<span id="cb5-30">      <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> Render and Publish</span>
+<span id="cb5-31">        uses<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>dev<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>quarto<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>actions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>publish<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">@</span>v2</span>
+<span id="cb5-32">        with<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-33">          target<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> gh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pages</span>
+<span id="cb5-34">        env<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb5-35">          GITHUB_TOKEN<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">$</span>{{ secrets.GITHUB_TOKEN }}</span></code></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You need to check the Read and write permissions box under Workflow permissions in the Actions section of your repository Settings.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can find the link to the published site under <code>Settings - Pages</code>. Copy it to put in the <code>About</code> field of your repo.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are <a href="https://quarto.org/docs/publishing/github-pages.html#github-action">other workflows</a> available as well.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="caveats" class="level1">
+<h1>Caveats</h1>
+<p>Some words of warning: Everything is online. So you should be carefull to upload sensitive data. Also, the fact that the whole process would be visible to everyone might feel weird. Still, even if you leave the Repo on private, it still is a great thing!</p>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Set up a GitHub repository for the quarto project you worked on in the last sessions. If you don’t upload your stuff to a cloud.</li>
+<li>Make up some small Issue that you can write into the Issue section on GitHub.</li>
+<li>Fix this Issue on <strong>a new branch</strong>. Commmit the changes, using <code>closes #Issuenumber</code> in the commit message, push everything and open a pull request.</li>
+<li>Assign someone from the group as reviewer.</li>
+<li>Review a pull-request assigned to you.</li>
+<li>Setup a actions workflow that automatically renders your document.</li>
+</ol>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-peikert2021reproducible" class="csl-entry">
+Peikert, Aaron, and Andreas M Brandmaier. 2021. <span>“A Reproducible Data Analysis Workflow with r Markdown, Git, Make, and Docker.”</span> <em>Quantitative and Computational Methods in Behavioral Sciences</em>, 1–27.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@towfiqu999999?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Towfiqu barbhuiya</a> on <a href="https://unsplash.com/de/fotos/eine-nahaufnahme-eines-papierstapels-auf-einem-tisch-KKHs1e2yiwc?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>quarto</category>
+  <category>R-SIG</category>
+  <category>Git</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/</guid>
+  <pubDate>Mon, 09 Sep 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
   <title>Plotting with ggplot2</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/</link>
@@ -4395,7 +4765,7 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Fri, 29 Nov 2024 17:26:04 GMT</pubDate>
+  <pubDate>Fri, 29 Nov 2024 17:36:17 GMT</pubDate>
 </item>
 <item>
   <title>FAQ: DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</title>
@@ -4627,7 +4997,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Fri, 29 Nov 2024 17:26:04 GMT</pubDate>
+  <pubDate>Fri, 29 Nov 2024 17:36:17 GMT</pubDate>
 </item>
 <item>
   <title>FAQ: Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</title>
@@ -4691,7 +5061,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Fri, 29 Nov 2024 17:26:04 GMT</pubDate>
+  <pubDate>Fri, 29 Nov 2024 17:36:17 GMT</pubDate>
 </item>
 <item>
   <title>FAQ: Wie groß sollte das N pro Item idealerweise sein?</title>
@@ -4719,7 +5089,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>FAQ</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Fri, 29 Nov 2024 17:26:04 GMT</pubDate>
+  <pubDate>Fri, 29 Nov 2024 17:36:17 GMT</pubDate>
 </item>
 </channel>
 </rss>

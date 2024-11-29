@@ -16,10 +16,15 @@
   {
     "listing": "/docs/beginners.html",
     "items": [
+      "/docs/R_tutorials/R_ws1.html",
       "/docs/R_tutorials/R_ws2.html",
-      "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
       "/docs/R_tutorials/R_ws3.html",
-      "/docs/R_tutorials/R_ws1.html"
+      "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
+      "/docs/git/github_workshop/github_intro_slides.html",
+      "/docs/git/github_pullrequests.html",
+      "/docs/r_sig/23_03_20_forloops/index.html",
+      "/docs/r_sig/23_07_31_apply/index.html",
+      "/docs/quarto/index.html"
     ]
   },
   {
@@ -32,6 +37,7 @@
       "/docs/r_sig/24_03_25_tidyverse_wrangling/index.html",
       "/docs/r_sig/24_04_08_tidyverse_column_wise/index.html",
       "/docs/r_sig/24_06_03_ggplot2/index.html",
+      "/docs/r_sig/24_09_09_quarto_git/index.html",
       "/docs/FAQ/FAQ1_Imputationen.html",
       "/docs/FAQ/FAQ2_eatModel-Conquest.html",
       "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
