@@ -5,16 +5,25 @@ listing:
   id: advanced
   type: default
   feed: true
-  categories: true
-  sort: "title"
+  categories: unnumbered
+  sort: false
   contents:
     - "R_tutorials/checkmate.qmd"
+    - "git/copilot/copilot.qmd"
+    - "24_01_26_tidyverse_intro/index.qmd"
+    - "24_03_22_datasets/index.qmd"
+    - "24_03_25_tidyverse_wrangling/index.qmd"
+    - "24_04_08_tidyverse_column_wise/index.qmd"
+    - "24_06_03_ggplot2/index.qmd"
+    - "FAQ1_Imputationen.qmd"
+    - "FAQ2_eatModel-Conquest.qmd"
+    - "FAQ3_Mehrebenenmodelle.qmd"
+    - "FAQ4_NproItem.qmd"
 ---
 
 ![](./images/martian.jpg)[^1]
 
 [^1]: Foto von <a href="https://unsplash.com/de/@lobosnico?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nicolas Lobos</a> auf <a href="https://unsplash.com/de/fotos/fotografie-eines-astronauten-der-tagsuber-neben-einer-felsformation-steht-NR_tXTuyTak?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-      
 
 Welcome to our advanced learn page. Here you can find more advanced material, links and articles about R, RStudio and more.
 

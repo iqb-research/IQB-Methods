@@ -24,7 +24,7 @@ listing:
       description: "here you can find some answers to common questions about statistics or our r-packages." 
     - title: "advanced"
       path: docs/advanced.qmd
-      image: docs/R_tutorials/images/checkmate.jpg
+      image: docs/images/martian.jpg
       description: "here you can find some more advanced R tutorials."
 ---
 
