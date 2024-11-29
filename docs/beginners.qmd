@@ -6,7 +6,7 @@ listing:
   type: default
   feed: true
   categories: unnumbered
-  sort: "title"
+  sort: false
   contents:
     - "R_tutorials/R_ws1.qmd"
     - "R_tutorials/R_ws2.qmd"
