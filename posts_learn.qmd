@@ -4,6 +4,8 @@ listing:
   id: learn-page
   type: grid
   feed: true
+  categories: true
+  sort: false
   contents:
     - title: "Starting with R"
       path: docs/beginners.qmd
