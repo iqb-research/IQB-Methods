@@ -8,7 +8,7 @@ listing:
   contents:
     - title: "Starting with R"
       path: docs/beginners.qmd
-      image: docs/R_tutorials/images/einführung.jpg
+      image: docs/images/sapling.jpg
       description: "here you can find R tutorials to start your R journey."
     - title: "Workflow"
       path: docs/workflow.qmd
