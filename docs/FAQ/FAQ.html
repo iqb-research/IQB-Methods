@@ -8,7 +8,7 @@
 
 <meta name="author" content="NA">
 
-<title>Pakete(-Installation), Workspace, Daten laden und speichern in R – IQB Methods Team</title>
+<title>FAQ – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/R_tutorials/checkmate.html" rel="next">
-<link href="../../docs/R_tutorials/R_ws2.html" rel="prev">
+<link href="../../docs/discussions/code_conventions.html" rel="next">
+<link href="../../docs/quarto/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,12 +103,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Pakete(-Installation), Workspace, Daten laden und speichern in R – IQB Methods Team">
+<meta property="og:title" content="FAQ – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -162,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="https://nickhaf.github.io/r_tutorial/">R Tutorials</a></li><li class="breadcrumb-item"><a href="../../docs/R_tutorials/R_ws3.html">Pakete(-Installation), Workspace, Daten laden und speichern in R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/FAQ/FAQ.html">FAQ</a></li><li class="breadcrumb-item"><a href="../../docs/FAQ/FAQ.html">FAQ</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -267,13 +298,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">R Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="https://nickhaf.github.io/r_tutorial/" class="sidebar-item-text sidebar-link">
@@ -300,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/R_tutorials/R_ws3.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/R_tutorials/R_ws3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pakete(-Installation), Workspace, Daten laden und speichern in R</span></a>
   </div>
 </li>
@@ -351,16 +382,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">FAQ</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/FAQ/FAQ.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/FAQ/FAQ.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">FAQ</span></a>
   </div>
 </li>
@@ -393,29 +424,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pakete-installieren-und-laden" id="toc-pakete-installieren-und-laden" class="nav-link active" data-scroll-target="#pakete-installieren-und-laden">1. Pakete installieren und laden</a></li>
-  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory">2. Working Directory</a></li>
-  <li><a href="#dateien-speichern-und-laden" id="toc-dateien-speichern-und-laden" class="nav-link" data-scroll-target="#dateien-speichern-und-laden">3. Dateien speichern und laden</a></li>
-  <li><a href="#andere-datei-formate" id="toc-andere-datei-formate" class="nav-link" data-scroll-target="#andere-datei-formate">4. Andere Datei-Formate</a>
+  <li><a href="#wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen" id="toc-wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen" class="nav-link active" data-scroll-target="#wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen">1. Wie poole ich mein <span class="math inline">\(R^2\)</span> richtig über mehrere (bspw. 15) Imputationen?</a>
   <ul class="collapse">
-  <li><a href="#csv" id="toc-csv" class="nav-link" data-scroll-target="#csv">.csv</a></li>
-  <li><a href="#xlsx-excel" id="toc-xlsx-excel" class="nav-link" data-scroll-target="#xlsx-excel">.xlsx (Excel)</a></li>
-  <li><a href="#sav-spss" id="toc-sav-spss" class="nav-link" data-scroll-target="#sav-spss">.sav (SPSS)</a></li>
-  <li><a href="#dta-stata" id="toc-dta-stata" class="nav-link" data-scroll-target="#dta-stata">.dta (Stata)</a></li>
-  <li><a href="#dat-mplus" id="toc-dat-mplus" class="nav-link" data-scroll-target="#dat-mplus">.dat (Mplus)</a></li>
+  <li><a href="#a.-methode-nach-harel-2009" id="toc-a.-methode-nach-harel-2009" class="nav-link" data-scroll-target="#a.-methode-nach-harel-2009">a. Methode nach Harel (2009)</a></li>
+  <li><a href="#b.-pool.r2-aus-eatrep" id="toc-b.-pool.r2-aus-eatrep" class="nav-link" data-scroll-target="#b.-pool.r2-aus-eatrep">b. pool.R2() aus eatRep</a></li>
   </ul></li>
+  <li><a href="#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte" id="toc-dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte" class="nav-link" data-scroll-target="#dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte">2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</a></li>
+  <li><a href="#zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen" id="toc-zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen" class="nav-link" data-scroll-target="#zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen">3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</a>
+  <ul class="collapse">
+  <li><a href="#a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander." id="toc-a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander." class="nav-link" data-scroll-target="#a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander.">a. Zentrierung um den Gruppenmittelwert: Schätzung von Individual- und Aggregateffekten unabhängig voneinander.</a></li>
+  <li><a href="#b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression." id="toc-b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression." class="nav-link" data-scroll-target="#b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression.">b. Zentrierung um den Gesamtmittelwert: Führt zu einfacher Interpretation des Intercepts, aber auch zu “Overall-Regression”.</a></li>
+  <li><a href="#c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist." id="toc-c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist." class="nav-link" data-scroll-target="#c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist.">c.&nbsp;Keine Zentrierung: Ist selten sinnvoll bei Interaktionen im Modell. Vor allem dann nicht, wenn die Null für die Prädiktorvariablen kein sinnvoller Wert ist.</a></li>
+  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
+  </ul></li>
+  <li><a href="#wie-groß-sollte-das-n-pro-item-idealerweise-sein" id="toc-wie-groß-sollte-das-n-pro-item-idealerweise-sein" class="nav-link" data-scroll-target="#wie-groß-sollte-das-n-pro-item-idealerweise-sein">4. Wie groß sollte das <em>N</em> pro Item idealerweise sein?</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R_tutorials/R_ws3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/FAQ/FAQ.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="https://nickhaf.github.io/r_tutorial/">R Tutorials</a></li><li class="breadcrumb-item"><a href="../../docs/R_tutorials/R_ws3.html">Pakete(-Installation), Workspace, Daten laden und speichern in R</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/FAQ/FAQ.html">FAQ</a></li><li class="breadcrumb-item"><a href="../../docs/FAQ/FAQ.html">FAQ</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Pakete(-Installation), Workspace, Daten laden und speichern in R</h1>
+<h1 class="title">FAQ</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">R</div>
-    <div class="quarto-category">tutorial</div>
+    <div class="quarto-category">FAQ</div>
   </div>
   </div>
 
@@ -439,181 +473,159 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="images\einführung.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<section id="pakete-installieren-und-laden" class="level1">
-<h1>1. Pakete installieren und laden</h1>
-<p>Die Funktionalität von <code>base R</code> wird um ein vielfaches durch ein sehr umfangreiches Pakete-Universum ergänzt. Diese Erweiterungen werden für <code>R</code> <code>packages</code> oder <code>libraries</code> genannt. Im Prinzip kann jeder(r) eine solche <code>library</code> schreiben, deswegen ist bei der Nutzung neuer <code>libraries</code> etwas Vorsicht geboten. Es gibt jedoch eine Reihe sehr weit verbreiteter und hochwertiger <code>libraries</code>, deren Nutzung uneingeschränkt empfohlen werden kann.</p>
-<p>Liegen Pakete auf <code>CRAN</code>, können sie mithilfe von <code>install.packages()</code> installiert werden. Pakete, die ausschließlich auf Github verfügbar sind, können über <code>devtools::install_github()</code> installiert werden. Für nähere Informationen siehe auch: http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren</p>
+<section id="wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen" class="level2">
+<h2 class="anchored" data-anchor-id="wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen">1. Wie poole ich mein <span class="math inline">\(R^2\)</span> richtig über mehrere (bspw. 15) Imputationen?</h2>
+<section id="a.-methode-nach-harel-2009" class="level3">
+<h3 class="anchored" data-anchor-id="a.-methode-nach-harel-2009">a. Methode nach Harel (2009)</h3>
+<p>Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:<br>
+1. Die Quadratwurzel aus <span class="math inline">\(R^2\)</span> ziehen<br>
+2. eine Fisher <em>z</em>-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird<br>
+3. Rubins Regeln für metrische Variablen anwenden<br>
+4. mit einer inversen <em>z</em>-Transformation den Wert wieder zurückrechnen und quadrieren</p>
+<p>Harel, O. (2009). The estimation of R2 and adjusted R2 in incomplete data sets using multiple imputation. <em>Journal of Applied Statistics, 36</em>(10), 1109-1118.</p>
+</section>
+<section id="b.-pool.r2-aus-eatrep" class="level3">
+<h3 class="anchored" data-anchor-id="b.-pool.r2-aus-eatrep">b. pool.R2() aus eatRep</h3>
+<p>Im Paket eatRep kann das über die Funktion <code>pool.R2()</code> berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird.</p>
+<p>Angenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) <span class="math inline">\(R^2\)</span>-Werte, dann kann der gepoolte <span class="math inline">\(R^2\)</span>-Wert folgendermaßen bestimmt werden:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket von CRAN installieren</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"car"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket von Github installieren</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"sachseka/eatPrep"</span>, <span class="at">upgrade =</span> <span class="st">"never"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.12</span>,<span class="fl">0.18</span>,<span class="fl">0.17</span>,<span class="fl">0.21</span>,<span class="fl">0.23</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>eatRep<span class="sc">::</span><span class="fu">pool.R2</span>(r2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Achtung: Wenn ein Paket bereits geladen ist und eine Neuinstallation dieses Pakets versucht wird, kann dies zu Fehlern führen. In diesem Fall kann entweder die <code>R</code> Session neu gestartet oder das entsprechende Paket mit <code>detach()</code> “entladen” werden.</p>
-<p>Zur Verwendung von Paketen können einzelne Funktionen explizit über ihren Namespace angesprochen werden, ohne dass sie dafür explizit geladen werden müssen:</p>
+</section>
+</section>
+<section id="dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte" class="level2">
+<h2 class="anchored" data-anchor-id="dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte">2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</h2>
+<p>In eatModel wird nur der erste Teil der zweiten Tabelle <span class="math inline">\(\text{item}\times\text{[DIFvariable]}\)</span> aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items <strong>in der ersten Gruppe</strong> der <span class="math inline">\(\text{[DIFvariable]}\)</span> <strong>leichter</strong> sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Funktion verwenden, ohne Paket zu laden</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>some_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">recode</span>(some_data, <span class="st">"1 = 'a'; 2 = 'b'; 4 = 'd'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatTools)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatModel)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data.ex08, <span class="at">package=</span><span class="st">"TAM"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Gesamtdatensatz bauen, der sowohl Personen-ID, DIF-Variable als auch responses enthaelt</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, data.ex08[[<span class="st">"resp"</span>]])</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "a" "b" "a" "d"</code></pre>
+<pre><code>14 subject(s) do not solve any item:
+   115 (10 false), 613 (10 false), 979 (10 false) ... 
+7 subject(s) solved each item: 119 (10 correct), 514 (10 correct), 774 (10 correct) ... 
+Dataset is completely linked.
+'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
+Q matrix specifies 1 dimension(s).</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>run <span class="ot">&lt;-</span> <span class="fu">runModel</span>(def)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">getResults</span>(run, <span class="at">verbose=</span><span class="cn">FALSE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>item <span class="ot">&lt;-</span> <span class="fu">itemFromRes</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Oder das Paket wird vollständig geladen mithilfe des <code>library()</code> Befehls</p>
+<p>Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paket laden</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"car"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: carData</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>item6 <span class="ot">&lt;-</span> <span class="fu">subset</span>(<span class="fu">roundDF</span>(item,<span class="at">digits =</span> <span class="dv">3</span>), item <span class="sc">==</span> <span class="st">"I0006"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cols  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"item"</span>, <span class="st">"itemP"</span>, <span class="st">"est"</span>, <span class="st">"estDif"</span>, <span class="st">"absDif"</span>, <span class="st">"difIndex"</span>, <span class="st">"ETS"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ausgewaehlte Spalten fuer Items 6 anzeigen lassen </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(item6[,cols], <span class="at">row.names=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">item</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">itemP</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">est</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estDif</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">absDif</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">difIndex</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ETS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I0006</td>
+<td style="text-align: right;">0.454</td>
+<td style="text-align: right;">0.226</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">B</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>some_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">recode</span>(some_data, <span class="st">"1 = 'a'; 2 = 'b'; 4 = 'd'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von 0.3098146 bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(dat[,<span class="st">"I0006"</span>], dat[,<span class="st">"female"</span>], mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "a" "b" "a" "d"</code></pre>
-</div>
-</div>
-<p>Falls es mehrere Pakete gibt, die Funktionen mit demselben Namen beinhalten (zB <code>dplyr::recode()</code>), kann mit <code>car::recode()</code> sichergestellt werden, dass immer die gewünschte Funktion verwendet wird, auch wenn zusätzlich das Paket <code>dplyr</code> geladen wird.</p>
-</section>
-<section id="working-directory" class="level1">
-<h1>2. Working Directory</h1>
-<p>Wenn <code>R</code> geöffnet wird (ob über die GUI oder RStudio), wird ein aktives Working Dirctory festgelegt. In diesem Ordner sucht <code>R</code> dann standardmäßig nach Dateien bzw. speichert diese dort ab. Mit den Befehlen <code>getwd()</code> und <code>setwd()</code> kann das Working Directory ausgegeben und verändert werden.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Working Directory ausgeben lassen</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Working Directory ändern</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"t:/_R"</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Geändertes Working Directory überprüfen</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Achtung: Das Zeichen “<code>\</code>” ist in <code>R</code> reserviert. Um Probleme hierbei zu umgehen, kann stattdessen einfach das herkömmliche “<code>/</code>” verwendet werden.</p>
-<p>Verwendet man RStudio und öffnet eine neue RStudio-Session per Doppelklick auf eine abgespeicherte R-Syntax, wird das Working Directory automatisch in den Pfad gesetzt, in dem die Syntax liegt. Zusätzlich lässt sich das Working Directory in RStudio über ein Drop-Down Menü verändern.</p>
-<p><img src="Material_WSIII/wd_rstudio.jpg" class="img-fluid"></p>
-<p>Man kann Dateipfade also in relative bzw. absolute Dateipfade unterteilen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Working Directory und relativen Dateipfade verwenden</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"P:/R/03_Workshops_und_Tutorials/02_R_Einfuehrung/Material_WSIII"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"mtcars.RDS"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Absoluten Dateipfad verwenden (das Workingdirectory ist dabei egal)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"P:/R/03_Workshops_und_Tutorials/02_R_Einfuehrung/Material_WSIII/mtcars.RDS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Wenn man in einem kleineren Projekt arbeitet und Syntaxen per Mail oder Repository austauscht (zum Beispiel einzelne Paper-Projekte mit Co-Autoren unterschiedlicher Institutionen), ist es ratsam, keine absoluten Pfade in seinen Syntaxen zu verwenden. Wenn man im Gegensatz dazu in größeren Projekten institutsintern arbeitet, in denen Datensätze auf gemeinsamen Laufwerken gespeichert sind, bietet sich die Verwendung von absoluten Pfaden an.</p>
-</section>
-<section id="dateien-speichern-und-laden" class="level1">
-<h1>3. Dateien speichern und laden</h1>
-<p>In <code>R</code> gibt es zwei R-spezifische Dateiformate, um Daten zu speichern: <code>RDS</code> und <code>RData</code>. Falls Daten nur für die Nutzung in späteren <code>R</code>-Sessions benötigt werden, empfiehlt sich immer die Nutzung eines dieser Formate. Andere Formate (<code>.csv</code>, <code>xlsx.</code>, <code>sav</code> usw.) sind im Vergleich deutlich fehleranfälliger. Zusätzlich können häufig Datensätze nicht in der exakt gleichen Formatierung wieder eingelesen werden.</p>
-<p><code>saveRDS()</code> dient zur Speicherung eines einzelnen Objekts in R, die die Endung <code>RDS</code> erhalten sollten. Beim Laden dieses Objekts wird dem Objekt ein neuer Name zugewiesen.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispieldatensatz</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(mtcars, <span class="st">"Material_WSIII/mtcars.RDS"</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"Material_WSIII/mtcars.RDS"</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt betrachten</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>save()</code> dient zur Speicherung eines oder (in der Regel) mehrerer Objekte auf einmal, entsprechende Dateien sollten die Endung <code>RData</code> erhalten. Beim Laden dieser Objekte behalten diese ihren ursprünglichen Namen. Dies kann nervig sein, da mögliche andere Personen nicht wissen, welche Namen die gespeicherten Objekte hatten.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beispieldatensätze</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>iris2 <span class="ot">&lt;-</span> iris</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekte speichern (file Argument explizit benennen!)</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars2, iris2, <span class="at">file =</span> <span class="st">"Material_WSIII/stuff.RData"</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekte laden</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"Material_WSIII/stuff.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Ungünstig ist die Verwendung von <code>save</code> bzw. <code>load</code> auch deshalb, weil beim Laden dieser Objekte gegebenenfalls gleichlautende und bereits in der globalen Umgebung vorhandene Objekte überschrieben werden. Setzt man um den <code>load</code>-Befehl eine Klammer, erkennt man immerhin, welche Namen die gespeicherten Objekte hatten:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekte laden und hre Namen anzeigen lassen</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">load</span>(<span class="st">"Material_WSIII/stuff.RData"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Wenn man überprüfen möchte, wie die in der globalen Umgebung geladenen Objekte heißen, kann man mithilfe des Befehls <code>ls()</code> die aktuell vorhanden Objekte in der globalen Umgebung überprüfen oder diese in RStudio unter <code>Environment</code> betrachten.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Welche Objekte liegen in der globalen Umgebung?</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "pandoc_dir"      "quarto_bin_path" "some_data"      </code></pre>
+<pre><code>    0     1 
+0.410 0.498 </code></pre>
 </div>
 </div>
 </section>
-<section id="andere-datei-formate" class="level1">
-<h1>4. Andere Datei-Formate</h1>
-<section id="csv" class="level2">
-<h2 class="anchored" data-anchor-id="csv">.csv</h2>
-<p>Beim Speichern von comma seperated files (<code>.csv</code>) können die Funktionen <code>write.csv()</code> und <code>write.csv2()</code> verwendet werden, wobei letztere Funktion den deutschen Excel-Konventionen (“,” als Dezimaltrenner) entspricht.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(mtcars, <span class="st">"Material_WSIII/mtcars.csv"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"Material_WSIII/mtcars.csv"</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt betrachten</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen" class="level2">
+<h2 class="anchored" data-anchor-id="zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen">3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</h2>
+<p>Wenn in Mehrebenenmodellen Interaktionen geschätzt werden, hängt die Schätzung des Intercepts wie auch die der Haupteffekte von der gewählten Skala der Prädiktoren ab. Die Haupteffekte repräsentieren den Effekt eines Prädiktors an der Stelle, an der die anderen Prädiktoren null sind. Da die Null oftmals kein natürlicher Wert von Prädiktoren ist (z. B. ist die Interpretation eines Effekts an der Stelle Klassengröße = 0 i. d.&nbsp;R. nicht sehr sinnvoll), wird das Zentrieren der Prädiktoren empfohlen. Hier kommen zwei Varianten in Frage: Zentrierung am Gruppenmittelwert und Zentrierung am Gesamtmittelwert. Für einen Prädiktor <span class="math inline">\(X\)</span>, der an Individuum <span class="math inline">\(i\)</span> (<span class="math inline">\(\forall i \in \{1,…,i,…,n\}\)</span>) in Gruppe <span class="math inline">\(j\)</span> (<span class="math inline">\(\forall j \in \{1,…,j,…,J\}\)</span>) erhoben wird, bedeutet eine Zentrierung am Gesamtmittelwert, dass man von diesem individuellen Wert <span class="math inline">\(x_{ij}\)</span> den Gesamtmittelwert <span class="math inline">\(M_X\)</span> abzieht, gemäß: <span class="math inline">\(X_{ij}-M_X\)</span>. Eine Zentrierung am Gruppenmittelwert bedeutet, dass man vom individuellen Wert <span class="math inline">\(x_{ij}\)</span> den Mittelwert der jeweiligen Gruppe abzieht, gemäß: <span class="math inline">\(X_{ij}-M_{X_j}\)</span> Hier eine grafische Darstellung dieser Zentrierungsmöglichkeiten eines Prädiktors:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/centering.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Zentrierungsmöglichkeiten</figcaption>
+</figure>
 </div>
+<p>Hier ist derselbe Prädiktor in seinen drei Zentrierungsformen in Relation zu einem Outcome abgebildet:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/centeringOverallRegression.jpeg" class="img-fluid figure-img"></p>
+<figcaption>drei Zentrierungsformen in Relation zu einem Outcome</figcaption>
+</figure>
+</div>
+<p>Wenn man nun eine einfache lineare Regression eines Outcomes auf den Prädiktor rechnet, kann man die Haupteffekte (Slopes) des unzentrierten Prädiktors und des Grand-Mean-zentrierten Prädiktors genau gleich interpretieren: Der Regressionskoeffizient beschreibt die Veränderung des Outcomes, wenn der Prädiktor um eine Einheit ansteigt. Dies gilt nicht für den Group-Mean-zentrierten Prädiktor: Dieser repräsentiert die erwartete Veränderung des Outcomes bei Zunahme des Prädiktors um eine durchschnittliche Einheit innerhalb der Gruppen.</p>
+<section id="a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander." class="level3">
+<h3 class="anchored" data-anchor-id="a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander.">a. Zentrierung um den Gruppenmittelwert: Schätzung von Individual- und Aggregateffekten unabhängig voneinander.</h3>
+<p>Die Zentrierung um den Gruppenmittelwert ermöglicht die Trennung der individuellen Variation innerhalb der Gruppen von der Variation zwischen den Gruppen. Dadurch können sowohl die Effekte auf der Individualebene als auch die Effekte auf der Gruppenebene unabhängig voneinander geschätzt werden.</p>
+<ul>
+<li><strong>Interpretation von Level-1-Variablen-Interaktionen:</strong> Zeigt an, wie sich die lineare Beziehung zwischen Variablen innerhalb der Gruppen gestaltet.</li>
+<li><strong>Interpretation von Level-2-Variablen-Interaktionen:</strong> Zeigt an, wie sich die lineare Beziehung der Variablen zwischen den Gruppen gestaltet – allerdings wird hier nicht voll kontrolliert für Level-1-Prädiktoren, sofern nicht zusätzlich noch die Gruppenmittelwerte der zu kontrollierenden Level-1-Variablen aufgenommen werden, sodass die Zentrierung um den Gruppenmittelwert für diesen Zweck von manchen Autor:innen als weniger sinnvoll erachtet wird (Algina &amp; Swaminathan, 2011).</li>
+<li><strong>Interpretation von Cross-Level-Interaktionen:</strong> Bei der Untersuchung von Interaktionen zeigt ein Interaktionseffekt zwischen einer um den Gruppenmittelwert zentrierten individuellen Variablen (Level-1) und einer gruppenbezogenen Variablen (Level-2), inwiefern der Effekt der individuellen Variablen von der gruppenbezogenen Variablen abhängt: Hat eine höhere Ausprägung auf einer Level-1-Variablen relativ zum Gruppenmittelwert auf dieser Variablen einen anderen Effekt auf das Kriterium, wenn die Ausprägung einer Level-2-Variablen für die Gruppe höher ist? Der Koeffizient sollte sich gemäß Algina und Swaminathan (2011) nicht bedeutsam unterscheiden von dem, der durch Zentrierung um den Gesamtmittelwert geschätzt wird, aber falls doch, empfehlen die Autoren, diese Cross-Level-Interaktion aus dem Modell zu entfernen. Andere Autor:innen empfehlen nur Group-Mean-Centering der Level-1- und Grand-Mean-Centering der Level-2-Prädiktoren bei Untersuchung von Cross-Level-Interaktionen, da so die Interpretation der Haupteffekte erleichtert wird (z.B. Bauer &amp; Curran, 2005). Mehrere Autor:innen (z. B. Yaremych et al., 2023) plädieren bei Cross-Level-Interaktionen im Allgemeinen für diese Art der Zentrierung, da sie meistens den formulierten Cross-Level-Interaktions-Hypothesen entspricht.</li>
+</ul>
 </section>
-<section id="xlsx-excel" class="level2">
-<h2 class="anchored" data-anchor-id="xlsx-excel">.xlsx (Excel)</h2>
-<p>Zum Einlesen von Excel files empfiehlt sich die Funktion <code>read_xlsx()</code> aus dem Paket <code>readxl</code>. Achtung! Da das Paket standardmäßig einen <code>tibble</code> ausgibt, eine Spezialform von <code>data.frames</code>, empfiehlt sich die Umwandlung zu einem <code>data.frame</code>. Da das Paket leider kein Schreiben von Excel files unterstützt, empfiehlt sich hierfür die Funktion <code>write_xlsx()</code> aus dem Paket <code>eatAnalysis</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>eatAnalysis<span class="sc">::</span><span class="fu">write_xlsx</span>(mtcars, <span class="st">"Material_WSIII/mtcars.xlsx"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"Material_WSIII/mtcars.xlsx"</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dat)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression." class="level3">
+<h3 class="anchored" data-anchor-id="b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression.">b. Zentrierung um den Gesamtmittelwert: Führt zu einfacher Interpretation des Intercepts, aber auch zu “Overall-Regression”.</h3>
+<p>Die Zentrierung um den Gesamtmittelwert ermöglicht die Untersuchung der Effekte in Bezug auf den Mittelwert der gesamten Stichprobe. Das Intercept entspricht dem erwarteten Wert auf der Kriteriumsvariablen bei durchschnittlicher Ausprägung der Prädiktorvariablen. Die Effekte <em>zwischen</em> und <em>innerhalb</em> der Untersuchungseinheiten lassen sich nicht mehr getrennt interpretieren („Overall-Regression“).</p>
+<ul>
+<li><strong>Interpretation von Level-1-Variablen-Interaktionen:</strong> Zeigt an, wie sich die lineare Beziehung der Variablen über alle Gruppen hinweg gestaltet.</li>
+<li><strong>Interpretation von Level-2-Variablen-Interaktionen:</strong> Zeigt an, wie sich die lineare Beziehung der Variablen zwischen den Gruppen gestaltet (ggf. vollständig kontrolliert für Level-1-Prädiktoren). Diese Form der Zentrierung wird zu solchem Zweck meist empfohlen (Algina &amp; Swaminathan, 2011).</li>
+<li><strong>Interpretation von Cross-Level-Interaktionen:</strong> Bei der Untersuchung von Interaktionen zeigt ein Interaktionseffekt zwischen einer um den Gesamtmittelwert zentrierten individuellen Variablen (Level-1) und einer gruppenbezogenen Variablen (Level-2), wie der Effekt der individuellen Variablen über alle Gruppen hinweg von der gruppenbezogenen Variablen abhängt: Hat eine höhere absolute Ausprägung auf einer Level-1-Variablen einen anderen Effekt auf das Kriterium, wenn die Ausprägung einer Level-2-Variablen für die Gruppe höher ist? Algina und Swaminathan (2011) plädieren dafür, diese Cross-Level-Interaktion aus dem Modell zu entfernen, sollte sich der Effekt deutlich unterscheiden von der alternativen Schätzung nach Zentrierung um den Gruppenmittelwert.</li>
+</ul>
 </section>
-<section id="sav-spss" class="level2">
-<h2 class="anchored" data-anchor-id="sav-spss">.sav (SPSS)</h2>
-<p>Zum Importieren von SPSS-Dateien bietet sich das Paket <code>eatGADS</code> an. Es ermöglicht das Einlesen von Daten in einem zwei-schrittigem Vorgehen. Zuerst werden die Daten eingelesen.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>spss <span class="ot">&lt;-</span> eatGADS<span class="sc">::</span><span class="fu">import_spss</span>(<span class="st">"Material_WSIII/example.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Diese Datei enthält sämtliche Metadaten, die auch die originale spss-Datei beinhaltet (Variablen- und Wertelabel etc.). Diese können mithilfe von <code>extractMeta</code> abgefragt werden. Im Folgenden werden die Metadaten für die Variable <code>"PJgsep_a"</code> abgerufen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>eatGADS<span class="sc">::</span><span class="fu">extractMeta</span>(spss, <span class="st">"PJgsep_a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Um Analysen in R durchzuführen, müssen die Daten aus diesem Objekt nun mithilfe der <code>extractData()</code>-Funktion extrahiert werden. Diese ermöglicht zum einen Missingcodes anzuwenden, zum anderen gelabelte Variablen entweder als numerische, character oder Faktor-Variablen auszugeben.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sav Datei einlesen</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> eatGADS<span class="sc">::</span><span class="fu">extractData</span>(spss, <span class="at">convertLabel =</span> <span class="st">"character"</span>, <span class="at">convertMiss =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist." class="level3">
+<h3 class="anchored" data-anchor-id="c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist.">c.&nbsp;Keine Zentrierung: Ist selten sinnvoll bei Interaktionen im Modell. Vor allem dann nicht, wenn die Null für die Prädiktorvariablen kein sinnvoller Wert ist.</h3>
+<p>Alle Empfehlungen gelten ebenso für kategoriale Prädiktoren, siehe z. B. Yaremych et al.&nbsp;(2023): “… we have demonstrated that centering guidelines for continuous predictors should be applied analogously to categorical predictors” (p.&nbsp;8). Hierbei wird ein <span class="math inline">\(k-\)</span>stufiger Prädiktor stets durch <span class="math inline">\(k-1\)</span> “Coding-Variablen” repräsentiert. Ob diese durch Dummy-Kodierung, Effekt-Kodierung oder Kontrast-Kodierung gebildet werden, hängt von der intendierten Interpretation ab und liegt außerhalb des Fokus’ dieses Artikels.</p>
 </section>
-<section id="dta-stata" class="level2">
-<h2 class="anchored" data-anchor-id="dta-stata">.dta (Stata)</h2>
-<p>Stata-Datein können mithilfe des Paktes <code>haven</code> sowohl gelesen als auch geschrieben werden.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">write_dta</span>(mtcars, <span class="st">"Material_WSIII/mtcars.dta"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt laden</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"Material_WSIII/mtcars.dta"</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dat)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="literatur" class="level3">
+<h3 class="anchored" data-anchor-id="literatur">Literatur</h3>
+<p>Algina, J., &amp; Swaminathan, H. (2011). Centering in two-level nested designs. In J. Hox &amp; K. Roberts (Eds.), <em>The handbook of advanced multilevel data analysis</em> (pp.&nbsp;285–312). Routledge.</p>
+<p>Bauer, D.J., &amp; Curran, P.J. (2005). Probing interactions in fixed and multilevel regression: Inferential and graphical techniques. <em>Multivariate Behavioral Research, 40</em>, 373–400. https://doi.org/10.1207/s15327906mbr4003_5</p>
+<p>Yaremych, H. E., Preacher, K. J., &amp; Hedeker, D. (2023). Centering categorical predictors in multilevel models: Best practices and interpretation. <em>Psychological Methods, 28</em>(3), 613–630. https://doi.org/10.1037/met0000434</p>
 </section>
-<section id="dat-mplus" class="level2">
-<h2 class="anchored" data-anchor-id="dat-mplus">.dat (Mplus)</h2>
-<p>Häufig möchte man in Vorbereitung von Analysen mithilfe von <code>Mplus</code> Daten in <code>R</code> aufbereiten. Das Paket <code>MplusAutomation</code> beinhaltet die Funktion <code>prepareMplusData()</code>, die das schreiben von <code>.dat</code> Datein ermöglicht und zusätzlich einen Rohling für die Mplus-Analysesyntax erstellt. Außerdem beinhaltet das Paket zahlreiche Möglichkeiten verschiedene Analysen zu automatisieren.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objekt speichern</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>MplusAutomation<span class="sc">::</span><span class="fu">prepareMplusData</span>(mtcars, <span class="at">filename =</span> <span class="st">"Material_WSIII/mtcars.dat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</section>
+<section id="wie-groß-sollte-das-n-pro-item-idealerweise-sein" class="level2">
+<h2 class="anchored" data-anchor-id="wie-groß-sollte-das-n-pro-item-idealerweise-sein">4. Wie groß sollte das <em>N</em> pro Item idealerweise sein?</h2>
+<p>Grundsätzlich stellt sich die Frage des <em>N</em> pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es gibt jedoch Daumenregeln und es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an <span class="math inline">\(N&gt;100\)</span> orientieren. Im Studiendesign versucht man dabei, auf ein <span class="math inline">\(N=150\)</span> zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:</p>
+<ul>
+<li><strong>VERA-Pilotierung ohne DIF:</strong> hier wäre <span class="math inline">\(N=150\)</span> ein vertretbarer Richtwert.</li>
+<li><strong>VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:</strong> für eine verlässliche DIF-Analyse wäre <span class="math inline">\(N=150\)</span> <em>pro Geschlechtergruppe</em> anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier <span class="math inline">\(N=300\)</span> ein Minimum, <span class="math inline">\(N=400\)</span> ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.</li>
+<li><strong>Pilotierung mit DIF-Analyse bzgl. SPF:</strong> Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre <span class="math inline">\(N=150\)</span> in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen <span class="math inline">\(N&gt;20000\)</span> ist das zwar möglich, aber in kleineren Erhebungen wie VERA-Pilotierungen wäre das komplett unrealistisch. Hier müsste man also ggf. ein Oversampling anstreben, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen “überrepräsentieren”.</li>
+<li><strong>Analysen bzgl. Migrationshintergrund:</strong> Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem <em>N</em> pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus <span class="math inline">\(\text{Migrationshintergrund}\times \text{Geschlecht}\)</span> hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein – es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.</li>
+</ul>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
 
 
 </section>
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@vantaymedia?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Van Tay Media</a> on <a href="https://unsplash.com/de/fotos/frauen-die-laptops-benutzen-9buwiennNqg">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1033,13 +1045,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../docs/R_tutorials/R_ws2.html" class="pagination-link" aria-label="Data Frames, Listen und Grafiken in R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Frames, Listen und Grafiken in R</span>
+      <a href="../../docs/quarto/index.html" class="pagination-link" aria-label="Updating the website">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Updating the website</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../docs/R_tutorials/checkmate.html" class="pagination-link" aria-label="Using Checkmate">
-        <span class="nav-page-text">Using Checkmate</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/discussions/code_conventions.html" class="pagination-link" aria-label="Code-Konventionen">
+        <span class="nav-page-text">Code-Konventionen</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1048,4 +1060,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/R_tutorials/R_ws3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/FAQ/FAQ.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

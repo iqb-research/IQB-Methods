@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="NA">
+<meta name="author" content="Nicklas Hafiz">
+<meta name="dcterms.date" content="2024-01-25">
 
-<title>FAQ: Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen – IQB Methods Team</title>
+<title>GitHub Copilot in R-Studio – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,40 +69,11 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="FAQ: Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen – IQB Methods Team">
+<meta property="og:title" content="GitHub Copilot in R-Studio – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/copilot/astronaut.jpg">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -160,22 +132,20 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander." id="toc-a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander." class="nav-link active" data-scroll-target="#a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander.">a. Zentrierung um den Gruppenmittelwert: Schätzung von Individual- und Aggregateffekten unabhängig voneinander.</a></li>
-  <li><a href="#b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression." id="toc-b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression." class="nav-link" data-scroll-target="#b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression.">b. Zentrierung um den Gesamtmittelwert: Führt zu einfacher Interpretation des Intercepts, aber auch zu “Overall-Regression”.</a></li>
-  <li><a href="#c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist." id="toc-c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist." class="nav-link" data-scroll-target="#c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist.">c.&nbsp;Keine Zentrierung: Ist selten sinnvoll bei Interaktionen im Modell. Vor allem dann nicht, wenn die Null für die Prädiktorvariablen kein sinnvoller Wert ist.</a></li>
-  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/FAQ/FAQ3_Mehrebenenmodelle.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/copilot/copilot.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">FAQ: Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</h1>
+<h1 class="title">GitHub Copilot in R-Studio</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">FAQ</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Git</div>
   </div>
   </div>
 
@@ -186,10 +156,16 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>NA </p>
+             <p>Nicklas Hafiz </p>
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 25, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -199,57 +175,29 @@ window.Quarto = {
 </header>
 
 
-<p>Wenn in Mehrebenenmodellen Interaktionen geschätzt werden, hängt die Schätzung des Intercepts wie auch die der Haupteffekte von der gewählten Skala der Prädiktoren ab. Die Haupteffekte repräsentieren den Effekt eines Prädiktors an der Stelle, an der die anderen Prädiktoren null sind. Da die Null oftmals kein natürlicher Wert von Prädiktoren ist (z. B. ist die Interpretation eines Effekts an der Stelle Klassengröße = 0 i. d.&nbsp;R. nicht sehr sinnvoll), wird das Zentrieren der Prädiktoren empfohlen. Hier kommen zwei Varianten in Frage: Zentrierung am Gruppenmittelwert und Zentrierung am Gesamtmittelwert. Für einen Prädiktor <span class="math inline">\(X\)</span>, der an Individuum <span class="math inline">\(i\)</span> (<span class="math inline">\(\forall i \in \{1,…,i,…,n\}\)</span>) in Gruppe <span class="math inline">\(j\)</span> (<span class="math inline">\(\forall j \in \{1,…,j,…,J\}\)</span>) erhoben wird, bedeutet eine Zentrierung am Gesamtmittelwert, dass man von diesem individuellen Wert <span class="math inline">\(x_{ij}\)</span> den Gesamtmittelwert <span class="math inline">\(M_X\)</span> abzieht, gemäß: <span class="math inline">\(X_{ij}-M_X\)</span>. Eine Zentrierung am Gruppenmittelwert bedeutet, dass man vom individuellen Wert <span class="math inline">\(x_{ij}\)</span> den Mittelwert der jeweiligen Gruppe abzieht, gemäß: <span class="math inline">\(X_{ij}-M_{X_j}\)</span> Hier eine grafische Darstellung dieser Zentrierungsmöglichkeiten eines Prädiktors:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/centering.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Zentrierungsmöglichkeiten</figcaption>
-</figure>
-</div>
-<p>Hier ist derselbe Prädiktor in seinen drei Zentrierungsformen in Relation zu einem Outcome abgebildet:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/centeringOverallRegression.jpeg" class="img-fluid figure-img"></p>
-<figcaption>drei Zentrierungsformen in Relation zu einem Outcome</figcaption>
-</figure>
-</div>
-<p>Wenn man nun eine einfache lineare Regression eines Outcomes auf den Prädiktor rechnet, kann man die Haupteffekte (Slopes) des unzentrierten Prädiktors und des Grand-Mean-zentrierten Prädiktors genau gleich interpretieren: Der Regressionskoeffizient beschreibt die Veränderung des Outcomes, wenn der Prädiktor um eine Einheit ansteigt. Dies gilt nicht für den Group-Mean-zentrierten Prädiktor: Dieser repräsentiert die erwartete Veränderung des Outcomes bei Zunahme des Prädiktors um eine durchschnittliche Einheit innerhalb der Gruppen.</p>
-<section id="a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander." class="level3">
-<h3 class="anchored" data-anchor-id="a.-zentrierung-um-den-gruppenmittelwert-schätzung-von-individual--und-aggregateffekten-unabhängig-voneinander.">a. Zentrierung um den Gruppenmittelwert: Schätzung von Individual- und Aggregateffekten unabhängig voneinander.</h3>
-<p>Die Zentrierung um den Gruppenmittelwert ermöglicht die Trennung der individuellen Variation innerhalb der Gruppen von der Variation zwischen den Gruppen. Dadurch können sowohl die Effekte auf der Individualebene als auch die Effekte auf der Gruppenebene unabhängig voneinander geschätzt werden.</p>
-<ul>
-<li><strong>Interpretation von Level-1-Variablen-Interaktionen:</strong> Zeigt an, wie sich die lineare Beziehung zwischen Variablen innerhalb der Gruppen gestaltet.</li>
-<li><strong>Interpretation von Level-2-Variablen-Interaktionen:</strong> Zeigt an, wie sich die lineare Beziehung der Variablen zwischen den Gruppen gestaltet – allerdings wird hier nicht voll kontrolliert für Level-1-Prädiktoren, sofern nicht zusätzlich noch die Gruppenmittelwerte der zu kontrollierenden Level-1-Variablen aufgenommen werden, sodass die Zentrierung um den Gruppenmittelwert für diesen Zweck von manchen Autor:innen als weniger sinnvoll erachtet wird (Algina &amp; Swaminathan, 2011).</li>
-<li><strong>Interpretation von Cross-Level-Interaktionen:</strong> Bei der Untersuchung von Interaktionen zeigt ein Interaktionseffekt zwischen einer um den Gruppenmittelwert zentrierten individuellen Variablen (Level-1) und einer gruppenbezogenen Variablen (Level-2), inwiefern der Effekt der individuellen Variablen von der gruppenbezogenen Variablen abhängt: Hat eine höhere Ausprägung auf einer Level-1-Variablen relativ zum Gruppenmittelwert auf dieser Variablen einen anderen Effekt auf das Kriterium, wenn die Ausprägung einer Level-2-Variablen für die Gruppe höher ist? Der Koeffizient sollte sich gemäß Algina und Swaminathan (2011) nicht bedeutsam unterscheiden von dem, der durch Zentrierung um den Gesamtmittelwert geschätzt wird, aber falls doch, empfehlen die Autoren, diese Cross-Level-Interaktion aus dem Modell zu entfernen. Andere Autor:innen empfehlen nur Group-Mean-Centering der Level-1- und Grand-Mean-Centering der Level-2-Prädiktoren bei Untersuchung von Cross-Level-Interaktionen, da so die Interpretation der Haupteffekte erleichtert wird (z.B. Bauer &amp; Curran, 2005). Mehrere Autor:innen (z. B. Yaremych et al., 2023) plädieren bei Cross-Level-Interaktionen im Allgemeinen für diese Art der Zentrierung, da sie meistens den formulierten Cross-Level-Interaktions-Hypothesen entspricht.</li>
-</ul>
+<p><img src="astronaut.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>GitHub Copilot is an <em>AI pair programmer that offers autocomplete-style suggestions as you code</em>. It is possible to integrate GitHub Copilot into R-Studio to speed up annoying coding tasks and get suggestions for code snippets.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>To make the Copilot available in RStudio, you either need to have a <a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot">subscription to GitHub Copilot</a>, or (recommended) a <a href="https://github.com/education">GitHub Education</a> account. It is free for students and faculty members. To get GitHub Education, you might need to upload a certificate showing that you are either a student, or affiliated with an university. For IQB-Members, it might be enough to upload a confirmation of your employment as researcher at the IQB, which you could request at IQB-Personal.<br>
+After obtaining some sort of confirmation, you can follow <a href="https://docs.posit.co/ide/user/ide/guide/tools/copilot.html">this guide</a> or <a href="https://tilburg.ai/2023/12/github-copilot-for-r/">this guide</a> to connect GitHub Copilot with RStudio.</p>
 </section>
-<section id="b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression." class="level3">
-<h3 class="anchored" data-anchor-id="b.-zentrierung-um-den-gesamtmittelwert-führt-zu-einfacher-interpretation-des-intercepts-aber-auch-zu-overall-regression.">b. Zentrierung um den Gesamtmittelwert: Führt zu einfacher Interpretation des Intercepts, aber auch zu “Overall-Regression”.</h3>
-<p>Die Zentrierung um den Gesamtmittelwert ermöglicht die Untersuchung der Effekte in Bezug auf den Mittelwert der gesamten Stichprobe. Das Intercept entspricht dem erwarteten Wert auf der Kriteriumsvariablen bei durchschnittlicher Ausprägung der Prädiktorvariablen. Die Effekte <em>zwischen</em> und <em>innerhalb</em> der Untersuchungseinheiten lassen sich nicht mehr getrennt interpretieren („Overall-Regression“).</p>
-<ul>
-<li><strong>Interpretation von Level-1-Variablen-Interaktionen:</strong> Zeigt an, wie sich die lineare Beziehung der Variablen über alle Gruppen hinweg gestaltet.</li>
-<li><strong>Interpretation von Level-2-Variablen-Interaktionen:</strong> Zeigt an, wie sich die lineare Beziehung der Variablen zwischen den Gruppen gestaltet (ggf. vollständig kontrolliert für Level-1-Prädiktoren). Diese Form der Zentrierung wird zu solchem Zweck meist empfohlen (Algina &amp; Swaminathan, 2011).</li>
-<li><strong>Interpretation von Cross-Level-Interaktionen:</strong> Bei der Untersuchung von Interaktionen zeigt ein Interaktionseffekt zwischen einer um den Gesamtmittelwert zentrierten individuellen Variablen (Level-1) und einer gruppenbezogenen Variablen (Level-2), wie der Effekt der individuellen Variablen über alle Gruppen hinweg von der gruppenbezogenen Variablen abhängt: Hat eine höhere absolute Ausprägung auf einer Level-1-Variablen einen anderen Effekt auf das Kriterium, wenn die Ausprägung einer Level-2-Variablen für die Gruppe höher ist? Algina und Swaminathan (2011) plädieren dafür, diese Cross-Level-Interaktion aus dem Modell zu entfernen, sollte sich der Effekt deutlich unterscheiden von der alternativen Schätzung nach Zentrierung um den Gruppenmittelwert.</li>
-</ul>
-</section>
-<section id="c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist." class="level3">
-<h3 class="anchored" data-anchor-id="c.-keine-zentrierung-ist-selten-sinnvoll-bei-interaktionen-im-modell.-vor-allem-dann-nicht-wenn-die-null-für-die-prädiktorvariablen-kein-sinnvoller-wert-ist.">c.&nbsp;Keine Zentrierung: Ist selten sinnvoll bei Interaktionen im Modell. Vor allem dann nicht, wenn die Null für die Prädiktorvariablen kein sinnvoller Wert ist.</h3>
-<p>Alle Empfehlungen gelten ebenso für kategoriale Prädiktoren, siehe z. B. Yaremych et al.&nbsp;(2023): “… we have demonstrated that centering guidelines for continuous predictors should be applied analogously to categorical predictors” (p.&nbsp;8). Hierbei wird ein <span class="math inline">\(k-\)</span>stufiger Prädiktor stets durch <span class="math inline">\(k-1\)</span> “Coding-Variablen” repräsentiert. Ob diese durch Dummy-Kodierung, Effekt-Kodierung oder Kontrast-Kodierung gebildet werden, hängt von der intendierten Interpretation ab und liegt außerhalb des Fokus’ dieses Artikels.</p>
-</section>
-<section id="literatur" class="level3">
-<h3 class="anchored" data-anchor-id="literatur">Literatur</h3>
-<p>Algina, J., &amp; Swaminathan, H. (2011). Centering in two-level nested designs. In J. Hox &amp; K. Roberts (Eds.), <em>The handbook of advanced multilevel data analysis</em> (pp.&nbsp;285–312). Routledge.</p>
-<p>Bauer, D.J., &amp; Curran, P.J. (2005). Probing interactions in fixed and multilevel regression: Inferential and graphical techniques. <em>Multivariate Behavioral Research, 40</em>, 373–400. https://doi.org/10.1207/s15327906mbr4003_5</p>
-<p>Yaremych, H. E., Preacher, K. J., &amp; Hedeker, D. (2023). Centering categorical predictors in multilevel models: Best practices and interpretation. <em>Psychological Methods, 28</em>(3), 613–630. https://doi.org/10.1037/met0000434</p>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>After installation, Copilot will make code suggestions, which you can accept by pressing <code>Tab</code>. <code>Enter/Return</code> will ignore the suggestion. If you want to give Copilot some additional instructions, you can just write them into a comment over the line you want the code suggestions in:</p>
+<p><img src="copilot_example.png" class="img-fluid"></p>
+<p>Generally, the suggestions work best for smaller, compartimentalized problems.</p>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@nasa?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">NASA</a> on <a href="https://unsplash.com/de/fotos/buzz-aldrin-Qu3xLeochLc?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -672,4 +620,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/FAQ/FAQ3_Mehrebenenmodelle.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/copilot/copilot.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

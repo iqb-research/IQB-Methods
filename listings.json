@@ -2,11 +2,11 @@
   {
     "listing": "/posts_learn.html",
     "items": [
+      "/docs/posts_r_sig.html",
       "/docs/beginners.html",
       "/docs/workflow.html",
-      "/docs/posts_r_sig.html",
-      "/docs/statisticalQuestions.html",
-      "/docs/advanced.html"
+      "/docs/advanced.html",
+      "/docs/statisticalQuestions.html"
     ]
   },
   {
@@ -14,42 +14,31 @@
     "items": []
   },
   {
+    "listing": "/docs/statisticalQuestions.html",
+    "items": [
+      "/docs/FAQ/FAQ.html"
+    ]
+  },
+  {
     "listing": "/docs/beginners.html",
     "items": [
-      "/docs/R_tutorials/R_ws1.html",
       "/docs/R_tutorials/R_ws2.html",
       "/docs/R_tutorials/R_ws3.html",
-      "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
-      "/docs/git/github_workshop/github_intro_slides.html",
-      "/docs/git/github_pullrequests.html",
-      "/docs/r_sig/23_03_20_forloops/index.html",
-      "/docs/r_sig/23_07_31_apply/index.html",
-      "/docs/quarto/index.html"
+      "/docs/R_tutorials/R_ws1.html"
     ]
   },
   {
     "listing": "/docs/advanced.html",
     "items": [
-      "/docs/R_tutorials/checkmate.html",
-      "/docs/git/copilot/copilot.html",
-      "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
-      "/docs/r_sig/24_03_22_datasets/index.html",
-      "/docs/r_sig/24_03_25_tidyverse_wrangling/index.html",
-      "/docs/r_sig/24_04_08_tidyverse_column_wise/index.html",
-      "/docs/r_sig/24_06_03_ggplot2/index.html",
-      "/docs/r_sig/24_09_09_quarto_git/index.html",
-      "/docs/FAQ/FAQ1_Imputationen.html",
-      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
-      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
-      "/docs/FAQ/FAQ4_NproItem.html"
+      "/docs/R_tutorials/checkmate.html"
     ]
   },
   {
     "listing": "/docs/workflow.html",
     "items": [
       "/docs/git/github_workshop/github_intro_slides.html",
-      "/docs/git/github_pullrequests.html",
-      "/docs/git/copilot/copilot.html",
+      "/docs/git/index.html",
+      "/docs/copilot/copilot.html",
       "/docs/quarto/index.html",
       "/docs/r_sig/24_07_15_quarto_1/index.html",
       "/docs/r_sig/24_09_09_quarto_git/index.html",
@@ -60,6 +49,7 @@
   {
     "listing": "/docs/posts_r_sig.html",
     "items": [
+      "/docs/r_sig/23_10_09_cleaner/index.html",
       "/docs/r_sig/24_09_09_quarto_git/index.html",
       "/docs/r_sig/24_07_15_quarto_1/index.html",
       "/docs/r_sig/24_06_03_ggplot2/index.html",
@@ -69,18 +59,8 @@
       "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
       "/docs/r_sig/23_12_18_case_when/index.html",
       "/docs/r_sig/23_11_06_renv/index.html",
-      "/docs/r_sig/23_10_09_cleaner/index.html",
       "/docs/r_sig/23_07_31_apply/index.html",
       "/docs/r_sig/23_03_20_forloops/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/statisticalQuestions.html",
-    "items": [
-      "/docs/FAQ/FAQ1_Imputationen.html",
-      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
-      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
-      "/docs/FAQ/FAQ4_NproItem.html"
     ]
   },
   {
