@@ -4,7 +4,7 @@ description: "R-SIG 03.06.2024"
 author: 
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
-categories: [R, tidyverse, plots, R-SIG]
+categories: [R, tidyverse, plots, R-SIG, tutorial]
 image: plotting.jpg
 date: 06-03-2024
 ---
@@ -17,4 +17,4 @@ date: 06-03-2024
 source(here::here("output_hook.R"))
 ```
 
-A ggplot2-tutorial I've created can be found [here](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html). 
+A ggplot2-tutorial I've created can be found [here](https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html).

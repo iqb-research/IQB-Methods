@@ -1,0 +1,27 @@
+---
+title: "GitHub Copilot in R-Studio"
+author: 
+  - name: Nicklas Hafiz
+date: 11-25-2024
+categories: [R, git, tutorial, intro]
+image: astronaut.jpg
+---
+
+![](astronaut.jpg)[^1]
+
+[^1]: Image by <a href="https://unsplash.com/de/@nasa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">NASA</a> on <a href="https://unsplash.com/de/fotos/buzz-aldrin-Qu3xLeochLc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.
+
+GitHub Copilot is an *AI pair programmer that offers autocomplete-style suggestions as you code*. It is possible to integrate GitHub Copilot into R-Studio to speed up annoying coding tasks and get suggestions for code snippets.
+
+## Setup
+
+To make the Copilot available in RStudio, you either need to have a [subscription to GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot), or (recommended) a [GitHub Education](https://github.com/education) account. It is free for students and faculty members. To get GitHub Education, you might need to upload a certificate showing that you are either a student, or affiliated with an university. For IQB-Members, it might be enough to upload a confirmation of your employment as researcher at the IQB, which you could request at IQB-Personal.\
+After obtaining some sort of confirmation, you can follow [this guide](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html) or [this guide](https://tilburg.ai/2023/12/github-copilot-for-r/) to connect GitHub Copilot with RStudio.
+
+## Usage
+
+After installation, Copilot will make code suggestions, which you can accept by pressing `Tab`. `Enter/Return` will ignore the suggestion. If you want to give Copilot some additional instructions, you can just write them into a comment over the line you want the code suggestions in:
+
+![](copilot_example.png)
+
+Generally, the suggestions work best for smaller, compartimentalized problems.

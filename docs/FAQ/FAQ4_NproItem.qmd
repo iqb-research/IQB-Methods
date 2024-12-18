@@ -1,0 +1,17 @@
+---
+title: "Wie groß sollte das N pro Item idealerweise sein?"
+author: NA
+categories: [statistics]
+image: images/N.png
+---
+
+Grundsätzlich stellt sich die Frage des *N* pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es gibt jedoch Daumenregeln und es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an $N>100$ orientieren. Im Studiendesign versucht man dabei, auf ein $N=150$ zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:
+
+-   **VERA-Pilotierung ohne DIF:** hier wäre $N=150$ ein vertretbarer Richtwert.
+-   **VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:** für eine verlässliche DIF-Analyse wäre $N=150$ *pro Geschlechtergruppe* anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier $N=300$ ein Minimum, $N=400$ ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.
+-   **Pilotierung mit DIF-Analyse bzgl. SPF:** Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre $N=150$ in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen $N>20000$ ist das zwar möglich, aber in kleineren Erhebungen wie VERA-Pilotierungen wäre das komplett unrealistisch. Hier müsste man also ggf. ein Oversampling anstreben, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen "überrepräsentieren".
+-   **Analysen bzgl. Migrationshintergrund:** Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem *N* pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus $\text{Migrationshintergrund}\times \text{Geschlecht}$ hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein -- es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.
+
+## 
+
+Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx

@@ -4,8 +4,8 @@ description: "R-SIG 02.12.2023"
 author: 
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
-date: 12-02-2024
-categories: [R, best practices, R-SIG]
+date: 10-09-2023
+categories: [R, R-SIG, best practice]
 image: cleaner_scripts.jpg
 ---
 
@@ -62,7 +62,6 @@ This also increases readability and makes it easier to get an overview of what h
 
 ### Version Control
 Use Version Control for your code. A great option is [Git and in addition GitHub](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/title-slide). 
-
 
 
 

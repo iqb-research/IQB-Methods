@@ -1,16 +1,24 @@
 ---
-title: "Starting with R"
+title: "Beginners"
 image: ./images/sapling.jpg
 listing:
   id: beginners
   type: default
   feed: true
-  categories: true
-  sort: "title"
+  categories: unnumbered
+  sort: false
   contents:
     - "R_tutorials/R_ws1.qmd"
     - "R_tutorials/R_ws2.qmd"
     - "R_tutorials/R_ws3.qmd"
+    - "r_sig/24_01_26_tidyverse_intro/index.qmd"
+    - "git/github_workshop/github_intro_slides.qmd"
+    - "git/github_pullrequests.qmd"
+    - "23_03_20_forloops/index.qmd"
+    - "23_07_31_apply/index.qmd"
+    - "23_12_18_case_when/index.qmd"
+    - "25_07_15_quarto_1/index.qmd"
+    - "quarto/index.qmd"
 ---
 
 ![](./images/sapling.jpg)[^1]
