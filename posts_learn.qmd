@@ -9,23 +9,23 @@ listing:
     - title: "Beginners"
       path: docs/beginners.qmd
       image: docs/images/sapling.jpg
-      description: "here you can find R tutorials to start your R journey."
+      description: "Here you can find R tutorials to start your R journey."
     - title: "Workflow"
       path: docs/workflow.qmd
       image: docs/git/github.jpg
-      description: "here you can find articles about the general workflow when working with RStudio or Github."
+      description: "Here you can find articles about the general workflow when working with RStudio or Github."
     - title: "R-SIG"
       path: docs/posts_r_sig.qmd
       image: docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg
-      description: "here you can find all the articles that were discussed in R-SIG."
+      description: "Here you can find all the articles that were discussed in R-SIG."
     - title: "Statistical Questions"
       path: docs/statisticalQuestions.qmd
       image: docs/FAQ/images/centering.jpeg
-      description: "here you can find some answers to common questions about statistics or our r-packages." 
+      description: "Here you can find some answers to common questions about statistics or our r-packages." 
     - title: "Advanced"
       path: docs/advanced.qmd
       image: docs/images/martian.jpg
-      description: "here you can find some more advanced R tutorials."
+      description: "Here you can find some more advanced R tutorials."
 ---
 
 Here you can find articles and workshops about R, RStudio, Git and GitHub, quarto and overall information about some statistical questions. Click on the topic you're interested in to get to the article's overview.
