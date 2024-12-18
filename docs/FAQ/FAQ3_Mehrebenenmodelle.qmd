@@ -1,9 +1,8 @@
 ---
-title: "FAQ: Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen"
+title: "Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen"
 author: NA
-categories: [FAQ]
+categories: [statistics]
 ---
-
 
 Wenn in Mehrebenenmodellen Interaktionen geschätzt werden, hängt die Schätzung des Intercepts wie auch die der Haupteffekte von der gewählten Skala der Prädiktoren ab. Die Haupteffekte repräsentieren den Effekt eines Prädiktors an der Stelle, an der die anderen Prädiktoren null sind. Da die Null oftmals kein natürlicher Wert von Prädiktoren ist (z. B. ist die Interpretation eines Effekts an der Stelle Klassengröße = 0 i. d. R. nicht sehr sinnvoll), wird das Zentrieren der Prädiktoren empfohlen. Hier kommen zwei Varianten in Frage: Zentrierung am Gruppenmittelwert und Zentrierung am Gesamtmittelwert. Für einen Prädiktor $X$, der an Individuum $i$ ($\forall i \in \{1,…,i,…,n\}$) in Gruppe $j$ ($\forall j \in \{1,…,j,…,J\}$) erhoben wird, bedeutet eine Zentrierung am Gesamtmittelwert, dass man von diesem individuellen Wert $x_{ij}$ den Gesamtmittelwert $M_X$ abzieht, gemäß: $X_{ij}-M_X$. Eine Zentrierung am Gruppenmittelwert bedeutet, dass man vom individuellen Wert $x_{ij}$ den Mittelwert der jeweiligen Gruppe abzieht, gemäß: $X_{ij}-M_{X_j}$ Hier eine grafische Darstellung dieser Zentrierungsmöglichkeiten eines Prädiktors:
 
@@ -42,7 +41,6 @@ Algina, J., & Swaminathan, H. (2011). Centering in two-level nested designs. In 
 Bauer, D.J., & Curran, P.J. (2005). Probing interactions in fixed and multilevel regression: Inferential and graphical techniques. *Multivariate Behavioral Research, 40*, 373–400. https://doi.org/10.1207/s15327906mbr4003_5
 
 Yaremych, H. E., Preacher, K. J., & Hedeker, D. (2023). Centering categorical predictors in multilevel models: Best practices and interpretation. *Psychological Methods, 28*(3), 613–630. https://doi.org/10.1037/met0000434
-
 
 ## 
 

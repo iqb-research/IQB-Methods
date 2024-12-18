@@ -1,8 +1,7 @@
 ---
-title: "FAQ: Wie poole ich mein $R^2$
-richtig über mehrere (bspw. 15) Imputationen?"
+title: "Wie poole ich mein $R^2$ richtig über mehrere (bspw. 15) Imputationen?"
 author: NA
-categories: [FAQ]
+categories: [statistics, eatRep]
 ---
 
 ### a. Methode nach Harel (2009)
@@ -26,6 +25,6 @@ r2 <- c(0.12,0.18,0.17,0.21,0.23)
 eatRep::pool.R2(r2)
 ```
 
-##
+## 
 
 Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx

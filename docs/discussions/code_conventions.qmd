@@ -1,7 +1,7 @@
 ---
 title: "Code-Konventionen"
 author: NA
-categories: [code convention]
+categories: [code conventions, github, R]
 image: conventions.jpg
 ---
 
@@ -17,58 +17,57 @@ Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmte
 
 ### Umfang von Code-Abschnitten
 
-1. Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.
-1. Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.
-1. In R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.
-    - Bei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.
-    - Rigoroses Testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.
+1.  Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.
+2.  Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.
+3.  In R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.
+    -   Bei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.
+    -   Rigoroses Testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.
 
 ### Benennungskonventionen
 
-1. Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.
-1. Es sollten eher sprechende Namen als möglichst kurse Namen verwendet werden. 
-1. Funktionsnamen sollten aus Verben bestehen. 
-1. Objektnamen (die keine Funktionen sind) sollten Substantive sein. 
-1. Dopplungen mit existierenden R-Objekten sollten vermieden werdeen. 
-1. Bei der Objekt-Modifikation sollten Objekte nicht überschreiben werden, wenn sie sich substanziell ändern. 
-1. Einige häufige Argumentnamen: `dat`, `path/file/filePath/filename`, `dir/folder`, ...
-1. Bei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden. 
+1.  Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.
+2.  Es sollten eher sprechende Namen als möglichst kurse Namen verwendet werden.
+3.  Funktionsnamen sollten aus Verben bestehen.
+4.  Objektnamen (die keine Funktionen sind) sollten Substantive sein.
+5.  Dopplungen mit existierenden R-Objekten sollten vermieden werdeen.
+6.  Bei der Objekt-Modifikation sollten Objekte nicht überschreiben werden, wenn sie sich substanziell ändern.
+7.  Einige häufige Argumentnamen: `dat`, `path/file/filePath/filename`, `dir/folder`, ...
+8.  Bei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden.
 
 ### Dependencies
-[pkgnet]( https://uptake.github.io/pkgnet/articles/pkgnet-intro.html) kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren.
 
+[pkgnet](https://uptake.github.io/pkgnet/articles/pkgnet-intro.html) kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren.
 
 ## Code Review
 
-Eine übersicht zum GitHub-Workflow findet sich [hier](https://iqb-research.github.io/IQB-Methods/docs/git/). Eine etwas ausführlicheres Tutorial zur Einführung in GitHub, aber auch zu Pull-Requests und Code-Reviews findet sich [hier](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/title-slide). 
+Eine übersicht zum GitHub-Workflow findet sich [hier](https://iqb-research.github.io/IQB-Methods/docs/git/github_pullrequests.qmd). Eine etwas ausführlicheres Tutorial zur Einführung in GitHub, aber auch zu Pull-Requests und Code-Reviews findet sich [hier](https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/title-slide).
 
 ### Vorgehen
 
-1. Person, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden.
-1. Sind mehrere Reviewer zum **Review** assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen)
-1. Übernimmt man ein Review, assigned man sich selbst den **Pull-Request**, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)
+1.  Person, die das Review anfordert, schlägt Personen für das Review for, in dem diese zur Pull-Request assigned werden.
+2.  Sind mehrere Reviewer zum **Review** assigned, reicht es i.d.R. wenn eine:r das Review übernimmt (es sei denn, es wird explizit angefordert, dass alle das Review übernehmen)
+3.  Übernimmt man ein Review, assigned man sich selbst den **Pull-Request**, dann wissen alle potenziell angesprochenen Reviewer gleich Bescheid, dass man übernimmt, auch wenn man noch nicht angefangen hat (bzw. noch keine Kommentare in den Code gesetzt hat)
 
 ### Was muss bei der Anforderung eines Reviews beachtet werden?
 
-1. Eher kleinschrittige, abgeschlossene Bestandteile reviewen lassen.
-1. Priorität festlegen:
+1.  Eher kleinschrittige, abgeschlossene Bestandteile reviewen lassen.
+2.  Priorität festlegen:
     -   high: innerhalb eines Tages
     -   medium: innerhalb einer Woche
     -   low: keine Zeitbegrenzung
 
 ### Was sollen die Reviewer machen?
 
-1. **Sich zum Review assignen, wenn man anfängt.**
-1. Achten ob Benennungskonventionen und Formatkonventionen eingehalten wurden. 
-1. Prüfen, ob der code verständlich geschrieben ist und möglichst keine erklärenden Kommentare benötigt.
-1. Tests auf Vollständigkeit überprüfen (sind mögliche Edge Cases (NA, negative Werte, hohe/niedrige Werte, anderer data type ...) abgedeckt?). 
+1.  **Sich zum Review assignen, wenn man anfängt.**
+2.  Achten ob Benennungskonventionen und Formatkonventionen eingehalten wurden.
+3.  Prüfen, ob der code verständlich geschrieben ist und möglichst keine erklärenden Kommentare benötigt.
+4.  Tests auf Vollständigkeit überprüfen (sind mögliche Edge Cases (NA, negative Werte, hohe/niedrige Werte, anderer data type ...) abgedeckt?).
 
 <ins>Optional:</ins>
 
 -   Mit den Tests rumspielen, versuchen die Funktion failen zu lassen.
 
 ### Personelle Aufteilung
-
 
 -   eatPrepTBA: PF, NH, KAS, ... (mal schauen)
 -   eatPrep: KAS, PF, NH
@@ -86,8 +85,8 @@ Eine übersicht zum GitHub-Workflow findet sich [hier](https://iqb-research.gith
 
 ### Kommunikation & Zeiterwartung
 
-1. Person, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab ...), oder eine Prioritätenfestlegung.
-1. Label sollen einheitlich über die Repositories erstell und genutzt werden (Bug/Enhancement ..., Prio-Label)
+1.  Person, die das Review anfordert, schreibt ein paar Sätze dazu, worauf besonders geachtete werden sollte als Kommentar in den Pull-Request. Das können grobe Erwartungen an das Review sein (macht das konzeptuell Sinn, decken die Tests alle möglichen Edge cases ab ...), oder eine Prioritätenfestlegung.
+2.  Label sollen einheitlich über die Repositories erstell und genutzt werden (Bug/Enhancement ..., Prio-Label)
 
 ## Issues
 

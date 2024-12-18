@@ -2,7 +2,7 @@
 title: "Pull requests with Github"
 author: "Sebastian Weirich"
 date: 01-12-2024
-categories: [github, tutorial, workflow]
+categories: [github, tutorial, workflow, git, R, intro]
 image: github.jpg
 ---
 
@@ -17,7 +17,7 @@ When people collaboratively develop software (R packages) and use Github as a re
 1.  Pull all changes from the relevant branch. Normally, this will be the branch `main`, but it might also happen that you want to extend on another branch.
 2.  `Create` and `checkout` (change onto the branch) on a new branch. By default, this will create a new branch from main, but you can also create a new branch from any other branch, if you want to extend on it.
 3.  Make changes in your local repository.
-4.  `Commit` them as often as possible. The more you commit, the more of you work gets saved regulary.
+4.  `Commit` them as often as possible. The more you commit, the more of you work gets saved regularly.
 5.  If you want to upload your changes, `Push`.
 6.  Repeat 3 - 5 until you are done.
 
@@ -36,7 +36,7 @@ Once you are content with your changes and you want to finalize them, you can in
 2.  The reviewer can request changes, either general ones or specific ones by adding comments to specific lines of code.
 3.  In the end, the reviewer delivers their final verdict: `approve` or `request changes`.
 4.  Now it's the authors turn again: the author has to address the comments of the reviewer and make requested changes, or discuss why certain requested changes should not be made.
-5.  The changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a seperate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made.
+5.  The changes can either be made on the branch the pull request was initiated on or on a new branch that branches out from this branch. If many changes are made, it might be easier to work on a separate branch and initiate a new pull request to merge it onto the parent branch (where the first pull request was made) to make clearer which new changes have been made.
 6.  Reiterate until the author and reviewer have reached an agreement.
 7.  If both are satisfied. On the GitHub Pull-request page, select "merge pull request into main" (or any other branch you want to and can merge on) at the bottom.
 8.  Finally, the review branch can be deleted. Choose "delete" on the Github homepage. Then delete the local branch (i.e. in GitKraken) in the same way if necessary

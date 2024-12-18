@@ -10,7 +10,7 @@ format:
   letterbox-revealjs:
     theme: styles.scss
 lang: de
-categories: [github, tutorial]
+categories: [github, tutorial, slides, intro]
 image: ./images/github.jpg
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: "FAQ: Wie groß sollte das N pro Item idealerweise sein?"
+title: "Wie groß sollte das N pro Item idealerweise sein?"
 author: NA
-categories: [FAQ]
+categories: [statistics]
 ---
 
 Grundsätzlich stellt sich die Frage des *N* pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es gibt jedoch Daumenregeln und es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an $N>100$ orientieren. Im Studiendesign versucht man dabei, auf ein $N=150$ zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:

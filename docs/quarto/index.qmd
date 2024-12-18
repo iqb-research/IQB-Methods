@@ -2,7 +2,7 @@
 title: "Updating the website"
 author: "Nicklas Hafiz"
 date: 12-17-2023
-categories: [R, quarto, renv]
+categories: [R, quarto, renv, tutorial, intro]
 ---
 
 This website was created using Quarto. It is hosted on GitHub. In this chapter we will look at the underlying structure of this website, and how to update it.
@@ -15,11 +15,11 @@ This website was created using Quarto. It is hosted on GitHub. In this chapter w
 
 ### `renv`
 
-:::{.callout-important}
-Make sure you're using the R version recorded in the LOCK-file when working with [renv](https://rstudio.github.io/renv/articles/renv.html). This makes things a bit easier. Of course, if the R version in the LOCK file is an old one, you can update it with `renv::snapshot()`. 
+::: callout-important
+Make sure you're using the R version recorded in the LOCK-file when working with [renv](https://rstudio.github.io/renv/articles/renv.html). This makes things a bit easier. Of course, if the R version in the LOCK file is an old one, you can update it with `renv::snapshot()`.
 :::
 
-Wandering what `renv` is? Check out the [renv Intro](../r_sig/23_11_06_renv/index.qmd) for more information.  
+Wandering what `renv` is? Check out the [renv Intro](../r_sig/23_11_06_renv/index.qmd) for more information.
 
 The needed packages are recorded in the `.lock`-file, but not uploaded to GitHub. So the **first thing you need to do** is to install the necessary packages into your local project library:
 
@@ -28,7 +28,7 @@ The needed packages are recorded in the `.lock`-file, but not uploaded to GitHub
 renv::restore()
 ```
 
-You can do this every time you start working on the website. Only packages that are not already in your project specific package library will be downloaded. 
+You can do this every time you start working on the website. Only packages that are not already in your project specific package library will be downloaded.
 
 If your files need their own packages, just install them like you would normally do with either:
 
@@ -37,9 +37,9 @@ install.packages("eatGADS")
 renv::install("eatGADS")
 ```
 
-You need to do this even if you have them already installed on your PC locally, because `renv` uses a project specific library.  
+You need to do this even if you have them already installed on your PC locally, because `renv` uses a project specific library.
 
-:::{.callout-important}
+::: callout-important
 Don't forget to update the `.lock` file with `renv::snapshot()` if you have added new packages in your code. Otherwise the GitHub-Action will fail. But be concious about what is updated. If you are using an old version in the project, or old package versions, you might downgrade the projects package versions. So run `renv::restore()` before, to make sure your project library is up to date. `renv` will show you in the console what is updated from which version to which version.
 :::
 
