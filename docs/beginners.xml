@@ -1183,6 +1183,318 @@ font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
+  <title>Case_when() function</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" class="img-fluid"><sup>1</sup></p>
+<p>The <code>case_when()</code> function from the <code>dplyr</code> package of the <code>tidyverse</code> is a useful function for combining multiple <code>ifelse()</code> statements.</p>
+<section id="how-to-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-it">How to use it</h2>
+<p>Let’s take a look at a little example. Let’s consider a very simple data frame containing only a column of different countries:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">country =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Deu"</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mexico"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Peru"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ghana"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"China"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Spanien"</span>))</span></code></pre></div>
+</div>
+<p>Now, let’s suppose we want to add a second column containing the continent of the country. We can either use nested <code>ifelse()</code> statements, which makes the coed quite hard to read:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>continent <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Deu"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Spanien"</span>), </span>
+<span id="cb6-2">                       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yes =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Europe"</span>, </span>
+<span id="cb6-3">                       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">no =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(</span>
+<span id="cb6-4">                         df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mexico"</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Peru"</span>, </span>
+<span id="cb6-5">                         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yes =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"America"</span>,</span>
+<span id="cb6-6">                         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">no =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(</span>
+<span id="cb6-7">                           df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ghana"</span>, </span>
+<span id="cb6-8">                           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yes =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Africa"</span>,</span>
+<span id="cb6-9">                           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">no =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Asia"</span></span>
+<span id="cb6-10">                       )</span>
+<span id="cb6-11">                       ))</span>
+<span id="cb6-12"></span>
+<span id="cb6-13">df</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country continent
+1     Deu    Europe
+2     Deu    Europe
+3     Deu    Europe
+4     Deu    Europe
+5  Mexico   America
+6    Peru   America
+7   Ghana    Africa
+8   China      Asia
+9 Spanien    Europe</code></pre>
+</div>
+</div>
+<p><code>case_when()</code> has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are separated by <code>~</code>. So if the condition on the left side is met in a row, the function returns the value on the right side of <code>~</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">df_2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb8-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">continent =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">case_when</span>(country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Deu"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Spanien"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Europe"</span>, </span>
+<span id="cb8-3">                               country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mexico"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Peru"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"America"</span>,</span>
+<span id="cb8-4">                               country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ghana"</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Africa"</span>, </span>
+<span id="cb8-5">                               <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Another continent"</span></span>
+<span id="cb8-6">                                 )</span>
+<span id="cb8-7">         )</span>
+<span id="cb8-8">df_2</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country         continent
+1     Deu            Europe
+2     Deu            Europe
+3     Deu            Europe
+4     Deu            Europe
+5  Mexico           America
+6    Peru           America
+7   Ghana            Africa
+8   China Another continent
+9 Spanien            Europe</code></pre>
+</div>
+</div>
+<p>We wrap this statement into a mutate function to automatically create the new column continent from the output of <code>case_when</code>. The <code>TRUE</code> in the last row catches all conditions we haven’t dealt with further above. So all rows which haven’t met any of the above conditions will get the label “Another continent”.</p>
+</section>
+<section id="evaluation-order" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-order">Evaluation order</h2>
+<p><code>case_when()</code> goes from the top to the bottom. So if a row has met a statement, it is not considered further down. That’s why it makes sense to go from the most specific statements to the less specific ones. Otherwise the least specific ones might overwrite everything in the beginning:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">df_3 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb10-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">continent =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">case_when</span>(country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>country) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Other country"</span>, </span>
+<span id="cb10-3">                               country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mexico"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Peru"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"America"</span>,</span>
+<span id="cb10-4">                               country <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ghana"</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Africa"</span>, </span>
+<span id="cb10-5">                               <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Another continent"</span></span>
+<span id="cb10-6">                                 )</span>
+<span id="cb10-7">         )</span>
+<span id="cb10-8"></span>
+<span id="cb10-9">df_3  </span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country     continent
+1     Deu Other country
+2     Deu Other country
+3     Deu Other country
+4     Deu Other country
+5  Mexico Other country
+6    Peru Other country
+7   Ghana Other country
+8   China Other country
+9 Spanien Other country</code></pre>
+</div>
+</div>
+<p>Because our first statement already covers all rows, the rest is obsolete. This top-down working also makes the <code>TRUE</code> condition in our last line possible, because only those rows that haven’t been used yet will come this far, and all of them are caught (because <code>TRUE</code> always is true).</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@skyreplacementpack?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Sky Replacement Pack</a> on <a href="https://unsplash.com/de/fotos/eine-grune-aurora-am-himmel-x--iIUgWLDs">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>tidyverse</category>
+  <category>data manipulation</category>
+  <category>R-SIG</category>
+  <category>tutorial</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/</guid>
+  <pubDate>Mon, 18 Dec 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
   <title>Updating the website</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/quarto/</link>
@@ -3157,7 +3469,7 @@ font-style: inherit;">"'NA'=NA; ''=NA"</span>)</span>
   <category>tutorial</category>
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</guid>
-  <pubDate>Wed, 18 Dec 2024 13:42:38 GMT</pubDate>
+  <pubDate>Wed, 18 Dec 2024 14:56:58 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4521,7 +4833,7 @@ font-style: inherit;">"Eine Verteilung"</span>)</span></code></pre></div>
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws2.html</guid>
-  <pubDate>Wed, 18 Dec 2024 13:42:38 GMT</pubDate>
+  <pubDate>Wed, 18 Dec 2024 14:56:58 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4973,7 +5285,7 @@ font-style: inherit;">"Material_WSIII/mtcars.dat"</span>)</span></code></pre></d
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws3.html</guid>
-  <pubDate>Wed, 18 Dec 2024 13:42:38 GMT</pubDate>
+  <pubDate>Wed, 18 Dec 2024 14:56:58 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4986,7 +5298,7 @@ font-style: inherit;">"Material_WSIII/mtcars.dat"</span>)</span></code></pre></d
   <category>slides</category>
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</guid>
-  <pubDate>Wed, 18 Dec 2024 13:42:38 GMT</pubDate>
+  <pubDate>Wed, 18 Dec 2024 14:56:58 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
