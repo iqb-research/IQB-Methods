@@ -2,6 +2,7 @@
 title: "Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen"
 author: NA
 categories: [statistics]
+image: images/centering.jpeg
 ---
 
 Wenn in Mehrebenenmodellen Interaktionen geschätzt werden, hängt die Schätzung des Intercepts wie auch die der Haupteffekte von der gewählten Skala der Prädiktoren ab. Die Haupteffekte repräsentieren den Effekt eines Prädiktors an der Stelle, an der die anderen Prädiktoren null sind. Da die Null oftmals kein natürlicher Wert von Prädiktoren ist (z. B. ist die Interpretation eines Effekts an der Stelle Klassengröße = 0 i. d. R. nicht sehr sinnvoll), wird das Zentrieren der Prädiktoren empfohlen. Hier kommen zwei Varianten in Frage: Zentrierung am Gruppenmittelwert und Zentrierung am Gesamtmittelwert. Für einen Prädiktor $X$, der an Individuum $i$ ($\forall i \in \{1,…,i,…,n\}$) in Gruppe $j$ ($\forall j \in \{1,…,j,…,J\}$) erhoben wird, bedeutet eine Zentrierung am Gesamtmittelwert, dass man von diesem individuellen Wert $x_{ij}$ den Gesamtmittelwert $M_X$ abzieht, gemäß: $X_{ij}-M_X$. Eine Zentrierung am Gruppenmittelwert bedeutet, dass man vom individuellen Wert $x_{ij}$ den Mittelwert der jeweiligen Gruppe abzieht, gemäß: $X_{ij}-M_{X_j}$ Hier eine grafische Darstellung dieser Zentrierungsmöglichkeiten eines Prädiktors:
