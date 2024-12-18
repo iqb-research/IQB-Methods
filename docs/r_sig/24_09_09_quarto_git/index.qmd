@@ -4,7 +4,7 @@ description: "R-SIG 09.09.2024"
 author: 
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
-categories: [R, quarto, R-SIG, Git]
+categories: [R, quarto, R-SIG, Git, intro, tutorial]
 date: 09-09-2024
 bibliography: references.bib
 image: manuscript.jpg
@@ -35,7 +35,7 @@ If you want to dive even deeper into reproducible workflows, take a look at @pei
 
 # Quarto + Git
 
-Generally, there isn't much new stuff here, if you already work with GitHub. You set up your repo and track your R and Quarto files with Git. In light of reproducability, this is as transparent as we can get. If we use GitHub throughout the whole project, and make the project public, everyone can track what we have done, which decisions we made and why.\
+Generally, there isn't much new stuff here, if you already work with GitHub. You set up your repo and track your R and Quarto files with Git. In light of reproducibility, this is as transparent as we can get. If we use GitHub throughout the whole project, and make the project public, everyone can track what we have done, which decisions we made and why.\
 We can use Issues to discuss certain points with coauthors and can use Pull Requests and Reviews to discuss changes in the manuscript or analysis.
 
 # GitHub Actions
@@ -57,7 +57,7 @@ First, you have to [setup `renv`](https://iqb-research.github.io/IQB-Methods/doc
 renv::init()
 ```
 
-This will create a `.LOCK` file containing the package versions and a folder in which your project specific packages are saved. 
+This will create a `.LOCK` file containing the package versions and a folder in which your project specific packages are saved.
 
 ### 2. render
 
@@ -153,18 +153,18 @@ You can find the link to the published site under `Settings - Pages`. Copy it to
 :::
 
 ::: callout-note
-There are [other workflows](https://quarto.org/docs/publishing/github-pages.html#github-action) available as well. 
+There are [other workflows](https://quarto.org/docs/publishing/github-pages.html#github-action) available as well.
 :::
 
 # Caveats
 
-Some words of warning: Everything is online. So you should be carefull to upload sensitive data. Also, the fact that the whole process would be visible to everyone might feel weird. Still, even if you leave the Repo on private, it still is a great thing!
+Some words of warning: Everything is online. So you should be careful to upload sensitive data. Also, the fact that the whole process would be visible to everyone might feel weird. Still, even if you leave the Repo on private, it still is a great thing!
 
 # Exercises
 
 1.  Set up a GitHub repository for the quarto project you worked on in the last sessions. If you don't upload your stuff to a cloud.
 2.  Make up some small Issue that you can write into the Issue section on GitHub.
-3.  Fix this Issue on **a new branch**. Commmit the changes, using `closes #Issuenumber` in the commit message, push everything and open a pull request.
+3.  Fix this Issue on **a new branch**. Commit the changes, using `closes #Issuenumber` in the commit message, push everything and open a pull request.
 4.  Assign someone from the group as reviewer.
 5.  Review a pull-request assigned to you.
 6.  Setup a actions workflow that automatically renders your document.

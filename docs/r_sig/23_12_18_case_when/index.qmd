@@ -5,7 +5,7 @@ author:
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
 date: 12-18-2023
-categories: [R, tidyverse, data manipulation, R-SIG]
+categories: [R, tidyverse, data manipulation, R-SIG, tutorial]
 image: case_when.jpg
 ---
 
@@ -44,7 +44,7 @@ df$continent <- ifelse(df$country %in% c("Deu", "Spanien"),
 df
 ```
 
-`case_when()` has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are seperated by `~`. So if the condition on the left side is met in a row, the function returns the value on the right side of `~`:
+`case_when()` has a slightly different syntax, but is not nested, which makes it easier to read. Condition and output are separated by `~`. So if the condition on the left side is met in a row, the function returns the value on the right side of `~`:
 
 ```{r}
 df_2 <- df %>%
@@ -58,7 +58,7 @@ df_2
   
 ```
 
-We wrap this statement into a mutate function to automatically create the new column continent from the output of `case_when`. The `TRUE` in the last row catches all conditions we haven't dealt with further above. So all rows wich haven't met any of the above conditions will get the label "Another continent".
+We wrap this statement into a mutate function to automatically create the new column continent from the output of `case_when`. The `TRUE` in the last row catches all conditions we haven't dealt with further above. So all rows which haven't met any of the above conditions will get the label "Another continent".
 
 ## Evaluation order
 
@@ -76,4 +76,4 @@ df_3 <- df %>%
 df_3  
 ```
 
-Because our first statement already covers all rows, the rest is obsolete. This top-down working also makes the `TRUE` condition in our last line possible, because only those rows that haven't been used yet will come this far, and all of them are catched (because `TRUE` always is true).
+Because our first statement already covers all rows, the rest is obsolete. This top-down working also makes the `TRUE` condition in our last line possible, because only those rows that haven't been used yet will come this far, and all of them are caught (because `TRUE` always is true).

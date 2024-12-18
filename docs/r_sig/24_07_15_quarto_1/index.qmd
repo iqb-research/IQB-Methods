@@ -4,7 +4,7 @@ description: "R-SIG 15.07.2024"
 author: 
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
-categories: [R, quarto, R-SIG]
+categories: [R, quarto, R-SIG, intro, tutorial]
 date: 07-15-2024
 bibliography:  
   - references.bib
@@ -253,7 +253,7 @@ report(model)
 
 If you want, take a look at [`report`](https://easystats.github.io/report/), it has many more functions to make the reporting workflow of your model a lot easier.
 
-::: callout-note
+:::: callout-note
 ## Automate in-text values
 
 Even when not using `report` or some similar package, we can still extract the values automatically from a model and put them programmatically into the text. This can be achieved by simply adding an **inline-codechunck** into our markdown text:
@@ -273,7 +273,7 @@ model_intercept <- model_broom %>% filter(term == "(Intercept)") %>% pull(estima
 
 The model's intercept, corresponding to Region = Germany, is at `r model_intercept`.
 :::
-:::
+::::
 
 ### APA tables
 
@@ -499,7 +499,7 @@ I recommend that you split up your project into many subfiles, that get merged i
 
 # Exercises
 
-::: panel-tabset
+:::::: panel-tabset
 ## Markdown Exercises
 
 0.  Set up a new RStudio project in a new directory.
@@ -611,4 +611,4 @@ quarto::quarto_use_template("wjschne/apaquarto")
 ## Bonus
 
 5.  Split up your document into multiple files. This is kind of a preference thing, however I find it easier to keep an overview if I split up my chapters and R code and don't have a huge `.qmd` file containing everything. So try it! Create a folder called `docs` or something similar. It can contain files for functions, for data preperation etc, and can be loaded into your main script with `source()`. Create another folder called `chapters` where you put the `.qmd` files for the single chapters of your work. In the parent directory use a main `.qmd` file that brings everything together (either with source, or, in the case of other `.qmd` files, with `{{< include _content.qmd >}}` ).
-:::
+::::::

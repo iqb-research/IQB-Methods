@@ -5,14 +5,13 @@ author:
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
 date: 10-09-2023
-categories: [R, best practices, R-SIG]
+categories: [R, R-SIG, best practice]
 image: cleaner_scripts.jpg
 ---
 
 ![](cleaner_scripts.jpg)[^1]
 
 [^1]: Image by [Markus Spiske](https://unsplash.com/de/@markusspiske?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/nahaufnahme-des-eingeschalteten-computermonitors-4T5MTKMrjZg).
-
 
 ## Some general take-aways
 
@@ -24,5 +23,5 @@ image: cleaner_scripts.jpg
 
 1.  Write packages on top of the script.
 
--   Write down verion number (use `sessionInfo()`).
+-   Write down version number (use `sessionInfo()`).
 -   Or, even better: use `renv`.

@@ -5,7 +5,7 @@ author:
   - name: Nicklas Hafiz
   - affiliation: PhD student at the IQB, Methods team
 date: 07-31-2023
-categories: [R, loops, R-SIG]
+categories: [R, R-SIG, loops, tutorial]
 image: apply_family.jpg
 ---
 
@@ -128,7 +128,7 @@ Returns a list:
 lapply(example_list, print_sum)
 ```
 
-::: callout-note
+:::::::: callout-note
 ## Exercises
 
 Work with the `iris` data.frame (it is already included in Base R):
@@ -215,4 +215,4 @@ Wow, that's pretty nice, we condensed our function to half a line by defining th
 lapply(iris, check_median)
 ```
 :::
-:::
+::::::::
