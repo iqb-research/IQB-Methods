@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-10-09">
-<meta name="description" content="R-SIG 02.12.2023">
+<meta name="author" content="Nicklas Hafiz">
+<meta name="dcterms.date" content="2024-11-25">
 
-<title>Cleaner Scripts – IQB Methods Team</title>
+<title>GitHub Copilot in R-Studio – IQB Methods Team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Cleaner Scripts – IQB Methods Team">
-<meta property="og:description" content="R-SIG 02.12.2023">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg">
+<meta property="og:title" content="GitHub Copilot in R-Studio – IQB Methods Team">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/git/copilot/astronaut.jpg">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -132,46 +132,40 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#code-conventionsstyle-guides" id="toc-code-conventionsstyle-guides" class="nav-link active" data-scroll-target="#code-conventionsstyle-guides">Code conventions/Style Guides</a></li>
-  <li><a href="#some-general-things-we-can-look-at-when-refactoring-code" id="toc-some-general-things-we-can-look-at-when-refactoring-code" class="nav-link" data-scroll-target="#some-general-things-we-can-look-at-when-refactoring-code">Some general things we can look at when refactoring code</a>
-  <ul class="collapse">
-  <li><a href="#markdown-vs.-quarto-vs.-r-skripte" id="toc-markdown-vs.-quarto-vs.-r-skripte" class="nav-link" data-scroll-target="#markdown-vs.-quarto-vs.-r-skripte">Markdown vs.&nbsp;Quarto vs.&nbsp;R-Skripte</a></li>
-  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
-  <li><a href="#write-packages-on-top-of-the-script." id="toc-write-packages-on-top-of-the-script." class="nav-link" data-scroll-target="#write-packages-on-top-of-the-script.">Write packages on top of the script.</a></li>
-  <li><a href="#duplications" id="toc-duplications" class="nav-link" data-scroll-target="#duplications">Duplications</a></li>
-  <li><a href="#compartmentalization" id="toc-compartmentalization" class="nav-link" data-scroll-target="#compartmentalization">Compartmentalization</a></li>
-  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control">Version Control</a></li>
-  </ul></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/r_sig/23_10_09_cleaner/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/git/copilot/copilot.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cleaner Scripts</h1>
+<h1 class="title">GitHub Copilot in R-Studio</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
-    <div class="quarto-category">R-SIG</div>
-    <div class="quarto-category">best practice</div>
+    <div class="quarto-category">git</div>
+    <div class="quarto-category">tutorial</div>
+    <div class="quarto-category">intro</div>
   </div>
   </div>
 
-<div>
-  <div class="description">
-    R-SIG 02.12.2023
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicklas Hafiz </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 9, 2023</p>
+      <p class="date">November 25, 2024</p>
     </div>
   </div>
   
@@ -183,84 +177,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="cleaner_scripts.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<section id="code-conventionsstyle-guides" class="level2">
-<h2 class="anchored" data-anchor-id="code-conventionsstyle-guides">Code conventions/Style Guides</h2>
-<p>For general code styling, multiple style guides exist:</p>
-<ul>
-<li><a href="https://style.tidyverse.org/">Tidyverse Style Guide</a></li>
-<li><a href="https://google.github.io/styleguide/Rguide.html">Google R Style Guide</a></li>
-<li><a href="https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html">Code Konventionen Methodenteam IQB</a></li>
-</ul>
+<p><img src="astronaut.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>GitHub Copilot is an <em>AI pair programmer that offers autocomplete-style suggestions as you code</em>. It is possible to integrate GitHub Copilot into R-Studio to speed up annoying coding tasks and get suggestions for code snippets.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>To make the Copilot available in RStudio, you either need to have a <a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot">subscription to GitHub Copilot</a>, or (recommended) a <a href="https://github.com/education">GitHub Education</a> account. It is free for students and faculty members. To get GitHub Education, you might need to upload a certificate showing that you are either a student, or affiliated with an university. For IQB-Members, it might be enough to upload a confirmation of your employment as researcher at the IQB, which you could request at IQB-Personal.<br>
+After obtaining some sort of confirmation, you can follow <a href="https://docs.posit.co/ide/user/ide/guide/tools/copilot.html">this guide</a> or <a href="https://tilburg.ai/2023/12/github-copilot-for-r/">this guide</a> to connect GitHub Copilot with RStudio.</p>
 </section>
-<section id="some-general-things-we-can-look-at-when-refactoring-code" class="level2">
-<h2 class="anchored" data-anchor-id="some-general-things-we-can-look-at-when-refactoring-code">Some general things we can look at when refactoring code</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Refactoring</strong> is the process of making many small improvements to code without altering the code’s output/result.</p>
-</div>
-</div>
-<section id="markdown-vs.-quarto-vs.-r-skripte" class="level3">
-<h3 class="anchored" data-anchor-id="markdown-vs.-quarto-vs.-r-skripte">Markdown vs.&nbsp;Quarto vs.&nbsp;R-Skripte</h3>
-<p>Markdown has more dependencies, so I would now use <strong>.R</strong> files if I don’t need the markdown features. In general however, I would highly recommend to work with Quarto, some use cases can be found in our <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/">Quarto-Tutorial</a>.<br>
-Quarto is just the newer R-Markdown, with more features and bringing the R-Markdown magic to new programming languages.</p>
-</section>
-<section id="load-data" class="level3">
-<h3 class="anchored" data-anchor-id="load-data">Load data</h3>
-<p>It should always be clear which data is loaded and why. Paths should work, so keep that in mind when dependent folders are moved.</p>
-</section>
-<section id="write-packages-on-top-of-the-script." class="level3">
-<h3 class="anchored" data-anchor-id="write-packages-on-top-of-the-script.">Write packages on top of the script.</h3>
-<p>At the very minimum, write down version number (use <code>sessionInfo()</code>).<br>
-This way, it is kind of reproducable which packages you used for the script.<br>
-<strong>Much much better</strong> and definitily recommended: using <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/">renv</a> or <a href="https://github.com/aaronpeikert/repro">repro</a> for your R-project.</p>
-</section>
-<section id="duplications" class="level3">
-<h3 class="anchored" data-anchor-id="duplications">Duplications</h3>
-<p>Duplication should be avoided.<br>
-They make the code less readable and more error-prone. The most important tools to avoid duplication in R are:</p>
-<section id="functions" class="level4">
-<h4 class="anchored" data-anchor-id="functions">Functions</h4>
-<p>Every time we do something more than once/twice, we should write that into a <a href="https://nickhaf.github.io/r_tutorial/qmd/functions/functions.html#how-to-write-a-function">function</a> This has several advantages:</p>
-<ol type="1">
-<li>We can give the function a name that conveys to the user what happens in the function. This makes the code more readable.<br>
-</li>
-<li>We can easily make changes to the function <strong>once</strong> and don’t have to update it every time the action is performed.</li>
-</ol>
-<p>When the cursor is in the function name, we can press <code>F2</code> to quickly jump to the function definition.<br>
-We can put our functions into another file</p>
-</section>
-<section id="loops" class="level4">
-<h4 class="anchored" data-anchor-id="loops">Loops</h4>
-<p><a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/">Loops</a> and <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/">apply-functions</a> help us to repeat actions multiple times.</p>
-</section>
-</section>
-<section id="compartmentalization" class="level3">
-<h3 class="anchored" data-anchor-id="compartmentalization">Compartmentalization</h3>
-<p>It makes sense to split big scripts into multiple smaller ones.<br>
-This also increases readability and makes it easier to get an overview of what happens in a project. For example, we could put our self-defined functions into a <code>functions.R</code> script and load it into our main script with <code>source("functions.R")</code></p>
-</section>
-<section id="version-control" class="level3">
-<h3 class="anchored" data-anchor-id="version-control">Version Control</h3>
-<p>Use Version Control for your code. A great option is <a href="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html#/title-slide">Git and in addition GitHub</a>.</p>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>After installation, Copilot will make code suggestions, which you can accept by pressing <code>Tab</code>. <code>Enter/Return</code> will ignore the suggestion. If you want to give Copilot some additional instructions, you can just write them into a comment over the line you want the code suggestions in:</p>
+<p><img src="copilot_example.png" class="img-fluid"></p>
+<p>Generally, the suggestions work best for smaller, compartimentalized problems.</p>
 
 
-</section>
 </section>
 
 
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@markusspiske?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Markus Spiske</a> on <a href="https://unsplash.com/de/fotos/nahaufnahme-des-eingeschalteten-computermonitors-4T5MTKMrjZg">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@nasa?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">NASA</a> on <a href="https://unsplash.com/de/fotos/buzz-aldrin-Qu3xLeochLc?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -685,4 +622,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/r_sig/23_10_09_cleaner/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/git/copilot/copilot.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

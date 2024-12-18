@@ -10,18 +10,16 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/statisticalQuestions.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Mon, 02 Dec 2024 13:10:57 GMT</lastBuildDate>
+<lastBuildDate>Wed, 18 Dec 2024 13:31:22 GMT</lastBuildDate>
 <item>
-  <title>FAQ</title>
+  <title>Wie poole ich mein \(R^2\) richtig über mehrere (bspw. 15) Imputationen?</title>
   <dc:creator>NA </dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ.html</link>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</link>
   <description><![CDATA[ 
 
 
 
 
-<section id="wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen" class="level2">
-<h2 class="anchored" data-anchor-id="wie-poole-ich-mein-r2-richtig-über-mehrere-bspw.-15-imputationen">1. Wie poole ich mein <img src="https://latex.codecogs.com/png.latex?R%5E2"> richtig über mehrere (bspw. 15) Imputationen?</h2>
 <section id="a.-methode-nach-harel-2009" class="level3">
 <h3 class="anchored" data-anchor-id="a.-methode-nach-harel-2009">a. Methode nach Harel (2009)</h3>
 <p>Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:<br>
@@ -58,31 +56,50 @@ background-color: null;
 font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
 </div>
 </section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
+
+
 </section>
-<section id="dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte" class="level2">
-<h2 class="anchored" data-anchor-id="dif-richtung-in-conquesteatmodel-was-bedeuten-negative-werte-in-der-estdif-spalte">2. DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</h2>
+
+ ]]></description>
+  <category>statistics</category>
+  <category>eatRep</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
+  <pubDate>Wed, 18 Dec 2024 13:31:22 GMT</pubDate>
+</item>
+<item>
+  <title>DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</title>
+  <dc:creator>NA </dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</link>
+  <description><![CDATA[ 
+
+
+
+
 <p>In eatModel wird nur der erste Teil der zweiten Tabelle <img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bitem%7D%5Ctimes%5Ctext%7B%5BDIFvariable%5D%7D"> aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items <strong>in der ersten Gruppe</strong> der <img src="https://latex.codecogs.com/png.latex?%5Ctext%7B%5BDIFvariable%5D%7D"> <strong>leichter</strong> sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(kableExtra)</span>
-<span id="cb2-2"><span class="fu" style="color: #4758AB;
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(eatTools)</span>
-<span id="cb2-3"><span class="fu" style="color: #4758AB;
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(eatModel)</span>
-<span id="cb2-4"><span class="fu" style="color: #4758AB;
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data</span>(data.ex08, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">package=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"TAM"</span>)</span>
-<span id="cb2-5"><span class="co" style="color: #5E5E5E;
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Gesamtdatensatz bauen, der sowohl Personen-ID, DIF-Variable als auch responses enthaelt</span></span>
-<span id="cb2-6">dat <span class="ot" style="color: #003B4F;
+<span id="cb1-6">dat <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -109,7 +126,7 @@ background-color: null;
 font-style: inherit;">1</span>, data.ex08[[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"resp"</span>]])</span>
-<span id="cb2-7">def <span class="ot" style="color: #003B4F;
+<span id="cb1-7">def <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -146,12 +163,12 @@ Dataset is completely linked.
 'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
 Q matrix specifies 1 dimension(s).</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">run <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">run <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">runModel</span>(def)</span>
-<span id="cb4-2">res <span class="ot" style="color: #003B4F;
+<span id="cb3-2">res <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -160,7 +177,7 @@ background-color: null;
 font-style: inherit;">verbose=</span><span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">FALSE</span>)</span>
-<span id="cb4-3">item <span class="ot" style="color: #003B4F;
+<span id="cb3-3">item <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -168,7 +185,7 @@ font-style: inherit;">itemFromRes</span>(res)</span></code></pre></div>
 </div>
 <p>Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">item6 <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">item6 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -183,7 +200,7 @@ background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"I0006"</span>)</span>
-<span id="cb5-2">cols  <span class="ot" style="color: #003B4F;
+<span id="cb4-2">cols  <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -202,10 +219,10 @@ background-color: null;
 font-style: inherit;">"difIndex"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"ETS"</span>)</span>
-<span id="cb5-3"><span class="co" style="color: #5E5E5E;
+<span id="cb4-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># ausgewaehlte Spalten fuer Items 6 anzeigen lassen </span></span>
-<span id="cb5-4"><span class="fu" style="color: #4758AB;
+<span id="cb4-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kbl</span>(item6[,cols], <span class="at" style="color: #657422;
 background-color: null;
@@ -214,7 +231,7 @@ background-color: null;
 font-style: inherit;">FALSE</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb5-5">    <span class="fu" style="color: #4758AB;
+<span id="cb4-5">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable_styling</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -260,7 +277,7 @@ font-style: inherit;">"center"</span>)</span></code></pre></div>
 </div>
 <p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von 0.3098146 bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">tapply</span>(dat[,<span class="st" style="color: #20794D;
 background-color: null;
@@ -272,9 +289,28 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
 0.410 0.498 </code></pre>
 </div>
 </div>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
+
+
 </section>
-<section id="zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen" class="level2">
-<h2 class="anchored" data-anchor-id="zentrierung-um-den-gesamtmittelwert-grand-mean-centering-oder-um-den-gruppenmittelwert-group-mean-centering-und-bedeutung-für-interaktionen-in-mehrebenenmodellen">3. Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</h2>
+
+ ]]></description>
+  <category>statistics</category>
+  <category>eatModel</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
+  <pubDate>Wed, 18 Dec 2024 13:31:22 GMT</pubDate>
+</item>
+<item>
+  <title>Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</title>
+  <dc:creator>NA </dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</link>
+  <description><![CDATA[ 
+
+
+
+
 <p>Wenn in Mehrebenenmodellen Interaktionen geschätzt werden, hängt die Schätzung des Intercepts wie auch die der Haupteffekte von der gewählten Skala der Prädiktoren ab. Die Haupteffekte repräsentieren den Effekt eines Prädiktors an der Stelle, an der die anderen Prädiktoren null sind. Da die Null oftmals kein natürlicher Wert von Prädiktoren ist (z. B. ist die Interpretation eines Effekts an der Stelle Klassengröße = 0 i. d.&nbsp;R. nicht sehr sinnvoll), wird das Zentrieren der Prädiktoren empfohlen. Hier kommen zwei Varianten in Frage: Zentrierung am Gruppenmittelwert und Zentrierung am Gesamtmittelwert. Für einen Prädiktor <img src="https://latex.codecogs.com/png.latex?X">, der an Individuum <img src="https://latex.codecogs.com/png.latex?i"> (<img src="https://latex.codecogs.com/png.latex?%5Cforall%20i%20%5Cin%20%5C%7B1,%E2%80%A6,i,%E2%80%A6,n%5C%7D">) in Gruppe <img src="https://latex.codecogs.com/png.latex?j"> (<img src="https://latex.codecogs.com/png.latex?%5Cforall%20j%20%5Cin%20%5C%7B1,%E2%80%A6,j,%E2%80%A6,J%5C%7D">) erhoben wird, bedeutet eine Zentrierung am Gesamtmittelwert, dass man von diesem individuellen Wert <img src="https://latex.codecogs.com/png.latex?x_%7Bij%7D"> den Gesamtmittelwert <img src="https://latex.codecogs.com/png.latex?M_X"> abzieht, gemäß: <img src="https://latex.codecogs.com/png.latex?X_%7Bij%7D-M_X">. Eine Zentrierung am Gruppenmittelwert bedeutet, dass man vom individuellen Wert <img src="https://latex.codecogs.com/png.latex?x_%7Bij%7D"> den Mittelwert der jeweiligen Gruppe abzieht, gemäß: <img src="https://latex.codecogs.com/png.latex?X_%7Bij%7D-M_%7BX_j%7D"> Hier eine grafische Darstellung dieser Zentrierungsmöglichkeiten eines Prädiktors:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -318,17 +354,6 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
 <p>Bauer, D.J., &amp; Curran, P.J. (2005). Probing interactions in fixed and multilevel regression: Inferential and graphical techniques. <em>Multivariate Behavioral Research, 40</em>, 373–400. https://doi.org/10.1207/s15327906mbr4003_5</p>
 <p>Yaremych, H. E., Preacher, K. J., &amp; Hedeker, D. (2023). Centering categorical predictors in multilevel models: Best practices and interpretation. <em>Psychological Methods, 28</em>(3), 613–630. https://doi.org/10.1037/met0000434</p>
 </section>
-</section>
-<section id="wie-groß-sollte-das-n-pro-item-idealerweise-sein" class="level2">
-<h2 class="anchored" data-anchor-id="wie-groß-sollte-das-n-pro-item-idealerweise-sein">4. Wie groß sollte das <em>N</em> pro Item idealerweise sein?</h2>
-<p>Grundsätzlich stellt sich die Frage des <em>N</em> pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es gibt jedoch Daumenregeln und es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an <img src="https://latex.codecogs.com/png.latex?N%3E100"> orientieren. Im Studiendesign versucht man dabei, auf ein <img src="https://latex.codecogs.com/png.latex?N=150"> zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:</p>
-<ul>
-<li><strong>VERA-Pilotierung ohne DIF:</strong> hier wäre <img src="https://latex.codecogs.com/png.latex?N=150"> ein vertretbarer Richtwert.</li>
-<li><strong>VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:</strong> für eine verlässliche DIF-Analyse wäre <img src="https://latex.codecogs.com/png.latex?N=150"> <em>pro Geschlechtergruppe</em> anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier <img src="https://latex.codecogs.com/png.latex?N=300"> ein Minimum, <img src="https://latex.codecogs.com/png.latex?N=400"> ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.</li>
-<li><strong>Pilotierung mit DIF-Analyse bzgl. SPF:</strong> Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre <img src="https://latex.codecogs.com/png.latex?N=150"> in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen <img src="https://latex.codecogs.com/png.latex?N%3E20000"> ist das zwar möglich, aber in kleineren Erhebungen wie VERA-Pilotierungen wäre das komplett unrealistisch. Hier müsste man also ggf. ein Oversampling anstreben, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen “überrepräsentieren”.</li>
-<li><strong>Analysen bzgl. Migrationshintergrund:</strong> Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem <em>N</em> pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BMigrationshintergrund%7D%5Ctimes%20%5Ctext%7BGeschlecht%7D"> hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein – es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.</li>
-</ul>
-</section>
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
 <p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
@@ -337,9 +362,37 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
 </section>
 
  ]]></description>
-  <category>FAQ</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ.html</guid>
-  <pubDate>Mon, 02 Dec 2024 13:10:57 GMT</pubDate>
+  <category>statistics</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
+  <pubDate>Wed, 18 Dec 2024 13:31:22 GMT</pubDate>
+</item>
+<item>
+  <title>Wie groß sollte das N pro Item idealerweise sein?</title>
+  <dc:creator>NA </dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Grundsätzlich stellt sich die Frage des <em>N</em> pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es gibt jedoch Daumenregeln und es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an <img src="https://latex.codecogs.com/png.latex?N%3E100"> orientieren. Im Studiendesign versucht man dabei, auf ein <img src="https://latex.codecogs.com/png.latex?N=150"> zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:</p>
+<ul>
+<li><strong>VERA-Pilotierung ohne DIF:</strong> hier wäre <img src="https://latex.codecogs.com/png.latex?N=150"> ein vertretbarer Richtwert.</li>
+<li><strong>VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:</strong> für eine verlässliche DIF-Analyse wäre <img src="https://latex.codecogs.com/png.latex?N=150"> <em>pro Geschlechtergruppe</em> anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier <img src="https://latex.codecogs.com/png.latex?N=300"> ein Minimum, <img src="https://latex.codecogs.com/png.latex?N=400"> ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.</li>
+<li><strong>Pilotierung mit DIF-Analyse bzgl. SPF:</strong> Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre <img src="https://latex.codecogs.com/png.latex?N=150"> in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen <img src="https://latex.codecogs.com/png.latex?N%3E20000"> ist das zwar möglich, aber in kleineren Erhebungen wie VERA-Pilotierungen wäre das komplett unrealistisch. Hier müsste man also ggf. ein Oversampling anstreben, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen “überrepräsentieren”.</li>
+<li><strong>Analysen bzgl. Migrationshintergrund:</strong> Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem <em>N</em> pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BMigrationshintergrund%7D%5Ctimes%20%5Ctext%7BGeschlecht%7D"> hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein – es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.</li>
+</ul>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
+
+
+</section>
+
+ ]]></description>
+  <category>statistics</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
+  <pubDate>Wed, 18 Dec 2024 13:31:22 GMT</pubDate>
 </item>
 </channel>
 </rss>
