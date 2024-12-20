@@ -10,13 +10,13 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_eat.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Wed, 18 Dec 2024 15:47:06 GMT</lastBuildDate>
+<lastBuildDate>Fri, 20 Dec 2024 10:50:57 GMT</lastBuildDate>
 <item>
   <title>eatAnalysis</title>
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatAnalysis.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -24,7 +24,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Automated block occupation/automated test booklet creation.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatATA.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -32,7 +32,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Automated creation of scale manuals.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatCodebook.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -40,7 +40,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Automated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatFDZ.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -48,7 +48,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -56,7 +56,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Serves as an interface for the ConQuest software. The required control files (script, labels, data set in &#39;fixed width&#39; format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of &#39;eatModel&#39; also allow the integration of the R package &#39;tam&#39; and parallelisation.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -64,7 +64,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Creating plots from the eatRep output (main use: Bildungstrend).</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatPlot.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -72,7 +72,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Preparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple data sets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool &#39;AnalyseInput&#39;, which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatPrep.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -80,7 +80,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Create and apply recoding databases.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatRecode.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -88,7 +88,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Calculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -96,7 +96,7 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>Various help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Wed, 18 Dec 2024 15:47:06 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:50:57 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/./logos/eatTools.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>

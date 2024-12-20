@@ -4859,7 +4859,7 @@ font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div>
 </item>
 <item>
   <title>Wie poole ich mein \(R^2\) richtig über mehrere (bspw. 15) Imputationen?</title>
-  <dc:creator>NA </dc:creator>
+  <dc:creator>Sebastian Weirich</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</link>
   <description><![CDATA[ 
 
@@ -4913,12 +4913,12 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
   <category>statistics</category>
   <category>eatRep</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Wed, 18 Dec 2024 15:44:45 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:48:35 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title>DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</title>
-  <dc:creator>NA </dc:creator>
+  <dc:creator>Karoline Sachse</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</link>
   <description><![CDATA[ 
 
@@ -5147,12 +5147,12 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
   <category>statistics</category>
   <category>eatModel</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Wed, 18 Dec 2024 15:44:45 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:48:35 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title>Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</title>
-  <dc:creator>NA </dc:creator>
+  <dc:creator>Karoline Sachse</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</link>
   <description><![CDATA[ 
 
@@ -5212,12 +5212,12 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Wed, 18 Dec 2024 15:44:45 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:48:35 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Wie groß sollte das N pro Item idealerweise sein?</title>
-  <dc:creator>NA </dc:creator>
+  <dc:creator>Sebastian Weirich</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</link>
   <description><![CDATA[ 
 
@@ -5241,7 +5241,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Wed, 18 Dec 2024 15:44:45 GMT</pubDate>
+  <pubDate>Fri, 20 Dec 2024 10:48:35 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" medium="image" type="image/png" height="125" width="144"/>
 </item>
 </channel>
