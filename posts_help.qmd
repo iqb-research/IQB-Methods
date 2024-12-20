@@ -4,67 +4,108 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Contact for eat packages
+## Contact for eat Packages
 
-::: nav-pills
+:::: nav-pills
 ::: panel-tabset
 ## eatAnalysis
 
-contact: BB, SW, KAS
+| Contact | Email |
+|--|--|
+| [Benjamin Becker](https://www.iqb.hu-berlin.de/institut/staff/?pg=c093) | b.becker[at]iqb.hu-berlin.de|
+| [Sebastian Weirich](https://www.iqb.hu-berlin.de/institut/staff/?pg=ma_8) | sebastian.weirich[at]iqb.hu-berlin.de |
+| [Karoline Sachse](https://www.iqb.hu-berlin.de/institut/staff/?pg=ks) | karoline.sachse[at]iqb.hu-berlin.de |
 
 ## eatATA
 
-contact: BB
+| Contact | Email |
+|--|--|
+| [Benjamin Becker](https://www.iqb.hu-berlin.de/institut/staff/?pg=c093) | b.becker[at]iqb.hu-berlin.de|
 
 ## eatCodebook
 
-contact: BB
+| Contact | Email |
+|--|--|
+| [Benjamin Becker](https://www.iqb.hu-berlin.de/institut/staff/?pg=c093) | b.becker[at]iqb.hu-berlin.de|
 
 ## eatFDZ
 
-contact: BB
+| Contact | Email |
+|--|--|
+| [Benjamin Becker](https://www.iqb.hu-berlin.de/institut/staff/?pg=c093) | b.becker[at]iqb.hu-berlin.de|
 
 ## eatGADS
 
-contact: BB
+| Contact | Email |
+|--|--|
+| [Benjamin Becker](https://www.iqb.hu-berlin.de/institut/staff/?pg=c093) | b.becker[at]iqb.hu-berlin.de|
 
 ## eatModel
 
-contact: SW
+| Contact | Email |
+|--|--|
+| [Sebastian Weirich](https://www.iqb.hu-berlin.de/institut/staff/?pg=ma_8) | sebastian.weirich[at]iqb.hu-berlin.de |
 
 ## eatPlot
 
-contact: NH, PF
+| Contact | Email |
+|--|--|
+| [Nicklas Hafiz](https://www.iqb.hu-berlin.de/institut/staff/?pg=c135) | nicklas.jakob.hafiz[at]hu-berlin.de |
+| [Philipp Franikowski](https://www.iqb.hu-berlin.de/institut/staff/?pg=c149) | philipp.franikowski[at]iqb.hu-berlin.de |
 
 ## eatPrep
 
-contact: KAS
+| Contact | Email |
+|--|--|
+| [Karoline Sachse](https://www.iqb.hu-berlin.de/institut/staff/?pg=ks) | karoline.sachse[at]iqb.hu-berlin.de |
 
 ## eatRecode
 
-contact: BB, NH
+| Contact | Email |
+|--|--|
+| [Benjamin Becker](https://www.iqb.hu-berlin.de/institut/staff/?pg=c093) | b.becker[at]iqb.hu-berlin.de|
+| [Nicklas Hafiz](https://www.iqb.hu-berlin.de/institut/staff/?pg=c135) | nicklas.jakob.hafiz[at]hu-berlin.de |
+
 
 ## eatRep
 
-contact: SW, BB
+| Contact | Email |
+|--|--|
+| [Sebastian Weirich](https://www.iqb.hu-berlin.de/institut/staff/?pg=ma_8) | sebastian.weirich[at]iqb.hu-berlin.de |
+| [Benjamin Becker](https://www.iqb.hu-berlin.de/institut/staff/?pg=c093) | b.becker[at]iqb.hu-berlin.de|
+
 
 ## eatTools
 
-contact: SW, BB, KAS
+| Contact | Email |
+|--|--|
+| [Sebastian Weirich](https://www.iqb.hu-berlin.de/institut/staff/?pg=ma_8) | sebastian.weirich[at]iqb.hu-berlin.de |
+| [Benjamin Becker](https://www.iqb.hu-berlin.de/institut/staff/?pg=c093) | b.becker[at]iqb.hu-berlin.de|
+| [Karoline Sachse](https://www.iqb.hu-berlin.de/institut/staff/?pg=ks) | karoline.sachse[at]iqb.hu-berlin.de |
+
 :::
-:::
+::::
+
+
+
+
+
+```{=html}
+<!-- 
 
 ## FAQ
 
 <details>
+
 <summary>Question 1</summary>
 
 Some example answer.
-</details>
 
+</details>
 
 ## Current Issues on Github
 
-<!-- link to github issues? 
+link to github issues? 
 like this one? https://github.com/iqb-research/IQB-Methods/issues
 -->
+```
