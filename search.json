@@ -1124,21 +1124,28 @@
     "href": "docs/discussions/code_conventions.html",
     "title": "Code-Konventionen",
     "section": "",
-    "text": "1"
+    "text": "1\nDiese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat."
   },
   {
-    "objectID": "docs/discussions/code_conventions.html#überblick",
-    "href": "docs/discussions/code_conventions.html#überblick",
+    "objectID": "docs/discussions/code_conventions.html#umfang-von-code-abschnitten",
+    "href": "docs/discussions/code_conventions.html#umfang-von-code-abschnitten",
     "title": "Code-Konventionen",
-    "section": "Überblick",
-    "text": "Überblick\nDiese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat."
+    "section": "Umfang von Code-Abschnitten",
+    "text": "Umfang von Code-Abschnitten\n\nGenerell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.\nGleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.\nIn R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.\n\nBei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.\nRigoroses Testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten."
   },
   {
-    "objectID": "docs/discussions/code_conventions.html#allgemeine-konventionen",
-    "href": "docs/discussions/code_conventions.html#allgemeine-konventionen",
+    "objectID": "docs/discussions/code_conventions.html#benennungskonventionen",
+    "href": "docs/discussions/code_conventions.html#benennungskonventionen",
     "title": "Code-Konventionen",
-    "section": "Allgemeine Konventionen",
-    "text": "Allgemeine Konventionen\n\nUmfang von Code-Abschnitten\n\nGenerell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.\nGleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.\nIn R-Paketen sollte es pro exportierter Funktion ein eigenes Skript geben. Zu Hilsfunktionen haben wir noch nichts beschlossen.\n\nBei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.\nRigoroses Testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.\n\n\n\n\nBenennungskonventionen\n\nBei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.\nEs sollten eher sprechende Namen als möglichst kurse Namen verwendet werden.\nFunktionsnamen sollten aus Verben bestehen.\nObjektnamen (die keine Funktionen sind) sollten Substantive sein.\nDopplungen mit existierenden R-Objekten sollten vermieden werdeen.\nBei der Objekt-Modifikation sollten Objekte nicht überschreiben werden, wenn sie sich substanziell ändern.\nEinige häufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, …\nBei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden.\n\n\n\nDependencies\npkgnet kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren."
+    "section": "Benennungskonventionen",
+    "text": "Benennungskonventionen\n\nBei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.\nEs sollten eher sprechende Namen als möglichst kurse Namen verwendet werden.\nFunktionsnamen sollten aus Verben bestehen.\nObjektnamen (die keine Funktionen sind) sollten Substantive sein.\nDopplungen mit existierenden R-Objekten sollten vermieden werdeen.\nBei der Objekt-Modifikation sollten Objekte nicht überschreiben werden, wenn sie sich substanziell ändern.\nEinige häufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, …\nBei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden."
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#dependencies",
+    "href": "docs/discussions/code_conventions.html#dependencies",
+    "title": "Code-Konventionen",
+    "section": "Dependencies",
+    "text": "Dependencies\npkgnet kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren."
   },
   {
     "objectID": "docs/discussions/code_conventions.html#code-review",
@@ -1153,6 +1160,20 @@
     "title": "Code-Konventionen",
     "section": "Issues",
     "text": "Issues\n\nWir nutzen GitHub-Projects um alle ToDos aus verschiedenen Repos an einem Ort zu sammeln.\n\nWichtige Issues aus jedem Repo sollten im Projekt hinzugefügt werden.\n\n\nIssues aus einem anderen Repository zum Projekt hinzufügen\n\nClick on Add item\n#beckerbenj/eatGADS\nFrom the suggested list you can choose the issue you want to add to the project, or create a new one.\n\nYou can filter for all open issues with is:issue is:open.\n\n\n\nIssue sorting\n\nColumn “Done” contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together.\nEverything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos."
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#branch-benennung",
+    "href": "docs/discussions/code_conventions.html#branch-benennung",
+    "title": "Code-Konventionen",
+    "section": "Branch-Benennung",
+    "text": "Branch-Benennung\nSiehe hier.\n\nRegeln:\n\nerstes Element: Feature/Bugfix/Hotfix/Docu/Release\nzweites Element: Issue-Nummer\ndrittes Element: Kurz-Beschreibung\n\n\n\nBeispiele:\n\nfeature/33-asNumericIfPossible-for-logicals\nbugfix/45-dataframes-in-cleanifyStrings\ndocu/68-data-cleaning-vignette"
+  },
+  {
+    "objectID": "docs/discussions/code_conventions.html#commit-benennung",
+    "href": "docs/discussions/code_conventions.html#commit-benennung",
+    "title": "Code-Konventionen",
+    "section": "Commit-Benennung",
+    "text": "Commit-Benennung\nSiehe hier.\n\nRegeln:\n\nerstes Element: worauf bezieht sich der Commit (zB Funktionsname)\nzweites Element: Kurz-Beschreibung\nin Kurzbeschreibung: Präsenz verwenden und sich kurz fassen\n\n\n\nBeispiele:\n\nasNumericIfPossible: Add methods for logical and factor\nmerge.GADSdat: Add by.x and by.y arguments\ncleanifyString: Add missing argument documentation\n\n\n\n\n\n\n\nWichtige Voraussetzung\n\n\n\nEin Commit muss eine in sich sinnvoll abgeschlossene Einheit darstellen!"
   },
   {
     "objectID": "docs/discussions/code_conventions.html#mögliche-nächste-themen",

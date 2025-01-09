@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-d89fc942f684c7f97fb3c2cf2bc0f3e1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -131,13 +131,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#überblick" id="toc-überblick" class="nav-link active" data-scroll-target="#überblick">Überblick</a></li>
-  <li><a href="#allgemeine-konventionen" id="toc-allgemeine-konventionen" class="nav-link" data-scroll-target="#allgemeine-konventionen">Allgemeine Konventionen</a>
+  <li><a href="#methodenteam" id="toc-methodenteam" class="nav-link active" data-scroll-target="#methodenteam">Methodenteam</a>
   <ul class="collapse">
   <li><a href="#umfang-von-code-abschnitten" id="toc-umfang-von-code-abschnitten" class="nav-link" data-scroll-target="#umfang-von-code-abschnitten">Umfang von Code-Abschnitten</a></li>
   <li><a href="#benennungskonventionen" id="toc-benennungskonventionen" class="nav-link" data-scroll-target="#benennungskonventionen">Benennungskonventionen</a></li>
   <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
-  </ul></li>
   <li><a href="#code-review" id="toc-code-review" class="nav-link" data-scroll-target="#code-review">Code Review</a>
   <ul class="collapse">
   <li><a href="#vorgehen" id="toc-vorgehen" class="nav-link" data-scroll-target="#vorgehen">Vorgehen</a></li>
@@ -151,7 +149,21 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#issues-aus-einem-anderen-repository-zum-projekt-hinzufügen" id="toc-issues-aus-einem-anderen-repository-zum-projekt-hinzufügen" class="nav-link" data-scroll-target="#issues-aus-einem-anderen-repository-zum-projekt-hinzufügen">Issues aus einem anderen Repository zum Projekt hinzufügen</a></li>
   <li><a href="#issue-sorting" id="toc-issue-sorting" class="nav-link" data-scroll-target="#issue-sorting">Issue sorting</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#git-benennungs-konventionen" id="toc-git-benennungs-konventionen" class="nav-link" data-scroll-target="#git-benennungs-konventionen">Git-Benennungs-Konventionen</a>
+  <ul class="collapse">
+  <li><a href="#branch-benennung" id="toc-branch-benennung" class="nav-link" data-scroll-target="#branch-benennung">Branch-Benennung</a>
+  <ul class="collapse">
+  <li><a href="#regeln" id="toc-regeln" class="nav-link" data-scroll-target="#regeln">Regeln:</a></li>
+  <li><a href="#beispiele" id="toc-beispiele" class="nav-link" data-scroll-target="#beispiele">Beispiele:</a></li>
+  </ul></li>
+  <li><a href="#commit-benennung" id="toc-commit-benennung" class="nav-link" data-scroll-target="#commit-benennung">Commit-Benennung</a>
+  <ul class="collapse">
+  <li><a href="#regeln-1" id="toc-regeln-1" class="nav-link" data-scroll-target="#regeln-1">Regeln:</a></li>
+  <li><a href="#beispiele-1" id="toc-beispiele-1" class="nav-link" data-scroll-target="#beispiele-1">Beispiele:</a></li>
+  </ul></li>
   <li><a href="#mögliche-nächste-themen" id="toc-mögliche-nächste-themen" class="nav-link" data-scroll-target="#mögliche-nächste-themen">Mögliche nächste Themen</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/discussions/code_conventions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -190,14 +202,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><img src="conventions.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<section id="überblick" class="level2">
-<h2 class="anchored" data-anchor-id="überblick">Überblick</h2>
 <p>Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat.</p>
-</section>
-<section id="allgemeine-konventionen" class="level2">
-<h2 class="anchored" data-anchor-id="allgemeine-konventionen">Allgemeine Konventionen</h2>
-<section id="umfang-von-code-abschnitten" class="level3">
-<h3 class="anchored" data-anchor-id="umfang-von-code-abschnitten">Umfang von Code-Abschnitten</h3>
+<section id="methodenteam" class="level1">
+<h1>Methodenteam</h1>
+<section id="umfang-von-code-abschnitten" class="level2">
+<h2 class="anchored" data-anchor-id="umfang-von-code-abschnitten">Umfang von Code-Abschnitten</h2>
 <ol type="1">
 <li>Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.</li>
 <li>Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.</li>
@@ -208,8 +217,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
-<section id="benennungskonventionen" class="level3">
-<h3 class="anchored" data-anchor-id="benennungskonventionen">Benennungskonventionen</h3>
+<section id="benennungskonventionen" class="level2">
+<h2 class="anchored" data-anchor-id="benennungskonventionen">Benennungskonventionen</h2>
 <ol type="1">
 <li>Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.</li>
 <li>Es sollten eher sprechende Namen als möglichst kurse Namen verwendet werden.</li>
@@ -221,10 +230,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Bei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden.</li>
 </ol>
 </section>
-<section id="dependencies" class="level3">
-<h3 class="anchored" data-anchor-id="dependencies">Dependencies</h3>
+<section id="dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
 <p><a href="https://uptake.github.io/pkgnet/articles/pkgnet-intro.html">pkgnet</a> kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren.</p>
-</section>
 </section>
 <section id="code-review" class="level2">
 <h2 class="anchored" data-anchor-id="code-review">Code Review</h2>
@@ -315,6 +323,62 @@ Optional:
 </ul>
 </section>
 </section>
+</section>
+<section id="git-benennungs-konventionen" class="level1">
+<h1>Git-Benennungs-Konventionen</h1>
+<section id="branch-benennung" class="level2">
+<h2 class="anchored" data-anchor-id="branch-benennung">Branch-Benennung</h2>
+<p>Siehe <a href="https://medium.com/@abhay.pixolo/naming-conventions-for-git-branches-a-cheatsheet-8549feca2534">hier</a>.</p>
+<section id="regeln" class="level3">
+<h3 class="anchored" data-anchor-id="regeln">Regeln:</h3>
+<ul>
+<li>erstes Element: Feature/Bugfix/Hotfix/Docu/Release</li>
+<li>zweites Element: Issue-Nummer</li>
+<li>drittes Element: Kurz-Beschreibung</li>
+</ul>
+</section>
+<section id="beispiele" class="level3">
+<h3 class="anchored" data-anchor-id="beispiele">Beispiele:</h3>
+<ul>
+<li><code>feature/33-asNumericIfPossible-for-logicals</code></li>
+<li><code>bugfix/45-dataframes-in-cleanifyStrings</code></li>
+<li><code>docu/68-data-cleaning-vignette</code></li>
+</ul>
+</section>
+</section>
+<section id="commit-benennung" class="level2">
+<h2 class="anchored" data-anchor-id="commit-benennung">Commit-Benennung</h2>
+<p>Siehe <a href="https://cbea.ms/git-commit/">hier</a>.</p>
+<section id="regeln-1" class="level3">
+<h3 class="anchored" data-anchor-id="regeln-1">Regeln:</h3>
+<ul>
+<li>erstes Element: worauf bezieht sich der Commit (zB Funktionsname)</li>
+<li>zweites Element: Kurz-Beschreibung</li>
+<li>in Kurzbeschreibung: Präsenz verwenden und sich kurz fassen</li>
+</ul>
+</section>
+<section id="beispiele-1" class="level3">
+<h3 class="anchored" data-anchor-id="beispiele-1">Beispiele:</h3>
+<ul>
+<li>asNumericIfPossible: Add methods for logical and factor</li>
+<li>merge.GADSdat: Add by.x and by.y arguments</li>
+<li>cleanifyString: Add missing argument documentation</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtige Voraussetzung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ein Commit muss eine in sich sinnvoll abgeschlossene Einheit darstellen!</p>
+</div>
+</div>
+</section>
+</section>
 <section id="mögliche-nächste-themen" class="level2">
 <h2 class="anchored" data-anchor-id="mögliche-nächste-themen">Mögliche nächste Themen</h2>
 <ul>
@@ -336,6 +400,7 @@ Optional:
 </ul>
 
 
+</section>
 </section>
 
 
