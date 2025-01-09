@@ -9,13 +9,11 @@ image: conventions.jpg
 
 [^1]: Image by [Swipe](https://unsplash.com/de/@swipe9?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/eine-kamera-die-auf-einem-stativ-in-einem-bankettsaal-aufgestellt-ist-AwBKMgnAM3o).
 
-## Überblick
-
 Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmter Code-Konventionen, die wir im Team verfolgen wollen. Zum Absprechen dieser Themen treffen wir uns regelmäßig einmal im Monat.
 
-## Allgemeine Konventionen
+# Methodenteam
 
-### Umfang von Code-Abschnitten
+## Umfang von Code-Abschnitten
 
 1.  Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung: eine Zeile sollte nicht mehr als 100 Zeichen beinhalten.
 2.  Gleiches gilt für eine Funktion: sie sollte maximal 100 Zeilen lang sein, und eher in Sub-Funktionen aufgeteilt werden.
@@ -23,7 +21,7 @@ Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmte
     -   Bei Funktionen mit vielen Funktionsargumenten soll eine Liste von Funktionsargumenten innerhalb der internen Funktionsköpfe übergeben werden.
     -   Rigoroses Testen kann helfen bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.
 
-### Benennungskonventionen
+## Benennungskonventionen
 
 1.  Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.
 2.  Es sollten eher sprechende Namen als möglichst kurse Namen verwendet werden.
@@ -34,7 +32,7 @@ Diese Seite dient als Zusammenfassung unserer Beschlüsse hinsichtlich bestimmte
 7.  Einige häufige Argumentnamen: `dat`, `path/file/filePath/filename`, `dir/folder`, ...
 8.  Bei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden.
 
-### Dependencies
+## Dependencies
 
 [pkgnet](https://uptake.github.io/pkgnet/articles/pkgnet-intro.html) kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren.
 
@@ -104,6 +102,42 @@ Eine übersicht zum GitHub-Workflow findet sich [hier](https://iqb-research.gith
 
 -   Column "Done" contains all finished issues. They will be discussed one last time at the jour fix, and than the issue will be closed together.
 -   Everything should be an issue, not a draft! Drafts without a project can fit into iqb-research/to-dos.
+
+
+# Git-Benennungs-Konventionen
+## Branch-Benennung 
+Siehe [hier](https://medium.com/@abhay.pixolo/naming-conventions-for-git-branches-a-cheatsheet-8549feca2534).
+
+### Regeln:
+
+- erstes Element: Feature/Bugfix/Hotfix/Docu/Release
+- zweites Element: Issue-Nummer
+- drittes Element: Kurz-Beschreibung
+
+### Beispiele:
+
+- `feature/33-asNumericIfPossible-for-logicals`
+- `bugfix/45-dataframes-in-cleanifyStrings`
+- `docu/68-data-cleaning-vignette`
+
+## Commit-Benennung
+Siehe [hier](https://cbea.ms/git-commit/).
+
+### Regeln:
+- erstes Element: worauf bezieht sich der Commit (zB Funktionsname)
+- zweites Element: Kurz-Beschreibung
+- in Kurzbeschreibung: Präsenz verwenden und sich kurz fassen
+
+### Beispiele:
+- asNumericIfPossible: Add methods for logical and factor
+- merge.GADSdat: Add by.x and by.y arguments
+- cleanifyString: Add missing argument documentation
+
+:::{.callout-important}
+## Wichtige Voraussetzung
+Ein Commit muss eine in sich sinnvoll abgeschlossene Einheit darstellen!
+:::
+
 
 ## Mögliche nächste Themen
 
