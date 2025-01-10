@@ -139,7 +139,69 @@ Ein Commit muss eine in sich sinnvoll abgeschlossene Einheit darstellen!
 :::
 
 
-## Mögliche nächste Themen
+
+# FIAT Code-Konventionen
+
+## Umfang von Code-Abschnitten
+
+- Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung gilt: Eine Zeile sollte **maximal 100 Zeichen** beinhalten. Dies gilt für Code, Dokumentation und Kommentare.
+  - Zu empfehlende Lösungsoptionen sind "harte" Zeilenumbrüche, das Erstellen und Aufrufen zusätzlicher Objekte und Pipen.
+- Gleiches gilt für eine Funktion. Sie sollte **maximal 100 Zeilen lang** sein.
+- Anzahl der Funktionsargumenten in einer Funktion
+  - Es gibt mehrere Möglichkeiten, mit sehr vielen Argumenten un Funktionskopf umzugehen:
+    - Funktion, die eine Liste mit Default-Werten erzeugt, die dann überschrieben werden können (z.B. [`eatPlot::plot_lineplot`](https://github.com/nickhaf/eatPlot/blob/main/R/plot_lineplot.R))
+    - „…“
+  - Ausschlaggebend dafür, ob Handlungsbedarf besteht, ist nicht die schiere Menge der Argumente, sondern wenn 
+    - die Argumente sich stark in ihrer Hierarchie unterscheiden
+    - die Argumente viele Defaults haben
+
+## Konventionen zum Schreiben von Funktionen
+
+- In R-Paketen sollte es **pro exportierter Funktion ein eigenes Skript** geben.
+- Eine Funktion sollte genau eine Sache tun, die aus dem Namen der Funktion hervorgeht, und davon Gebrauch machen, einzelne Aufgaben in andere (Hilfs-) Funktionen auszulagern (vgl. Umfang von Code-Abschnitten)
+  - Eine Ausnahme sind wrapper-Funktionen, die jedoch nichts weiter tun sollten, als die anderen Funktionen aufzurufen.
+  - Hilfsfunktionen werden im Skript der Funktion platziert, in dem sie verwendet werden.
+  - Falls Hilfsfunktionen von mehreren Haupt-/exportierten Funktionen verwendet werden, werden sie in `utils.R` verschoben. Diese Datei gibt es nur einmal pro Paket.
+  - Falls der Umfang von `utils.R` zu stark anwächst, können Hilfsfunktionen gruppiert in separate Dateien geschoben werden.
+- Funktionen sollten entweder *keine* side effects haben, oder *ausschließlich* side effects bewirken.
+- `return()` oder kein `return()` bleibt den Codenden überlassen
+  - Es gibt Argumente, die dafür sprechen, konsequent am Ende der Funktion `return()` zu setzen (Eindeutigkeit, Nachvollziehbarkeit, Suchbarkeit) - aber auch dagegen.
+  - Kriterium: Es sollte aus der Funktion heraus klar werden, was ausgegeben wird.
+- Einrückungen/Indentation: Die Wahl zwischen [`styleR`](https://cran.r-project.org/web/packages/styler/index.html) oder dem RStudio Default ist den Codenden überlassen.
+- Kommentare sollten a) möglichst gar nicht notwendig sein (weil der Code verständlich geschrieben ist) und b) das *Warum* und nicht das *Was* von Zeilen erklären.
+- `if`-statements, loops und Funktionsdefinitionen (z.B. in `lapply()`) sollten stets und auch dann umgebrochen werden, wenn sie nur einen Befehl enthalten, d.h. die Zeile endet mit `{`, gefolgt von einem Zeilenumbruch.
+
+## Benennungskonventionen
+
+- Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.
+- Es sollten eher sprechende Namen als möglichst kurze Namen verwendet werden.
+- Funktionsnamen sollten aus Verben bestehen.
+- Objektnamen (die keine Funktionen sind) sollten Substantive sein.
+- Dopplungen mit existierenden R-Objekten sollten vermieden werden.
+- Bei der Objekt-Modifikation sollten Objekte nicht überschreiben werden, wenn sie sich substanziell ändern.
+- Einige häufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, … --> nächstes Mal besprechen
+- Bei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden.
+
+## Konventionen für Pakete
+
+- Rigoroses Testen
+  - Rigoroses Testen kann helfen, bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.
+  - Umsetzung mit [`testthat`](https://testthat.r-lib.org/)
+  - Es wird eine Coverage > 90% angestrebt
+- Die Anzahl von Dependencies sollte gering gehalten werden.
+  - [pkgnet](https://uptake.github.io/pkgnet/articles/pkgnet-intro.html) kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren.
+  - Insbesondere sollten "teure" Dependencies, die ihrerseits viele Dependencies aufrufen, vermieden werden.
+  - Ggf. sollten Funktionen selbst (nach-) gebaut werden.
+
+## Offen --> Besprechung am 6.12. oder 13.12.
+
+- Kristophs Konventionen zur Benennung von Objekten („df_“, „pt_“, …)
+- Scope von Paketen
+- Code Review (auf Basis von https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html)
+- commit-messages
+- Benennung von feature branches
+
+# Mögliche nächste Themen
 
 -   Indentierung?
 -   Häufige Argumentnamen
