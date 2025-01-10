@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d89fc942f684c7f97fb3c2cf2bc0f3e1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2fcfbc4907ec7abd530fd6e0fa3639a6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -162,8 +162,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#regeln-1" id="toc-regeln-1" class="nav-link" data-scroll-target="#regeln-1">Regeln:</a></li>
   <li><a href="#beispiele-1" id="toc-beispiele-1" class="nav-link" data-scroll-target="#beispiele-1">Beispiele:</a></li>
   </ul></li>
-  <li><a href="#mögliche-nächste-themen" id="toc-mögliche-nächste-themen" class="nav-link" data-scroll-target="#mögliche-nächste-themen">Mögliche nächste Themen</a></li>
   </ul></li>
+  <li><a href="#fiat-code-konventionen" id="toc-fiat-code-konventionen" class="nav-link" data-scroll-target="#fiat-code-konventionen">FIAT Code-Konventionen</a>
+  <ul class="collapse">
+  <li><a href="#umfang-von-code-abschnitten-1" id="toc-umfang-von-code-abschnitten-1" class="nav-link" data-scroll-target="#umfang-von-code-abschnitten-1">Umfang von Code-Abschnitten</a></li>
+  <li><a href="#konventionen-zum-schreiben-von-funktionen" id="toc-konventionen-zum-schreiben-von-funktionen" class="nav-link" data-scroll-target="#konventionen-zum-schreiben-von-funktionen">Konventionen zum Schreiben von Funktionen</a></li>
+  <li><a href="#benennungskonventionen-1" id="toc-benennungskonventionen-1" class="nav-link" data-scroll-target="#benennungskonventionen-1">Benennungskonventionen</a></li>
+  <li><a href="#konventionen-für-pakete" id="toc-konventionen-für-pakete" class="nav-link" data-scroll-target="#konventionen-für-pakete">Konventionen für Pakete</a></li>
+  <li><a href="#offen-besprechung-am-6.12.-oder-13.12." id="toc-offen-besprechung-am-6.12.-oder-13.12." class="nav-link" data-scroll-target="#offen-besprechung-am-6.12.-oder-13.12.">Offen –&gt; Besprechung am 6.12. oder 13.12.</a></li>
+  </ul></li>
+  <li><a href="#mögliche-nächste-themen" id="toc-mögliche-nächste-themen" class="nav-link" data-scroll-target="#mögliche-nächste-themen">Mögliche nächste Themen</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/discussions/code_conventions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -379,8 +387,97 @@ Wichtige Voraussetzung
 </div>
 </section>
 </section>
-<section id="mögliche-nächste-themen" class="level2">
-<h2 class="anchored" data-anchor-id="mögliche-nächste-themen">Mögliche nächste Themen</h2>
+</section>
+<section id="fiat-code-konventionen" class="level1">
+<h1>FIAT Code-Konventionen</h1>
+<section id="umfang-von-code-abschnitten-1" class="level2">
+<h2 class="anchored" data-anchor-id="umfang-von-code-abschnitten-1">Umfang von Code-Abschnitten</h2>
+<ul>
+<li>Generell sollte innerhalb einer Zeile möglichst wenig passieren. Als Orientierung gilt: Eine Zeile sollte <strong>maximal 100 Zeichen</strong> beinhalten. Dies gilt für Code, Dokumentation und Kommentare.
+<ul>
+<li>Zu empfehlende Lösungsoptionen sind “harte” Zeilenumbrüche, das Erstellen und Aufrufen zusätzlicher Objekte und Pipen.</li>
+</ul></li>
+<li>Gleiches gilt für eine Funktion. Sie sollte <strong>maximal 100 Zeilen lang</strong> sein.</li>
+<li>Anzahl der Funktionsargumenten in einer Funktion
+<ul>
+<li>Es gibt mehrere Möglichkeiten, mit sehr vielen Argumenten un Funktionskopf umzugehen:
+<ul>
+<li>Funktion, die eine Liste mit Default-Werten erzeugt, die dann überschrieben werden können (z.B. <a href="https://github.com/nickhaf/eatPlot/blob/main/R/plot_lineplot.R"><code>eatPlot::plot_lineplot</code></a>)</li>
+<li>„…“</li>
+</ul></li>
+<li>Ausschlaggebend dafür, ob Handlungsbedarf besteht, ist nicht die schiere Menge der Argumente, sondern wenn
+<ul>
+<li>die Argumente sich stark in ihrer Hierarchie unterscheiden</li>
+<li>die Argumente viele Defaults haben</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="konventionen-zum-schreiben-von-funktionen" class="level2">
+<h2 class="anchored" data-anchor-id="konventionen-zum-schreiben-von-funktionen">Konventionen zum Schreiben von Funktionen</h2>
+<ul>
+<li>In R-Paketen sollte es <strong>pro exportierter Funktion ein eigenes Skript</strong> geben.</li>
+<li>Eine Funktion sollte genau eine Sache tun, die aus dem Namen der Funktion hervorgeht, und davon Gebrauch machen, einzelne Aufgaben in andere (Hilfs-) Funktionen auszulagern (vgl. Umfang von Code-Abschnitten)
+<ul>
+<li>Eine Ausnahme sind wrapper-Funktionen, die jedoch nichts weiter tun sollten, als die anderen Funktionen aufzurufen.</li>
+<li>Hilfsfunktionen werden im Skript der Funktion platziert, in dem sie verwendet werden.</li>
+<li>Falls Hilfsfunktionen von mehreren Haupt-/exportierten Funktionen verwendet werden, werden sie in <code>utils.R</code> verschoben. Diese Datei gibt es nur einmal pro Paket.</li>
+<li>Falls der Umfang von <code>utils.R</code> zu stark anwächst, können Hilfsfunktionen gruppiert in separate Dateien geschoben werden.</li>
+</ul></li>
+<li>Funktionen sollten entweder <em>keine</em> side effects haben, oder <em>ausschließlich</em> side effects bewirken.</li>
+<li><code>return()</code> oder kein <code>return()</code> bleibt den Codenden überlassen
+<ul>
+<li>Es gibt Argumente, die dafür sprechen, konsequent am Ende der Funktion <code>return()</code> zu setzen (Eindeutigkeit, Nachvollziehbarkeit, Suchbarkeit) - aber auch dagegen.</li>
+<li>Kriterium: Es sollte aus der Funktion heraus klar werden, was ausgegeben wird.</li>
+</ul></li>
+<li>Einrückungen/Indentation: Die Wahl zwischen <a href="https://cran.r-project.org/web/packages/styler/index.html"><code>styleR</code></a> oder dem RStudio Default ist den Codenden überlassen.</li>
+<li>Kommentare sollten a) möglichst gar nicht notwendig sein (weil der Code verständlich geschrieben ist) und b) das <em>Warum</em> und nicht das <em>Was</em> von Zeilen erklären.</li>
+<li><code>if</code>-statements, loops und Funktionsdefinitionen (z.B. in <code>lapply()</code>) sollten stets und auch dann umgebrochen werden, wenn sie nur einen Befehl enthalten, d.h. die Zeile endet mit <code>{</code>, gefolgt von einem Zeilenumbruch.</li>
+</ul>
+</section>
+<section id="benennungskonventionen-1" class="level2">
+<h2 class="anchored" data-anchor-id="benennungskonventionen-1">Benennungskonventionen</h2>
+<ul>
+<li>Bei längeren Objektnamen sollten Punkte vermieden werden und entweder CamelCases oder snake_cases genutzt werden. Das aber jeweils konsistent innerhalb von Paketen.</li>
+<li>Es sollten eher sprechende Namen als möglichst kurze Namen verwendet werden.</li>
+<li>Funktionsnamen sollten aus Verben bestehen.</li>
+<li>Objektnamen (die keine Funktionen sind) sollten Substantive sein.</li>
+<li>Dopplungen mit existierenden R-Objekten sollten vermieden werden.</li>
+<li>Bei der Objekt-Modifikation sollten Objekte nicht überschreiben werden, wenn sie sich substanziell ändern.</li>
+<li>Einige häufige Argumentnamen: dat, path/file/filePath/filename, dir/folder, … –&gt; nächstes Mal besprechen</li>
+<li>Bei der Argumentreihenfolge sollte die Pipebarkeit und Output-Steuerung beachtet werden.</li>
+</ul>
+</section>
+<section id="konventionen-für-pakete" class="level2">
+<h2 class="anchored" data-anchor-id="konventionen-für-pakete">Konventionen für Pakete</h2>
+<ul>
+<li>Rigoroses Testen
+<ul>
+<li>Rigoroses Testen kann helfen, bei Ergänzung oder Löschung von Funktionsargumenten den Überblick zu behalten.</li>
+<li>Umsetzung mit <a href="https://testthat.r-lib.org/"><code>testthat</code></a></li>
+<li>Es wird eine Coverage &gt; 90% angestrebt</li>
+</ul></li>
+<li>Die Anzahl von Dependencies sollte gering gehalten werden.
+<ul>
+<li><a href="https://uptake.github.io/pkgnet/articles/pkgnet-intro.html">pkgnet</a> kann genutzt werden, um die Dependencies innerhalb eines Pakets zu visualisieren.</li>
+<li>Insbesondere sollten “teure” Dependencies, die ihrerseits viele Dependencies aufrufen, vermieden werden.</li>
+<li>Ggf. sollten Funktionen selbst (nach-) gebaut werden.</li>
+</ul></li>
+</ul>
+</section>
+<section id="offen-besprechung-am-6.12.-oder-13.12." class="level2">
+<h2 class="anchored" data-anchor-id="offen-besprechung-am-6.12.-oder-13.12.">Offen –&gt; Besprechung am 6.12. oder 13.12.</h2>
+<ul>
+<li>Kristophs Konventionen zur Benennung von Objekten („df_“, „pt_“, …)</li>
+<li>Scope von Paketen</li>
+<li>Code Review (auf Basis von https://iqb-research.github.io/IQB-Methods/docs/discussions/code_conventions.html)</li>
+<li>commit-messages</li>
+<li>Benennung von feature branches</li>
+</ul>
+</section>
+</section>
+<section id="mögliche-nächste-themen" class="level1">
+<h1>Mögliche nächste Themen</h1>
 <ul>
 <li>Indentierung?</li>
 <li>Häufige Argumentnamen</li>
@@ -400,7 +497,6 @@ Wichtige Voraussetzung
 </ul>
 
 
-</section>
 </section>
 
 

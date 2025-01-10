@@ -10,7 +10,7 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/statisticalQuestions.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Thu, 09 Jan 2025 17:57:13 GMT</lastBuildDate>
+<lastBuildDate>Fri, 10 Jan 2025 12:12:39 GMT</lastBuildDate>
 <item>
   <title>Wie poole ich mein \(R^2\) richtig über mehrere (bspw. 15) Imputationen?</title>
   <dc:creator>Sebastian Weirich</dc:creator>
@@ -67,7 +67,7 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
   <category>statistics</category>
   <category>eatRep</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Thu, 09 Jan 2025 17:57:13 GMT</pubDate>
+  <pubDate>Fri, 10 Jan 2025 12:12:39 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -301,7 +301,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
   <category>statistics</category>
   <category>eatModel</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Thu, 09 Jan 2025 17:57:13 GMT</pubDate>
+  <pubDate>Fri, 10 Jan 2025 12:12:39 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -366,7 +366,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Thu, 09 Jan 2025 17:57:13 GMT</pubDate>
+  <pubDate>Fri, 10 Jan 2025 12:12:39 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -395,7 +395,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Thu, 09 Jan 2025 17:57:13 GMT</pubDate>
+  <pubDate>Fri, 10 Jan 2025 12:12:39 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" medium="image" type="image/png" height="125" width="144"/>
 </item>
 </channel>
