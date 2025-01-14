@@ -1,0 +1,109 @@
+---
+title: "Einführung in eatPlot"
+title-slide-attributes:
+  data-background-image: ./images/eatPlot.svg
+  data-background-size: 30%
+  data-background-repeat: no-repeat
+  data-background-position: bottom 30px center
+  data-background-opacity: "0"
+author: "Nicklas Hafiz"
+format: 
+  letterbox-revealjs:
+    theme: styles.scss
+lang: de
+categories: [eatPlot, tutorial, slides, intro]
+image: ./images/eatPlot.svg
+---
+
+## Zu diesen Folien
+
+HTML-Folien können durch tippen von `e` in PDF umgewandelt werden, und dann mit Drucken aus dem Browser abgespeichert werden, falls ihr darin kommentieren wollt.
+
+![](./images/print_html.PNG)
+
+##  {background-image="images/map.jpg" background-size="1225px"}
+
+::: {.absolute left="10%" right="10%" top="7.5%" style="font-size:1em; padding: 0.5em 0.5em; background-color: rgba(255, 255, 255, .7); backdrop-filter: blur(5px); box-shadow: 0 0 1rem 0 rgba(255, 255, 255, .5); border-radius: 10px"}
+
+**Roadmap**
+
+1. Einführung
+1. Allgemeiner Workflow
+1. Linienplots
+1. Tabellen/Barplots
+:::
+
+## eatPlot
+
+- Automatisieren der Grafikerstellung für eatRep-Output
+- BT-Grafiken!
+
+:::{.callout-important}
+Das Paket befindet sich noch in Entwicklung. Falls euch Bugs auffallen, bitte Melden! Ich kümmere mich schnellstmöglich drum. 
+:::
+
+
+## Vorteile
+- Schneller Zugang zu komplexen BT-Visualisierungen und Tabellen
+- Vereinheitlichung der BT-Plots
+- Leichtes Updaten bei Änderungen in den Plots und/oder Daten
+- Nachvollziehbarkeit/Version Control
+- Weniger Checks nötig, da Werte automatisch eingelesen werden
+
+## Nachteile
+- Gerade zu Beginn etwas mehr Arbeit für Kapitelautor*innen 
+  - Aber: "Plug-and-Play"-Vorlagen, weniger Überarbeitungsschleifen und Kontrollen
+
+## Vorlagen
+
+Vignetten, Tutorials sowie Vorlagen zur Erstellung finden sich auf der [Webseite](https://nickhaf.github.io/eatPlot/)
+
+
+
+# Allgemeiner Workflow
+
+## Datenformat
+
+## Datenaufbereitung
+
+## Ploterstellung
+
+## Bonus: Plot_settings
+
+
+
+# Linienplots
+
+
+## Datenaufbereitung
+
+:::{.callout-warning}
+
+## Übungsdaten
+
+:::
+
+## Plot-Erstellung
+
+## Plot-Settings
+
+
+# Tabellen/Barplots
+
+## Datenaufbereitung
+
+:::{.callout-warning}
+
+## Übungsdaten
+
+:::
+
+## Plot-Erstellung
+
+## Plot-Settings
+
+
+
+
+
+
