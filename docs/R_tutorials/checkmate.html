@@ -273,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assert_numeric</span>(<span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">1</span>, <span class="dv">4</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">assert_numeric</span>(<span class="st">"hallo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): Assertion on '"hallo"' failed: Must be of type 'numeric', not 'character'.</code></pre>
+<pre><code>Error: Assertion on '"hallo"' failed: Must be of type 'numeric', not 'character'.</code></pre>
 </div>
 </div>
 <p>If you save an <code>assert_numeric()</code> object into a variable x, it will contain the original object that you asserted.</p>
