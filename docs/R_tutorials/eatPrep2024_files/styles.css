@@ -1,0 +1,49 @@
+h2 {
+    color: #691414 !important;
+    font-size: 1.5em !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    width: 104% !important;
+    display: block;
+    padding: 0 4rem; /* optional: add side padding for a cleaner look */
+    margin: 2rem auto;  /* centers the element */
+    border-radius: 5px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+    background-color: #F2F2F2; /* Optional: background color */
+    position: absolute;  !important;
+    top: -20px; !important;
+    left: -75px;  !important;
+    right: 0; !important;
+    z-index: 100px; /* Ensures it stays above other elements */
+}
+.reveal .slides section {
+    padding-top: 4.5rem; /* Adjust this value as needed */
+}
+
+.slide-number {
+  bottom: 14px !important;
+  left: 50px !important;
+  top: unset !important;
+  color: #777777 !important;
+}
+
+.reveal .slide-logo {
+  height: 100px !important;
+  width: 100px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+/* Hide footer and logo on the first (title) slide */
+.reveal .slides > section:title-slide .footer,
+.reveal .slides > section:title-slide .slide-logo {
+  display: none;
+}
+
+img + img {
+  margin-left: 200px !important;
+}
+.small-text-compact {
+  font-size: 0.5em;
+  line-height: 1;
+}
