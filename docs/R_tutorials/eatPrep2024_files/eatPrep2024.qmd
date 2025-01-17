@@ -1,0 +1,634 @@
+---
+title: "eatPrep"
+subtitle: "IQB-internes R-Paket zur Aufbereitung von \"Papier\"-Kompetenzdaten"
+author: "Karoline Sachse"
+date: "2024-11-19"
+title-slide-attributes:
+  data-background-image: eatPrep.png
+  data-background-size: 15%
+  data-background-repeat: no-repeat
+  data-background-position: 95% 5%
+bibliography: alle.bib
+csl: apa.csl
+format: 
+  revealjs:
+    logo: eatPrep.png
+    toc: false
+    theme: default
+    css: styles.css
+    slide-number: true
+    show-slide-number: all        
+editor: source
+execute:
+  echo: true
+categories: [eatPrep, tutorial, slides, intro]
+image: eatPrep.png
+---
+
+```{r, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = ">"
+)
+
+# options(crayon.enabled = TRUE)
+# ansi_aware_handler <- function(x, options) {
+#     paste0(
+#         "<pre class=\"r-output\"><code>",
+#         fansi::sgr_to_html(x = x, warn = FALSE, term.cap = "256"),
+#         "</code></pre>"
+#     )
+# }
+# 
+# knitr::knit_hooks$set(
+#     output = ansi_aware_handler,
+#     message = ansi_aware_handler,
+#     warning = ansi_aware_handler,
+#     error = ansi_aware_handler
+# )
+```
+
+## Agenda {.smaller}
+
+```{r loadeatPrep, include=FALSE}
+library(eatPrep)
+library(asciicast)
+```
+
+::: {style="margin-top: -30px;"}
+1.  Das Paket eatPrep
+
+    a)  Fokus
+    b)  Features
+    c)  Installation
+
+2.  Datenstrukturen
+
+    a.  ...von "Papier-Kompetenzdaten" am IQB
+
+    b.  Repräsentation dieser Strukturen in eatPrep
+
+3.  Praktisch angewendet
+
+    a)  Haupt-Funktionen und -Schritte der Papier-Kompetenzdatenaufbereitung
+
+    \[Übung 1\]
+
+    b)  Zusatzfunktionen: Kategorientrennschärfen, Testsitzungsprotokolle,  Beurteilerübereinstimmung (Rater-Funktionen)
+
+    \[Übung 2\]
+:::
+
+# 1. Fokus, Features und Installation
+
+## Was ist "Papier-Kompetenzdatenaufbereitung"? {.smaller}
+
+**Papier-Tests**
+
+Schülerinnen und Schüler...
+
+-   erhalten gedruckte Testbögen,
+-   füllen diese aus und
+-   werden dabei von speziell geschulten Testleiter:innen beaufsichtigt.
+
+Die Ergebnisse werden später zentral gesammelt.
+
+::: footer
+1a. eatPrep: Fokus
+:::
+
+## Was ist "Papier-Kompetenzdatenaufbereitung"? {.smaller}
+
+**Aufbereitung der Kompetenzdaten**
+
+Die ausgefüllten Bögen werden
+
+-   **eingescannt** (idR durch Datenpartner)
+-   bei Multiple-Choice-Fragen oder Ankreuzaufgaben wird häufig ein optisches Scannersystem verwendet, das die markierten **automatisch** Felder erkennt und direkt in eine digitale Datenbank überträgt (idR durch Datenpartner)
+-   (teil-) offene Antworten werden durch geschulte **Kodierer:innen** bewertet (teils im Haus, teils durch Datenpartner)
+
+Ansatzpunkt für **eatPrep**: Standardisierung und Automatisierung des Umgangs mit solchen Daten, die vom Subkontraktor zumeist im SPSS- (.sav) Format übergeben werden.
+
+::: footer
+1a. eatPrep: Fokus
+:::
+
+## Primäres Ziel von eatPrep {.smaller}
+
+-   **Prüfung und Aufbereitung von Kompetenztestdaten für IRT-Analysen** unter Verwendung von Meta-Informationen (z.B. aus der IQB-ItemDB)
+-   optimiert für die Aufbereitung von IQB-Kompetenzdaten, aber nicht nur für diese verwendbar
+
+::: footer
+1a. eatPrep: Fokus
+:::
+
+## Features
+
+-   **Automatisierung** der Aufbereitungs-Arbeitsschritte
+-   Vielfältige **Prüfungen**, Plausibilitätschecks und Diagnostik
+-   Behandlung vieler verschiedener **Missingtypen**, wenn gewünscht Beibehaltung bis zum Schluss (inkl. Missing-not-reached-Berechnung)
+-   Weitere **Tools** (Kategorientrennschärfen, Raterfunktionen, teil-manuelles Datencleaning, Exportfunktionen…)
+
+::: footer
+1b. eatPrep: Features
+:::
+
+## Installation
+
+-   eatPrep liegt auf der Entwicklerplattform GitHub
+-   R-Pakete kann man von GitHub z.B. über das R-Paket "remotes" installieren. Sofern es nicht vorhanden ist, kann es mit...
+
+```{r remotes, eval=FALSE}
+install.packages("remotes")
+
+```
+
+...installiert werden. eatPrep kann anschließend mit folgenden Befehlszeilen installiert und geladen werden:
+
+```{r eatprep, eval=FALSE}
+remotes::install_github("sachseka/eatPrep")
+library(eatPrep)
+```
+
+::: footer
+1c. eatPrep: Installation
+:::
+
+# 2. Daten-Strukturen von Papier-Kompetenzdaten am IQB
+
+## Subitems, Items, Aufgaben {.smaller}
+
+::: {style="margin-top: -30px;"}
+![](eatPrep2024_files/pics/structure.jpg){fig-width="60%" fig-align="center"}
+:::
+
+::: footer
+2a. Strukturen von Papier-Kompetenzdaten am IQB
+:::
+
+## Subitems, Items, Aufgaben {.smaller}
+
+![](eatPrep2024_files/pics/cyclehire4.jpg){fig-width="60%" fig-align="center"}
+
+::: footer
+2a. Strukturen von Papier-Kompetenzdaten am IQB
+:::
+
+## Subitems, Items, Aufgaben und Values und Scores {.smaller}
+
+![](eatPrep2024_files/pics/cyclehire1.jpg){fig-width="60%" fig-align="center"}
+
+::: footer
+2a. Subitems in Items in Aufgaben
+:::
+
+## Fehlende Werte {.smaller}
+
+```{r missing types, echo=FALSE}
+mir98 <- c(-98, "mir", "missing invalid response",
+           "(1) Item was edited, and (2a) empty answer or (2b) invalid (joke) answer.")
+mbo99 <- c(-99, "mbo/mbi", "missing by omission/intention",
+           "Item wasn't edited but seen, or wasn't seen, but there are seen or edited subsequent Items.")
+mnr96 <- c(-96, "mnr", "missing not reached",
+           "(1) Item wasn't seen, and (2) all subsequent Items weren't seen, either.")
+mci97 <- c(-97, "mci", "missing coding impossible",
+           "(1) Item should/could have been edited, and (2) answer can't be analysed due to technical problems.")
+mbd94 <- c(-94, "mbd", "missing by design",
+           "no answer, because Item wasn't shown to the testperson by design.")
+Mtypes <- rbind.data.frame(mir98, mbo99, mnr96, mci97, mbd94)
+names(Mtypes) <- c("Code", "Abbr", "Label", "Explanation")
+
+kable(Mtypes)
+```
+
+::: footer
+2a. Subitems in Items in Aufgaben
+:::
+
+## Aufgaben in Blöcken und Blöcke in Testheften {.smaller}
+
+<img src="eatPrep2024_files/pics/ainb.jpg"/> <img src="eatPrep2024_files/pics/bint.jpg"/>
+
+::: footer
+2a. Strukturen von Papier-Kompetenzdaten am IQB
+:::
+
+## nützliches Vokabular {.smaller}
+
+-   Testhefte (booklets): bestehen aus Blöcken
+
+-   Blöcke (blocks/cluster): bestehen aus Aufgaben
+
+-   Aufgaben (tasks): beinhalten Items (i.d.R. zu einem gemeinsamen Stimulus/testlet)
+
+-   **Item**s (units): oft die am Ende interessierende Analyseeinheit
+
+-   Subitems (subunits): werden zu Items aggregiert
+
+-   Werte (values): Ausprägungen, die eine Person auf einem (Sub-)Item annehmen kann
+
+-   Scores (valueRecodes): Eine Abbildung der ursprünglichen Werte (Values) auf eine kleinere Anzahl von Kategorien (i.d.R. mindestens Richtig/Falsch/Fehlend, also 1/0/NA), die besser für eine IRT-Skalierung geeignet sind
+
+::: footer
+2a. Strukturen von Papier-Kompetenzdaten am IQB
+:::
+
+## Repräsentation der Datenstrukturen in eatPrep {.smaller}
+
+Wie werden Testhefte, Blöcke, Aufgaben, Items, Subitems, Werte und Scores in eatPrep hinterlegt?
+
+-   analog einfacher relationaler Meta-Daten-Datenbank: eine Liste aus mehreren data.frames mit prädefinierter Struktur und festen Namen
+
+-   wir brauchen Meta-Daten über die Items
+
+
+
+::: footer
+2b. Metadaten-Struktur in eatPrep
+:::
+
+## Repräsentation der Datenstrukturen in eatPrep: inputListen-Plätze 1-4 {.smaller}
+
+::: {style="margin-top: -10px; text-align: center;"}
+![](eatPrep2024_files/pics/inputList3.jpg){width="900px"}
+:::
+
+::: footer
+2b. Metadaten-Struktur in eatPrep
+:::
+
+## Repräsentation der Datenstrukturen in eatPrep: inputListen-Plätze 5-7 {.smaller}
+
+::: {style="margin-top: 50px; text-align: center;"}
+![](eatPrep2024_files/pics/il567.jpg){fig-align="center" width="500"}
+:::
+
+::: footer
+2b. Metadaten-Struktur in eatPrep
+:::
+
+## Repräsentation der Datenstrukturen in eatPrep: inputListen-Plätze 8-10 {.smaller}
+
+::: {style="margin-top: 20px; text-align: center;"}
+![](eatPrep2024_files/pics/il8910.jpg){fig-align="center" width="800"}
+:::
+
+::: footer
+2b. Metadaten-Struktur in eatPrep
+:::
+
+# Funktionen in eatPrep
+
+## (Meta-)Daten einlesen
+
+[`readDaemonXlsx()`](https://sachseka.github.io/eatPrep/reference/readDaemonXlsx.html) - einlesen der inputListe, die mithilfe des EDV-Tools "ZKDaemon" erzeugt wurde.
+
+::: small-text-compact
+(Dieses liegt unter **i:\\EDV\\IQB-Apps\\ZKDaemon\\ZKDaemon.application**. Eine ausführlichere, via Screenshots geführte Anleitung zur Bedienung des ZKDaemon findet sich hier:\
+**i:\\Methoden\\02_IQB-interne_eat_Workshops\\eatPrep_2021\\eatPrep_2021-06-18.pdf**)
+:::
+
+[`readSpss()`](https://sachseka.github.io/eatPrep/reference/readSpss.html) - einlesen von SPSS-Dateien.
+
+[`readMerkmalXlsx()`](https://sachseka.github.io/eatPrep/reference/readMerkmalXlsx.html) - einlesen von zusätzlichen Item- und Aufgabenmerkmalen wie Bearbeitungszeiten, Formaten, inhaltlichen Kategorien, ...
+
+::: small-text-compact
+(Erzeugen der Merkmal-Xlsx via Klick auf "Merkmalsauszug" in **i:\\EDV\\IQB-Apps\\IQB-ItemDB\\IQB-ItemDB.application**)
+:::
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## (Meta-)Daten einlesen: inputListe
+
+Item Meta-Daten:
+
+```{r readDeamonXlsx}
+filename <- system.file("extdata", "inputList.xlsx", package = "eatPrep")
+inpustList <- readDaemonXlsx(filename)
+str(inpustList)
+```
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## (Meta-)Daten einlesen: SPSS-Daten
+
+Exemplarisch ein Datensatz:
+
+```{r readSpss}
+filename <- system.file("extdata", "booklet1.sav", package = "eatPrep")
+booklet1 <- readSpss(filename)
+head(booklet1)
+```
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## (Meta-)Daten einlesen: Merkmale
+
+Weitere Merkmale:
+
+```{r readMerkmalXlsx}
+filename <- system.file("extdata", "itemmerkmale.xlsx", package = "eatPrep")
+merkmale <- readMerkmalXlsx(filename, tolcl = FALSE, alleM = TRUE)
+head(merkmale)
+```
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## Checken
+
+[`checkInputList()`](https://sachseka.github.io/eatPrep/reference/checkInputList.html) - eingelesene inputListe auf interne Konsistenz prüfen
+
+[`checkData()`](https://sachseka.github.io/eatPrep/reference/checkData.html) - Datensätze gemäß Item-Meta-Informationen überprüfen und sonstige Plausibilitätsprüfungen der Daten
+
+[`checkDesign()`](https://sachseka.github.io/eatPrep/reference/checkDesign.html) - Datensätze gemäß Meta-Informationen zum Testdesign überprüfen
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## Checken, Rekodieren, Aggregieren, Scoren
+
+inputListe checken:
+
+```{r checkInputList}
+#| message: true
+#| warning: true
+#| error: true
+checkInputList(inputList)
+```
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## Mergen, Rekodieren, Aggregieren, Scoren
+
+[`mergeData()`](https://sachseka.github.io/eatPrep/reference/mergeData.html) - zusammenführen der Datensätze und Diagnostik zu Passung
+
+[`recodeData()`](https://sachseka.github.io/eatPrep/reference/recodeData.html) - rekodieren der Subitems gemäß Meta-Informationen aus der inputListe
+
+[`aggregateData()`](https://sachseka.github.io/eatPrep/reference/aggregateData.html) - Subitems zu Items aggregieren
+
+[`scoreData()`](https://sachseka.github.io/eatPrep/reference/scoreData.html) - ehemals aus Subitems bestehende Items rekodieren
+
+[`mnrCoding()`](https://sachseka.github.io/eatPrep/reference/mnrCoding.html) - rekodieren der letzten Items (falls leer) in jedem Block (siehe Testdesign) als "missing not reached"
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## Wrapper [`automateDataPreparation()`](https://sachseka.github.io/eatPrep/reference/automateDataPreparation.html)
+
+```{r prepDat}
+#| message: true
+#| warning: true
+#| error: true
+# Vorbereitung, da die Pfade für die SPSS-Dateien hier noch nicht in der InputListe eingetragen sind
+inputList$savFiles$fullname[1] <- system.file("extdata", "booklet1.sav", package = "eatPrep")
+inputList$savFiles$fullname[2] <- system.file("extdata", "booklet2.sav", package = "eatPrep")
+inputList$savFiles$fullname[3] <- system.file("extdata", "booklet3.sav", package = "eatPrep")
+
+preparedData <- automateDataPreparation(inputList = inputList,
+    readSpss = TRUE, checkData = TRUE,  mergeData = TRUE,
+    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,
+    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)
+```
+
+::: small-text-compact
+([`automateDataPreparation()`](https://sachseka.github.io/eatPrep/reference/automateDataPreparation.html) arbeitetet alternativ auch mit Daten, die als einzelner (ggf. bereits zusammengeführter) R-data.frame übergeben werden (via Argument "datList"))
+:::
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## Wrapper [`automateDataPreparation()`](https://sachseka.github.io/eatPrep/reference/automateDataPreparation.html)
+
+::: small-text-compact
+...arbeitetet auch mit Daten, die als Liste von R-data.frames übergeben werden (Argument datList):
+:::
+
+```{r prepDat2}
+#| message: true
+#| warning: true
+#| error: true
+# Einbauen von Problem in Daten zur Illustration der Diagnostik von mergeData()
+inputDat[[3]]$ID[1] <- inputDat[[2]]$ID[1]
+
+preparedData <- automateDataPreparation(datList = inputDat, inputList = inputList, 
+    readSpss = FALSE, checkData = TRUE,  mergeData = TRUE,
+    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,
+    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)
+```
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## Vollständigkeit der Daten überprüfen
+
+```{r prepDat3}
+#| message: false
+#| warning: false
+#| error: false
+prepDat <- automateDataPreparation(datList = inputDat, inputList = inputList, 
+    readSpss = FALSE, checkData = TRUE,  mergeData = TRUE,
+    recodeData = TRUE, aggregateData = FALSE, scoreData = FALSE,
+    writeSpss = FALSE, verbose = TRUE)
+```
+
+```{r checkDes}
+#| message: true
+#| warning: true
+#| error: true
+checkDesign(dat = prepDat, booklets = inputList$booklets, blocks = inputList$blocks,
+    rotation = inputList$rotation, subunits = inputList$subunits, 
+    sysMis = "mbd", id="ID", verbose = TRUE)
+```
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep
+:::
+
+## Export
+
+[`collapseMissings()`](https://sachseka.github.io/eatPrep/reference/collapseMissings.html) - rekodiert die Missingtypen in prädefinierte Scores (i.d.R. 0,1,NA). Ein solcher "collapster" R-data.frame kann direkt nach [`eatModel`](https://github.com/weirichs/eatModel) zur Skalierung übergeben werden.
+
+[`writeSpss()`](https://sachseka.github.io/eatPrep/reference/writeSpss.html) - produziert eine SPSS-Syntax und einen .txt-Datensatz, der mit der Syntax in SPSS inklusive aller Meta-Daten eingelesen werden kann.
+
+[`prep2GADS()`](https://sachseka.github.io/eatPrep/reference/prep2gads.html) - sowohl die Roh-Datensätze als auch die fertigen, gescorten Datensätze können inklusive aller ihrer Meta-Daten in ein GADSdat-Objekt exportiert werden, zur Datenaufbewahrung oder Weiterverarbeitung in [`eatGADS`](https://cran.r-project.org/web/packages/eatGADS/index.html).
+
+# Übung 1
+
+## Übung 1
+
+1.  Lest die Meta-Daten (inputListe) und Daten (booklet1.sav, booklet2.sav, booklet3.sav) ein und lasst diese automatisiert prüfen. Bereitet die Daten bis zum gescorten Zustand weiter auf.
+
+2.  Überprüft, ob die Daten zum Testdesign passen oder ob es Dateneinträge gibt, wo per Design fehlende Werte sein müssten oder per Design fehlende Werte, wo es valide Codes oder andere Missingtypen geben müsste.
+
+3.  Exportiert die aufbereiteten (aber "uncollapsten") Daten ins eatGADS-Format.
+
+::: footer
+3a. Praxis: Haupt-Funktionen in eatPrep -- Übung 1
+:::
+
+## Kategorientrennschärfen - Funktionen
+
+Ein essenzielles diagnostisches Tool sind die Kategorientrennschärfen. Diese geben wichtige Hinweise auf falsch zugewiesene Scores, fälschlicherweise richtige Distraktoren und falsche Attraktoren.
+
+[`catPbc()`](https://sachseka.github.io/eatPrep/reference/cat.pbc.html) - berechnet die Kategorientrennschärfen. 
+
+[`evalPbc()`](https://sachseka.github.io/eatPrep/reference/evalPbc.html) - findet und markiert Auffälligkeiten in Lösungshäufigkeiten und Kategorientrennschärfen (nach anpassbaren Kriterien) und berichtet diese.
+
+::: footer
+3b. Praxis: Zusatz-Funktionen in eatPrep 
+:::
+
+
+## Kategorientrennschärfen - Berechnen
+
+
+```{r pbc1}
+#| message: true
+#| warning: true
+#| error: true
+datRaw <- automateDataPreparation(datList = inputDat, inputList = inputList, 
+    readSpss = FALSE, checkData = FALSE,  mergeData = TRUE,
+    recodeData = FALSE, aggregateData = FALSE, scoreData = FALSE,
+    writeSpss = FALSE, verbose = FALSE)
+datRec <- automateDataPreparation(datList = inputDat, inputList = inputList, 
+    readSpss = FALSE, checkData = FALSE,  mergeData = TRUE,
+    recodeData = TRUE, aggregateData = FALSE, scoreData = FALSE,
+    writeSpss = FALSE, verbose = FALSE)
+
+pbcs   <- catPbc(datRaw, datRec, idRaw = "ID", idRec = "ID",
+                 context.vars = "hisei", values = inputList$values,
+                 subunits = inputList$subunits)
+pbcs
+```
+::: footer
+3b. Praxis: Zusatz-Funktionen in eatPrep 
+:::
+
+## Kategorientrennschärfen - Evaluieren
+
+
+```{r pbc2}
+#| message: true
+#| warning: true
+#| error: true
+epbcs   <- evalPbc(pbcs)
+
+```
+::: footer
+3b. Praxis: Zusatz-Funktionen in eatPrep 
+:::
+
+## Testsitzungsprotokolle 
+
+...werden oft außerhalb von eatPrep behandelt und Änderungen am Datensatz projektintern dokumentiert. Manchmal besteht jedoch das Bedürfnis, die von den Testleiter:innen geflaggten Teildaten visuell zu inspizieren, ggf. zu rekodieren und dieses zu dokumentieren.
+
+[`visualSubsetRecode()`](https://sachseka.github.io/eatPrep/reference/visualSubsetRecode.html) - erlaubt dokumentiertes Ansehen (+ggf. Rekodieren) von einzelnen Testteilen für einzelne Personen oder ganze Testgruppen. 
+
+::: footer
+3b. Praxis: Zusatz-Funktionen in eatPrep 
+:::
+
+## Testsitzungsprotokolle -- Beispiel
+
+```{r tsp}
+#| message: true
+#| warning: true
+#| error: true
+subsetInfoMax <- data.frame(
+                  ID=c("person100", "person101", "person102", "person103",
+                        "person104", "person105", "person106", "person107",
+                        "person108", "person109", "person110"),
+                   IDgroup=c(1,1,1,1,1,2,2,2,2,2,2),
+                   datCols=c("I01", "I02", "I03", "I01", "I02", "I03",
+                                   "I04", "I05", "I02", "I03", "I04"),
+                   comment=c(rep("Es gab Feueralarm",5), 
+                             rep("Der klassenraum musste gewechselt werden, 
+                                 wir hatten keine Zeit mehr.",6)))
+
+datVisRec <- visualSubsetRecode(dat=preparedData, subsetInfo=subsetInfoMax, ID="ID",
+                                 toRecodeVal="mci", useGroups="IDgroup") 
+
+```
+
+
+## Beurteilerübereinstimmung 
+
+In Koderschulung und für Technischen Bericht benötigt:
+
+-   Wie gut stimmen Bewertende bei der Beurteilung der offenen Items überein?
+
+[`meanAgree()`](https://sachseka.github.io/eatPrep/reference/meanAgree.html) - prozentuale Übereinstimmung 
+
+[`meanKappa()`](https://sachseka.github.io/eatPrep/reference/meanKappa.html) - Cohen's Kappa für alle Beurteilerpaare eines Items, und Mittelung der Werte (gewichtet)
+
+-   Beide Funktionen operieren itemweise. Möchte man mehrere Items behandeln, braucht es Schleifen.
+
+::: footer
+3b. Praxis: Zusatz-Funktionen in eatPrep 
+:::
+
+
+
+## Beurteilerübereinstimmung 
+
+```{r bu}
+#| message: true
+#| warning: true
+#| error: true
+data(rater)
+dat <- reshape2::dcast(subset(rater, variable == "V01"), id~rater, value.var = "value")
+meanAgree(dat[,-1])
+meanKappa(dat[,-1])
+```
+
+::: footer
+3b. Praxis: Zusatz-Funktionen in eatPrep 
+:::
+
+
+
+
+# Übung 2
+
+## Übung 2
+
+1.  Berechnet und evaluiert die Kategorientrennschärfen auf Basis der in Übung 1 eingelesenen und aufbereiteten SPSS-Daten (booklet1.sav, booklet2.sav, booklet3.sav).
+
+2.  Geht manuell das erste Beispiel der Testsitzungsprotokoll-Funktion [`visualSubsetRecode()`](https://sachseka.github.io/eatPrep/reference/visualSubsetRecode.html) durch.
+
+3.  Berechnet die Beurteilerübereinstimmung für die Variablen v02 und v03 aus dem Datensatz "rater".
+
+::: footer
+3b. Praxis: Zusatz-Funktionen in eatPrep 
+:::
+
+## Ende
+
+Bitte berichtet alle
+
+-   Bugs
+-   Feature Requests
+-   sonstige Fragen/Probleme 
+
+eatPrep betreffend an karoline.sachse@iqb.hu-berlin.de
+
+::: footer
+4. Ausblick
+:::
+
+# Herzlichen Dank für Eure Aufmerksamkeit!
