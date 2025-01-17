@@ -21,6 +21,8 @@ jobs:
         run: sudo apt-get install libharfbuzz-dev libfribidi-dev
       - name: Install GSL development package
         run: sudo apt install libgsl-dev
+      - name: Intsall libmagick
+        run: sudo apt-get install libmagick++-dev
         
       - name: Check out repository
         uses: actions/checkout@v3
