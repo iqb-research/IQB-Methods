@@ -1043,6 +1043,216 @@
     "text": "Footnotes\n\n\nImage by Van Tay Media on Unsplash.↩︎"
   },
   {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#agenda",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#agenda",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Agenda",
+    "text": "Agenda\n\nHintergrund\nGrundlegendes\nÜbersicht Funktionalität\nÜbung\nPraxis-Tipps"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#eatgads---scope",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#eatgads---scope",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "eatGADS - Scope",
+    "text": "eatGADS - Scope\n\n(teil-automatisierte) Datenaufbereitung\nDatenbankerstellung\nDatenbanknutzung"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#eatgads---scope-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#eatgads---scope-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "eatGADS - Scope",
+    "text": "eatGADS - Scope\n\n(teil-automatisierte) Datenaufbereitung\nDatenbankerstellung\nDatenbanknutzung"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#was-ist-ein-gads",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#was-ist-ein-gads",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Was ist ein GADS?",
+    "text": "Was ist ein GADS?\nGenereller/Gesamt- Analyse-Datensatz\n\nBerichts-GADS\nnach-Berichts-GADS\nFDZ-GADS"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#wie-war-es-früher",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#wie-war-es-früher",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Wie war es früher?",
+    "text": "Wie war es früher?\nDatei-Format\n\n.Rdata\n.sav\n\nDaten-Format\n\nlong\nwide"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#gads-ordner",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#gads-ordner",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "GADS-Ordner",
+    "text": "GADS-Ordner\nBT22 nach-Berichts-GADS"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#warum-machen-wir-das",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#warum-machen-wir-das",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Warum machen wir das?",
+    "text": "Warum machen wir das?\n\n.db (SQLite3) benötigt weniger Speicherplatz\nZugriff auf Metadaten ohne Daten laden zu müssen\nDaten müssen für Analysen nicht gereshaped werden\nVariablenselektion beim Laden der Daten (weniger Arbeitsspeicher-Überlastung)\nflexibels Anwenden von Wertelabeln und Missingtags"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#warum-braucht-ihr-das",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#warum-braucht-ihr-das",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Warum braucht ihr das?",
+    "text": "Warum braucht ihr das?\n\nAlle BT-Daten seit BT18 intern nur noch als Datenbank verfügbar\nFDZ-Daten (SPSS, wide-Format) nutzbar, aber für IQB-relevante Analysen (z.B. mit eatRep) nicht optimal"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#eatgads",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#eatgads",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "eatGADS",
+    "text": "eatGADS\n\n\n# Stabile Version\ninstall.packages(\"eatGADS\")\n\n# Development Version\nremotes::install_github(\"beckerbenj/eatGADS\")"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#ressourcen",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#ressourcen",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Ressourcen",
+    "text": "Ressourcen\n\nVignette: getGADS: Using a relational eatGADS data base"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#daten-in-datenbank",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#daten-in-datenbank",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Daten in Datenbank",
+    "text": "Daten in Datenbank\n\nnumerische Variablen\ncharacter Variablen (Zeichenfolgen)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#meta-daten-in-datenbank",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#meta-daten-in-datenbank",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Meta-Daten in Datenbank",
+    "text": "Meta-Daten in Datenbank\n\nvarName - Variablenname\nvarLabel - Variablenlabel\nformat - SPSS-Format\nvalue - numerischer Wert\nvalLabel - Wertelabel\nmissings - Missingtags (miss oder valid)\ndata_table - Datenblatt"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#meta-daten-in-datenbank-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#meta-daten-in-datenbank-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Meta-Daten in Datenbank",
+    "text": "Meta-Daten in Datenbank\n\n\n         varName                                         varLabel format\n165 computer_age                           First use of computers   F8.0\n166 computer_age                           First use of computers   F8.0\n167 computer_age                           First use of computers   F8.0\n168 computer_age                           First use of computers   F8.0\n169 computer_age                           First use of computers   F8.0\n331      norms_f Subjective Norms - Parents Like Mathematics (T1)   F8.0\n332      norms_f Subjective Norms - Parents Like Mathematics (T1)   F8.0\n333      norms_f Subjective Norms - Parents Like Mathematics (T1)   F8.0\n334      norms_f Subjective Norms - Parents Like Mathematics (T1)   F8.0\n356     repeated                                 Grade repetition   F8.0\n357     repeated                                 Grade repetition   F8.0\n    display_width labeled value               valLabel missings data_table\n165            NA     yes     1 6 years old or younger    valid      noImp\n166            NA     yes     2          7-9 years old    valid      noImp\n167            NA     yes     3        10-12 years old    valid      noImp\n168            NA     yes     4 13 years old  or older    valid      noImp\n169            NA     yes     5                  Never    valid      noImp\n331            NA     yes     1      Strongly disagree    valid      noImp\n332            NA     yes     2               Disagree    valid      noImp\n333            NA     yes     3                  Agree    valid      noImp\n334            NA     yes     4         Strongly agree    valid      noImp\n356            NA     yes     1 Did not repeat a grade    valid      noImp\n357            NA     yes     2       Repeated a grade    valid      noImp"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übliche-bt-struktur",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übliche-bt-struktur",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Übliche BT-Struktur",
+    "text": "Übliche BT-Struktur\n\nnoImp\nimp\nPVs\nwgts"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übliche-bt-struktur-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übliche-bt-struktur-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Übliche BT-Struktur",
+    "text": "Übliche BT-Struktur\n\nnoImp\n\nunimputierter Datensatz auf SuS-Ebene\nQuellen: SFB, EFB, Tracking\n1 Zeile pro SuS\n\nimp\n\nimputierter Datensatz auf SuS-Ebene\nQuelle: Imputationen\n1 Zeile pro Imputation x SuS (= 15 Zeilen pro SuS)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übliche-bt-struktur-2",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übliche-bt-struktur-2",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Übliche BT-Struktur",
+    "text": "Übliche BT-Struktur\n\nPVs\n\nKompetenzdaten\nQuelle: PV-Ziehung\n1 Zeile pro Kompetenzbereich x Imputation x SuS (&gt; 75 Zeilen pro SuS)\n\nwgts\n\nbereichs-/fachspezifische Gewichte\nQuelle: Gewichtsdaten\n1 Zeile pro Kompetenzbereich x Imputation x SuS (&gt; 75 Zeilen pro SuS)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übersicht-funktionalität-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übersicht-funktionalität-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Übersicht Funktionalität",
+    "text": "Übersicht Funktionalität\n\nnamesGADS() - Variablennamen und Datenbankstruktur\nextractMeta() - Extraktion Metadaten\ngetGADS() - Extraktion aus DB\ngetGADS_fast() - Extraktion aus DB mit Caching\ngetTrendGADS() - Extraktion Trend-GADSe aus DB\nextractData2() - Extraktion Daten"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#beispiel-datenbank",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#beispiel-datenbank",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Beispiel-Datenbank",
+    "text": "Beispiel-Datenbank\nPISA-Plus Daten (FDZ Campus Files)\n\ndb_path &lt;- system.file(\"extdata\", \"pisa.db\", package = \"eatGADS\")"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#datenbank-struktur",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#datenbank-struktur",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Datenbank-Struktur",
+    "text": "Datenbank-Struktur\nDatenbankstruktur und Variablennamen inspizieren\n\nnam &lt;- namesGADS(db_path)\nnam\n\n$noImp\n  [1] \"idstud\"       \"idschool\"     \"idclass\"      \"schtype\"      \"sameteach\"   \n  [6] \"g8g9\"         \"ganztag\"      \"classsize\"    \"repeated\"     \"gender\"      \n [11] \"age\"          \"language\"     \"migration\"    \"hisced\"       \"hisei\"       \n [16] \"homepos\"      \"books\"        \"pared\"        \"computer_age\" \"internet_age\"\n [21] \"int_use_a\"    \"int_use_b\"    \"truancy_a\"    \"truancy_b\"    \"truancy_c\"   \n [26] \"int_a\"        \"int_b\"        \"int_c\"        \"int_d\"        \"instmot_a\"   \n [31] \"instmot_b\"    \"instmot_c\"    \"instmot_d\"    \"norms_a\"      \"norms_b\"     \n [36] \"norms_c\"      \"norms_d\"      \"norms_e\"      \"norms_f\"      \"anxiety_a\"   \n [41] \"anxiety_b\"    \"anxiety_c\"    \"anxiety_d\"    \"anxiety_e\"    \"selfcon_a\"   \n [46] \"selfcon_b\"    \"selfcon_c\"    \"selfcon_d\"    \"selfcon_e\"    \"worketh_a\"   \n [51] \"worketh_b\"    \"worketh_c\"    \"worketh_d\"    \"worketh_e\"    \"worketh_f\"   \n [56] \"worketh_g\"    \"worketh_h\"    \"worketh_i\"    \"intent_a\"     \"intent_b\"    \n [61] \"intent_c\"     \"intent_d\"     \"intent_e\"     \"behav_a\"      \"behav_b\"     \n [66] \"behav_c\"      \"behav_d\"      \"behav_e\"      \"behav_f\"      \"behav_g\"     \n [71] \"behav_h\"      \"teach_a\"      \"teach_b\"      \"teach_c\"      \"teach_d\"     \n [76] \"teach_e\"      \"cognact_a\"    \"cognact_b\"    \"cognact_c\"    \"cognact_d\"   \n [81] \"cognact_e\"    \"cognact_f\"    \"cognact_g\"    \"cognact_h\"    \"cognact_i\"   \n [86] \"discpline_a\"  \"discpline_b\"  \"discpline_c\"  \"discpline_d\"  \"discpline_e\" \n [91] \"relation_a\"   \"relation_b\"   \"relation_c\"   \"relation_d\"   \"relation_e\"  \n [96] \"belong_a\"     \"belong_b\"     \"belong_c\"     \"belong_d\"     \"belong_e\"    \n[101] \"belong_f\"     \"belong_g\"     \"belong_h\"     \"belong_i\"     \"attitud_a\"   \n[106] \"attitud_b\"    \"attitud_c\"    \"attitud_d\"    \"attitud_e\"    \"attitud_f\"   \n[111] \"attitud_g\"    \"attitud_h\"    \"grade_de\"     \"grade_ma\"     \"grade_bio\"   \n[116] \"grade_che\"    \"grade_phy\"    \"grade_sci\"   \n\n$PVs\n[1] \"idstud\"    \"dimension\" \"imp\"       \"value\""
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#metadaten",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#metadaten",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Metadaten",
+    "text": "Metadaten\nMetadaten extrahieren\n\nextractMeta(GADSobject = db_path, \n            vars = c(\"repeated\", \"norms_f\", \"computer_age\"))\n\n         varName                                         varLabel format\n165 computer_age                           First use of computers   F8.0\n166 computer_age                           First use of computers   F8.0\n167 computer_age                           First use of computers   F8.0\n168 computer_age                           First use of computers   F8.0\n169 computer_age                           First use of computers   F8.0\n331      norms_f Subjective Norms - Parents Like Mathematics (T1)   F8.0\n332      norms_f Subjective Norms - Parents Like Mathematics (T1)   F8.0\n333      norms_f Subjective Norms - Parents Like Mathematics (T1)   F8.0\n334      norms_f Subjective Norms - Parents Like Mathematics (T1)   F8.0\n356     repeated                                 Grade repetition   F8.0\n357     repeated                                 Grade repetition   F8.0\n    display_width labeled value               valLabel missings data_table\n165            NA     yes     1 6 years old or younger    valid      noImp\n166            NA     yes     2          7-9 years old    valid      noImp\n167            NA     yes     3        10-12 years old    valid      noImp\n168            NA     yes     4 13 years old  or older    valid      noImp\n169            NA     yes     5                  Never    valid      noImp\n331            NA     yes     1      Strongly disagree    valid      noImp\n332            NA     yes     2               Disagree    valid      noImp\n333            NA     yes     3                  Agree    valid      noImp\n334            NA     yes     4         Strongly agree    valid      noImp\n356            NA     yes     1 Did not repeat a grade    valid      noImp\n357            NA     yes     2       Repeated a grade    valid      noImp"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#metadaten-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#metadaten-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Metadaten",
+    "text": "Metadaten\nMetadaten extrahieren\n\nall_meta &lt;- extractMeta(db_path)\nunique(all_meta[grep(\"grade\", all_meta$varLabel), c(\"varName\", \"varLabel\")])\n\n      varName                                                 varLabel\n196 grade_bio     School grade in biology (First school semester) (T1)\n201 grade_che   School grade in chemistry (First school semester) (T1)\n206  grade_de      School grade in German (First school semester) (T1)\n211  grade_ma School grade in mathematics (First school semester) (T1)\n216 grade_phy     School grade in physics (First school semester) (T1)\n221 grade_sci     School grade in science (First school semester) (T1)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#gadsdat",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#gadsdat",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "GADSdat",
+    "text": "GADSdat\nGADSdat aus Datenbank ziehen\n\npisa_gads &lt;- getGADS(db_path, vSelect = c(\"schtype\", \"sameteach\"))"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#gadsdat-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#gadsdat-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "GADSdat",
+    "text": "GADSdat\nGADSdat aus Datenbank ziehen\n\n# resultierendes \"GADSdat\"-Objekt\nstr(pisa_gads)\n\nList of 2\n $ dat   :'data.frame': 500 obs. of  3 variables:\n  ..$ idstud   : num [1:500] 1 2 3 4 5 6 7 9 10 11 ...\n  ..$ schtype  : num [1:500] 2 3 1 3 2 3 1 3 2 1 ...\n  ..$ sameteach: num [1:500] 2 1 1 2 2 1 2 1 2 2 ...\n $ labels:'data.frame': 6 obs. of  8 variables:\n  ..$ varName      : chr [1:6] \"idstud\" \"sameteach\" \"sameteach\" \"schtype\" ...\n  ..$ varLabel     : chr [1:6] \"Student-ID\" \"Same math teacher in both school years\" \"Same math teacher in both school years\" \"School track\" ...\n  ..$ format       : chr [1:6] \"F8.0\" \"F8.0\" \"F8.0\" \"F8.0\" ...\n  ..$ display_width: num [1:6] NA NA NA NA NA NA\n  ..$ labeled      : chr [1:6] \"no\" \"yes\" \"yes\" \"yes\" ...\n  ..$ value        : num [1:6] NA 1 2 1 2 3\n  ..$ valLabel     : chr [1:6] NA \"No\" \"Yes\" \"Gymnasium (academic track)\" ...\n  ..$ missings     : chr [1:6] NA \"valid\" \"valid\" \"valid\" ...\n - attr(*, \"class\")= chr [1:2] \"GADSdat\" \"list\""
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#daten",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#daten",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Daten",
+    "text": "Daten\nDaten extrahieren\n\npisa_dat &lt;- extractData2(pisa_gads, labels2character = \"sameteach\")\nstr(pisa_dat)\n\n'data.frame':   500 obs. of  3 variables:\n $ idstud   : num  1 2 3 4 5 6 7 9 10 11 ...\n  ..- attr(*, \"label\")= chr \"Student-ID\"\n $ schtype  : num  2 3 1 3 2 3 1 3 2 1 ...\n  ..- attr(*, \"label\")= chr \"School track\"\n $ sameteach: chr  \"Yes\" \"No\" \"No\" \"Yes\" ...\n  ..- attr(*, \"label\")= chr \"Same math teacher in both school years\""
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#daten-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#daten-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Daten",
+    "text": "Daten\nKompetenz-Daten extrahieren (Long-Format)\n\npisa_gads2 &lt;- getGADS(db_path, vSelect = c(\"schtype\", \"sameteach\", nam$PVs))\npisa_dat2 &lt;- extractData2(pisa_gads2, labels2character = c(\"sameteach\", \"dimension\"))\nstr(pisa_dat2)\n\n'data.frame':   7500 obs. of  6 variables:\n $ idstud   : num  1 1 1 1 1 1 1 1 1 1 ...\n  ..- attr(*, \"label\")= chr \"Student-ID\"\n $ schtype  : num  2 2 2 2 2 2 2 2 2 2 ...\n  ..- attr(*, \"label\")= chr \"School track\"\n $ sameteach: chr  \"Yes\" \"Yes\" \"Yes\" \"Yes\" ...\n  ..- attr(*, \"label\")= chr \"Same math teacher in both school years\"\n $ dimension: chr  \"ma\" \"rea\" \"sci\" \"ma\" ...\n  ..- attr(*, \"label\")= chr \"Achievement dimension (math, reading, science)\"\n $ imp      : num  1 1 1 2 2 2 3 3 3 4 ...\n  ..- attr(*, \"label\")= chr \"Number of imputation of plausible values\"\n $ value    : num  0.1537 0.4391 0.1318 -0.0412 0.0199 ...\n  ..- attr(*, \"label\")= chr \"Plausible Value\""
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übung-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#übung-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Übung",
+    "text": "Übung\n\nWelche Variablen zum Thema elterliche Bildung sind in der Beispiel-DB enthalten?\nWie sind die Metadaten dieser Variablen strukturiert? (Wertelabel, Fehlende Werte, etc.)\nZieht diese Variablen zusammen mit der Geschlechtervariable ‘gender’ aus der Datenbank und betrachtet ihre univariaten und bivariaten Verteilungen.\nZieht nun diese drei Variablen zusammen mit dem Kompetenzschätzer (‘value’) aus der Datenbank.\nKönnen wir mithilfe der elterlichen Bildung die Mathematik-Kompetenz der Schüler:innen vorhersagen?"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#warum-machen-wir-das-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#warum-machen-wir-das-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Warum machen wir das?",
+    "text": "Warum machen wir das?\n\n.db (SQLite3) benötigt weniger Speicherplatz\nZugriff auf Metadaten ohne Daten laden zu müssen\nDaten müssen für Analysen nicht gereshaped werden\nVariablenselektion beim Laden der Daten (weniger Arbeitsspeicher-Überlastung)\nflexibels Anwenden von Wertelabeln und Missingtags"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#praxis-tipps-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#praxis-tipps-1",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Praxis-Tipps",
+    "text": "Praxis-Tipps\n\n\n\n\n\n\nTip\n\n\nFür Datenbanken, die auf den Netzlaufkwerken liegen, getGADS_fast() und getTrendGADS(..., fast = TRUE) nutzen."
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#praxis-tipps-2",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#praxis-tipps-2",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Praxis-Tipps",
+    "text": "Praxis-Tipps\n\n\n\n\n\n\nTip\n\n\nFür konkrete Analysen passende Daten aus der Datenbank ziehen.\n\n\n\ndon’t:\n\neinfach mal alle Daten aus Datenbank ziehen und dann schauen, was man braucht\n\ndo\n\nanhand Meta-Daten Variablenauswahl treffen\nfür verschiedene Analyselevel verschiedene Datensätze ziehen"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#praxis-tipps-3",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html#praxis-tipps-3",
+    "title": "eatGADS - Datenbanknutzung",
+    "section": "Praxis-Tipps",
+    "text": "Praxis-Tipps\n\n\n\n\n\n\nTip\n\n\nextractData2() nutzen um Anwendung von Wertelabels und Missingstags bewusst zu steuern.\n\n\n\ndon’t\n\nalle Variablen als numerisch extrahieren und dann mühsam Wertelabel wiederherstellen\nalle Variablen als character extrahieren und dann Variablen mühsam in numerisch umwandeln\n\ndo\n\nvorab überlegen: Welche Variablen brauche ich numerisch, welche als character?\nextractData2() nutzen um das umzusetzen"
+  },
+  {
     "objectID": "posts/newsletter/23_08_09/index.html",
     "href": "posts/newsletter/23_08_09/index.html",
     "title": "09-08-2023",
@@ -1327,14 +1537,14 @@
     "href": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#wrapper-automatedatapreparation",
     "title": "eatPrep",
     "section": "Wrapper automateDataPreparation()",
-    "text": "Wrapper automateDataPreparation()\n\n# Vorbereitung, da die Pfade für die SPSS-Dateien hier noch nicht in der InputListe eingetragen sind\ninputList$savFiles$fullname[1] &lt;- system.file(\"extdata\", \"booklet1.sav\", package = \"eatPrep\")\ninputList$savFiles$fullname[2] &lt;- system.file(\"extdata\", \"booklet2.sav\", package = \"eatPrep\")\ninputList$savFiles$fullname[3] &lt;- system.file(\"extdata\", \"booklet3.sav\", package = \"eatPrep\")\n\npreparedData &lt;- automateDataPreparation(inputList = inputList,\n    readSpss = TRUE, checkData = TRUE,  mergeData = TRUE,\n    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,\n    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)\n&gt; Starting automateDataPreparation 2025-01-23 12:23:27.854347\n&gt; \n&gt; Load .sav-files.\n&gt; Successfully read in: booklet1.sav, booklet2.sav, booklet3.sav\n&gt; \n&gt; Check data...\n&gt; \n&gt; Checking dataset booklet1.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Variable(s) I24, I25 contain(s) only missing values.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet2.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet3.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Start merging.\n&gt; Start merging of dataset 1.\n&gt; Start merging of dataset 2.\n&gt; Start merging of dataset 3.\n&gt; \n&gt; Start recoding.\n&gt; \n&gt; Found no recode information for variable(s): \n&gt; ID, hisei. \n&gt; This/These variable(s) will not be recoded.\n&gt; \n&gt; Variables... I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, I11, I12a, I12b, I12c, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28\n&gt; ...have been recoded.\n&gt; \n&gt; Start recoding Mbi to Mnr.\n&gt; ...identifying items in data (reference is blocks$subunit)\n&gt; Variables in data not recognized as items:\n&gt; ID, booklet, hisei\n&gt; If some of these excluded variables should have been identified as items (and thus be used for mnr coding) check 'blocks', 'subunits', 'dat'.\n&gt; ...identifying items with no mbi-codes ('mbi'):\n&gt; I04R, I07R\n&gt; If you expect mbi-codes on these variables check your data and option 'mbiCode'\n&gt; no mnr identified for any case. nothing recoded.\n&gt; \n&gt; Start aggregating\n&gt; Since inputList$aggrMiss exists, this will be used instead of default.\n&gt; All aggregation rules will be defaulted to 'SUM', because no other type is currently supported.\n&gt; Found 27 unit(s) with only one subunit in 'dat'. This/these subunit(s) will not be aggregated and renamed to their respective unit name(s).\n&gt; 1 units were aggregated: I12.\n&gt; \n&gt; Start scoring.\n&gt; ✔ 1 unit was scored: `I12`.\n&gt; \n&gt; No SPSS-File has been written.\n&gt; \n&gt; Missings are UNcollapsed.\n&gt; automateDataPreparation terminated successfully! 2025-01-23 12:23:28.229848\n\n\n(automateDataPreparation() arbeitetet alternativ auch mit Daten, die als einzelner (ggf. bereits zusammengeführter) R-data.frame übergeben werden (via Argument “datList”))\n\n\n3a. Praxis: Haupt-Funktionen in eatPrep"
+    "text": "Wrapper automateDataPreparation()\n\n# Vorbereitung, da die Pfade für die SPSS-Dateien hier noch nicht in der InputListe eingetragen sind\ninputList$savFiles$fullname[1] &lt;- system.file(\"extdata\", \"booklet1.sav\", package = \"eatPrep\")\ninputList$savFiles$fullname[2] &lt;- system.file(\"extdata\", \"booklet2.sav\", package = \"eatPrep\")\ninputList$savFiles$fullname[3] &lt;- system.file(\"extdata\", \"booklet3.sav\", package = \"eatPrep\")\n\npreparedData &lt;- automateDataPreparation(inputList = inputList,\n    readSpss = TRUE, checkData = TRUE,  mergeData = TRUE,\n    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,\n    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)\n&gt; Starting automateDataPreparation 2025-01-23 14:06:43.638145\n&gt; \n&gt; Load .sav-files.\n&gt; Successfully read in: booklet1.sav, booklet2.sav, booklet3.sav\n&gt; \n&gt; Check data...\n&gt; \n&gt; Checking dataset booklet1.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Variable(s) I24, I25 contain(s) only missing values.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet2.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet3.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Start merging.\n&gt; Start merging of dataset 1.\n&gt; Start merging of dataset 2.\n&gt; Start merging of dataset 3.\n&gt; \n&gt; Start recoding.\n&gt; \n&gt; Found no recode information for variable(s): \n&gt; ID, hisei. \n&gt; This/These variable(s) will not be recoded.\n&gt; \n&gt; Variables... I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, I11, I12a, I12b, I12c, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28\n&gt; ...have been recoded.\n&gt; \n&gt; Start recoding Mbi to Mnr.\n&gt; ...identifying items in data (reference is blocks$subunit)\n&gt; Variables in data not recognized as items:\n&gt; ID, booklet, hisei\n&gt; If some of these excluded variables should have been identified as items (and thus be used for mnr coding) check 'blocks', 'subunits', 'dat'.\n&gt; ...identifying items with no mbi-codes ('mbi'):\n&gt; I04R, I07R\n&gt; If you expect mbi-codes on these variables check your data and option 'mbiCode'\n&gt; no mnr identified for any case. nothing recoded.\n&gt; \n&gt; Start aggregating\n&gt; Since inputList$aggrMiss exists, this will be used instead of default.\n&gt; All aggregation rules will be defaulted to 'SUM', because no other type is currently supported.\n&gt; Found 27 unit(s) with only one subunit in 'dat'. This/these subunit(s) will not be aggregated and renamed to their respective unit name(s).\n&gt; 1 units were aggregated: I12.\n&gt; \n&gt; Start scoring.\n&gt; ✔ 1 unit was scored: `I12`.\n&gt; \n&gt; No SPSS-File has been written.\n&gt; \n&gt; Missings are UNcollapsed.\n&gt; automateDataPreparation terminated successfully! 2025-01-23 14:06:44.041448\n\n\n(automateDataPreparation() arbeitetet alternativ auch mit Daten, die als einzelner (ggf. bereits zusammengeführter) R-data.frame übergeben werden (via Argument “datList”))\n\n\n3a. Praxis: Haupt-Funktionen in eatPrep"
   },
   {
     "objectID": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#wrapper-automatedatapreparation-1",
     "href": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#wrapper-automatedatapreparation-1",
     "title": "eatPrep",
     "section": "Wrapper automateDataPreparation()",
-    "text": "Wrapper automateDataPreparation()\n\n…arbeitetet auch mit Daten, die als Liste von R-data.frames übergeben werden (Argument datList):\n\n\n# Einbauen von Problem in Daten zur Illustration der Diagnostik von mergeData()\ninputDat[[3]]$ID[1] &lt;- inputDat[[2]]$ID[1]\n\npreparedData &lt;- automateDataPreparation(datList = inputDat, inputList = inputList, \n    readSpss = FALSE, checkData = TRUE,  mergeData = TRUE,\n    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,\n    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)\n&gt; Starting automateDataPreparation 2025-01-23 12:23:28.248655\n&gt; \n&gt; Check data...\n&gt; \n&gt; Checking dataset booklet1\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet2\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet3\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Start merging.\n&gt; Start merging of dataset 1.\n&gt; Start merging of dataset 2.\n&gt; Start merging of dataset 3.\n&gt; Multiple different valid codes in variable: 'hisei' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 69&49\n&gt; Multiple different valid codes in variable: 'I15' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&3\n&gt; Multiple different valid codes in variable: 'I16' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&1\n&gt; Multiple different valid codes in variable: 'I18' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&4\n&gt; Multiple different valid codes in variable: 'I20' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&3\n&gt; Multiple different valid codes in variable: 'I21' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 2&3\n&gt; Multiple different valid codes in variable: 'I22' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&3\n&gt; Multiple different valid codes in variable: 'I23' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 9&3\n&gt; Multiple different valid codes in variable: 'I25' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&0\n&gt; Multiple different valid codes in variable: 'I26' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 9&1\n&gt; Multiple different valid codes in variable: 'I28' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&0\n&gt; Start adding mbd according to data pattern.\n&gt; \n&gt; Start recoding.\n&gt; \n&gt; Found no recode information for variable(s): \n&gt; ID, hisei. \n&gt; This/These variable(s) will not be recoded.\n&gt; \n&gt; Variables... I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, I11, I12a, I12b, I12c, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28\n&gt; ...have been recoded.\n&gt; \n&gt; Start recoding Mbi to Mnr.\n&gt; ...identifying items in data (reference is blocks$subunit)\n&gt; Variables in data not recognized as items:\n&gt; ID, booklet, hisei\n&gt; If some of these excluded variables should have been identified as items (and thus be used for mnr coding) check 'blocks', 'subunits', 'dat'.\n&gt; ...identifying items with no mbi-codes ('mbi'):\n&gt; I04R, I08R\n&gt; If you expect mbi-codes on these variables check your data and option 'mbiCode'\n&gt; mnr statistics:\n&gt;      mnr cells: 553\n&gt;      unique cases with at least one mnr code: 89\n&gt;      unique items with at least one mnr code: 16\n&gt; unique cases ('ID') per booklet and booklet section (0s omitted):\n&gt;    booklet booklet.section N.ID\n&gt; 1 booklet1               2   11\n&gt; 2 booklet1               3   28\n&gt; 3 booklet2               1   28\n&gt; 4 booklet2               2   11\n&gt; 5 booklet2               3    1\n&gt; 6 booklet3               3   31\n&gt; start recoding (item-wise)\n&gt; done\n&gt; elapsed time: 0.1 secs\n&gt; \n&gt; Start aggregating\n&gt; Since inputList$aggrMiss exists, this will be used instead of default.\n&gt; All aggregation rules will be defaulted to 'SUM', because no other type is currently supported.\n&gt; Found 27 unit(s) with only one subunit in 'dat'. This/these subunit(s) will not be aggregated and renamed to their respective unit name(s).\n&gt; 1 units were aggregated: I12.\n&gt; \n&gt; Start scoring.\n&gt; ✔ 1 unit was scored: `I12`.\n&gt; \n&gt; No SPSS-File has been written.\n&gt; \n&gt; Missings are UNcollapsed.\n&gt; automateDataPreparation terminated successfully! 2025-01-23 12:23:28.502259\n\n\n3a. Praxis: Haupt-Funktionen in eatPrep"
+    "text": "Wrapper automateDataPreparation()\n\n…arbeitetet auch mit Daten, die als Liste von R-data.frames übergeben werden (Argument datList):\n\n\n# Einbauen von Problem in Daten zur Illustration der Diagnostik von mergeData()\ninputDat[[3]]$ID[1] &lt;- inputDat[[2]]$ID[1]\n\npreparedData &lt;- automateDataPreparation(datList = inputDat, inputList = inputList, \n    readSpss = FALSE, checkData = TRUE,  mergeData = TRUE,\n    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,\n    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)\n&gt; Starting automateDataPreparation 2025-01-23 14:06:44.060545\n&gt; \n&gt; Check data...\n&gt; \n&gt; Checking dataset booklet1\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet2\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet3\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Start merging.\n&gt; Start merging of dataset 1.\n&gt; Start merging of dataset 2.\n&gt; Start merging of dataset 3.\n&gt; Multiple different valid codes in variable: 'hisei' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 69&49\n&gt; Multiple different valid codes in variable: 'I15' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&3\n&gt; Multiple different valid codes in variable: 'I16' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&1\n&gt; Multiple different valid codes in variable: 'I18' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&4\n&gt; Multiple different valid codes in variable: 'I20' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&3\n&gt; Multiple different valid codes in variable: 'I21' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 2&3\n&gt; Multiple different valid codes in variable: 'I22' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&3\n&gt; Multiple different valid codes in variable: 'I23' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 9&3\n&gt; Multiple different valid codes in variable: 'I25' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&0\n&gt; Multiple different valid codes in variable: 'I26' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 9&1\n&gt; Multiple different valid codes in variable: 'I28' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&0\n&gt; Start adding mbd according to data pattern.\n&gt; \n&gt; Start recoding.\n&gt; \n&gt; Found no recode information for variable(s): \n&gt; ID, hisei. \n&gt; This/These variable(s) will not be recoded.\n&gt; \n&gt; Variables... I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, I11, I12a, I12b, I12c, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28\n&gt; ...have been recoded.\n&gt; \n&gt; Start recoding Mbi to Mnr.\n&gt; ...identifying items in data (reference is blocks$subunit)\n&gt; Variables in data not recognized as items:\n&gt; ID, booklet, hisei\n&gt; If some of these excluded variables should have been identified as items (and thus be used for mnr coding) check 'blocks', 'subunits', 'dat'.\n&gt; ...identifying items with no mbi-codes ('mbi'):\n&gt; I04R, I08R\n&gt; If you expect mbi-codes on these variables check your data and option 'mbiCode'\n&gt; mnr statistics:\n&gt;      mnr cells: 553\n&gt;      unique cases with at least one mnr code: 89\n&gt;      unique items with at least one mnr code: 16\n&gt; unique cases ('ID') per booklet and booklet section (0s omitted):\n&gt;    booklet booklet.section N.ID\n&gt; 1 booklet1               2   11\n&gt; 2 booklet1               3   28\n&gt; 3 booklet2               1   28\n&gt; 4 booklet2               2   11\n&gt; 5 booklet2               3    1\n&gt; 6 booklet3               3   31\n&gt; start recoding (item-wise)\n&gt; done\n&gt; elapsed time: 0.1 secs\n&gt; \n&gt; Start aggregating\n&gt; Since inputList$aggrMiss exists, this will be used instead of default.\n&gt; All aggregation rules will be defaulted to 'SUM', because no other type is currently supported.\n&gt; Found 27 unit(s) with only one subunit in 'dat'. This/these subunit(s) will not be aggregated and renamed to their respective unit name(s).\n&gt; 1 units were aggregated: I12.\n&gt; \n&gt; Start scoring.\n&gt; ✔ 1 unit was scored: `I12`.\n&gt; \n&gt; No SPSS-File has been written.\n&gt; \n&gt; Missings are UNcollapsed.\n&gt; automateDataPreparation terminated successfully! 2025-01-23 14:06:44.334201\n\n\n3a. Praxis: Haupt-Funktionen in eatPrep"
   },
   {
     "objectID": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#vollständigkeit-der-daten-überprüfen",
@@ -1390,7 +1600,7 @@
     "href": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#testsitzungsprotokolle-beispiel",
     "title": "eatPrep",
     "section": "Testsitzungsprotokolle – Beispiel",
-    "text": "Testsitzungsprotokolle – Beispiel\n\nsubsetInfoMax &lt;- data.frame(\n                  ID=c(\"person100\", \"person101\", \"person102\", \"person103\",\n                        \"person104\", \"person105\", \"person106\", \"person107\",\n                        \"person108\", \"person109\", \"person110\"),\n                   IDgroup=c(1,1,1,1,1,2,2,2,2,2,2),\n                   datCols=c(\"I01\", \"I02\", \"I03\", \"I01\", \"I02\", \"I03\",\n                                   \"I04\", \"I05\", \"I02\", \"I03\", \"I04\"),\n                   comment=c(rep(\"Es gab Feueralarm\",5), \n                             rep(\"Der klassenraum musste gewechselt werden, \n                                 wir hatten keine Zeit mehr.\",6)))\n\ndatVisRec &lt;- visualSubsetRecode(dat=preparedData, subsetInfo=subsetInfoMax, ID=\"ID\",\n                                 toRecodeVal=\"mci\", useGroups=\"IDgroup\") \n&gt; \n&gt; ── Begin visual Inspection 2025-01-23 12:23:29.194327 ──────────────────────────\n&gt; \n&gt; ── Display subset (1 of 2)\n&gt; → group 1\n&gt; → 5 cases: person100, person101, person102, person103, and person104\n&gt; → 3 variables: I01, I02, and I03\n&gt; \n&gt; subgroup 1 :\n&gt;          ID I01 I02 I03\n&gt; 1 person100   0   0   0\n&gt; 2 person101 mbi   0   1\n&gt; 3 person102   1   0   1\n&gt; 4 person103   0   0   0\n&gt; 5 person104   1   0   0\n&gt; \n&gt; → Table of Values and NAs:\n&gt; \n&gt;   0   1 mbi \n&gt;  10   4   1\n&gt; \n&gt; ℹ Do you want to recode this subset to 'mci'?\n&gt; Error in menu(choices1): menu() cannot be used non-interactively"
+    "text": "Testsitzungsprotokolle – Beispiel\n\nsubsetInfoMax &lt;- data.frame(\n                  ID=c(\"person100\", \"person101\", \"person102\", \"person103\",\n                        \"person104\", \"person105\", \"person106\", \"person107\",\n                        \"person108\", \"person109\", \"person110\"),\n                   IDgroup=c(1,1,1,1,1,2,2,2,2,2,2),\n                   datCols=c(\"I01\", \"I02\", \"I03\", \"I01\", \"I02\", \"I03\",\n                                   \"I04\", \"I05\", \"I02\", \"I03\", \"I04\"),\n                   comment=c(rep(\"Es gab Feueralarm\",5), \n                             rep(\"Der klassenraum musste gewechselt werden, \n                                 wir hatten keine Zeit mehr.\",6)))\n\ndatVisRec &lt;- visualSubsetRecode(dat=preparedData, subsetInfo=subsetInfoMax, ID=\"ID\",\n                                 toRecodeVal=\"mci\", useGroups=\"IDgroup\") \n&gt; \n&gt; ── Begin visual Inspection 2025-01-23 14:06:44.99508 ───────────────────────────\n&gt; \n&gt; ── Display subset (1 of 2)\n&gt; → group 1\n&gt; → 5 cases: person100, person101, person102, person103, and person104\n&gt; → 3 variables: I01, I02, and I03\n&gt; \n&gt; subgroup 1 :\n&gt;          ID I01 I02 I03\n&gt; 1 person100   0   0   0\n&gt; 2 person101 mbi   0   1\n&gt; 3 person102   1   0   1\n&gt; 4 person103   0   0   0\n&gt; 5 person104   1   0   0\n&gt; \n&gt; → Table of Values and NAs:\n&gt; \n&gt;   0   1 mbi \n&gt;  10   4   1\n&gt; \n&gt; ℹ Do you want to recode this subset to 'mci'?\n&gt; Error in menu(choices1): menu() cannot be used non-interactively"
   },
   {
     "objectID": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#beurteilerübereinstimmung",
@@ -1419,6 +1629,272 @@
     "title": "eatPrep",
     "section": "Ende",
     "text": "Ende\nBitte berichtet alle\n\nBugs\nFeature Requests\nsonstige Fragen/Probleme\n\neatPrep betreffend an karoline.sachse@iqb.hu-berlin.de\n\n\nAusblick"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#agenda",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#agenda",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Agenda",
+    "text": "Agenda\n\neatGADS - Basics\n\nHintergrund\nGrundlegendes\nÜbersicht Funktionalität\n\neatGADS im BT-Kontext\n\nAufbereitungsziel\nHäufig verwendete Funktionen\nBest Practices"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#eatgads---scope",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#eatgads---scope",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "eatGADS - Scope",
+    "text": "eatGADS - Scope\n\nDatenbankerstellung\nDatenbanknutzung"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#eatgads---scope-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#eatgads---scope-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "eatGADS - Scope",
+    "text": "eatGADS - Scope\n\nDatenbankerstellung\nDatenbanknutzung\n(teil-automatisierte) Datenaufbereitung"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#ursprüngliche-idee",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#ursprüngliche-idee",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Ursprüngliche Idee",
+    "text": "Ursprüngliche Idee\nR statt SPSS in der Datenaufbereitung\n\nkeine proprietäre Software\nbessere Automatisierungsmöglichkeiten\nbessere Integration mit dem eat-Versum"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#eatgads",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#eatgads",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "eatGADS",
+    "text": "eatGADS\n\n\n# Stabile Version\ninstall.packages(\"eatGADS\")\n\n# Development Version\nremotes::install_github(\"beckerbenj/eatGADS\")"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#ressourcen",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#ressourcen",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Ressourcen",
+    "text": "Ressourcen\n\nVignette: Comprehensive Data Cleaning Guide (BT-Perspektive)\nVignette: FDZ Data Cleaning\nkomplette Funktionsübersicht"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "GADSdat-Objekte",
+    "text": "GADSdat-Objekte\nListe bestehend aus\n\nrohen Daten (dat)\nund Meta-Daten (labels)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "GADSdat-Objekte",
+    "text": "GADSdat-Objekte\nListe bestehend aus\n\nrohen Daten (dat)\n\nnumerische Variablen\ncharacter Variablen (Zeichenfolgen)\n\nMeta-Daten (labels)\n\nvarName - Variablenname\nvarLabel - Variablenlabel\nformat - SPSS-Format\nvalue - numerischer Wert\nvalLabel - Wertelabel\nmissings - Missingtags (miss oder valid)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte-2",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte-2",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "GADSdat-Objekte",
+    "text": "GADSdat-Objekte\nDaten"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte-3",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte-3",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "GADSdat-Objekte",
+    "text": "GADSdat-Objekte\nMeta-Daten"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte-4",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#gadsdat-objekte-4",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "GADSdat-Objekte",
+    "text": "GADSdat-Objekte\nImport und Export\n\n# Import von .sav/.dta files\npisa &lt;- import_spss(\"pisa.sav\")\npisa &lt;- import_stata(\"pisa.dat\")\n\n# Export von .sav/.dta files\nwrite_spss(pisa, filePath = \"pisa.sav\")\nwrite_stata(pisa, filePath = \"pisa.dat\")"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Variablennamen",
+    "text": "Variablennamen\nAnzeigen von Variablennamen im Datensatz via namesGADS()\n\nnamesGADS(pisa)[1:10]\n\n [1] \"idstud\"    \"idschool\"  \"idclass\"   \"schtype\"   \"sameteach\" \"g8g9\"     \n [7] \"ganztag\"   \"classsize\" \"repeated\"  \"gender\""
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#meta-daten",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#meta-daten",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Meta-Daten",
+    "text": "Meta-Daten\nExtraktion von Meta-Daten via extractMeta()\n\nextractMeta(pisa, vars = c(\"idstud\", \"schtype\"))\n\n  varName     varLabel format display_width labeled value\n2  idstud   Student-ID   F8.0            NA      no    NA\n5 schtype School track   F8.0            NA     yes     1\n6 schtype School track   F8.0            NA     yes     2\n7 schtype School track   F8.0            NA     yes     3\n                                   valLabel missings\n2                                      &lt;NA&gt;     &lt;NA&gt;\n5                Gymnasium (academic track)    valid\n6                                Realschule    valid\n7 schools with several courses of education    valid"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#meta-daten-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#meta-daten-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Meta-Daten",
+    "text": "Meta-Daten\nÄnderung von Meta-Daten\n\n# Variablenname\npisa2 &lt;- changeVarNames(pisa, oldNames = \"idstud\",\n                         newNames = \"IDSTUD\")\n\n# Variablenlabel\npisa2 &lt;- changeVarLabels(pisa2, varName = \"schtype\",\n                         varLabel = \"Schulart\")\n\n# Wertelabel\npisa2 &lt;- changeValLabels(pisa2, varName = \"schtype\",\n                         value = 1, valLabel = \"Gymnasium\")\n\n# Missingtag\npisa2 &lt;- changeMissings(pisa2, varName = \"schtype\",\n                         value = -99, missings = \"miss\")"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#meta-daten-2",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#meta-daten-2",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Meta-Daten",
+    "text": "Meta-Daten\n\nextractMeta(pisa2, vars = c(\"IDSTUD\", \"schtype\"))\n\n  varName   varLabel format display_width labeled value\n1  IDSTUD Student-ID   F8.0            NA      no    NA\n4 schtype   Schulart   F8.0            NA     yes   -99\n5 schtype   Schulart   F8.0            NA     yes     1\n6 schtype   Schulart   F8.0            NA     yes     2\n7 schtype   Schulart   F8.0            NA     yes     3\n                                   valLabel missings\n1                                      &lt;NA&gt;     &lt;NA&gt;\n4                                      &lt;NA&gt;     miss\n5                                 Gymnasium    valid\n6                                Realschule    valid\n7 schools with several courses of education    valid"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#daten",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#daten",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Daten",
+    "text": "Daten\nÄnderung von Daten\n\n# Variable duplizieren\npisa3 &lt;- cloneVariable(pisa2, varName = \"schtype\",\n                       new_varName = \"schtype_dich\")\n\n# Rekodierung\npisa3 &lt;- recodeGADS(pisa3, varName = \"schtype_dich\",\n                    oldValues = c(1, 2, 3),\n                    newValues = c(1, 2, 2),\n                    existingMeta = \"drop\")\n\n# Anpassung Wertelabel\npisa3 &lt;- changeValLabels(pisa3, varName = \"schtype_dich\",\n                     value = 2, valLabel = \"Nicht-Gymnasium\")"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#daten-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#daten-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Daten",
+    "text": "Daten\n\nextractMeta(pisa3, vars = \"schtype_dich\")\n\n         varName varLabel format display_width labeled value        valLabel\n467 schtype_dich Schulart   F8.0            NA     yes   -99            &lt;NA&gt;\n468 schtype_dich Schulart   F8.0            NA     yes     1       Gymnasium\n469 schtype_dich Schulart   F8.0            NA     yes     2 Nicht-Gymnasium\n    missings\n467     miss\n468    valid\n469    valid"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übung",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übung",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übung",
+    "text": "Übung\n\nLadet den Datensatz example_data.sav aus dem eatFDZ Paket (© Annegret Rucker).\n\n\nremotes::install_github(\"beckerbenj/eatFDZ\")\n\n\nsav_path &lt;- system.file(\"extdata\", \"example_data.sav\", package = \"eatFDZ\")\nexample_gads &lt;- import_spss(sav_path)\n\n\nInspiziert die Meta-Daten der Variable \"books\".\nVergebt sinnvolle Wertelabel und Missingtags, wo diese bisher fehlen.\nBildet eine neue, dichotome Schulvariable (\"school_dich\") mit 1 = \"nicht-Gymnasium\" und 2 = \"Gymnasium\"."
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-i",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-i",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übersicht Funktionalität I",
+    "text": "Übersicht Funktionalität I\nImport-Funktionen\n\nimport_spss() - Import von .sav\nimport_stata() - Import von .dta\nimport_DF() - Import von data.frames\nimport_RDS() - Import von .RDS Dateien\nimport_raw() - Direkt-Import von Rohdaten & Metadaten\n\nExport-Funktionen\n\nwrite_spss() - Export von .sav\nwrite_spss2() - Alternativer Export von .sav\nwrite_stata() - Export von .dta\nextractData2() - Extraktion von Datensätzen innerhalb R"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-ii",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-ii",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übersicht Funktionalität II",
+    "text": "Übersicht Funktionalität II\nMeta-Daten bearbeiten\n\ngetChangeMeta() - Extrahiert Änderungen in den Meta-Daten\napplyChangeMeta() - Wendet Änderungen in den Meta-Daten an\nchangeVarLabels() - Änderungen Variablenlabel\nchangeValLabels() - Änderungen Wertelabel\nchangeMissings() - Änderungen Missing-Tags\nchangeVarNames()- Änderungen Variablennamen\nchangeSPSSformat() - Änderungen SPSS-Format\nreuseMeta() - Wiederverwendung von Meta-Daten\nupdateMeta() - Aktualisiert Meta-Daten im Datensatz"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-iii",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-iii",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übersicht Funktionalität III",
+    "text": "Übersicht Funktionalität III\nGrundlegende Daten-Struktur bearbeiten\n\nextractVars() - Extraktion ausgewählter Variablen\nremoveVars() - Entfernen bestimmter Variablen\ncloneVar() - Kopiert eine Variable\nrelocateVariable() - Verschiebt eine Variable an eine neue Position\norderLike() - Anordnung aller Variablen\n…"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-iv",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-iv",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übersicht Funktionalität IV",
+    "text": "Übersicht Funktionalität IV\nSemi-automatisierte Funktionen\n\ncalculateScale() - Erstellen einer Skala\ncollapseMC_Text() - Rekodierung eines forced Choice Items mit Freitextmöglichkeit\ncollapseMultiMC_Text() - Rekodierung eines multiple Choice Items mit Freitextmöglichkeit\ncomposeVar() - Kombination unterschiedlicher Informationsquellen\nconvertCase() - Änderung Groß-/Kleinschreibung\ndummies2char()\nfac2dummies()\nmultiChar2fac()\n…"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übung-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übung-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übung",
+    "text": "Übung\n\nEntfernt die Variablen \"ID_name\" und \"info\" aus Anonymisierungsgründen vollständig aus dem Datensatz.\nBildet den Notendurchschnitt aus den bestehenden Notenvariablen (\"grade_&lt;fach&gt;\")."
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-v",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-v",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übersicht Funktionalität V",
+    "text": "Übersicht Funktionalität V\nVergleichs-Funktionen\n\nequalGADS() - Abgleich zweier GADSdat Objekte\ninspectDifferences() - Datenunterschiede zweier Variablen\ninspectMetaDifferences() - Meta-Datenunterschiede zweier Variablen\ncompareGADS()"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-vi",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übersicht-funktionalität-vi",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übersicht Funktionalität VI",
+    "text": "Übersicht Funktionalität VI\nCheck-Funktionen\n\ncheckVarNames() - Konventionen Variablennamen\nfixEncoding() - Umlaute & Sonderzeichen\ncheckMissings() - Abgleich Wertelabels & Missingtags\ncheckMissingsByValues() - Abgleich gelabelte numerische Werte & Missingtags\ncheckEmptyValLabels() - Abgleich Wertelabels & Daten\ncheckMissingValLabels() - Abgleich Daten & Wertelabels"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Variablennamen",
+    "text": "Variablennamen\nKonventionen Variablennamen\n\n→ Automatisch beim Import\n\n_ vs .\nGeschützte Wörter"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen-2",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen-2",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Variablennamen",
+    "text": "Variablennamen\nKonventionen Variablennamen\n\n→ Automatisch beim Import\n\n_ vs .\nGeschützte Wörter\n\n\n\n# Import SPSS data\naepfel &lt;- import_spss(\"aepfel.sav\")"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen-3",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen-3",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Variablennamen",
+    "text": "Variablennamen\nTest-Daten\n\n# Display the dataset\naepfel$dat\n\n  ID Ä_Größe Ä_Qualität     Ort\n1  1       1          2   unter\n2  2       2          2    über\n3  3       2          1 draußen"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen-4",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#variablennamen-4",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Variablennamen",
+    "text": "Variablennamen\nTest-Daten\n\naepfel$labels[, c(\"varName\", \"varLabel\", \"value\", \"valLabel\", \"missings\")]\n\n     varName   varLabel value          valLabel missings\n1         ID Identifier    NA              &lt;NA&gt;     &lt;NA&gt;\n2    Ä_Größe       &lt;NA&gt;     1              groß    valid\n3    Ä_Größe       &lt;NA&gt;     2             klein    valid\n4 Ä_Qualität       &lt;NA&gt;   -99 Missing Unbekannt     miss\n5 Ä_Qualität       &lt;NA&gt;   -97 Missing by Design    valid\n6 Ä_Qualität       &lt;NA&gt;   -98              &lt;NA&gt;     miss\n7        Ort       &lt;NA&gt;    NA              &lt;NA&gt;     &lt;NA&gt;"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#sonderzeichen",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#sonderzeichen",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Sonderzeichen",
+    "text": "Sonderzeichen\nUmlaute & Sonderzeichen umwandeln\n\nVariablenlabel, Wertelabel, Daten\nß zu ss, ä zu ae usw.\nVorbeugen von Encoding-Problemen\n\n\n# Fix encoding issues\naepfel &lt;- fixEncoding(aepfel)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#sonderzeichen-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#sonderzeichen-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Sonderzeichen",
+    "text": "Sonderzeichen\nUmlaute & Sonderzeichen umwandeln\n\n# Display the dataset after fixing encoding\naepfel$dat\n\n  ID Ae_Groesse Ae_Qualitaet      Ort\n1  1          1            2    unter\n2  2          2            2    ueber\n3  3          2            1 draussen"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#sonderzeichen-2",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#sonderzeichen-2",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Sonderzeichen",
+    "text": "Sonderzeichen\nUmlaute & Sonderzeichen umwandeln\n\n# Display specific columns of the labels data\naepfel$labels[, c(\"varName\", \"varLabel\", \"value\", \"valLabel\", \"missings\")]\n\n       varName   varLabel value          valLabel missings\n1           ID Identifier    NA              &lt;NA&gt;     &lt;NA&gt;\n2   Ae_Groesse       &lt;NA&gt;     1             gross    valid\n3   Ae_Groesse       &lt;NA&gt;     2             klein    valid\n4 Ae_Qualitaet       &lt;NA&gt;   -99 Missing Unbekannt     miss\n5 Ae_Qualitaet       &lt;NA&gt;   -97 Missing by Design    valid\n6 Ae_Qualitaet       &lt;NA&gt;   -98              &lt;NA&gt;     miss\n7          Ort       &lt;NA&gt;    NA              &lt;NA&gt;     &lt;NA&gt;"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#abgleich-missingtags",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#abgleich-missingtags",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Abgleich Missingtags",
+    "text": "Abgleich Missingtags\nAbgleich Wertelabels und Missingtags\n\nAlle Werte mit spezifischen Labels auch als Missing getagged?\nAlle als Missing getaggeden Werte auch spezifische Labels?\n\n→ Reporting und/oder Anpassung\n\n# Check and adjust missing tags\naepfel &lt;- checkMissings(aepfel, missingLabel = \"Missing|missing\")"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#abgleich-missingtags-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#abgleich-missingtags-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Abgleich Missingtags",
+    "text": "Abgleich Missingtags\nAbgleich gelabelte numerische Werte und Missingtags\n\nAlle gelabelten Werte in spezifischem numerischen Range auch als Missing getagged?\n\n→ Reporting und/oder Anpassung\n\n# Check and adjust missing tags\naepfel &lt;- checkMissingsByValues(aepfel, missingValues = -50:-99)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#abgleich-wertelabels",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#abgleich-wertelabels",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Abgleich Wertelabels",
+    "text": "Abgleich Wertelabels\nAbgleich Daten und Wertelabels\n\nAlle Werte mit Wertelabels auch in Daten?\n\n\n# Check if all value labels are present in the data\ncheckEmptyValLabels(aepfel)\n\n$ID\nNULL\n\n$Ae_Groesse\nNULL\n\n$Ae_Qualitaet\n  value          valLabel missings\n4   -99 Missing Unbekannt     miss\n6   -98              &lt;NA&gt;     miss\n5   -97 Missing by Design     miss\n\n$Ort\nNULL"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#abgleich-wertelabels-1",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#abgleich-wertelabels-1",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Abgleich Wertelabels",
+    "text": "Abgleich Wertelabels\nAbgleich Daten und Wertelabels\n\nAlle Werte in den Daten auch mit Wertelabels?\n\n\n# Check if all values in the data have value labels for specific variables\ncheckMissingValLabels(aepfel, vars = c(\"Ae_Groesse\", \"Ae_Qualitaet\"))\n\n$Ae_Groesse\nNULL\n\n$Ae_Qualitaet\n$Ae_Qualitaet$varLabel\n[1] NA\n\n$Ae_Qualitaet$missing_labels\n[1] 1 2"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übung-2",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#übung-2",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "Übung",
+    "text": "Übung\n\nÜberprüft die Vergabe von Missingtags im Beispieldatensatz mithilfe der Funktionen checkMissings() und checkMissingsByValues().\nÜberprüft, ob alle Wertelabels auch tatsächlich in den Daten vorkommen (checkEmptyValLabels()). Sollten diese Wertelabel aus den Daten entfernt werden?\nÜberprüft, ob alle Werte auch tatsächlich gelabelet sind (checkMissingValLabels())."
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#section",
+    "href": "docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html#section",
+    "title": "eatGADS - Datenaufbereitung",
+    "section": "",
+    "text": "Danke für Eure\n\n\nAufmerksamkeit!"
   },
   {
     "objectID": "docs/R_tutorials/R_ws3.html",

@@ -1,0 +1,12 @@
+.reveal .slide-logo {
+  height: 100px !important;
+  width: 100px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+/* Hide footer and logo on the first (title) slide */
+.reveal .slides > section:title-slide .footer,
+.reveal .slides > section:title-slide .slide-logo {
+  display: none;
+}
