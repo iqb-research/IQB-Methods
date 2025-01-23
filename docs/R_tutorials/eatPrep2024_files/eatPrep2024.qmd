@@ -160,7 +160,7 @@ library(eatPrep)
 ## Subitems, Items, Aufgaben {.smaller}
 
 ::: {style="margin-top: -30px;"}
-![](eatPrep2024_files/pics/structure.jpg){fig-width="60%" fig-align="center"}
+![](pics/structure.jpg){fig-width="60%" fig-align="center"}
 :::
 
 ::: footer
@@ -169,7 +169,7 @@ library(eatPrep)
 
 ## Subitems, Items, Aufgaben {.smaller}
 
-![](eatPrep2024_files/pics/cyclehire4.jpg){fig-width="60%" fig-align="center"}
+![](pics/cyclehire4.jpg){fig-width="60%" fig-align="center"}
 
 ::: footer
 2a. Strukturen von Papier-Kompetenzdaten am IQB
@@ -177,7 +177,7 @@ library(eatPrep)
 
 ## Subitems, Items, Aufgaben und Values und Scores {.smaller}
 
-![](eatPrep2024_files/pics/cyclehire1.jpg){fig-width="60%" fig-align="center"}
+![](pics/cyclehire1.jpg){fig-width="60%" fig-align="center"}
 
 ::: footer
 2a. Subitems in Items in Aufgaben
@@ -208,7 +208,7 @@ kable(Mtypes)
 
 ## Aufgaben in Blöcken und Blöcke in Testheften {.smaller}
 
-<img src="eatPrep2024_files/pics/ainb.jpg"/> <img src="eatPrep2024_files/pics/bint.jpg"/>
+<img src="pics/ainb.jpg"/> <img src="pics/bint.jpg"/>
 
 ::: footer
 2a. Strukturen von Papier-Kompetenzdaten am IQB
@@ -251,7 +251,7 @@ Wie werden Testhefte, Blöcke, Aufgaben, Items, Subitems, Werte und Scores in ea
 ## Repräsentation der Datenstrukturen in eatPrep: inputListen-Plätze 1-4 {.smaller}
 
 ::: {style="margin-top: -10px; text-align: center;"}
-![](eatPrep2024_files/pics/inputList3.jpg){width="900px"}
+![](pics/inputList3.jpg){width="900px"}
 :::
 
 ::: footer
@@ -261,7 +261,7 @@ Wie werden Testhefte, Blöcke, Aufgaben, Items, Subitems, Werte und Scores in ea
 ## Repräsentation der Datenstrukturen in eatPrep: inputListen-Plätze 5-7 {.smaller}
 
 ::: {style="margin-top: 50px; text-align: center;"}
-![](eatPrep2024_files/pics/il567.jpg){fig-align="center" width="500"}
+![](pics/il567.jpg){fig-align="center" width="500"}
 :::
 
 ::: footer
@@ -271,7 +271,7 @@ Wie werden Testhefte, Blöcke, Aufgaben, Items, Subitems, Werte und Scores in ea
 ## Repräsentation der Datenstrukturen in eatPrep: inputListen-Plätze 8-10 {.smaller}
 
 ::: {style="margin-top: 20px; text-align: center;"}
-![](eatPrep2024_files/pics/il8910.jpg){fig-align="center" width="800"}
+![](pics/il8910.jpg){fig-align="center" width="800"}
 :::
 
 ::: footer
