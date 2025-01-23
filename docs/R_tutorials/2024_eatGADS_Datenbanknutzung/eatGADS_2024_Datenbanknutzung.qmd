@@ -1,6 +1,6 @@
 ---
 title: "eatGADS - Datenbanknutzung"
-description: "Einführungsslides vom eatPrep Workshop von Dez. 2024"
+description: "Einführungsslides vom Workshop zur Datenbanknutzung mit eatGADS von Dez. 2024"
 author: "Benjamin Becker"
 title-slide-attributes:
   data-background-image: Figures/eatGADS.png
@@ -19,8 +19,8 @@ format:
 editor: source
 execute:
   echo: true
-categories: [eatPrep, tutorial, slides, intro]
-image: eatPrep.png
+categories: [eatGADS, tutorial, slides, intro]
+image: eatGADS.png
 ---
 
 ------------------------------------------------------------------------
