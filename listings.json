@@ -35,7 +35,8 @@
       "/docs/r_sig/23_12_18_case_when/index.html",
       "/docs/quarto/index.html",
       "/docs/R_tutorials/eatPrep2024_files/eatPrep2024.html",
-      "/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html"
+      "/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html",
+      "/docs/R_tutorials/2024_eatATA/eatATA_2024.html"
     ]
   },
   {
@@ -48,10 +49,6 @@
     ]
   },
   {
-    "listing": "/posts_eat.html",
-    "items": []
-  },
-  {
     "listing": "/posts_learn.html",
     "items": [
       "/docs/beginners.html",
@@ -60,6 +57,10 @@
       "/docs/statisticalQuestions.html",
       "/docs/advanced.html"
     ]
+  },
+  {
+    "listing": "/posts_eat.html",
+    "items": []
   },
   {
     "listing": "/docs/posts_r_sig.html",

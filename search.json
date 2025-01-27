@@ -1253,74 +1253,410 @@
     "text": "Praxis-Tipps\n\n\n\n\n\n\nTip\n\n\nextractData2() nutzen um Anwendung von Wertelabels und Missingstags bewusst zu steuern.\n\n\n\ndon’t\n\nalle Variablen als numerisch extrahieren und dann mühsam Wertelabel wiederherstellen\nalle Variablen als character extrahieren und dann Variablen mühsam in numerisch umwandeln\n\ndo\n\nvorab überlegen: Welche Variablen brauche ich numerisch, welche als character?\nextractData2() nutzen um das umzusetzen"
   },
   {
-    "objectID": "posts/newsletter/23_08_09/index.html",
-    "href": "posts/newsletter/23_08_09/index.html",
-    "title": "09-08-2023",
-    "section": "",
-    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#automatisierte-blockbesetzung",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#automatisierte-blockbesetzung",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Automatisierte Blockbesetzung",
+    "text": "Automatisierte Blockbesetzung\nBlockbesetzung\nZuordnung von Items zu Blöcken aus einem Itempool unter Berücksichtigung von Testspezifikationen\nAutomatisiert\nNicht händisch, sondern unter Verwendung von Optimierungsalgorithmen"
   },
   {
-    "objectID": "posts/newsletter/24_01_12/index.html",
-    "href": "posts/newsletter/24_01_12/index.html",
-    "title": "12-01-2024",
-    "section": "",
-    "text": "1"
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#vorstellungsrunde",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#vorstellungsrunde",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Vorstellungsrunde",
+    "text": "Vorstellungsrunde\n30 Sekunden pro Person:\n\nName\nProjekt\nHabt ihr schon mal selbst eine Blockbesetzung umgesetzt?\nWenn ja, händisch oder mit eatATA?"
   },
   {
-    "objectID": "posts/newsletter/24_01_12/index.html#footnotes",
-    "href": "posts/newsletter/24_01_12/index.html#footnotes",
-    "title": "12-01-2024",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nImage by Giulia May on Unsplash.↩︎"
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#agenda",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#agenda",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Agenda",
+    "text": "Agenda\n\nHintergrund: Wofür?\nGrundlagen: Mathematical Programming\nTheorie: Automated Test Assembly/Automatisierte Blockbesetzung\nPraxis: eatATA"
   },
   {
-    "objectID": "posts_help.html",
-    "href": "posts_help.html",
-    "title": "Help",
-    "section": "",
-    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nNicklas Hafiz\nnicklas.jakob.hafiz[at]hu-berlin.de\n\n\nPhilipp Franikowski\nphilipp.franikowski[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nNicklas Hafiz\nnicklas.jakob.hafiz[at]hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de"
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#begrifflichkeiten",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#begrifflichkeiten",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Begrifflichkeiten",
+    "text": "Begrifflichkeiten\n\nItem\n→ Eine Frage (kleinste Einheit)\nAufgabe/Unit\n→ Set von Items mit gemeinsamem Stimulus\nBlock/Cluster\n→ Zusammenstellung von Aufgaben, meist als fixer Kontext, ca. 20 Minuten\nTestform/Testheft\n→ Zusammenstellung von Blöcken, eine Person bearbeitet eine Testform"
   },
   {
-    "objectID": "posts_help.html#contact-for-eat-packages",
-    "href": "posts_help.html#contact-for-eat-packages",
-    "title": "Help",
-    "section": "",
-    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nNicklas Hafiz\nnicklas.jakob.hafiz[at]hu-berlin.de\n\n\nPhilipp Franikowski\nphilipp.franikowski[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nNicklas Hafiz\nnicklas.jakob.hafiz[at]hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de"
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#parallele-testformen",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#parallele-testformen",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Parallele Testformen",
+    "text": "Parallele Testformen\nWieso?\n\nLow-stakes Assessments\n→ Breite inhaltliche Abdeckung\n→ Messgenauigkeit auf Gruppenebene\nHigh-stakes Assessments\n→ Abschreiben/Betrugsversuche verhindern\n→ Weitergabe Testinhalte verhindern\nPilotierungen\n→ Testung großer Itemzahlen"
   },
   {
-    "objectID": "posts_eat.html",
-    "href": "posts_eat.html",
-    "title": "eat Packages",
-    "section": "",
-    "text": "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated creation of scale manuals.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nSebastian Weirich\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreating plots from the eatRep output (main use: Bildungstrend).\n\n\n\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple data sets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool ‘AnalyseInput’, which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.\n\n\n\n\n\nKaroline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreate and apply recoding databases.\n\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nSebastian Weirich, Benjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\n\n\n\n\nNo matching items"
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#block-vs.-testform",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#block-vs.-testform",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Block vs. Testform",
+    "text": "Block vs. Testform\nAnforderungen Blockbesetzung\n\nParallelität (inhaltlich, Formate, …)\n\nAnforderungen Testformen\n\nParallelität\nLinking"
   },
   {
-    "objectID": "posts_eat.html#installing-r-packages",
-    "href": "posts_eat.html#installing-r-packages",
-    "title": "eat Packages",
-    "section": "Installing R packages",
-    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#parallele-blöcke",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#parallele-blöcke",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Parallele Blöcke",
+    "text": "Parallele Blöcke\nHinsichtlich?\n\nInhaltliche Bereiche\nAufgabenformate\nSchwierigkeit/Testinformation\nZeitaufwand/Speededness\n…\n\nzusätzlich\n\nItemunverträglichkeiten"
   },
   {
-    "objectID": "posts_eat.html#compatibility",
-    "href": "posts_eat.html#compatibility",
-    "title": "eat Packages",
-    "section": "Compatibility",
-    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\n“eatPrep” requires “eatTools”.\n“eatRep” needs “eatTools” and “eatGADS”.\n“eatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#blockbesetzung",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#blockbesetzung",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Blockbesetzung",
+    "text": "Blockbesetzung\nHäufig händisch (via Excel), aber:\n\nviele Items\nviele Constraints\n→ z.B. viele Unverträglichkeiten\nhoher Aufwand/kognitiver Load!"
   },
   {
-    "objectID": "posts_learn.html",
-    "href": "posts_learn.html",
-    "title": "Welcome to our Learning Page",
-    "section": "",
-    "text": "Here you can find articles and workshops about R, RStudio, Git and GitHub, quarto and overall information about some statistical questions. Click on the topic you’re interested in to get to the article’s overview.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBeginners\n\n\nHere you can find R tutorials to start your R journey.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkflow\n\n\nHere you can find articles about the general workflow when working with RStudio or Github.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR-SIG\n\n\nHere you can find all the articles that were discussed in R-SIG.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical Questions\n\n\nHere you can find some answers to common questions about statistics or our r-packages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvanced\n\n\nHere you can find some more advanced R tutorials.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#definition",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#definition",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Definition",
+    "text": "Definition\nSynonyme\n\nMathematical Optimization/Mathematical Programming\n\nRelevante Subklasse\n\nMixed Integer (Linear) Programming (MIP/MILP)\n\nGrundidee:\nMaximierungs- oder Minimierungsproblem, wobei Lösungsraum durch (Ung-)Gleichungen eingeschränkt werden kann"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IQB Methods Team",
-    "section": "",
-    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#zentrale-konzepte",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#zentrale-konzepte",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Zentrale Konzepte",
+    "text": "Zentrale Konzepte\nBranch and Bound Algorithmen\n\nGrundidee: Probieren aller möglichen Lösungen (“Brute Forcing”)\nEffiziente Reduktion des Lösungsraumes\nKombinieren von Constraints"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#zentrale-konzepte-1",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#zentrale-konzepte-1",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Zentrale Konzepte",
+    "text": "Zentrale Konzepte\n\nDecision Variables\nConstraints\nObjective Function"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#beispiel-variiertes-rucksackproblem",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#beispiel-variiertes-rucksackproblem",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Beispiel: Variiertes Rucksackproblem",
+    "text": "Beispiel: Variiertes Rucksackproblem\n\nAnstellungsoptionen StuMis, Docs, Postdocs\nMaximal 8 Büroplätze\nMaximale Kosten 120$: StuMis (5$), Docs (18$), Postdocs (25$)\nEs braucht von jeder Statusgruppe mindestens 2 Personen\nPublikationen: StuMis (1), Docs (2), Postdocs (3)\nAnzahl der Publikationen maximieren\n\nFrage: Welche Kombination aus Personen soll eingestellt werden?"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#beispiel-variiertes-rucksackproblem-1",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#beispiel-variiertes-rucksackproblem-1",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Beispiel: Variiertes Rucksackproblem",
+    "text": "Beispiel: Variiertes Rucksackproblem\nDecision Variables:\n\nAnstellungsoptionen StuMis, Docs, Postdocs\n\nConstraints:\n\nMaximal 8 Büroplätze \\[\nS + D + P \\leq 8\n\\]\nMaximale Kosten 120$: StuMis (5$), Docs (18$), Postdocs (25$) \\[\n5S + 18D + 25P \\leq 120\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#beispiel-variiertes-rucksackproblem-2",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#beispiel-variiertes-rucksackproblem-2",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Beispiel: Variiertes Rucksackproblem",
+    "text": "Beispiel: Variiertes Rucksackproblem\nDecision Variables:\n\nAnstellungsoptionen StuMis, Docs, Postdocs\n\nConstraints:\n\nEs braucht von jeder Statusgruppe mindestens 2 Personen \\[\nS \\geq 2  \n\\] \\[\nD \\geq 2\n\\] \\[\nP \\geq 2\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#beispiel-variiertes-rucksackproblem-3",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#beispiel-variiertes-rucksackproblem-3",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Beispiel: Variiertes Rucksackproblem",
+    "text": "Beispiel: Variiertes Rucksackproblem\nDecision Variables:\n\nAnstellungsoptionen StuMis, Docs, Postdocs\n\nObjective Function:\n\nPublikationen: StuMis (1), Docs (2), Postdocs (3)\nAnzahl der Publikationen maximieren \\[\nMaximiere \\quad  1S + 2D + 3P\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#solver",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#solver",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Solver",
+    "text": "Solver\nOpen Source\n\nGLPK\nlpSolve\nSymphony\n…\n\nKommerziell\n\nGurobi\nCPLEX\n…"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#übung",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#übung",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Übung",
+    "text": "Übung\n\nVersucht das vorgestellte Beispiel händisch zu lösen!"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-mithilfe-von-rglpk",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-mithilfe-von-rglpk",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Lösung mithilfe von Rglpk",
+    "text": "Lösung mithilfe von Rglpk\n\n# Define objective function\nobj &lt;- c(1, 2, 3)\nmax &lt;- TRUE\n\n# Define constraints\nmat &lt;- matrix(c(1, 5, 1, 0, 0, 1, 18, 0, 1, 0, 1, 25, 0, 0, 1), nrow = 5)\ndir &lt;- c(\"&lt;=\", \"&lt;=\", \"&gt;=\", \"&gt;=\", \"&gt;=\")\nrhs &lt;- c(8, 120, 2, 2, 2)\n\n# Define problem type (MIP)\ntypes &lt;- c(\"I\", \"I\", \"I\")\n\n# Call solver\nRglpk::Rglpk_solve_LP(obj, mat, dir, rhs, \n               types = types, max = max, \n               control = list(\"verbose\" = TRUE, \"canonicalize_status\" = FALSE))"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-mithilfe-von-rglpk-1",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-mithilfe-von-rglpk-1",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Lösung mithilfe von Rglpk",
+    "text": "Lösung mithilfe von Rglpk\n\n\nGLPK Simplex Optimizer 5.0\n5 rows, 3 columns, 9 non-zeros\n      0: obj =  -0.000000000e+00 inf =   6.000e+00 (3)\n      3: obj =   1.200000000e+01 inf =   0.000e+00 (0)\n*     5: obj =   1.540000000e+01 inf =   0.000e+00 (0)\nOPTIMAL LP SOLUTION FOUND\nGLPK Integer Optimizer 5.0\n5 rows, 3 columns, 9 non-zeros\n3 integer variables, none of which are binary\nInteger optimization begins...\nLong-step dual simplex will be used\n+     5: mip =     not found yet &lt;=              +inf        (1; 0)\n+     7: &gt;&gt;&gt;&gt;&gt;   1.500000000e+01 &lt;=   1.500000000e+01   0.0% (1; 0)\n+     7: mip =   1.500000000e+01 &lt;=     tree is empty   0.0% (0; 1)\nINTEGER OPTIMAL SOLUTION FOUND\n\n\n$optimum\n[1] 15\n\n$solution\n[1] 3 3 2\n\n$status\n[1] 5\n\n$solution_dual\n[1] NA\n\n$auxiliary\n$auxiliary$primal\n[1]   8 119   3   3   2\n\n$auxiliary$dual\n[1] NA\n\n\n$sensitivity_report\n[1] NA"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#automatisierte-blockbesetzung-2",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#automatisierte-blockbesetzung-2",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Automatisierte Blockbesetzung",
+    "text": "Automatisierte Blockbesetzung"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#automatisierte-blockbesetzung-3",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#automatisierte-blockbesetzung-3",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Automatisierte Blockbesetzung",
+    "text": "Automatisierte Blockbesetzung\nVerwendet Konzepte der Mathematical Optimization (Mixed Integer Programming) zur Blockbesetzung (Kuhn & Kiefer, 2015; van der Linden, 2005)\nZentrale Konzepte\n\nDecision Variables (0/1, Item x Block)\nConstraints (Testspezifikationen)\nObjective Function (wichtigste relative Testspezifikation)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-item-pool",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-item-pool",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Minimalbeispiel: Item Pool",
+    "text": "Minimalbeispiel: Item Pool\n\n30 Items\nItem Formate (MC, offen, Zuordnung)\nDurchschnittliche Antwortzeiten\nSchwierigkeitsparameter (1PL-Modell)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-item-pool-1",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-item-pool-1",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Minimalbeispiel: Item Pool",
+    "text": "Minimalbeispiel: Item Pool\n\n\n\nErste fünf Items des simulierten Itempools.\n\n\nitem\nformat\ntime\ndifficulty\n\n\n\n\n1\nmc\n27.78586\n-1.8809028\n\n\n2\nmc\n15.45258\n0.8429586\n\n\n3\nmc\n31.01590\n1.1188154\n\n\n4\nmc\n29.87421\n0.7286774\n\n\n5\nmc\n23.13401\n-0.4887099"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-spezifikationen",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-spezifikationen",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Minimalbeispiel: Spezifikationen",
+    "text": "Minimalbeispiel: Spezifikationen\nSpezifikationen\n\n1 Block\nMinimale durchschnittliche Blockzeit\nExakt 10 Items im Block\n4 MC-Items, 3 offene Items, 3 Zuordnungsitems"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-decision-variables",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-decision-variables",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Minimalbeispiel: Decision Variables",
+    "text": "Minimalbeispiel: Decision Variables\nDecision Variables\n\nMatrix mit\n\nSpalten = Anzahl Items (+ 1)\nZeilen = Anzahl Blöcke\n\n30 Items, 1 Block \\[\n  i_{1, b1}, i_{2, b1}, i_{3, b1}, \\ldots, i_{30, b1}\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-objective-function",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-objective-function",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Minimalbeispiel: Objective Function",
+    "text": "Minimalbeispiel: Objective Function\nObjective Function\n\n‘Relative Testspezifikation’\nso viel/wenig/nah wie möglich (an) …\nWichtig: Exakt eine Testspezifikation muss hierfür ausgewählt werden\nMin/Max/Minimax/Maximin\nMinimale Blockzeit \\[\nminimiere \\quad  27.79i_{1, b1} + 15.45i_{2, b1} + \\ldots + 19.50i_{30, b1}\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-constraints",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#minimalbeispiel-constraints",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Minimalbeispiel: Constraints",
+    "text": "Minimalbeispiel: Constraints\nConstraints\n\nAlle anderen Testspezifikationen\nGenau 10 Items pro Block \\[\ni_{1, b1} + i_{2, b1} + \\ldots + i_{30, b1} = 10\n\\]\n4 MC Items, 3 offene Items, 3 Zuordnungsitems \\[\n  1i_{1, b1} + 1i_{2, b1} + \\ldots + 0i_{30, b1} = 4\n\\] \\[\n  0i_{1, b1} + 0i_{2, b1} + \\ldots + 0i_{30, b1} = 3\n\\] \\[\n  0i_{1, b1} + 0i_{2, b1} + \\ldots + 1i_{30, b1} = 3\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#übung-1",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#übung-1",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Übung",
+    "text": "Übung\nNotiert die Decision Variables, Objective Function und Constraints für folgendes ATA-Problem:\n\n2 Blöcke\nbeide Blöcke bzgl. Testzeit so nah wie möglich an 450 Sekunden\njedes Item darf maximal nur in einem Block vorkommen\npro Block müssen alle 3 Itemformate mindestens 3 mal verwendet werden"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Lösung",
+    "text": "Lösung\n\nDecision Variables für 2 Blöcke und Item-Pool aus 30 Items\n\n\\[\n    i_{1, b1}, i_{2, b1}, i_{3, b1}, \\ldots, i_{30, b1}\n\\] \\[\n    i_{1, b2}, i_{2, b2}, i_{3, b2}, \\ldots, i_{30, b2}\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-1",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-1",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Lösung",
+    "text": "Lösung\n\nbeide Blöcke bzgl. Testzeit so nah wie möglich an 450 Sekunden\nMaximin-Ansatz\n\n\\[\n  27.79i_{1, b1} + 15.45i_{2, b1} + \\ldots + 19.50i_{30, b1} - y &lt;= 450\n\\] \\[\n  27.79i_{1, b1} + 15.45i_{2, b1} + \\ldots + 19.50i_{30, b1} + y &gt;= 450\n\\] \\[\n  27.79i_{1, b2} + 15.45i_{2, b2} + \\ldots + 19.50i_{30, b2} - y &lt;= 450\n\\] \\[\n  27.79i_{1, b2} + 15.45i_{2, b2} + \\ldots + 19.50i_{30, b2} + y &gt;= 450\n\\] \\[\nminimiere \\quad y\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-2",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-2",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Lösung",
+    "text": "Lösung\n\njedes Item darf maximal nur in einem Block vorkommen\n\n\\[\n    i_{1, b1} + i_{1, b2} &lt;= 1\n\\] \\[\n    i_{2, b1} + i_{2, b2} &lt;= 1\n\\] \\[\n    \\ldots\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-3",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-3",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Lösung",
+    "text": "Lösung\n\njedes Itemformat sollte mindestens 3 Mal pro Block vorkommen\n\n\\[\n    1i_{1, b1} + 1i_{2, b1} + \\ldots + 0i_{30, b1} &gt;= 3\n\\] \\[\n    1i_{1, b2} + 1i_{2, b2} + \\ldots + 0i_{30, b2} &gt;= 3\n\\] \\[\n    \\ldots\n\\]"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#eatata",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#eatata",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "eatATA",
+    "text": "eatATA\nEntwickelt basierend auf Feedback von:\n\nPauline Kohrt (ehemals VERA 3 Math)\nSimone Dubiel (ehemals VERA 8 German)\nKaroline Sachse (BT/Methoden)\n\nPaketautoren:\n\nDries Debeer (Ghent University)\nBenjamin Becker (IQB)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#eatata-resources-i",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#eatata-resources-i",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "eatATA: Resources I",
+    "text": "eatATA: Resources I\nVignettes available on CRAN"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#eatata-resources-ii",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#eatata-resources-ii",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "eatATA: Resources II",
+    "text": "eatATA: Resources II\nor on pkgdown"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#eatata-resources-iii",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#eatata-resources-iii",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "eatATA: Resources III",
+    "text": "eatATA: Resources III\neatATA Tutorial Paper (Becker et al., 2021)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-objective-function",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-objective-function",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Objective Function",
+    "text": "Code: Objective Function\nMinimiere durchschnittliche Blockzeit\n\nBtime &lt;- minObjective(\n    nForms = 1, \n    itemValues = items_mini$time,\n    itemIDs = items_mini$item\n)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-constraint-1",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-constraint-1",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Constraint 1",
+    "text": "Code: Constraint 1\nAnzahl Items im Block\n\nBlength &lt;- itemsPerFormConstraint(\n    nForms = 1, \n    operator = \"=\",\n    targetValue = 10,\n    itemIDs = items_mini$item\n)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-constraint-2",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-constraint-2",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Constraint 2",
+    "text": "Code: Constraint 2\nItemformate\n\nBcat &lt;- itemCategoryConstraint(\n  nForms = 1, \n  as.factor(items_mini$format),\n  targetValues = c(4, 3, 3),\n  itemIDs = items_mini$item)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-solver-call",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-solver-call",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Solver Call",
+    "text": "Code: Solver Call\nSolver Call\n\nsolver_out &lt;- useSolver(\n    list(Btime, Blength, Bcat),\n    solver = \"GLPK\"\n)\n\nGLPK Simplex Optimizer 5.0\n5 rows, 31 columns, 91 non-zeros\n      0: obj =   0.000000000e+00 inf =   1.000e+01 (1)\n     14: obj =   2.758548505e+02 inf =   0.000e+00 (0)\n*    15: obj =   2.758548505e+02 inf =   0.000e+00 (0)\nOPTIMAL LP SOLUTION FOUND\nGLPK Integer Optimizer 5.0\n5 rows, 31 columns, 91 non-zeros\n30 integer variables, all of which are binary\nInteger optimization begins...\nLong-step dual simplex will be used\n+    15: mip =     not found yet &gt;=              -inf        (1; 0)\n+    15: &gt;&gt;&gt;&gt;&gt;   2.758548505e+02 &gt;=   2.758548505e+02   0.0% (1; 0)\n+    15: mip =   2.758548505e+02 &gt;=     tree is empty   0.0% (0; 1)\nINTEGER OPTIMAL SOLUTION FOUND"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-inspect-solution",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-inspect-solution",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Inspect Solution",
+    "text": "Code: Inspect Solution\nZusammengestellten Block inspizieren\n\ninspectSolution(\n    solver_out, \n    items = items_mini, \n    idCol = \"item\"\n)\n\n$form_1\n    item format      time difficulty\n2      2     mc  15.45258  0.8429586\n5      5     mc  23.13401 -0.4887099\n6      6     mc  25.19305  0.4727387\n10    10     mc  15.35510  1.3539724\n12    12   open  35.94400  2.4992738\n16    16   open  45.12778 -1.2862969\n17    17   open  48.11908 -0.8612431\n21    21  order  22.47400 -0.4314714\n29    29  order  25.55363  0.2409175\n30    30  order  19.50162 -0.5143411\nSum  148   &lt;NA&gt; 275.85485  1.8277985"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-append-solution",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-append-solution",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Append Solution",
+    "text": "Code: Append Solution\nBlockbesetzung zu Itempool hinzufügen\n\nitem_mini_out &lt;- appendSolution(\n    solver_out, \n    items = items_mini, \n    idCol = \"item\"\n)\nitem_mini_out[1:10, ]\n\n   item format     time difficulty form_1\n1     1     mc 27.78586 -1.8809028      0\n2     2     mc 15.45258  0.8429586      1\n3     3     mc 31.01590  1.1188154      0\n4     4     mc 29.87421  0.7286774      0\n5     5     mc 23.13401 -0.4887099      1\n6     6     mc 25.19305  0.4727387      1\n7     7     mc 25.66340 -1.1805427      0\n8     8     mc 30.21856 -0.3670765      0\n9     9     mc 26.61642 -0.5687943      0\n10   10     mc 15.35510  1.3539724      1"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#itempool-vorbereiten",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#itempool-vorbereiten",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Itempool vorbereiten",
+    "text": "Itempool vorbereiten\n\ncalculateIIF() - Berechnung Item-Informationsfunktion\ncalculatExpectedRT() - Berechnung erwarteter Antwortzeiten\ndummiesToFactor() - Transformation von Dummy-Variablen in Faktoren\ncomputeTargetValues() - Berechnung von sinnvollen Zielwerten"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#objective-function",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#objective-function",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Objective Function",
+    "text": "Objective Function\n\nmaxObjective() - Maximieren\nminObjective() - Minimieren\nmaximinObjective() - Maximieren eines Minimums\nminimaxObjective() - Minimieren eines Maximums\ncappedMaximinObjective() - Capped Maximin"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#constraints",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#constraints",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Constraints",
+    "text": "Constraints\nItemverwendung\n\ndepletePoolConstraint() - Erschöpfung des Itempools\nitemUsageConstraint() - Itemnutzung\n\nAnzahl Items pro Form\n\nitemsPerFormConstraint() - Anzahl Items pro Form"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#constraints-1",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#constraints-1",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Constraints",
+    "text": "Constraints\nKategoriale Constraints\n\nitemCategoryConstraint() - Kategoriale Constraints\nitemCategoryDeviationConstraint() - Abweichung von Zielwert\nitemCategoryMaxConstraint() - Maximum\nitemCategoryMinConstraint() - Minimum\nitemCategoryRangeConstraint() - Maximum und Minimum"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#constraints-2",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#constraints-2",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Constraints",
+    "text": "Constraints\nMetrische Constraints\n\nautoItemValuesMinMaxConstraint() - Automatische Min/Max-Berechnung\nitemValuesConstraint() - Metrische Constraints\nitemValuesDeviationConstraint() - Abweichung von Zielwert\nitemValuesMaxConstraint() - Maximum\nitemValuesMinConstraint() - Minimum\nitemValuesRangeConstraint() - Maximum und Minimum"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#constraints-3",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#constraints-3",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Constraints",
+    "text": "Constraints\nMetrische Constraints über Testformen\n\nacrossFormsConstraint() - Über Testformen\n\nIteminklusionen und -exklusionen\n\nitemExclusionConstraint() - Itemexklusionen\nitemInclusionConstraint() - Iteminklusionen\n\nVorbereitung von Iteminklusionen und -exklusionen\n\nitemTuples() - Vorbereitung von Iteminklusionen und -exklusionen\nmatrixExclusionTuples() - Vorbereitung von Itemexklusionen\nstemInclusionTuples() - Vorbereitung von Iteminklusionen"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#übung-2",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#übung-2",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Übung",
+    "text": "Übung\nErstellt Blöcke mit folgenden Testspezifikationen mithilfe von eatATA (siehe auch letzte Übung):\n\n2 Blöcke\nbeide Blöcke Testzeit so nah wie möglich an 450 Sekunden (via minimaxObjective() Funktion)\njedes Item darf maximal nur in einem Block vorkommen (via itemUsageConstraint() Funktion)\npro Block müssen alle 3 Itemformate mindestens 3 mal verwendet werden (via itemCategoryMinConstraint() Funktion)\n\nSetzt für die Lösung des Problems dem Solver ein Zeitlimit von 10 Sekunden!"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-4",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#lösung-4",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Lösung",
+    "text": "Lösung\nSiehe R-Syntax"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#praktische-tipps",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#praktische-tipps",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Praktische Tipps",
+    "text": "Praktische Tipps\n\nATA ist ein Skill für sich\nEs gibt immer mehrere Wege zum Ziel\nPragmatisches Vorgehen:\n\nHäufig muss die Lösung nicht perfekt sein\nDer Weg zum Ziel ist irrelevant\n\nSchrittweises Vorgehen (Spaccapanico Proietti et al., 2020)\n\nProblem schrittweise aufbauen oder\nProblem schrittweise vereinfachen"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#references",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#references",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "References",
+    "text": "References\n\n\nBecker, B., Debeer, D., Sachse, K. A., & Weirich, S. (2021). Automated test assembly in R: The eatATA package. Psych, 3(2), 96–112. https://doi.org/10.3390/psych3020010\n\n\nKuhn, J.-T., & Kiefer, T. (2015). Optimal test assembly in practice. Zeitschrift für Psychologie, 221(3), 190–200. https://doi.org/10.1027/2151-2604/a000146\n\n\nSpaccapanico Proietti, G., Matteucci, M., & Mignani, S. (2020). Automated test assembly for large-scale standardized assessments: Practical issues and possible solutions. Psych, 2(4), 315–337. https://doi.org/10.3390/psych2040024\n\n\nvan der Linden, W. J. (2005). Linear models for optimal test assembly. Springer. https://doi.org/10.1007/0-387-29054-0"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#item-inclusions",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#item-inclusions",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Item Inclusions",
+    "text": "Item Inclusions\nGründe\n\nGemeinsamer Stimulus (‘Aufgabe’)\nandere Gründe\n\nUmsetzung\n\nAufgaben und nicht Items als Assembling Unit (e.g., VERA 3 Math)\nexplizite Item Inclusion (siehe eatATA Tutorial)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#item-exclusions",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#item-exclusions",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Item Exclusions",
+    "text": "Item Exclusions\nGründe\n\nItem beinhaltet Info zu Lösung eines anderen Items\nItems inhaltlich zu ähnlich\n…\n\nUmsetzung\n\nExplizite Item Exclusions"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-item-inclusions-input",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-item-inclusions-input",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Item Inclusions (Input)",
+    "text": "Code: Item Inclusions (Input)\nInput: Spalte mit Gruppierung\n\nincluTup &lt;- stemInclusionTuples(\n    items_lsa, \n    idCol = \"item\", \n    stemCol = \"testlet\"\n)\n\nOutput: Inclusion Tuples"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-item-inclusions-constraints",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-item-inclusions-constraints",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Item Inclusions (Constraints)",
+    "text": "Code: Item Inclusions (Constraints)\nErstellung von Inclusion Constraints\n\nincluCons &lt;- itemInclusionConstraint(\n    nForms = 8,  \n    itemTuples = incluTup,\n    itemIDs = items_lsa$item\n)"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-item-exclusions-input",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-item-exclusions-input",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Item Exclusions (Input)",
+    "text": "Code: Item Exclusions (Input)\nInput: Spalte mit Exclusion-Listung\n\nexclusionTuples &lt;- itemTuples(\n    items_pilot, \n    idCol = \"item\",\n    infoCol = \"exclusions\", \n    sepPattern = \", \"\n)\n\nOutput: Exclusion Tuples"
+  },
+  {
+    "objectID": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-item-exclusions-constraints",
+    "href": "docs/R_tutorials/2024_eatATA/eatATA_2024.html#code-item-exclusions-constraints",
+    "title": "eatATA - Automatisierte Blockbesetzung",
+    "section": "Code: Item Exclusions (Constraints)",
+    "text": "Code: Item Exclusions (Constraints)\nErstellung von Exclusion COnstraints\n\nexcl_constraints &lt;- itemExclusionConstraint(\n    nForms = nForms,\n    itemTuples = exclusionTuples, \n    itemIDs = items_pilot$item\n)"
   },
   {
     "objectID": "posts/newsletter/24_08_26/index.html",
@@ -1370,6 +1706,76 @@
     "title": "26-08-2024",
     "section": "SIG Methoden",
     "text": "SIG Methoden\n\nLesegruppe\nDie Lesegruppe war in der Sommerpause. Am 10. September treffen wir uns wieder zur Besprechung von:\nSchroeders, U., & Gnambs, T. (2024, July 24). Sample Size Planning in Item Response Theory: A Tutorial. https://doi.org/10.31234/osf.io/hv6zt\nInteressierte sind herzlich willkommen! Meldet euch gerne bei Karoline, wenn sie euch hinzufügen soll.\n\n\nAustauschrunde\nDie Liste für methodische Fragen am IQB ist daueroffen; tragt Fragen gerne anonym und unkompliziert in folgendes Dokument ein:\nt:\\SIG\\SIG Methoden\\Liste methodischer Fragen.docx\nViele Grüße\nEuer Methoden-Team (Sebastian, Karoline, Benjamin, Philipp, Kristoph, Janine, Edna, Alina, Nicklas)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IQB Methods Team",
+    "section": "",
+    "text": "This website hosts all kind of material around R, programming, statistics and psychological methods."
+  },
+  {
+    "objectID": "posts_learn.html",
+    "href": "posts_learn.html",
+    "title": "Welcome to our Learning Page",
+    "section": "",
+    "text": "Here you can find articles and workshops about R, RStudio, Git and GitHub, quarto and overall information about some statistical questions. Click on the topic you’re interested in to get to the article’s overview.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBeginners\n\n\nHere you can find R tutorials to start your R journey.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkflow\n\n\nHere you can find articles about the general workflow when working with RStudio or Github.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR-SIG\n\n\nHere you can find all the articles that were discussed in R-SIG.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical Questions\n\n\nHere you can find some answers to common questions about statistics or our r-packages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdvanced\n\n\nHere you can find some more advanced R tutorials.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts_eat.html",
+    "href": "posts_eat.html",
+    "title": "eat Packages",
+    "section": "",
+    "text": "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.\n\n\n\n\n\nBenjamin Becker, Sebastian Weirich, Karoline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated block occupation/automated test booklet creation.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated creation of scale manuals.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated anonymisation of data sets, matching of pdf documents (e.g. scale manuals) and data sets.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAllows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R.\n\n\n\n\n\nBenjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nServes as an interface for the ConQuest software. The required control files (script, labels, data set in ‘fixed width’ format) are automatically generated and ConQuest is called via the command line. The resulting files (showfile, WLEs, PVs, etc.) can be imported back into R and edited further. Newer versions of ‘eatModel’ also allow the integration of the R package ‘tam’ and parallelisation.\n\n\n\n\n\nSebastian Weirich\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreating plots from the eatRep output (main use: Bildungstrend).\n\n\n\n\n\nNicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreparation of test item data for IRT scaling using metadata provided by a predefined list structure as well as several tools and checks. Raw data can be read in and will be subjected to plausibility checks. Multiple data sets can be merged in a single step, incorporating detailed diagnostics for non-identical values among identical cases and variables. Data will be recoded according to the provided meta data, aggregated and scored. Handling different types of missing data is customizable according to user specifications. Further, missing patterns can be checked, various rater agreement measures and category discriminations can be calculated. The input metadata can be generated by the IQB-internal tool ‘AnalyseInput’, which extracts item and test design information from the IQB database and formats it into a standardized xlsx file. This file can then be read by functions specifically designed for this task. Alternatively, the metadata can be provided in R-specific data formats.\n\n\n\n\n\nKaroline Sachse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreate and apply recoding databases.\n\n\n\n\n\nBenjamin Becker, Nicklas Hafiz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCalculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies.\n\n\n\n\n\nSebastian Weirich, Benjamin Becker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVarious help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others.\n\n\n\n\n\nSebastian Weirich, Benjamin Becker, Karoline Sachse\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts_eat.html#installing-r-packages",
+    "href": "posts_eat.html#installing-r-packages",
+    "title": "eat Packages",
+    "section": "Installing R packages",
+    "text": "Installing R packages\nDetailed instructions for installing the R packages can be found here: installing R packages"
+  },
+  {
+    "objectID": "posts_eat.html#compatibility",
+    "href": "posts_eat.html#compatibility",
+    "title": "eat Packages",
+    "section": "Compatibility",
+    "text": "Compatibility\nMost packages of the “eat” family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:\n\n“eatTools” is a package with help functions required by other packages. “eatTools” does not depend on other “eat” packages.\n“eatPrep” requires “eatTools”.\n“eatRep” needs “eatTools” and “eatGADS”.\n“eatModel” requires “eatTools” and “eatRep” (and thus also “eatGADS”). The package optionally accesses the computer programme Conquest or the R package “TAM” for parameter estimation. For Conquest, the command line executable is sufficient, e.g. “console_Feb2007.exe”; “TAM” is installed when the package is loaded. “TAM” and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.\n“eatGADS” requires “eatTools” and “eatDB”.\n\nThe interdependence also extends to different versions of the packages. For example, old versions of “eatRep” are not always compatible with new versions of “eatTools” (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.\nSince individual functions have also changed substantially in the course of the package development, it may no longer be possible to replicate past analyses with new package versions and the identical script (e.g. from the Ländervergleich 2011). In this case, the old script would either have to be adapted or the package versions used at that time would have to be restored."
+  },
+  {
+    "objectID": "posts_help.html",
+    "href": "posts_help.html",
+    "title": "Help",
+    "section": "",
+    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nNicklas Hafiz\nnicklas.jakob.hafiz[at]hu-berlin.de\n\n\nPhilipp Franikowski\nphilipp.franikowski[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nNicklas Hafiz\nnicklas.jakob.hafiz[at]hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de"
+  },
+  {
+    "objectID": "posts_help.html#contact-for-eat-packages",
+    "href": "posts_help.html#contact-for-eat-packages",
+    "title": "Help",
+    "section": "",
+    "text": "eatAnalysiseatATAeatCodebookeatFDZeatGADSeatModeleatPloteatPrepeatRecodeeatRepeatTools\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nNicklas Hafiz\nnicklas.jakob.hafiz[at]hu-berlin.de\n\n\nPhilipp Franikowski\nphilipp.franikowski[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nNicklas Hafiz\nnicklas.jakob.hafiz[at]hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\n\n\n\n\n\n\nContact\nEmail\n\n\n\n\nSebastian Weirich\nsebastian.weirich[at]iqb.hu-berlin.de\n\n\nBenjamin Becker\nb.becker[at]iqb.hu-berlin.de\n\n\nKaroline Sachse\nkaroline.sachse[at]iqb.hu-berlin.de"
+  },
+  {
+    "objectID": "posts/newsletter/24_01_12/index.html",
+    "href": "posts/newsletter/24_01_12/index.html",
+    "title": "12-01-2024",
+    "section": "",
+    "text": "1"
+  },
+  {
+    "objectID": "posts/newsletter/24_01_12/index.html#footnotes",
+    "href": "posts/newsletter/24_01_12/index.html#footnotes",
+    "title": "12-01-2024",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nImage by Giulia May on Unsplash.↩︎"
+  },
+  {
+    "objectID": "posts/newsletter/23_08_09/index.html",
+    "href": "posts/newsletter/23_08_09/index.html",
+    "title": "09-08-2023",
+    "section": "",
+    "text": "eatGADS\nDie Funktion insertVariable() wurde in relocateVariable() umbenannt. Die Funktion erlaubt die Einsortierung einer Variable innerhalb eines GADSdat-Ojekts, nun auch ganz an den Anfang eines Datensatzes.\nEine neue Funktion, recodeNA2missing(), erlaubt es NAs (in SPSS auch Sysmis genannt) automatisch in spezifische Missing Codes umzuwandeln (z.B. -99 = \"Missing By Design\").\nDie Funktion emptyTheseVariables() erlaubt es nun, mehrere Variablen gleichzeitig zu leeren (= auf NA zu setzen), was z.B. aus Datenschutzgründen relevant sein kann.\nBesonders hervoheben möchten wir an dieser Stelle noch die Funktion fixEncoding(), die es erlaubt, automatisch Umlaute und Sonderzeichen aus Variablennamen, Variablen- und Wertelabeln, sowie Variablen an sich zu entfernen (z.B. “ü” wird zu “ue”).\nDie Dokumentation des Pakets ist nun übrigens leicht einsehbar hier zu finden.\nAlle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets."
   },
   {
     "objectID": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#agenda",
@@ -1537,14 +1943,14 @@
     "href": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#wrapper-automatedatapreparation",
     "title": "eatPrep",
     "section": "Wrapper automateDataPreparation()",
-    "text": "Wrapper automateDataPreparation()\n\n# Vorbereitung, da die Pfade für die SPSS-Dateien hier noch nicht in der InputListe eingetragen sind\ninputList$savFiles$fullname[1] &lt;- system.file(\"extdata\", \"booklet1.sav\", package = \"eatPrep\")\ninputList$savFiles$fullname[2] &lt;- system.file(\"extdata\", \"booklet2.sav\", package = \"eatPrep\")\ninputList$savFiles$fullname[3] &lt;- system.file(\"extdata\", \"booklet3.sav\", package = \"eatPrep\")\n\npreparedData &lt;- automateDataPreparation(inputList = inputList,\n    readSpss = TRUE, checkData = TRUE,  mergeData = TRUE,\n    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,\n    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)\n&gt; Starting automateDataPreparation 2025-01-23 14:06:43.638145\n&gt; \n&gt; Load .sav-files.\n&gt; Successfully read in: booklet1.sav, booklet2.sav, booklet3.sav\n&gt; \n&gt; Check data...\n&gt; \n&gt; Checking dataset booklet1.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Variable(s) I24, I25 contain(s) only missing values.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet2.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet3.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Start merging.\n&gt; Start merging of dataset 1.\n&gt; Start merging of dataset 2.\n&gt; Start merging of dataset 3.\n&gt; \n&gt; Start recoding.\n&gt; \n&gt; Found no recode information for variable(s): \n&gt; ID, hisei. \n&gt; This/These variable(s) will not be recoded.\n&gt; \n&gt; Variables... I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, I11, I12a, I12b, I12c, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28\n&gt; ...have been recoded.\n&gt; \n&gt; Start recoding Mbi to Mnr.\n&gt; ...identifying items in data (reference is blocks$subunit)\n&gt; Variables in data not recognized as items:\n&gt; ID, booklet, hisei\n&gt; If some of these excluded variables should have been identified as items (and thus be used for mnr coding) check 'blocks', 'subunits', 'dat'.\n&gt; ...identifying items with no mbi-codes ('mbi'):\n&gt; I04R, I07R\n&gt; If you expect mbi-codes on these variables check your data and option 'mbiCode'\n&gt; no mnr identified for any case. nothing recoded.\n&gt; \n&gt; Start aggregating\n&gt; Since inputList$aggrMiss exists, this will be used instead of default.\n&gt; All aggregation rules will be defaulted to 'SUM', because no other type is currently supported.\n&gt; Found 27 unit(s) with only one subunit in 'dat'. This/these subunit(s) will not be aggregated and renamed to their respective unit name(s).\n&gt; 1 units were aggregated: I12.\n&gt; \n&gt; Start scoring.\n&gt; ✔ 1 unit was scored: `I12`.\n&gt; \n&gt; No SPSS-File has been written.\n&gt; \n&gt; Missings are UNcollapsed.\n&gt; automateDataPreparation terminated successfully! 2025-01-23 14:06:44.041448\n\n\n(automateDataPreparation() arbeitetet alternativ auch mit Daten, die als einzelner (ggf. bereits zusammengeführter) R-data.frame übergeben werden (via Argument “datList”))\n\n\n3a. Praxis: Haupt-Funktionen in eatPrep"
+    "text": "Wrapper automateDataPreparation()\n\n# Vorbereitung, da die Pfade für die SPSS-Dateien hier noch nicht in der InputListe eingetragen sind\ninputList$savFiles$fullname[1] &lt;- system.file(\"extdata\", \"booklet1.sav\", package = \"eatPrep\")\ninputList$savFiles$fullname[2] &lt;- system.file(\"extdata\", \"booklet2.sav\", package = \"eatPrep\")\ninputList$savFiles$fullname[3] &lt;- system.file(\"extdata\", \"booklet3.sav\", package = \"eatPrep\")\n\npreparedData &lt;- automateDataPreparation(inputList = inputList,\n    readSpss = TRUE, checkData = TRUE,  mergeData = TRUE,\n    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,\n    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)\n&gt; Starting automateDataPreparation 2025-01-27 14:09:37.211534\n&gt; \n&gt; Load .sav-files.\n&gt; Successfully read in: booklet1.sav, booklet2.sav, booklet3.sav\n&gt; \n&gt; Check data...\n&gt; \n&gt; Checking dataset booklet1.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Variable(s) I24, I25 contain(s) only missing values.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet2.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet3.sav\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Start merging.\n&gt; Start merging of dataset 1.\n&gt; Start merging of dataset 2.\n&gt; Start merging of dataset 3.\n&gt; \n&gt; Start recoding.\n&gt; \n&gt; Found no recode information for variable(s): \n&gt; ID, hisei. \n&gt; This/These variable(s) will not be recoded.\n&gt; \n&gt; Variables... I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, I11, I12a, I12b, I12c, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28\n&gt; ...have been recoded.\n&gt; \n&gt; Start recoding Mbi to Mnr.\n&gt; ...identifying items in data (reference is blocks$subunit)\n&gt; Variables in data not recognized as items:\n&gt; ID, booklet, hisei\n&gt; If some of these excluded variables should have been identified as items (and thus be used for mnr coding) check 'blocks', 'subunits', 'dat'.\n&gt; ...identifying items with no mbi-codes ('mbi'):\n&gt; I04R, I07R\n&gt; If you expect mbi-codes on these variables check your data and option 'mbiCode'\n&gt; no mnr identified for any case. nothing recoded.\n&gt; \n&gt; Start aggregating\n&gt; Since inputList$aggrMiss exists, this will be used instead of default.\n&gt; All aggregation rules will be defaulted to 'SUM', because no other type is currently supported.\n&gt; Found 27 unit(s) with only one subunit in 'dat'. This/these subunit(s) will not be aggregated and renamed to their respective unit name(s).\n&gt; 1 units were aggregated: I12.\n&gt; \n&gt; Start scoring.\n&gt; ✔ 1 unit was scored: `I12`.\n&gt; \n&gt; No SPSS-File has been written.\n&gt; \n&gt; Missings are UNcollapsed.\n&gt; automateDataPreparation terminated successfully! 2025-01-27 14:09:37.603184\n\n\n(automateDataPreparation() arbeitetet alternativ auch mit Daten, die als einzelner (ggf. bereits zusammengeführter) R-data.frame übergeben werden (via Argument “datList”))\n\n\n3a. Praxis: Haupt-Funktionen in eatPrep"
   },
   {
     "objectID": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#wrapper-automatedatapreparation-1",
     "href": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#wrapper-automatedatapreparation-1",
     "title": "eatPrep",
     "section": "Wrapper automateDataPreparation()",
-    "text": "Wrapper automateDataPreparation()\n\n…arbeitetet auch mit Daten, die als Liste von R-data.frames übergeben werden (Argument datList):\n\n\n# Einbauen von Problem in Daten zur Illustration der Diagnostik von mergeData()\ninputDat[[3]]$ID[1] &lt;- inputDat[[2]]$ID[1]\n\npreparedData &lt;- automateDataPreparation(datList = inputDat, inputList = inputList, \n    readSpss = FALSE, checkData = TRUE,  mergeData = TRUE,\n    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,\n    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)\n&gt; Starting automateDataPreparation 2025-01-23 14:06:44.060545\n&gt; \n&gt; Check data...\n&gt; \n&gt; Checking dataset booklet1\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet2\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet3\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Start merging.\n&gt; Start merging of dataset 1.\n&gt; Start merging of dataset 2.\n&gt; Start merging of dataset 3.\n&gt; Multiple different valid codes in variable: 'hisei' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 69&49\n&gt; Multiple different valid codes in variable: 'I15' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&3\n&gt; Multiple different valid codes in variable: 'I16' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&1\n&gt; Multiple different valid codes in variable: 'I18' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&4\n&gt; Multiple different valid codes in variable: 'I20' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&3\n&gt; Multiple different valid codes in variable: 'I21' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 2&3\n&gt; Multiple different valid codes in variable: 'I22' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&3\n&gt; Multiple different valid codes in variable: 'I23' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 9&3\n&gt; Multiple different valid codes in variable: 'I25' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&0\n&gt; Multiple different valid codes in variable: 'I26' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 9&1\n&gt; Multiple different valid codes in variable: 'I28' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&0\n&gt; Start adding mbd according to data pattern.\n&gt; \n&gt; Start recoding.\n&gt; \n&gt; Found no recode information for variable(s): \n&gt; ID, hisei. \n&gt; This/These variable(s) will not be recoded.\n&gt; \n&gt; Variables... I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, I11, I12a, I12b, I12c, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28\n&gt; ...have been recoded.\n&gt; \n&gt; Start recoding Mbi to Mnr.\n&gt; ...identifying items in data (reference is blocks$subunit)\n&gt; Variables in data not recognized as items:\n&gt; ID, booklet, hisei\n&gt; If some of these excluded variables should have been identified as items (and thus be used for mnr coding) check 'blocks', 'subunits', 'dat'.\n&gt; ...identifying items with no mbi-codes ('mbi'):\n&gt; I04R, I08R\n&gt; If you expect mbi-codes on these variables check your data and option 'mbiCode'\n&gt; mnr statistics:\n&gt;      mnr cells: 553\n&gt;      unique cases with at least one mnr code: 89\n&gt;      unique items with at least one mnr code: 16\n&gt; unique cases ('ID') per booklet and booklet section (0s omitted):\n&gt;    booklet booklet.section N.ID\n&gt; 1 booklet1               2   11\n&gt; 2 booklet1               3   28\n&gt; 3 booklet2               1   28\n&gt; 4 booklet2               2   11\n&gt; 5 booklet2               3    1\n&gt; 6 booklet3               3   31\n&gt; start recoding (item-wise)\n&gt; done\n&gt; elapsed time: 0.1 secs\n&gt; \n&gt; Start aggregating\n&gt; Since inputList$aggrMiss exists, this will be used instead of default.\n&gt; All aggregation rules will be defaulted to 'SUM', because no other type is currently supported.\n&gt; Found 27 unit(s) with only one subunit in 'dat'. This/these subunit(s) will not be aggregated and renamed to their respective unit name(s).\n&gt; 1 units were aggregated: I12.\n&gt; \n&gt; Start scoring.\n&gt; ✔ 1 unit was scored: `I12`.\n&gt; \n&gt; No SPSS-File has been written.\n&gt; \n&gt; Missings are UNcollapsed.\n&gt; automateDataPreparation terminated successfully! 2025-01-23 14:06:44.334201\n\n\n3a. Praxis: Haupt-Funktionen in eatPrep"
+    "text": "Wrapper automateDataPreparation()\n\n…arbeitetet auch mit Daten, die als Liste von R-data.frames übergeben werden (Argument datList):\n\n\n# Einbauen von Problem in Daten zur Illustration der Diagnostik von mergeData()\ninputDat[[3]]$ID[1] &lt;- inputDat[[2]]$ID[1]\n\npreparedData &lt;- automateDataPreparation(datList = inputDat, inputList = inputList, \n    readSpss = FALSE, checkData = TRUE,  mergeData = TRUE,\n    recodeData = TRUE, aggregateData = TRUE, scoreData = TRUE,\n    recodeMnr = TRUE, breaks=c(1,2,3), writeSpss = FALSE, verbose = TRUE)\n&gt; Starting automateDataPreparation 2025-01-27 14:09:37.621993\n&gt; \n&gt; Check data...\n&gt; \n&gt; Checking dataset booklet1\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet2\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Checking dataset booklet3\n&gt; Only valid codes in ID variable.\n&gt; No duplicated entries in ID variable.\n&gt; No duplicated variable names.\n&gt; Found no variable information about variable(s) hisei. This/These variables will not be checked for missings and invalid codes.\n&gt; Found no invalid codes.\n&gt; \n&gt; Start merging.\n&gt; Start merging of dataset 1.\n&gt; Start merging of dataset 2.\n&gt; Start merging of dataset 3.\n&gt; Multiple different valid codes in variable: 'hisei' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 69&49\n&gt; Multiple different valid codes in variable: 'I15' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&3\n&gt; Multiple different valid codes in variable: 'I16' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&1\n&gt; Multiple different valid codes in variable: 'I18' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&4\n&gt; Multiple different valid codes in variable: 'I20' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 4&3\n&gt; Multiple different valid codes in variable: 'I21' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 2&3\n&gt; Multiple different valid codes in variable: 'I22' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&3\n&gt; Multiple different valid codes in variable: 'I23' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 9&3\n&gt; Multiple different valid codes in variable: 'I25' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&0\n&gt; Multiple different valid codes in variable: 'I26' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 9&1\n&gt; Multiple different valid codes in variable: 'I28' in 'dataset 3': \n&gt;  The first value has been kept. \n&gt;  IDs: person200\n&gt;  Values: 1&0\n&gt; Start adding mbd according to data pattern.\n&gt; \n&gt; Start recoding.\n&gt; \n&gt; Found no recode information for variable(s): \n&gt; ID, hisei. \n&gt; This/These variable(s) will not be recoded.\n&gt; \n&gt; Variables... I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, I11, I12a, I12b, I12c, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28\n&gt; ...have been recoded.\n&gt; \n&gt; Start recoding Mbi to Mnr.\n&gt; ...identifying items in data (reference is blocks$subunit)\n&gt; Variables in data not recognized as items:\n&gt; ID, booklet, hisei\n&gt; If some of these excluded variables should have been identified as items (and thus be used for mnr coding) check 'blocks', 'subunits', 'dat'.\n&gt; ...identifying items with no mbi-codes ('mbi'):\n&gt; I04R, I08R\n&gt; If you expect mbi-codes on these variables check your data and option 'mbiCode'\n&gt; mnr statistics:\n&gt;      mnr cells: 553\n&gt;      unique cases with at least one mnr code: 89\n&gt;      unique items with at least one mnr code: 16\n&gt; unique cases ('ID') per booklet and booklet section (0s omitted):\n&gt;    booklet booklet.section N.ID\n&gt; 1 booklet1               2   11\n&gt; 2 booklet1               3   28\n&gt; 3 booklet2               1   28\n&gt; 4 booklet2               2   11\n&gt; 5 booklet2               3    1\n&gt; 6 booklet3               3   31\n&gt; start recoding (item-wise)\n&gt; done\n&gt; elapsed time: 0.1 secs\n&gt; \n&gt; Start aggregating\n&gt; Since inputList$aggrMiss exists, this will be used instead of default.\n&gt; All aggregation rules will be defaulted to 'SUM', because no other type is currently supported.\n&gt; Found 27 unit(s) with only one subunit in 'dat'. This/these subunit(s) will not be aggregated and renamed to their respective unit name(s).\n&gt; 1 units were aggregated: I12.\n&gt; \n&gt; Start scoring.\n&gt; ✔ 1 unit was scored: `I12`.\n&gt; \n&gt; No SPSS-File has been written.\n&gt; \n&gt; Missings are UNcollapsed.\n&gt; automateDataPreparation terminated successfully! 2025-01-27 14:09:37.881301\n\n\n3a. Praxis: Haupt-Funktionen in eatPrep"
   },
   {
     "objectID": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#vollständigkeit-der-daten-überprüfen",
@@ -1600,7 +2006,7 @@
     "href": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#testsitzungsprotokolle-beispiel",
     "title": "eatPrep",
     "section": "Testsitzungsprotokolle – Beispiel",
-    "text": "Testsitzungsprotokolle – Beispiel\n\nsubsetInfoMax &lt;- data.frame(\n                  ID=c(\"person100\", \"person101\", \"person102\", \"person103\",\n                        \"person104\", \"person105\", \"person106\", \"person107\",\n                        \"person108\", \"person109\", \"person110\"),\n                   IDgroup=c(1,1,1,1,1,2,2,2,2,2,2),\n                   datCols=c(\"I01\", \"I02\", \"I03\", \"I01\", \"I02\", \"I03\",\n                                   \"I04\", \"I05\", \"I02\", \"I03\", \"I04\"),\n                   comment=c(rep(\"Es gab Feueralarm\",5), \n                             rep(\"Der klassenraum musste gewechselt werden, \n                                 wir hatten keine Zeit mehr.\",6)))\n\ndatVisRec &lt;- visualSubsetRecode(dat=preparedData, subsetInfo=subsetInfoMax, ID=\"ID\",\n                                 toRecodeVal=\"mci\", useGroups=\"IDgroup\") \n&gt; \n&gt; ── Begin visual Inspection 2025-01-23 14:06:44.99508 ───────────────────────────\n&gt; \n&gt; ── Display subset (1 of 2)\n&gt; → group 1\n&gt; → 5 cases: person100, person101, person102, person103, and person104\n&gt; → 3 variables: I01, I02, and I03\n&gt; \n&gt; subgroup 1 :\n&gt;          ID I01 I02 I03\n&gt; 1 person100   0   0   0\n&gt; 2 person101 mbi   0   1\n&gt; 3 person102   1   0   1\n&gt; 4 person103   0   0   0\n&gt; 5 person104   1   0   0\n&gt; \n&gt; → Table of Values and NAs:\n&gt; \n&gt;   0   1 mbi \n&gt;  10   4   1\n&gt; \n&gt; ℹ Do you want to recode this subset to 'mci'?\n&gt; Error in menu(choices1): menu() cannot be used non-interactively"
+    "text": "Testsitzungsprotokolle – Beispiel\n\nsubsetInfoMax &lt;- data.frame(\n                  ID=c(\"person100\", \"person101\", \"person102\", \"person103\",\n                        \"person104\", \"person105\", \"person106\", \"person107\",\n                        \"person108\", \"person109\", \"person110\"),\n                   IDgroup=c(1,1,1,1,1,2,2,2,2,2,2),\n                   datCols=c(\"I01\", \"I02\", \"I03\", \"I01\", \"I02\", \"I03\",\n                                   \"I04\", \"I05\", \"I02\", \"I03\", \"I04\"),\n                   comment=c(rep(\"Es gab Feueralarm\",5), \n                             rep(\"Der klassenraum musste gewechselt werden, \n                                 wir hatten keine Zeit mehr.\",6)))\n\ndatVisRec &lt;- visualSubsetRecode(dat=preparedData, subsetInfo=subsetInfoMax, ID=\"ID\",\n                                 toRecodeVal=\"mci\", useGroups=\"IDgroup\") \n&gt; \n&gt; ── Begin visual Inspection 2025-01-27 14:09:38.558317 ──────────────────────────\n&gt; \n&gt; ── Display subset (1 of 2)\n&gt; → group 1\n&gt; → 5 cases: person100, person101, person102, person103, and person104\n&gt; → 3 variables: I01, I02, and I03\n&gt; \n&gt; subgroup 1 :\n&gt;          ID I01 I02 I03\n&gt; 1 person100   0   0   0\n&gt; 2 person101 mbi   0   1\n&gt; 3 person102   1   0   1\n&gt; 4 person103   0   0   0\n&gt; 5 person104   1   0   0\n&gt; \n&gt; → Table of Values and NAs:\n&gt; \n&gt;   0   1 mbi \n&gt;  10   4   1\n&gt; \n&gt; ℹ Do you want to recode this subset to 'mci'?\n&gt; Error in menu(choices1): menu() cannot be used non-interactively"
   },
   {
     "objectID": "docs/R_tutorials/eatPrep2024_files/eatPrep2024.html#beurteilerübereinstimmung",
