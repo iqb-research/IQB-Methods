@@ -241,8 +241,9 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eatModel)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data.ex08, <span class="at">package=</span><span class="st">"TAM"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Gesamtdatensatz bauen, der sowohl Personen-ID, DIF-Variable als auch responses enthaelt</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, data.ex08[[<span class="st">"resp"</span>]])</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data.ex08[[<span class="st">"resp"</span>]]), <span class="at">female =</span> <span class="fu">unlist</span>(data.ex08[[<span class="st">"facets"</span>]])<span class="sc">-</span><span class="dv">1</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       data.ex08[[<span class="st">"resp"</span>]])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">id=</span><span class="st">"id"</span>, <span class="at">DIF.var =</span> <span class="st">"female"</span>, <span class="at">software=</span><span class="st">"tam"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14 subject(s) do not solve any item:
    115 (10 false), 613 (10 false), 979 (10 false) ... 
@@ -291,12 +292,122 @@ Q matrix specifies 1 dimension(s).</code></pre>
 
 </div>
 </div>
-<p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von 0.3098146 bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
+<p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von 0.31 bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(dat[,<span class="st">"I0006"</span>], dat[,<span class="st">"female"</span>], mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    0     1 
 0.410 0.498 </code></pre>
+</div>
+</div>
+<p>Die beiden Spalten “estDif” und “absDif” im Output unterscheiden dabei insofern, als dass für zwei Gruppen (hier: “male” und “female”) “absDif” immer doppelt so groß wie “estDif” und im Betrag positiv ist. Im DIF-Modell hat jedes Item zwei Parameter, einen Schwierigkeitsparameter “est” und einen DIF-Parameter “estDif”. Bei dichotomen, näherungsweise gleichverteilten Gruppen wie Geschlecht entspricht der “est”-Parameter in etwa dem Wert, den man erhalten würde, wenn ein einfaches Raschmodell ohne separate Betrachtung der Geschlechtergruppen modelliert werden würde. “estDif” ist nun der Wert, den man (näherungsweise) für die Referenzgruppe addieren und für die Fokusgruppe subtrahieren muss, um die Werte zu erhalten, die bei separater Modellierung der Gruppen resultieren würden. Da der Wert einmal addiert, einmal subtrahiert wird, ist die Differenz des Itemparameters in Referenz- und Fokusgruppe im Betrag doppelt so groß wie der DIF-Parameter “estDif”. Für unser Beispiel (Referenzgruppe = “male”) bedeutet das: Bei separater Modellierung würde ich für die Jungen einen Itemparameter 0.226 + 0.31 = 0.536 erwarten, und für die Mädchen 0.226 - 0.31 = -0.084. Das soll hier kurz veranschaulicht werden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>spl <span class="ot">&lt;-</span> <span class="fu">splitModels</span>(<span class="at">person.groups =</span> dat[,<span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"female"</span>)], <span class="at">all.persons =</span> <span class="cn">FALSE</span>, <span class="at">nCores =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--------------------------------
+splitModels: generating 2 models
+..
+see &lt;returned&gt;$models
+number of cores: 1
+--------------------------------</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>def <span class="ot">&lt;-</span> <span class="fu">defineModel</span>(dat, <span class="at">id =</span> <span class="st">"id"</span>, <span class="at">items=</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">splittedModels =</span> spl, <span class="at">software=</span><span class="st">"tam"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Specification of 'qMatrix' and 'person.groups' results in 2 model(s).
+
+
+==================================
+Model No. 1
+    Model name:           female.0
+    Number of items:      10
+    Number of persons:    500
+    Number of dimensions: 1
+==================================
+
+6 subject(s) do not solve any item:
+   115 (10 false), 270 (10 false), 9 (10 false) ... 
+4 subject(s) solved each item: 119 (10 correct), 139 (10 correct), 62 (10 correct) ... 
+Dataset is completely linked.
+'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
+Q matrix specifies 1 dimension(s).
+
+
+==================================
+Model No. 2
+    Model name:           female.1
+    Number of items:      10
+    Number of persons:    500
+    Number of dimensions: 1
+==================================
+
+8 subject(s) do not solve any item:
+   543 (10 false), 752 (10 false), 979 (10 false) ... 
+3 subject(s) solved each item: 514 (10 correct), 569 (10 correct), 774 (10 correct) ... 
+Dataset is completely linked.
+'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
+Q matrix specifies 1 dimension(s).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>run <span class="ot">&lt;-</span> <span class="fu">runModel</span>(def)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">getResults</span>(run, <span class="at">verbose=</span><span class="cn">FALSE</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>item<span class="ot">&lt;-</span> <span class="fu">itemFromRes</span>(res)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>cols<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"model"</span>, <span class="st">"item"</span>, <span class="st">"itemP"</span>, <span class="st">"est"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">roundDF</span>(<span class="fu">subset</span>(item, item <span class="sc">==</span> <span class="st">"I0006"</span>)[,cols],<span class="at">digits =</span> <span class="dv">3</span>), <span class="at">row.names=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">model</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">item</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">itemP</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">est</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">female.0</td>
+<td style="text-align: left;">I0006</td>
+<td style="text-align: right;">0.410</td>
+<td style="text-align: right;">0.443</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">female.1</td>
+<td style="text-align: left;">I0006</td>
+<td style="text-align: right;">0.498</td>
+<td style="text-align: right;">0.006</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Linkt man nun die beiden separat modellierten Gruppen “male” und “female” aneinander, entspricht der DIF für das Item “I0006” näherungsweise dem zuvor in einem gemeinsamen DIF-Modell geschätzten DIF-Parameter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>itemFokus <span class="ot">&lt;-</span> <span class="fu">subset</span>(res, model <span class="sc">==</span> <span class="st">"female.1"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>referenz  <span class="ot">&lt;-</span> <span class="fu">subset</span>(<span class="fu">itemFromRes</span>(res), model <span class="sc">==</span> <span class="st">"female.0"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>equating  <span class="ot">&lt;-</span> <span class="fu">equat1pl</span>(<span class="at">results =</span> itemFokus, <span class="at">prmNorm =</span> referenz[,<span class="fu">c</span>(<span class="st">"item"</span>, <span class="st">"est"</span>)],  </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">difBound =</span> <span class="fl">0.6</span>, <span class="at">iterativ =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Found 1 model(s).
+   Equating is executed for each dimension in each model separately.
+
+====================================================================================================
+ 
+Model No. 1
+    Model name:                female.1
+    Number of dimension(s):    1
+    Name(s) of dimension(s):   Dim1
+    Number of linking items:   10
+    Linking method:            Mean.Mean
+
+Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
+   Iteration 1: Exclude item 'I0006'.
+
+    method iter itemExcluded DIF.excluded linking.constant linkerror
+1 iterativ    0                                     -0.182     0.096
+2 iterativ    1        I0006       -0.603           -0.251     0.074</code></pre>
 </div>
 </div>
 <section id="section" class="level2">
