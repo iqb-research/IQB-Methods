@@ -1,0 +1,510 @@
+---
+title: "Einführung in eatPlot"
+description: "Slides vom eatPlot Workshop"
+author: "Nicklas Hafiz"
+title-slide-attributes:
+  data-background-image: ./images/eatPlot.svg
+  data-background-size: 30%
+  data-background-repeat: no-repeat
+  data-background-position: bottom 30px center
+  data-background-opacity: "0"
+format: 
+  letterbox-revealjs:
+    embed-resources: false
+    theme: styles.scss
+    highlight-style: dark.theme
+    code-link: true
+    code-line-numbers: false
+echo: true
+callout-appearance: simple
+lang: de
+categories: [eatPlot, tutorial, slides, intro]
+image: ./images/eatPlot.svg
+---
+
+## Zu diesen Folien
+
+HTML-Folien können durch tippen von `e` in PDF umgewandelt werden, und dann mit Drucken aus dem Browser abgespeichert werden, falls ihr darin kommentieren wollt.
+
+![](./images/print_html.PNG)
+
+## Roadmap
+
+::::: columns
+::: {.column width="50%"}
+\
+\
+
+1.  Einführung
+2.  Allgemeiner Workflow
+3.  Linienplots
+4.  Tabellen/Barplots
+:::
+
+::: {.column width="50%"}
+![](./images/road.jpg){.image-right}
+:::
+:::::
+
+## eatPlot
+
+```{r}
+#| eval: false
+# install.packages("devtools")
+devtools::install_github("nickhaf/eatPlot")
+```
+
+```{r}
+library(eatPlot)
+```
+
+Automatisiert die Grafikerstellung für eatRep-Output (vor allem BT-Grafiken).
+
+::: callout-important
+Das Paket befindet sich noch in Entwicklung. Die Beispiele in dieser Präsentation sind **vorläufig**, können sich also noch leicht ändern. Ich werde alle Änderungen aber in den [online-Vorlagen](https://nickhaf.github.io/eatPlot/index.html) anpassen.
+:::
+
+## Warum?
+
+::::: columns
+::: {.column width="50%"}
+-   Schnell selbst durchführbar
+-   Reproduzierbar
+-   Vereinfachung der Plot-Erstellung durch ["Plug-and-Play"-Vorlagen](https://nickhaf.github.io/eatPlot/)
+-   Einfach updatebar
+-   Weniger fehleranfällig
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+mw_prepped <- prep_tablebarplot(trend_mw,
+  subgroup_var = "geschlecht",
+  comparisons = c("groupDiff", "crossDiff_of_groupDiff")
+)
+
+mw_prepped_lesen <- mw_prepped
+mw_prepped_lesen$domain <- "Leseverstehen"
+
+mw_prepped_hören <- mw_prepped
+mw_prepped_hören$domain <- "Hörverstehen"
+
+mw_prepped <- rbind(mw_prepped_lesen, mw_prepped_hören)
+
+mw_prepped <- mw_prepped[order(mw_prepped$TR_BUNDESLAND), ]
+mw_prepped$y_axis <- 1:nrow(mw_prepped)
+
+## Rename "total" to "Deutschland"
+mw_prepped$TR_BUNDESLAND <- gsub("total", "Deutschland", mw_prepped$TR_BUNDESLAND)
+mw_prepped$TR_BUNDESLAND <- gsub("ue", "ü", mw_prepped$TR_BUNDESLAND)
+
+mw_prepped_lesen <- mw_prepped
+mw_prepped_lesen[mw_prepped_lesen$domain == "Hörverstehen", colnames(mw_prepped) != "y_axis"] <- NA
+
+mw_prepped_hören <- mw_prepped
+mw_prepped_hören[mw_prepped_hören$domain == "Leseverstehen", colnames(mw_prepped) != "y_axis"] <- NA
+
+
+mw_preped_lh <- merge(mw_prepped_lesen, mw_prepped_hören, by = c("y_axis"), suffixes = c("_lesen", "_hören"))
+mw_prepped_final <- merge(mw_prepped, mw_preped_lh, by = c("y_axis"))
+
+
+tableplot_6.5 <- plot_tablebarplot(
+  dat = mw_prepped_final,
+  bar_est = "est_2022_groupDiff_mean",
+  bar_fill = "domain",
+  bar_sig = "sig_2022_groupDiff_mean",
+  columns_table = list(
+    "TR_BUNDESLAND_lesen", "est_2022_groupDiff_mean_lesen", "se_2022_groupDiff_mean_lesen", "es_2022_groupDiff_mean_lesen", "est_2022_groupDiff_mean_hören", "se_2022_groupDiff_mean_hören", "es_2022_groupDiff_mean_hören"
+  ),
+  columns_table_sig_bold = list(NULL, "sig_2022_groupDiff_mean_lesen", NULL, "sig_2022_groupDiff_mean_lesen", "sig_2022_groupDiff_mean_hören", NULL, "sig_2022_groupDiff_mean_hören"),
+  columns_table_sig_superscript = list(NULL, "sig_2022_crossDiff_of_groupDiffTotal_mean_lesen", NULL, "sig_2022_crossDiff_of_groupDiffTotal_mean_lesen", "sig_2022_crossDiff_of_groupDiffTotal_mean_hören", NULL, "est_2022_crossDiff_of_groupDiffTotal_mean_hören"),
+  columns_round = list(NULL, 0, 1, 2, 0, 1, 2),
+  columns_table_se = list(NULL, NULL, "se_2022_groupDiff_mean_lesen", NULL, NULL, "se_2022_groupDiff_mean_hören", NULL),
+  headers = list("", "*M<sub>Jungen</sub> - M<sub>Mädchen</sub>*", "(*SE*)", "*d*", "*M<sub>Jungen</sub> - M<sub>Mädchen</sub>*", "(*SE*)", "*d*", "**Vorsprung zugunsten der<br>Mädchen**"),
+  column_spanners = list("**Leseverstehen**" = c(2, 4), "**Höhrverstehen**" = c(5, 7)),
+  y_axis = "y_axis",
+  plot_settings = plotsettings_tablebarplot(
+    axis_x_lims = c(-5, 70),
+    columns_alignment = c(0, rep(2, 6), NULL), # NULL evtl. nicht optimal, oder in die Message mit rein.
+    headers_alignment = c(rep(0.5, 2), 2, rep(0.5, 2), 2, 0.5, 0.5),
+    headers_nudge_y = c(rep(0, 7), 0.5),
+    columns_nudge_y = c(rep(-0.5, 4), rep(0.5, 3)),
+    columns_width = c(0.15, rep(0.1, 6), 0.25),
+    bar_nudge_y = rep(c(-0.1, 0.1), nrow(mw_prepped_lesen) / 2),
+    background_stripes_colour = c(rep(c("white", "white", "#EBFDF3", "#EBFDF3"), 8), "grey", "grey"),
+    background_stripes_border = "background_line_table",
+    bar_fill_colour = c("#20D479", "#8DEBBC"),
+    bar_background_lines = "scale_breaks",
+    bar_background_lines_linetype = "solid",
+    default_list = barplot_table_plot_pattern
+  )
+)
+
+tableplot_6.5
+```
+
+```{r}
+#| echo: false
+
+dat_lineplot_2 <- prep_lineplot(
+  trend_mw,
+  subgroup_var = "geschlecht"
+)
+
+dat_lineplot_2 <- process_bundesland(dat_lineplot_2)
+
+lineplot_2 <- plot_lineplot(
+  dat_lineplot_2,
+  point_sig = "sig_comparison_crossDiffTotal_subgroupTotal",
+  years_lines = list(c(2009, 2015), c(2015, 2022)),
+  years_braces = list(c(2009, 2015), c(2015, 2022)),
+  background_subgroup = "total",
+  plot_settings = plotsettings_lineplot(brace_label_nudge_x = 0.1,
+                                        default_list = lineplot_4x4)
+)
+
+lineplot_2
+```
+:::
+:::::
+
+# Allgemeiner Workflow
+
+## Datenformat
+
+```{r}
+str(trend_3)
+```
+
+## Datenaufbereitung
+
+Es gibt zwei Prep-Funktionen:
+
+```{r}
+lineplot_prepped <- prep_lineplot(trend_3, subgroup_var = "mhg")
+```
+
+```{r}
+tableplot_prepped <- prep_tablebarplot(trend_mw, 
+                                       subgroup_var = "geschlecht",
+                                       comparisons = c("none", "crossDiff"))
+```
+
+## Datenaufbereitung
+
+```{r}
+str(lineplot_prepped)
+```
+
+## Datenaufbereitung
+
+```{r}
+str(tableplot_prepped)
+```
+
+## Ploterstellung
+
+```{r}
+#| eval: false
+plot_lineplot()
+plot_tablebarplot()
+```
+
+```{r}
+#| eval: false
+?plot_lineplot
+?plot_tablebarplot
+
+```
+
+::: callout-tip
+Neben der R-internen Hilfe zu den Funktionen sollten auch die [online-Vorlagen](https://nickhaf.github.io/eatPlot/) verwendet werden.
+:::
+
+## Plot settings
+
+Einstellungen zum Aussehen der Plots werden so vorgenommen:
+
+```{r}
+#| eval: false
+plotsettings_lineplot()
+plotsettings_tablebarplot()
+```
+
+```{r}
+#| eval: false
+?plotsettings_lineplot
+?plotsettings_tablebarplot
+```
+
+Es gibt dabei voreingestellte Setting-Objekte, die genutzt werden können:
+
+```{r}
+#| eval: false
+plotsettings_lineplot(default_list = lineplot_4x4)
+```
+
+# Linienplots
+
+## Daten
+
+```{r}
+#| eval: false
+trend_dat <- readRDS("I:/Methoden/02_IQB-interne_eat_Workshops/eatRep_2024/Beispieloutputs/04_meansAufbereitet.rds")
+
+```
+
+Wir möchten einen [Linienplot für eine Gruppe](https://nickhaf.github.io/eatPlot/articles/lineplots.html#lineplot-one-group) erstellen.
+
+```{r}
+#| echo: false
+
+dat_lineplot_1 <- prep_lineplot(
+  trend_mw,
+  subgroup_var = "geschlecht" ## Leave this argument if you have only one subgroup
+)
+
+dat_lineplot_1 <- subset(dat_lineplot_1, subgroup_var == "total")
+
+## For correctly displaying the state names:
+dat_lineplot_1 <- process_bundesland(dat_lineplot_1)
+
+lineplot_1 <- plot_lineplot(dat_lineplot_1,
+  years_lines = list(c(2009, 2015), c(2015, 2022)),
+  years_braces = list(c(2009, 2015), c(2015, 2022)),
+  plot_settings = plotsettings_lineplot(  brace_label_nudge_x = 0.3,
+default_list = lineplot_4x4)
+)
+
+lineplot_1
+```
+
+## Erstellen des Plots
+
+Die Beispiele finden sich [hier](https://github.com/nickhaf/eatPlotWorkshop/blob/main/examples.R).
+
+::: callout-important
+**Achtung**\
+Die Beispiele dienen nur der Illustration und sind noch nicht final für den BT freigegeben. Bitte schaut zur Erstellung der Grafiken dann auf der [Webseite]() vorbei.
+:::
+
+## Mehrere Kompetenzbereiche
+
+```{r}
+#| eval: false
+#| 
+plot_my_lineplot <- function(eatRep_kb){
+
+kb_prepped <- prep_lineplot(
+  eatRep_kb
+)
+
+plot_kb <- plot_lineplot(
+  kb_prepped,
+  years_lines = list(c(2009, 2015), c(2015, 2022)),
+  years_braces = list(c(2009, 2015), c(2015, 2022)),
+  plot_settings = plotsettings_lineplot(default_list = lineplot_4x4)
+)
+
+return(plot_kb)
+}
+```
+
+```{r}
+#| eval: false
+
+plots_6.6_kbs <- lapply(eatRep_kb_list, plot_my_lineplot )
+```
+
+## Zwei Gruppen
+
+Für [zwei Gruppen](https://nickhaf.github.io/eatPlot/articles/lineplots.html#lineplot-for-two-groups) funktioniert das ganz ähnlich.
+
+```{r}
+#| eval: false
+trend_dat_geschlecht <- readRDS("I:/Methoden/02_IQB-interne_eat_Workshops/eatRep_2024/Beispieloutputs/disp_geschlecht.rds")
+
+```
+
+```{r}
+#| echo: false
+dat_lineplot_2 <- prep_lineplot(
+  trend_mw,
+  subgroup_var = "geschlecht"
+)
+
+dat_lineplot_2 <- process_bundesland(dat_lineplot_2)
+
+lineplot_2 <- plot_lineplot(
+  dat_lineplot_2,
+  point_sig = "sig_comparison_crossDiffTotal_subgroupTotal",
+  years_lines = list(c(2009, 2015), c(2015, 2022)),
+  years_braces = list(c(2009, 2015), c(2015, 2022)),
+  background_subgroup = "total",
+  plot_settings = plotsettings_lineplot(brace_label_nudge_x = 0.1,
+                                        default_list = lineplot_4x4)
+)
+
+lineplot_2
+```
+
+# Tabellen/Barplots
+
+## Daten
+
+```{r}
+#| eval: false
+trend_dat_geschlecht <- readRDS("I:/Methoden/02_IQB-interne_eat_Workshops/eatRep_2024/Beispieloutputs/disp_geschlecht.rds")
+
+```
+
+Wir möchten [Abbildung 6.6](https://nickhaf.github.io/eatPlot/articles/tableplots.html#abbildung-6-6) aus dem Geschlechterkapitel erstellen.
+
+```{r}
+#| echo: false
+
+dat_6.6 <- prep_tablebarplot(
+  trend_mw,
+  subgroup_var = "geschlecht",
+  par = c("mean", "sd"), ## We need both mean and sd for the plot
+  comparisons = c("none", "trend", "trend_crossDiff") ## Set for smaller output-table
+)
+
+dat_6.6 <- subset(dat_6.6, geschlecht %in% c("m", "w"))
+dat_6.6$geschlecht <- gsub("m", "Jungen", dat_6.6$geschlecht)
+dat_6.6$geschlecht <- gsub("w", "Mädchen", dat_6.6$geschlecht)
+
+dat_6.6_a <- dat_6.6[order(dat_6.6$TR_BUNDESLAND), ]
+
+dat_6.6_a$TR_BUNDESLAND[duplicated(dat_6.6_a$TR_BUNDESLAND)] <- " "
+dat_6.6_a$TR_BUNDESLAND <- gsub("total", "Deutschland", dat_6.6_a$TR_BUNDESLAND)
+dat_6.6_a <- process_bundesland(dat_6.6_a)
+
+column_widths_stand <- standardize_column_width(
+  column_widths = list(
+    p1 = c(0.1, rep(0.04, 7), 0.05, rep(0.04, 2), NA),
+    p2 = c(0.05, rep(0.04, 2), NA)
+  ),
+  plot_ranges = c(75, 75) # Range of the x-axes of both plots set in 'axis_x_lims'.
+)
+
+p_1 <- plot_tablebarplot(
+  dat = dat_6.6_a,
+  bar_est = "est_2015 - 2009_trend_mean",
+  bar_label = NULL,
+  bar_sig = "sig_2015 - 2009_trend_mean",
+  bar_fill = "geschlecht",
+  column_spanners = list(
+    "**2009**<sup>a</sup>" = c(3, 4),
+    "**2015**<sup>a</sup>" = c(5, 6),
+    "**2022**<sup>a</sup>" = c(7, 8),
+    "**Differenz 2015-2009<sup>a</sup>**" = c(9, 12)
+  ),
+  columns_table_se = list(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, "se_2015 - 2009_trend_mean", NULL),
+  headers = list("**Land**", " ", "*M*", "*SD*", "*M*", "*SD*", "*M*", "*SD*", "*M<sub>2015</sub> - M<sub>2009</sub>*", "*(SE)*", "*d*", " "),
+  columns_table = c("TR_BUNDESLAND", "geschlecht", "est_2009_none_mean", "est_2009_none_sd", "est_2015_none_mean", "est_2015_none_sd", "est_2022_none_mean", "est_2022_none_sd", "est_2015 - 2009_trend_mean", "se_2015 - 2009_trend_mean", "es_2015 - 2009_trend_mean"),
+  columns_table_sig_bold = list(NULL, NULL, "sig_2009_none_mean",
+    NULL, "sig_2015_none_mean", NULL, "sig_2022_none_mean", NULL, "sig_2015 - 2009_trend_mean", NULL, "sig_2015 - 2009_trend_mean"),
+  columns_table_sig_superscript = list(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, "sig_2015 - 2009_trend_crossDiffTotal_mean", NULL,NULL),
+  y_axis = "y_axis",
+  columns_round = c(rep(0, 10), 2),
+  plot_settings = plotsettings_tablebarplot(
+    axis_x_lims = c(-5, 70),
+    bar_pattern_spacing = 0.0154, ## We calculated this below in standardize_pattern_spacing()
+    background_stripes_colour = c(rep(c("white", "white", "#EBFDF3", "#EBFDF3"), 8), "grey", "grey"),
+    bar_fill_colour = c("#20D479", "#8DEBBC"),
+    columns_alignment = c(0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 2),
+    columns_width = column_widths_stand$p1, ## This is the column-width object we set above
+    headers_alignment = c(0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0),
+    default_list = barplot_table_plot_pattern
+  )
+)
+
+p_2 <- plot_tablebarplot(
+  dat = dat_6.6_a,
+  bar_est = "est_2022 - 2015_trend_mean",
+  bar_label = NULL,
+  bar_sig = "sig_2022 - 2015_trend_mean",
+  bar_fill = "geschlecht",
+  column_spanners = list(
+    "**Differenz 2022-2015**" = c(1, 4)
+  ),
+  headers = list(
+    "*M<sub>2022</sub> - M<sub>2015</sub>*",
+    "*(SE)*",
+    "*d*",
+    " "
+  ),
+  columns_table = c(
+    "est_2022 - 2015_trend_mean",
+    "se_2022 - 2015_trend_mean",
+    "es_2022 - 2015_trend_mean"
+  ),
+  columns_table_se = list(NULL, "se_2022 - 2015_trend_mean", NULL),
+  columns_table_sig_bold = list("sig_2022 - 2015_trend_mean", NULL, "sig_2022 - 2015_trend_mean"),
+  columns_table_sig_superscript = list("sig_2022 - 2015_trend_crossDiffTotal_mean", NULL, NULL),
+  y_axis = "y_axis",
+  columns_round = c(0, 0, 2),
+  plot_settings = plotsettings_tablebarplot(
+    axis_x_lims = c(-5, 70),
+    bar_pattern_spacing = 0.0346, ## We calculated this below in standardize_pattern_spacing()
+    background_stripes_colour = c(rep(c("white", "white", "#EBFDF3", "#EBFDF3"), 8), "grey", "grey"),
+    bar_fill_colour = c("#20D479", "#8DEBBC"),   
+    columns_alignment = c(rep(0.5, 2), 2),
+    columns_width = column_widths_stand$p2, ## This is the column-width object we set above
+    headers_alignment = c(0.5, 0.5, 0.5, 0),
+    default_list = barplot_table_plot_pattern
+  )
+)
+
+tableplot_6.6 <- combine_plots(list(p_1, p_2))
+
+tableplot_6.6
+```
+
+## Erstellen des Plots
+
+Die Beispiele finden sich [hier](https://github.com/nickhaf/eatPlotWorkshop/blob/main/examples.R).
+
+::: callout-important
+**Achtung**\
+Die Beispiele dienen nur der Illustration und sind noch nicht final für den BT freigegeben. Bitte schaut zur Erstellung der Grafiken dann auf der [Webseite]() vorbei.
+:::
+
+## Kleines Markdown/HTML-1x1
+
+-   **Das ist mein fettgedruckter Text**: `**Das ist mein fettgedruckter Text**`
+-   *Das ist mein Kursiver Text*: `*Das ist mein Kursiver Text*`
+-   Hochgestelltes<sup>a</sup>: `Hochgestelltes<sup>a</sup>`
+-   Tiefgestelltes<sub>yaay</sub>: `Tiefgestelltes<sub>yaay</sub>`
+
+## Mehrere Kompetenzbereiche
+
+```{r}
+#| eval: false
+#| 
+plot_my_tableplot_6.6 <- function(eatRep_kb){
+
+kb_prepped <- prep_tablebarplot(
+  eatRep_kb
+  # ...
+)
+
+plot_kb <- plot_tablebarplot(
+  kb_prepped
+  # ...
+)
+
+return(plot_kb)
+}
+```
+
+```{r}
+#| eval: false
+plots_6.6 <- lapply(eatRep_kb_list, plot_my_tableplot_6.6)
+```
+
+## Bilder
+
+-   Foto von <a href="https://unsplash.com/de/@mcsheffrey?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Connor McSheffrey</a> auf <a href="https://unsplash.com/de/fotos/schwarze-betonstrasse-die-tagsuber-von-baumen-umgeben-ist-MIspM6HIit8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
