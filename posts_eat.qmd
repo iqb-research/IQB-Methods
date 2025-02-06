@@ -2,6 +2,7 @@
 title: "eat Packages"
 listing:
   id: packages
+  filter-ui: true
   contents:
     - title: eatAnalysis
       path: https://beckerbenj.github.io/eatAnalysis/index.html
