@@ -349,6 +349,16 @@
       ],
       "Hash": "4608fe675166f533e371deed8e7b5f35"
     },
+    "Rglpk": {
+      "Package": "Rglpk",
+      "Version": "0.6-5.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "slam"
+      ],
+      "Hash": "3214828c7e274287df2ce88aac1b359b"
+    },
     "SparseM": {
       "Package": "SparseM",
       "Version": "1.84-2",
@@ -1043,6 +1053,21 @@
         "vctrs"
       ],
       "Hash": "54ed3ea01b11e81a86544faaecfef8e2"
+    },
+    "eatATA": {
+      "Package": "eatATA",
+      "Version": "1.1.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "Matrix",
+        "R",
+        "Rglpk",
+        "lpSolve",
+        "mathjaxr",
+        "methods"
+      ],
+      "Hash": "5f5fbb391541f9c2b462a88fe0e8307f"
     },
     "eatDB": {
       "Package": "eatDB",
@@ -2294,6 +2319,13 @@
       ],
       "Hash": "7ce2733a9826b3aeb1775d56fd305472"
     },
+    "mathjaxr": {
+      "Package": "mathjaxr",
+      "Version": "1.6-0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "87da6ccdcee6077a7d5719406bf3ae45"
+    },
     "memoise": {
       "Package": "memoise",
       "Version": "2.0.1",
@@ -3474,6 +3506,17 @@
         "utils"
       ],
       "Hash": "60719828c1c3e3240699675bca903656"
+    },
+    "slam": {
+      "Package": "slam",
+      "Version": "0.1-55",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "stats"
+      ],
+      "Hash": "a2a11fdcb7cf5afbf31aeb0e3828fbf6"
     },
     "sm": {
       "Package": "sm",

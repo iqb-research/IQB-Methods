@@ -13,7 +13,8 @@ library(eatTools)
 library(eatModel)
 data(data.ex08, package="TAM")
 # Gesamtdatensatz bauen, der sowohl Personen-ID, DIF-Variable als auch responses enthaelt
-dat <- data.frame(id = 1:nrow(data.ex08[["resp"]]), female = unlist(data.ex08[["facets"]])-1, data.ex08[["resp"]])
+dat <- data.frame(id = 1:nrow(data.ex08[["resp"]]), female = unlist(data.ex08[["facets"]])-1, 
+       data.ex08[["resp"]])
 def <- defineModel(dat, items= -c(1:2), id="id", DIF.var = "female", software="tam")
 run <- runModel(def)
 res <- getResults(run, verbose=FALSE)
@@ -30,11 +31,34 @@ kbl(item6[,cols], row.names=FALSE) %>%
     kable_styling(bootstrap_options = "striped", full_width = FALSE, position = "center")
 ```
 
-Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `r item[which(item[,"item"] == "I0006"),"estDif"]` bedeutet, dass das Item in der ersten Gruppe (also `female = 0`, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für `female = 0` geringer sein, als für `female = 1`:
+Die allgemeine Lösungshäufigkeit des Items ist `r round(100*item[which(item[,"item"] == "I0006"),"itemP"], digits = 1)` Prozent. Der positive DIF-Wert von `r round(item[which(item[,"item"] == "I0006"),"estDif"], digits = 2)` bedeutet, dass das Item in der ersten Gruppe (also `female = 0`, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für `female = 0` geringer sein, als für `female = 1`:
 
 ```{r eval = TRUE}
 tapply(dat[,"I0006"], dat[,"female"], mean)
 ```
+
+Die beiden Spalten "estDif" und "absDif" im Output unterscheiden dabei insofern, als dass für zwei Gruppen (hier: "male" und "female") "absDif" immer doppelt so groß wie "estDif" und im Betrag positiv ist. Im DIF-Modell hat jedes Item zwei Parameter, einen Schwierigkeitsparameter "est" und einen DIF-Parameter "estDif". Bei dichotomen, näherungsweise gleichverteilten Gruppen wie Geschlecht entspricht der "est"-Parameter in etwa dem Wert, den man erhalten würde, wenn ein einfaches Raschmodell ohne separate Betrachtung der Geschlechtergruppen modelliert werden würde. "estDif" ist nun der Wert, den man (näherungsweise) für die Referenzgruppe addieren und für die Fokusgruppe subtrahieren muss, um die Werte zu erhalten, die bei separater Modellierung der Gruppen resultieren würden. Da der Wert einmal addiert, einmal subtrahiert wird, ist die Differenz des Itemparameters in Referenz- und Fokusgruppe im Betrag doppelt so groß wie der DIF-Parameter "estDif". Für unser Beispiel (Referenzgruppe = "male") bedeutet das: Bei separater Modellierung würde ich für die Jungen einen Itemparameter `r round(item[which(item[,"item"] == "I0006"),"est"], digits = 3)` + `r round(item[which(item[,"item"] == "I0006"),"estDif"], digits = 3)` = `r round(item[which(item[,"item"] == "I0006"),"est"], digits = 3) + round(item[which(item[,"item"] == "I0006"),"estDif"], digits = 3)` erwarten, und für die Mädchen `r round(item[which(item[,"item"] == "I0006"),"est"], digits = 3)` - `r round(item[which(item[,"item"] == "I0006"),"estDif"], digits = 3)` = `r round(item[which(item[,"item"] == "I0006"),"est"], digits = 3) - round(item[which(item[,"item"] == "I0006"),"estDif"], digits = 3)`. Das soll hier kurz veranschaulicht werden: 
+
+```{r eval = TRUE,warning=FALSE,message=FALSE}
+spl <- splitModels(person.groups = dat[,c("id", "female")], all.persons = FALSE, nCores = 1)
+def <- defineModel(dat, id = "id", items= -c(1:2), splittedModels = spl, software="tam")
+run <- runModel(def)
+res <- getResults(run, verbose=FALSE)
+item<- itemFromRes(res)
+cols<- c("model", "item", "itemP", "est")
+kbl(roundDF(subset(item, item == "I0006")[,cols],digits = 3), row.names=FALSE) %>% 
+    kable_styling(bootstrap_options = "striped", full_width = FALSE, position = "center")
+```
+
+Linkt man nun die beiden separat modellierten Gruppen "male" und "female" aneinander, entspricht der DIF für das Item "I0006" näherungsweise dem zuvor in einem gemeinsamen DIF-Modell geschätzten DIF-Parameter: 
+
+```{r eval = TRUE,warning=FALSE,message=FALSE}
+itemFokus <- subset(res, model == "female.1")
+referenz  <- subset(itemFromRes(res), model == "female.0")
+equating  <- equat1pl(results = itemFokus, prmNorm = referenz[,c("item", "est")],  
+             difBound = 0.6, iterativ = TRUE)
+```
+
 
 ## 
 

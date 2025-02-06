@@ -23,6 +23,8 @@ jobs:
         run: sudo apt install libgsl-dev
       - name: Intsall libmagick
         run: sudo apt-get install libmagick++-dev
+      - name: Install libglpk-dev
+        run: sudo apt-get install libglpk-dev
         
       - name: Check out repository
         uses: actions/checkout@v3
