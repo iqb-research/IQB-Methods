@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
@@ -131,7 +131,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 <link rel="alternate" type="application/rss+xml" title="IQB Methods Team" href="statisticalQuestions.xml" data-external="1"><meta property="og:title" content="Statistical Questions – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png">
 <meta property="og:site_name" content="IQB Methods Team">
 <meta property="og:image:height" content="672">
 <meta property="og:image:width" content="672">
@@ -230,8 +230,87 @@ window.Quarto = {
 </section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-statistical-questions">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-statistical-questions-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-statistical-questions'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="c3RhdGlzdGljcyUyQ2VhdFJlcA==" data-listing-file-modified-sort="1738264063592" data-listing-reading-time-sort="1" data-listing-word-count-sort="141">
+<div class="quarto-post image-right" data-index="0" data-categories="c3RhdGlzdGljcyUyQ2VhdE1vZGVs" data-listing-file-modified-sort="1738846372078" data-listing-reading-time-sort="3" data-listing-word-count-sort="569">
+<div class="thumbnail">
+<p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
+<p><img loading="lazy" src="../docs/FAQ/images/eatModel.png" class="thumbnail-image"></p>
+</a><p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
+statistics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0TW9kZWw='); return false;">
+eatModel
+</div>
+</div>
+<div class="listing-description">
+<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">In eatModel wird nur der erste Teil der zweiten Tabelle <span class="math inline">\(\text{item}\times\text{[DIFvariable]}\)</span> aus Conquest übertragen. Das bedeutet, dass negative Werte in der…<strong></strong><span class="math inline"></span><strong></strong></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
+<div class="listing-author">
+Karoline Sachse
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1738846372079" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
+<div class="thumbnail">
+<p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
+<p><img loading="lazy" src="../docs/FAQ/images/N.png" class="thumbnail-image"></p>
+</a><p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">Wie groß sollte das N pro Item idealerweise sein?</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
+statistics
+</div>
+</div>
+<div class="listing-description">
+<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">Grundsätzlich stellt sich die Frage des <em>N</em> pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen…<span class="math inline"></span><span class="math inline"></span></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
+<div class="listing-author">
+Sebastian Weirich
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="c3RhdGlzdGljcyUyQ2VhdFJlcA==" data-listing-file-modified-sort="1738846372078" data-listing-reading-time-sort="1" data-listing-word-count-sort="141">
 <div class="thumbnail">
 <p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
 <p><img loading="lazy" src="../docs/FAQ/images/eatRep.png" class="thumbnail-image"></p>
@@ -266,40 +345,7 @@ Sebastian Weirich
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="c3RhdGlzdGljcyUyQ2VhdE1vZGVs" data-listing-file-modified-sort="1738264063592" data-listing-reading-time-sort="3" data-listing-word-count-sort="569">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
-<p><img loading="lazy" src="../docs/FAQ/images/eatModel.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0TW9kZWw='); return false;">
-eatModel
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">In eatModel wird nur der erste Teil der zweiten Tabelle <span class="math inline">\(\text{item}\times\text{[DIFvariable]}\)</span> aus Conquest übertragen. Das bedeutet, dass negative Werte in der…<strong></strong><span class="math inline"></span><strong></strong></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
-<div class="listing-author">
-Karoline Sachse
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1738264063592" data-listing-reading-time-sort="5" data-listing-word-count-sort="897">
+<div class="quarto-post image-right" data-index="3" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1738846372078" data-listing-reading-time-sort="5" data-listing-word-count-sort="897">
 <div class="thumbnail">
 <p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
 <p><img loading="lazy" src="../docs/FAQ/images/centering.jpeg" class="thumbnail-image"></p>
@@ -325,36 +371,6 @@ statistics
 <p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
 <div class="listing-author">
 Karoline Sachse
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1738264063592" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
-<p><img loading="lazy" src="../docs/FAQ/images/N.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">Wie groß sollte das N pro Item idealerweise sein?</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">Grundsätzlich stellt sich die Frage des <em>N</em> pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen…<span class="math inline"></span><span class="math inline"></span></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
-<div class="listing-author">
-Sebastian Weirich
 </div>
 </a>
 </div>

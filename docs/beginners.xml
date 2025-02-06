@@ -2383,1135 +2383,6 @@ $Species
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>R Workshop Einführung</title>
-  <dc:creator>Sebastian Weirich, Karoline Sachse und Benjamin Becker</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="img-fluid"><sup>1</sup></p>
-<section id="einleitung" class="level2">
-<h2 class="anchored" data-anchor-id="einleitung">1. Einleitung</h2>
-<p>R ist eine Programmiersprache für <strong>Datenmanipulation</strong>, <strong>statistische Datenanalyse</strong> und <strong>grafische Darstellung</strong> von Daten (Yanada, 2018).</p>
-<p><strong>Datenmanipulation:</strong></p>
-<ul>
-<li>Import und Export: Einlesen und Schreiben von SPSS-, Excel-, ASCII- oder trennzeichenbasierten Dateien</li>
-<li>Kopieren, verschieben, löschen, packen und entpacken von Dateien und Verzeichnissen</li>
-<li>Variablen- und Fallselektion, Rekodieren/Aggregieren von Variablen</li>
-<li>Umstrukturieren von Datensätzen (long/wide)</li>
-<li>Manipulation von Zeichenketten (Verknüpfen, extrahieren, ersetzen, z.B. auch mithilfe regulärer Ausdrücke: sehr mächtig, aber zuweilen kompliziert)</li>
-</ul>
-<p><strong>statistische Datenanalyse:</strong></p>
-<ul>
-<li>lineare und nichtlineare Regression</li>
-<li>Varianzanalyse</li>
-<li>Strukturgleichungsmodelle</li>
-<li>Mehrebenenanalyse</li>
-<li>Multiple Imputation</li>
-<li>Item-Response-Modelle</li>
-<li>decision trees</li>
-<li>mixed models, u.v.m.</li>
-</ul>
-<p><strong>grafische Darstellung von Daten:</strong></p>
-<ul>
-<li>Boxplots</li>
-<li>Histogramme</li>
-<li>Heat Maps</li>
-</ul>
-</section>
-<section id="r-als-taschenrechner" class="level2">
-<h2 class="anchored" data-anchor-id="r-als-taschenrechner">2. R als Taschenrechner</h2>
-<p>In der R Konsole kann man (mathematische) Funktionen eingeben und sie evaluieren lassen. Im einfachsten Fall funktioniert das wie ein Taschenrechner.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-</div>
-<p>Das Dezimaltrennzeichen in R ist ein Punkt, kein Komma.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.25</code></pre>
-</div>
-</div>
-<p>Exponentialschreibweise:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 8</code></pre>
-</div>
-</div>
-<p>Obwohl es nicht so aussieht, werden bei diesen Operationen im Hintergrund Funktionen ausgeführt. So kann man sich beispielsweise die Wurzel aus 2 einfach in Exponentialschreibweise oder mithilfe der Wurzelfunktion ausgeben lassen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">^</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.414214</code></pre>
-</div>
-</div>
-<p>Wurzelfunktion:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.414214</code></pre>
-</div>
-</div>
-<p>Allgemein gilt auch in R: “Punktrechnung vor Strichrechnung”:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 8</code></pre>
-</div>
-</div>
-</section>
-<section id="grundlagen" class="level2">
-<h2 class="anchored" data-anchor-id="grundlagen">3. Grundlagen</h2>
-<p>R ist zugleich eine Sprache und eine Umgebung für statistische Datenbearbeitung. R ist objektbasiert. Alles in R ist ein Objekt: Zahlen, Vektoren, Matrizen, Funktionen. Das grundlegende Funktionsprinzip ist dabei: “Definiere ein Objekt und weise ihm einen Wert zu.” Im einfachsten Fall wird im folgenden Beispiel das Objekt <strong><code>b</code></strong> erzeugt und ihm der Wert 2 zugewiesen. Um sich den Wert von <strong><code>b</code></strong> anzeigen zu lassen, kann man <strong><code>b</code></strong> einfach in die Konsole tippen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb17-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<p><code>b</code>** ist nun intern gespeichert und kann ebenfalls für Zuweisungen benutzt werden. Hier wird ein neues Objekt <strong><code>d</code></strong> erzeugt und ihm als Wert die Quadratwurzel von <strong><code>b</code></strong> zugewiesen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(b)</span></code></pre></div>
-</div>
-<p>Möglich ist es auch, <strong><code>b</code></strong> wieder mit einem anderen Wert zu überschreiben:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> b</span>
-<span id="cb20-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 200</code></pre>
-</div>
-</div>
-<p>Mit dem Befehl <strong><code>class</code></strong> kann man sich die Klasse von <strong><code>b</code></strong> anzeigen lassen.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(b)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "numeric"</code></pre>
-</div>
-</div>
-<p>Die wichtigsten Klassen für skalare Objekt (also solche, die nur aus einem einzigen Element bestehen), sind</p>
-<ul>
-<li><strong><code>numeric</code></strong>: reelle Ziffer oder Zahlen</li>
-<li><strong><code>character</code></strong>: Zeichenkette</li>
-<li><strong><code>logical</code></strong>: logischer Wert, der nur zwei Zustände annehmen kann, <strong><code>TRUE</code></strong> oder <strong><code>FALSE</code></strong></li>
-</ul>
-<p>Im folgenden verschiedene Beispiele für character- bzw. logische Zuweisungen, hier jeweils wiederum nur für die Länge 1. Zuweisungen der Klasse character erfolgen mit hochgestellten Anführungszeichen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hallo"</span></span>
-<span id="cb24-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(d)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">length</span>(d)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-<p>Wenn einem Objekt die Zahl 220 in hochgestellten Anführungszeichen zugewiesen wird, wird der Wert nicht als numerisch, sondern als character behandelt:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">e <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"220"</span></span>
-<span id="cb28-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(e)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-</div>
-<p>Wenn einem Objekt der Austruck TRUE in hochgestellten Anführungszeichen zugewiesen wird, wird der Wert nicht als logical, sondern als character behandelt:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">f <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span></span>
-<span id="cb30-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(f)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "logical"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1">g <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"TRUE"</span></span>
-<span id="cb32-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(g)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-</div>
-<section id="vektoren" class="level3">
-<h3 class="anchored" data-anchor-id="vektoren">3.1 Vektoren</h3>
-<p>Vektoren sind definiert als eine Reihe von Elementen <em>derselben</em> Klasse. Sie können unter anderem mit der Funktion <strong><code>c()</code></strong> erzeugt werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">89</span>)</span>
-<span id="cb34-2">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"gut"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"schlecht"</span>)</span>
-<span id="cb34-3">d <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
-</div>
-<p>Ähnlich wie in den vorher aufgeführten Beispielen kann man sich mit verschiedenen Befehlen verschiedene Eigenschaften dieser Vektoren zeigen lassen, etwa ihre Länge (= die Anzahl ihrer Elemente) mit <strong><code>length()</code></strong>, oder ihre Klasse mit <strong><code>class()</code></strong>. Bestimmte Funktionen wiederum kann man sinnvoll nur für numerische Vektoren anweden (z.B. <strong><code>sum()</code></strong>, <strong><code>mean()</code></strong>, <strong><code>min()</code></strong>, <strong><code>max()</code></strong> etc. Andere wiederum sind nur für Vektoren der Klasse character sinnvoll, etwa <strong><code>nchar()</code></strong>, das einem die Anzahl der Zeichen einer Zeichenkette gibt. Ganz allgemein gilt: Funktionen, die man auf Skalare anwenden kann, kann man in der Regel auch auf Vektoren anwenden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">skalar <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb35-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(skalar)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.414214</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">vektor <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">89</span>)</span>
-<span id="cb37-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(vektor)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.000000 2.000000 1.414214 1.414214 9.433981</code></pre>
-</div>
-</div>
-<p>Die Funktion <strong><code>sqrt</code></strong> gibt dabei genauso viele Elemente zurück, wie der Vektor besitzt, den man der Funktion übergeben hat. Das ist nicht bei allen Funktionen so; die <strong><code>mean</code></strong>-Funktion gibt (sinnvollerweise) immer nur ein Element zurück.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">skalar <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb39-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(skalar)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">vektor <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">89</span>)</span>
-<span id="cb41-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(vektor)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 19.6</code></pre>
-</div>
-</div>
-<p>Was passiert, wenn man Vektoren “unzulässig” definiert, also beispielsweise die Regel, dass alle Elemente dieselbe Klasse haben müssen, missachtet? Vektoren werden in die “kleinste gemeinsame Klasse” umgewandelt. Es gibt hier keine Warnmeldung, und manchmal führt das zu unerwünschten Nebenwirkungen. Zuerst betrachten wir einen Vektor, der aus Elementen der Klasse numeric, character und logical besteht:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>,<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hallo"</span>,<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>,<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span>
-<span id="cb43-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "1"     "6"     "hallo" "TRUE"  "11"    "FALSE"</code></pre>
-</div>
-</div>
-<p>Der gesamte Vektor wird als character definiert:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(b)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-</div>
-<p>Besteht der Vektor nur aus Elementen der Klassen numeric und logical, wird der Vektor als numeric definiert:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>,<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>,<span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span>
-<span id="cb47-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  1  6  1 11  0</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(b)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "numeric"</code></pre>
-</div>
-</div>
-<p>An diesen Bespielen erkennt man prototypisch, wie R sich bei “widersinnigen” Benutzereingaben verhält: Anstatt bei formal falschen oder unsinnigen Eingaben wie <strong><code>nchar(15)</code></strong> eine Fehlermeldung auszugeben, wird versucht zu “antizipieren”, was der Benutzer gemeint oder beabsichtigt haben könnte. Bei <strong><code>nchar(15)</code></strong> wird also zunächst der numerische Ausdruck in einen character-Ausdruck umgewandelt und anschließend die Anzahl der Zeichen dieses Ausdrucks ausgegeben. Intern wertet R statt <strong><code>nchar(15)</code></strong> folgenden Ausdruck aus: <strong><code>nchar("15")</code></strong> bzw. <strong><code>nchar(as.character(15))</code></strong>. Ein solches oder ähnliches Verhalten wendet R in unzähligen Fällen an, und daraus ergeben sich zugleich Vor- und Nachteile: es erlaubt dem Anwender, syntaktisch “unsauberen” Code zu verwenden, ohne dass es zu Fehlermeldungen kommt. In der Regel erhält man das gewünschte Ergebnis. Außerdem kann man R-Syntaxen teils sehr sparsam und “schreibfaul” erstellen; <strong><code>nchar(15)</code></strong> ist ja viel kürzer als <strong><code>nchar(as.character(15))</code></strong>. Dass R diese Nachlässigkeiten erlaubt, hat aber auch Nachteile: die syntaktische Logik der R-Sprache ist dadurch weniger transparent, und falls es doch zu Fehlermeldungen kommt, sind diese erstmal weniger verständlich.</p>
-<p>Alternative Möglichkeiten, Vektoren zu erzeugen. Alle Zahlen von 1 bis 20:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span></span></code></pre></div>
-</div>
-<p>Erzeuge eine Zahlenreihe von -2 bis +2 in Intervallen von 0.2:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.2</span>) </span></code></pre></div>
-</div>
-<p>Repliziere die Ziffer 4 dreimal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
-</div>
-<p>Repliziere die Zahlenfolge von 1 bis 4 dreimal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
-</div>
-<p>Repliziere in der Zahlenfolge von 1 bis 4 jede einzelne Ziffer dreimal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">each=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
-</div>
-<p>Repliziere in der Zahlenfolge von 1 bis 4 jede einzelne Ziffer dreimal, und repliziere den egsamten Vektor zweimal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">each=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">times =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)</span></code></pre></div>
-</div>
-<p>Repliziere in der Zahlenfolge von 1 bis 4 die 1 einmal, die 2 zweimal, die 3 dreimal, etc.:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1">a <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>)</span></code></pre></div>
-</div>
-</section>
-<section id="navigation-in-vektoren-subsetting" class="level3">
-<h3 class="anchored" data-anchor-id="navigation-in-vektoren-subsetting">3.2 Navigation in Vektoren (subsetting)</h3>
-<p>Mithilfe eckiger Klammern kann man sich einzelne Elemente eines Vektors anzeigen lassen oder auch verändern.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">b <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>)</span></code></pre></div>
-</div>
-<p>Der gesamte Vektor <strong><code>b</code></strong> besteht aus fünf Zahlen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.000000 1.414214 1.732051 2.000000 2.236068</code></pre>
-</div>
-</div>
-<p>Mit <strong><code>b[2]</code></strong> kann man sich nur das zweite Element des Vektors anzeigen lassen; mit <strong><code>b[2] &lt;- 1000</code></strong> kann man das zweite Element durch die Zahl 1000 ersetzen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1">b[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1000</span></span>
-<span id="cb61-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]    1.000000 1000.000000    1.732051    2.000000    2.236068</code></pre>
-</div>
-</div>
-<p>Mit <strong><code>b[4:5] &lt;- c(400, 500)</code></strong> kann man das vierte und fünfte Element durch die Zahlen 400 und 500 ersetzen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1">b[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">400</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">500</span>)</span>
-<span id="cb63-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]    1.000000 1000.000000    1.732051  400.000000  500.000000</code></pre>
-</div>
-</div>
-<p>Hier ein weiteres Beispiel für ein syntaktisch “fehlerhaftes” Subsetting, das trotzdem funktioniert. Man würde erwarten, dass <strong><code>b[4:5] &lt;- 45</code></strong> eine Fehlermeldung gibt: <em>zwei</em> Elemente in einem Vektor sollen durch <em>eine</em> Zahl ersetzt werden. Die “sauberere” Lösung wäre <strong><code>b[4:5] &lt;- c(45, 45)</code></strong>. Dennoch funktionier auch <strong><code>b[4:5] &lt;- 45</code></strong>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1">b[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">45</span></span>
-<span id="cb65-2">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]    1.000000 1000.000000    1.732051   45.000000   45.000000</code></pre>
-</div>
-</div>
-<p>Weitere “unzulässige” Operationen haben wieder denselben Effekt wie oben beschrieben. Ersetze ich ein Element des numerischen Vektors durch ein character-Element, wird der gesamte Vektor ebenfalls nach character umgewandelt.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1">b[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hallo"</span></span>
-<span id="cb67-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(b)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "character"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1">b</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "hallo"            "1000"             "1.73205080756888" "45"              
-[5] "45"              </code></pre>
-</div>
-</div>
-</section>
-<section id="funktionsliste-i-deskriptive-statistiken-für-numerische-vektoren" class="level3">
-<h3 class="anchored" data-anchor-id="funktionsliste-i-deskriptive-statistiken-für-numerische-vektoren">3.3 Funktionsliste I: Deskriptive Statistiken für numerische Vektoren</h3>
-<p>Alle Funktionen, die sich sinnvoll auf numerische Vektoren anwenden lassen, können hier in ihrer Vollständigkeit nicht aufgeführt werden. Im Folgenden sollen jedoch die gebräuchlichsten und am häufigsten verwendeten aufgelistet werden:</p>
-<ul>
-<li><p><strong><code>sum()</code></strong>. Berechnet die Summe aller Elemente eines Vektors. Nicht definiert für nicht-numerische Vektoren.</p></li>
-<li><p><strong><code>mean()</code></strong>. Arithmetischer Mittelwert aller Elemente eines Vektors. Nicht definiert für nicht-numerische Vektoren.</p></li>
-<li><p><strong><code>sd()</code></strong>. Standardabweichung</p></li>
-<li><p><strong><code>var()</code></strong>. Varianz</p></li>
-<li><p><strong><code>min()</code></strong>. Minimum</p></li>
-<li><p><strong><code>max()</code></strong>. Maximum</p></li>
-<li><p><strong><code>scale()</code></strong>. Funktion zum Zentrieren oder <em>z</em>-Standardisieren. Die Funktion besitzt zusätzliche Argumente, je nachdem ob standardisiert oder nur zentriert werden soll. Für die zusätzlichen Argumente sind Standardeinstellungen (defaults) definiert – also “Voreinstellungen” der Argumente, die benutzt werden, wenn der Anwender die Funktionsargumente selbst nicht explizit definiert. Ein Vektor <strong><code>a &lt;- rnorm(100, mean = 2, sd = 8)</code></strong> mit Mittelwert 2 und Standardabweichung 8 wird mit <strong><code>scale(a, center = TRUE, scale = FALSE)</code></strong> zentriert und mit <strong><code>scale(a, center = TRUE, scale = TRUE)</code></strong> standardisiert. (Bei <strong><code>scale(a, center = FALSE, scale = FALSE)</code></strong> passiert einfach gar nichts; der Vektor wird 1:1 so zurückgegeben, wie er war.)</p></li>
-<li><p><strong><code>table()</code></strong> gibt eine Häufigkeitsverteilung aller Werte eines Vektors. Das ist sowohl für numerische als auch für nicht-numerische Vektoren möglich und für letztere häufig sinnvoller.</p></li>
-<li><p><strong><code>sort()</code></strong>. Elemente auf- oder absteigend sortieren. Geht auch für nicht-numerische Vektoren (bei character-Vektoren wird in diesem Fall sortiert, bei Faktoren nach Ordnung der factor levels). Auch <strong><code>sort()</code></strong> enthält zusätzliche Argumente mit Voreinstellungen, z.B. das Argument <strong><code>decreasing</code></strong>, das angibt, ob auf- oder absteigend sortiert werden soll. Der default ist hier <strong><code>decreasing = FALSE</code></strong>; es wird also standardmäßig aufsteigend sortiert.</p></li>
-<li><p><strong><code>order()</code></strong> funktioniert ähnlich wie <strong><code>sort()</code></strong>, gibt aber anstelle des Vektor-Wertes die Position zurück. Am einfachsten lässt sich das mit einem character-Vektor veranschaulichen – hier erkennt man auch, dass verschiedene R-Funktionen zueinander häufig redundant sind; es gibt verschiedene syntaktische Möglichkeiten, ein und dasselbe Ergebnis zu erhalten. Das macht R zum einen recht flexibel, zum anderen nicht unbedingt übersichtlich.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1">vek <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"oh"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"je"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"mi"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"neh"</span>)</span>
-<span id="cb71-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sort</span>(vek)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "je"  "mi"  "neh" "oh" </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb73" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">order</span>(vek)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 3 4 1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb75" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1">vek[<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">order</span>(vek)]</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "je"  "mi"  "neh" "oh" </code></pre>
-</div>
-</div>
-<ul>
-<li><p><strong><code>rev()</code></strong> kehrt die Reihenfolge der Elemente eines Vektors um</p></li>
-<li><p><strong><code>unique()</code></strong> zeigt die Elemente des Vektors und lässt alle mehrfach vorhandenen Werte aus.</p></li>
-<li><p><strong><code>duplicated()</code></strong> gibt einen logischen Vektor zurück, der für jedes Element anzeigt, ob es einzigartig ist (FALSE) oder mindestens zweimal vorkommt (TRUE)</p></li>
-<li><p><strong><code>which()</code></strong> gibt zurück, an welcher Stelle (oder welchen Stellen) eines Vektors sich ein bestimmtes Element befindet, z.B. <strong><code>which(x == 5)</code></strong>, oder eine bestimmte Bedingung erfüllt ist <strong><code>which(x &gt; 5)</code></strong>, oder <strong><code>which(x != 5)</code></strong></p></li>
-</ul>
-<p>Das sind, wie gesagt, bei weitem nicht alle Funktionen für numerische Vektoren. Wenn man eine bestimmte Operation durchführen möchte und den R-Befehl nicht kennt, hilft es häufig, die gewünschte Operation bei Google mit dem Zusatz “R” oder “R CRAN” einzugeben, vorzugsweise in englisch, z.B. “R sort by more than one variable”.</p>
-</section>
-<section id="funktionsliste-ii-bearbeiten-von-character-vektoren" class="level3">
-<h3 class="anchored" data-anchor-id="funktionsliste-ii-bearbeiten-von-character-vektoren">3.4 Funktionsliste II: Bearbeiten von character-Vektoren</h3>
-<p>Im Anwendungsfall von Large-scale Assessments im Bildungsforschungsbereich kommen character-Vektoren bspw. in Variablen- oder Itemnamen vor. Weniger häufig begegnet man ihnen unter anderem auch in Freitextfeldern in Schülerfragebögen. R bietet zahlreiche Möglichkeiten zur Bearbeitung von character-Vektoren, die auch reguläre Ausdrücke einschließen. Hier sollen nur die wichtigsten anhand prominenter Anwendungsfälle genannt werden. Man könnte sich beispielsweise vorstellen, in einem großen Datensatz mit vielen Variablen bestimmte Spalten oder Variablen identifizieren beziehungsweise verändern zu wollen. Der beispielhaft verwendete Vektor mit Variablennamen sei der folgende:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb77" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1">varnamen <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"idstud"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"idclass"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10101a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10102a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10102b"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10103a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10201a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D10301"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"sex"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15511a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15612a"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15712b"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15712c"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"M15712d"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"hisced"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"parid"</span>)</span></code></pre></div>
-</div>
-<p>Insgesamt gibt es hier nur 14 Variablen – in großen Large-scale Datensätzen hat man es ja zuweilen mit 1000 variablen und mehr zu tun.</p>
-<section id="die-funktion-grep" class="level4">
-<h4 class="anchored" data-anchor-id="die-funktion-grep">Die Funktion <strong><code>grep()</code></strong></h4>
-<p><strong><code>grep()</code></strong> erlaubt, einen character-vektor nach einem bestimmten Muster zu durchsuchen. Zurückgegeben werden alle Positionen, an denen dieses Muster auftritt. Man kann sich das ein bisschen wie die Suchfunktion in Word vorstellen. <strong><code>grep()</code></strong> hat verschiedene Argumente – <strong><code>pattern</code></strong> gibt das Muster an, <em>was</em> gesucht werden soll, <strong><code>x</code></strong> gibt den character-Vektor an, <em>in dem</em> gesucht werden soll, und <strong><code>value</code></strong> gibt als logisches Argument an, ob der Wert selbst oder seine Position zurückgegeben werden soll. Die Flexibilität von <strong><code>grep()</code></strong> rührt unter anderem auch daher, dass man als Suchmuster (<strong><code>pattern</code></strong>) auch reguläre Ausdrücke verwenden kann.</p>
-<ul>
-<li><p><strong><code>grep(pattern="id", x=varnamen)</code></strong> findet die Positionen der Variablennamen, die ein “id” im Variablennamen haben.</p></li>
-<li><p><strong><code>grep(pattern="id", x=varnamen, value=TRUE)</code></strong> zeigt die Variablennamen an, die ein “id” im Variablennamen haben.</p></li>
-<li><p><strong><code>grep(pattern="^id", x=varnamen, value=TRUE)</code></strong> zeigt die Variablennamen an, die mit einem “id” im Variablennamen <em>beginnen</em>. (Der “Haken” vor dem “id” besagt, dass der Variablenname mit “id” beginnen muss)</p></li>
-<li><p>Wenn ich id-Variablen finden will, mit aber nicht sicher bin, ob die in dem Datensatz groß oder klein geschrieben sind, ich aber im Zweifel beide haben will, kann man die “Oder”-verknüpfung nehmen (genaueres im Abschnitt “Logische Operatoren”): <strong><code>grep(pattern="ID|id", x=varnamen, value=TRUE)</code></strong></p></li>
-<li><p>Auch den letzten Befehl kann man “einengen”, dass nur die Variablennamen gesucht werden sollen, die mit einem groß oder kleingeschriebenen “ID” beginnen: <strong><code>grep(pattern="^ID|^id", x=varnamen, value=TRUE)</code></strong></p></li>
-<li><p>Das ist auch sinnvoll, wenn ich beispielsweise alle Variablennamen der Deutsch-Items identifizieren will und weiß, Deutsch-Items beginnen mit einem groß geschriebenen “D”: <strong><code>grep(pattern="^D", x=varnamen, value=TRUE)</code></strong></p></li>
-<li><p>Genauso kann man auch nur die Variablennamen suchen, die mit einem klein geschriebenen “a” <em>aufhören</em>: <strong><code>grep(pattern="a$", x=varnamen, value=TRUE)</code></strong>. Das “$”-Zeichen gibt an, dass nach dem Zeichen “a” der Variablenname zuende sein muss.</p></li>
-<li><p>Möglich (aber etwas komplizierter) sind auch Verknüpfungen der Art: Finde alle Variablennamen, die mit einem “D” beginnen und einem “a” aufhören. Hier handelt es sich um eine logische Verknüpfung zweier Bedingungen – genauer wird darauf im folgenden Abschnitt “Logische Operatoren” eingegangen. In R kann man das auf verschiedenen Wegen realisieren; eine Möglichkeit soll hier kurz demonstriert werden:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb78" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1">beginnt_mit_D <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">grep</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">pattern=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"^D"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>varnamen, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">value=</span><span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span>
-<span id="cb78-2">endet_mit_a   <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">grep</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">pattern=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"a$"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>varnamen, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">value=</span><span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span>
-<span id="cb78-3">beides        <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">intersect</span>(beginnt_mit_D, endet_mit_a)</span>
-<span id="cb78-4">beides</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "D10101a" "D10102a" "D10103a" "D10201a"</code></pre>
-</div>
-</div>
-</section>
-<section id="die-funktionen-gsub-substr-substring-nchar-und-strsplit" class="level4">
-<h4 class="anchored" data-anchor-id="die-funktionen-gsub-substr-substring-nchar-und-strsplit">Die Funktionen <strong><code>gsub()</code></strong>, <strong><code>substr()</code></strong>, <strong><code>substring()</code></strong>, <strong><code>nchar()</code></strong> und <strong><code>strsplit()</code></strong></h4>
-<ul>
-<li><p><strong><code>gsub()</code></strong> erlaubt es, Teile eines character-Vektors zu ersetzen. Sollen bspw. in der Variablenliste alle Namen, die mit “D101” beginnen, durch “D201” ersetzt werden, geht das mit <strong><code>gsub(pattern = "D101", replacement = "D201", x = varnamen)</code></strong>. Hier ist es wichtig, die Stelligkeit zu beachten; <strong><code>gsub(pattern = "D1", replacement = "D2", x = varnamen)</code></strong> würde auch z.B. “D102” durch “D202” ersetzen. Möglich, aber nicht notwendig ist hier auch, die Ersetzung nur durchzuführen, wenn “D101” am Anfang des strings steht: <strong><code>gsub(pattern = "^D101", replacement = "D201", x = varnamen)</code></strong>.</p></li>
-<li><p><strong><code>substr()</code></strong> erlaubt es, bestimmte Teile eines character-Vektors “auszuschneiden”: wenn man bspw. nur die ersten 4 Zeichen ausschneiden will, geht das mit <strong><code>substr(x = varnamen, start = 1, stop = 4)</code></strong>. Zeichenketten mit weniger als 4 Zeichen (hier etwa der Variablenname “sex”) werden dabei so beibehalten, wie sie waren.</p></li>
-<li><p>Möchte man von dem character-Vektor nur am Anfang bspw. das erste Zeichen entfernen und alle anderen beibehalten (egal, wie viele es sind), bietet sich die Funktion <strong><code>substring()</code></strong> an: <strong><code>substring(text = varnamen, first = 2)</code></strong></p></li>
-<li><p><strong><code>nchar()</code></strong> einem für jedes Element die Anzahl von Zeichen (Buchstaben und Ziffern): <strong><code>nchar(varnamen)</code></strong></p></li>
-<li><p><strong><code>strsplit()</code></strong> teilt einen character-Vektor an einem definierten Zeichen</p></li>
-</ul>
-</section>
-<section id="die-funktion-paste" class="level4">
-<h4 class="anchored" data-anchor-id="die-funktion-paste">Die Funktion <strong><code>paste()</code></strong></h4>
-<p>Die Funktion erlaubt es, character-Vektoren aus einzelnen Elementen “zusammenzubauen”. Soll beispielsweise an den Variablennamens-Vektor <strong><code>varnamen</code></strong> das Jahr der Erhebung mit angefügt werden, geht das mit folgendem Ausdruck: <strong><code>paste(varnamen, "2012", sep="_")</code></strong>. An jeden Variablennamen wurde nun die Jahreszahl 2012 angefügt. Der Argument <strong><code>sep</code></strong> gibt dabei das Zeichen an, das als “Trenner” zweischen dem ursprünglichen Ausdruck und dem “Suffix” 2012 verwendet werden soll. <strong><code>paste()</code></strong> ist eine recht mächtige Funktion, so kann man bspw. auch an jeden Variablennamen die laufende Nummer anhängen, die er im character-Vektor einnimmt: <strong><code>paste(varnamen, 1:length(varnamen), sep="_")</code></strong>. Es ist auch möglich, alle Elemente des Vektor zu einem einzigen großen String zusammenzubinden: <strong><code>paste(varnamen, collapse="_")</code></strong>. Die wichtige, aber häufig Verwirrung stiftende Unterscheidung liegt hierbei zwischen den Separationsargumenten <strong><code>sep</code></strong> und <strong><code>collapse</code></strong>. <strong><code>sep</code></strong> definiert das Trennzeichen für die einzelnen Terme; <strong><code>collapse</code></strong> (ggf.) das Trennzeichen, mit dem die Ergebnisse zusammengefügt werden (sofern sie zusammengefügt werden sollen). Die Hilfeseite der <strong><code>paste</code></strong>-Funktion liefert einige anschauliche Beispiele, die die Unterscheidung zwischen beiden verdeutlichen.</p>
-</section>
-<section id="funktionen-aus-eattools" class="level4">
-<h4 class="anchored" data-anchor-id="funktionen-aus-eattools">Funktionen aus <strong><code>eatTools</code></strong></h4>
-<p>Im Laufe der Datenaufbereitungsprozeduren am IQB wurden die obenstehenden Funktionen teils erweitert. Ohne Anspruch auf Vollständigkeit sollen weitere Möglichkeiten der Zeichenkettenmanipulation kurz genannt werden:</p>
-<ul>
-<li><p><strong><code>eatTools::crop()</code></strong> entfernt führende oder abschließende Leerzeichen (bzw. ein frei definiertes Zeichen) aus einem character-Vektor. Das ist bspw. dann sinnvoll, wenn in inakkurat aufbereiteten Datensätzen z.B. anstatt einer <code>1</code> der Wert <code>1</code> (also mit einem unbeabsichtrigten leerzeichen eingetragen wurde. Hier werden (nur der Anschaulichkeit zuliebe) alle führenden und abschließenden “D”s aus den Variablennamen entfernt: <strong><code>eatTools::crop(varnamen, char = "D")</code></strong></p></li>
-<li><p><strong><code>eatTools::removeNumeric()</code></strong> entfernt alle Ziffern aus einem character-Vektor: <strong><code>eatTools::removeNumeric(varnamen)</code></strong></p></li>
-<li><p><strong><code>eatTools::removeNonNumeric()</code></strong> entfernt alle Buchstaben aus einem character-Vektor und lässt nur die Ziffern übrig. Manche Elemente von <strong><code>varnamen</code></strong> sind hinterher leer. <strong><code>eatTools::removeNonNumeric(varnamen)</code></strong></p></li>
-<li><p><strong><code>eatTools::removePattern()</code></strong> entfernt ein bestimmtes Muster aus einem character-Vektor: <strong><code>eatTools::removePattern(string = varnamen, pattern = "id")</code></strong></p></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="logische-operatoren" class="level2">
-<h2 class="anchored" data-anchor-id="logische-operatoren">4. Logische Operatoren</h2>
-<p>Allgemeines zu logischen Operatoren kann man auf der gleichnamigen Wikipediaseite finden: https://de.wikipedia.org/wiki/Logischer_Operator<br>
-Für sämtliche Operatoren gibt es eine Entsprechung in R. Die Syntax ist dabei (weitgehend) äquivalent zu den angegeben Beispielen für C, C++, Java und PHP auf der Wikipediaseite. Der Wahrheitswert, der in R zurückgegeben wird, hat die Klasse <strong><code>logical</code></strong> und kann 2 Werte annehmen: TRUE oder FALSE. Der Wahrheitswert kann wiederum einem Objekt zugewiesen werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb80" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1">istWahr <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span> </span>
-<span id="cb80-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">class</span>(istWahr)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "logical"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb82" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1">istWahr</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-</div>
-<section id="logische-operatoren-ohne-verknüpfung" class="level4">
-<h4 class="anchored" data-anchor-id="logische-operatoren-ohne-verknüpfung">Logische Operatoren ohne Verknüpfung</h4>
-<ul>
-<li><strong>ist größer als</strong>: <code>4 &gt; 3</code></li>
-<li><strong>ist kleiner als</strong>: <code>4 &lt; 3</code></li>
-<li><strong>ist größer oder gleich</strong>: <code>4 &gt;= 3</code></li>
-<li><strong>ist kleiner oder gleich</strong>: <code>4 &lt;= 3</code></li>
-<li><strong>ist gleich</strong>: <code>4 == 3</code></li>
-<li><strong>ist ungleich</strong>: <code>4 != 3</code></li>
-</ul>
-</section>
-<section id="logische-operatoren-mit-verknüpfungen" class="level4">
-<h4 class="anchored" data-anchor-id="logische-operatoren-mit-verknüpfungen">Logische Operatoren mit Verknüpfungen</h4>
-<ul>
-<li><strong>Bedingung a UND Bedingung b sind erfüllt</strong>: <code>4 &gt; 3 &amp; is.numeric(5)</code></li>
-<li><strong>Bedingung a ODER Bedingung b ist erfüllt</strong>: <code>4 &gt; 3 | is.numeric(5)</code></li>
-<li><strong>ENTWEDER Bedingung a ODER Bedingung b ist erfüllt</strong>: <code>xor(4 &gt; 3, is.numeric(5))</code>. Hier wird <code>FALSE</code> zurückgegeben, da <em>beide</em> Bedingungen erfüllt sind, und eben nicht nur entweder a oder b.</li>
-<li><strong>Bedingung b ist nicht erfüllt</strong>: <code>!is.numeric("a")</code>. Hier wird <code>TRUE</code> zurückgegeben, denn es ist ja wahr, dass “a” <em>nicht</em> numerisch ist.</li>
-</ul>
-</section>
-<section id="arbeiten-mit-vektorwertigen-logischen-verknüpfungen" class="level4">
-<h4 class="anchored" data-anchor-id="arbeiten-mit-vektorwertigen-logischen-verknüpfungen">Arbeiten mit vektorwertigen logischen Verknüpfungen</h4>
-<p>In den oberen Beispielen wurden logische Abfragen immer nur für ein Objekt der Länge 1 durchgeführt. Man kann diese Funktionen aber auch auf Vektoren anwenden. Dazu folgendes hypothetisches Beispiel: ein großer Datensatz mit vielen Variablen soll in Mplus ausgewertet werden. In Mplus dürfen Variablennamen jedoch nur maximal 6 Zeichen haben. Gibt es also in dem Variablennamens-Vektor <strong><code>varnamen</code></strong> Variablennamen mit unerlaubter Länge? Um das zu prüfen, geht man in mehreren Schritten vor:</p>
-<ol type="1">
-<li>Zeige für jedes Element im Variablennamens-Vektor die Anzahl von Buchstaben an.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb84" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1">anzahl <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">nchar</span>(varnamen)</span></code></pre></div>
-</div>
-<ol start="2" type="1">
-<li>Prüfe, für welche Variablennamen die zulässige Zeichenanzahl überschritten ist. Dazu wird ein logischer Vektor erzeugt, der den Wert <strong><code>TRUE</code></strong> annimmt, wenn die Zeichenanzahl maximal 6 beträgt, andernfalls <strong><code>FALSE</code></strong>.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb85" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1">erlaubt <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anzahl <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span></span>
-<span id="cb85-2">erlaubt</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
-[13] FALSE FALSE  TRUE  TRUE</code></pre>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Nun wird geprüft, ob diese Bedingung für alle Variablennamen erfüllt ist. Dazu können die Funktionen <strong><code>all()</code></strong> oder <strong><code>any()</code></strong> benutzt werden. <strong><code>all()</code></strong> fragt: Haben alle Elemente des Vektors <strong><code>erlaubt</code></strong> den Wahrheitswert <strong><code>TRUE</code></strong>? <strong><code>any()</code></strong> fragt: Gibt es irgendein Element in dem Vektors <strong><code>erlaubt</code></strong>, das den Wahrheitswert <strong><code>FALSE</code></strong> hat?</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb87" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">all</span>(erlaubt)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb89" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(erlaubt <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Ja, einige Variablennamen haben eine größere Zeichenanzahl als 6. Man kann die Variablennamen auf die ersten 6 Zeichen reduzieren:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb91" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1">varnamen_neu <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">substr</span>(varnamen, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>)</span></code></pre></div>
-</div>
-<ol start="4" type="1">
-<li>Variablennamen müssen jedoch stets einzigartig (unique) sein. Ist das jetzt noch der Fall? Dazu verwendet man die oben beschriebene Funktion <strong><code>duplicated()</code></strong> in Verbindung mit <strong><code>any</code></strong>:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb92" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">duplicated</span>(varnamen_neu))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<p>Der Wahrheitswert ist <strong><code>TRUE</code></strong>, es gibt also mindestens zwei Variablennamen, die jetzt identisch sind. An dieser Stelle könnte es passieren, dass man erstmal nicht weiter weiß. Eine Möglichkeit wäre, zu googlen: “r make unique”. So findet man eine Funktion namens <strong><code>make.unique</code></strong>, die es erlaubt, duplizierte Werte in character-Vektoren zu ersetzen, so dass sie einzigartig werden. Unglücklicherweise werden dadurch die Variablennamen wieder länger, als sie sein dürfen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb94" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1">varnamen_neu2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">make.unique</span>(varnamen_neu)</span>
-<span id="cb94-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">nchar</span>(varnamen_neu2)<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<p>Tatsächlich gibt es für dieses Problem also keine einfache, “triviale” Lösung. Man könnte entweder vollständig willkürliche Namen vergeben, die dann aber keine Rückschlüsse auf die ursprüngliche Variablenbedeutung mehr zulassen, oder man experimentiert, beruhend auf folgenden Überlegungen: <strong><code>make.unique</code></strong> fügt an nicht-unique Variablennamen einen Punkt und eine laufende Nummer an, also zwei zusätzliche Zeichen. Also dürfte man nur die ersten 4 Zeichen der Variablennamen beibehalten:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb96" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1">varnamen_neu3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">make.unique</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">substr</span>(varnamen, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>))</span>
-<span id="cb96-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">nchar</span>(varnamen_neu3)<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb98" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">duplicated</span>(varnamen_neu3))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb100" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1">varnamen_neu3</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "idst"   "idcl"   "D101"   "D101.1" "D101.2" "D101.3" "D102"   "D103"  
- [9] "sex"    "M155"   "M156"   "M157"   "M157.1" "M157.2" "hisc"   "pari"  </code></pre>
-</div>
-</div>
-<p>Hundertprotentig schön ist auch diese Variante nicht, weil nun auch von bereits einzigartigen Variablennamen nur die ersten vier Zeichen übrig behalten worden sind, obwohl es hier ja hätten sechs sein dürfen. Sofern eine solche Operation im Arbeitsalltag also häufiger gebraucht wird, wäre es günstig, sich dafür eine eigene Funktion zu schreiben, um diese Prozesse weniger umständlich zu gestalten. Dazu aber an anderer Stelle mehr.</p>
-</section>
-</section>
-<section id="fehlende-werte-missing-values" class="level2">
-<h2 class="anchored" data-anchor-id="fehlende-werte-missing-values">5. Fehlende Werte (missing values)</h2>
-<p>Fehlende Werte werden in R mit <strong><code>NA</code></strong> (not available) gekennzeichnet. Im Folgenden geht es nicht darum, wie in statistischen Analysen mit fehlenden Werten umgegangen werden kann, sondern wie man sie in R technisch behandelt. Dazu soll beispielhaft ein numerischer Vektor betrachtet werden, der fehlende Werte enthält:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb102" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1">numvek <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span>
-<span id="cb102-2">numvek[<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">19</span>)] <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NA</span></span></code></pre></div>
-</div>
-<section id="die-häufigsten-im-zusammenhang-mit-fehlenden-werten-gebräuchlichen-funktionen-sind" class="level4">
-<h4 class="anchored" data-anchor-id="die-häufigsten-im-zusammenhang-mit-fehlenden-werten-gebräuchlichen-funktionen-sind">Die häufigsten im Zusammenhang mit fehlenden Werten gebräuchlichen Funktionen sind:</h4>
-<ul>
-<li><p><strong><code>is.na()</code></strong> gibt einen Vektor der Klasse <strong><code>logical</code></strong> zurück, dessen Wert <strong><code>TRUE</code></strong> ist, wenn es sich um einen fehlenden Wert handelt: <strong><code>is.na(numvek)</code></strong>. Wenn man lediglich wissen, ob es überhaupt irgendwelche fehlenden Werte gibt, kann man das mit <strong><code>any()</code></strong> verbinden: <strong><code>any(is.na(numvek))</code></strong>. Wenn man wissen will, an welcher Stelle die fehlenden Werte stehen, geht <strong><code>which(is.na(numvek))</code></strong></p></li>
-<li><p><strong>Achtung!</strong> Anders als man vielleicht vermuten würde, funktioniert <strong><code>which(numvek == NA)</code></strong> nicht!</p></li>
-<li><p>Wenn ich nur die beobachteten Werte aus <strong><code>numvek</code></strong> extrahieren möchte, also alles ausschließen, was <strong><code>NA</code></strong> ist, geht das mit <strong><code>na.omit(numvek)</code></strong>. Dieser Vektor ist mit nur noch 16 Elementen folglich kürzer als der ursprüngliche mit 20 Elementen: <strong><code>length(na.omit(numvek))</code></strong></p></li>
-<li><p>Möchte man sich beispielsweise den Mittelwert eines Vektors anzeigen lassen, der fehlende Werte enthält, ist das Ergebnis ebenfalls <strong><code>NA</code></strong>: <strong><code>mean(numvek)</code></strong>. Meist will man jedoch einfach das arithmetisches Mittel aller <em>beobachteten</em> Werte. Dazu könnte man einfach den Mittelwert unter Ausschluss der fehlenden Werte bestimmen: <strong><code>mean(na.omit(numvek))</code></strong>. Das ist dasselbe, wie wenn man in der Funktion <strong><code>mean()</code></strong> mit einem zusätzlichen Argument definiert, dass fehlende Werte vor der Berechnung ausgeschlossen werden sollen: <strong><code>mean(numvek, na.rm = TRUE)</code></strong>. Man sieht wieder, dass verschiedene syntaktische Umsetzungen zu dem gewünschten Ergebnis führen können. Das logische Argument <strong><code>na.rm</code></strong> ist für viele Funktionen definiert, so etwa <strong><code>var()</code></strong>, <strong><code>sd()</code></strong>, <strong><code>lm()</code></strong>, <strong><code>glm()</code></strong>, etc.</p></li>
-</ul>
-</section>
-<section id="fehlende-werte-in-character-vektoren" class="level4">
-<h4 class="anchored" data-anchor-id="fehlende-werte-in-character-vektoren">Fehlende Werte in character-Vektoren</h4>
-<p>Hier gilt im Grunde dasselbe wie für numerische Vektoren. Auf ein paar Fallstricke soll hingewiesen werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb103" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1">charvek <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"France"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Belgium"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Poland"</span>, <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NA</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Denmark"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"NA"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Austria"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>)</span>
-<span id="cb103-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">which</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">is.na</span>(charvek))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
-<p>Auch in character-Vektoren müssen fehlende Werte <em>ohne</em> hochgestellte Anführungszeichen eingetragen werden; der sechste Wert <strong><code>"NA"</code></strong> wird nicht als fehlender Wert verstanden. Ebensowenig der achte Wert, der einfach ein leerer String ist. Letzteres ist insofern relevant, dass, wenn man etwa csv-Dateien mit R einliest, leere Zellen manchmal als leere Strings eingelesen werden, obwohl man sie eigentlich wie fehlende Werte behandelt wissen will. Um das <strong><code>"NA"</code></strong> und den leeren String in einen wirklichen fehlenden Wert umzuwandeln, kann beispielsweise die <strong><code>recode()</code></strong>-Funktion aus dem Paket <strong><code>car</code></strong> verwendet werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb105" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1">charvek_neu <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> car<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">recode</span>(charvek, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"'NA'=NA; ''=NA"</span>)</span>
-<span id="cb105-2">charvek_neu</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "France"  "Belgium" "Poland"  NA        "Denmark" NA        "Austria"
-[8] NA       </code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="gut-zu-wissen" class="level2">
-<h2 class="anchored" data-anchor-id="gut-zu-wissen">6. Gut zu wissen</h2>
-<p>Den Überblick über die vorhandenen Funktionen und Pakete zu behalten, ist nahezu unmöglich; allein auf CRAN gibt es tausende von R-Paketen. Aus unserer subjektiven Sicht sollen daher die wichtigsten Funktionen, die sich im Laufe des IQB-Lebens als unverzichtbar herausgestellt haben, hier kurz ohne Anspruch auf Vollständigkeit aufgelistet werden. Wo nötig, werden Links für weiterführende Literatur angegeben:</p>
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@vantaymedia?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Van Tay Media</a> on <a href="https://unsplash.com/de/fotos/frauen-die-laptops-benutzen-9buwiennNqg">Unsplash</a>.↩︎</p></li>
-</ol>
-</section></div> ]]></description>
-  <category>R</category>
-  <category>tutorial</category>
-  <category>intro</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</guid>
-  <pubDate>Thu, 30 Jan 2025 19:10:25 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
   <title>Data Frames, Listen und Grafiken in R</title>
   <dc:creator>Karoline Sachse, Sebastian Weirich und Benjamin Becker</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws2.html</link>
@@ -4872,8 +3743,21 @@ font-style: inherit;">"Eine Verteilung"</span>)</span></code></pre></div>
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws2.html</guid>
-  <pubDate>Thu, 30 Jan 2025 19:10:25 GMT</pubDate>
+  <pubDate>Thu, 06 Feb 2025 12:55:15 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>github</category>
+  <category>tutorial</category>
+  <category>slides</category>
+  <category>intro</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</guid>
+  <pubDate>Thu, 06 Feb 2025 12:55:15 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Pakete(-Installation), Workspace, Daten laden und speichern in R</title>
@@ -5324,21 +4208,1150 @@ font-style: inherit;">"Material_WSIII/mtcars.dat"</span>)</span></code></pre></d
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws3.html</guid>
-  <pubDate>Thu, 30 Jan 2025 19:10:25 GMT</pubDate>
+  <pubDate>Thu, 06 Feb 2025 12:55:15 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>R Workshop Einführung</title>
+  <dc:creator>Sebastian Weirich, Karoline Sachse und Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="einleitung" class="level2">
+<h2 class="anchored" data-anchor-id="einleitung">1. Einleitung</h2>
+<p>R ist eine Programmiersprache für <strong>Datenmanipulation</strong>, <strong>statistische Datenanalyse</strong> und <strong>grafische Darstellung</strong> von Daten (Yanada, 2018).</p>
+<p><strong>Datenmanipulation:</strong></p>
+<ul>
+<li>Import und Export: Einlesen und Schreiben von SPSS-, Excel-, ASCII- oder trennzeichenbasierten Dateien</li>
+<li>Kopieren, verschieben, löschen, packen und entpacken von Dateien und Verzeichnissen</li>
+<li>Variablen- und Fallselektion, Rekodieren/Aggregieren von Variablen</li>
+<li>Umstrukturieren von Datensätzen (long/wide)</li>
+<li>Manipulation von Zeichenketten (Verknüpfen, extrahieren, ersetzen, z.B. auch mithilfe regulärer Ausdrücke: sehr mächtig, aber zuweilen kompliziert)</li>
+</ul>
+<p><strong>statistische Datenanalyse:</strong></p>
+<ul>
+<li>lineare und nichtlineare Regression</li>
+<li>Varianzanalyse</li>
+<li>Strukturgleichungsmodelle</li>
+<li>Mehrebenenanalyse</li>
+<li>Multiple Imputation</li>
+<li>Item-Response-Modelle</li>
+<li>decision trees</li>
+<li>mixed models, u.v.m.</li>
+</ul>
+<p><strong>grafische Darstellung von Daten:</strong></p>
+<ul>
+<li>Boxplots</li>
+<li>Histogramme</li>
+<li>Heat Maps</li>
+</ul>
+</section>
+<section id="r-als-taschenrechner" class="level2">
+<h2 class="anchored" data-anchor-id="r-als-taschenrechner">2. R als Taschenrechner</h2>
+<p>In der R Konsole kann man (mathematische) Funktionen eingeben und sie evaluieren lassen. Im einfachsten Fall funktioniert das wie ein Taschenrechner.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p>Das Dezimaltrennzeichen in R ist ein Punkt, kein Komma.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.25</code></pre>
+</div>
+</div>
+<p>Exponentialschreibweise:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+<p>Obwohl es nicht so aussieht, werden bei diesen Operationen im Hintergrund Funktionen ausgeführt. So kann man sich beispielsweise die Wurzel aus 2 einfach in Exponentialschreibweise oder mithilfe der Wurzelfunktion ausgeben lassen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.414214</code></pre>
+</div>
+</div>
+<p>Wurzelfunktion:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.414214</code></pre>
+</div>
+</div>
+<p>Allgemein gilt auch in R: “Punktrechnung vor Strichrechnung”:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+</section>
+<section id="grundlagen" class="level2">
+<h2 class="anchored" data-anchor-id="grundlagen">3. Grundlagen</h2>
+<p>R ist zugleich eine Sprache und eine Umgebung für statistische Datenbearbeitung. R ist objektbasiert. Alles in R ist ein Objekt: Zahlen, Vektoren, Matrizen, Funktionen. Das grundlegende Funktionsprinzip ist dabei: “Definiere ein Objekt und weise ihm einen Wert zu.” Im einfachsten Fall wird im folgenden Beispiel das Objekt <strong><code>b</code></strong> erzeugt und ihm der Wert 2 zugewiesen. Um sich den Wert von <strong><code>b</code></strong> anzeigen zu lassen, kann man <strong><code>b</code></strong> einfach in die Konsole tippen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb17-2">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p><code>b</code>** ist nun intern gespeichert und kann ebenfalls für Zuweisungen benutzt werden. Hier wird ein neues Objekt <strong><code>d</code></strong> erzeugt und ihm als Wert die Quadratwurzel von <strong><code>b</code></strong> zugewiesen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(b)</span></code></pre></div>
+</div>
+<p>Möglich ist es auch, <strong><code>b</code></strong> wieder mit einem anderen Wert zu überschreiben:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> b</span>
+<span id="cb20-2">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 200</code></pre>
+</div>
+</div>
+<p>Mit dem Befehl <strong><code>class</code></strong> kann man sich die Klasse von <strong><code>b</code></strong> anzeigen lassen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(b)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>Die wichtigsten Klassen für skalare Objekt (also solche, die nur aus einem einzigen Element bestehen), sind</p>
+<ul>
+<li><strong><code>numeric</code></strong>: reelle Ziffer oder Zahlen</li>
+<li><strong><code>character</code></strong>: Zeichenkette</li>
+<li><strong><code>logical</code></strong>: logischer Wert, der nur zwei Zustände annehmen kann, <strong><code>TRUE</code></strong> oder <strong><code>FALSE</code></strong></li>
+</ul>
+<p>Im folgenden verschiedene Beispiele für character- bzw. logische Zuweisungen, hier jeweils wiederum nur für die Länge 1. Zuweisungen der Klasse character erfolgen mit hochgestellten Anführungszeichen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hallo"</span></span>
+<span id="cb24-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(d)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(d)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>Wenn einem Objekt die Zahl 220 in hochgestellten Anführungszeichen zugewiesen wird, wird der Wert nicht als numerisch, sondern als character behandelt:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">e <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"220"</span></span>
+<span id="cb28-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(e)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>Wenn einem Objekt der Austruck TRUE in hochgestellten Anführungszeichen zugewiesen wird, wird der Wert nicht als logical, sondern als character behandelt:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">f <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span></span>
+<span id="cb30-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(f)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1">g <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"TRUE"</span></span>
+<span id="cb32-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(g)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<section id="vektoren" class="level3">
+<h3 class="anchored" data-anchor-id="vektoren">3.1 Vektoren</h3>
+<p>Vektoren sind definiert als eine Reihe von Elementen <em>derselben</em> Klasse. Sie können unter anderem mit der Funktion <strong><code>c()</code></strong> erzeugt werden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">89</span>)</span>
+<span id="cb34-2">b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gut"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"schlecht"</span>)</span>
+<span id="cb34-3">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div>
+</div>
+<p>Ähnlich wie in den vorher aufgeführten Beispielen kann man sich mit verschiedenen Befehlen verschiedene Eigenschaften dieser Vektoren zeigen lassen, etwa ihre Länge (= die Anzahl ihrer Elemente) mit <strong><code>length()</code></strong>, oder ihre Klasse mit <strong><code>class()</code></strong>. Bestimmte Funktionen wiederum kann man sinnvoll nur für numerische Vektoren anweden (z.B. <strong><code>sum()</code></strong>, <strong><code>mean()</code></strong>, <strong><code>min()</code></strong>, <strong><code>max()</code></strong> etc. Andere wiederum sind nur für Vektoren der Klasse character sinnvoll, etwa <strong><code>nchar()</code></strong>, das einem die Anzahl der Zeichen einer Zeichenkette gibt. Ganz allgemein gilt: Funktionen, die man auf Skalare anwenden kann, kann man in der Regel auch auf Vektoren anwenden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">skalar <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb35-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(skalar)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.414214</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">vektor <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">89</span>)</span>
+<span id="cb37-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(vektor)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.000000 2.000000 1.414214 1.414214 9.433981</code></pre>
+</div>
+</div>
+<p>Die Funktion <strong><code>sqrt</code></strong> gibt dabei genauso viele Elemente zurück, wie der Vektor besitzt, den man der Funktion übergeben hat. Das ist nicht bei allen Funktionen so; die <strong><code>mean</code></strong>-Funktion gibt (sinnvollerweise) immer nur ein Element zurück.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">skalar <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb39-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(skalar)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">vektor <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">89</span>)</span>
+<span id="cb41-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(vektor)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.6</code></pre>
+</div>
+</div>
+<p>Was passiert, wenn man Vektoren “unzulässig” definiert, also beispielsweise die Regel, dass alle Elemente dieselbe Klasse haben müssen, missachtet? Vektoren werden in die “kleinste gemeinsame Klasse” umgewandelt. Es gibt hier keine Warnmeldung, und manchmal führt das zu unerwünschten Nebenwirkungen. Zuerst betrachten wir einen Vektor, der aus Elementen der Klasse numeric, character und logical besteht:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hallo"</span>,<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11</span>,<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span>
+<span id="cb43-2">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1"     "6"     "hallo" "TRUE"  "11"    "FALSE"</code></pre>
+</div>
+</div>
+<p>Der gesamte Vektor wird als character definiert:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(b)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>Besteht der Vektor nur aus Elementen der Klassen numeric und logical, wird der Vektor als numeric definiert:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1">b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11</span>,<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span>
+<span id="cb47-2">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  6  1 11  0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(b)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>An diesen Bespielen erkennt man prototypisch, wie R sich bei “widersinnigen” Benutzereingaben verhält: Anstatt bei formal falschen oder unsinnigen Eingaben wie <strong><code>nchar(15)</code></strong> eine Fehlermeldung auszugeben, wird versucht zu “antizipieren”, was der Benutzer gemeint oder beabsichtigt haben könnte. Bei <strong><code>nchar(15)</code></strong> wird also zunächst der numerische Ausdruck in einen character-Ausdruck umgewandelt und anschließend die Anzahl der Zeichen dieses Ausdrucks ausgegeben. Intern wertet R statt <strong><code>nchar(15)</code></strong> folgenden Ausdruck aus: <strong><code>nchar("15")</code></strong> bzw. <strong><code>nchar(as.character(15))</code></strong>. Ein solches oder ähnliches Verhalten wendet R in unzähligen Fällen an, und daraus ergeben sich zugleich Vor- und Nachteile: es erlaubt dem Anwender, syntaktisch “unsauberen” Code zu verwenden, ohne dass es zu Fehlermeldungen kommt. In der Regel erhält man das gewünschte Ergebnis. Außerdem kann man R-Syntaxen teils sehr sparsam und “schreibfaul” erstellen; <strong><code>nchar(15)</code></strong> ist ja viel kürzer als <strong><code>nchar(as.character(15))</code></strong>. Dass R diese Nachlässigkeiten erlaubt, hat aber auch Nachteile: die syntaktische Logik der R-Sprache ist dadurch weniger transparent, und falls es doch zu Fehlermeldungen kommt, sind diese erstmal weniger verständlich.</p>
+<p>Alternative Möglichkeiten, Vektoren zu erzeugen. Alle Zahlen von 1 bis 20:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span></span></code></pre></div>
+</div>
+<p>Erzeuge eine Zahlenreihe von -2 bis +2 in Intervallen von 0.2:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>) </span></code></pre></div>
+</div>
+<p>Repliziere die Ziffer 4 dreimal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span></code></pre></div>
+</div>
+<p>Repliziere die Zahlenfolge von 1 bis 4 dreimal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span></code></pre></div>
+</div>
+<p>Repliziere in der Zahlenfolge von 1 bis 4 jede einzelne Ziffer dreimal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span></code></pre></div>
+</div>
+<p>Repliziere in der Zahlenfolge von 1 bis 4 jede einzelne Ziffer dreimal, und repliziere den egsamten Vektor zweimal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">times =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+</div>
+<p>Repliziere in der Zahlenfolge von 1 bis 4 die 1 einmal, die 2 zweimal, die 3 dreimal, etc.:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1">a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="navigation-in-vektoren-subsetting" class="level3">
+<h3 class="anchored" data-anchor-id="navigation-in-vektoren-subsetting">3.2 Navigation in Vektoren (subsetting)</h3>
+<p>Mithilfe eckiger Klammern kann man sich einzelne Elemente eines Vektors anzeigen lassen oder auch verändern.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span></code></pre></div>
+</div>
+<p>Der gesamte Vektor <strong><code>b</code></strong> besteht aus fünf Zahlen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.000000 1.414214 1.732051 2.000000 2.236068</code></pre>
+</div>
+</div>
+<p>Mit <strong><code>b[2]</code></strong> kann man sich nur das zweite Element des Vektors anzeigen lassen; mit <strong><code>b[2] &lt;- 1000</code></strong> kann man das zweite Element durch die Zahl 1000 ersetzen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1">b[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span></span>
+<span id="cb61-2">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]    1.000000 1000.000000    1.732051    2.000000    2.236068</code></pre>
+</div>
+</div>
+<p>Mit <strong><code>b[4:5] &lt;- c(400, 500)</code></strong> kann man das vierte und fünfte Element durch die Zahlen 400 und 500 ersetzen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1">b[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">400</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500</span>)</span>
+<span id="cb63-2">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]    1.000000 1000.000000    1.732051  400.000000  500.000000</code></pre>
+</div>
+</div>
+<p>Hier ein weiteres Beispiel für ein syntaktisch “fehlerhaftes” Subsetting, das trotzdem funktioniert. Man würde erwarten, dass <strong><code>b[4:5] &lt;- 45</code></strong> eine Fehlermeldung gibt: <em>zwei</em> Elemente in einem Vektor sollen durch <em>eine</em> Zahl ersetzt werden. Die “sauberere” Lösung wäre <strong><code>b[4:5] &lt;- c(45, 45)</code></strong>. Dennoch funktionier auch <strong><code>b[4:5] &lt;- 45</code></strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1">b[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span></span>
+<span id="cb65-2">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]    1.000000 1000.000000    1.732051   45.000000   45.000000</code></pre>
+</div>
+</div>
+<p>Weitere “unzulässige” Operationen haben wieder denselben Effekt wie oben beschrieben. Ersetze ich ein Element des numerischen Vektors durch ein character-Element, wird der gesamte Vektor ebenfalls nach character umgewandelt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1">b[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hallo"</span></span>
+<span id="cb67-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(b)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1">b</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hallo"            "1000"             "1.73205080756888" "45"              
+[5] "45"              </code></pre>
+</div>
+</div>
+</section>
+<section id="funktionsliste-i-deskriptive-statistiken-für-numerische-vektoren" class="level3">
+<h3 class="anchored" data-anchor-id="funktionsliste-i-deskriptive-statistiken-für-numerische-vektoren">3.3 Funktionsliste I: Deskriptive Statistiken für numerische Vektoren</h3>
+<p>Alle Funktionen, die sich sinnvoll auf numerische Vektoren anwenden lassen, können hier in ihrer Vollständigkeit nicht aufgeführt werden. Im Folgenden sollen jedoch die gebräuchlichsten und am häufigsten verwendeten aufgelistet werden:</p>
+<ul>
+<li><p><strong><code>sum()</code></strong>. Berechnet die Summe aller Elemente eines Vektors. Nicht definiert für nicht-numerische Vektoren.</p></li>
+<li><p><strong><code>mean()</code></strong>. Arithmetischer Mittelwert aller Elemente eines Vektors. Nicht definiert für nicht-numerische Vektoren.</p></li>
+<li><p><strong><code>sd()</code></strong>. Standardabweichung</p></li>
+<li><p><strong><code>var()</code></strong>. Varianz</p></li>
+<li><p><strong><code>min()</code></strong>. Minimum</p></li>
+<li><p><strong><code>max()</code></strong>. Maximum</p></li>
+<li><p><strong><code>scale()</code></strong>. Funktion zum Zentrieren oder <em>z</em>-Standardisieren. Die Funktion besitzt zusätzliche Argumente, je nachdem ob standardisiert oder nur zentriert werden soll. Für die zusätzlichen Argumente sind Standardeinstellungen (defaults) definiert – also “Voreinstellungen” der Argumente, die benutzt werden, wenn der Anwender die Funktionsargumente selbst nicht explizit definiert. Ein Vektor <strong><code>a &lt;- rnorm(100, mean = 2, sd = 8)</code></strong> mit Mittelwert 2 und Standardabweichung 8 wird mit <strong><code>scale(a, center = TRUE, scale = FALSE)</code></strong> zentriert und mit <strong><code>scale(a, center = TRUE, scale = TRUE)</code></strong> standardisiert. (Bei <strong><code>scale(a, center = FALSE, scale = FALSE)</code></strong> passiert einfach gar nichts; der Vektor wird 1:1 so zurückgegeben, wie er war.)</p></li>
+<li><p><strong><code>table()</code></strong> gibt eine Häufigkeitsverteilung aller Werte eines Vektors. Das ist sowohl für numerische als auch für nicht-numerische Vektoren möglich und für letztere häufig sinnvoller.</p></li>
+<li><p><strong><code>sort()</code></strong>. Elemente auf- oder absteigend sortieren. Geht auch für nicht-numerische Vektoren (bei character-Vektoren wird in diesem Fall sortiert, bei Faktoren nach Ordnung der factor levels). Auch <strong><code>sort()</code></strong> enthält zusätzliche Argumente mit Voreinstellungen, z.B. das Argument <strong><code>decreasing</code></strong>, das angibt, ob auf- oder absteigend sortiert werden soll. Der default ist hier <strong><code>decreasing = FALSE</code></strong>; es wird also standardmäßig aufsteigend sortiert.</p></li>
+<li><p><strong><code>order()</code></strong> funktioniert ähnlich wie <strong><code>sort()</code></strong>, gibt aber anstelle des Vektor-Wertes die Position zurück. Am einfachsten lässt sich das mit einem character-Vektor veranschaulichen – hier erkennt man auch, dass verschiedene R-Funktionen zueinander häufig redundant sind; es gibt verschiedene syntaktische Möglichkeiten, ein und dasselbe Ergebnis zu erhalten. Das macht R zum einen recht flexibel, zum anderen nicht unbedingt übersichtlich.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1">vek <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"oh"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"je"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mi"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"neh"</span>)</span>
+<span id="cb71-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span>(vek)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "je"  "mi"  "neh" "oh" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">order</span>(vek)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 3 4 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1">vek[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">order</span>(vek)]</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "je"  "mi"  "neh" "oh" </code></pre>
+</div>
+</div>
+<ul>
+<li><p><strong><code>rev()</code></strong> kehrt die Reihenfolge der Elemente eines Vektors um</p></li>
+<li><p><strong><code>unique()</code></strong> zeigt die Elemente des Vektors und lässt alle mehrfach vorhandenen Werte aus.</p></li>
+<li><p><strong><code>duplicated()</code></strong> gibt einen logischen Vektor zurück, der für jedes Element anzeigt, ob es einzigartig ist (FALSE) oder mindestens zweimal vorkommt (TRUE)</p></li>
+<li><p><strong><code>which()</code></strong> gibt zurück, an welcher Stelle (oder welchen Stellen) eines Vektors sich ein bestimmtes Element befindet, z.B. <strong><code>which(x == 5)</code></strong>, oder eine bestimmte Bedingung erfüllt ist <strong><code>which(x &gt; 5)</code></strong>, oder <strong><code>which(x != 5)</code></strong></p></li>
+</ul>
+<p>Das sind, wie gesagt, bei weitem nicht alle Funktionen für numerische Vektoren. Wenn man eine bestimmte Operation durchführen möchte und den R-Befehl nicht kennt, hilft es häufig, die gewünschte Operation bei Google mit dem Zusatz “R” oder “R CRAN” einzugeben, vorzugsweise in englisch, z.B. “R sort by more than one variable”.</p>
+</section>
+<section id="funktionsliste-ii-bearbeiten-von-character-vektoren" class="level3">
+<h3 class="anchored" data-anchor-id="funktionsliste-ii-bearbeiten-von-character-vektoren">3.4 Funktionsliste II: Bearbeiten von character-Vektoren</h3>
+<p>Im Anwendungsfall von Large-scale Assessments im Bildungsforschungsbereich kommen character-Vektoren bspw. in Variablen- oder Itemnamen vor. Weniger häufig begegnet man ihnen unter anderem auch in Freitextfeldern in Schülerfragebögen. R bietet zahlreiche Möglichkeiten zur Bearbeitung von character-Vektoren, die auch reguläre Ausdrücke einschließen. Hier sollen nur die wichtigsten anhand prominenter Anwendungsfälle genannt werden. Man könnte sich beispielsweise vorstellen, in einem großen Datensatz mit vielen Variablen bestimmte Spalten oder Variablen identifizieren beziehungsweise verändern zu wollen. Der beispielhaft verwendete Vektor mit Variablennamen sei der folgende:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1">varnamen <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"idstud"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"idclass"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D10101a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D10102a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D10102b"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D10103a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D10201a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D10301"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sex"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M15511a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M15612a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M15712b"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M15712c"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"M15712d"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hisced"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"parid"</span>)</span></code></pre></div>
+</div>
+<p>Insgesamt gibt es hier nur 14 Variablen – in großen Large-scale Datensätzen hat man es ja zuweilen mit 1000 variablen und mehr zu tun.</p>
+<section id="die-funktion-grep" class="level4">
+<h4 class="anchored" data-anchor-id="die-funktion-grep">Die Funktion <strong><code>grep()</code></strong></h4>
+<p><strong><code>grep()</code></strong> erlaubt, einen character-vektor nach einem bestimmten Muster zu durchsuchen. Zurückgegeben werden alle Positionen, an denen dieses Muster auftritt. Man kann sich das ein bisschen wie die Suchfunktion in Word vorstellen. <strong><code>grep()</code></strong> hat verschiedene Argumente – <strong><code>pattern</code></strong> gibt das Muster an, <em>was</em> gesucht werden soll, <strong><code>x</code></strong> gibt den character-Vektor an, <em>in dem</em> gesucht werden soll, und <strong><code>value</code></strong> gibt als logisches Argument an, ob der Wert selbst oder seine Position zurückgegeben werden soll. Die Flexibilität von <strong><code>grep()</code></strong> rührt unter anderem auch daher, dass man als Suchmuster (<strong><code>pattern</code></strong>) auch reguläre Ausdrücke verwenden kann.</p>
+<ul>
+<li><p><strong><code>grep(pattern="id", x=varnamen)</code></strong> findet die Positionen der Variablennamen, die ein “id” im Variablennamen haben.</p></li>
+<li><p><strong><code>grep(pattern="id", x=varnamen, value=TRUE)</code></strong> zeigt die Variablennamen an, die ein “id” im Variablennamen haben.</p></li>
+<li><p><strong><code>grep(pattern="^id", x=varnamen, value=TRUE)</code></strong> zeigt die Variablennamen an, die mit einem “id” im Variablennamen <em>beginnen</em>. (Der “Haken” vor dem “id” besagt, dass der Variablenname mit “id” beginnen muss)</p></li>
+<li><p>Wenn ich id-Variablen finden will, mit aber nicht sicher bin, ob die in dem Datensatz groß oder klein geschrieben sind, ich aber im Zweifel beide haben will, kann man die “Oder”-verknüpfung nehmen (genaueres im Abschnitt “Logische Operatoren”): <strong><code>grep(pattern="ID|id", x=varnamen, value=TRUE)</code></strong></p></li>
+<li><p>Auch den letzten Befehl kann man “einengen”, dass nur die Variablennamen gesucht werden sollen, die mit einem groß oder kleingeschriebenen “ID” beginnen: <strong><code>grep(pattern="^ID|^id", x=varnamen, value=TRUE)</code></strong></p></li>
+<li><p>Das ist auch sinnvoll, wenn ich beispielsweise alle Variablennamen der Deutsch-Items identifizieren will und weiß, Deutsch-Items beginnen mit einem groß geschriebenen “D”: <strong><code>grep(pattern="^D", x=varnamen, value=TRUE)</code></strong></p></li>
+<li><p>Genauso kann man auch nur die Variablennamen suchen, die mit einem klein geschriebenen “a” <em>aufhören</em>: <strong><code>grep(pattern="a$", x=varnamen, value=TRUE)</code></strong>. Das “$”-Zeichen gibt an, dass nach dem Zeichen “a” der Variablenname zuende sein muss.</p></li>
+<li><p>Möglich (aber etwas komplizierter) sind auch Verknüpfungen der Art: Finde alle Variablennamen, die mit einem “D” beginnen und einem “a” aufhören. Hier handelt es sich um eine logische Verknüpfung zweier Bedingungen – genauer wird darauf im folgenden Abschnitt “Logische Operatoren” eingegangen. In R kann man das auf verschiedenen Wegen realisieren; eine Möglichkeit soll hier kurz demonstriert werden:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1">beginnt_mit_D <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pattern=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"^D"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>varnamen, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">value=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb78-2">endet_mit_a   <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pattern=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a$"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>varnamen, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">value=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb78-3">beides        <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">intersect</span>(beginnt_mit_D, endet_mit_a)</span>
+<span id="cb78-4">beides</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "D10101a" "D10102a" "D10103a" "D10201a"</code></pre>
+</div>
+</div>
+</section>
+<section id="die-funktionen-gsub-substr-substring-nchar-und-strsplit" class="level4">
+<h4 class="anchored" data-anchor-id="die-funktionen-gsub-substr-substring-nchar-und-strsplit">Die Funktionen <strong><code>gsub()</code></strong>, <strong><code>substr()</code></strong>, <strong><code>substring()</code></strong>, <strong><code>nchar()</code></strong> und <strong><code>strsplit()</code></strong></h4>
+<ul>
+<li><p><strong><code>gsub()</code></strong> erlaubt es, Teile eines character-Vektors zu ersetzen. Sollen bspw. in der Variablenliste alle Namen, die mit “D101” beginnen, durch “D201” ersetzt werden, geht das mit <strong><code>gsub(pattern = "D101", replacement = "D201", x = varnamen)</code></strong>. Hier ist es wichtig, die Stelligkeit zu beachten; <strong><code>gsub(pattern = "D1", replacement = "D2", x = varnamen)</code></strong> würde auch z.B. “D102” durch “D202” ersetzen. Möglich, aber nicht notwendig ist hier auch, die Ersetzung nur durchzuführen, wenn “D101” am Anfang des strings steht: <strong><code>gsub(pattern = "^D101", replacement = "D201", x = varnamen)</code></strong>.</p></li>
+<li><p><strong><code>substr()</code></strong> erlaubt es, bestimmte Teile eines character-Vektors “auszuschneiden”: wenn man bspw. nur die ersten 4 Zeichen ausschneiden will, geht das mit <strong><code>substr(x = varnamen, start = 1, stop = 4)</code></strong>. Zeichenketten mit weniger als 4 Zeichen (hier etwa der Variablenname “sex”) werden dabei so beibehalten, wie sie waren.</p></li>
+<li><p>Möchte man von dem character-Vektor nur am Anfang bspw. das erste Zeichen entfernen und alle anderen beibehalten (egal, wie viele es sind), bietet sich die Funktion <strong><code>substring()</code></strong> an: <strong><code>substring(text = varnamen, first = 2)</code></strong></p></li>
+<li><p><strong><code>nchar()</code></strong> einem für jedes Element die Anzahl von Zeichen (Buchstaben und Ziffern): <strong><code>nchar(varnamen)</code></strong></p></li>
+<li><p><strong><code>strsplit()</code></strong> teilt einen character-Vektor an einem definierten Zeichen</p></li>
+</ul>
+</section>
+<section id="die-funktion-paste" class="level4">
+<h4 class="anchored" data-anchor-id="die-funktion-paste">Die Funktion <strong><code>paste()</code></strong></h4>
+<p>Die Funktion erlaubt es, character-Vektoren aus einzelnen Elementen “zusammenzubauen”. Soll beispielsweise an den Variablennamens-Vektor <strong><code>varnamen</code></strong> das Jahr der Erhebung mit angefügt werden, geht das mit folgendem Ausdruck: <strong><code>paste(varnamen, "2012", sep="_")</code></strong>. An jeden Variablennamen wurde nun die Jahreszahl 2012 angefügt. Der Argument <strong><code>sep</code></strong> gibt dabei das Zeichen an, das als “Trenner” zweischen dem ursprünglichen Ausdruck und dem “Suffix” 2012 verwendet werden soll. <strong><code>paste()</code></strong> ist eine recht mächtige Funktion, so kann man bspw. auch an jeden Variablennamen die laufende Nummer anhängen, die er im character-Vektor einnimmt: <strong><code>paste(varnamen, 1:length(varnamen), sep="_")</code></strong>. Es ist auch möglich, alle Elemente des Vektor zu einem einzigen großen String zusammenzubinden: <strong><code>paste(varnamen, collapse="_")</code></strong>. Die wichtige, aber häufig Verwirrung stiftende Unterscheidung liegt hierbei zwischen den Separationsargumenten <strong><code>sep</code></strong> und <strong><code>collapse</code></strong>. <strong><code>sep</code></strong> definiert das Trennzeichen für die einzelnen Terme; <strong><code>collapse</code></strong> (ggf.) das Trennzeichen, mit dem die Ergebnisse zusammengefügt werden (sofern sie zusammengefügt werden sollen). Die Hilfeseite der <strong><code>paste</code></strong>-Funktion liefert einige anschauliche Beispiele, die die Unterscheidung zwischen beiden verdeutlichen.</p>
+</section>
+<section id="funktionen-aus-eattools" class="level4">
+<h4 class="anchored" data-anchor-id="funktionen-aus-eattools">Funktionen aus <strong><code>eatTools</code></strong></h4>
+<p>Im Laufe der Datenaufbereitungsprozeduren am IQB wurden die obenstehenden Funktionen teils erweitert. Ohne Anspruch auf Vollständigkeit sollen weitere Möglichkeiten der Zeichenkettenmanipulation kurz genannt werden:</p>
+<ul>
+<li><p><strong><code>eatTools::crop()</code></strong> entfernt führende oder abschließende Leerzeichen (bzw. ein frei definiertes Zeichen) aus einem character-Vektor. Das ist bspw. dann sinnvoll, wenn in inakkurat aufbereiteten Datensätzen z.B. anstatt einer <code>1</code> der Wert <code>1</code> (also mit einem unbeabsichtrigten leerzeichen eingetragen wurde. Hier werden (nur der Anschaulichkeit zuliebe) alle führenden und abschließenden “D”s aus den Variablennamen entfernt: <strong><code>eatTools::crop(varnamen, char = "D")</code></strong></p></li>
+<li><p><strong><code>eatTools::removeNumeric()</code></strong> entfernt alle Ziffern aus einem character-Vektor: <strong><code>eatTools::removeNumeric(varnamen)</code></strong></p></li>
+<li><p><strong><code>eatTools::removeNonNumeric()</code></strong> entfernt alle Buchstaben aus einem character-Vektor und lässt nur die Ziffern übrig. Manche Elemente von <strong><code>varnamen</code></strong> sind hinterher leer. <strong><code>eatTools::removeNonNumeric(varnamen)</code></strong></p></li>
+<li><p><strong><code>eatTools::removePattern()</code></strong> entfernt ein bestimmtes Muster aus einem character-Vektor: <strong><code>eatTools::removePattern(string = varnamen, pattern = "id")</code></strong></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="logische-operatoren" class="level2">
+<h2 class="anchored" data-anchor-id="logische-operatoren">4. Logische Operatoren</h2>
+<p>Allgemeines zu logischen Operatoren kann man auf der gleichnamigen Wikipediaseite finden: https://de.wikipedia.org/wiki/Logischer_Operator<br>
+Für sämtliche Operatoren gibt es eine Entsprechung in R. Die Syntax ist dabei (weitgehend) äquivalent zu den angegeben Beispielen für C, C++, Java und PHP auf der Wikipediaseite. Der Wahrheitswert, der in R zurückgegeben wird, hat die Klasse <strong><code>logical</code></strong> und kann 2 Werte annehmen: TRUE oder FALSE. Der Wahrheitswert kann wiederum einem Objekt zugewiesen werden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1">istWahr <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span> </span>
+<span id="cb80-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">class</span>(istWahr)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1">istWahr</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<section id="logische-operatoren-ohne-verknüpfung" class="level4">
+<h4 class="anchored" data-anchor-id="logische-operatoren-ohne-verknüpfung">Logische Operatoren ohne Verknüpfung</h4>
+<ul>
+<li><strong>ist größer als</strong>: <code>4 &gt; 3</code></li>
+<li><strong>ist kleiner als</strong>: <code>4 &lt; 3</code></li>
+<li><strong>ist größer oder gleich</strong>: <code>4 &gt;= 3</code></li>
+<li><strong>ist kleiner oder gleich</strong>: <code>4 &lt;= 3</code></li>
+<li><strong>ist gleich</strong>: <code>4 == 3</code></li>
+<li><strong>ist ungleich</strong>: <code>4 != 3</code></li>
+</ul>
+</section>
+<section id="logische-operatoren-mit-verknüpfungen" class="level4">
+<h4 class="anchored" data-anchor-id="logische-operatoren-mit-verknüpfungen">Logische Operatoren mit Verknüpfungen</h4>
+<ul>
+<li><strong>Bedingung a UND Bedingung b sind erfüllt</strong>: <code>4 &gt; 3 &amp; is.numeric(5)</code></li>
+<li><strong>Bedingung a ODER Bedingung b ist erfüllt</strong>: <code>4 &gt; 3 | is.numeric(5)</code></li>
+<li><strong>ENTWEDER Bedingung a ODER Bedingung b ist erfüllt</strong>: <code>xor(4 &gt; 3, is.numeric(5))</code>. Hier wird <code>FALSE</code> zurückgegeben, da <em>beide</em> Bedingungen erfüllt sind, und eben nicht nur entweder a oder b.</li>
+<li><strong>Bedingung b ist nicht erfüllt</strong>: <code>!is.numeric("a")</code>. Hier wird <code>TRUE</code> zurückgegeben, denn es ist ja wahr, dass “a” <em>nicht</em> numerisch ist.</li>
+</ul>
+</section>
+<section id="arbeiten-mit-vektorwertigen-logischen-verknüpfungen" class="level4">
+<h4 class="anchored" data-anchor-id="arbeiten-mit-vektorwertigen-logischen-verknüpfungen">Arbeiten mit vektorwertigen logischen Verknüpfungen</h4>
+<p>In den oberen Beispielen wurden logische Abfragen immer nur für ein Objekt der Länge 1 durchgeführt. Man kann diese Funktionen aber auch auf Vektoren anwenden. Dazu folgendes hypothetisches Beispiel: ein großer Datensatz mit vielen Variablen soll in Mplus ausgewertet werden. In Mplus dürfen Variablennamen jedoch nur maximal 6 Zeichen haben. Gibt es also in dem Variablennamens-Vektor <strong><code>varnamen</code></strong> Variablennamen mit unerlaubter Länge? Um das zu prüfen, geht man in mehreren Schritten vor:</p>
+<ol type="1">
+<li>Zeige für jedes Element im Variablennamens-Vektor die Anzahl von Buchstaben an.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1">anzahl <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nchar</span>(varnamen)</span></code></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Prüfe, für welche Variablennamen die zulässige Zeichenanzahl überschritten ist. Dazu wird ein logischer Vektor erzeugt, der den Wert <strong><code>TRUE</code></strong> annimmt, wenn die Zeichenanzahl maximal 6 beträgt, andernfalls <strong><code>FALSE</code></strong>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1">erlaubt <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> anzahl <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span></span>
+<span id="cb85-2">erlaubt</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
+[13] FALSE FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Nun wird geprüft, ob diese Bedingung für alle Variablennamen erfüllt ist. Dazu können die Funktionen <strong><code>all()</code></strong> oder <strong><code>any()</code></strong> benutzt werden. <strong><code>all()</code></strong> fragt: Haben alle Elemente des Vektors <strong><code>erlaubt</code></strong> den Wahrheitswert <strong><code>TRUE</code></strong>? <strong><code>any()</code></strong> fragt: Gibt es irgendein Element in dem Vektors <strong><code>erlaubt</code></strong>, das den Wahrheitswert <strong><code>FALSE</code></strong> hat?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all</span>(erlaubt)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">any</span>(erlaubt <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Ja, einige Variablennamen haben eine größere Zeichenanzahl als 6. Man kann die Variablennamen auf die ersten 6 Zeichen reduzieren:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1">varnamen_neu <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">substr</span>(varnamen, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>)</span></code></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Variablennamen müssen jedoch stets einzigartig (unique) sein. Ist das jetzt noch der Fall? Dazu verwendet man die oben beschriebene Funktion <strong><code>duplicated()</code></strong> in Verbindung mit <strong><code>any</code></strong>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">duplicated</span>(varnamen_neu))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Der Wahrheitswert ist <strong><code>TRUE</code></strong>, es gibt also mindestens zwei Variablennamen, die jetzt identisch sind. An dieser Stelle könnte es passieren, dass man erstmal nicht weiter weiß. Eine Möglichkeit wäre, zu googlen: “r make unique”. So findet man eine Funktion namens <strong><code>make.unique</code></strong>, die es erlaubt, duplizierte Werte in character-Vektoren zu ersetzen, so dass sie einzigartig werden. Unglücklicherweise werden dadurch die Variablennamen wieder länger, als sie sein dürfen:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1">varnamen_neu2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">make.unique</span>(varnamen_neu)</span>
+<span id="cb94-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nchar</span>(varnamen_neu2)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Tatsächlich gibt es für dieses Problem also keine einfache, “triviale” Lösung. Man könnte entweder vollständig willkürliche Namen vergeben, die dann aber keine Rückschlüsse auf die ursprüngliche Variablenbedeutung mehr zulassen, oder man experimentiert, beruhend auf folgenden Überlegungen: <strong><code>make.unique</code></strong> fügt an nicht-unique Variablennamen einen Punkt und eine laufende Nummer an, also zwei zusätzliche Zeichen. Also dürfte man nur die ersten 4 Zeichen der Variablennamen beibehalten:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1">varnamen_neu3 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">make.unique</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">substr</span>(varnamen, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span>
+<span id="cb96-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nchar</span>(varnamen_neu3)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">any</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">duplicated</span>(varnamen_neu3))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1">varnamen_neu3</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "idst"   "idcl"   "D101"   "D101.1" "D101.2" "D101.3" "D102"   "D103"  
+ [9] "sex"    "M155"   "M156"   "M157"   "M157.1" "M157.2" "hisc"   "pari"  </code></pre>
+</div>
+</div>
+<p>Hundertprotentig schön ist auch diese Variante nicht, weil nun auch von bereits einzigartigen Variablennamen nur die ersten vier Zeichen übrig behalten worden sind, obwohl es hier ja hätten sechs sein dürfen. Sofern eine solche Operation im Arbeitsalltag also häufiger gebraucht wird, wäre es günstig, sich dafür eine eigene Funktion zu schreiben, um diese Prozesse weniger umständlich zu gestalten. Dazu aber an anderer Stelle mehr.</p>
+</section>
+</section>
+<section id="fehlende-werte-missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="fehlende-werte-missing-values">5. Fehlende Werte (missing values)</h2>
+<p>Fehlende Werte werden in R mit <strong><code>NA</code></strong> (not available) gekennzeichnet. Im Folgenden geht es nicht darum, wie in statistischen Analysen mit fehlenden Werten umgegangen werden kann, sondern wie man sie in R technisch behandelt. Dazu soll beispielhaft ein numerischer Vektor betrachtet werden, der fehlende Werte enthält:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1">numvek <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb102-2">numvek[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19</span>)] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span></span></code></pre></div>
+</div>
+<section id="die-häufigsten-im-zusammenhang-mit-fehlenden-werten-gebräuchlichen-funktionen-sind" class="level4">
+<h4 class="anchored" data-anchor-id="die-häufigsten-im-zusammenhang-mit-fehlenden-werten-gebräuchlichen-funktionen-sind">Die häufigsten im Zusammenhang mit fehlenden Werten gebräuchlichen Funktionen sind:</h4>
+<ul>
+<li><p><strong><code>is.na()</code></strong> gibt einen Vektor der Klasse <strong><code>logical</code></strong> zurück, dessen Wert <strong><code>TRUE</code></strong> ist, wenn es sich um einen fehlenden Wert handelt: <strong><code>is.na(numvek)</code></strong>. Wenn man lediglich wissen, ob es überhaupt irgendwelche fehlenden Werte gibt, kann man das mit <strong><code>any()</code></strong> verbinden: <strong><code>any(is.na(numvek))</code></strong>. Wenn man wissen will, an welcher Stelle die fehlenden Werte stehen, geht <strong><code>which(is.na(numvek))</code></strong></p></li>
+<li><p><strong>Achtung!</strong> Anders als man vielleicht vermuten würde, funktioniert <strong><code>which(numvek == NA)</code></strong> nicht!</p></li>
+<li><p>Wenn ich nur die beobachteten Werte aus <strong><code>numvek</code></strong> extrahieren möchte, also alles ausschließen, was <strong><code>NA</code></strong> ist, geht das mit <strong><code>na.omit(numvek)</code></strong>. Dieser Vektor ist mit nur noch 16 Elementen folglich kürzer als der ursprüngliche mit 20 Elementen: <strong><code>length(na.omit(numvek))</code></strong></p></li>
+<li><p>Möchte man sich beispielsweise den Mittelwert eines Vektors anzeigen lassen, der fehlende Werte enthält, ist das Ergebnis ebenfalls <strong><code>NA</code></strong>: <strong><code>mean(numvek)</code></strong>. Meist will man jedoch einfach das arithmetisches Mittel aller <em>beobachteten</em> Werte. Dazu könnte man einfach den Mittelwert unter Ausschluss der fehlenden Werte bestimmen: <strong><code>mean(na.omit(numvek))</code></strong>. Das ist dasselbe, wie wenn man in der Funktion <strong><code>mean()</code></strong> mit einem zusätzlichen Argument definiert, dass fehlende Werte vor der Berechnung ausgeschlossen werden sollen: <strong><code>mean(numvek, na.rm = TRUE)</code></strong>. Man sieht wieder, dass verschiedene syntaktische Umsetzungen zu dem gewünschten Ergebnis führen können. Das logische Argument <strong><code>na.rm</code></strong> ist für viele Funktionen definiert, so etwa <strong><code>var()</code></strong>, <strong><code>sd()</code></strong>, <strong><code>lm()</code></strong>, <strong><code>glm()</code></strong>, etc.</p></li>
+</ul>
+</section>
+<section id="fehlende-werte-in-character-vektoren" class="level4">
+<h4 class="anchored" data-anchor-id="fehlende-werte-in-character-vektoren">Fehlende Werte in character-Vektoren</h4>
+<p>Hier gilt im Grunde dasselbe wie für numerische Vektoren. Auf ein paar Fallstricke soll hingewiesen werden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1">charvek <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"France"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Belgium"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Poland"</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Denmark"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NA"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Austria"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>)</span>
+<span id="cb103-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">which</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(charvek))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>Auch in character-Vektoren müssen fehlende Werte <em>ohne</em> hochgestellte Anführungszeichen eingetragen werden; der sechste Wert <strong><code>"NA"</code></strong> wird nicht als fehlender Wert verstanden. Ebensowenig der achte Wert, der einfach ein leerer String ist. Letzteres ist insofern relevant, dass, wenn man etwa csv-Dateien mit R einliest, leere Zellen manchmal als leere Strings eingelesen werden, obwohl man sie eigentlich wie fehlende Werte behandelt wissen will. Um das <strong><code>"NA"</code></strong> und den leeren String in einen wirklichen fehlenden Wert umzuwandeln, kann beispielsweise die <strong><code>recode()</code></strong>-Funktion aus dem Paket <strong><code>car</code></strong> verwendet werden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb105" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1">charvek_neu <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> car<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">recode</span>(charvek, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"'NA'=NA; ''=NA"</span>)</span>
+<span id="cb105-2">charvek_neu</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "France"  "Belgium" "Poland"  NA        "Denmark" NA        "Austria"
+[8] NA       </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="gut-zu-wissen" class="level2">
+<h2 class="anchored" data-anchor-id="gut-zu-wissen">6. Gut zu wissen</h2>
+<p>Den Überblick über die vorhandenen Funktionen und Pakete zu behalten, ist nahezu unmöglich; allein auf CRAN gibt es tausende von R-Paketen. Aus unserer subjektiven Sicht sollen daher die wichtigsten Funktionen, die sich im Laufe des IQB-Lebens als unverzichtbar herausgestellt haben, hier kurz ohne Anspruch auf Vollständigkeit aufgelistet werden. Wo nötig, werden Links für weiterführende Literatur angegeben:</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@vantaymedia?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Van Tay Media</a> on <a href="https://unsplash.com/de/fotos/frauen-die-laptops-benutzen-9buwiennNqg">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>tutorial</category>
+  <category>intro</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</guid>
+  <pubDate>Thu, 06 Feb 2025 12:55:15 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title></title>
-  <dc:creator>Nicklas Hafiz</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</link>
+  <dc:creator>Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html</link>
   <description><![CDATA[ undefined ]]></description>
-  <category>github</category>
+  <category>eatGADS</category>
   <category>tutorial</category>
   <category>slides</category>
   <category>intro</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</guid>
-  <pubDate>Thu, 30 Jan 2025 19:10:25 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" medium="image" type="image/jpeg"/>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html</guid>
+  <pubDate>Thu, 06 Feb 2025 12:55:15 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
 </rss>
