@@ -6,7 +6,10 @@ listing:
   type: default
   feed: true
   categories: unnumbered
-  sort: false
+  sort-ui:
+  - date
+  - author
+  filter-ui: true
   contents:
     - "R_tutorials/R_ws1.qmd"
     - "R_tutorials/R_ws2.qmd"
@@ -21,7 +24,7 @@ listing:
     - "quarto/index.qmd"
     - "R_tutorials/eatPrep2024_files/eatPrep2024.qmd"
     - "R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.qmd"
-    - "R_tutorials/2024_eatGADS_Datenaufbereitung/eatGADS_2024_Datenbanknutzung.qmd"
+    - "R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.qmd"
     - "R_tutorials/2024_eatATA/eatATA_2024.qmd"
 ---
 

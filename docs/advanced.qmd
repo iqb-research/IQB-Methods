@@ -6,7 +6,10 @@ listing:
   type: default
   feed: true
   categories: unnumbered
-  sort: false
+  sort-ui:
+  - date
+  - author
+  filter-ui: true
   contents:
     - "R_tutorials/checkmate.qmd"
     - "git/copilot/copilot.qmd"
