@@ -43,10 +43,10 @@
   {
     "listing": "/docs/statisticalQuestions.html",
     "items": [
-      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
-      "/docs/FAQ/FAQ4_NproItem.html",
       "/docs/FAQ/FAQ1_Imputationen.html",
-      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html"
+      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
+      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
+      "/docs/FAQ/FAQ4_NproItem.html"
     ]
   },
   {
@@ -84,18 +84,18 @@
     "listing": "/docs/advanced.html",
     "items": [
       "/docs/r_sig/24_04_08_tidyverse_column_wise/index.html",
-      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
       "/docs/r_sig/24_03_22_datasets/index.html",
       "/docs/r_sig/24_03_25_tidyverse_wrangling/index.html",
+      "/docs/FAQ/FAQ1_Imputationen.html",
+      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
+      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
+      "/docs/FAQ/FAQ4_NproItem.html",
       "/docs/git/copilot/copilot.html",
       "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
       "/docs/r_sig/24_06_03_ggplot2/index.html",
       "/docs/r_sig/23_11_06_renv/index.html",
       "/docs/r_sig/24_09_09_quarto_git/index.html",
-      "/docs/R_tutorials/checkmate.html",
-      "/docs/FAQ/FAQ4_NproItem.html",
-      "/docs/FAQ/FAQ1_Imputationen.html",
-      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html"
+      "/docs/R_tutorials/checkmate.html"
     ]
   }
 ]

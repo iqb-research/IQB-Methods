@@ -10,9 +10,68 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/statisticalQuestions.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Thu, 06 Feb 2025 12:54:55 GMT</lastBuildDate>
+<lastBuildDate>Thu, 06 Feb 2025 14:01:26 GMT</lastBuildDate>
 <item>
-  <title>DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</title>
+  <title>Frage 1: \(R^2\) richtig poolen</title>
+  <dc:creator>Sebastian Weirich</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="a.-methode-nach-harel-2009" class="level3">
+<h3 class="anchored" data-anchor-id="a.-methode-nach-harel-2009">a. Methode nach Harel (2009)</h3>
+<p>Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:<br>
+1. Die Quadratwurzel aus <img src="https://latex.codecogs.com/png.latex?R%5E2"> ziehen<br>
+2. eine Fisher <em>z</em>-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird<br>
+3. Rubins Regeln für metrische Variablen anwenden<br>
+4. mit einer inversen <em>z</em>-Transformation den Wert wieder zurückrechnen und quadrieren</p>
+<p>Harel, O. (2009). The estimation of R2 and adjusted R2 in incomplete data sets using multiple imputation. <em>Journal of Applied Statistics, 36</em>(10), 1109-1118.</p>
+</section>
+<section id="b.-pool.r2-aus-eatrep" class="level3">
+<h3 class="anchored" data-anchor-id="b.-pool.r2-aus-eatrep">b. pool.R2() aus eatRep</h3>
+<p>Im Paket eatRep kann das über die Funktion <code>pool.R2()</code> berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird.</p>
+<p>Angenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) <img src="https://latex.codecogs.com/png.latex?R%5E2">-Werte, dann kann der gepoolte <img src="https://latex.codecogs.com/png.latex?R%5E2">-Wert folgendermaßen bestimmt werden:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">r2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.12</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.18</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.17</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.21</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.23</span>)</span>
+<span id="cb1-2">eatRep<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
+</div>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
+
+
+</section>
+
+ ]]></description>
+  <category>statistics</category>
+  <category>eatRep</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
+  <pubDate>Thu, 06 Feb 2025 14:01:26 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title>Frage 2: ‘estDif’ in Conquest/eatModel</title>
   <dc:creator>Karoline Sachse</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</link>
   <description><![CDATA[ 
@@ -501,99 +560,11 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
   <category>statistics</category>
   <category>eatModel</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Thu, 06 Feb 2025 12:54:55 GMT</pubDate>
+  <pubDate>Thu, 06 Feb 2025 14:01:26 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
-  <title>Wie groß sollte das N pro Item idealerweise sein?</title>
-  <dc:creator>Sebastian Weirich</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Grundsätzlich stellt sich die Frage des <em>N</em> pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es gibt jedoch Daumenregeln und es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an <img src="https://latex.codecogs.com/png.latex?N%3E100"> orientieren. Im Studiendesign versucht man dabei, auf ein <img src="https://latex.codecogs.com/png.latex?N=150"> zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:</p>
-<ul>
-<li><strong>VERA-Pilotierung ohne DIF:</strong> hier wäre <img src="https://latex.codecogs.com/png.latex?N=150"> ein vertretbarer Richtwert.</li>
-<li><strong>VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:</strong> für eine verlässliche DIF-Analyse wäre <img src="https://latex.codecogs.com/png.latex?N=150"> <em>pro Geschlechtergruppe</em> anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier <img src="https://latex.codecogs.com/png.latex?N=300"> ein Minimum, <img src="https://latex.codecogs.com/png.latex?N=400"> ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.</li>
-<li><strong>Pilotierung mit DIF-Analyse bzgl. SPF:</strong> Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre <img src="https://latex.codecogs.com/png.latex?N=150"> in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen <img src="https://latex.codecogs.com/png.latex?N%3E20000"> ist das zwar möglich, aber in kleineren Erhebungen wie VERA-Pilotierungen wäre das komplett unrealistisch. Hier müsste man also ggf. ein Oversampling anstreben, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen “überrepräsentieren”.</li>
-<li><strong>Analysen bzgl. Migrationshintergrund:</strong> Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem <em>N</em> pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BMigrationshintergrund%7D%5Ctimes%20%5Ctext%7BGeschlecht%7D"> hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein – es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.</li>
-</ul>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
-
-
-</section>
-
- ]]></description>
-  <category>statistics</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Thu, 06 Feb 2025 12:54:55 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" medium="image" type="image/png" height="125" width="144"/>
-</item>
-<item>
-  <title>Wie poole ich mein \(R^2\) richtig über mehrere (bspw. 15) Imputationen?</title>
-  <dc:creator>Sebastian Weirich</dc:creator>
-  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="a.-methode-nach-harel-2009" class="level3">
-<h3 class="anchored" data-anchor-id="a.-methode-nach-harel-2009">a. Methode nach Harel (2009)</h3>
-<p>Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:<br>
-1. Die Quadratwurzel aus <img src="https://latex.codecogs.com/png.latex?R%5E2"> ziehen<br>
-2. eine Fisher <em>z</em>-Transformation durchführen, damit der Wertebereich auf alle reellen Zahlen ausgeweitet wird<br>
-3. Rubins Regeln für metrische Variablen anwenden<br>
-4. mit einer inversen <em>z</em>-Transformation den Wert wieder zurückrechnen und quadrieren</p>
-<p>Harel, O. (2009). The estimation of R2 and adjusted R2 in incomplete data sets using multiple imputation. <em>Journal of Applied Statistics, 36</em>(10), 1109-1118.</p>
-</section>
-<section id="b.-pool.r2-aus-eatrep" class="level3">
-<h3 class="anchored" data-anchor-id="b.-pool.r2-aus-eatrep">b. pool.R2() aus eatRep</h3>
-<p>Im Paket eatRep kann das über die Funktion <code>pool.R2()</code> berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird.</p>
-<p>Angenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) <img src="https://latex.codecogs.com/png.latex?R%5E2">-Werte, dann kann der gepoolte <img src="https://latex.codecogs.com/png.latex?R%5E2">-Wert folgendermaßen bestimmt werden:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">r2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.12</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.18</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.17</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.21</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.23</span>)</span>
-<span id="cb1-2">eatRep<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
-</div>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
-
-
-</section>
-
- ]]></description>
-  <category>statistics</category>
-  <category>eatRep</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Thu, 06 Feb 2025 12:54:55 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
-</item>
-<item>
-  <title>Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</title>
+  <title>Frage 3: Gesamt- vs. Gruppenmittelwert in Mehrebenenmodellen</title>
   <dc:creator>Karoline Sachse</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</link>
   <description><![CDATA[ 
@@ -654,8 +625,37 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Thu, 06 Feb 2025 12:54:55 GMT</pubDate>
+  <pubDate>Thu, 06 Feb 2025 14:01:26 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Frage 4: N pro Item</title>
+  <dc:creator>Sebastian Weirich</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Grundsätzlich stellt sich die Frage des <em>N</em> pro Item in erster Linie bei Pilotierungsstudien, wo die Inferenz auf der Itemebene (anstatt der Personenebene) stattfindet. Einen festen Grenzwert gibt es hier nicht, wobei größer natürlich immer besser ist. Es gibt jedoch Daumenregeln und es hängt von den Analysen ab, die mit den gewonnenen Daten unternommen werden sollen. Als Minimalwert kann man sich an <img src="https://latex.codecogs.com/png.latex?N%3E100"> orientieren. Im Studiendesign versucht man dabei, auf ein <img src="https://latex.codecogs.com/png.latex?N=150"> zuzusteuern, damit selbst trotz unvorhergesehener Ausfälle bspw. aufgrund von Krankheit Einzelner die 100 niemals unterschritten wird. Konkret können die praktisch notwendigen Stichprobenzahlen aber auch größer ausfallen, zum Beispiel:</p>
+<ul>
+<li><strong>VERA-Pilotierung ohne DIF:</strong> hier wäre <img src="https://latex.codecogs.com/png.latex?N=150"> ein vertretbarer Richtwert.</li>
+<li><strong>VERA-Pilotierung mit DIF-Analyse bzgl. Geschlecht:</strong> für eine verlässliche DIF-Analyse wäre <img src="https://latex.codecogs.com/png.latex?N=150"> <em>pro Geschlechtergruppe</em> anzustreben. Da Geschlecht einigermaßen gleichverteilt ist und erfahrungsgemäß nur wenige fehlende Werte aufweist, wäre hier <img src="https://latex.codecogs.com/png.latex?N=300"> ein Minimum, <img src="https://latex.codecogs.com/png.latex?N=400"> ein komfortabler Richtwert. So wird es auch in VERA häufig gehandhabt.</li>
+<li><strong>Pilotierung mit DIF-Analyse bzgl. SPF:</strong> Das Besondere hierbei ist, dass die Gruppengrößen sehr ungleich verteilt sind. Für eine verlässliche DIF-Analyse wäre <img src="https://latex.codecogs.com/png.latex?N=150"> in der kleinsten Gruppe anzustreben, was bzgl. SPF aber oft nicht möglich ist. In Bildungstrendstudien mit Gesamtstichprobengrößen <img src="https://latex.codecogs.com/png.latex?N%3E20000"> ist das zwar möglich, aber in kleineren Erhebungen wie VERA-Pilotierungen wäre das komplett unrealistisch. Hier müsste man also ggf. ein Oversampling anstreben, also die anteilsmäßig kleine Gruppe durch zusätzliche Ziehungen “überrepräsentieren”.</li>
+<li><strong>Analysen bzgl. Migrationshintergrund:</strong> Sollen in einer Erhebung bspw. Migrationshintergrund und Geschlecht erhoben werden, um etwa die Frage zu untersuchen, ob es Interaktionseffekte im Lernzuwachs von männlichen/weiblichen Personen mit oder ohne Migrationshintergrund gibt, handelt es sich nicht länger um eine Inferenz auf Item- sondern auf Personenebene. Nach dem <em>N</em> pro Item zu fragen, ergibt hier weniger Sinn. Eher wäre die Stichprobe so zu wählen, dass die Zellenbelegungen in der Kreuztabelle aus <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BMigrationshintergrund%7D%5Ctimes%20%5Ctext%7BGeschlecht%7D"> hinreichend groß sind. Für eine solche Untersuchung müssten die verwendeten Items hinsichtlich ihrer Eignung bereits überprüft worden sein – es müsste also sichergestellt sein, dass sie kein DIF bezüglich Geschlecht oder Migrationshintergrund aufweisen.</li>
+</ul>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Weitere Fragen und/oder deren Antworten können abgelegt und eingesehen werden unter: t:/SIG/SIG Methoden/Liste methodischer Fragen.docx</p>
+
+
+</section>
+
+ ]]></description>
+  <category>statistics</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
+  <pubDate>Thu, 06 Feb 2025 14:01:26 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" medium="image" type="image/png" height="125" width="144"/>
 </item>
 </channel>
 </rss>
