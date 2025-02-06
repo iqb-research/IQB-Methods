@@ -6,11 +6,12 @@ categories: [github, tutorial, workflow, git, R, intro]
 image: github.jpg
 ---
 
+When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version.
+
 ![](github.jpg)[^1]
 
 [^1]: Image by [Roman Synkevych](https://unsplash.com/de/@synkevych?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/blau-schwarzes-pinguin-pluschtier-UT8LMo-wlyk).
 
-When people collaboratively develop software (R packages) and use Github as a repository, colleagues can review software parts before they are included in an updated package version.
 
 ## Recommended Workflow
 

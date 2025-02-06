@@ -6,13 +6,13 @@ categories:  [R, checkmate, tutorial, intro]
 image: ./images/checkmate.jpg
 ---
 
+With the checkmate package you can test, check and assert all kinds of arguments regarding type, length and much more. You can also write your own assert-functions.
+
 ![](./images/checkmate.jpg)[^1]
 
-[^1]: Image by [Felix mittermeier](https://unsplash.com/de/@felix_mittermeier) on [Unsplash](https://unsplash.com/de/fotos/schachfiguren-auf-dem-brett-nAjil1z3eLk)
+[^1]: Image by [Felix Mittermeier](https://unsplash.com/de/@felix_mittermeier) on [Unsplash](https://unsplash.com/de/fotos/schachfiguren-auf-dem-brett-nAjil1z3eLk)
 
 # Intro
-
-With the checkmate package you can test, check and assert all kinds of arguments regarding type, length and much more. You can also write your own assert-functions.
 
 In this Vignette you can get a broad understand how the package works, how the output looks like and some example functions. For more details and a complete overview go to [CRAN](https://cran.r-project.org/web/packages/checkmate/index.html), specifically the [checkmate.pdf](https://cran.r-project.org/web/packages/checkmate/checkmate.pdf) or use the following line of code:
 

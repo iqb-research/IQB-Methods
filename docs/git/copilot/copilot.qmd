@@ -7,11 +7,11 @@ categories: [R, git, tutorial, intro]
 image: astronaut.jpg
 ---
 
+GitHub Copilot is an AI pair programmer that offers autocomplete-style suggestions as you code. It is possible to integrate GitHub Copilot into R-Studio to speed up annoying coding tasks and get suggestions for code snippets.
+
 ![](astronaut.jpg)[^1]
 
 [^1]: Image by <a href="https://unsplash.com/de/@nasa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">NASA</a> on <a href="https://unsplash.com/de/fotos/buzz-aldrin-Qu3xLeochLc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.
-
-GitHub Copilot is an *AI pair programmer that offers autocomplete-style suggestions as you code*. It is possible to integrate GitHub Copilot into R-Studio to speed up annoying coding tasks and get suggestions for code snippets.
 
 ## Setup
 
