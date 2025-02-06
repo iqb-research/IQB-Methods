@@ -25,9 +25,12 @@ website:
 
 format:
   html:
-    theme: sandstone
-    css: styles.css
+    theme: 
+      light: sandstone
+      dark: sandstone
+    css: bootstrap_dark.scss
     toc: true
+
 
 editor: visual
 
