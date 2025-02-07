@@ -7,7 +7,7 @@ $theme: "sandstone" !default;
 // Color system
 //
 
-$white:    black !default;
+$white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #f8f5f0 !default;
 $gray-300: #dfd7ca !default;
@@ -40,20 +40,104 @@ $light:         $gray-200 !default;
 $dark:          $gray-800 !default;
 
 $min-contrast-ratio:   2 !default;
+/*
+
+$emphasis-color: $white;
+$emphasis-color-rgb: 255, 255, 255;
+
+$secondary-color: rgba(223, 215, 202, 0.75);
+$secondary-color-rgb: 223, 215, 202;
+$secondary-bg: $gray-800;
+$secondary-bg-rgb: 62, 63, 58;
+$tertiary-color: rgba(223, 215, 202, 0.5);
+$tertiary-color-rgb: 223, 215, 202;
+$tertiary-bg: #303232;
+$tertiary-bg-rgb: 48, 50, 50;
+
+$primary-text-emphasis: #849eb8;
+$secondary-text-emphasis: #bbbab5;
+$success-text-emphasis: #bedc93;
+$info-text-emphasis: #7fcdec;
+$warning-text-emphasis: #f8b08a;
+$danger-text-emphasis: #e89895;
+$light-text-emphasis: $gray-100;
+$dark-text-emphasis: $gray-300;
+
+$primary-bg-subtle: #0a131b;
+$secondary-bg-subtle: #1c1c1a;
+$success-bg-subtle: #1d270f;
+$info-bg-subtle: #08222d;
+$warning-bg-subtle: #31190c;
+$danger-bg-subtle: #2b1110;
+$light-bg-subtle: $gray-800;
+$dark-bg-subtle: #1f201d;
+
+$primary-border-subtle: #1e3852;
+$secondary-border-subtle: #55544f;
+$success-border-subtle: #58762d;
+$info-border-subtle: #196786;
+$warning-border-subtle: #924a24;
+$danger-border-subtle: #82322f;
+$light-border-subtle: $gray-700;
+$dark-border-subtle: $gray-800;
+
+$code-color: #f18bba;
+$highlight-color: $gray-300;
+$highlight-bg: #664d03;
+$border-color: $gray-700;
+$border-color-translucent: rgba(255, 255, 255, 0.15);
+$form-valid-color: #bedc93;
+$form-valid-border-color: #bedc93;
+$form-invalid-color: #e89895;
+$form-invalid-border-color: #e89895; 
+*/
+
 
 // Body
 
-$body-color:                $gray-800 !default;
+$heading-color:             inherit;
+
+$body-color:                $gray-300 !default;   // Text
+$body-bg:                   $gray-900;            // Hintergrund
+
 
 // Links
 
-$link-color:                $success !default;
+$link-color:                #849eb8 !default;
+$link-hover-color:          #9db1c6;
+$link-color-rgb:            132, 158, 184;
+$link-hover-color-rgb:      157, 177, 198;
+
+
 
 // Fonts
 
 // stylelint-disable-next-line value-keyword-case
 $font-family-sans-serif:      Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $headings-font-weight:        400 !default;
+
+// meta data: author, date
+#title-block-header.quarto-title-block.default .quarto-title-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 1em;
+}
+
+#title-block-header.quarto-title-block.default .quarto-title-meta-heading {
+  
+  text-transform: capitalize;
+  margin-top: 1em;
+  font-size: .5em;
+  opacity: 0 !important;
+  font-weight: 400;
+}
+
+#title-block-header.quarto-title-block.default .quarto-title-meta-contents {
+  font-size: .9em;
+  font-style: italic;
+  color: $gray-400;
+}
+
 
 // Dropdowns
 
