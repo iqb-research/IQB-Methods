@@ -13,7 +13,6 @@ $iqb-darkgreenblue: #00818D;
 $iqb-lightgreenblue: #02ADBE;
 $iqb-lightred: #EFA7C0;
 $white:     #FFFFFF !default;
-// gradient: from $iqb-lightgreenblue to $iqb-red (45deg)
 
 $gray-80: #534856 !default;
 $gray-65: #746978 !default;
@@ -212,9 +211,12 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;70
 
 .sandstone {
   font-size: 13px;
-  font-weight: 750;
+  font-weight: 800;
   line-height: 22px;
   text-transform: uppercase;
+  color: $iqb-black;
+  hover-color: $gray-50;
+  active-color: $iqb-lightred;
   
 }
 
@@ -222,14 +224,28 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;70
   .nav-link {
     @extend .sandstone;
   }
-  
   font-family: $font-familiy-sans;
   background-color: $iqb-red;
-  
+  background: linear-gradient(45deg, $iqb-lightgreenblue, $iqb-red);
   &-form input,
   &-form .form-control {
     border: none;
   }
+
+}
+.navbar-brand{
+  color: $iqb-black;
+  font-family: $font-familiy-sans;
+  font-weight: 500;
+}
+.navbar-brand-hover{
+  color: magenta;
+}
+.navbar-hover{
+  color: magenta;
+}
+.navbar-active{
+  color: magenta;
 }
 
 
