@@ -1,0 +1,212 @@
+---
+title: "REgular expressions"
+description: "R-SIG 10.02.2025"
+author: 
+  - name: Nicklas Hafiz
+  - affiliation: PhD student at the IQB, Methods team
+categories: [R, R-SIG, intro, tutorial]
+date: 10-02-2025
+image: manuscript.jpg
+---
+
+![](manuscript.jpg)[^1]
+
+[^1]: Image by [Towfiqu barbhuiya](https://unsplash.com/de/@towfiqu999999?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/eine-nahaufnahme-eines-papierstapels-auf-einem-tisch-KKHs1e2yiwc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
+
+# Introduction
+Regular expressions is a powerful language for describing patterns within strings. 
+Mostly we need that for extracting certain strings for filtering or manipulation. 
+See [R for Data Science](https://r4ds.hadley.nz/regexps) for a whole chapter on this. 
+
+
+## Selecting patterns
+In base-R we can use `grep()` for extracting certain patterns from character vectors:
+
+```{r}
+fruits <- c("Apple", "Banana", "Orange", "Lemon", "Blackberry", "Peach", "annona")
+
+grep("e", fruits)
+fruits[grep("e", fruits)]
+```
+
+In the tidyverse, we can use `str_detect()`, which is also easily pipeable:
+
+```{r}
+iris %>%
+  filter(str_detect(Species, "set"))
+```
+
+
+## Manipulating patterns
+
+```{r}
+gsub("e", "a", fruits)
+```
+
+Or, in tidyverse:
+
+```{r}
+str_replace(fruits, "e", "a")
+```
+
+
+With `stringr::str_view()` we can see how the chosen characters look without having to use `grep()`:
+
+```{r}
+stringr::str_view(fruits, "e")
+```
+
+
+# Metacharachters
+Letters and numbers just represent themselves, but most punctuation characters have their own meaning:
+
+## `.` 
+The point `.` matches any character. 
+So if we want to extract all fruits with an `e` and another character following:
+```{r}
+str_view(fruits, "e.")
+```
+
+Of course we can use multiple points if necessary:
+
+```{r}
+str_view(fruits, "a..e")
+```
+
+## `?`
+With `?` we can make a pattern optional, for example the `g` in the next example:
+
+```{r}
+str_view(c("a", "ab", "abb"), "ab?")
+```
+
+## `+`
+With the `+` the pattern has to match at least once (or more often):
+
+```{r}
+str_view(c("a", "ab", "abb"), "ab+")
+```
+
+## `*`
+The `*` makes any number of following matches optional, so the pattern can be repeated any number of times, including 0:
+```{r}
+str_view(c("a", "ab", "abb"), "ab*")
+```
+
+## `[]`
+This creates a character class, so any of the included characters can match (or not match, if we put a `^` in front):
+
+```{r}
+str_view(fruits, "a[cn]")
+```
+ 
+This selects all strings including an `a` followed by either `c` or `n`. 
+Alternatively, we can also choose all `e` followed by a vowel:
+
+```{r}
+str_view(fruits, "e[^aeiou]")
+```
+
+Even better, if we want to match all letters:
+
+```{r}
+str_view(c("ca1", "x3", "a"), "[a-z]")
+```
+
+... followed by a number:
+
+```{r}
+str_view(c("ca1", "x3", "3a"), "[a-z][0-9]")
+```
+
+... also starting with a letter:
+
+```{r}
+str_view(c("ca1", "x3", "3a"), "^[a-z][0-9]")
+```
+
+## `|`
+This is our 'or'-symbol:
+
+```{r}
+str_view(fruits, "an|ea")
+```
+
+## `^`
+Matches the start:
+
+```{r}
+str_view(c("ba", "ab"), "^b")
+```
+
+## `$`
+Matches the end:
+```{r}
+str_view(c("ba", "ab"), "b$")
+```
+
+## Other predefined classes:
+
+- `\d`: Match digit
+- `\D`: Match anithing but digits
+- `\s`: Match any whitespace
+- `\S`: Match anything but whitespace
+- `\w`: Match any "word"-character (letters and numbers)
+- `\W`: Match any "non-word"-character. 
+
+## Escaping
+If we want to use the actual character instead of its meta-function, we have to escape it (with two `\`):
+
+```{r}
+char_vec <- c("+?", "ab", "34.+")
+
+str_view(char_vec, "\\+")
+```
+
+For matching a `\`, we need to escape it in the string first, and then match it with four `\`:
+
+```{r}
+x <- "a\\b"
+str_view(x, "\\\\")
+```
+
+## `{}`
+`{}` allows us to specify the number of matches we are looking for:
+
+```{r}
+str_view(fruits, "p{2}")
+```
+
+## `()`
+`()` can help us to clarify how the meta-expressions should relate to each other:
+
+```{r}
+str_view(fruits, "(an){2}")
+
+## Instead of:
+str_view(fruits, "an{2}")
+
+```
+
+## Grouping
+Using paranthesis, we can create groups which we can use later on in the regex:
+
+```{r}
+str_view(fruits, "(.)\\1")
+```
+
+This selects all fruits that have a double letter. 
+With the `\\1` we use the content of the first `()`. 
+We can also use multiple groups:
+
+```{r}
+str_view(fruits, "(.)(n)\\1\\2")
+```
+
+
+# Exercises
+
+```{r}
+sentences
+```
+
