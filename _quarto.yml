@@ -26,7 +26,7 @@ website:
 format:
   html:
     theme: 
-      light: [sandstone, sandstone-light.scss]
+      light: [sandstone, custom-light.scss]
       dark: [sandstone, sandstone-dark.scss]
     toc: true
 
