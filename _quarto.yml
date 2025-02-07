@@ -26,9 +26,8 @@ website:
 format:
   html:
     theme: 
-      light: sandstone
-      dark: sandstone
-    css: bootstrap_dark.scss
+      light: [sandstone, sandstone-light.scss]
+      dark: [sandstone, sandstone-dark.scss]
     toc: true
 
 
