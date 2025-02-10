@@ -12,12 +12,10 @@ image: manuscript.jpg
 ![](expression.jpg)[^1]
 
 [^1]: Image by <a href="https://unsplash.com/de/@bang_gecko?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">verdian chua</a> on <a href="https://unsplash.com/de/fotos/braune-und-weisse-eidechse-auf-brauner-holzoberflache-68hC4vYTSFo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.
-      
 
 # Introduction
 
-Regular expressions is a powerful language for describing patterns within strings. Mostly we need that for extracting certain strings for filtering or manipulation. See [R for Data Science](https://r4ds.hadley.nz/regexps) for a whole chapter on this. 
-Also, speaking from experience, ChatGPT is a great resource on this, still it might be helpful to understand the underlying syntax a bit better. 
+Regular expressions is a powerful language for describing patterns within strings. Mostly we need that for extracting certain strings for filtering or manipulation. See [R for Data Science](https://r4ds.hadley.nz/regexps) for a whole chapter on this. Also, speaking from experience, ChatGPT is a great resource on this, still it might be helpful to understand the underlying syntax a bit better.
 
 ## Selecting patterns
 
@@ -163,7 +161,7 @@ str_view(c("ba", "ab"), "b$")
 -   `\S`: Match anything but whitespace
 -   `\w`: Match any "word"-character (letters and numbers)
 -   `\W`: Match any "non-word"-character.
-- Finally, the function `tolower()` might be helpful to convert Upper case letters to lower case letters.
+-   Finally, the function `tolower()` might be helpful to convert Upper case letters to lower case letters.
 
 ## Escaping
 
@@ -246,7 +244,6 @@ str_view(sentences, "^[TA]|y")
 str_view(sentences, "(.*n){5}")
 ```
 
-
 2.  Extract all sentences that end with `ing.` from `sentences`.
 
 ```{r}
@@ -276,28 +273,27 @@ str_extract_all(sentences, "\\w") %>%
 recipe <- c("2 Apples", "6 Bananas", "500 g sugar", "1 kg flour", "500 ml milk")
 ```
 
-:::{.callout-caution collapse="true"}
-
+::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r}
 str_extract_all(recipe, "\\d+")
 ```
-
 :::
 
-5. Extract all Sentences from `sentences` that include a double letter.
+5.  Extract all Sentences from `sentences` that include a double letter.
 
-:::{.callout-caution collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Solution
+
 ```{r}
 sentences[grep("(.)\\1", sentences)]
 ```
 :::
 
-6. Count the number of occurences of each word that ends with `all` in `sentences`. 
+6.  Count the number of occurences of each word that ends with `all` in `sentences`.
 
-:::{.callout-caution collapse="true"}
-
+::: {.callout-caution collapse="true"}
 ## Solution
 
 ```{r}
@@ -307,17 +303,15 @@ str_extract_all(sentences, " [a-z]+(a)(l)\\2" ) %>%
 ```
 :::
 
-7. Read in the text file [`faust.txt`](). 
-Plot the 50 most common words in Goethes Faust. 
+7.  Download and read into R the text file [`faust.txt`](https://github.com/iqb-research/IQB-Methods/blob/main/docs/r_sig/25_02_10_regex/faust.txt). Plot the 50 most common words in Goethes Faust.
 
-:::{.callout-tip collapse="true"}
+::: {.callout-tip collapse="true"}
 ## Hint
-The package `readtext` might help you with reading in `.txt` files.
-You might want to look in the examples of the `str_extract_all()` documentation. 
-It might help with extracting words!
+
+The package `readtext` might help you with reading in `.txt` files. You might want to look in the examples of the `str_extract_all()` documentation. It might help with extracting words!
 :::
 
-:::{.callout-caution collapse="true"}
+::: {.callout-caution collapse="true"}
 ## Solution
 
 ```{r}
@@ -344,7 +338,6 @@ ggplot(word_count  %>% head(50), aes(x = reorder(Word, Count), y = Count)) +
        x = "Words",
        y = "Count")
 ```
-
 :::
 
 8.  Extract the email addresses from the following text:
@@ -360,11 +353,8 @@ Best regards,
 Admin Team (admin@corporate.com)"
 ```
 
-:::{.callout-caution collapse="true"}
-
+::: {.callout-caution collapse="true"}
 ```{r}
 str_extract_all(text, "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
 ```
-
 :::
-
