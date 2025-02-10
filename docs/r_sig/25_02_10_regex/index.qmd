@@ -6,7 +6,7 @@ author:
   - affiliation: PhD student at the IQB, Methods team
 categories: [R, R-SIG, intro, tutorial]
 date: 10-02-2025
-image: manuscript.jpg
+image: expression.jpg
 ---
 
 ![](expression.jpg)[^1]
@@ -22,7 +22,7 @@ Regular expressions is a powerful language for describing patterns within string
 In base-R we can use `grep()` for extracting certain patterns from character vectors:
 
 ```{r}
-fruits <- c("Apple", "Banana", "Orange", "Lemon", "Blackberry", "Peach", "annona")
+fruits <- c("Apple", "Banana", "Orange", "Lemon", "Blackberry", "Peach", "annona", "peach")
 
 grep("e", fruits)
 fruits[grep("e", fruits)]
@@ -34,7 +34,8 @@ In the tidyverse, we can use `str_detect()`, which is also easily pipeable:
 library(tidyverse)
 
 iris %>%
-  filter(str_detect(Species, "set"))
+  filter(str_detect(Species, "set")) %>% 
+  head()
 ```
 
 ## Manipulating patterns
@@ -61,7 +62,7 @@ Letters and numbers just represent themselves, but most punctuation characters h
 
 ## `.`
 
-The point `.` matches any character. So if we want to extract all fruits with an `e` and another character following:
+The point `.` matches any character. So if we want to extract all fruits with an `e` and another character following we can do that like so:
 
 ```{r}
 str_view(fruits, "e.")
@@ -75,10 +76,11 @@ str_view(fruits, "a..e")
 
 ## `?`
 
-With `?` we can make a pattern optional, for example the `g` in the next example:
+With `?` we can make a pattern optional. In the following example, any letter can preceed or follow the `m`: 
 
 ```{r}
-str_view(c("a", "ab", "abb"), "ab?")
+measures <- c("10 mm", "100 m", "2 km", "8 cm", "100 kg", "80 g")
+str_extract_all(measures, ".?m.?")
 ```
 
 ## `+`
@@ -86,7 +88,7 @@ str_view(c("a", "ab", "abb"), "ab?")
 With the `+` the pattern has to match at least once (or more often):
 
 ```{r}
-str_view(c("a", "ab", "abb"), "ab+")
+str_extract_all(measures, "m+")
 ```
 
 ## `*`
@@ -94,7 +96,7 @@ str_view(c("a", "ab", "abb"), "ab+")
 The `*` makes any number of following matches optional, so the pattern can be repeated any number of times, including 0:
 
 ```{r}
-str_view(c("a", "ab", "abb", "abc"), "ab*")
+measures[grep("m*", measures)]
 ```
 
 ## `[]`
@@ -105,7 +107,7 @@ This creates a character class, so any of the included characters can match (or 
 str_view(fruits, "a[cn]")
 ```
 
-This selects all strings including an `a` followed by either `c` or `n`. Alternatively, we can also choose all `e` followed by a vowel:
+This selects all strings including an `a` followed by either `c` or `n`. Alternatively, we can also choose all `e` followed by a consonant:
 
 ```{r}
 str_view(fruits, "e[^aeiou]")
@@ -156,7 +158,7 @@ str_view(c("ba", "ab"), "b$")
 ## Other predefined classes:
 
 -   `\d`: Match digit
--   `\D`: Match anithing but digits
+-   `\D`: Match anything but digits
 -   `\s`: Match any whitespace
 -   `\S`: Match anything but whitespace
 -   `\w`: Match any "word"-character (letters and numbers)
@@ -206,15 +208,19 @@ str_view(fruits, "an{2}")
 
 ```
 
+In the second example, the `{2}` relates only to the `n`, in the first to the `an` pattern. 
+
 ## Grouping
 
-Using paranthesis, we can create groups which we can use later on in the regex:
+Using paranthesis, we can also create groups which we can use later on in the regex:
 
 ```{r}
 str_view(fruits, "(.)\\1")
 ```
 
-This selects all fruits that have a double letter. With the `\\1` we use the content of the first `()`. We can also use multiple groups:
+This selects all fruits that have a double letter. 
+With the `\\1` we use the content of the first `()`,which can be any letter in this example (but has to be the same as in the first selection).
+We can also use multiple groups:
 
 ```{r}
 str_view(fruits, "(.)(n)\\1\\2")
@@ -308,7 +314,8 @@ str_extract_all(sentences, " [a-z]+(a)(l)\\2" ) %>%
 ::: {.callout-tip collapse="true"}
 ## Hint
 
-The package `readtext` might help you with reading in `.txt` files. You might want to look in the examples of the `str_extract_all()` documentation. It might help with extracting words!
+Use `readLines` for reading in `.txt` files.  
+You might want to look in the examples of the `str_extract_all()` documentation. It might help with extracting words!
 :::
 
 ::: {.callout-caution collapse="true"}
