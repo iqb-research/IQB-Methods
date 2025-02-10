@@ -247,31 +247,36 @@ str_view(sentences, "^[TA]|y")
 
 ```{r}
 #| eval: FALSE
-str_view(sentences, "(.*n){5}")
+str_view(sentences, "(.*[n]){5}")
 ```
 
-2.  Extract all sentences that end with `ing.` from `sentences`.
+2.  Extract all sentences that end with `ing.` from `string::sentences`.
+
+:::{.callout-caution collapse="true"}
+## Solution
 
 ```{r}
-#| echo: FALSE
-#| eval: FALSE
-
-str_extract_all(sentences, "ing.$")
+grep("ing\\.$", sentences, value = TRUE)
 ```
+
+:::
 
 3.  Count the number of occurrences of each letter in `sentences`.
 
+:::{.callout-caution collapse="true"}
+## Solution
 ```{r}
-#| echo: FALSE
-#| eval: FALSE
 
 str_extract_all(sentences, "\\w") %>%
   unlist() %>%
+  tolower() %>%
   table() %>%
   as.data.frame() %>%
   arrange(desc(Freq))
 
 ```
+
+::: 
 
 4.  Extract all numbers:
 
@@ -284,6 +289,7 @@ recipe <- c("2 Apples", "6 Bananas", "500 g sugar", "1 kg flour", "500 ml milk")
 
 ```{r}
 str_extract_all(recipe, "\\d+")
+str_extract_all(recipe, "[0-9]+")
 ```
 :::
 
@@ -294,10 +300,11 @@ str_extract_all(recipe, "\\d+")
 
 ```{r}
 sentences[grep("(.)\\1", sentences)]
+str_view(sentences, "(.)\\1")
 ```
 :::
 
-6.  Count the number of occurences of each word that ends with `all` in `sentences`.
+6.  Count the number of occurrences of each word that ends with `all` in `sentences`.
 
 ::: {.callout-caution collapse="true"}
 ## Solution
