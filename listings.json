@@ -22,6 +22,29 @@
     ]
   },
   {
+    "listing": "/posts_eat.html",
+    "items": []
+  },
+  {
+    "listing": "/posts_learn.html",
+    "items": [
+      "/docs/beginners.html",
+      "/docs/workflow.html",
+      "/docs/posts_r_sig.html",
+      "/docs/statisticalQuestions.html",
+      "/docs/advanced.html"
+    ]
+  },
+  {
+    "listing": "/docs/statisticalQuestions.html",
+    "items": [
+      "/docs/FAQ/FAQ1_Imputationen.html",
+      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
+      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
+      "/docs/FAQ/FAQ4_NproItem.html"
+    ]
+  },
+  {
     "listing": "/docs/beginners.html",
     "items": [
       "/docs/r_sig/23_12_18_case_when/index.html",
@@ -41,31 +64,9 @@
     ]
   },
   {
-    "listing": "/docs/statisticalQuestions.html",
-    "items": [
-      "/docs/FAQ/FAQ1_Imputationen.html",
-      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
-      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
-      "/docs/FAQ/FAQ4_NproItem.html"
-    ]
-  },
-  {
-    "listing": "/posts_learn.html",
-    "items": [
-      "/docs/beginners.html",
-      "/docs/workflow.html",
-      "/docs/posts_r_sig.html",
-      "/docs/statisticalQuestions.html",
-      "/docs/advanced.html"
-    ]
-  },
-  {
-    "listing": "/posts_eat.html",
-    "items": []
-  },
-  {
     "listing": "/docs/posts_r_sig.html",
     "items": [
+      "/docs/r_sig/25_02_10_regex/index.html",
       "/docs/r_sig/24_09_09_quarto_git/index.html",
       "/docs/r_sig/24_07_15_quarto_1/index.html",
       "/docs/r_sig/24_06_03_ggplot2/index.html",

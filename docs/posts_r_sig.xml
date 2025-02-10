@@ -10,7 +10,1443 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/posts_r_sig.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Mon, 09 Sep 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 02 Oct 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Regular expressions</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/25_02_10_regex/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/25_02_10_regex/expression.jpg" class="img-fluid"><sup>1</sup></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Regular expressions is a powerful language for describing patterns within strings. Mostly we need that for extracting certain strings for filtering or manipulation. See <a href="https://r4ds.hadley.nz/regexps">R for Data Science</a> for a whole chapter on this. Also, speaking from experience, ChatGPT is a great resource on this, still it might be helpful to understand the underlying syntax a bit better.</p>
+<section id="selecting-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="selecting-patterns">Selecting patterns</h2>
+<p>In base-R we can use <code>grep()</code> for extracting certain patterns from character vectors:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">fruits <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Apple"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Banana"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Orange"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Lemon"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Blackberry"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Peach"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"annona"</span>)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"e"</span>, fruits)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 3 4 5 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">fruits[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"e"</span>, fruits)]</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Apple"      "Orange"     "Lemon"      "Blackberry" "Peach"     </code></pre>
+</div>
+</div>
+<p>In the tidyverse, we can use <code>str_detect()</code>, which is also easily pipeable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">iris <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb7-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_detect</span>(Species, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"set"</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1           5.1         3.5          1.4         0.2  setosa
+2           4.9         3.0          1.4         0.2  setosa
+3           4.7         3.2          1.3         0.2  setosa
+4           4.6         3.1          1.5         0.2  setosa
+5           5.0         3.6          1.4         0.2  setosa
+6           5.4         3.9          1.7         0.4  setosa
+7           4.6         3.4          1.4         0.3  setosa
+8           5.0         3.4          1.5         0.2  setosa
+9           4.4         2.9          1.4         0.2  setosa
+10          4.9         3.1          1.5         0.1  setosa
+11          5.4         3.7          1.5         0.2  setosa
+12          4.8         3.4          1.6         0.2  setosa
+13          4.8         3.0          1.4         0.1  setosa
+14          4.3         3.0          1.1         0.1  setosa
+15          5.8         4.0          1.2         0.2  setosa
+16          5.7         4.4          1.5         0.4  setosa
+17          5.4         3.9          1.3         0.4  setosa
+18          5.1         3.5          1.4         0.3  setosa
+19          5.7         3.8          1.7         0.3  setosa
+20          5.1         3.8          1.5         0.3  setosa
+21          5.4         3.4          1.7         0.2  setosa
+22          5.1         3.7          1.5         0.4  setosa
+23          4.6         3.6          1.0         0.2  setosa
+24          5.1         3.3          1.7         0.5  setosa
+25          4.8         3.4          1.9         0.2  setosa
+26          5.0         3.0          1.6         0.2  setosa
+27          5.0         3.4          1.6         0.4  setosa
+28          5.2         3.5          1.5         0.2  setosa
+29          5.2         3.4          1.4         0.2  setosa
+30          4.7         3.2          1.6         0.2  setosa
+31          4.8         3.1          1.6         0.2  setosa
+32          5.4         3.4          1.5         0.4  setosa
+33          5.2         4.1          1.5         0.1  setosa
+34          5.5         4.2          1.4         0.2  setosa
+35          4.9         3.1          1.5         0.2  setosa
+36          5.0         3.2          1.2         0.2  setosa
+37          5.5         3.5          1.3         0.2  setosa
+38          4.9         3.6          1.4         0.1  setosa
+39          4.4         3.0          1.3         0.2  setosa
+40          5.1         3.4          1.5         0.2  setosa
+41          5.0         3.5          1.3         0.3  setosa
+42          4.5         2.3          1.3         0.3  setosa
+43          4.4         3.2          1.3         0.2  setosa
+44          5.0         3.5          1.6         0.6  setosa
+45          5.1         3.8          1.9         0.4  setosa
+46          4.8         3.0          1.4         0.3  setosa
+47          5.1         3.8          1.6         0.2  setosa
+48          4.6         3.2          1.4         0.2  setosa
+49          5.3         3.7          1.5         0.2  setosa
+50          5.0         3.3          1.4         0.2  setosa</code></pre>
+</div>
+</div>
+</section>
+<section id="manipulating-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="manipulating-patterns">Manipulating patterns</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gsub</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"e"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a"</span>, fruits)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Appla"      "Banana"     "Oranga"     "Lamon"      "Blackbarry"
+[6] "Paach"      "annona"    </code></pre>
+</div>
+</div>
+<p>Or, in tidyverse:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_replace</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"e"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Appla"      "Banana"     "Oranga"     "Lamon"      "Blackbarry"
+[6] "Paach"      "annona"    </code></pre>
+</div>
+</div>
+<p>With <code>stringr::str_view()</code> we can see how the chosen characters look without having to use <code>grep()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">stringr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"e"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ Appl&lt;e&gt;
+[3] │ Orang&lt;e&gt;
+[4] │ L&lt;e&gt;mon
+[5] │ Blackb&lt;e&gt;rry
+[6] │ P&lt;e&gt;ach</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="metacharachters" class="level1">
+<h1>Metacharachters</h1>
+<p>Letters and numbers just represent themselves, but most punctuation characters have their own meaning:</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"><code>.</code></h2>
+<p>The point <code>.</code> matches any character. So if we want to extract all fruits with an <code>e</code> and another character following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"e."</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[4] │ L&lt;em&gt;on
+[5] │ Blackb&lt;er&gt;ry
+[6] │ P&lt;ea&gt;ch</code></pre>
+</div>
+</div>
+<p>Of course we can use multiple points if necessary:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a..e"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[3] │ Or&lt;ange&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"><code>?</code></h2>
+<p>With <code>?</code> we can make a pattern optional, for example the <code>g</code> in the next example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"abb"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab?"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ &lt;a&gt;
+[2] │ &lt;ab&gt;
+[3] │ &lt;ab&gt;b</code></pre>
+</div>
+</div>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"><code>+</code></h2>
+<p>With the <code>+</code> the pattern has to match at least once (or more often):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"abb"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab+"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2] │ &lt;ab&gt;
+[3] │ &lt;abb&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3"><code>*</code></h2>
+<p>The <code>*</code> makes any number of following matches optional, so the pattern can be repeated any number of times, including 0:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"abb"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"abc"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab*"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ &lt;a&gt;
+[2] │ &lt;ab&gt;
+[3] │ &lt;abb&gt;
+[4] │ &lt;ab&gt;c</code></pre>
+</div>
+</div>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4"><code>[]</code></h2>
+<p>This creates a character class, so any of the included characters can match (or not match, if we put a <code>^</code> in front):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a[cn]"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2] │ B&lt;an&gt;&lt;an&gt;a
+[3] │ Or&lt;an&gt;ge
+[5] │ Bl&lt;ac&gt;kberry
+[6] │ Pe&lt;ac&gt;h
+[7] │ &lt;an&gt;nona</code></pre>
+</div>
+</div>
+<p>This selects all strings including an <code>a</code> followed by either <code>c</code> or <code>n</code>. Alternatively, we can also choose all <code>e</code> followed by a vowel:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"e[^aeiou]"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[4] │ L&lt;em&gt;on
+[5] │ Blackb&lt;er&gt;ry</code></pre>
+</div>
+</div>
+<p>Even better, if we want to match all letters:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ca1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x3"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"[a-z]"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ &lt;c&gt;&lt;a&gt;1
+[2] │ &lt;x&gt;3
+[3] │ &lt;a&gt;</code></pre>
+</div>
+</div>
+<p>… followed by a number:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ca1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x3"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"3a"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"[a-z][0-9]"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ c&lt;a1&gt;
+[2] │ &lt;x3&gt;</code></pre>
+</div>
+</div>
+<p>… also starting with a letter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ca1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x3"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"3a"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"^[a-z][0-9]"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2] │ &lt;x3&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5"><code>|</code></h2>
+<p>This is our ‘or’-symbol:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"an|ea"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2] │ B&lt;an&gt;&lt;an&gt;a
+[3] │ Or&lt;an&gt;ge
+[6] │ P&lt;ea&gt;ch
+[7] │ &lt;an&gt;nona</code></pre>
+</div>
+</div>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6"><code>^</code></h2>
+<p>Matches the start:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ba"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"^b"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ &lt;b&gt;a</code></pre>
+</div>
+</div>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7"><code>$</code></h2>
+<p>Matches the end:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ba"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"b$"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2] │ a&lt;b&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="other-predefined-classes" class="level2">
+<h2 class="anchored" data-anchor-id="other-predefined-classes">Other predefined classes:</h2>
+<ul>
+<li><code>\d</code>: Match digit</li>
+<li><code>\D</code>: Match anithing but digits</li>
+<li><code>\s</code>: Match any whitespace</li>
+<li><code>\S</code>: Match anything but whitespace</li>
+<li><code>\w</code>: Match any “word”-character (letters and numbers)</li>
+<li><code>\W</code>: Match any “non-word”-character.</li>
+<li>Finally, the function <code>tolower()</code> might be helpful to convert Upper case letters to lower case letters.</li>
+</ul>
+</section>
+<section id="escaping" class="level2">
+<h2 class="anchored" data-anchor-id="escaping">Escaping</h2>
+<p>If we want to use the actual character instead of its meta-function, we have to escape it (with two <code>\</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">char_vec <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"+?"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ab"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"34.+"</span>)</span>
+<span id="cb41-2"></span>
+<span id="cb41-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(char_vec, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">+"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ &lt;+&gt;?
+[3] │ 34.&lt;+&gt;</code></pre>
+</div>
+</div>
+<p>For matching a <code>\</code>, we need to escape it in the string first, and then match it with four <code>\</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"a</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">b"</span></span>
+<span id="cb43-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(x, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ a&lt;\&gt;b</code></pre>
+</div>
+</div>
+</section>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8"><code>{}</code></h2>
+<p><code>{}</code> allows us to specify the number of matches we are looking for:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"p{2}"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ A&lt;pp&gt;le</code></pre>
+</div>
+</div>
+<p>Or a minimum number:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"p{1,}"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ A&lt;pp&gt;le</code></pre>
+</div>
+</div>
+</section>
+<section id="section-9" class="level2">
+<h2 class="anchored" data-anchor-id="section-9"><code>()</code></h2>
+<p><code>()</code> can help us to clarify how the meta-expressions should relate to each other:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(an){2}"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2] │ B&lt;anan&gt;a</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Instead of:</span></span>
+<span id="cb51-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"an{2}"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[7] │ &lt;ann&gt;ona</code></pre>
+</div>
+</div>
+</section>
+<section id="grouping" class="level2">
+<h2 class="anchored" data-anchor-id="grouping">Grouping</h2>
+<p>Using paranthesis, we can create groups which we can use later on in the regex:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(.)</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">1"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ A&lt;pp&gt;le
+[5] │ Blackbe&lt;rr&gt;y
+[7] │ a&lt;nn&gt;ona</code></pre>
+</div>
+</div>
+<p>This selects all fruits that have a double letter. With the <code>\\1</code> we use the content of the first <code>()</code>. We can also use multiple groups:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(fruits, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(.)(n)</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">2"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2] │ B&lt;anan&gt;a</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<ol type="1">
+<li>What does the following regex code do?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1">sentences[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"^A"</span>, sentences)]</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(sentences, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"[0-9]"</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(sentences, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"^[TA]|y"</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_view</span>(sentences, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(.*n){5}"</span>)</span></code></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Extract all sentences that end with <code>ing.</code> from <code>sentences</code>.</li>
+</ol>
+<ol start="3" type="1">
+<li>Count the number of occurrences of each letter in <code>sentences</code>.</li>
+</ol>
+<ol start="4" type="1">
+<li>Extract all numbers:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1">recipe <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2 Apples"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"6 Bananas"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"500 g sugar"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1 kg flour"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"500 ml milk"</span>)</span></code></pre></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_extract_all</span>(recipe, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">d+"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "2"
+
+[[2]]
+[1] "6"
+
+[[3]]
+[1] "500"
+
+[[4]]
+[1] "1"
+
+[[5]]
+[1] "500"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Extract all Sentences from <code>sentences</code> that include a double letter.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1">sentences[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"(.)</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">1"</span>, sentences)]</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "The birch canoe slid on the smooth planks."               
+  [2] "Glue the sheet to the dark blue background."              
+  [3] "It's easy to tell the depth of a well."                   
+  [4] "The hogs were fed chopped corn and garbage."              
+  [5] "A large size in stockings is hard to sell."               
+  [6] "Kick the ball straight and follow through."               
+  [7] "Help the woman get back to her feet."                     
+  [8] "A pot of tea helps to pass the evening."                  
+  [9] "The soft cushion broke the man's fall."                   
+ [10] "The salt breeze came across from the sea."                
+ [11] "The girl at the booth sold fifty bonds."                  
+ [12] "The small pup gnawed a hole in the sock."                 
+ [13] "The fish twisted and turned on the bent hook."            
+ [14] "Press the pants and sew a button on the vest."            
+ [15] "The beauty of the view stunned the young boy."            
+ [16] "Her purse was full of useless trash."                     
+ [17] "The colt reared and threw the tall rider."                
+ [18] "Wipe the grease off his dirty face."                      
+ [19] "The stray cat gave birth to kittens."                     
+ [20] "The meal was cooked before the bell rang."                
+ [21] "The ship was torn apart on the sharp reef."               
+ [22] "Sickness kept him home the third week."                   
+ [23] "The wide road shimmered in the hot sun."                  
+ [24] "The lazy cow lay in the cool grass."                      
+ [25] "The rope will bind the seven books at once."              
+ [26] "Mesh wire keeps chicks inside."                           
+ [27] "The frosty air passed through the coat."                  
+ [28] "The crooked maze failed to fool the mouse."               
+ [29] "Adding fast leads to wrong sums."                         
+ [30] "A saw is a tool used for making boards."                  
+ [31] "The wagon moved on well oiled wheels."                    
+ [32] "March the soldiers past the next hill."                   
+ [33] "A cup of sugar makes sweet fudge."                        
+ [34] "A small creek cut across the field."                      
+ [35] "Cars and busses stalled in snow drifts."                  
+ [36] "The set of china hit the floor with a crash."             
+ [37] "The walled town was seized without a fight."              
+ [38] "The lease ran out in sixteen weeks."                      
+ [39] "A tame squirrel makes a nice pet."                        
+ [40] "The horn of the car woke the sleeping cop."               
+ [41] "The fruit peel was cut in thick slices."                  
+ [42] "The Navy attacked the big task force."                    
+ [43] "See the cat glaring at the scared mouse."                 
+ [44] "The hat brim was wide and too droopy."                    
+ [45] "The grass curled around the fence post."                  
+ [46] "Always close the barn door tight."                        
+ [47] "The slush lay deep along the street."                     
+ [48] "A pound of sugar costs more than eggs."                   
+ [49] "The play seems dull and quite stupid."                    
+ [50] "The bill was paid every third week."                      
+ [51] "Open the crate but don't break the glass."                
+ [52] "Add the sum to the product of these three."               
+ [53] "The ripe taste of cheese improves with age."              
+ [54] "Act on these orders with great speed."                    
+ [55] "The bark of the pine tree was shiny and dark."            
+ [56] "Leaves turn brown and yellow in the fall."                
+ [57] "The pennant waved when the wind blew."                    
+ [58] "Hemp is a weed found in parts of the tropics."            
+ [59] "Type out three lists of orders."                          
+ [60] "The harder he tried the less he got done."                
+ [61] "The boss ran the show with a watchful eye."               
+ [62] "The cup cracked and spilled its contents."                
+ [63] "Paste can cleanse the most dirty brass."                  
+ [64] "The slang word for raw whiskey is booze."                 
+ [65] "The wharf could be seen at the farther shore."            
+ [66] "Feel the heat of the weak dying flame."                   
+ [67] "The tiny girl took off her hat."                          
+ [68] "A cramp is no small danger on a swim."                    
+ [69] "Two plus seven is less than ten."                         
+ [70] "The glow deepened in the eyes of the sweet girl."         
+ [71] "Clothes and lodging are free to new men."                 
+ [72] "Guess the result from the first scores."                  
+ [73] "Pure bred poodles have curls."                            
+ [74] "The tree top waved in a graceful way."                    
+ [75] "The spot on the blotter was made by green ink."           
+ [76] "Mud was spattered on the front of his white shirt."       
+ [77] "The empty flask stood on the tin tray."                   
+ [78] "A speedy man can beat this track mark."                   
+ [79] "The coffee stand is too high for the couch."              
+ [80] "The pencils have all been used."                          
+ [81] "Drop the two when you add the figures."                   
+ [82] "Wood is best for making toys and blocks."                 
+ [83] "The office paint was a dull, sad tan."                    
+ [84] "He knew the skill of the great young actress."            
+ [85] "A rag will soak up spilled water."                        
+ [86] "A shower of dirt fell from the hot pipes."                
+ [87] "Steam hissed from the broken valve."                      
+ [88] "The child almost hurt the small dog."                     
+ [89] "Torn scraps littered the stone floor."                    
+ [90] "Sunday is the best part of the week."                     
+ [91] "The doctor cured him with these pills."                   
+ [92] "The new girl was fired today at noon."                    
+ [93] "They felt gay when the ship arrived in port."             
+ [94] "Add the store's account to the last cent."                
+ [95] "Acid burns holes in wool cloth."                          
+ [96] "Eight miles of woodland burned to waste."                 
+ [97] "The third act was dull and tired the players."            
+ [98] "A young child should not suffer fright."                  
+ [99] "Add the column and put the sum here."                     
+[100] "We admire and love a good cook."                          
+[101] "There the flood mark is ten inches."                      
+[102] "The fruit of a fig tree is apple shaped."                 
+[103] "The paper box is full of thumb tacks."                    
+[104] "Sell your gift to a buyer at a good gain."                
+[105] "The petals fall with the next puff of wind."              
+[106] "Bring your best compass to the third class."              
+[107] "The brown house was on fire to the attic."                
+[108] "A blue crane is a tall wading bird."                      
+[109] "A fresh start will work such wonders."                    
+[110] "The hostess taught the new maid to serve."                
+[111] "He wrote his last novel there at the inn."                
+[112] "Even the worst will beat his low score."                  
+[113] "The loss of the second ship was hard to take."            
+[114] "The fly made its way along the wall."                     
+[115] "Do that with a wooden stick."                             
+[116] "The doorknob was made of bright clean brass."             
+[117] "The wreck occurred by the bank on Main Street."           
+[118] "Schools for ladies teach charm and grace."                
+[119] "The lamp shone with a steady green flame."                
+[120] "They took the axe and the saw to the forest."             
+[121] "The ancient coin was quite dull and worn."                
+[122] "The shaky barn fell with a loud crash."                   
+[123] "Jazz and swing fans like fast music."                     
+[124] "Rake the rubbish up and then burn it."                    
+[125] "Slash the gold cloth into fine ribbons."                  
+[126] "They are pushed back each time they attack."              
+[127] "Whitings are small fish caught in nets."                  
+[128] "Jerk the rope and the bell rings weakly."                 
+[129] "A waxed floor makes us lose balance."                     
+[130] "On the islands the sea breeze is soft and mild."          
+[131] "The play began as soon as we sat down."                   
+[132] "This will lead the world to more sound and fury."         
+[133] "Add salt before you fry the egg."                         
+[134] "The birch looked stark white and lonesome."               
+[135] "The box is held by a bright red snapper."                 
+[136] "To make pure ice, you freeze water."                      
+[137] "The first worm gets snapped early."                       
+[138] "Jump the fence and hurry up the bank."                    
+[139] "Yell and clap as the curtain slides back."                
+[140] "They are men who walk the middle of the road."            
+[141] "In some form or other we need fun."                       
+[142] "The prince ordered his head chopped off."                 
+[143] "Ducks fly north but lack a compass."                      
+[144] "Fruit flavors are used in fizz drinks."                   
+[145] "These pills do less good than others."                    
+[146] "Canned pears lack full flavor."                           
+[147] "Carry the pail to the wall and spill it there."           
+[148] "The rude laugh filled the empty room."                    
+[149] "High seats are best for football fans."                   
+[150] "A dash of pepper spoils beef stew."                       
+[151] "A zestful food is the hot-cross bun."                     
+[152] "The horse trotted around the field at a brisk pace."      
+[153] "The red tape bound the smuggled food."                    
+[154] "Look in the corner to find the tan shirt."                
+[155] "The cold drizzle will halt the bond drive."               
+[156] "The junk yard had a mouldy smell."                        
+[157] "The flint sputtered and lit a pine torch."                
+[158] "All sat frozen and watched the screen."                   
+[159] "To reach the end he needs much courage."                  
+[160] "A ridge on a smooth surface is a bump or flaw."           
+[161] "Hedge apples may stain your hands green."                 
+[162] "The mute muffled the high tones of the horn."             
+[163] "The heap of fallen leaves was set on fire."               
+[164] "His shirt was clean but one button was gone."             
+[165] "The barrel of beer was a brew of malt and hops."          
+[166] "The plant grew large and green in the window."            
+[167] "The beam dropped down on the workman's head."             
+[168] "Pink clouds floated with the breeze."                     
+[169] "She danced like a swan, tall and graceful."               
+[170] "The tube was blown and the tire flat and useless."        
+[171] "It is late morning on the old wall clock."                
+[172] "Let's all join as we sing the last chorus."               
+[173] "The last switch cannot be turned off."                    
+[174] "The fight will end in just six minutes."                  
+[175] "The store walls were lined with colored frocks."          
+[176] "The peace league met to discuss their plans."             
+[177] "The quick fox jumped on the sleeping cat."                
+[178] "The nozzle of the fire hose was bright brass."            
+[179] "Screw the round cap on as tight as needed."               
+[180] "Fill the ink jar with sticky glue."                       
+[181] "We need grain to keep our mules healthy."                 
+[182] "The crunch of feet in the snow was the only sound."       
+[183] "The copper bowl shone in the sun's rays."                 
+[184] "Boards will warp unless kept dry."                        
+[185] "The plush chair leaned against the wall."                 
+[186] "Glass will clink when struck by metal."                   
+[187] "Bathe and relax in the cool green grass."                 
+[188] "Nine rows of soldiers stood in a line."                   
+[189] "The beach is dry and shallow at low tide."                
+[190] "The kitten chased the dog down the street."               
+[191] "Pages bound in cloth make a book."                        
+[192] "Women form less than half of the group."                  
+[193] "A gem in the rough needs work to polish."                 
+[194] "He used the lathe to make brass objects."                 
+[195] "The clan gathered on each dull night."                    
+[196] "Tack the strip of carpet to the worn floor."              
+[197] "Each penny shone like new."                               
+[198] "The man went to the woods to gather sticks."              
+[199] "The logs fell and tumbled into the clear stream."         
+[200] "Brass rings are sold by these natives."                   
+[201] "It takes a good trap to capture a bear."                  
+[202] "Feed the white mouse some flower seeds."                  
+[203] "The thaw came early and freed the stream."                
+[204] "He took the lead and kept it the whole distance."         
+[205] "The key you designed will fit the lock."                  
+[206] "Plead to the council to free the poor thief."             
+[207] "Better hash is made of rare beef."                        
+[208] "Tend the sheep while the dog wanders."                    
+[209] "A sash of gold silk will trim her dress."                 
+[210] "A siege will crack the strong defense."                   
+[211] "Grape juice and water mix well."                          
+[212] "Fake stones shine but cost little."                       
+[213] "Much of the story makes good sense."                      
+[214] "A lathe cuts and trims any wood."                         
+[215] "His hip struck the knee of the next player."              
+[216] "The stale smell of old beer lingers."                     
+[217] "The desk was firm on the shaky floor."                    
+[218] "Beef is scarcer than some lamb."                          
+[219] "Raise the sail and steer the ship northward."             
+[220] "No cement will hold hard wood."                           
+[221] "We now have a new base for shipping."                     
+[222] "The sheep were led home by a dog."                        
+[223] "Three for a dime, the young peddler cried."               
+[224] "The sense of smell is better than that of touch."         
+[225] "No hardship seemed to make him sad."                      
+[226] "The news struck doubt into restless minds."               
+[227] "Once we stood beside the shore."                          
+[228] "A chink in the wall allowed a draft to blow."             
+[229] "He takes the oath of office each March."                  
+[230] "The sand drifts over the sills of the old house."         
+[231] "The point of the steel pen was bent and twisted."         
+[232] "There is a lag between thought and act."                  
+[233] "Seed is needed to plant the spring corn."                 
+[234] "The chap slipped into the crowd and was lost."            
+[235] "Hats are worn to tea and not to dinner."                  
+[236] "Screen the porch with woven straw mats."                  
+[237] "This horse will nose his way to the finish."              
+[238] "The dry wax protects the deep scratch."                   
+[239] "He picked up the dice for a second roll."                 
+[240] "These coins will be needed to pay his debt."              
+[241] "The nag pulled the frail cart along."                     
+[242] "The smell of burned rags itches my nose."                 
+[243] "New pants lack cuffs and pockets."                        
+[244] "The marsh will freeze when cold enough."                  
+[245] "The bloom of the rose lasts a few days."                  
+[246] "Bottles hold four kinds of rum."                          
+[247] "He wheeled the bike past the winding road."               
+[248] "A clean neck means a neat collar."                        
+[249] "The couch cover and hall drapes were blue."               
+[250] "The stems of the tall glasses cracked and broke."         
+[251] "The wall phone rang loud and often."                      
+[252] "The clothes dried on a thin wooden rack."                 
+[253] "The cleat sank deeply into the soft turf."                
+[254] "The bills were mailed promptly on the tenth of the month."
+[255] "To have is better than to wait and hope."                 
+[256] "The price is fair for a good antique clock."              
+[257] "The bunch of grapes was pressed into wine."               
+[258] "He sent the figs, but kept the ripe cherries."            
+[259] "The hinge on the door creaked with old age."              
+[260] "The screen before the fire kept in the sparks."           
+[261] "Fly by night and you waste little time."                  
+[262] "Thick glasses helped him read the print."                 
+[263] "The chair looked strong but had no bottom."               
+[264] "A fur muff is stylish once more."                         
+[265] "The tin box held priceless stones."                       
+[266] "We need an end of all such matter."                       
+[267] "The case was puzzling to the old and wise."               
+[268] "The youth drove with zest, but little skill."             
+[269] "Five years he lived with a shaggy dog."                   
+[270] "Crack the walnut with your sharp side teeth."             
+[271] "He offered proof in the form of a large chart."           
+[272] "Send the stuff in a thick paper bag."                     
+[273] "The three story house was built of stone."                
+[274] "In the rear of the ground floor was a large passage."     
+[275] "Oats are a food eaten by horse and man."                  
+[276] "Their eyelids droop for want of sleep."                   
+[277] "Tuck the sheet under the edge of the mat."                
+[278] "We like to see clear weather."                            
+[279] "The work of the tailor is seen on each side."             
+[280] "Take a chance and win a china doll."                      
+[281] "The square wooden crate was packed to be shipped."        
+[282] "The dusty bench stood by the stone wall."                 
+[283] "We dress to suit the weather of most days."               
+[284] "A bowl of rice is free with chicken stew."                
+[285] "The water in this well is a source of good health."       
+[286] "Take shelter in this tent, but keep still."               
+[287] "That guy is the writer of a few banned books."            
+[288] "The little tales they tell are false."                    
+[289] "The door was barred, locked, and bolted as well."         
+[290] "Ripe pears are fit for a queen's table."                  
+[291] "The kite dipped and swayed, but stayed aloft."            
+[292] "The pleasant hours fly by much too soon."                 
+[293] "The room was crowded with a wild mob."                    
+[294] "This strong arm shall shield your honor."                 
+[295] "The beetle droned in the hot June sun."                   
+[296] "Press the pedal with your left foot."                     
+[297] "The black trunk fell from the landing."                   
+[298] "The bank pressed for payment of the debt."                
+[299] "A strong bid may scare your partner stiff."               
+[300] "Even a just cause needs power to win."                    
+[301] "Peep under the tent and see the clowns."                  
+[302] "A thing of small note can cause despair."                 
+[303] "Flood the mails with requests for this book."             
+[304] "A thick coat of black paint covered all."                 
+[305] "He wrote his name boldly at the top of the sheet."        
+[306] "Dill pickles are sour but taste fine."                    
+[307] "Either mud or dust are found at all times."               
+[308] "If you mumble your speech will be lost."                  
+[309] "At night the alarm roused him from a deep sleep."         
+[310] "Fill your pack with bright trinkets for the poor."        
+[311] "The small red neon lamp went out."                        
+[312] "Clams are small, round, soft, and tasty."                 
+[313] "Breathe deep and smell the piny air."                     
+[314] "It matters not if he reads these words or those."         
+[315] "A toad and a frog are hard to tell apart."                
+[316] "A break in the dam almost caused a flood."                
+[317] "Paint the sockets in the wall dull green."                
+[318] "The child crawled into the dense grass."                  
+[319] "Trample the spark, else the flames will spread."          
+[320] "A round hole was drilled through the thin board."         
+[321] "Footprints showed the path he took up the beach."         
+[322] "Prod the old mule with a crooked stick."                  
+[323] "It is a band of steel three inches wide."                 
+[324] "It was hidden from sight by a mass of leaves and shrubs." 
+[325] "The weight of the package was seen on the high scale."    
+[326] "Wake and rise, and step into the green outdoors."         
+[327] "The green light in the brown box flickered."              
+[328] "The brass tube circled the high wall."                    
+[329] "Hold the hammer near the end to drive the nail."          
+[330] "They took their kids from the public school."             
+[331] "Drive the screw straight into the wood."                  
+[332] "Keep the hatch tight and the watch constant."             
+[333] "Paper will dry out when wet."                             
+[334] "A sullen smile gets few friends."                         
+[335] "Slide the tray across the glass top."                     
+[336] "Light maple makes for a swell room."                      
+[337] "Dull stories make her laugh."                             
+[338] "A stiff cord will do to fasten your shoe."                
+[339] "Choose between the high road and the low."                
+[340] "A plea for funds seems to come again."                    
+[341] "He lent his coat to the tall gaunt stranger."             
+[342] "There is a strong chance it will happen once more."       
+[343] "Greet the new guests and leave quickly."                  
+[344] "Sweet words work better than fierce."                     
+[345] "A thin stripe runs down the middle."                      
+[346] "The ram scared the school children off."                  
+[347] "The team with the best timing looks good."                
+[348] "The farmer swapped his horse for a brown ox."             
+[349] "Sit on the perch and tell the others what to do."         
+[350] "A steep trail is painful for our feet."                   
+[351] "Green moss grows on the northern side."                   
+[352] "Tea in thin china has a sweet taste."                     
+[353] "Pitch the straw through the door of the stable."          
+[354] "The latch on the back gate needed a nail."                
+[355] "The goose was brought straight from the old market."      
+[356] "A whiff of it will cure the most stubborn cold."          
+[357] "She flaps her cape as she parades the street."            
+[358] "The loss of the cruiser was a blow to the fleet."         
+[359] "Loop the braid to the left and then over."                
+[360] "Calves thrive on tender spring grass."                    
+[361] "Post no bills on this office wall."                       
+[362] "Tear a thin sheet from the yellow pad."                   
+[363] "A cruise in warm waters in a sleek yacht is fun."         
+[364] "It was done before the boy could see it."                 
+[365] "Crouch before you jump or miss the mark."                 
+[366] "The square peg will settle in the round hole."            
+[367] "Poached eggs and tea must suffice."                       
+[368] "Bad nerves are jangled by a door slam."                   
+[369] "Ship maps are different from those for planes."           
+[370] "Dimes showered down from all sides."                      
+[371] "The horse balked and threw the tall rider."               
+[372] "The hitch between the horse and cart broke."              
+[373] "The roof should be tilted at a sharp slant."              
+[374] "A smatter of French is worse than none."                  
+[375] "The mule trod the treadmill day and night."               
+[376] "Cod is the main business of the north shore."             
+[377] "Cap the jar with a tight brass cover."                    
+[378] "The poor boy missed the boat again."                      
+[379] "A round mat will cover the dull spot."                    
+[380] "The first part of the plan needs changing."               
+[381] "A good book informs of what we ought to know."            
+[382] "The mail comes in three batches per day."                 
+[383] "You cannot brew tea in a cold pot."                       
+[384] "See the player scoot to third base."                      
+[385] "Slide the bill between the two leaves."                   
+[386] "We don't like to admit our small faults."                 
+[387] "Dig deep in the earth for pirate's gold."                 
+[388] "A flat pack takes less luggage space."                    
+[389] "Green ice frosted the punch bowl."                        
+[390] "A stuffed chair slipped from the moving van."             
+[391] "The stitch will serve but needs to be shortened."         
+[392] "A thin book fits in the side pocket."                     
+[393] "The gloss on top made it unfit to read."                  
+[394] "The hail pattered on the burnt brown grass."              
+[395] "Seven seals were stamped on great sheets."                
+[396] "Our troops are set to strike heavy blows."                
+[397] "The store was jammed before the sale could start."        
+[398] "It was a bad error on the part of the new judge."         
+[399] "One step more and the board will collapse."               
+[400] "The pot boiled but the contents failed to jell."          
+[401] "The baby puts his right foot in his mouth."               
+[402] "The streets are narrow and full of sharp turns."          
+[403] "Open your book to the first page."                        
+[404] "Fish evade the net and swim off."                         
+[405] "Dip the pail once and let it settle."                     
+[406] "Will you please answer that phone."                       
+[407] "The big red apple fell to the ground."                    
+[408] "He sent the boy on a short errand."                       
+[409] "Leave now and you will arrive on time."                   
+[410] "The corner store was robbed last night."                  
+[411] "A gold ring will please most any girl."                   
+[412] "The long journey home took a year."                       
+[413] "A pink shell was found on the sandy beach."               
+[414] "Small children came to see him."                          
+[415] "The grass and bushes were wet with dew."                  
+[416] "She called his name many times."                          
+[417] "When you hear the bell, come quickly."                    </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Count the number of occurences of each word that ends with <code>all</code> in <code>sentences</code>.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_extract_all</span>(sentences, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" [a-z]+(a)(l)</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">2"</span> ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb66-2">  unlist <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb66-3">  table</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>.
+     ball      call      fall  football      hall     shall     small     stall 
+        1         1         4         1         1         2         9         1 
+     tall      wall 
+        6        12 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li>Download and read into R the text file <a href="https://github.com/iqb-research/IQB-Methods/blob/main/docs/r_sig/25_02_10_regex/faust.txt"><code>faust.txt</code></a>. Plot the 50 most common words in Goethes Faust.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The package <code>readtext</code> might help you with reading in <code>.txt</code> files. You might want to look in the examples of the <code>str_extract_all()</code> documentation. It might help with extracting words!</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1">faust <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readtext</span>(here<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"docs"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"r_sig"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"25_02_10_regex"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"faust.txt"</span>))</span>
+<span id="cb68-2"></span>
+<span id="cb68-3">word_count <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_extract_all</span>(faust, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">boundary</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"word"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb68-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unlist</span>() </span>
+<span id="cb68-5">word_count <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tolower</span>(word_count) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb68-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb68-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.data.frame</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb68-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">desc</span>(Freq)) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Sorting by frequency</span></span>
+<span id="cb68-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(word_count) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Word"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Count"</span>)</span>
+<span id="cb68-10"></span>
+<span id="cb68-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Convert Word column to character for proper sorting</span></span>
+<span id="cb68-12">word_count<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Word <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(word_count<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Word)</span>
+<span id="cb68-13"></span>
+<span id="cb68-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Plot the top 50 most frequent words</span></span>
+<span id="cb68-15"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(word_count  <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reorder</span>(Word, Count), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Count)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb68-16">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_col</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"steelblue"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb68-17">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_flip</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Flip for better readability</span></span>
+<span id="cb68-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb68-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Top 10 Most Frequent Words in Faust"</span>,</span>
+<span id="cb68-20">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Words"</span>,</span>
+<span id="cb68-21">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Count"</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="8" type="1">
+<li>Extract the email addresses from the following text:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1">text <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hello Team,</span></span>
+<span id="cb69-2"></span>
+<span id="cb69-3"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Please reach out to John at john.doe96@example.com for project updates. If you have any financial queries, contact Sarah at sarah_finance@company.org.</span></span>
+<span id="cb69-4"></span>
+<span id="cb69-5"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">For general inquiries, you can email info@business.net or our HR department at hr-department@enterprise.co.uk.</span></span>
+<span id="cb69-6"></span>
+<span id="cb69-7"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Best regards,</span></span>
+<span id="cb69-8"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Admin Team (admin@corporate.com)"</span></span></code></pre></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_extract_all</span>(text, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.[a-zA-Z]{2,}"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "john.doe96@example.com"         "sarah_finance@company.org"     
+[3] "info@business.net"              "hr-department@enterprise.co.uk"
+[5] "admin@corporate.com"           </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Image by <a href="https://unsplash.com/de/@bang_gecko?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">verdian chua</a> on <a href="https://unsplash.com/de/fotos/braune-und-weisse-eidechse-auf-brauner-holzoberflache-68hC4vYTSFo?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>R</category>
+  <category>R-SIG</category>
+  <category>intro</category>
+  <category>tutorial</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/25_02_10_regex/</guid>
+  <pubDate>Thu, 02 Oct 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/25_02_10_regex/manuscript.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Reproducible manuscripts with Git</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
@@ -1065,7 +2501,7 @@ Table&nbsp;1: German olympic medal winners in Judo.
 </figcaption>
 <div aria-describedby="tbl-judo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-281cec92{table-layout:auto;}.cl-28153cc2{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2818216c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-28182176{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-28183efe{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-28183f08{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-28183f12{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-28183f1c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-28183f1d{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-281cec92"><thead><tr style="overflow-wrap:break-word;"><th class="cl-28183efe"><p class="cl-2818216c"><span class="cl-28153cc2">Year</span></p></th><th class="cl-28183efe"><p class="cl-2818216c"><span class="cl-28153cc2">Name</span></p></th><th class="cl-28183efe"><p class="cl-2818216c"><span class="cl-28153cc2">Sex</span></p></th><th class="cl-28183efe"><p class="cl-2818216c"><span class="cl-28153cc2">Age</span></p></th><th class="cl-28183efe"><p class="cl-2818216c"><span class="cl-28153cc2">Height</span></p></th><th class="cl-28183efe"><p class="cl-2818216c"><span class="cl-28153cc2">Weight</span></p></th><th class="cl-28183efe"><p class="cl-2818216c"><span class="cl-28153cc2">Region</span></p></th><th class="cl-28183efe"><p class="cl-2818216c"><span class="cl-28153cc2">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,964</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Wolfgang Hofmann</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">23</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">177</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">80.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,964</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Klaus Glahn</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">22</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">187</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">101.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,972</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Paul Barth</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">26</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">181</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">90.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,972</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Klaus Glahn</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">30</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">187</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">101.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,972</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Dietmar Htger</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">25</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">172</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">70.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,976</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Gnther Neureuther</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">20</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">186</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">95.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,980</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Detlef Ultsch</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">24</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">170</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">80.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,980</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Dietmar Lorenz</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">30</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">180</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">93.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,980</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Harald Heinke</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">25</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">178</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">78.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,980</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Dietmar Lorenz</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">30</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">180</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">93.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,980</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Karl-Heinz Lehmann</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">23</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">169</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">71.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,984</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Frank Wieneke</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">22</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">179</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">78.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,984</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Arthur Schnabel</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">35</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">182</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">104.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,984</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Gnther Neureuther</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">28</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">186</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">95.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,988</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Frank Wieneke</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">26</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">179</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">78.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,988</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Marcus "Marc" Meiling</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">26</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">194</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">95.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,988</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Henry Sthr</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">28</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">194</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">120.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,988</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Sven Loll</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">24</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">182</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">71.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,988</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">24</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">178</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">78.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,992</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Richard Trautmann</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">23</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">168</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">65.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,992</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Udo Gnther Quellmalz</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">25</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">175</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">65.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,996</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Johanna Hagn</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">F</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">23</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">168</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2"></span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,996</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Udo Gnther Quellmalz</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">29</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">175</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">65.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,996</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Frank Mller</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">25</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">189</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">125.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,996</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Richard Trautmann</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">27</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">168</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">65.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">1,996</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Marko Spittka</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">25</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">179</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">88.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,000</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Anna-Maria Gradante</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">F</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">23</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">154</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">48.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,004</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Yvonne Bnisch</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">F</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">23</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">168</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">61.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,004</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Julia Matijass</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">F</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">30</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">161</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">48.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,004</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Annett Bhm</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">F</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">24</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">179</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">83.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,004</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Michael Jurack</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">25</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">190</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">100.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,008</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Ole Bischof</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">28</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">180</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">81.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,012</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Kerstin Thiele</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">F</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">25</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">168</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">70.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,012</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Dimitri Peters</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">28</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">188</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">100.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,012</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Ole Bischof</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">32</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">180</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">81.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f08"><p class="cl-28182176"><span class="cl-28153cc2">2,012</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Andreas Tlzer</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">M</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">32</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">192</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">131.00</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f12"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-28183f1c"><p class="cl-28182176"><span class="cl-28153cc2">2,016</span></p></td><td class="cl-28183f1d"><p class="cl-2818216c"><span class="cl-28153cc2">Laura Vargas Koch</span></p></td><td class="cl-28183f1d"><p class="cl-2818216c"><span class="cl-28153cc2">F</span></p></td><td class="cl-28183f1d"><p class="cl-2818216c"><span class="cl-28153cc2">26</span></p></td><td class="cl-28183f1d"><p class="cl-2818216c"><span class="cl-28153cc2">173</span></p></td><td class="cl-28183f1d"><p class="cl-2818216c"><span class="cl-28153cc2">70.00</span></p></td><td class="cl-28183f1d"><p class="cl-2818216c"><span class="cl-28153cc2">Germany</span></p></td><td class="cl-28183f1d"><p class="cl-2818216c"><span class="cl-28153cc2">Bronze</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-4585f270{table-layout:auto;}.cl-457e335a{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-458121d2{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-458121dc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-45813f8c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-45813f8d{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-45813f96{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-45813f97{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-45813fa0{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-4585f270"><thead><tr style="overflow-wrap:break-word;"><th class="cl-45813f8c"><p class="cl-458121d2"><span class="cl-457e335a">Year</span></p></th><th class="cl-45813f8c"><p class="cl-458121d2"><span class="cl-457e335a">Name</span></p></th><th class="cl-45813f8c"><p class="cl-458121d2"><span class="cl-457e335a">Sex</span></p></th><th class="cl-45813f8c"><p class="cl-458121d2"><span class="cl-457e335a">Age</span></p></th><th class="cl-45813f8c"><p class="cl-458121d2"><span class="cl-457e335a">Height</span></p></th><th class="cl-45813f8c"><p class="cl-458121d2"><span class="cl-457e335a">Weight</span></p></th><th class="cl-45813f8c"><p class="cl-458121d2"><span class="cl-457e335a">Region</span></p></th><th class="cl-45813f8c"><p class="cl-458121d2"><span class="cl-457e335a">Medal</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,964</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Wolfgang Hofmann</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">23</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">177</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">80.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,964</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Klaus Glahn</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">22</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">187</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">101.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,972</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Paul Barth</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">26</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">181</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">90.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,972</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Klaus Glahn</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">30</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">187</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">101.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,972</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Dietmar Htger</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">25</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">172</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">70.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,976</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Gnther Neureuther</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">20</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">186</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">95.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,980</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Detlef Ultsch</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">24</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">170</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">80.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,980</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Dietmar Lorenz</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">30</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">180</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">93.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,980</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Harald Heinke</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">25</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">178</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">78.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,980</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Dietmar Lorenz</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">30</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">180</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">93.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,980</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Karl-Heinz Lehmann</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">23</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">169</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">71.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,984</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Frank Wieneke</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">22</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">179</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">78.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,984</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Arthur Schnabel</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">35</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">182</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">104.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,984</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Gnther Neureuther</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">28</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">186</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">95.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,988</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Frank Wieneke</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">26</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">179</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">78.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,988</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Marcus "Marc" Meiling</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">26</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">194</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">95.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,988</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Henry Sthr</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">28</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">194</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">120.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,988</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Sven Loll</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">24</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">182</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">71.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,988</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Torsten Brcht (Oehmigen-)</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">24</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">178</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">78.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,992</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Richard Trautmann</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">23</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">168</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">65.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,992</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Udo Gnther Quellmalz</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">25</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">175</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">65.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,996</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Johanna Hagn</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">F</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">23</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">168</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a"></span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,996</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Udo Gnther Quellmalz</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">29</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">175</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">65.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,996</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Frank Mller</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">25</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">189</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">125.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,996</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Richard Trautmann</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">27</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">168</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">65.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">1,996</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Marko Spittka</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">25</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">179</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">88.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,000</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Anna-Maria Gradante</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">F</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">23</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">154</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">48.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,004</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Yvonne Bnisch</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">F</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">23</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">168</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">61.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,004</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Julia Matijass</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">F</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">30</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">161</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">48.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,004</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Annett Bhm</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">F</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">24</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">179</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">83.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,004</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Michael Jurack</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">25</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">190</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">100.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,008</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Ole Bischof</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">28</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">180</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">81.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Gold</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,012</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Kerstin Thiele</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">F</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">25</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">168</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">70.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,012</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Dimitri Peters</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">28</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">188</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">100.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,012</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Ole Bischof</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">32</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">180</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">81.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Silver</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f8d"><p class="cl-458121dc"><span class="cl-457e335a">2,012</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Andreas Tlzer</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">M</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">32</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">192</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">131.00</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813f96"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-45813f97"><p class="cl-458121dc"><span class="cl-457e335a">2,016</span></p></td><td class="cl-45813fa0"><p class="cl-458121d2"><span class="cl-457e335a">Laura Vargas Koch</span></p></td><td class="cl-45813fa0"><p class="cl-458121d2"><span class="cl-457e335a">F</span></p></td><td class="cl-45813fa0"><p class="cl-458121d2"><span class="cl-457e335a">26</span></p></td><td class="cl-45813fa0"><p class="cl-458121d2"><span class="cl-457e335a">173</span></p></td><td class="cl-45813fa0"><p class="cl-458121d2"><span class="cl-457e335a">70.00</span></p></td><td class="cl-45813fa0"><p class="cl-458121d2"><span class="cl-457e335a">Germany</span></p></td><td class="cl-45813fa0"><p class="cl-458121d2"><span class="cl-457e335a">Bronze</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </figure>
@@ -1345,7 +2781,7 @@ font-style: inherit;">broom =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"glm"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-2929f530{table-layout:auto;}.cl-29236c92{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-29236ca6{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2926ffce{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-2926ffd8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-2927187e{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-29271888{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-29271889{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2927188a{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2927188b{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-2929f530"><thead><tr style="overflow-wrap:break-word;"><th class="cl-2927187e"><p class="cl-2926ffce"><span class="cl-29236c92">Term</span></p></th><th class="cl-2927187e"><p class="cl-2926ffce"><span class="cl-29236c92">estimate</span></p></th><th class="cl-2927187e"><p class="cl-2926ffce"><span class="cl-29236ca6">SE</span></p></th><th class="cl-2927187e"><p class="cl-2926ffce"><span class="cl-29236ca6">t</span></p></th><th class="cl-2927187e"><p class="cl-2926ffce"><span class="cl-29236ca6">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-29271888"><p class="cl-2926ffd8"><span class="cl-29236c92">(Intercept)</span></p></td><td class="cl-29271889"><p class="cl-2926ffce"><span class="cl-29236c92">0.38</span></p></td><td class="cl-29271889"><p class="cl-2926ffce"><span class="cl-29236c92">0.19</span></p></td><td class="cl-29271889"><p class="cl-2926ffce"><span class="cl-29236c92">-5.05</span></p></td><td class="cl-29271889"><p class="cl-2926ffce"><span class="cl-29236c92">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2927188a"><p class="cl-2926ffd8"><span class="cl-29236c92">RegionJapan</span></p></td><td class="cl-2927188b"><p class="cl-2926ffce"><span class="cl-29236c92">4.94</span></p></td><td class="cl-2927188b"><p class="cl-2926ffce"><span class="cl-29236c92">0.27</span></p></td><td class="cl-2927188b"><p class="cl-2926ffce"><span class="cl-29236c92">5.98</span></p></td><td class="cl-2927188b"><p class="cl-2926ffce"><span class="cl-29236c92">&lt; .001***</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-4699337a{table-layout:auto;}.cl-46929d26{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-46929d3a{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-46963274{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-4696327e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-46964b42{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-46964b4c{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-46964b56{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-46964b57{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-46964b60{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-4699337a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-46964b42"><p class="cl-46963274"><span class="cl-46929d26">Term</span></p></th><th class="cl-46964b42"><p class="cl-46963274"><span class="cl-46929d26">estimate</span></p></th><th class="cl-46964b42"><p class="cl-46963274"><span class="cl-46929d3a">SE</span></p></th><th class="cl-46964b42"><p class="cl-46963274"><span class="cl-46929d3a">t</span></p></th><th class="cl-46964b42"><p class="cl-46963274"><span class="cl-46929d3a">p</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-46964b4c"><p class="cl-4696327e"><span class="cl-46929d26">(Intercept)</span></p></td><td class="cl-46964b56"><p class="cl-46963274"><span class="cl-46929d26">0.38</span></p></td><td class="cl-46964b56"><p class="cl-46963274"><span class="cl-46929d26">0.19</span></p></td><td class="cl-46964b56"><p class="cl-46963274"><span class="cl-46929d26">-5.05</span></p></td><td class="cl-46964b56"><p class="cl-46963274"><span class="cl-46929d26">&lt; .001***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-46964b57"><p class="cl-4696327e"><span class="cl-46929d26">RegionJapan</span></p></td><td class="cl-46964b60"><p class="cl-46963274"><span class="cl-46929d26">4.94</span></p></td><td class="cl-46964b60"><p class="cl-46963274"><span class="cl-46929d26">0.27</span></p></td><td class="cl-46964b60"><p class="cl-46963274"><span class="cl-46929d26">5.98</span></p></td><td class="cl-46964b60"><p class="cl-46963274"><span class="cl-46929d26">&lt; .001***</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
