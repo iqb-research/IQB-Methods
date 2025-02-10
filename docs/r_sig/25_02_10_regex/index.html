@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../../styles.css">
 <meta property="og:title" content="Regular expressions – IQB Methods Team">
 <meta property="og:description" content="R-SIG 10.02.2025">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/r_sig/25_02_10_regex/manuscript.jpg">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/r_sig/25_02_10_regex/expression.jpg">
 <meta property="og:site_name" content="IQB Methods Team">
 </head>
 
@@ -238,15 +238,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="selecting-patterns">Selecting patterns</h2>
 <p>In base-R we can use <code>grep()</code> for extracting certain patterns from character vectors:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Apple"</span>, <span class="st">"Banana"</span>, <span class="st">"Orange"</span>, <span class="st">"Lemon"</span>, <span class="st">"Blackberry"</span>, <span class="st">"Peach"</span>, <span class="st">"annona"</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Apple"</span>, <span class="st">"Banana"</span>, <span class="st">"Orange"</span>, <span class="st">"Lemon"</span>, <span class="st">"Blackberry"</span>, <span class="st">"Peach"</span>, <span class="st">"annona"</span>, <span class="st">"peach"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"e"</span>, fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 3 4 5 6</code></pre>
+<pre><code>[1] 1 3 4 5 6 8</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fruits[<span class="fu">grep</span>(<span class="st">"e"</span>, fruits)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Apple"      "Orange"     "Lemon"      "Blackberry" "Peach"     </code></pre>
+<pre><code>[1] "Apple"      "Orange"     "Lemon"      "Blackberry" "Peach"     
+[6] "peach"     </code></pre>
 </div>
 </div>
 <p>In the tidyverse, we can use <code>str_detect()</code>, which is also easily pipeable:</p>
@@ -265,59 +266,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(Species, <span class="st">"set"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(Species, <span class="st">"set"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-1           5.1         3.5          1.4         0.2  setosa
-2           4.9         3.0          1.4         0.2  setosa
-3           4.7         3.2          1.3         0.2  setosa
-4           4.6         3.1          1.5         0.2  setosa
-5           5.0         3.6          1.4         0.2  setosa
-6           5.4         3.9          1.7         0.4  setosa
-7           4.6         3.4          1.4         0.3  setosa
-8           5.0         3.4          1.5         0.2  setosa
-9           4.4         2.9          1.4         0.2  setosa
-10          4.9         3.1          1.5         0.1  setosa
-11          5.4         3.7          1.5         0.2  setosa
-12          4.8         3.4          1.6         0.2  setosa
-13          4.8         3.0          1.4         0.1  setosa
-14          4.3         3.0          1.1         0.1  setosa
-15          5.8         4.0          1.2         0.2  setosa
-16          5.7         4.4          1.5         0.4  setosa
-17          5.4         3.9          1.3         0.4  setosa
-18          5.1         3.5          1.4         0.3  setosa
-19          5.7         3.8          1.7         0.3  setosa
-20          5.1         3.8          1.5         0.3  setosa
-21          5.4         3.4          1.7         0.2  setosa
-22          5.1         3.7          1.5         0.4  setosa
-23          4.6         3.6          1.0         0.2  setosa
-24          5.1         3.3          1.7         0.5  setosa
-25          4.8         3.4          1.9         0.2  setosa
-26          5.0         3.0          1.6         0.2  setosa
-27          5.0         3.4          1.6         0.4  setosa
-28          5.2         3.5          1.5         0.2  setosa
-29          5.2         3.4          1.4         0.2  setosa
-30          4.7         3.2          1.6         0.2  setosa
-31          4.8         3.1          1.6         0.2  setosa
-32          5.4         3.4          1.5         0.4  setosa
-33          5.2         4.1          1.5         0.1  setosa
-34          5.5         4.2          1.4         0.2  setosa
-35          4.9         3.1          1.5         0.2  setosa
-36          5.0         3.2          1.2         0.2  setosa
-37          5.5         3.5          1.3         0.2  setosa
-38          4.9         3.6          1.4         0.1  setosa
-39          4.4         3.0          1.3         0.2  setosa
-40          5.1         3.4          1.5         0.2  setosa
-41          5.0         3.5          1.3         0.3  setosa
-42          4.5         2.3          1.3         0.3  setosa
-43          4.4         3.2          1.3         0.2  setosa
-44          5.0         3.5          1.6         0.6  setosa
-45          5.1         3.8          1.9         0.4  setosa
-46          4.8         3.0          1.4         0.3  setosa
-47          5.1         3.8          1.6         0.2  setosa
-48          4.6         3.2          1.4         0.2  setosa
-49          5.3         3.7          1.5         0.2  setosa
-50          5.0         3.3          1.4         0.2  setosa</code></pre>
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
 </div>
 </div>
 </section>
@@ -327,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">"e"</span>, <span class="st">"a"</span>, fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Appla"      "Banana"     "Oranga"     "Lamon"      "Blackbarry"
-[6] "Paach"      "annona"    </code></pre>
+[6] "Paach"      "annona"     "paach"     </code></pre>
 </div>
 </div>
 <p>Or, in tidyverse:</p>
@@ -335,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(fruits, <span class="st">"e"</span>, <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Appla"      "Banana"     "Oranga"     "Lamon"      "Blackbarry"
-[6] "Paach"      "annona"    </code></pre>
+[6] "Paach"      "annona"     "paach"     </code></pre>
 </div>
 </div>
 <p>With <code>stringr::str_view()</code> we can see how the chosen characters look without having to use <code>grep()</code>:</p>
@@ -346,7 +304,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [3] │ Orang&lt;e&gt;
 [4] │ L&lt;e&gt;mon
 [5] │ Blackb&lt;e&gt;rry
-[6] │ P&lt;e&gt;ach</code></pre>
+[6] │ P&lt;e&gt;ach
+[8] │ p&lt;e&gt;ach</code></pre>
 </div>
 </div>
 </section>
@@ -356,13 +315,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Letters and numbers just represent themselves, but most punctuation characters have their own meaning:</p>
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"><code>.</code></h2>
-<p>The point <code>.</code> matches any character. So if we want to extract all fruits with an <code>e</code> and another character following:</p>
+<p>The point <code>.</code> matches any character. So if we want to extract all fruits with an <code>e</code> and another character following we can do that like so:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(fruits, <span class="st">"e."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[4] │ L&lt;em&gt;on
 [5] │ Blackb&lt;er&gt;ry
-[6] │ P&lt;ea&gt;ch</code></pre>
+[6] │ P&lt;ea&gt;ch
+[8] │ p&lt;ea&gt;ch</code></pre>
 </div>
 </div>
 <p>Of course we can use multiple points if necessary:</p>
@@ -375,13 +335,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="section-1" class="level2">
 <h2 class="anchored" data-anchor-id="section-1"><code>?</code></h2>
-<p>With <code>?</code> we can make a pattern optional, for example the <code>g</code> in the next example:</p>
+<p>With <code>?</code> we can make a pattern optional. In the following example, any letter can preceed or follow the <code>m</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"ab"</span>, <span class="st">"abb"</span>), <span class="st">"ab?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>measures <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"10 mm"</span>, <span class="st">"100 m"</span>, <span class="st">"2 km"</span>, <span class="st">"8 cm"</span>, <span class="st">"100 kg"</span>, <span class="st">"80 g"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(measures, <span class="st">".?m.?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] │ &lt;a&gt;
-[2] │ &lt;ab&gt;
-[3] │ &lt;ab&gt;b</code></pre>
+<pre><code>[[1]]
+[1] " mm"
+
+[[2]]
+[1] " m"
+
+[[3]]
+[1] "km"
+
+[[4]]
+[1] "cm"
+
+[[5]]
+character(0)
+
+[[6]]
+character(0)</code></pre>
 </div>
 </div>
 </section>
@@ -389,10 +364,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="section-2"><code>+</code></h2>
 <p>With the <code>+</code> the pattern has to match at least once (or more often):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"ab"</span>, <span class="st">"abb"</span>), <span class="st">"ab+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(measures, <span class="st">"m+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[2] │ &lt;ab&gt;
-[3] │ &lt;abb&gt;</code></pre>
+<pre><code>[[1]]
+[1] "mm"
+
+[[2]]
+[1] "m"
+
+[[3]]
+[1] "m"
+
+[[4]]
+[1] "m"
+
+[[5]]
+character(0)
+
+[[6]]
+character(0)</code></pre>
 </div>
 </div>
 </section>
@@ -400,12 +390,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="section-3"><code>*</code></h2>
 <p>The <code>*</code> makes any number of following matches optional, so the pattern can be repeated any number of times, including 0:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"ab"</span>, <span class="st">"abb"</span>, <span class="st">"abc"</span>), <span class="st">"ab*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>measures[<span class="fu">grep</span>(<span class="st">"m*"</span>, measures)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] │ &lt;a&gt;
-[2] │ &lt;ab&gt;
-[3] │ &lt;abb&gt;
-[4] │ &lt;ab&gt;c</code></pre>
+<pre><code>[1] "10 mm"  "100 m"  "2 km"   "8 cm"   "100 kg" "80 g"  </code></pre>
 </div>
 </div>
 </section>
@@ -419,10 +406,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [3] │ Or&lt;an&gt;ge
 [5] │ Bl&lt;ac&gt;kberry
 [6] │ Pe&lt;ac&gt;h
-[7] │ &lt;an&gt;nona</code></pre>
+[7] │ &lt;an&gt;nona
+[8] │ pe&lt;ac&gt;h</code></pre>
 </div>
 </div>
-<p>This selects all strings including an <code>a</code> followed by either <code>c</code> or <code>n</code>. Alternatively, we can also choose all <code>e</code> followed by a vowel:</p>
+<p>This selects all strings including an <code>a</code> followed by either <code>c</code> or <code>n</code>. Alternatively, we can also choose all <code>e</code> followed by a consonant:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(fruits, <span class="st">"e[^aeiou]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -464,7 +452,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[2] │ B&lt;an&gt;&lt;an&gt;a
 [3] │ Or&lt;an&gt;ge
 [6] │ P&lt;ea&gt;ch
-[7] │ &lt;an&gt;nona</code></pre>
+[7] │ &lt;an&gt;nona
+[8] │ p&lt;ea&gt;ch</code></pre>
 </div>
 </div>
 </section>
@@ -492,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="other-predefined-classes">Other predefined classes:</h2>
 <ul>
 <li><code>\d</code>: Match digit</li>
-<li><code>\D</code>: Match anithing but digits</li>
+<li><code>\D</code>: Match anything but digits</li>
 <li><code>\s</code>: Match any whitespace</li>
 <li><code>\S</code>: Match anything but whitespace</li>
 <li><code>\w</code>: Match any “word”-character (letters and numbers)</li>
@@ -534,7 +523,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(fruits, <span class="st">"p{1,}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] │ A&lt;pp&gt;le</code></pre>
+<pre><code>[1] │ A&lt;pp&gt;le
+[8] │ &lt;p&gt;each</code></pre>
 </div>
 </div>
 </section>
@@ -552,10 +542,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[7] │ &lt;ann&gt;ona</code></pre>
 </div>
 </div>
+<p>In the second example, the <code>{2}</code> relates only to the <code>n</code>, in the first to the <code>an</code> pattern.</p>
 </section>
 <section id="grouping" class="level2">
 <h2 class="anchored" data-anchor-id="grouping">Grouping</h2>
-<p>Using paranthesis, we can create groups which we can use later on in the regex:</p>
+<p>Using paranthesis, we can also create groups which we can use later on in the regex:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(fruits, <span class="st">"(.)</span><span class="sc">\\</span><span class="st">1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -564,7 +555,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [7] │ a&lt;nn&gt;ona</code></pre>
 </div>
 </div>
-<p>This selects all fruits that have a double letter. With the <code>\\1</code> we use the content of the first <code>()</code>. We can also use multiple groups:</p>
+<p>This selects all fruits that have a double letter. With the <code>\\1</code> we use the content of the first <code>()</code>,which can be any letter in this example (but has to be the same as in the first selection). We can also use multiple groups:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(fruits, <span class="st">"(.)(n)</span><span class="sc">\\</span><span class="st">1</span><span class="sc">\\</span><span class="st">2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1121,7 +1112,8 @@ Hint
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The package <code>readtext</code> might help you with reading in <code>.txt</code> files. You might want to look in the examples of the <code>str_extract_all()</code> documentation. It might help with extracting words!</p>
+<p>Use <code>readLines</code> for reading in <code>.txt</code> files.<br>
+You might want to look in the examples of the <code>str_extract_all()</code> documentation. It might help with extracting words!</p>
 </div>
 </div>
 </div>
