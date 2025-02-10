@@ -25,12 +25,6 @@ jobs:
         run: sudo apt-get install libmagick++-dev
       - name: Install libglpk-dev
         run: sudo apt-get install libglpk-dev
-      - name: Install libpoppler
-        run: sudo apt purge libpoppler-cpp-dev
-             sudo apt-get install libopenjp2-7-dev libgdk-pixbuf2.0-dev cmake checkinstall
-             sudo apt-get build-dep libpoppler-cpp-dev
-      
-        
       - name: Check out repository
         uses: actions/checkout@v3
         

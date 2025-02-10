@@ -315,7 +315,7 @@ The package `readtext` might help you with reading in `.txt` files. You might wa
 ## Solution
 
 ```{r}
-library(readtext)
+#| eval: false
 faust <- readtext(here::here("docs", "r_sig", "25_02_10_regex", "faust.txt"))
 
 word_count <- str_extract_all(faust, boundary("word")) %>%

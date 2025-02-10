@@ -227,18 +227,6 @@
       ],
       "Hash": "45f0398006e83a5b10b72a90663d8d8c"
     },
-    "RCurl": {
-      "Package": "RCurl",
-      "Version": "1.98-1.16",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "bitops",
-        "methods"
-      ],
-      "Hash": "ddbdf53d15b47be4407ede6914f56fbb"
-    },
     "RSQLite": {
       "Package": "RSQLite",
       "Version": "2.3.9",
@@ -438,16 +426,6 @@
       ],
       "Hash": "e8f059e77a332072cd8dbaef2b82d966"
     },
-    "antiword": {
-      "Package": "antiword",
-      "Version": "1.3.4",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "sys"
-      ],
-      "Hash": "adf0e46e5ed8482d2802ec0f78f30450"
-    },
     "asciicast": {
       "Package": "asciicast",
       "Version": "2.3.1",
@@ -536,13 +514,6 @@
         "utils"
       ],
       "Hash": "4f572fbc586294afff277db583b9060f"
-    },
-    "bitops": {
-      "Package": "bitops",
-      "Version": "1.0-9",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "d972ef991d58c19e6efa71b21f5e144b"
     },
     "blob": {
       "Package": "blob",
@@ -2469,18 +2440,6 @@
       ],
       "Hash": "785ef8e22389d4a7634c6c944f2dc07d"
     },
-    "minty": {
-      "Package": "minty",
-      "Version": "0.0.5",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "cpp11",
-        "tzdb"
-      ],
-      "Hash": "3fe20e661e6ce59e604cb8d470744e79"
-    },
     "mitml": {
       "Package": "mitml",
       "Version": "0.4-5",
@@ -2573,19 +2532,6 @@
         "stats"
       ],
       "Hash": "c7241e6be9d6df551a2e539a50f5c875"
-    },
-    "ndjson": {
-      "Package": "ndjson",
-      "Version": "0.9.0",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "Rcpp",
-        "data.table",
-        "tibble"
-      ],
-      "Hash": "9d50f0353c90f841dbaf81c1e6c39098"
     },
     "nlme": {
       "Package": "nlme",
@@ -2783,17 +2729,6 @@
         "RcppArmadillo"
       ],
       "Hash": "b0fa64575651e261cfa1fdb46025cb44"
-    },
-    "pdftools": {
-      "Package": "pdftools",
-      "Version": "3.4.1",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "Rcpp",
-        "qpdf"
-      ],
-      "Hash": "cbd8a325d6d327ccb3faf037b73954e3"
     },
     "performance": {
       "Package": "performance",
@@ -3047,18 +2982,6 @@
       ],
       "Hash": "1cba04a4e9414bdefc9dcaa99649a8dc"
     },
-    "qpdf": {
-      "Package": "qpdf",
-      "Version": "1.3.4",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "Rcpp",
-        "askpass",
-        "curl"
-      ],
-      "Hash": "949ca99a6d20c4ff8212026b3b5559af"
-    },
     "quadprog": {
       "Package": "quadprog",
       "Version": "1.5-8",
@@ -3142,24 +3065,6 @@
       ],
       "Hash": "8f25ebe2ec38b1f2aef3b0d2ef76f6c4"
     },
-    "readODS": {
-      "Package": "readODS",
-      "Version": "2.3.2",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "cellranger",
-        "cpp11",
-        "minty",
-        "stringi",
-        "tibble",
-        "tools",
-        "vctrs",
-        "zip"
-      ],
-      "Hash": "9c2ce8c5410685d3f941bab43839aee8"
-    },
     "readr": {
       "Package": "readr",
       "Version": "2.1.5",
@@ -3182,30 +3087,6 @@
         "vroom"
       ],
       "Hash": "9de96463d2117f6ac49980577939dfb3"
-    },
-    "readtext": {
-      "Package": "readtext",
-      "Version": "0.91",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "antiword",
-        "data.table",
-        "digest",
-        "httr",
-        "jsonlite",
-        "pdftools",
-        "pillar",
-        "readODS",
-        "readxl",
-        "streamR",
-        "stringi",
-        "striprtf",
-        "utils",
-        "xml2"
-      ],
-      "Hash": "e21086b13d7d8873e2c2df77925963f6"
     },
     "readxl": {
       "Package": "readxl",
@@ -3364,16 +3245,6 @@
         "tmvtnorm"
       ],
       "Hash": "06eaed4c236aa6de09b30f24f0002079"
-    },
-    "rjson": {
-      "Package": "rjson",
-      "Version": "0.2.23",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "7a04e9eff95857dbf557b4e5f0b3d1a8"
     },
     "rlang": {
       "Package": "rlang",
@@ -3679,19 +3550,6 @@
       ],
       "Hash": "5f5a7629f956619d519205ec475fe647"
     },
-    "streamR": {
-      "Package": "streamR",
-      "Version": "0.4.5",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "RCurl",
-        "ndjson",
-        "rjson"
-      ],
-      "Hash": "5956a234de8d4d49744dc51e8b39534c"
-    },
     "stringi": {
       "Package": "stringi",
       "Version": "1.8.4",
@@ -3721,20 +3579,6 @@
         "vctrs"
       ],
       "Hash": "960e2ae9e09656611e0b8214ad543207"
-    },
-    "striprtf": {
-      "Package": "striprtf",
-      "Version": "0.6.0",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "Rcpp",
-        "magrittr",
-        "stringr",
-        "utils"
-      ],
-      "Hash": "f32c1fb0c19e249bf53430a972c6d9a2"
     },
     "survey": {
       "Package": "survey",
