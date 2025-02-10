@@ -174,5 +174,29 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 }
 
 
+// Code Chunks and Output
+
+pre,
+code,
+kbd,
+samp { // output
+  color: $body-color;
+  background: $gray-80 !important;
+}
+
+pre { // output
+  //background: black ; // output
+  //color: magenta; // output
+}
+
+pre code{
+  //background: $body-bg !important; // code chunk
+}
+
+code { 
+  //color: $iqb-red; // for `` in text
+  //background: yellow;
+}
+
 
 // quarto-scss-analysis-annotation { "origin": null }
