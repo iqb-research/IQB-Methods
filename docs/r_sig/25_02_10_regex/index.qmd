@@ -1,5 +1,5 @@
 ---
-title: "REgular expressions"
+title: "Regular expressions"
 description: "R-SIG 10.02.2025"
 author: 
   - name: Nicklas Hafiz
@@ -9,17 +9,18 @@ date: 10-02-2025
 image: manuscript.jpg
 ---
 
-![](manuscript.jpg)[^1]
+![](expression.jpg)[^1]
 
-[^1]: Image by [Towfiqu barbhuiya](https://unsplash.com/de/@towfiqu999999?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/de/fotos/eine-nahaufnahme-eines-papierstapels-auf-einem-tisch-KKHs1e2yiwc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash).
+[^1]: Image by <a href="https://unsplash.com/de/@bang_gecko?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">verdian chua</a> on <a href="https://unsplash.com/de/fotos/braune-und-weisse-eidechse-auf-brauner-holzoberflache-68hC4vYTSFo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.
+      
 
 # Introduction
-Regular expressions is a powerful language for describing patterns within strings. 
-Mostly we need that for extracting certain strings for filtering or manipulation. 
-See [R for Data Science](https://r4ds.hadley.nz/regexps) for a whole chapter on this. 
 
+Regular expressions is a powerful language for describing patterns within strings. Mostly we need that for extracting certain strings for filtering or manipulation. See [R for Data Science](https://r4ds.hadley.nz/regexps) for a whole chapter on this. 
+Also, speaking from experience, ChatGPT is a great resource on this, still it might be helpful to understand the underlying syntax a bit better. 
 
 ## Selecting patterns
+
 In base-R we can use `grep()` for extracting certain patterns from character vectors:
 
 ```{r}
@@ -38,7 +39,6 @@ iris %>%
   filter(str_detect(Species, "set"))
 ```
 
-
 ## Manipulating patterns
 
 ```{r}
@@ -51,20 +51,20 @@ Or, in tidyverse:
 str_replace(fruits, "e", "a")
 ```
 
-
 With `stringr::str_view()` we can see how the chosen characters look without having to use `grep()`:
 
 ```{r}
 stringr::str_view(fruits, "e")
 ```
 
-
 # Metacharachters
+
 Letters and numbers just represent themselves, but most punctuation characters have their own meaning:
 
-## `.` 
-The point `.` matches any character. 
-So if we want to extract all fruits with an `e` and another character following:
+## `.`
+
+The point `.` matches any character. So if we want to extract all fruits with an `e` and another character following:
+
 ```{r}
 str_view(fruits, "e.")
 ```
@@ -76,6 +76,7 @@ str_view(fruits, "a..e")
 ```
 
 ## `?`
+
 With `?` we can make a pattern optional, for example the `g` in the next example:
 
 ```{r}
@@ -83,6 +84,7 @@ str_view(c("a", "ab", "abb"), "ab?")
 ```
 
 ## `+`
+
 With the `+` the pattern has to match at least once (or more often):
 
 ```{r}
@@ -90,20 +92,22 @@ str_view(c("a", "ab", "abb"), "ab+")
 ```
 
 ## `*`
+
 The `*` makes any number of following matches optional, so the pattern can be repeated any number of times, including 0:
+
 ```{r}
-str_view(c("a", "ab", "abb"), "ab*")
+str_view(c("a", "ab", "abb", "abc"), "ab*")
 ```
 
 ## `[]`
+
 This creates a character class, so any of the included characters can match (or not match, if we put a `^` in front):
 
 ```{r}
 str_view(fruits, "a[cn]")
 ```
- 
-This selects all strings including an `a` followed by either `c` or `n`. 
-Alternatively, we can also choose all `e` followed by a vowel:
+
+This selects all strings including an `a` followed by either `c` or `n`. Alternatively, we can also choose all `e` followed by a vowel:
 
 ```{r}
 str_view(fruits, "e[^aeiou]")
@@ -128,6 +132,7 @@ str_view(c("ca1", "x3", "3a"), "^[a-z][0-9]")
 ```
 
 ## `|`
+
 This is our 'or'-symbol:
 
 ```{r}
@@ -135,6 +140,7 @@ str_view(fruits, "an|ea")
 ```
 
 ## `^`
+
 Matches the start:
 
 ```{r}
@@ -142,21 +148,25 @@ str_view(c("ba", "ab"), "^b")
 ```
 
 ## `$`
+
 Matches the end:
+
 ```{r}
 str_view(c("ba", "ab"), "b$")
 ```
 
 ## Other predefined classes:
 
-- `\d`: Match digit
-- `\D`: Match anithing but digits
-- `\s`: Match any whitespace
-- `\S`: Match anything but whitespace
-- `\w`: Match any "word"-character (letters and numbers)
-- `\W`: Match any "non-word"-character. 
+-   `\d`: Match digit
+-   `\D`: Match anithing but digits
+-   `\s`: Match any whitespace
+-   `\S`: Match anything but whitespace
+-   `\w`: Match any "word"-character (letters and numbers)
+-   `\W`: Match any "non-word"-character.
+- Finally, the function `tolower()` might be helpful to convert Upper case letters to lower case letters.
 
 ## Escaping
+
 If we want to use the actual character instead of its meta-function, we have to escape it (with two `\`):
 
 ```{r}
@@ -173,6 +183,7 @@ str_view(x, "\\\\")
 ```
 
 ## `{}`
+
 `{}` allows us to specify the number of matches we are looking for:
 
 ```{r}
@@ -180,12 +191,13 @@ str_view(fruits, "p{2}")
 ```
 
 Or a minimum number:
+
 ```{r}
 str_view(fruits, "p{1,}")
 ```
 
-
 ## `()`
+
 `()` can help us to clarify how the meta-expressions should relate to each other:
 
 ```{r}
@@ -197,43 +209,45 @@ str_view(fruits, "an{2}")
 ```
 
 ## Grouping
+
 Using paranthesis, we can create groups which we can use later on in the regex:
 
 ```{r}
 str_view(fruits, "(.)\\1")
 ```
 
-This selects all fruits that have a double letter. 
-With the `\\1` we use the content of the first `()`. 
-We can also use multiple groups:
+This selects all fruits that have a double letter. With the `\\1` we use the content of the first `()`. We can also use multiple groups:
 
 ```{r}
 str_view(fruits, "(.)(n)\\1\\2")
 ```
 
-
 # Exercises
 
-1. What does the following regex code do?
+1.  What does the following regex code do?
 
 ```{r}
+#| eval: FALSE
 sentences[grep("^A", sentences)]
 ```
 
 ```{r}
+#| eval: FALSE
 str_view(sentences, "[0-9]")
 ```
 
 ```{r}
-str_view(sentences, "[TA]")
+#| eval: FALSE
+str_view(sentences, "^[TA]|y")
 ```
 
 ```{r}
+#| eval: FALSE
 str_view(sentences, "(.*n){5}")
 ```
 
 
-2. Extract all sentences that end with `ing`.. 
+2.  Extract all sentences that end with `ing.` from `sentences`.
 
 ```{r}
 #| echo: FALSE
@@ -242,16 +256,19 @@ str_view(sentences, "(.*n){5}")
 str_extract_all(sentences, "ing.$")
 ```
 
-3. Count the number of occurrences of each letter in the sentence:
+3.  Count the number of occurrences of each letter in `sentences`.
+
 ```{r}
 #| echo: FALSE
 #| eval: FALSE
 
-str_extract_all("This is, suprisingly, a sentence.", "\\w") %>%
-  table
+str_extract_all(sentences, "\\w") %>%
+  unlist() %>%
+  table() %>%
+  as.data.frame() %>%
+  arrange(desc(Freq))
 
 ```
-
 
 4.  Extract all numbers:
 
@@ -259,14 +276,78 @@ str_extract_all("This is, suprisingly, a sentence.", "\\w") %>%
 recipe <- c("2 Apples", "6 Bananas", "500 g sugar", "1 kg flour", "500 ml milk")
 ```
 
+:::{.callout-caution collapse="true"}
+
+## Solution
 ```{r}
-#| echo: FALSE
-#| eval: FALSE
 str_extract_all(recipe, "\\d+")
 ```
 
+:::
 
-5.  Extract email addresses from the text:
+5. Extract all Sentences from `sentences` that include a double letter.
+
+:::{.callout-caution collapse="true"}
+## Solution
+```{r}
+sentences[grep("(.)\\1", sentences)]
+```
+:::
+
+6. Count the number of occurences of each word that ends with `all` in `sentences`. 
+
+:::{.callout-caution collapse="true"}
+
+## Solution
+
+```{r}
+str_extract_all(sentences, " [a-z]+(a)(l)\\2" ) %>%
+  unlist %>%
+  table
+```
+:::
+
+7. Read in the text file [`faust.txt`](). 
+Plot the 50 most common words in Goethes Faust. 
+
+:::{.callout-tip collapse="true"}
+## Hint
+The package `readtext` might help you with reading in `.txt` files.
+You might want to look in the examples of the `str_extract_all()` documentation. 
+It might help with extracting words!
+:::
+
+:::{.callout-caution collapse="true"}
+## Solution
+
+```{r}
+library(readtext)
+faust <- readtext(here::here("docs", "r_sig", "25_02_10_regex", "faust.txt"))
+
+word_count <- str_extract_all(faust, boundary("word")) %>%
+  unlist() 
+word_count <- tolower(word_count) %>%
+  table() %>%
+  as.data.frame() %>%
+  arrange(desc(Freq)) # Sorting by frequency
+colnames(word_count) <- c("Word", "Count")
+
+# Convert Word column to character for proper sorting
+word_count$Word <- as.character(word_count$Word)
+
+# Plot the top 50 most frequent words
+ggplot(word_count  %>% head(50), aes(x = reorder(Word, Count), y = Count)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() + # Flip for better readability
+  theme_minimal() +
+  labs(title = "Top 10 Most Frequent Words in Faust",
+       x = "Words",
+       y = "Count")
+```
+
+:::
+
+8.  Extract the email addresses from the following text:
 
 ```{r}
 text <- "Hello Team,
@@ -279,10 +360,11 @@ Best regards,
 Admin Team (admin@corporate.com)"
 ```
 
-```{r}
-#| echo: FALSE
-#| eval: FALSE
+:::{.callout-caution collapse="true"}
 
+```{r}
 str_extract_all(text, "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
 ```
+
+:::
 
