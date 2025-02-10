@@ -1138,7 +1138,7 @@ Solution
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>faust <span class="ot">&lt;-</span> <span class="fu">readtext</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"docs"</span>, <span class="st">"r_sig"</span>, <span class="st">"25_02_10_regex"</span>, <span class="st">"faust.txt"</span>))</span>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>faust <span class="ot">&lt;-</span> <span class="fu">readLines</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"docs"</span>, <span class="st">"r_sig"</span>, <span class="st">"25_02_10_regex"</span>, <span class="st">"faust.txt"</span>), <span class="at">warn =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>word_count <span class="ot">&lt;-</span> <span class="fu">str_extract_all</span>(faust, <span class="fu">boundary</span>(<span class="st">"word"</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>() </span>
@@ -1159,6 +1159,13 @@ Solution
 <span id="cb68-19"><a href="#cb68-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top 10 Most Frequent Words in Faust"</span>,</span>
 <span id="cb68-20"><a href="#cb68-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Words"</span>,</span>
 <span id="cb68-21"><a href="#cb68-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div>
