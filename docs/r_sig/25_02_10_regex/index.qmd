@@ -32,6 +32,8 @@ fruits[grep("e", fruits)]
 In the tidyverse, we can use `str_detect()`, which is also easily pipeable:
 
 ```{r}
+library(tidyverse)
+
 iris %>%
   filter(str_detect(Species, "set"))
 ```
@@ -177,6 +179,12 @@ str_view(x, "\\\\")
 str_view(fruits, "p{2}")
 ```
 
+Or a minimum number:
+```{r}
+str_view(fruits, "p{1,}")
+```
+
+
 ## `()`
 `()` can help us to clarify how the meta-expressions should relate to each other:
 
@@ -206,7 +214,75 @@ str_view(fruits, "(.)(n)\\1\\2")
 
 # Exercises
 
+1. What does the following regex code do?
+
 ```{r}
-sentences
+sentences[grep("^A", sentences)]
+```
+
+```{r}
+str_view(sentences, "[0-9]")
+```
+
+```{r}
+str_view(sentences, "[TA]")
+```
+
+```{r}
+str_view(sentences, "(.*n){5}")
+```
+
+
+2. Extract all sentences that end with `ing`.. 
+
+```{r}
+#| echo: FALSE
+#| eval: FALSE
+
+str_extract_all(sentences, "ing.$")
+```
+
+3. Count the number of occurrences of each letter in the sentence:
+```{r}
+#| echo: FALSE
+#| eval: FALSE
+
+str_extract_all("This is, suprisingly, a sentence.", "\\w") %>%
+  table
+
+```
+
+
+4.  Extract all numbers:
+
+```{r}
+recipe <- c("2 Apples", "6 Bananas", "500 g sugar", "1 kg flour", "500 ml milk")
+```
+
+```{r}
+#| echo: FALSE
+#| eval: FALSE
+str_extract_all(recipe, "\\d+")
+```
+
+
+5.  Extract email addresses from the text:
+
+```{r}
+text <- "Hello Team,
+
+Please reach out to John at john.doe96@example.com for project updates. If you have any financial queries, contact Sarah at sarah_finance@company.org.
+
+For general inquiries, you can email info@business.net or our HR department at hr-department@enterprise.co.uk.
+
+Best regards,
+Admin Team (admin@corporate.com)"
+```
+
+```{r}
+#| echo: FALSE
+#| eval: FALSE
+
+str_extract_all(text, "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
 ```
 
