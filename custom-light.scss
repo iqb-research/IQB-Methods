@@ -65,7 +65,7 @@ $min-contrast-ratio:   2 !default;
 // Body
 
 $body-color:    $iqb-black;
-$body-bg:       $white;
+$body-bg:       $gray-05;
 
 // Fonts
 
@@ -77,7 +77,7 @@ $headings-font-weight:        400;
 
 // Headers
 
-$heading-color:   $iqb-black;
+$heading-color:   $iqb-red;
 $meta-data:       $gray-50;
 
 // Nav
@@ -172,7 +172,6 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 .navbar-brand:hover, .navbar-brand:focus {
   color: $navbar-brand-hover-color;
 }
-
 
 
 // quarto-scss-analysis-annotation { "origin": null }
