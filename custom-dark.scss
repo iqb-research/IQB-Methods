@@ -101,6 +101,22 @@ $navbar-brand-hover-color: $nav-link-hover-color;
 $link-color:        $iqb-darkgreenblue;
 $link-hover-color:  $iqb-darkgreenblue;
 
+// nav-tabs
+$nav-tabs-color:        $gray-15;
+$nav-tabs-color-bg:     $gray-65;
+$nav-tabs-border-color: $gray-80;
+
+$nav-tabs-font-weight:  600;
+
+$nav-tabs-hover-color: $nav-tabs-color;
+$nav-tabs-hover-color-bg: $nav-tabs-color-bg;
+$nav-tabs-hover-border-color: $gray-09;
+
+$nav-tabs-active-color: $nav-tabs-color;
+$nav-tabs-active-color-bg: $gray-50;
+$nav-tabs-active-border-color: $nav-tabs-hover-border-color;
+
+
 
 /*-- scss:rules --*/
 
@@ -173,6 +189,31 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   color: $navbar-brand-hover-color;
 }
 
+// nav-pills
+
+.nav-tabs .nav-link { // non active tab-pills
+  color: $nav-tabs-color;
+  background: $nav-tabs-color-bg;
+  border-color: $nav-tabs-border-color;
+  font: $font-family-sans;
+  font-weight: $nav-tabs-font-weight;
+}
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus { // hover color
+  color: $nav-tabs-hover-color;
+  background: $nav-tabs-hover-color-bg;
+  border-color: $nav-tabs-hover-border-color;
+  font: $font-family-sans;
+  font-weight: $nav-tabs-font-weight;
+}
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link { // active color
+  color: $nav-tabs-active-color;
+  background: $nav-tabs-active-color-bg;
+  border-color: $nav-tabs-active-border-color;
+  font: $font-family-sans;
+  font-weight: $nav-tabs-font-weight;
+}
+
 
 // Code Chunks and Output
 
@@ -197,6 +238,8 @@ code {
   color: $iqb-lightgreenblue; // for `` in text
   //background: yellow;
 }
+
+
 
 
 // quarto-scss-analysis-annotation { "origin": null }
