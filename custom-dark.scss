@@ -116,6 +116,11 @@ $nav-tabs-active-color: $nav-tabs-color;
 $nav-tabs-active-color-bg: $gray-50;
 $nav-tabs-active-border-color: $nav-tabs-hover-border-color;
 
+// Code Chunks
+
+$code-chunk-color: $body-color;
+$code-chunk-color-bg: $gray-80;
+$code-in-text-color: $iqb-lightgreenblue;
 
 
 /*-- scss:rules --*/
@@ -221,8 +226,8 @@ pre,
 code,
 kbd,
 samp { // output
-  color: $body-color;
-  background: $gray-80 !important;
+  color: $code-chunk-color;
+  background: $code-chunk-color-bg !important;
 }
 
 pre { // output
@@ -235,7 +240,7 @@ pre code{
 }
 
 code { 
-  color: $iqb-lightgreenblue; // for `` in text
+  color: $code-in-text-color; // for `` in text
   //background: yellow;
 }
 
