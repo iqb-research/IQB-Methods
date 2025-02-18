@@ -225,26 +225,18 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 pre,
 code,
 kbd,
-samp { // output
-  color: $code-chunk-color;
-  background: $code-chunk-color-bg !important;
+samp {
+  color: $code-chunk-color; // output text color
 }
 
-pre { // output
-  //background: black ; // output
-  //color: magenta; // output
-}
-
-pre code{
-  //background: $body-bg !important; // code chunk
+div.sourceCode{ // code chunks background color
+  background: $code-chunk-color-bg;
+  border: $code-chunk-color-bg;
 }
 
 code { 
   color: $code-in-text-color; // for `` in text
-  //background: yellow;
 }
-
-
 
 
 // quarto-scss-analysis-annotation { "origin": null }
