@@ -1,0 +1,51 @@
+---
+title: "19-02-2025"
+description: "Newsletter"
+author: 
+  - name: Nicklas Hafiz
+date: 19-02-2025
+categories: [eatPrepTBA, eatAutoCode, eatPrep, eatTools, Workshop, R-SIG, SIG Methoden]
+image: announcem.jpg
+---
+Liebes IQB,
+
+hier der Methoden-Newsletter für die letzten Monate, in dem
+wir kurz Neuerungen in den R-Paketen der eat-Reihe vorstellen,
+Updates zu Gruppen und Workshops geben und über sonstige
+methodische Entscheidungen am Institut informieren.
+Neuigkeiten zu Paketen:
+
+## eatPrep
+Es gibt offenbar einen Bug in dem R-Paket `irr`, das von eatPrep benutzt wird: Der führt zu falschen agree-Werten, wenn die prinzipiell numerischen Werte (versehentlich) als character formatiert sind. Dies ist in `eatPrep` Version 1.0.4 behoben.
+
+## eatRep
+Neue Version 0.15.1 auf CRAN hat die neue Ergebnisstruktur und Schnittstelle zu `eatPlot` implementiert und sollte immer dann benutzt werden, wenn die Ergebnisse anschließend mithilfe von `eatPlot` visualisiert werden sollen.
+
+## eatPlot
+In Vorbereitung auf den BT24 ist eine neue Version von eatPlot entstanden, eine grobe Übersicht über die Neuerungen ist [hier](https://nickhaf.github.io/eatPlot/news/index.html) einsehbar. 
+Ein Workshop zur aktuellen Paketversion findet sich [hier](https://nickhaf.github.io/eatPlotWorkshop/#/title-slide). 
+Bis zum Start der Berechnungen wird es noch einige kleinere Änderungen geben, die [Tutorials](https://nickhaf.github.io/eatPlot/index.html) werden dementsprechend aktualisiert werden. 
+
+## eatGADS
+Im Zuge der Vorbereitung für die BT24-Datenaufbereitung gab es einige Überarbeitungen und Funktionserweiterungen im Paket `eatGADS`: Unter anderem erlauben `changeValLabels()`, `changeMissings()` und `recodeGADS()` nun Daten und Meta-Daten mehrerer Variablen auf einmal zu bearbeiten. `merge()` erlaubt beim Mergen zweier `GADSdat`-Objekte nun automatisch einen informativen Missing-Code für durch das Mergen entstehende fehlende Werte zu vergeben.  
+
+Eine detaillierte Auflistung aller neuen Features und Bugfixes findet ihr [hier](https://beckerbenj.github.io/eatGADS/news/index.html)
+
+## eatATA
+Aktuell streben wir an, ein zweites Tutorial-Paper zu praktischen Herausforderungen der automatisierten Blockbesetzung/Testform-Erstellung zu schreiben. Falls ihr Ideen oder Beiträge habt, meldet euch gerne!
+
+
+## Workshops
+zu den eat-Paketen haben stattgefunden. Hier sind nochmal die Links zu den Materialien:
+
+- `i:\Methoden\02_IQB-interne_eat_Workshops\eatATA_2024`
+- `i:\Methoden\02_IQB-interne_eat_Workshops\eatGADS_Datenaufbereitung_2024`
+- `i:\Methoden\02_IQB-interne_eat_Workshops\eatGADS_Datenbanknutzung_2024`
+- `i:\Methoden\02_IQB-interne_eat_Workshops\eatModel_2024`
+- `i:\Methoden\02_IQB-interne_eat_Workshops\eatPrep_2024`
+- `i:\Methoden\02_IQB-interne_eat_Workshops\eatRep_2024`
+- [eatPlot slides](https://nickhaf.github.io/eatPlotWorkshop/#/title-slide)
+- [die o.g. sowie noch weitere Workshopmaterialien zu verschiedenen Paketen und Themen](https://iqb-research.github.io/IQB-Methods/docs/beginners.html#category=slides)
+
+Euer Methoden-Team  
+(Sebastian, Karoline, Benjamin, Philipp, Kristoph, Janine, Edna, Alina, Lisa, Nicklas)
