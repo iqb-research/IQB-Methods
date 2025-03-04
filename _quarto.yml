@@ -4,6 +4,15 @@ project:
 website:
   title: "IQB Methods Team"
   site-url: https://iqb-research.github.io/IQB-Methods/
+  page-footer: 
+    left: | 
+      Team Methoden <br>
+      Humboldt-Universität zu Berlin <br>
+      Institut zur Qualitätsentwicklung im Bildungswesen <br>
+      Unter den Linden 6 <br>
+      10099 Berlin <br>
+    border: false
+    background: light
   page-navigation: true
   open-graph: true
   repo-url: https://github.com/iqb-research/IQB-Methods
