@@ -26,6 +26,10 @@ listing:
       path: docs/advanced.qmd
       image: docs/images/martian.jpg
       description: "Here you can find some more advanced R tutorials."
+    - title: "eat Workshops"
+      path: docs/eat_workshops.qmd
+      image: docs/images/eat.png
+      description: "Here you can find workshops for the eat-packages."
 ---
 
 Here you can find articles and workshops about R, RStudio, Git and GitHub, quarto and overall information about some statistical questions. Click on the topic you're interested in to get to the article's overview.
