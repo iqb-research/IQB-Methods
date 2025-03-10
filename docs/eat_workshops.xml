@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>IQB Methods Team</title>
+<link>https://iqb-research.github.io/IQB-Methods/docs/eat_workshops.html</link>
+<atom:link href="https://iqb-research.github.io/IQB-Methods/docs/eat_workshops.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<image>
+<url>https://iqb-research.github.io/IQB-Methods/./images/eat.png</url>
+<title>IQB Methods Team</title>
+<link>https://iqb-research.github.io/IQB-Methods/docs/eat_workshops.html</link>
+</image>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Tue, 19 Nov 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title></title>
+  <dc:creator>Karoline Sachse</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/eatPrep2024_files/eatPrep2024.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>eatPrep</category>
+  <category>tutorial</category>
+  <category>slides</category>
+  <category>intro</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/eatPrep2024_files/eatPrep2024.html</guid>
+  <pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/eatPrep2024_files/eatPrep.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Benjamin Becker, Annika Liebelt &amp; Jule Burblies</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>eatGADS</category>
+  <category>tutorial</category>
+  <category>slides</category>
+  <category>intro</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html</guid>
+  <pubDate>Tue, 12 Nov 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatATA/eatATA_2024.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>eatATA</category>
+  <category>tutorial</category>
+  <category>slides</category>
+  <category>intro</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatATA/eatATA_2024.html</guid>
+  <pubDate>Tue, 05 Nov 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatATA/eatATA.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Benjamin Becker</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>eatGADS</category>
+  <category>tutorial</category>
+  <category>slides</category>
+  <category>intro</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html</guid>
+  <pubDate>Mon, 10 Mar 2025 11:26:48 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+</channel>
+</rss>
