@@ -28,7 +28,7 @@ listing:
       description: "Here you can find some more advanced R tutorials."
     - title: "eat Workshops"
       path: docs/eat_workshops.qmd
-      image: docs/images/eat.png
+      image: docs/images/eat_dark.png
       description: "Here you can find workshops for the eat-packages."
 ---
 

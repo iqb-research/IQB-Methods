@@ -1,6 +1,6 @@
 ---
 title: "eat Workshops"
-image: ./images/eat.png
+image: "./images/eat.png"
 listing:
   id: eat_workshops
   type: default
@@ -17,8 +17,13 @@ listing:
     - "R_tutorials/2024_eatATA/eatATA_2024.qmd"
 ---
 
+::: {.light-mode}
 ![](./images/eat.png)
+:::
 
+::: {.dark-mode}
+![](./images/eat_dark.png)
+:::
 On this page you can find workshop-slides for the different eat-packages.
 
 ## Workshops
