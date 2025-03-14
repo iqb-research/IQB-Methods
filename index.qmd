@@ -1,9 +1,9 @@
 ---
 title: "IQB Methods Team"
+editor: source
 ---
 
 This website hosts all kind of material around R, programming, statistics and psychological methods.
-
 
 <head>
 <style>
@@ -38,6 +38,7 @@ table, th, td {
 </tr>
 </table>
 
+::: {.light-mode}
 <table style="width:900px">
 <tr>
     <th style="width:150px">
@@ -58,7 +59,30 @@ table, th, td {
     <th style="width:150px"></th>
 </tr>
 </table>
+:::
 
+::: {.dark-mode}
+<table style="width:900px">
+<tr>
+    <th style="width:150px">
+      <a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/eatGADS.png" style="width:150px;height:150px;"></a>
+    </th>
+    <th style="width:150px">
+      <a href="https://beckerbenj.github.io/eatRecode/"><img src="./logos/eatRecode.png" style="width:150px;height:150px;"></a>
+    </th>
+    <th style="width:150px">
+       <img src="./logos/eat_dark.png" style="width:150px;height:150px;">
+    </th>
+    <th style="width:150px">
+      <a href="https://sachseka.github.io/eatPrep/"><img src="./logos/eatPrep.png" style="width:150px;height:150px;"></a>
+    </th>
+    <th style="width:150px">
+      <img src="./logos/eatPrepTBA.png" style="width:150px;height:150px;"></a>
+    </th>
+    <th style="width:150px"></th>
+</tr>
+</table>
+:::
 
 <table style="width:900px">
 <tr>

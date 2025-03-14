@@ -124,6 +124,10 @@ $nav-tabs-active-border-color: $nav-tabs-hover-border-color;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
+// different input for light vs. dark mode
+.light-mode { display: block; }
+.dark-mode { display: none; }
+
 // Body
 
 body {
