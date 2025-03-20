@@ -254,8 +254,13 @@ code {
 
 .nav-footer {
   background-color: $gray-80; /* background color */
-  color: $white /* text color */
+  color: $gray-50 /* text color */
 }
-
+.nav-footer a { // change text colour of repo-action links
+  color: $gray-50
+}
+.nav-footer .toc-actions ul { // change alignment of repo-action links
+    padding-left: 0; /* Ensures it’s fully aligned left */
+}
 
 // quarto-scss-analysis-annotation { "origin": null }

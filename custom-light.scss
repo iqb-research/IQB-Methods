@@ -227,9 +227,15 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 
 // footer
 
-.nav-footer {
+.nav-footer { // change colour of impressum
   background-color: $gray-25; /* background colour */
-  color: $iqb-black /* text colour */
+  color: $gray-65 /* text colour */
+}
+.nav-footer a { // change text colour of repo-action links
+  color: $gray-65
+}
+.nav-footer .toc-actions ul { // change alignment of repo-action links
+    padding-left: 0; /* Ensures it’s fully aligned left */
 }
 
 
