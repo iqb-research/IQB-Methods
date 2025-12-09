@@ -9,13 +9,14 @@
 <link>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/advanced.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.6.42</generator>
+<generator>quarto-1.8.26</generator>
 <lastBuildDate>Mon, 25 Nov 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>GitHub Copilot in R-Studio</title>
   <dc:creator>Nicklas Hafiz</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/git/copilot/copilot.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -56,6 +57,7 @@ After obtaining some sort of confirmation, you can follow <a href="https://docs.
   <dc:creator>Nicklas Hafiz</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -115,11 +117,11 @@ Warning
 <h3 class="anchored" data-anchor-id="renv">1. <code>renv</code></h3>
 <p>First, you have to <a href="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/">setup <code>renv</code></a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">renv<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">renv<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">init</span>()</span></code></pre></div>
+font-style: inherit;">init</span>()</span></code></pre></div></div>
 </div>
 <p>This will create a <code>.LOCK</code> file containing the package versions and a folder in which your project specific packages are saved.</p>
 </section>
@@ -127,7 +129,7 @@ font-style: inherit;">init</span>()</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="render">2. render</h3>
 <p>Now you can render your quarto project once, using the Terminal (not the Console):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">quarto render</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">quarto render</span></code></pre></div></div>
 </div>
 <p>Commit and push your changes!</p>
 <div class="{callout-tip}">
@@ -138,7 +140,7 @@ font-style: inherit;">init</span>()</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="gh-pages-branch">3. gh-pages branch</h3>
 <p>After that, you have to set up a <code>gh-pages</code> branch (make sure you have commited all changes before building the branch), again in the Terminal:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">git checkout <span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">git checkout <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">--</span>orphan gh<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -159,7 +161,7 @@ background-color: null;
 font-style: inherit;">"Initialising gh-pages branch"</span></span>
 <span id="cb3-4">git push origin gh<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">-</span>pages</span></code></pre></div>
+font-style: inherit;">-</span>pages</span></code></pre></div></div>
 </div>
 <p>Your published content will be build from this branch. You don’t have to touch it after setting it up, the Actions we’ll build will take care of that.</p>
 </section>
@@ -167,16 +169,16 @@ font-style: inherit;">-</span>pages</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="publish">4. publish</h3>
 <p>Finally, you can publish your quarto document:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">quarto publish gh<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">quarto publish gh<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">-</span>pages documentname.qmd</span></code></pre></div>
+font-style: inherit;">-</span>pages documentname.qmd</span></code></pre></div></div>
 </div>
 </section>
 <section id="action" class="level3">
 <h3 class="anchored" data-anchor-id="action">5. Action</h3>
 <p>To trigger this publishing everytime you push to your main branch on GitHub, build a new directory in your project called <code>.github/workflows</code>. Into this directory, you put a file <code>publish.yml</code> and fill it with the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">on<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">on<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span></span>
 <span id="cb5-2">  workflow_dispatch<span class="sc" style="color: #5E5E5E;
@@ -340,7 +342,7 @@ font-style: inherit;">:</span></span>
 background-color: null;
 font-style: inherit;">:</span> <span class="er" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">$</span>{{ secrets.GITHUB_TOKEN }}</span></code></pre></div>
+font-style: inherit;">$</span>{{ secrets.GITHUB_TOKEN }}</span></code></pre></div></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -432,6 +434,7 @@ Peikert, Aaron, and Andreas M Brandmaier. 2021. <span>“A Reproducible Data Ana
 
 
 
+
 <p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" class="img-fluid"><sup>1</sup></p>
 <p>A ggplot2-tutorial I’ve created can be found <a href="https://nickhaf.github.io/r_tutorial/qmd/plotting/plotting.html">here</a>.</p>
 
@@ -462,9 +465,10 @@ Peikert, Aaron, and Andreas M Brandmaier. 2021. <span>“A Reproducible Data Ana
 
 
 
+
 <p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" class="img-fluid"><sup>1</sup></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
 <span id="cb1-2"></span>
@@ -482,7 +486,7 @@ font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
+font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div></div>
 </div>
 <section id="column-wise-operations-with-across" class="level2">
 <h2 class="anchored" data-anchor-id="column-wise-operations-with-across">Column-wise operations with <code>across()</code></h2>
@@ -493,7 +497,7 @@ font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<code>mutate_...()</code>
+<span class="screen-reader-only">Note</span><code>mutate_...()</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -502,7 +506,7 @@ font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
 </div>
 <p>Across can take column names and a function that should be applied to the selected columns:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Here we transform the Height and Weight columns to the type character:</span></span>
 <span id="cb2-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -517,7 +521,7 @@ background-color: null;
 font-style: inherit;">c</span>(Height, Weight), as.character)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb2-4">  str</span></code></pre></div>
+<span id="cb2-4">  str</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  16 variables:
  $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -540,7 +544,7 @@ font-style: inherit;">%&gt;%</span></span>
 </div>
 <p>But it is also possible to select columns based on a selection function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## And here we transform all numeric columns into character:</span></span>
 <span id="cb4-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -557,7 +561,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb4-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  16 variables:
  $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -584,7 +588,7 @@ font-style: inherit;">str</span>()</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="using-tidyverse-functions-in-loops">Using tidyverse functions in loops</h2>
 <p>When using tidyverse syntax within a loop, we might run into the problem that the tidyverse function can’t deal with our iteration counter like we are used to:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Trying to transform the Height and Weight column to character using a for-loop.</span></span>
 <span id="cb6-2"><span class="do" style="color: #5E5E5E;
@@ -631,7 +635,7 @@ background-color: null;
 font-style: inherit;">as.character</span>(.<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>i))</span>
-<span id="cb6-12">}</span></code></pre></div>
+<span id="cb6-12">}</span></code></pre></div></div>
 </div>
 <p>This doesn’t work, because we are trying to program a function using <a href="https://dplyr.tidyverse.org/articles/programming.html#data-masking">data masking</a>. Data masking just means that we don’t have to type <code>athletes$Height</code> in a <code>tidyverse</code> function, but simply <code>Height</code>, because the function knows this refers to a column in the current data.frame.</p>
 <section id="loops" class="level3">
@@ -643,7 +647,7 @@ font-style: inherit;">$</span>i))</span>
 <li>If we just want to extract data, we can use the <code>.data</code> pronoun with <code>[[</code> (<a href="https://dplyr.tidyverse.org/articles/programming.html#indirection">see here</a>). <code>.data</code> helps to clear up ambiguity, it makes clear you want to extract a column from the current data.frame. This is something different than the <code>.</code>, which can be read like “data up to this point” and references the data that gets put into the function where the <code>.</code> is used. The <code>.</code> actually stands for a data.frame, while <code>.data</code> is used for symbol evaluation.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">athletes_2 <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">athletes_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes</span>
 <span id="cb7-2"></span>
@@ -677,7 +681,7 @@ font-style: inherit;">as.character</span>(.[[i]]))</span>
 <span id="cb7-6">}</span>
 <span id="cb7-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
+font-style: inherit;">str</span>(athletes_2)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  16 variables:
  $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -697,7 +701,7 @@ font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
  $ Medal : chr  NA NA NA NA ...
  $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="cf" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
@@ -727,7 +731,7 @@ font-style: inherit;">as.character</span>({{i}}))</span>
 <span id="cb9-4">}</span>
 <span id="cb9-5"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
+font-style: inherit;">str</span>(athletes_2)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  16 variables:
  $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -747,7 +751,7 @@ font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
  $ Medal : chr  NA NA NA NA ...
  $ Region: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## With programmatically built new columns: </span></span>
 <span id="cb11-2">athletes_3 <span class="ot" style="color: #003B4F;
@@ -786,7 +790,7 @@ font-style: inherit;">as.character</span>(.[[i]]))</span>
 <span id="cb11-7"></span>
 <span id="cb11-8"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>(athletes_3)</span></code></pre></div>
+font-style: inherit;">str</span>(athletes_3)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  18 variables:
  $ NOC        : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -815,7 +819,7 @@ font-style: inherit;">str</span>(athletes_3)</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="functions">Functions</h3>
 <p>This also applies if we want to define a function with column names as arguments, using <code>tidyverse</code> inside. Here we need to embrace our variable as well to make it data masking friendly:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## This doesn't work:</span></span>
 <span id="cb13-2">print_col <span class="ot" style="color: #003B4F;
@@ -838,10 +842,10 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb13-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
+font-style: inherit;">print_col</span>(Region)</span></code></pre></div></div>
 </div>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## This works:</span></span>
 <span id="cb14-2">print_col <span class="ot" style="color: #003B4F;
@@ -864,7 +868,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb14-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
+font-style: inherit;">print_col</span>(Region)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    [1] "Afghanistan"                      "Afghanistan"                     
     [3] "Afghanistan"                      "Afghanistan"                     
@@ -879,13 +883,13 @@ font-style: inherit;">print_col</span>(Region)</span></code></pre></div>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-!!sym()
+<span class="screen-reader-only">Note</span>!!sym()
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>In previous SIG-Sessions we have used <code>!!sym()</code> for this, which also works, but is more to remember:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">athletes_2 <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">athletes_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes</span>
 <span id="cb16-2"><span class="cf" style="color: #003B4F;
@@ -927,7 +931,7 @@ font-style: inherit;">sym</span>(i)))</span>
 <span id="cb16-6"></span>
 <span id="cb16-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
+font-style: inherit;">str</span>(athletes_2)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  16 variables:
  $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -958,19 +962,19 @@ font-style: inherit;">str</span>(athletes_2)</span></code></pre></div>
 <li>Read the <code>characters.rds</code> and the <code>psych_stats.csv</code> into R (download <a href="https://github.com/iqb-research/IQB-Methods/tree/main/raw_data">here</a>).</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">characters <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">characters <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -999,7 +1003,7 @@ font-style: inherit;">"psych_stats.csv"</span>), <span class="at" style="color: 
 background-color: null;
 font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">";"</span>)</span></code></pre></div>
+font-style: inherit;">";"</span>)</span></code></pre></div></div>
 </div>
 </div>
 </div>
@@ -1009,12 +1013,12 @@ font-style: inherit;">";"</span>)</span></code></pre></div>
 Finally, it should return a numeric vector containing the standardized values. Make the function work with data masking!</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1025,19 +1029,19 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">standardize_var <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">standardize_var <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -1121,13 +1125,13 @@ font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">5</span>)</span></code></pre></div>
+font-style: inherit;">5</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">sd</span>(standardized_col)</span></code></pre></div>
+font-style: inherit;">sd</span>(standardized_col)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -1139,12 +1143,12 @@ font-style: inherit;">sd</span>(standardized_col)</span></code></pre></div>
 <li>Apply this function within a for-loop on 10 columns of your choice. Add the standardized columns as new columns to your data frame.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1156,19 +1160,19 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="cf" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
@@ -1207,15 +1211,15 @@ font-style: inherit;"># The point means we use the object called before the last
 background-color: null;
 font-style: inherit;">mean</span>(psych_stats<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div>
+font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.582513e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sd</span>(psych_stats<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div>
+font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -1227,19 +1231,19 @@ font-style: inherit;">$</span>flexible_rigid_std)</span></code></pre></div>
 <li>Now build the same standardization function, but it should only take a numeric vector as input, not a whole <code>data.frame</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">standardize_var_2 <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">standardize_var_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -1287,13 +1291,13 @@ font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">3</span>))</span></code></pre></div>
+font-style: inherit;">3</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1  0  1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># standardize_var_2(c("a",2,3))</span></span></code></pre></div>
+font-style: inherit;"># standardize_var_2(c("a",2,3))</span></span></code></pre></div></div>
 </div>
 </div>
 </div>
@@ -1303,12 +1307,12 @@ font-style: inherit;"># standardize_var_2(c("a",2,3))</span></span></code></pre>
 This exercise is a little bit harder, so use google, StackOverflow and the help function <code>?</code> within R.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1322,19 +1326,19 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">psych_stats_std <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">psych_stats_std <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1365,7 +1369,7 @@ font-style: inherit;">"{.col}_standardized"</span></span>
 background-color: null;
 font-style: inherit;">mean</span>(psych_stats_std<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>innocent_jaded_standardized)</span></code></pre></div>
+font-style: inherit;">$</span>innocent_jaded_standardized)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.127042e-18</code></pre>
 </div>
@@ -1403,27 +1407,28 @@ font-style: inherit;">$</span>innocent_jaded_standardized)</span></code></pre></
 
 
 
+
 <p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" class="img-fluid"><sup>1</sup></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
 </div>
 <p>The <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/24_01_26_tidyverse_intro/"><code>tidyverse</code></a> provides many tools for wrangling data, from selecting, sorting or renaming columns over filtering specific rows according to complex conditions to building new columns according to values in other columns. Let’s take a look at the most important ones. We will use the (<code>athletes</code>)[] dataset in the examples:</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Load the data
+<span class="screen-reader-only">Caution</span>Load the data
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># install.packages("tidyverse")</span></span>
 <span id="cb2-2"><span class="co" style="color: #5E5E5E;
@@ -1451,7 +1456,7 @@ font-style: inherit;">here</span>(  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
+font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div></div>
 </div>
 </div>
 </div>
@@ -1460,12 +1465,12 @@ font-style: inherit;">"athletes.rds"</span>))</span></code></pre></div>
 <h2 data-number="1" class="anchored" data-anchor-id="select-columns"><span class="header-section-number">1</span> <code>select()</code> columns</h2>
 <p>Selecting columns from a data.frame is pretty straight forward:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">athletes <span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb3-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">select</span>(Year, Sport)</span></code></pre></div>
+font-style: inherit;">select</span>(Year, Sport)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Year                     Sport
 1     1956                    Hockey
@@ -1477,7 +1482,7 @@ font-style: inherit;">select</span>(Year, Sport)</span></code></pre></div>
 <p>Note how we don’t have to put the columns in <code>""</code>, and how we can simply seperate them by <code>,</code>.<br>
 <code>select()</code> becomes especially useful when combined with <a href="https://dplyr.tidyverse.org/reference/select.html">selection helpers</a>:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Select all columns starting with a Se</span></span>
 <span id="cb5-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -1489,7 +1494,7 @@ font-style: inherit;">select</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">starts_with</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Se"</span>))</span></code></pre></div>
+font-style: inherit;">"Se"</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Sex Season
 1       M Summer
@@ -1497,7 +1502,7 @@ font-style: inherit;">"Se"</span>))</span></code></pre></div>
 3       M Summer
 ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Select all columns containing the letters "ea"</span></span>
 <span id="cb7-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -1509,7 +1514,7 @@ font-style: inherit;">select</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"ea"</span>))</span></code></pre></div>
+font-style: inherit;">"ea"</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                         Team Year Season
 1                                 Afghanistan 1956 Summer
@@ -1517,7 +1522,7 @@ font-style: inherit;">"ea"</span>))</span></code></pre></div>
 3                                 Afghanistan 1980 Summer
 ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Or, we can combine them:</span></span>
 <span id="cb9-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -1535,7 +1540,7 @@ font-style: inherit;">&amp;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"igh"</span>))</span></code></pre></div>
+font-style: inherit;">"igh"</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Height Weight
 1         NA     NA
@@ -1549,7 +1554,7 @@ font-style: inherit;">"igh"</span>))</span></code></pre></div>
 <h2 data-number="2" class="anchored" data-anchor-id="filter-rows"><span class="header-section-number">2</span> <code>filter()</code> rows</h2>
 <p>We can use <code>filter</code> to subset rows according to their values in specific columns:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## All Volleyballers</span></span>
 <span id="cb11-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -1564,7 +1569,7 @@ background-color: null;
 font-style: inherit;">"Volleyball"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-4">  str</span></code></pre></div>
+<span id="cb11-4">  str</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   3404 obs. of  16 variables:
  $ NOC   : chr  "ALG" "ALG" "ALG" "ALG" ...
@@ -1572,7 +1577,7 @@ font-style: inherit;">%&gt;%</span></span>
  $ Name  : chr  "Faza Tsabet" "Narimne Madani" "Sehryne Hennaoui" "Nawal Mansouri" ...
 ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## All Judoka between 50 and 100 kg</span></span>
 <span id="cb13-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -1595,7 +1600,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb13-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   2916 obs. of  16 variables:
  $ NOC   : chr  "AFG" "AFG" "AFG" "ALB" ...
@@ -1603,7 +1608,7 @@ font-style: inherit;">str</span>()</span></code></pre></div>
  $ Name  : chr  "Friba Razayee" "Ajmal Faizzada" "Mohammad Tawfiq Bakhshi" "Majlinda Kelmendi" ...
 ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## All athletes with missing height</span></span>
 <span id="cb15-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -1618,7 +1623,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb15-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   60083 obs. of  16 variables:
  $ NOC   : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -1634,7 +1639,7 @@ font-style: inherit;">str</span>()</span></code></pre></div>
 <p>To reshape data.frames from long to wide or wide to long format we can use <code>pivot_wider()</code> and <code>pivot_longer()</code>:</p>
 <p>Let’s define a simpler data.frame first:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">inhabitants_wide <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">inhabitants_wide <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1673,7 +1678,7 @@ font-style: inherit;">1420939232</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">338903174</span>)</span>
 <span id="cb17-5">)</span>
-<span id="cb17-6">inhabitants_wide</span></code></pre></div>
+<span id="cb17-6">inhabitants_wide</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  country inhabitants_2021 inhabitants_2022
 1   China       1425893465       1425857720
@@ -1682,7 +1687,7 @@ font-style: inherit;">338903174</span>)</span>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">inhabitants_long <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">inhabitants_long <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> inhabitants_wide <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1725,7 +1730,7 @@ font-style: inherit;">"inhabitants"</span></span>
 <span id="cb19-11"></span>
 <span id="cb19-12"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">head</span>(inhabitants_long)</span></code></pre></div>
+font-style: inherit;">head</span>(inhabitants_long)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   country year  inhabitants
@@ -1740,7 +1745,7 @@ font-style: inherit;">head</span>(inhabitants_long)</span></code></pre></div>
 </div>
 <p>In other cases, it might happen that multiple variables are put into the same column, together with an identifier column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">inhabitants_long_2</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">inhabitants_long_2</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  country         variable      value
 1   China             area    9597000
@@ -1753,7 +1758,7 @@ font-style: inherit;">head</span>(inhabitants_long)</span></code></pre></div>
 </div>
 <p>In that case it can make sense to spread the the distinct variables into two columns:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">inhabitants_wide_2 <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">inhabitants_wide_2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> inhabitants_long_2 <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1778,7 +1783,7 @@ background-color: null;
 font-style: inherit;">"value"</span></span>
 <span id="cb23-6">  )</span>
 <span id="cb23-7"></span>
-<span id="cb23-8">inhabitants_wide_2</span></code></pre></div>
+<span id="cb23-8">inhabitants_wide_2</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   country    area inhabitants_2022
@@ -1793,7 +1798,7 @@ font-style: inherit;">"value"</span></span>
 <h2 data-number="4" class="anchored" data-anchor-id="mutate"><span class="header-section-number">4</span> <code>mutate()</code></h2>
 <p>With <code>mutate()</code> we can add new columns to a data.frame or edit existing ones:</p>
 <div class="cell" data-output.lines="4">
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">athletes <span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb25-2">  <span class="fu" style="color: #4758AB;
@@ -1816,7 +1821,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb25-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  17 variables:
  $ NOC       : chr  "AFG" "AFG" "AFG" "AFG" ...
@@ -1829,7 +1834,7 @@ font-style: inherit;">str</span>()</span></code></pre></div>
 <h3 data-number="4.1" class="anchored" data-anchor-id="useful-helpers"><span class="header-section-number">4.1</span> Useful helpers</h3>
 <p>Like <code>select()</code>, <code>mutate()</code> really starts to shine when helper functions are added. For example we can fill a new column according to values in other columns:</p>
 <div class="cell" data-output.lines="10">
-<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Build a new column indicating if this is a contact sport athlete</span></span>
 <span id="cb27-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -1876,7 +1881,7 @@ background-color: null;
 font-style: inherit;">select</span>(Name, Sport, contact_sport) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb27-8">  str</span></code></pre></div>
+<span id="cb27-8">  str</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  3 variables:
  $ Name         : chr  "Najam Yahya" "Ahmad Jahan Nuristani" "Mohammad Halilula" "Ahmad Shah Abouwi" ...
@@ -1886,7 +1891,7 @@ font-style: inherit;">%&gt;%</span></span>
 </div>
 <p>If we have to connect multiple <code>ifelse()</code> functions, it’s better to use <code>dplyrs</code> <a href="https://iqb-research.github.io/IQB-Methods/posts/r_sig/23_12_18_case_when/"><code>case_when()</code></a>:</p>
 <div class="cell" data-output.lines="10">
-<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## This gets complicated pretty quickly:</span></span>
 <span id="cb29-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -1960,7 +1965,7 @@ background-color: null;
 font-style: inherit;">select</span>(Name, Sport, Event, judo_weightclass) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb29-15">  str</span></code></pre></div>
+<span id="cb29-15">  str</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   3799 obs. of  4 variables:
  $ Name            : chr  "Friba Razayee" "Ajmal Faizzada" "Mohammad Tawfiq Bakhshi" "Sergio Murray" ...
@@ -1968,7 +1973,7 @@ font-style: inherit;">%&gt;%</span></span>
  $ Event           : chr  "Judo Women's Middleweight" "Judo Men's Half-Lightweight" "Judo Men's Half-Heavyweight" "Judo Men's Middleweight" ...
  $ judo_weightclass: chr  "Middleweight" "Half-Lightweight" NA "Middleweight" ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## so do this instead:</span></span>
 <span id="cb31-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -2033,7 +2038,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb31-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   3799 obs. of  4 variables:
  $ Name            : chr  "Friba Razayee" "Ajmal Faizzada" "Mohammad Tawfiq Bakhshi" "Sergio Murray" ...
@@ -2052,7 +2057,7 @@ font-style: inherit;">str</span>()</span></code></pre></div>
 <h2 data-number="5" class="anchored" data-anchor-id="replace_..."><span class="header-section-number">5</span> <code>..._replace_...()</code></h2>
 <p>We can easily replace values in a column using <code>str_replace()</code> or <code>replace_na()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1">athletes <span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1">athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb33-2">  <span class="fu" style="color: #4758AB;
@@ -2099,7 +2104,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb33-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   270767 obs. of  2 variables:
  $ Sex   : chr  "Male" "Male" "Male" "Male" ...
@@ -2111,7 +2116,7 @@ font-style: inherit;">str</span>()</span></code></pre></div>
 <h2 data-number="6" class="anchored" data-anchor-id="group_by"><span class="header-section-number">6</span> <code>group_by()</code></h2>
 <p>We can group our data by values in specific columns and perform some sort of operation on the groups. If we wanted to know the number of medals each region has won, we can for example group by region and medal type, and then <code>count()</code> (another <code>tidyverse</code> function) the number of cases in each group:</p>
 <div class="cell" data-output.lines="10">
-<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">medal_counts <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">medal_counts <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> athletes <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2125,7 +2130,7 @@ font-style: inherit;">%&gt;%</span></span>
 background-color: null;
 font-style: inherit;">count</span>(Medal) </span>
 <span id="cb35-4"></span>
-<span id="cb35-5">medal_counts</span></code></pre></div>
+<span id="cb35-5">medal_counts</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 533 × 3
 # Groups:   Region, Medal [533]
@@ -2142,7 +2147,7 @@ font-style: inherit;">count</span>(Medal) </span>
 </div>
 <p>We can also <code>summarize()</code> data:</p>
 <div class="cell" data-output.lines="10">
-<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="do" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Let's see what the mean, min and max age of athletes was in each Region:</span></span>
 <span id="cb37-2">athletes <span class="sc" style="color: #5E5E5E;
@@ -2182,7 +2187,7 @@ background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>)</span>
-<span id="cb37-7">                )</span></code></pre></div>
+<span id="cb37-7">                )</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 206 × 4
    Region         mean_age min_age max_age
@@ -2203,7 +2208,7 @@ font-style: inherit;">TRUE</span>)</span>
 <p>We have multiple options for merging data.frames in the <code>tidyverse</code>. <code>left_join()</code> can be used if we want to keep all rows of the first data.frame and only adds the rows of the second data.frame that have an identifier in the first data.frame, <code>right_join()</code> keeps all rows of the second data frame, and <code>full_join()</code> keeps all rows of both data frames.</p>
 <p>Let’s merge a world coordinate data set onto our medal counts. This can be helpful if we want to plot the number of won medals in each country later on:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">world_coordinates <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">world_coordinates <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2215,11 +2220,11 @@ font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"raw_data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"world_coordinates.rds"</span>))</span></code></pre></div>
+font-style: inherit;">"world_coordinates.rds"</span>))</span></code></pre></div></div>
 </div>
 <p>Only take gold medals into account:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1">medal_counts <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1">medal_counts <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> medal_counts <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2229,11 +2234,11 @@ font-style: inherit;">filter</span>(Medal <span class="sc" style="color: #5E5E5E
 background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Gold"</span>)</span></code></pre></div>
+font-style: inherit;">"Gold"</span>)</span></code></pre></div></div>
 </div>
 <p>To merge two data frames that include information that belongs together, we need a common column, on which we can combine them. In our case, this is the column containing the country. They are both named <code>region</code>, but one with an upper case <code>R</code>. This doesn’t pose a problem, as we can define which columns should be taken from which data frame for merging with <code>join_by()</code>. Let’s take a quick look before merging to check if there are any countries named differently in both data sets:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">medal_counts<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">medal_counts<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>Region[<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2243,14 +2248,14 @@ font-style: inherit;">$</span>Region <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%in%</span> world_coordinates<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>region)]</span></code></pre></div>
+font-style: inherit;">$</span>region)]</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Individual Olympic Athletes"</code></pre>
 </div>
 </div>
 <p>Looks like all of the countries in our <code>medal_countries</code> data frame can also be found in our <code>world_coordinates</code> frame. Only athletes without a country will be lost when merging, but that’s ok for now, as we are interested in the country specific gold medal counts. So let’s merge:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">medal_countries <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">medal_countries <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> world_coordinates <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2265,7 +2270,7 @@ font-style: inherit;">==</span> Region))</span>
 <span id="cb43-3"></span>
 <span id="cb43-4"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">head</span>(medal_countries)</span></code></pre></div>
+font-style: inherit;">head</span>(medal_countries)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       long      lat group order region subregion Medal  n
 1 -69.89912 12.45200     1     1  Aruba      &lt;NA&gt;  &lt;NA&gt; NA
@@ -2283,19 +2288,19 @@ font-style: inherit;">head</span>(medal_countries)</span></code></pre></div>
 <li>Read the <code>characters.rds</code> and the <code>psych_stats.csv</code> into R (download <a href="https://github.com/iqb-research/IQB-Methods/tree/main/raw_data">here</a>).</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1">characters <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1">characters <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2324,7 +2329,7 @@ font-style: inherit;">"psych_stats.csv"</span>), <span class="at" style="color: 
 background-color: null;
 font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">";"</span>)</span></code></pre></div>
+font-style: inherit;">";"</span>)</span></code></pre></div></div>
 </div>
 </div>
 </div>
@@ -2333,12 +2338,12 @@ font-style: inherit;">";"</span>)</span></code></pre></div>
 <li>Reshape the <code>psych_stats</code> data frame so there are only three columns in the data set: <code>char_id</code>, <code>question</code> and <code>rating</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2349,19 +2354,19 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1">psych_stats_long <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1">psych_stats_long <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> psych_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2386,7 +2391,7 @@ font-style: inherit;">"rating"</span>)</span>
 <span id="cb46-5"></span>
 <span id="cb46-6"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">head</span>(psych_stats_long)</span></code></pre></div>
+font-style: inherit;">head</span>(psych_stats_long)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   char_id question                      rating
@@ -2407,12 +2412,12 @@ font-style: inherit;">head</span>(psych_stats_long)</span></code></pre></div>
 <li>Merge the <code>characters</code> data frame and the <code>psych_stats_long</code> data frame on a common column.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2423,12 +2428,12 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2436,9 +2441,9 @@ Solution
 <div class="callout-body-container callout-body">
 <p>First, let’s take a look at both data sets again:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>(characters)</span></code></pre></div>
+font-style: inherit;">str</span>(characters)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   889 obs. of  7 variables:
  $ id        : chr  "F2" "F1" "F5" "F4" ...
@@ -2449,9 +2454,9 @@ font-style: inherit;">str</span>(characters)</span></code></pre></div>
  $ link      : chr  "https://openpsychometrics.org/tests/characters/stats/F/2" "https://openpsychometrics.org/tests/characters/stats/F/1" "https://openpsychometrics.org/tests/characters/stats/F/5" "https://openpsychometrics.org/tests/characters/stats/F/4" ...
  $ image_link: chr  "https://openpsychometrics.org/tests/characters/test-resources/pics/F/2.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/1.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/5.jpg" "https://openpsychometrics.org/tests/characters/test-resources/pics/F/4.jpg" ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>(psych_stats)</span></code></pre></div>
+font-style: inherit;">str</span>(psych_stats)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   889 obs. of  365 variables:
  $ char_id                                     : chr  "F2" "F1" "F5" "F4" ...
@@ -2558,7 +2563,7 @@ font-style: inherit;">str</span>(psych_stats)</span></code></pre></div>
 </div>
 <p>It seems like both data frames have a column containing an ID for the character. We can use that column for merging:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1">characters_stats <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1">characters_stats <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> characters <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2573,7 +2578,7 @@ font-style: inherit;">==</span> char_id))</span>
 <span id="cb52-3"></span>
 <span id="cb52-4"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>(characters_stats)</span></code></pre></div>
+font-style: inherit;">str</span>(characters_stats)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   323596 obs. of  9 variables:
  $ id        : chr  "F2" "F2" "F2" "F2" ...
@@ -2594,12 +2599,12 @@ font-style: inherit;">str</span>(characters_stats)</span></code></pre></div>
 <li>Remove all columns from your merged data frame that start with <code>"uni"</code>. Don’t overwrite your old data, this is just for exercise and won’t be worked with further on.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2610,7 +2615,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2622,7 +2627,7 @@ Caution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1">characters_stats <span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1">characters_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb54-2">  <span class="fu" style="color: #4758AB;
@@ -2638,7 +2643,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb54-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str</span>()</span></code></pre></div>
+font-style: inherit;">str</span>()</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   323596 obs. of  7 variables:
  $ id        : chr  "F2" "F2" "F2" "F2" ...
@@ -2657,12 +2662,12 @@ font-style: inherit;">str</span>()</span></code></pre></div>
 <li>Calculate the mean rating of all characters by show and question, so you get the mean rating of all characters in a show on each item.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2673,7 +2678,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2685,7 +2690,7 @@ Caution
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">characters_summary <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1">characters_summary <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> characters_stats <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2705,7 +2710,7 @@ font-style: inherit;">mean</span>(rating, <span class="at" style="color: #657422
 background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>))</span></code></pre></div>
+font-style: inherit;">TRUE</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'uni_name'. You can override using the
 `.groups` argument.</code></pre>
@@ -2718,12 +2723,12 @@ font-style: inherit;">TRUE</span>))</span></code></pre></div>
 <li>Choose two of your favorite shows. Build a data frame that has two mean_rating columns, one for each show.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2735,7 +2740,7 @@ Second, reshape this data.frame into long format.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2747,7 +2752,7 @@ Caution
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">compare_shows <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">compare_shows <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> characters_summary <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2777,7 +2782,7 @@ font-style: inherit;">values_from =</span> <span class="st" style="color: #20794
 background-color: null;
 font-style: inherit;">"mean_rating"</span>)</span>
 <span id="cb58-6"></span>
-<span id="cb58-7">compare_shows</span></code></pre></div>
+<span id="cb58-7">compare_shows</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 364 × 3
    question               Friends `How I Met Your Mother`
@@ -2803,12 +2808,12 @@ font-style: inherit;">"mean_rating"</span>)</span>
 <li>Now, add a column containing the difference in rating between both shows for each question to your new comparison data.frame. Then, sort the rows by descending size of difference between the ratings. So the row with the highest difference in mean rating between your two shows should be on top.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Tip</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2819,7 +2824,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2831,7 +2836,7 @@ Caution
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1">compare_shows <span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1">compare_shows <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb60-2">  <span class="fu" style="color: #4758AB;
@@ -2855,7 +2860,7 @@ font-style: inherit;">arrange</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">desc</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">abs</span>(diff_shows)))</span></code></pre></div>
+font-style: inherit;">abs</span>(diff_shows)))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 364 × 4
    question                            Friends How I Met Your Mothe…¹ diff_shows
@@ -2908,6 +2913,7 @@ font-style: inherit;">abs</span>(diff_shows)))</span></code></pre></div>
 
 
 
+
 <p>We will use two data sets for some time in the R SIG now. One for the theory, and one for you to work on in the exercises.</p>
 <section id="theory-olympic-athletes" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="theory-olympic-athletes"><span class="header-section-number">1</span> Theory: Olympic athletes</h2>
@@ -2919,7 +2925,7 @@ font-style: inherit;">abs</span>(diff_shows)))</span></code></pre></div>
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Goal
+<span class="screen-reader-only">Caution</span>Goal
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2938,7 +2944,7 @@ Goal
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Goal
+<span class="screen-reader-only">Caution</span>Goal
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2987,11 +2993,12 @@ Tip
 
 
 
+
 <p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="img-fluid"><sup>1</sup></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
 </div>
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
@@ -3037,7 +3044,7 @@ A more thorough introduction into the <code>tidyverse</code> can be found <a hre
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Network drives
+<span class="screen-reader-only">Tip</span>Network drives
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3046,9 +3053,9 @@ Network drives
 </div>
 <p>The working directory is the path R is currently working in. I can obtain it by typing:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">getwd</span>()</span></code></pre></div>
+font-style: inherit;">getwd</span>()</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "/home/runner/work/IQB-Methods/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro"</code></pre>
 </div>
@@ -3061,7 +3068,7 @@ font-style: inherit;">getwd</span>()</span></code></pre></div>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The <code>here</code> package
+<span class="screen-reader-only">Tip</span>The <code>here</code> package
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3077,7 +3084,7 @@ The <code>here</code> package
 <li><p>Write the following code using the pipe-operator from the <code>tidyverse</code>:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sum</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3105,22 +3112,22 @@ font-style: inherit;">TRUE</span>), <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">by =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">0.1</span>))</span></code></pre></div>
+font-style: inherit;">0.1</span>))</span></code></pre></div></div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span>
 <span id="cb5-2"></span>
@@ -3159,7 +3166,7 @@ background-color: null;
 font-style: inherit;">0.1</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb5-6">  sum</span></code></pre></div>
+<span id="cb5-6">  sum</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 26313</code></pre>
 </div>
@@ -3177,24 +3184,33 @@ font-style: inherit;">%&gt;%</span></span>
 <li>Install and load the <code>palmerpenguins</code> package.</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># install.packages("palmerpenguins")</span></span>
 <span id="cb7-2"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(palmerpenguins)</span></code></pre></div>
+font-style: inherit;">library</span>(palmerpenguins)</span></code></pre></div></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'palmerpenguins'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:datasets':
+
+    penguins, penguins_raw</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -3203,23 +3219,23 @@ font-style: inherit;">library</span>(palmerpenguins)</span></code></pre></div>
 <li>Transform the <code>penguins</code>-tibble (available after loading the package) into a <code>data.frame</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">penguins_frame <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">penguins_frame <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">as.data.frame</span>(penguins)</span></code></pre></div>
+font-style: inherit;">as.data.frame</span>(penguins)</span></code></pre></div></div>
 </div>
 </div>
 </div>
@@ -3228,19 +3244,19 @@ font-style: inherit;">as.data.frame</span>(penguins)</span></code></pre></div>
 <li>Compare how both objects (tibble and data.frame) are printed into the console. Which differences can you see?</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">penguins</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">penguins</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -3260,7 +3276,7 @@ Solution
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">penguins_frame</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">penguins_frame</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      species    island bill_length_mm bill_depth_mm flipper_length_mm
 1      Adelie Torgersen           39.1          18.7               181
@@ -3968,32 +3984,32 @@ Solution
 <li>Save your penguins <code>data.frame</code> and your penguins <code>tibble</code> as <code>.RDS</code> files in a dedicated <code>data</code> folder in your R-project. Use relative paths!</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">saveRDS</span>(penguins, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"./data/penguins.RDS"</span>)</span>
-<span id="cb13-2"><span class="fu" style="color: #4758AB;
+<span id="cb15-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">saveRDS</span>(penguins_frame, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">file =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"./data/penguins_frame.RDS"</span>)</span></code></pre></div>
+font-style: inherit;">"./data/penguins_frame.RDS"</span>)</span></code></pre></div></div>
 </div>
 </div>
 </div>
@@ -4002,23 +4018,23 @@ font-style: inherit;">"./data/penguins_frame.RDS"</span>)</span></code></pre></d
 <li>Load your penguins <code>data.frame</code> and your penguins <code>tibble</code> into R. Use the <code>here</code> package.</li>
 </ol>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Caution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(here)</span>
-<span id="cb14-2"></span>
-<span id="cb14-3"><span class="fu" style="color: #4758AB;
+<span id="cb16-2"></span>
+<span id="cb16-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">readRDS</span>(here<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -4029,7 +4045,7 @@ background-color: null;
 font-style: inherit;">"data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"penguins.RDS"</span>))</span>
-<span id="cb14-4"><span class="fu" style="color: #4758AB;
+<span id="cb16-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">readRDS</span>(here<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -4039,7 +4055,7 @@ font-style: inherit;">here</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"data"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div>
+font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div></div>
 </div>
 </div>
 </div>
@@ -4072,32 +4088,33 @@ font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div>
 
 
 
+
 <p>With the checkmate package you can test, check and assert all kinds of arguments regarding type, length and much more. You can also write your own assert-functions.</p>
 <p><img src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" class="img-fluid"><sup>1</sup></p>
 <section id="intro" class="level1">
 <h1>Intro</h1>
 <p>In this Vignette you can get a broad understand how the package works, how the output looks like and some example functions. For more details and a complete overview go to <a href="https://cran.r-project.org/web/packages/checkmate/index.html">CRAN</a>, specifically the <a href="https://cran.r-project.org/web/packages/checkmate/checkmate.pdf">checkmate.pdf</a> or use the following line of code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">lsf.str</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"package:checkmate"</span>)</span></code></pre></div>
+font-style: inherit;">"package:checkmate"</span>)</span></code></pre></div></div>
 </div>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <p>Install the package from <code>CRAN</code> with the following code. Then load it in your library.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"checkmate"</span>)</span></code></pre></div>
+font-style: inherit;">"checkmate"</span>)</span></code></pre></div></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(checkmate)</span></code></pre></div>
+font-style: inherit;">library</span>(checkmate)</span></code></pre></div></div>
 </div>
 </section>
 <section id="different-outputs" class="level2">
@@ -4107,7 +4124,7 @@ font-style: inherit;">library</span>(checkmate)</span></code></pre></div>
 <p><strong>Test</strong></p>
 <p>Test-functions test whether an argument has certain attributes and gives you <code>TRUE</code> or <code>FALSE</code> output.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">test_numeric</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4119,15 +4136,15 @@ font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>))</span></code></pre></div>
+font-style: inherit;">4</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">test_numeric</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"hallo"</span>) </span></code></pre></div>
+font-style: inherit;">"hallo"</span>) </span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -4135,7 +4152,7 @@ font-style: inherit;">"hallo"</span>) </span></code></pre></div>
 <p><strong>Check</strong></p>
 <p>Check-functions check whether an argument has certain attributes and gives you <code>TRUE</code> or a <code>string</code> containing an error message as an output. In the string you can see what kind of argument you should have given, and what you did wrong.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_numeric</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4147,15 +4164,15 @@ font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>))</span></code></pre></div>
+font-style: inherit;">4</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_numeric</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"hallo"</span>) </span></code></pre></div>
+font-style: inherit;">"hallo"</span>) </span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Must be of type 'numeric', not 'character'"</code></pre>
 </div>
@@ -4163,7 +4180,7 @@ font-style: inherit;">"hallo"</span>) </span></code></pre></div>
 <p><strong>Assert</strong></p>
 <p>Assert-functions assert whether an argument has certain attributes and throw an <code>error message</code> if you it doesn’t. When you did everything correct, it doesn’t create an output. The <code>error message</code> contains the <code>string</code> from the <code>check</code>-functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">assert_numeric</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4180,14 +4197,14 @@ font-style: inherit;">4</span>))</span>
 background-color: null;
 font-style: inherit;">assert_numeric</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"hallo"</span>)</span></code></pre></div>
+font-style: inherit;">"hallo"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: Assertion on '"hallo"' failed: Must be of type 'numeric', not 'character'.</code></pre>
 </div>
 </div>
 <p>If you save an <code>assert_numeric()</code> object into a variable x, it will contain the original object that you asserted.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">x <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4202,7 +4219,7 @@ background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>))</span>
-<span id="cb14-2">x</span></code></pre></div>
+<span id="cb14-2">x</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6 5 4 3 2 1 4</code></pre>
 </div>
@@ -4212,24 +4229,24 @@ font-style: inherit;">4</span>))</span>
 <h2 class="anchored" data-anchor-id="checking-for-type">Checking for Type</h2>
 <p>With <code>lsf.str()</code> you can see all functions of the package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">lsf.str</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"package:checkmate"</span>)</span></code></pre></div>
+font-style: inherit;">"package:checkmate"</span>)</span></code></pre></div></div>
 </div>
 <p>You can check for specific types of arguments e.g.&nbsp;<code>numeric</code>, <code>number</code>, <code>integer</code>, <code>double</code>, <code>character</code>, <code>string</code>, <code>logical</code>, <code>flag</code>, <code>missing</code>, or data structure e.g.&nbsp;<code>list</code>, <code>data_frame</code>, <code>array</code> and so on. You can also look for attributes e.g.&nbsp;<code>true</code>, <code>subset</code>, <code>named</code> or <code>atomic</code>, and much more.</p>
 <p>Depending on what kind of output you want, you choose your function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_list</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">list</span>())</span></code></pre></div>
+font-style: inherit;">list</span>())</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_list</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -4237,14 +4254,14 @@ font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">9</span>)</span></code></pre></div>
+font-style: inherit;">9</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Must be of type 'list', not 'integer'"</code></pre>
 </div>
 </div>
 <p>If you are looking for a specific function you can use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ls</span>(<span class="st" style="color: #20794D;
 background-color: null;
@@ -4252,7 +4269,7 @@ font-style: inherit;">"package:checkmate"</span>, <span class="at" style="color:
 background-color: null;
 font-style: inherit;">pattern =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"atomic"</span>) </span></code></pre></div>
+font-style: inherit;">"atomic"</span>) </span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "assert_atomic"        "assert_atomic_vector" "check_atomic"        
 [4] "check_atomic_vector"  "expect_atomic"        "expect_atomic_vector"
@@ -4264,7 +4281,7 @@ font-style: inherit;">"atomic"</span>) </span></code></pre></div>
 <p>If you want to check the types of elements of a more complex data structure like a <code>list</code> or a <code>data frame</code>, you have to look at the arguments of the functions. Both have the argument <code>types</code>.</p>
 <p>First we create an example data frame with rows and columns named. It has numeric and character elements.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">df <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">df <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4305,7 +4322,7 @@ background-color: null;
 font-style: inherit;">"B"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"C"</span>))</span>
-<span id="cb23-2">df</span></code></pre></div>
+<span id="cb23-2">df</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  klein mittel groß
 A     1      4    7
@@ -4315,7 +4332,7 @@ C     3      6    9</code></pre>
 </div>
 <p>Now we can check for the types of the elements using the <code>types</code> argument. You can look at the whole data frame with <code>df</code>, at single columns using <code>df[1]</code> or <code>df[klein]</code> or at single rows using <code>df[1,]</code>. The error message will tell you the first element that has a type you didn’t check for.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># checking the whole data frame</span></span>
 <span id="cb25-2"><span class="fu" style="color: #4758AB;
@@ -4328,21 +4345,21 @@ font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"character"</span>))</span></code></pre></div>
+font-style: inherit;">"character"</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_data_frame</span>(df, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+font-style: inherit;">"numeric"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "May only contain the following types: {numeric}, but element 3 has type 'character'"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># checking individual columns</span></span>
 <span id="cb29-2"><span class="fu" style="color: #4758AB;
@@ -4353,11 +4370,11 @@ font-style: inherit;">1</span>], <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+font-style: inherit;">"numeric"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_data_frame</span>(df[<span class="st" style="color: #20794D;
 background-color: null;
@@ -4365,11 +4382,11 @@ font-style: inherit;">"klein"</span>], <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+font-style: inherit;">"numeric"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_data_frame</span>(df[<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -4377,21 +4394,21 @@ font-style: inherit;">3</span>], <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+font-style: inherit;">"numeric"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "May only contain the following types: {numeric}, but element 1 has type 'character'"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># checking for individual rows</span></span>
 <span id="cb35-2">df[<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span>,]</span></code></pre></div>
+font-style: inherit;">1</span>,]</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  klein mittel groß
 A     1      4    7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_data_frame</span>(df[<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -4399,14 +4416,14 @@ font-style: inherit;">1</span>,], <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+font-style: inherit;">"numeric"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "May only contain the following types: {numeric}, but element 3 has type 'character'"</code></pre>
 </div>
 </div>
 <p>You can also check the type of individual elements with <code>df[1,1]</code> or just the content of the columns by loosing the attributes of the data frame with <code>df$klein</code> or <code>df[,1]</code>. In this example they all have type <code>integer</code>. Now <code>check_data_frame()</code> doesn’t work anymore, because the data is no longer a data frame. You can use the normal checks from above.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_data_frame</span>(df<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -4414,33 +4431,33 @@ font-style: inherit;">$</span>klein, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">types =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"numeric"</span>)</span></code></pre></div>
+font-style: inherit;">"numeric"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Must be of type 'data.frame', not 'integer'"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_integer</span>(df<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>klein)</span></code></pre></div>
+font-style: inherit;">$</span>klein)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_numeric</span>(df[,<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span>])</span></code></pre></div>
+font-style: inherit;">1</span>])</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_double</span>(df[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span>])</span></code></pre></div>
+font-style: inherit;">1</span>])</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Must be of type 'double', not 'integer'"</code></pre>
 </div>
@@ -4450,7 +4467,7 @@ font-style: inherit;">1</span>])</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="checking-for-type-lists">Checking for Type: Lists</h3>
 <p>Lists work the same way. We create an example list a, with named elements of different types.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1">a <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1">a <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4484,7 +4501,7 @@ font-style: inherit;">"character"</span>))</span>
 background-color: null;
 font-style: inherit;">assert_character</span>(a<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>mon)</span></code></pre></div>
+font-style: inherit;">$</span>mon)</span></code></pre></div></div>
 </div>
 </section>
 </section>
@@ -4492,15 +4509,15 @@ font-style: inherit;">$</span>mon)</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="checking-for-length">Checking for Length</h2>
 <p>You can check if an argument is <code>scalar</code>, but you cannot check for arbitrary lengths this way.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_scalar</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
+font-style: inherit;">1</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_scalar</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -4508,11 +4525,11 @@ font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">5</span>)</span></code></pre></div>
+font-style: inherit;">5</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Must have length 1"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ls</span>(<span class="st" style="color: #20794D;
 background-color: null;
@@ -4520,37 +4537,37 @@ font-style: inherit;">"package:checkmate"</span>, <span class="at" style="color:
 background-color: null;
 font-style: inherit;">pattern =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"length"</span>)</span></code></pre></div>
+font-style: inherit;">"length"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>character(0)</code></pre>
 </div>
 </div>
 <p>To check for arbitrary length of an argument, you have to use the <code>len</code> argument from the <code>test</code>, <code>check</code> or <code>assert</code> functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">len =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">12</span>)</span></code></pre></div>
+font-style: inherit;">12</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">len =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">11</span>)</span></code></pre></div>
+font-style: inherit;">11</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Must have length 11, but has length 12"</code></pre>
 </div>
 </div>
 <p>There are some other attributes you can check like this, e.g.&nbsp;<code>min.len</code>, <code>max.len</code>, <code>unique</code> or the length of elements in character vectors using <code>n.chars</code>, <code>min.chars</code> or <code>max.chars</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
 background-color: null;
@@ -4560,21 +4577,21 @@ font-style: inherit;">3</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">min.chars =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2</span>)</span></code></pre></div>
+font-style: inherit;">2</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">n.chars =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2</span>)</span></code></pre></div>
+font-style: inherit;">2</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "All elements must have exactly 2 characters, but element 1 has 3 chararacters"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">check_character</span>(month.abb, <span class="at" style="color: #657422;
 background-color: null;
@@ -4584,18 +4601,18 @@ font-style: inherit;">3</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">max.chars =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2</span>)</span></code></pre></div>
+font-style: inherit;">2</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "All elements must have at most 2 characters, but element 1 has 3 characters"</code></pre>
 </div>
 </div>
 <p>For more info what arguments you can check, type <code>?check_character</code> in the console.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1">?check_character</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1">?check_character</span></code></pre></div></div>
 </div>
 <p>You can also check the lengths of <strong>lists</strong> or the length of columns/rows of a <strong>data frame</strong> in a similar way by using our example objects from above.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">assert_list</span>(a, <span class="at" style="color: #657422;
 background-color: null;
@@ -4624,14 +4641,14 @@ font-style: inherit;">3</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">ncols =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">3</span>)</span></code></pre></div>
+font-style: inherit;">3</span>)</span></code></pre></div></div>
 </div>
 </section>
 <section id="checking-names-via-subset" class="level2">
 <h2 class="anchored" data-anchor-id="checking-names-via-subset">Checking Names via Subset</h2>
 <p>You cannot check the names of complex objects directly. With the <strong>list</strong> or <strong>data_frame</strong> functions you can only check if the objects is named at all, or if the names are unique via the arguments <code>names</code> for lists and <code>col.names</code> or `<code>row.names</code> for data frames. Again using our example objects.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># a &lt;- list(zahlen = 1:9, mon = month.abb, creator = "IQB")</span></span>
 <span id="cb66-2"><span class="co" style="color: #5E5E5E;
@@ -4651,11 +4668,11 @@ font-style: inherit;">assert_data_frame</span>(df, <span class="at" style="color
 background-color: null;
 font-style: inherit;">col.names =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"unique"</span>)</span></code></pre></div>
+font-style: inherit;">"unique"</span>)</span></code></pre></div></div>
 </div>
 <p>You can check for specific names by using the <code>subset</code> functions. You can check whether the object give the argument <code>choices</code> contains <code>x</code>. If <code>x</code> is not a subset of <code>choices</code> you’ll get an error message.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># lists</span></span>
 <span id="cb67-2"><span class="fu" style="color: #4758AB;
@@ -4668,11 +4685,11 @@ font-style: inherit;">"mon"</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">choices =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">names</span>(a))</span></code></pre></div>
+font-style: inherit;">names</span>(a))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># data frames</span></span>
 <span id="cb69-2"><span class="fu" style="color: #4758AB;
@@ -4691,15 +4708,15 @@ font-style: inherit;">"größer"</span>), <span class="at" style="color: #657422
 background-color: null;
 font-style: inherit;">choices =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">colnames</span>(df))</span></code></pre></div>
+font-style: inherit;">colnames</span>(df))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Must be a subset of {'klein','mittel','groß'}, but has additional elements {'größer'}"</code></pre>
 </div>
 </div>
 <p>You can also check for unique values or missings in a similar way. For more info see the help functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1">?assert_list</span>
-<span id="cb71-2">?assert_data_frame</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1">?assert_list</span>
+<span id="cb71-2">?assert_data_frame</span></code></pre></div></div>
 </div>
 
 
@@ -4730,6 +4747,7 @@ font-style: inherit;">colnames</span>(df))</span></code></pre></div>
 
 
 
+
 <p><img src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" class="img-fluid"><sup>1</sup></p>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
@@ -4741,14 +4759,14 @@ font-style: inherit;">colnames</span>(df))</span></code></pre></div>
 If another R-version should be used in your project, switch to that version. On Windows, you can simply install multiple versions of R and switch between them in RStudio by going to <code>Tools - Global Options - General</code>. Maybe you will have to install <code>renv</code> for this version again.</p>
 <p>Then, initialize the project:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># install.packages(renv)</span></span>
 <span id="cb1-2">renv<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">init</span>()</span></code></pre></div>
+font-style: inherit;">init</span>()</span></code></pre></div></div>
 </div>
 <p>This will create the basic infrastructure for the usage of <code>renv</code> mainly will do two things:</p>
 <ol type="1">
@@ -4772,36 +4790,36 @@ Caution
 </div>
 <p>The next step is to write the package into your <code>.lock</code> file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">renv<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">renv<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">snapshot</span>()</span></code></pre></div>
+font-style: inherit;">snapshot</span>()</span></code></pre></div></div>
 </div>
 <p>This will update the <code>.lock</code> file with your new package.</p>
 <p>If on the other hand you want to restore the packages from the <code>.lock</code> file, use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">renv<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">renv<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">restore</span>()</span></code></pre></div>
+font-style: inherit;">restore</span>()</span></code></pre></div></div>
 </div>
 <p>This will install all packages that are not already in your project specific library with the package version that is documented in the lock file into your project specific library.</p>
 <p>You can update your dependencies to the latest version using:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">renv<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">renv<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">update</span>()</span></code></pre></div>
+font-style: inherit;">update</span>()</span></code></pre></div></div>
 </div>
 </section>
 <section id="package-versions" class="level2">
 <h2 class="anchored" data-anchor-id="package-versions">Package Versions</h2>
 <p>If you want to install specific package versions, you can use</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">renv<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">renv<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4809,11 +4827,11 @@ font-style: inherit;">intit</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">bare =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
+font-style: inherit;">TRUE</span>)</span></code></pre></div></div>
 </div>
 <p>in the beginning. This sets up the <code>renv</code> project without trying to find the used dependencies. Thus, you can install the specific versions manually afterward:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">renv<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">renv<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4823,17 +4841,17 @@ font-style: inherit;">/</span><span class="er" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">@</span>version<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">-</span>number)</span></code></pre></div>
+font-style: inherit;">-</span>number)</span></code></pre></div></div>
 </div>
 <p>For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">renv<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">renv<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">install</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div>
+font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div></div>
 </div>
 <p>Local packages or packages from GitHub can be installed as well (see <a href="https://rstudio.github.io/renv/reference/install.html">here</a>).</p>
 <p><a href="https://packagemanager.posit.co/client/#/">Posit Public Package Manager</a> contains the CRAN history of CRAN packages back to 2014. Package version historys can be found here easily, for example, when a script was finished on 06.05.22, we can look up which package version was the current one on that day.</p>
@@ -4866,6 +4884,7 @@ font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div>
 
 
 
+
 <section id="a.-methode-nach-harel-2009" class="level3">
 <h3 class="anchored" data-anchor-id="a.-methode-nach-harel-2009">a. Methode nach Harel (2009)</h3>
 <p>Die von Harel (2009) vorgeschlagene Methode beinhaltet mehrere Schritte:<br>
@@ -4880,7 +4899,7 @@ font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div>
 <p>Im Paket eatRep kann das über die Funktion <code>pool.R2()</code> berechnet werden. Die Funktion wird momentan noch nicht auf den Namensraum (Namespace) des Pakets exportiert, was allerdings ab der nächsten Paketversion möglich sein wird.</p>
 <p>Angenommen, aus einer Analyse multipel imputierter Daten resultieren 5 verschiedene (hier fiktive) <img src="https://latex.codecogs.com/png.latex?R%5E2">-Werte, dann kann der gepoolte <img src="https://latex.codecogs.com/png.latex?R%5E2">-Wert folgendermaßen bestimmt werden:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">r2 <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">r2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4899,7 +4918,7 @@ font-style: inherit;">0.23</span>)</span>
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
+font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div></div>
 </div>
 </section>
 <section id="section" class="level2">
@@ -4913,7 +4932,7 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
   <category>statistics</category>
   <category>eatRep</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:50:23 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:21:00 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -4925,9 +4944,10 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div>
 
 
 
+
 <p>In eatModel wird nur der erste Teil der zweiten Tabelle <img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bitem%7D%5Ctimes%5Ctext%7B%5BDIFvariable%5D%7D"> aus Conquest übertragen. Das bedeutet, dass negative Werte in der eatModel-estDif-Spalte dafür stehen, dass die jeweiligen Items <strong>in der ersten Gruppe</strong> der <img src="https://latex.codecogs.com/png.latex?%5Ctext%7B%5BDIFvariable%5D%7D"> <strong>leichter</strong> sind. Die erste Gruppe ist die mit dem numerisch kleineren Gruppenindikatorwert. Zur Illustration ein Beispiel, das Daten aus dem TAM-Paket verwendet:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(kableExtra)</span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
@@ -5002,7 +5022,7 @@ font-style: inherit;">"female"</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">software=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"tam"</span>)</span></code></pre></div>
+font-style: inherit;">"tam"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14 subject(s) do not solve any item:
    115 (10 false), 613 (10 false), 979 (10 false) ... 
@@ -5011,7 +5031,7 @@ Dataset is completely linked.
 'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
 Q matrix specifies 1 dimension(s).</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">run <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">run <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5029,11 +5049,11 @@ font-style: inherit;">FALSE</span>)</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">itemFromRes</span>(res)</span></code></pre></div>
+font-style: inherit;">itemFromRes</span>(res)</span></code></pre></div></div>
 </div>
 <p>Das einzige Item mit B-DIF entsprechend der ETS-Kriterien ist Item Nummer 6:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">item6 <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">item6 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5093,9 +5113,9 @@ font-style: inherit;">FALSE</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">position =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"center"</span>)</span></code></pre></div>
+font-style: inherit;">"center"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
-<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<table class="table table-striped caption-top table-sm small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">item</th>
@@ -5119,19 +5139,17 @@ font-style: inherit;">"center"</span>)</span></code></pre></div>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <p>Die allgemeine Lösungshäufigkeit des Items ist 45.4 Prozent. Der positive DIF-Wert von 0.31 bedeutet, dass das Item in der ersten Gruppe (also <code>female = 0</code>, die Gruppe der Jungen) schwerer ist. Die Lösungshäufigkeit sollte also für <code>female = 0</code> geringer sein, als für <code>female = 1</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">tapply</span>(dat[,<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"I0006"</span>], dat[,<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
+font-style: inherit;">"female"</span>], mean)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    0     1 
 0.410 0.498 </code></pre>
@@ -5139,7 +5157,7 @@ font-style: inherit;">"female"</span>], mean)</span></code></pre></div>
 </div>
 <p>Die beiden Spalten “estDif” und “absDif” im Output unterscheiden dabei insofern, als dass für zwei Gruppen (hier: “male” und “female”) “absDif” immer doppelt so groß wie “estDif” und im Betrag positiv ist. Im DIF-Modell hat jedes Item zwei Parameter, einen Schwierigkeitsparameter “est” und einen DIF-Parameter “estDif”. Bei dichotomen, näherungsweise gleichverteilten Gruppen wie Geschlecht entspricht der “est”-Parameter in etwa dem Wert, den man erhalten würde, wenn ein einfaches Raschmodell ohne separate Betrachtung der Geschlechtergruppen modelliert werden würde. “estDif” ist nun der Wert, den man (näherungsweise) für die Referenzgruppe addieren und für die Fokusgruppe subtrahieren muss, um die Werte zu erhalten, die bei separater Modellierung der Gruppen resultieren würden. Da der Wert einmal addiert, einmal subtrahiert wird, ist die Differenz des Itemparameters in Referenz- und Fokusgruppe im Betrag doppelt so groß wie der DIF-Parameter “estDif”. Für unser Beispiel (Referenzgruppe = “male”) bedeutet das: Bei separater Modellierung würde ich für die Jungen einen Itemparameter 0.226 + 0.31 = 0.536 erwarten, und für die Mädchen 0.226 - 0.31 = -0.084. Das soll hier kurz veranschaulicht werden:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">spl <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">spl <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5159,7 +5177,7 @@ font-style: inherit;">FALSE</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">nCores =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span>)</span></code></pre></div>
+font-style: inherit;">1</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>--------------------------------
 splitModels: generating 2 models
@@ -5168,7 +5186,7 @@ see &lt;returned&gt;$models
 number of cores: 1
 --------------------------------</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">def <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">def <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5194,7 +5212,7 @@ font-style: inherit;">splittedModels =</span> spl, <span class="at" style="color
 background-color: null;
 font-style: inherit;">software=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"tam"</span>)</span></code></pre></div>
+font-style: inherit;">"tam"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Specification of 'qMatrix' and 'person.groups' results in 2 model(s).
@@ -5231,7 +5249,7 @@ Dataset is completely linked.
 'gauss' has been chosen for estimation method. Number of nodes was not explicitly specified. Set nodes to 20.
 Q matrix specifies 1 dimension(s).</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">run <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">run <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5298,9 +5316,9 @@ font-style: inherit;">FALSE</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">position =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"center"</span>)</span></code></pre></div>
+font-style: inherit;">"center"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
-<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<table class="table table-striped caption-top table-sm small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">model</th>
@@ -5324,13 +5342,11 @@ font-style: inherit;">"center"</span>)</span></code></pre></div>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <p>Linkt man nun die beiden separat modellierten Gruppen “male” und “female” aneinander, entspricht der DIF für das Item “I0006” näherungsweise dem zuvor in einem gemeinsamen DIF-Modell geschätzten DIF-Parameter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">itemFokus <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">itemFokus <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5373,7 +5389,7 @@ font-style: inherit;">0.6</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">iterativ =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
+font-style: inherit;">TRUE</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Found 1 model(s).
    Equating is executed for each dimension in each model separately.
@@ -5406,7 +5422,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
   <category>statistics</category>
   <category>eatModel</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:50:23 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:21:00 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -5414,6 +5430,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
   <dc:creator>Karoline Sachse</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -5472,7 +5489,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:50:23 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:21:00 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5480,6 +5497,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
   <dc:creator>Sebastian Weirich</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -5501,7 +5519,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:50:23 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:21:00 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" medium="image" type="image/png" height="125" width="144"/>
 </item>
 </channel>

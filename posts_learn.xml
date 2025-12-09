@@ -9,12 +9,13 @@
 <link>https://iqb-research.github.io/IQB-Methods/posts_learn.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_learn.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.6.42</generator>
-<lastBuildDate>Thu, 20 Mar 2025 21:49:56 GMT</lastBuildDate>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Tue, 09 Dec 2025 15:20:43 GMT</lastBuildDate>
 <item>
   <title>Beginners</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/beginners.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -40,20 +41,20 @@
 <div class="quarto-listing quarto-listing-container-default" id="listing-beginners">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-beginners-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-beginners'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-beginners-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-beginners'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -61,39 +62,32 @@
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2RhdGElMjBtYW5pcHVsYXRpb24lMkNSLVNJRyUyQ3R1dG9yaWFs" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1742507332661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external"></a></p><a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="0" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2RhdGElMjBtYW5pcHVsYXRpb24lMkNSLVNJRyUyQ3R1dG9yaWFs" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1765291254895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886">
+<div class="thumbnail"><a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external">Case_when() function</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMG1hbmlwdWxhdGlvbg=='); return false;">data manipulation</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">
-tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMG1hbmlwdWxhdGlvbg=='); return false;">
-data manipulation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external">R-SIG 18.12.2023</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external">
+<p>R-SIG 18.12.2023</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external">
@@ -106,108 +100,92 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="UiUyQ3R1dG9yaWFs" data-listing-file-modified-sort="1742507332381" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
-<div class="thumbnail">
-<p><a href="../docs/R_tutorials/R_ws2.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws2.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/R_tutorials/R_ws2.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="1" data-categories="UiUyQ3R1dG9yaWFs" data-listing-file-modified-sort="1765291254617" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
+<div class="thumbnail"><a href="../docs/R_tutorials/R_ws2.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/R_tutorials/R_ws2.html" class="no-external">Data Frames, Listen und Grafiken in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/R_tutorials/R_ws2.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/R_tutorials/R_ws2.html" class="no-external">R Grundlagen 2</a>
-</div>
+<div class="delink listing-description"><a href="../docs/R_tutorials/R_ws2.html" class="no-external">
+<p>R Grundlagen 2</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/R_tutorials/R_ws2.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws2.html" class="no-external">
+<a href="../docs/R_tutorials/R_ws2.html" class="no-external">
 <div class="listing-author">
 Karoline Sachse, Sebastian Weirich und Benjamin Becker
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkNzbGlkZXMlMkNpbnRybw==" data-listing-file-modified-sort="1742507332441" data-listing-reading-time-sort="12" data-listing-word-count-sort="2242">
-<div class="thumbnail">
-<p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external"></a></p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkNzbGlkZXMlMkNpbnRybw==" data-listing-file-modified-sort="1765291254677" data-listing-reading-time-sort="12" data-listing-word-count-sort="2242">
+<div class="thumbnail"><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">Einführung in Github</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">
-github
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">github</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">slides</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">
-slides
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">Einführungsslides vom Github Workshop von Nov.&nbsp;2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
+<p>Einführungsslides vom Github Workshop von Nov.&nbsp;2024</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external"></a></p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
+<a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
 <div class="listing-author">
 Nicklas Hafiz
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDaW50cm8=" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1742507332661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="3" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDaW50cm8=" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1765291254895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231">
+<div class="thumbnail"><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">Introduction to the tidyverse</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">
-tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">R-SIG 26.02.24</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
+<p>R-SIG 26.02.24</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
@@ -220,75 +198,63 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="UiUyQ3R1dG9yaWFs" data-listing-file-modified-sort="1742507332381" data-listing-reading-time-sort="6" data-listing-word-count-sort="1029">
-<div class="thumbnail">
-<p><a href="../docs/R_tutorials/R_ws3.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws3.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/R_tutorials/R_ws3.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="4" data-categories="UiUyQ3R1dG9yaWFs" data-listing-file-modified-sort="1765291254617" data-listing-reading-time-sort="6" data-listing-word-count-sort="1029">
+<div class="thumbnail"><a href="../docs/R_tutorials/R_ws3.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/R_tutorials/R_ws3.html" class="no-external">Pakete(-Installation), Workspace, Daten laden und speichern in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/R_tutorials/R_ws3.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/R_tutorials/R_ws3.html" class="no-external">R Grundlagen 3</a>
-</div>
+<div class="delink listing-description"><a href="../docs/R_tutorials/R_ws3.html" class="no-external">
+<p>R Grundlagen 3</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/R_tutorials/R_ws3.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws3.html" class="no-external">
+<a href="../docs/R_tutorials/R_ws3.html" class="no-external">
 <div class="listing-author">
 Benjamin Becker, Karoline Sachse und Sebastian Weirich
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkN3b3JrZmxvdyUyQ2dpdCUyQ1IlMkNpbnRybw==" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1742507332441" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
-<div class="thumbnail">
-<p><a href="../docs/git/github_pullrequests.html" class="no-external"></a></p><a href="../docs/git/github_pullrequests.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/git/github_pullrequests.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkN3b3JrZmxvdyUyQ2dpdCUyQ1IlMkNpbnRybw==" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1765291254677" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
+<div class="thumbnail"><a href="../docs/git/github_pullrequests.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/git/github_pullrequests.html" class="no-external">Pull requests with Github</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/git/github_pullrequests.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">
-github
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">github</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">workflow</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">git</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">
-workflow
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">
-git
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/git/github_pullrequests.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/git/github_pullrequests.html --></a>
-</div>
+<div class="delink listing-description"><a href="../docs/git/github_pullrequests.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:docs/git/github_pullrequests.html -->
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/git/github_pullrequests.html" class="no-external">
@@ -301,72 +267,61 @@ Sebastian Weirich
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="UiUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-file-modified-sort="1742507332381" data-listing-reading-time-sort="19" data-listing-word-count-sort="3665">
-<div class="thumbnail">
-<p><a href="../docs/R_tutorials/R_ws1.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws1.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/R_tutorials/R_ws1.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="6" data-categories="UiUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-file-modified-sort="1765291254617" data-listing-reading-time-sort="19" data-listing-word-count-sort="3665">
+<div class="thumbnail"><a href="../docs/R_tutorials/R_ws1.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/R_tutorials/R_ws1.html" class="no-external">R Workshop Einführung</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/R_tutorials/R_ws1.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/R_tutorials/R_ws1.html" class="no-external">R Grundlagen 1</a>
-</div>
+<div class="delink listing-description"><a href="../docs/R_tutorials/R_ws1.html" class="no-external">
+<p>R Grundlagen 1</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/R_tutorials/R_ws1.html" class="no-external"></a></p><a href="../docs/R_tutorials/R_ws1.html" class="no-external">
+<a href="../docs/R_tutorials/R_ws1.html" class="no-external">
 <div class="listing-author">
 Sebastian Weirich, Karoline Sachse und Benjamin Becker
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkN0dXRvcmlhbA==" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1742507332626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external"></a></p><a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/apply_family.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="7" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkN0dXRvcmlhbA==" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1765291254860" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691">
+<div class="thumbnail"><a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/apply_family.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external">The apply family</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bG9vcHM='); return false;">loops</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bG9vcHM='); return false;">
-loops
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external">R-SIG 31.07.2023</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external">
+<p>R-SIG 31.07.2023</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external">
@@ -379,39 +334,32 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3F1YXJ0byUyQ3JlbnYlMkN0dXRvcmlhbCUyQ2ludHJv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1742507332614" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
-<div class="thumbnail">
-<p><a href="../docs/quarto/index.html" class="no-external"></a></p><a href="../docs/quarto/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3F1YXJ0byUyQ3JlbnYlMkN0dXRvcmlhbCUyQ2ludHJv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1765291254849" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
+<div class="thumbnail"><a href="../docs/quarto/index.html" class="no-external">
+
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:beginners:docs/quarto/index.html -->
-</a><p><a href="../docs/quarto/index.html" class="no-external"></a></p>
-</div>
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/quarto/index.html" class="no-external">Updating the website</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/quarto/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVudg=='); return false;">renv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmVudg=='); return false;">
-renv
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/quarto/index.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/quarto/index.html --></a>
-</div>
+<div class="delink listing-description"><a href="../docs/quarto/index.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:docs/quarto/index.html -->
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/quarto/index.html" class="no-external">
@@ -424,39 +372,32 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkNpbnRybyUyQ3R1dG9yaWFs" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1742507332620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external"></a></p><a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="9" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkNpbnRybyUyQ3R1dG9yaWFs" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1765291254855" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26">
+<div class="thumbnail"><a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external">for-loops</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bG9vcHM='); return false;">loops</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bG9vcHM='); return false;">
-loops
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external">R-SIG 20.03.2023</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external">
+<p>R-SIG 20.03.2023</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external">
@@ -470,9 +411,7 @@ Nicklas Hafiz
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
@@ -480,13 +419,14 @@ No matching items
 </ol>
 </section></div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/beginners.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:49:56 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:20:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/images/sapling.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Workflow</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/workflow.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -507,20 +447,20 @@ No matching items
 <div class="quarto-listing quarto-listing-container-default" id="listing-workflow">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-workflow-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-workflow'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-workflow-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-workflow'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -528,33 +468,28 @@ No matching items
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UiUyQ1ItU0lHJTJDYmVzdCUyMHByYWN0aWNl" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1742507332642" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="387">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external"></a></p><a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="0" data-categories="UiUyQ1ItU0lHJTJDYmVzdCUyMHByYWN0aWNl" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1765291254876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="387">
+<div class="thumbnail"><a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external">Cleaner Scripts</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YmVzdCUyMHByYWN0aWNl'); return false;">best practice</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YmVzdCUyMHByYWN0aWNl'); return false;">
-best practice
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external">R-SIG 02.12.2023</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external">
+<p>R-SIG 02.12.2023</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/23_10_09_cleaner/index.html" class="no-external">
@@ -567,114 +502,96 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyMGNvbnZlbnRpb25zJTJDYmVzdCUyMHByYWN0aWNlJTJDZ2l0aHViJTJDUg==" data-listing-file-modified-sort="1742507332425" data-listing-reading-time-sort="9" data-listing-word-count-sort="1631">
-<div class="thumbnail">
-<p><a href="../docs/discussions/code_conventions.html" class="no-external"></a></p><a href="../docs/discussions/code_conventions.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/discussions/conventions.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/discussions/code_conventions.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyMGNvbnZlbnRpb25zJTJDYmVzdCUyMHByYWN0aWNlJTJDZ2l0aHViJTJDUg==" data-listing-file-modified-sort="1765291254661" data-listing-reading-time-sort="9" data-listing-word-count-sort="1631">
+<div class="thumbnail"><a href="../docs/discussions/code_conventions.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/discussions/conventions.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/discussions/code_conventions.html" class="no-external">Code-Konventionen</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/discussions/code_conventions.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZSUyMGNvbnZlbnRpb25z'); return false;">
-code conventions
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29kZSUyMGNvbnZlbnRpb25z'); return false;">code conventions</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YmVzdCUyMHByYWN0aWNl'); return false;">best practice</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">github</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('YmVzdCUyMHByYWN0aWNl'); return false;">
-best practice
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">
-github
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/discussions/code_conventions.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/discussions/code_conventions.html --></a>
-</div>
+<div class="delink listing-description"><a href="../docs/discussions/code_conventions.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:docs/discussions/code_conventions.html -->
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/discussions/code_conventions.html" class="no-external"></a></p><a href="../docs/discussions/code_conventions.html" class="no-external">
+<a href="../docs/discussions/code_conventions.html" class="no-external">
 <div class="listing-author">
 IQB Methodenteam
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkNzbGlkZXMlMkNpbnRybw==" data-listing-file-modified-sort="1742507332441" data-listing-reading-time-sort="12" data-listing-word-count-sort="2242">
-<div class="thumbnail">
-<p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external"></a></p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkNzbGlkZXMlMkNpbnRybw==" data-listing-file-modified-sort="1765291254677" data-listing-reading-time-sort="12" data-listing-word-count-sort="2242">
+<div class="thumbnail"><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">Einführung in Github</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">
-github
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">github</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">slides</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">
-slides
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">Einführungsslides vom Github Workshop von Nov.&nbsp;2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
+<p>Einführungsslides vom Github Workshop von Nov.&nbsp;2024</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external"></a></p><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
+<a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
 <div class="listing-author">
 Nicklas Hafiz
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="UiUyQ2dpdCUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-date-sort="1732492800000" data-listing-file-modified-sort="1742507332433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
-<div class="thumbnail">
-<p><a href="../docs/git/copilot/copilot.html" class="no-external"></a></p><a href="../docs/git/copilot/copilot.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/copilot/astronaut.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/git/copilot/copilot.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="3" data-categories="UiUyQ2dpdCUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-date-sort="1732492800000" data-listing-file-modified-sort="1765291254669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
+<div class="thumbnail"><a href="../docs/git/copilot/copilot.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/copilot/astronaut.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/git/copilot/copilot.html" class="no-external">GitHub Copilot in R-Studio</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/git/copilot/copilot.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">git</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">
-git
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/git/copilot/copilot.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/git/copilot/copilot.html --></a>
-</div>
+<div class="delink listing-description"><a href="../docs/git/copilot/copilot.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:docs/git/copilot/copilot.html -->
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/git/copilot/copilot.html" class="no-external">
@@ -687,42 +604,34 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkN3b3JrZmxvdyUyQ2dpdCUyQ1IlMkNpbnRybw==" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1742507332441" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
-<div class="thumbnail">
-<p><a href="../docs/git/github_pullrequests.html" class="no-external"></a></p><a href="../docs/git/github_pullrequests.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/git/github_pullrequests.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkN3b3JrZmxvdyUyQ2dpdCUyQ1IlMkNpbnRybw==" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1765291254677" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
+<div class="thumbnail"><a href="../docs/git/github_pullrequests.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/git/github_pullrequests.html" class="no-external">Pull requests with Github</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/git/github_pullrequests.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">
-github
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0aHVi'); return false;">github</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">workflow</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">git</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">
-workflow
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">
-git
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/git/github_pullrequests.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/git/github_pullrequests.html --></a>
-</div>
+<div class="delink listing-description"><a href="../docs/git/github_pullrequests.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:docs/git/github_pullrequests.html -->
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/git/github_pullrequests.html" class="no-external">
@@ -735,39 +644,32 @@ Sebastian Weirich
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="UiUyQ3JlbnYlMkNSLVNJRyUyQ3dvcmtmbG93JTJDdHV0b3JpYWw=" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1742507332642" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external"></a></p><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="5" data-categories="UiUyQ3JlbnYlMkNSLVNJRyUyQ3dvcmtmbG93JTJDdHV0b3JpYWw=" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1765291254876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581">
+<div class="thumbnail"><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">Reproducibility with renv</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVudg=='); return false;">renv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">workflow</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmVudg=='); return false;">
-renv
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">
-workflow
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">R-SIG 23.10.2023</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">
+<p>R-SIG 23.10.2023</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">
@@ -780,42 +682,34 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDZ2l0JTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1742507332672" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="6" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDZ2l0JTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1765291254906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012">
+<div class="thumbnail"><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">Reproducible manuscripts with Git</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">git</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">
-git
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">R-SIG 09.09.2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">
+<p>R-SIG 09.09.2024</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">
@@ -828,39 +722,32 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1742507332670" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2747">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="7" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1765291254904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2747">
+<div class="thumbnail"><a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external">Reproducible manuscripts with Quarto</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external">R-SIG 15.07.2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external">
+<p>R-SIG 15.07.2024</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_07_15_quarto_1/index.html" class="no-external">
@@ -873,39 +760,32 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3F1YXJ0byUyQ3JlbnYlMkN0dXRvcmlhbCUyQ2ludHJv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1742507332614" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
-<div class="thumbnail">
-<p><a href="../docs/quarto/index.html" class="no-external"></a></p><a href="../docs/quarto/index.html" class="no-external">
+<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3F1YXJ0byUyQ3JlbnYlMkN0dXRvcmlhbCUyQ2ludHJv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1765291254849" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
+<div class="thumbnail"><a href="../docs/quarto/index.html" class="no-external">
+
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:workflow:docs/quarto/index.html -->
-</a><p><a href="../docs/quarto/index.html" class="no-external"></a></p>
-</div>
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/quarto/index.html" class="no-external">Updating the website</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/quarto/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVudg=='); return false;">renv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmVudg=='); return false;">
-renv
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/quarto/index.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/quarto/index.html --></a>
-</div>
+<div class="delink listing-description"><a href="../docs/quarto/index.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:docs/quarto/index.html -->
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/quarto/index.html" class="no-external">
@@ -919,9 +799,7 @@ Nicklas Hafiz
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
@@ -929,13 +807,14 @@ No matching items
 </ol>
 </section></div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/workflow.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:49:56 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:20:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>R-SIG</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/posts_r_sig.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -986,23 +865,23 @@ No matching items
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title-sort" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -1012,24 +891,32 @@ No matching items
 <table class="quarto-listing-table table">
 <thead>
 <tr>
+
 <th>
+ 
 </th>
+
 <th>
 <a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
 </th>
+
 <th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
+
 <th>
 <a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
 </th>
+
 <th>
 Reading Time
 </th>
+
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="UiUyQ1ItU0lHJTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1759363200000" data-listing-file-modified-sort="1742507332677" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="904" data-listing-title-sort="Regular expressions" data-listing-filename-sort="index.qmd">
+
+<tr data-index="0" data-categories="UiUyQ1ItU0lHJTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1759363200000" data-listing-file-modified-sort="1765291254911" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="904" data-listing-title-sort="Regular expressions" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/25_02_10_regex/expression.jpg" style="height: 40px;"></span>
 </td>
@@ -1045,8 +932,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">5 min</span>
 </td>
+
 </tr>
-<tr data-index="1" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDZ2l0JTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1742507332672" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012" data-listing-title-sort="Reproducible manuscripts with Git" data-listing-filename-sort="index.qmd">
+
+<tr data-index="1" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDZ2l0JTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1765291254906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012" data-listing-title-sort="Reproducible manuscripts with Git" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" style="height: 40px;"></span>
 </td>
@@ -1062,8 +951,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">6 min</span>
 </td>
+
 </tr>
-<tr data-index="2" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1742507332670" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2747" data-listing-title-sort="Reproducible manuscripts with Quarto" data-listing-filename-sort="index.qmd">
+
+<tr data-index="2" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1721001600000" data-listing-file-modified-sort="1765291254904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2747" data-listing-title-sort="Reproducible manuscripts with Quarto" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_07_15_quarto_1/manuscript.jpg" style="height: 40px;"></span>
 </td>
@@ -1079,8 +970,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">14 min</span>
 </td>
+
 </tr>
-<tr data-index="3" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ3Bsb3RzJTJDUi1TSUclMkN0dXRvcmlhbA==" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1742507332669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="18" data-listing-title-sort="Plotting with `ggplot2`" data-listing-filename-sort="index.qmd">
+
+<tr data-index="3" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ3Bsb3RzJTJDUi1TSUclMkN0dXRvcmlhbA==" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1765291254903" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="18" data-listing-title-sort="Plotting with `ggplot2`" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" style="height: 40px;"></span>
 </td>
@@ -1096,8 +989,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">1 min</span>
 </td>
+
 </tr>
-<tr data-index="4" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2xvb3BzJTJDUi1TSUclMkN0dXRvcmlhbA==" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1742507332669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162" data-listing-title-sort="Column-wise operations in the tidyverse" data-listing-filename-sort="index.qmd">
+
+<tr data-index="4" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2xvb3BzJTJDUi1TSUclMkN0dXRvcmlhbA==" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1765291254903" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162" data-listing-title-sort="Column-wise operations in the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" style="height: 40px;"></span>
 </td>
@@ -1113,8 +1008,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">6 min</span>
 </td>
+
 </tr>
-<tr data-index="5" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDdHV0b3JpYWwlMkNkYXRhJTIwbWFuaXB1bGF0aW9u" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1742507332668" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2246" data-listing-title-sort="Data wrangling in the tidyverse" data-listing-filename-sort="index.qmd">
+
+<tr data-index="5" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDdHV0b3JpYWwlMkNkYXRhJTIwbWFuaXB1bGF0aW9u" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1765291254902" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2246" data-listing-title-sort="Data wrangling in the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" style="height: 40px;"></span>
 </td>
@@ -1130,8 +1027,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">12 min</span>
 </td>
+
 </tr>
-<tr data-index="6" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDZGF0YSUyMHNldHM=" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1742507332664" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223" data-listing-title-sort="Data sets" data-listing-filename-sort="index.qmd">
+
+<tr data-index="6" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDZGF0YSUyMHNldHM=" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1765291254899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223" data-listing-title-sort="Data sets" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" style="height: 40px;"></span>
 </td>
@@ -1147,8 +1046,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">2 min</span>
 </td>
+
 </tr>
-<tr data-index="7" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDaW50cm8=" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1742507332661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231" data-listing-title-sort="Introduction to the tidyverse" data-listing-filename-sort="index.qmd">
+
+<tr data-index="7" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDaW50cm8=" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1765291254895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231" data-listing-title-sort="Introduction to the tidyverse" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" style="height: 40px;"></span>
 </td>
@@ -1164,8 +1065,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">7 min</span>
 </td>
+
 </tr>
-<tr data-index="8" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2RhdGElMjBtYW5pcHVsYXRpb24lMkNSLVNJRyUyQ3R1dG9yaWFs" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1742507332661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886" data-listing-title-sort="Case_when() function" data-listing-filename-sort="index.qmd">
+
+<tr data-index="8" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2RhdGElMjBtYW5pcHVsYXRpb24lMkNSLVNJRyUyQ3R1dG9yaWFs" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1765291254895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886" data-listing-title-sort="Case_when() function" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" style="height: 40px;"></span>
 </td>
@@ -1181,8 +1084,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">5 min</span>
 </td>
+
 </tr>
-<tr data-index="9" data-categories="UiUyQ3JlbnYlMkNSLVNJRyUyQ3dvcmtmbG93JTJDdHV0b3JpYWw=" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1742507332642" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581" data-listing-title-sort="Reproducibility with renv" data-listing-filename-sort="index.qmd">
+
+<tr data-index="9" data-categories="UiUyQ3JlbnYlMkNSLVNJRyUyQ3dvcmtmbG93JTJDdHV0b3JpYWw=" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1765291254876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581" data-listing-title-sort="Reproducibility with renv" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" style="height: 40px;"></span>
 </td>
@@ -1198,8 +1103,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">3 min</span>
 </td>
+
 </tr>
-<tr data-index="10" data-categories="UiUyQ1ItU0lHJTJDYmVzdCUyMHByYWN0aWNl" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1742507332642" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="387" data-listing-title-sort="Cleaner Scripts" data-listing-filename-sort="index.qmd">
+
+<tr data-index="10" data-categories="UiUyQ1ItU0lHJTJDYmVzdCUyMHByYWN0aWNl" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1765291254876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="387" data-listing-title-sort="Cleaner Scripts" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" style="height: 40px;"></span>
 </td>
@@ -1215,8 +1122,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">2 min</span>
 </td>
+
 </tr>
-<tr data-index="11" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkN0dXRvcmlhbA==" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1742507332626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691" data-listing-title-sort="The apply family" data-listing-filename-sort="index.qmd">
+
+<tr data-index="11" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkN0dXRvcmlhbA==" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1765291254860" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691" data-listing-title-sort="The apply family" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/apply_family.jpg" style="height: 40px;"></span>
 </td>
@@ -1232,8 +1141,10 @@ Reading Time
 <td>
 <span class="listing-reading-time">4 min</span>
 </td>
+
 </tr>
-<tr data-index="12" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkNpbnRybyUyQ3R1dG9yaWFs" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1742507332620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26" data-listing-title-sort="for-loops" data-listing-filename-sort="index.qmd">
+
+<tr data-index="12" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkNpbnRybyUyQ3R1dG9yaWFs" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1765291254855" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26" data-listing-title-sort="for-loops" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-image"><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" style="height: 40px;"></span>
 </td>
@@ -1249,21 +1160,22 @@ Reading Time
 <td>
 <span class="listing-reading-time">1 min</span>
 </td>
+
 </tr>
+
 </tbody>
 </table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/posts_r_sig.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:49:56 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:20:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_10_09_cleaner/cleaner_scripts.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Statistical Questions</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/statisticalQuestions.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1282,14 +1194,14 @@ No matching items
 <div class="quarto-listing quarto-listing-container-default" id="listing-statistical-questions">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-statistical-questions-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-statistical-questions'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-statistical-questions-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-statistical-questions'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -1297,126 +1209,112 @@ No matching items
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="c3RhdGlzdGljcyUyQ2VhdFJlcA==" data-listing-file-modified-sort="1742507332361" data-listing-reading-time-sort="1" data-listing-word-count-sort="141">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="0" data-categories="c3RhdGlzdGljcyUyQ2VhdFJlcA==" data-listing-file-modified-sort="1765291254597" data-listing-reading-time-sort="1" data-listing-word-count-sort="141">
+<div class="thumbnail"><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">Frage 1: <img src="https://latex.codecogs.com/png.latex?R%5E2"> richtig poolen</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0UmVw'); return false;">eatRep</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0UmVw'); return false;">
-eatRep
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">Wie poole ich mein <img src="https://latex.codecogs.com/png.latex?R%5E2"> richtig über mehrere (bspw. 15) Imputationen?</a>
-</div>
+<div class="delink listing-description"><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
+<p>Wie poole ich mein <img src="https://latex.codecogs.com/png.latex?R%5E2"> richtig über mehrere (bspw. 15) Imputationen?</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
+<a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
 <div class="listing-author">
 Sebastian Weirich
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="c3RhdGlzdGljcyUyQ2VhdE1vZGVs" data-listing-file-modified-sort="1742507332361" data-listing-reading-time-sort="3" data-listing-word-count-sort="567">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="1" data-categories="c3RhdGlzdGljcyUyQ2VhdE1vZGVs" data-listing-file-modified-sort="1765291254597" data-listing-reading-time-sort="3" data-listing-word-count-sort="567">
+<div class="thumbnail"><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">Frage 2: ‘estDif’ in Conquest/eatModel</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0TW9kZWw='); return false;">eatModel</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0TW9kZWw='); return false;">
-eatModel
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</a>
-</div>
+<div class="delink listing-description"><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
+<p>DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
+<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
 <div class="listing-author">
 Karoline Sachse
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1742507332361" data-listing-reading-time-sort="6" data-listing-word-count-sort="1110">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="2" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1765291254597" data-listing-reading-time-sort="6" data-listing-word-count-sort="1110">
+<div class="thumbnail"><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">Frage 3: Gesamt- vs.&nbsp;Gruppenmittelwert in Mehrebenenmodellen</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
 </div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</a>
-</div>
+<div class="delink listing-description"><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
+<p>Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
+<a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
 <div class="listing-author">
 Karoline Sachse
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1742507332361" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="3" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1765291254597" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
+<div class="thumbnail"><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">Frage 4: N pro Item</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
 </div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">Wie groß sollte das N pro Item idealerweise sein?</a>
-</div>
+<div class="delink listing-description"><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
+<p>Wie groß sollte das N pro Item idealerweise sein?</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
+<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
 <div class="listing-author">
 Sebastian Weirich
 </div>
@@ -1424,18 +1322,17 @@ Sebastian Weirich
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/statisticalQuestions.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:49:56 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:20:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Advanced R</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1456,20 +1353,20 @@ No matching items
 <div class="quarto-listing quarto-listing-container-default" id="listing-advanced">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-advanced-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-advanced'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-advanced-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-advanced'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -1477,39 +1374,32 @@ No matching items
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2xvb3BzJTJDUi1TSUclMkN0dXRvcmlhbA==" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1742507332669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="0" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2xvb3BzJTJDUi1TSUclMkN0dXRvcmlhbA==" data-listing-date-sort="1712534400000" data-listing-file-modified-sort="1765291254903" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1162">
+<div class="thumbnail"><a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external">Column-wise operations in the tidyverse</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bG9vcHM='); return false;">loops</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">
-tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bG9vcHM='); return false;">
-loops
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external">R-SIG 08.04.2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external">
+<p>R-SIG 08.04.2024</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_04_08_tidyverse_column_wise/index.html" class="no-external">
@@ -1522,36 +1412,30 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDZGF0YSUyMHNldHM=" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1742507332664" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="1" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDZGF0YSUyMHNldHM=" data-listing-date-sort="1711065600000" data-listing-file-modified-sort="1765291254899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223">
+<div class="thumbnail"><a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external">Data sets</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHNldHM='); return false;">data sets</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">
-tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHNldHM='); return false;">
-data sets
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external">R-SIG 25.03.24</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external">
+<p>R-SIG 25.03.24</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_03_22_datasets/index.html" class="no-external">
@@ -1564,39 +1448,32 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDdHV0b3JpYWwlMkNkYXRhJTIwbWFuaXB1bGF0aW9u" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1742507332668" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2246">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="2" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDdHV0b3JpYWwlMkNkYXRhJTIwbWFuaXB1bGF0aW9u" data-listing-date-sort="1711324800000" data-listing-file-modified-sort="1765291254902" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2246">
+<div class="thumbnail"><a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external">Data wrangling in the tidyverse</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMG1hbmlwdWxhdGlvbg=='); return false;">data manipulation</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">
-tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMG1hbmlwdWxhdGlvbg=='); return false;">
-data manipulation
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external">R-SIG 25.03.24</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external">
+<p>R-SIG 25.03.24</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_03_25_tidyverse_wrangling/index.html" class="no-external">
@@ -1609,162 +1486,142 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="c3RhdGlzdGljcyUyQ2VhdFJlcA==" data-listing-file-modified-sort="1742507332361" data-listing-reading-time-sort="1" data-listing-word-count-sort="141">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="3" data-categories="c3RhdGlzdGljcyUyQ2VhdFJlcA==" data-listing-file-modified-sort="1765291254597" data-listing-reading-time-sort="1" data-listing-word-count-sort="141">
+<div class="thumbnail"><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">Frage 1: <img src="https://latex.codecogs.com/png.latex?R%5E2"> richtig poolen</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0UmVw'); return false;">eatRep</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0UmVw'); return false;">
-eatRep
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">Wie poole ich mein <img src="https://latex.codecogs.com/png.latex?R%5E2"> richtig über mehrere (bspw. 15) Imputationen?</a>
-</div>
+<div class="delink listing-description"><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
+<p>Wie poole ich mein <img src="https://latex.codecogs.com/png.latex?R%5E2"> richtig über mehrere (bspw. 15) Imputationen?</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
+<a href="../docs/FAQ/FAQ1_Imputationen.html" class="no-external">
 <div class="listing-author">
 Sebastian Weirich
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="c3RhdGlzdGljcyUyQ2VhdE1vZGVs" data-listing-file-modified-sort="1742507332361" data-listing-reading-time-sort="3" data-listing-word-count-sort="567">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="4" data-categories="c3RhdGlzdGljcyUyQ2VhdE1vZGVs" data-listing-file-modified-sort="1765291254597" data-listing-reading-time-sort="3" data-listing-word-count-sort="567">
+<div class="thumbnail"><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">Frage 2: ‘estDif’ in Conquest/eatModel</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0TW9kZWw='); return false;">eatModel</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0TW9kZWw='); return false;">
-eatModel
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</a>
-</div>
+<div class="delink listing-description"><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
+<p>DIF-Richtung in Conquest/eatModel: Was bedeuten negative Werte in der “estDif”-Spalte?</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
+<a href="../docs/FAQ/FAQ2_eatModel-Conquest.html" class="no-external">
 <div class="listing-author">
 Karoline Sachse
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1742507332361" data-listing-reading-time-sort="6" data-listing-word-count-sort="1110">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="5" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1765291254597" data-listing-reading-time-sort="6" data-listing-word-count-sort="1110">
+<div class="thumbnail"><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">Frage 3: Gesamt- vs.&nbsp;Gruppenmittelwert in Mehrebenenmodellen</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
 </div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</a>
-</div>
+<div class="delink listing-description"><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
+<p>Zentrierung um den Gesamtmittelwert (Grand-Mean-Centering) oder um den Gruppenmittelwert (Group-Mean-Centering) und Bedeutung für Interaktionen in Mehrebenenmodellen</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
+<a href="../docs/FAQ/FAQ3_Mehrebenenmodelle.html" class="no-external">
 <div class="listing-author">
 Karoline Sachse
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1742507332361" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
-<div class="thumbnail">
-<p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="6" data-categories="c3RhdGlzdGljcw==" data-listing-file-modified-sort="1765291254597" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
+<div class="thumbnail"><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">Frage 4: N pro Item</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">
-statistics
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
 </div>
-</div>
-<div class="listing-description">
-<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">Wie groß sollte das N pro Item idealerweise sein?</a>
-</div>
+<div class="delink listing-description"><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
+<p>Wie groß sollte das N pro Item idealerweise sein?</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external"></a></p><a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
+<a href="../docs/FAQ/FAQ4_NproItem.html" class="no-external">
 <div class="listing-author">
 Sebastian Weirich
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="UiUyQ2dpdCUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-date-sort="1732492800000" data-listing-file-modified-sort="1742507332433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
-<div class="thumbnail">
-<p><a href="../docs/git/copilot/copilot.html" class="no-external"></a></p><a href="../docs/git/copilot/copilot.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/copilot/astronaut.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/git/copilot/copilot.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="7" data-categories="UiUyQ2dpdCUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-date-sort="1732492800000" data-listing-file-modified-sort="1765291254669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
+<div class="thumbnail"><a href="../docs/git/copilot/copilot.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/git/copilot/astronaut.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/git/copilot/copilot.html" class="no-external">GitHub Copilot in R-Studio</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/git/copilot/copilot.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">git</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">
-git
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/git/copilot/copilot.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/git/copilot/copilot.html --></a>
-</div>
+<div class="delink listing-description"><a href="../docs/git/copilot/copilot.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:docs/git/copilot/copilot.html -->
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/git/copilot/copilot.html" class="no-external">
@@ -1777,36 +1634,30 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDaW50cm8=" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1742507332661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDaW50cm8=" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1765291254895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231">
+<div class="thumbnail"><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">Introduction to the tidyverse</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">
-tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">R-SIG 26.02.24</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
+<p>R-SIG 26.02.24</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
@@ -1819,39 +1670,32 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ3Bsb3RzJTJDUi1TSUclMkN0dXRvcmlhbA==" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1742507332669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="18">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="9" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ3Bsb3RzJTJDUi1TSUclMkN0dXRvcmlhbA==" data-listing-date-sort="1717372800000" data-listing-file-modified-sort="1765291254903" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="18">
+<div class="thumbnail"><a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external">Plotting with <code>ggplot2</code></a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGxvdHM='); return false;">plots</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGlkeXZlcnNl'); return false;">
-tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGxvdHM='); return false;">
-plots
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external">R-SIG 03.06.2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external">
+<p>R-SIG 03.06.2024</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_06_03_ggplot2/index.html" class="no-external">
@@ -1864,39 +1708,32 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="UiUyQ3JlbnYlMkNSLVNJRyUyQ3dvcmtmbG93JTJDdHV0b3JpYWw=" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1742507332642" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external"></a></p><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="10" data-categories="UiUyQ3JlbnYlMkNSLVNJRyUyQ3dvcmtmbG93JTJDdHV0b3JpYWw=" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1765291254876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581">
+<div class="thumbnail"><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">Reproducibility with renv</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVudg=='); return false;">renv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">workflow</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmVudg=='); return false;">
-renv
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">
-workflow
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">R-SIG 23.10.2023</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">
+<p>R-SIG 23.10.2023</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/23_11_06_renv/index.html" class="no-external">
@@ -1909,42 +1746,34 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDZ2l0JTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1742507332672" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012">
-<div class="thumbnail">
-<p><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external"></a></p><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="11" data-categories="UiUyQ3F1YXJ0byUyQ1ItU0lHJTJDZ2l0JTJDaW50cm8lMkN0dXRvcmlhbA==" data-listing-date-sort="1725840000000" data-listing-file-modified-sort="1765291254906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012">
+<div class="thumbnail"><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">Reproducible manuscripts with Git</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">R-SIG</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">git</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ui1TSUc='); return false;">
-R-SIG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">
-git
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">R-SIG 09.09.2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">
+<p>R-SIG 09.09.2024</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/r_sig/24_09_09_quarto_git/index.html" class="no-external">
@@ -1957,36 +1786,30 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="UiUyQ2NoZWNrbWF0ZSUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1742507332381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
-<div class="thumbnail">
-<p><a href="../docs/R_tutorials/checkmate.html" class="no-external"></a></p><a href="../docs/R_tutorials/checkmate.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" class="thumbnail-image"></p>
-</a><p><a href="../docs/R_tutorials/checkmate.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="12" data-categories="UiUyQ2NoZWNrbWF0ZSUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-date-sort="1701388800000" data-listing-file-modified-sort="1765291254617" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
+<div class="thumbnail"><a href="../docs/R_tutorials/checkmate.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/R_tutorials/checkmate.html" class="no-external">Using Checkmate</a>
 </h3>
-<div class="listing-subtitle">
-<a href="../docs/R_tutorials/checkmate.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2hlY2ttYXRl'); return false;">checkmate</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y2hlY2ttYXRl'); return false;">
-checkmate
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/R_tutorials/checkmate.html" class="no-external"><!-- desc(5A0113B34292)[max=175]:docs/R_tutorials/checkmate.html --></a>
-</div>
+<div class="delink listing-description"><a href="../docs/R_tutorials/checkmate.html" class="no-external">
+<!-- desc(5A0113B34292)[max=175]:docs/R_tutorials/checkmate.html -->
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/R_tutorials/checkmate.html" class="no-external">
@@ -2000,9 +1823,7 @@ Edna Grewers
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
@@ -2010,13 +1831,14 @@ No matching items
 </ol>
 </section></div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:49:56 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:20:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/images/martian.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>eat Workshops</title>
   <link>https://iqb-research.github.io/IQB-Methods/docs/eat_workshops.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2041,20 +1863,20 @@ No matching items
 <div class="quarto-listing quarto-listing-container-default" id="listing-eat_workshops">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-eat_workshops-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-eat_workshops'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-eat_workshops-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-eat_workshops'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -2062,12 +1884,12 @@ No matching items
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="ZWF0QVRBJTJDdHV0b3JpYWwlMkNzbGlkZXMlMkNpbnRybw==" data-listing-date-sort="1730764800000" data-listing-file-modified-sort="1742507332365" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2015">
-<div class="thumbnail">
-<p><a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external"></a></p><a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatATA/eatATA.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="0" data-categories="ZWF0QVRBJTJDdHV0b3JpYWwlMkNzbGlkZXMlMkNpbnRybw==" data-listing-date-sort="1730764800000" data-listing-file-modified-sort="1765291254601" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2015">
+<div class="thumbnail"><a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatATA/eatATA.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external">eatATA - Automatisierte Blockbesetzung</a>
@@ -2076,22 +1898,19 @@ No matching items
 <a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0QVRB'); return false;">
-eatATA
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0QVRB'); return false;">eatATA</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">slides</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">
-slides
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external">Einführungsslides vom eatATA Workshop von Nov.&nbsp;2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external">
+<p>Einführungsslides vom eatATA Workshop von Nov.&nbsp;2024</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/R_tutorials/2024_eatATA/eatATA_2024.html" class="no-external">
@@ -2104,12 +1923,12 @@ Benjamin Becker
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="ZWF0R0FEUyUyQ3R1dG9yaWFsJTJDc2xpZGVzJTJDaW50cm8=" data-listing-date-sort="1731369600000" data-listing-file-modified-sort="1742507332374" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1284">
-<div class="thumbnail">
-<p><a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external"></a></p><a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/eatGADS.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="1" data-categories="ZWF0R0FEUyUyQ3R1dG9yaWFsJTJDc2xpZGVzJTJDaW50cm8=" data-listing-date-sort="1731369600000" data-listing-file-modified-sort="1765291254610" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1284">
+<div class="thumbnail"><a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/eatGADS.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external">eatGADS - Datenaufbereitung</a>
@@ -2118,22 +1937,19 @@ Benjamin Becker
 <a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0R0FEUw=='); return false;">
-eatGADS
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0R0FEUw=='); return false;">eatGADS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">slides</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">
-slides
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external">Einführungsslides vom Workshop zur Datenaufbereitung mit eatGADS von Nov.&nbsp;2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external">
+<p>Einführungsslides vom Workshop zur Datenaufbereitung mit eatGADS von Nov.&nbsp;2024</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html" class="no-external">
@@ -2146,12 +1962,12 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="ZWF0R0FEUyUyQ3R1dG9yaWFsJTJDc2xpZGVzJTJDaW50cm8=" data-listing-file-modified-sort="1742507332380" data-listing-reading-time-sort="4" data-listing-word-count-sort="678">
-<div class="thumbnail">
-<p><a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external"></a></p><a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="2" data-categories="ZWF0R0FEUyUyQ3R1dG9yaWFsJTJDc2xpZGVzJTJDaW50cm8=" data-listing-file-modified-sort="1765291254616" data-listing-reading-time-sort="4" data-listing-word-count-sort="678">
+<div class="thumbnail"><a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external">eatGADS - Datenbanknutzung</a>
@@ -2160,37 +1976,34 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0R0FEUw=='); return false;">
-eatGADS
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0R0FEUw=='); return false;">eatGADS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">slides</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">
-slides
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external">Einführungsslides vom Workshop zur Datenbanknutzung mit eatGADS von Dez. 2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external">
+<p>Einführungsslides vom Workshop zur Datenbanknutzung mit eatGADS von Dez. 2024</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external"></a></p><a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external">
+<a href="../docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html" class="no-external">
 <div class="listing-author">
 Benjamin Becker
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="ZWF0UHJlcCUyQ3R1dG9yaWFsJTJDc2xpZGVzJTJDaW50cm8=" data-listing-date-sort="1731974400000" data-listing-file-modified-sort="1742507332382" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2244">
-<div class="thumbnail">
-<p><a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external"></a></p><a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external">
-<p><img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/eatPrep2024_files/eatPrep.png" class="thumbnail-image"></p>
-</a><p><a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="3" data-categories="ZWF0UHJlcCUyQ3R1dG9yaWFsJTJDc2xpZGVzJTJDaW50cm8=" data-listing-date-sort="1731974400000" data-listing-file-modified-sort="1765291254618" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2244">
+<div class="thumbnail"><a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external">
+
+<img loading="lazy" src="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/eatPrep2024_files/eatPrep.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external">eatPrep</a>
@@ -2199,22 +2012,19 @@ Benjamin Becker
 <a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external">IQB-internes R-Paket zur Aufbereitung von “Papier”-Kompetenzdaten</a>
 </div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ZWF0UHJlcA=='); return false;">
-eatPrep
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZWF0UHJlcA=='); return false;">eatPrep</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">tutorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">slides</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">intro</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dHV0b3JpYWw='); return false;">
-tutorial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2xpZGVz'); return false;">
-slides
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm8='); return false;">
-intro
-</div>
-</div>
-<div class="listing-description">
-<a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external">Einführungsslides vom eatPrep Workshop von Nov.&nbsp;2024</a>
-</div>
+<div class="delink listing-description"><a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external">
+<p>Einführungsslides vom eatPrep Workshop von Nov.&nbsp;2024</p>
+</a></div>
 </div>
 <div class="metadata">
 <a href="../docs/R_tutorials/eatPrep2024_files/eatPrep2024.html" class="no-external">
@@ -2228,12 +2038,10 @@ Karoline Sachse
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div> ]]></description>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/eat_workshops.html</guid>
-  <pubDate>Thu, 20 Mar 2025 21:49:56 GMT</pubDate>
+  <pubDate>Tue, 09 Dec 2025 15:20:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/images/eat_dark.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
