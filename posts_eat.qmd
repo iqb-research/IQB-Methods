@@ -42,6 +42,17 @@ listing:
     type: default
     feed: true
     image-align: left
+  - id: shinyApp
+    filter-ui: true
+    contents:
+      - title: BT Shiny App
+        path: https://github.com/iqb-research/BT-ShinyApp
+        #image:
+        description: "tbd"
+        author: Alina Apel, Karoline Sachse
+    type: default
+    feed: true
+    image-align: left  
   - id: helpPackages
     filter-ui: true
     contents:
@@ -95,10 +106,16 @@ listing:
 ::: {#packages}
 :::
 
+## Apps
+
+::: {#shinyApp}
+:::
+
 ## Help Packages
 
 ::: {#helpPackages}
 :::
+
 
 ## Installing R packages
 
