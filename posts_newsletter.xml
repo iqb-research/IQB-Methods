@@ -9,8 +9,79 @@
 <link>https://iqb-research.github.io/IQB-Methods/posts_newsletter.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/posts_newsletter.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.26</generator>
-<lastBuildDate>Thu, 02 Jul 2026 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.8.27</generator>
+<lastBuildDate>Sat, 01 Aug 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>19-02-2025</title>
+  <dc:creator>Nicklas Hafiz</dc:creator>
+  <link>https://iqb-research.github.io/IQB-Methods/posts/newsletter/26_01_08/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p><img src="https://iqb-research.github.io/IQB-Methods/posts/newsletter/26_01_08/announcem.jpg" class="img-fluid"></p>
+<p>Liebes IQB,</p>
+<p>pünktlich zum Jahresbeginn kommt hier der Methoden-Newsletter für die letzten Monate, in dem wir kurz Neuerungen in den R-Paketen der eat-Reihe vorstellen, Updates zu Gruppen und Workshops geben und über sonstige methodische Entscheidungen am Institut informieren. Dieser Newsletter richtet sich ausnahmsweise an alle, da der Umzug und die zukünftige Maintenance von Philipps R-Paketen für mehrere Bereiche relevant sind.</p>
+<section id="eatpreptba-eatmap-eatautocode-und-eatwidget" class="level2">
+<h2 class="anchored" data-anchor-id="eatpreptba-eatmap-eatautocode-und-eatwidget">eatPrepTBA, eatMap, eatAutoCode und eatWidget</h2>
+<p>Philipps R-Pakete sind nach seinem Weggang nun ins Instituts-Repo (<a href="https://github.com/iqb-research">iqb-research</a> gewandert und werden ab sofort von neuen Maintainer:innen betreut:</p>
+<section id="eatpreptba" class="level3">
+<h3 class="anchored" data-anchor-id="eatpreptba">eatPrepTBA:</h3>
+<ul>
+<li>neues Zuhause: https://github.com/iqb-research/eatPrepTBA</li>
+<li>Maintainer:innen: Karoline Sachse, Kristoph Schumann, Jakob Schäfer</li>
+</ul>
+</section>
+<section id="eatautocode" class="level3">
+<h3 class="anchored" data-anchor-id="eatautocode">eatAutoCode:</h3>
+<ul>
+<li>neues Zuhause: https://github.com/iqb-research/eatAutoCode</li>
+<li>Maintainter:innen: Karoline Sachse, Kristoph Schumann, Jakob Schäfer</li>
+</ul>
+</section>
+<section id="eatmap" class="level3">
+<h3 class="anchored" data-anchor-id="eatmap">eatMap:</h3>
+<ul>
+<li>neues Zuhause: https://github.com/iqb-research/eatMap</li>
+<li>Maintainter:innen: Alina Apel, Karoline Sachse</li>
+</ul>
+</section>
+<section id="eatwidget" class="level3">
+<h3 class="anchored" data-anchor-id="eatwidget">eatWidget:</h3>
+<ul>
+<li>neues Zuhause: https://github.com/iqb-research/eatWidget</li>
+<li>Maintainter:innen: N. N.</li>
+</ul>
+<p>Bitte legt Issues (Bug Reports, Feature Requests, …) nun in diesen Repos an und installiert die Pakete bei Neuinstallation am besten auch aus diesen Repos.</p>
+</section>
+</section>
+<section id="partial-credit-in-eatmodel" class="level2">
+<h2 class="anchored" data-anchor-id="partial-credit-in-eatmodel">Partial Credit in eatModel</h2>
+<p>Das Paket “eatModel” wurde in der Version 0.10.5 jetzt um Funktionen für die Modellierung von partial credit Modellen erweitert, die im Zuge der überarbeiteten Bildungsstandards verwendet werden sollen. Bei Bedarf würden wir Workshops zur Modellierung und Auswertung von partial credit Analysen anbieten. Dafür wäre es gut, wenn ihr uns wissen lassen würdet, wenn es in eurem Projekt solchen Bedarf egibt, und wann aus eurer Sicht ein solcher Workshop idealerweise stattfinden sollte.</p>
+</section>
+<section id="eatcodebook" class="level2">
+<h2 class="anchored" data-anchor-id="eatcodebook">eatCodebook</h2>
+<p>Es gibt eine neue Vignette zum Erstellen von Skalenhandbüchern für BT-Studien. Sie enthält eine ausführliche Beschreibung des Workflows vom Erstellen eines Repos auf Github (mit Vorlagen), bis zum Rendern des fertigen PDFs. Der Fokus liegt auf der Erstellung und Bearbeitung der Excel Tabellen in R, sowie auf der Klärung möglicher inhaltlicher Fragen, für Leute, die neu eingearbeitet werden. Die Vignette kann natürlich auch für andere Skalenhandbücher genutzt werden. Die Vignette findet ihr <a href="https://beckerbenj.github.io/eatCodebook/articles/full_workflow_BT.html">hier</a>.</p>
+<p>Viele Grüße und einen angenehmen Start ins neue Jahr!</p>
+<p>Sebastian, Karoline, Benjamin, Kristoph, Janine, Nikolas, Edna, Alina, Eva, Nicklas</p>
+
+
+</section>
+
+ ]]></description>
+  <category>eatPrepTBA</category>
+  <category>eatMap</category>
+  <category>eatAutoCode</category>
+  <category>eatWidget</category>
+  <category>eatModel</category>
+  <category>eatCodebook</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/posts/newsletter/26_01_08/</guid>
+  <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/posts/newsletter/26_01_08/announcem.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>19-02-2025</title>
   <dc:creator>Nicklas Hafiz</dc:creator>

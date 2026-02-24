@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -39,9 +39,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-6b70f6508a2e9932e0912e8de32181f6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -84,69 +84,13 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-author','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-description","listing-author","listing-image"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-packages'] = new List('listing-packages', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-shinyApp .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-description","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-shinyApp'] = new List('listing-shinyApp', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-helpPackages .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
       valueNames: ['listing-title','listing-image','listing-description','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-title","listing-image","listing-description","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-helpPackages'] = new List('listing-helpPackages', options);
+    window['quarto-listings']['listing-packages'] = new List('listing-packages', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -192,7 +136,7 @@ window.Quarto = {
 
 <link rel="alternate" type="application/rss+xml" title="IQB Methods Team" href="posts_eat.xml" data-external="1"><meta property="og:title" content="eat Packages – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/logos/eatATA.png">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/logos/eatAnalysis.png">
 <meta property="og:site_name" content="IQB Methods Team">
 <meta property="og:image:height" content="2100">
 <meta property="og:image:width" content="2100">
@@ -416,10 +360,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#main-packages" id="toc-main-packages" class="nav-link active" data-scroll-target="#main-packages">Main Packages</a></li>
-  <li><a href="#apps" id="toc-apps" class="nav-link" data-scroll-target="#apps">Apps</a></li>
-  <li><a href="#help-packages" id="toc-help-packages" class="nav-link" data-scroll-target="#help-packages">Help Packages</a></li>
-  <li><a href="#installing-r-packages" id="toc-installing-r-packages" class="nav-link" data-scroll-target="#installing-r-packages">Installing R packages</a></li>
+  <li><a href="#installing-r-packages" id="toc-installing-r-packages" class="nav-link active" data-scroll-target="#installing-r-packages">Installing R packages</a></li>
   <li><a href="#compatibility" id="toc-compatibility" class="nav-link" data-scroll-target="#compatibility">Compatibility</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/posts_eat.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -447,8 +388,6 @@ window.Quarto = {
 </header>
 
 
-<section id="main-packages" class="level2">
-<h2 class="anchored" data-anchor-id="main-packages">Main Packages</h2>
 <div id="listing-packages" class="quarto-listing quarto-listing-container-default">
 <div class="listing-actions-group">
     <div class="input-group input-group-sm quarto-listing-filter">
@@ -458,21 +397,23 @@ window.Quarto = {
 </div>
 <div class="list quarto-listing-default">
 <div class="quarto-post image-left" data-index="0">
-<div class="thumbnail"><a href="https://github.com/buchjani/eatArchive" class="no-external">
+<div class="thumbnail"><a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">
+
+<img loading="lazy" src="./logos/eatAnalysis.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="https://github.com/buchjani/eatArchive" class="no-external">eatArchive</a>
+<a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">eatAnalysis</a>
 </h3>
-<div class="delink listing-description"><a href="https://github.com/buchjani/eatArchive" class="no-external">
-<p>eatArchive helps you automate the archiving of directory contents using open, software-agnostic file formats. The package supports scanning nested directories, copying files into a new folder structure, and converting selected formats (e.g., XLSX to CSV, DOCX to PDF/A). Each step is documented in a machine-readable CSV log that records source paths, destination paths, and any format conversions applied.</p>
+<div class="delink listing-description"><a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">
+<p>Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.</p>
 </a></div>
 </div>
 <div class="metadata">
-<a href="https://github.com/buchjani/eatArchive" class="no-external">
+<a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">
 <div class="listing-author">
-Janine Buchholz
+Benjamin Becker, Sebastian Weirich, Karoline Sachse
 </div>
 </a>
 </div>
@@ -522,26 +463,6 @@ Benjamin Becker
 </div>
 </div>
 <div class="quarto-post image-left" data-index="3">
-<div class="thumbnail"><a href="https://github.com/beckerbenj/eatDataTest" class="no-external">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://github.com/beckerbenj/eatDataTest" class="no-external">eatDataTest</a>
-</h3>
-<div class="delink listing-description"><a href="https://github.com/beckerbenj/eatDataTest" class="no-external">
-<p>eatDataTest (educational assessment tools: Data Tests) is a framework for testing an comparing different data set versions.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://github.com/beckerbenj/eatDataTest" class="no-external">
-<div class="listing-author">
-Benjamin Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="4">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatFDZ/" class="no-external">
 
 <img loading="lazy" src="./logos/eatFDZ.png" class="thumbnail-image">
@@ -563,7 +484,7 @@ Benjamin Becker
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="5">
+<div class="quarto-post image-left" data-index="4">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatGADS/" class="no-external">
 
 <img loading="lazy" src="./logos/eatGADS.png" class="thumbnail-image">
@@ -585,7 +506,7 @@ Benjamin Becker
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="6">
+<div class="quarto-post image-left" data-index="5">
 <div class="thumbnail"><a href="https://github.com/weirichs/eatModel" class="no-external">
 
 <img loading="lazy" src="./logos/eatModel.png" class="thumbnail-image">
@@ -607,7 +528,7 @@ Sebastian Weirich
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="7">
+<div class="quarto-post image-left" data-index="6">
 <div class="thumbnail"><a href="https://nickhaf.github.io/eatPlot/" class="no-external">
 
 <img loading="lazy" src="./logos/eatPlot.png" class="thumbnail-image">
@@ -629,7 +550,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="8">
+<div class="quarto-post image-left" data-index="7">
 <div class="thumbnail"><a href="https://sachseka.github.io/eatPrep/" class="no-external">
 
 <img loading="lazy" src="./logos/eatPrep.png" class="thumbnail-image">
@@ -651,29 +572,7 @@ Karoline Sachse
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="9">
-<div class="thumbnail"><a href="https://github.com/iqb-research/eatPrepTBA" class="no-external">
-
-<img loading="lazy" src="./logos/eatPrepTBA.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://github.com/iqb-research/eatPrepTBA" class="no-external">eatPrepTBA</a>
-</h3>
-<div class="delink listing-description"><a href="https://github.com/iqb-research/eatPrepTBA" class="no-external">
-<p>The goal of eatPrepTBA is to provide wrapper functions to interact with the IQB Studio and the IQB Testcenter APIs. Moreover, it provides some routines for preparing and blending data from these different resources to manage TBA studies.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://github.com/iqb-research/eatPrepTBA" class="no-external">
-<div class="listing-author">
-Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="10">
+<div class="quarto-post image-left" data-index="8">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatRecode/" class="no-external">
 
 <img loading="lazy" src="./logos/eatRecode.png" class="thumbnail-image">
@@ -695,7 +594,7 @@ Benjamin Becker, Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="11">
+<div class="quarto-post image-left" data-index="9">
 <div class="thumbnail"><a href="https://weirichs.github.io/eatRep/" class="no-external">
 
 <img loading="lazy" src="./logos/eatRep.png" class="thumbnail-image">
@@ -717,134 +616,7 @@ Sebastian Weirich, Benjamin Becker
 </a>
 </div>
 </div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="apps" class="level2">
-<h2 class="anchored" data-anchor-id="apps">Apps</h2>
-<div id="listing-shinyApp" class="quarto-listing quarto-listing-container-default">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://github.com/iqb-research/BT-ShinyApp" class="no-external">BT Shiny App</a>
-</h3>
-<div class="delink listing-description"><a href="https://github.com/iqb-research/BT-ShinyApp" class="no-external">
-<p>tbd</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://github.com/iqb-research/BT-ShinyApp" class="no-external">
-<div class="listing-author">
-Alina Apel, Karoline Sachse
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="help-packages" class="level2">
-<h2 class="anchored" data-anchor-id="help-packages">Help Packages</h2>
-<div id="listing-helpPackages" class="quarto-listing quarto-listing-container-default">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0">
-<div class="thumbnail"><a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">
-
-<img loading="lazy" src="./logos/eatAnalysis.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">eatAnalysis</a>
-</h3>
-<div class="delink listing-description"><a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">
-<p>Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">
-<div class="listing-author">
-Benjamin Becker, Sebastian Weirich, Karoline Sachse
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="1">
-<div class="thumbnail"><a href="https://github.com/iqb-research/eatAutoCode" class="no-external">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://github.com/iqb-research/eatAutoCode" class="no-external">eatAutoCode</a>
-</h3>
-<div class="delink listing-description"><a href="https://github.com/iqb-research/eatAutoCode" class="no-external">
-<p>The goal of eatAutoCode is to code responses from IQB Testcenter.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://github.com/iqb-research/eatAutoCode" class="no-external">
-<div class="listing-author">
-Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="2">
-<div class="thumbnail"><a href="https://cran.r-project.org/web/packages/eatDB/index.html" class="no-external">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://cran.r-project.org/web/packages/eatDB/index.html" class="no-external">eatDB</a>
-</h3>
-<div class="delink listing-description"><a href="https://cran.r-project.org/web/packages/eatDB/index.html" class="no-external">
-<p>eatDB (educational assessment tools: Data Bases) enables the use of relational data bases via a pure R interface. It uses SQLlite3 as a back end and makes use of the packages DBI and RSQLite.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://cran.r-project.org/web/packages/eatDB/index.html" class="no-external">
-<div class="listing-author">
-Benjamin Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="3">
-<div class="thumbnail"><a href="https://github.com/iqb-research/eatAutoCode" class="no-external">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://github.com/iqb-research/eatAutoCode" class="no-external">eatMap</a>
-</h3>
-<div class="delink listing-description"><a href="https://github.com/iqb-research/eatAutoCode" class="no-external">
-<p>tbd</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://github.com/iqb-research/eatAutoCode" class="no-external">
-<div class="listing-author">
-Philipp Franikowski, Alina Apel, Karoline Sachse
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="4">
+<div class="quarto-post image-left" data-index="10">
 <div class="thumbnail"><a href="https://weirichs.github.io/eatTools/index.html" class="no-external">
 
 <img loading="lazy" src="./logos/eatTools.png" class="thumbnail-image">
@@ -866,30 +638,9 @@ Sebastian Weirich, Benjamin Becker, Karoline Sachse
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="5">
-<div class="thumbnail"><a href="https://github.com/iqb-research/eatWidget" class="no-external">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="https://github.com/iqb-research/eatWidget" class="no-external">eatWidget</a>
-</h3>
-<div class="delink listing-description"><a href="https://github.com/iqb-research/eatWidget" class="no-external">
-<p>tbd</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="https://github.com/iqb-research/eatWidget" class="no-external">
-<div class="listing-author">
-Philipp Franikowski, N.N.
-</div>
-</a>
-</div>
-</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-</section>
 <section id="installing-r-packages" class="level2">
 <h2 class="anchored" data-anchor-id="installing-r-packages">Installing R packages</h2>
 <p>Detailed instructions for installing the R packages can be found here: <a href="http://iqbstaff.pbworks.com/w/page/138429033/R-Pakete%20Installieren">installing R packages</a></p>
