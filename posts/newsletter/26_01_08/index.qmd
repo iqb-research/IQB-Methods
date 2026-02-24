@@ -1,0 +1,56 @@
+---
+title: "19-02-2025"
+description: "Newsletter"
+author: 
+  - name: Nicklas Hafiz
+date: 08-01-2026
+categories: [eatPrepTBA, eatMap, eatAutoCode, eatWidget, eatModel, eatCodebook]
+image: announcem.jpg
+---
+
+![](announcem.jpg)
+
+
+Liebes IQB,
+
+pünktlich zum Jahresbeginn kommt hier der Methoden-Newsletter für die letzten Monate, in dem wir kurz Neuerungen in den R-Paketen der eat-Reihe vorstellen, Updates zu Gruppen und Workshops geben und über sonstige methodische Entscheidungen am Institut informieren. Dieser Newsletter richtet sich ausnahmsweise an alle, da der Umzug und die zukünftige Maintenance von Philipps R-Paketen für mehrere Bereiche relevant sind.
+
+
+## eatPrepTBA, eatMap, eatAutoCode und eatWidget
+Philipps R-Pakete sind nach seinem Weggang nun ins Instituts-Repo ([iqb-research](https://github.com/iqb-research) gewandert und werden ab sofort von neuen Maintainer:innen betreut:
+
+### eatPrepTBA:
+- neues Zuhause: https://github.com/iqb-research/eatPrepTBA
+- Maintainer:innen: Karoline Sachse, Kristoph Schumann, Jakob Schäfer
+
+### eatAutoCode:
+- neues Zuhause: https://github.com/iqb-research/eatAutoCode
+- Maintainter:innen: Karoline Sachse, Kristoph Schumann, Jakob Schäfer
+
+### eatMap:
+- neues Zuhause: https://github.com/iqb-research/eatMap
+- Maintainter:innen: Alina Apel, Karoline Sachse
+
+### eatWidget:
+- neues Zuhause: https://github.com/iqb-research/eatWidget
+- Maintainter:innen: N. N.
+
+Bitte legt Issues (Bug Reports, Feature Requests, …) nun in diesen Repos an und installiert die Pakete bei Neuinstallation am besten auch aus diesen Repos.
+
+## Partial Credit in eatModel
+
+Das Paket “eatModel” wurde in der Version 0.10.5 jetzt um Funktionen für die Modellierung von partial credit Modellen erweitert, die im Zuge der überarbeiteten Bildungsstandards verwendet werden sollen. Bei Bedarf würden wir Workshops zur Modellierung und Auswertung von partial credit Analysen anbieten. Dafür wäre es gut, wenn ihr uns wissen lassen würdet, wenn es in eurem Projekt solchen Bedarf egibt, und wann aus eurer Sicht ein solcher Workshop idealerweise stattfinden sollte.
+
+## eatCodebook
+
+Es gibt eine neue Vignette zum Erstellen von Skalenhandbüchern für BT-Studien. 
+Sie enthält eine ausführliche Beschreibung des Workflows vom Erstellen eines Repos auf Github (mit Vorlagen), bis
+zum Rendern des fertigen PDFs. 
+Der Fokus liegt auf der Erstellung und Bearbeitung der Excel Tabellen in R, sowie auf der Klärung möglicher inhaltlicher Fragen, für Leute, die neu eingearbeitet werden. 
+Die Vignette kann natürlich auch für andere Skalenhandbücher genutzt werden.
+Die Vignette findet ihr [hier](https://beckerbenj.github.io/eatCodebook/articles/full_workflow_BT.html). 
+
+
+Viele Grüße und einen angenehmen Start ins neue Jahr!
+
+Sebastian, Karoline, Benjamin, Kristoph, Janine, Nikolas, Edna, Alina, Eva, Nicklas
