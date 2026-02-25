@@ -1,5 +1,40 @@
 [
   {
+    "listing": "/posts_learn.html",
+    "items": [
+      "/docs/beginners.html",
+      "/docs/workflow.html",
+      "/docs/posts_r_sig.html",
+      "/docs/statisticalQuestions.html",
+      "/docs/advanced.html",
+      "/docs/eat_workshops.html"
+    ]
+  },
+  {
+    "listing": "/docs/eat_workshops.html",
+    "items": [
+      "/docs/R_tutorials/2024_eatATA/eatATA_2024.html",
+      "/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html",
+      "/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html",
+      "/docs/R_tutorials/eatPrep2024_files/eatPrep2024.html"
+    ]
+  },
+  {
+    "listing": "/docs/beginners.html",
+    "items": [
+      "/docs/r_sig/23_12_18_case_when/index.html",
+      "/docs/R_tutorials/R_ws2.html",
+      "/docs/git/github_workshop/github_intro_slides.html",
+      "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
+      "/docs/R_tutorials/R_ws3.html",
+      "/docs/git/github_pullrequests.html",
+      "/docs/R_tutorials/R_ws1.html",
+      "/docs/r_sig/23_07_31_apply/index.html",
+      "/docs/quarto/index.html",
+      "/docs/r_sig/23_03_20_forloops/index.html"
+    ]
+  },
+  {
     "listing": "/docs/advanced.html",
     "items": [
       "/docs/r_sig/24_04_08_tidyverse_column_wise/index.html",
@@ -18,26 +53,6 @@
     ]
   },
   {
-    "listing": "/docs/eat_workshops.html",
-    "items": [
-      "/docs/R_tutorials/2024_eatATA/eatATA_2024.html",
-      "/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html",
-      "/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html",
-      "/docs/R_tutorials/eatPrep2024_files/eatPrep2024.html"
-    ]
-  },
-  {
-    "listing": "/posts_learn.html",
-    "items": [
-      "/docs/beginners.html",
-      "/docs/workflow.html",
-      "/docs/posts_r_sig.html",
-      "/docs/statisticalQuestions.html",
-      "/docs/advanced.html",
-      "/docs/eat_workshops.html"
-    ]
-  },
-  {
     "listing": "/posts_newsletter.html",
     "items": [
       "/posts/newsletter/26_01_08/index.html",
@@ -45,30 +60,6 @@
       "/posts/newsletter/24_08_26/index.html",
       "/posts/newsletter/24_01_12/index.html",
       "/posts/newsletter/23_08_09/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/statisticalQuestions.html",
-    "items": [
-      "/docs/FAQ/FAQ1_Imputationen.html",
-      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
-      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
-      "/docs/FAQ/FAQ4_NproItem.html"
-    ]
-  },
-  {
-    "listing": "/docs/beginners.html",
-    "items": [
-      "/docs/r_sig/23_12_18_case_when/index.html",
-      "/docs/R_tutorials/R_ws2.html",
-      "/docs/git/github_workshop/github_intro_slides.html",
-      "/docs/r_sig/24_01_26_tidyverse_intro/index.html",
-      "/docs/R_tutorials/R_ws3.html",
-      "/docs/git/github_pullrequests.html",
-      "/docs/R_tutorials/R_ws1.html",
-      "/docs/r_sig/23_07_31_apply/index.html",
-      "/docs/quarto/index.html",
-      "/docs/r_sig/23_03_20_forloops/index.html"
     ]
   },
   {
@@ -101,6 +92,15 @@
       "/docs/r_sig/23_10_09_cleaner/index.html",
       "/docs/r_sig/23_07_31_apply/index.html",
       "/docs/r_sig/23_03_20_forloops/index.html"
+    ]
+  },
+  {
+    "listing": "/docs/statisticalQuestions.html",
+    "items": [
+      "/docs/FAQ/FAQ1_Imputationen.html",
+      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
+      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
+      "/docs/FAQ/FAQ4_NproItem.html"
     ]
   },
   {
