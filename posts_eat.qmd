@@ -34,6 +34,11 @@ listing:
         image: ./logos/eatGADS.png
         description: "Allows import and data preparation of SPSS data sets in R. Generates the General Analysis Data Set (GADS) for IQB Bildungstrend studies as a SQLite3 database. Parts of the data set can then be loaded into R using the package. It also allows the export of SPSS files to and from R."
         author: Benjamin Becker
+      - title: eatGets
+        path: https://github.com/ruckeran/eatGets
+        image: ./logos/eatGADS.png
+        description: "With the help of eatGets, the empty national data sets (skeleton files) for the education monitoring studies PISA, TIMSS, PIRLS, ICILS, and TVD can be downloaded from the IQB Research Data Center (RDC) website. In addition, the full international data sets can be obtained from the publicly accessible OECD and IEA websites. This enables a subsequent comparison and clarifies the differences between the national data available via the RDC and the international data provided online."
+        author: Annegret Rucker
       - title: eatModel
         path: https://github.com/weirichs/eatModel
         image: ./logos/eatModel.png
