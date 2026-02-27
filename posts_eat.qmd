@@ -6,7 +6,7 @@ listing:
     contents:
       - title: eatArchive
         path: https://github.com/buchjani/eatArchive
-        #image: ./logos/
+        image: ./logos/eatArchive.png
         description: "eatArchive helps you automate the archiving of directory contents using open, software-agnostic file formats. The package supports scanning nested directories, copying files into a new folder structure, and converting selected formats (e.g., XLSX to CSV, DOCX to PDF/A). Each step is documented in a machine-readable CSV log that records source paths, destination paths, and any format conversions applied."
         author: Janine Buchholz
       - title: eatATA
@@ -36,7 +36,7 @@ listing:
         author: Benjamin Becker
       - title: eatGets
         path: https://github.com/ruckeran/eatGets
-        #image: ./logos/eatGADS.png
+        image: ./logos/eatGets.png
         description: "With the help of eatGets, the empty national data sets (skeleton files) for the education monitoring studies PISA, TIMSS, PIRLS, ICILS, and TVD can be downloaded from the IQB Research Data Center (RDC) website. In addition, the full international data sets can be obtained from the publicly accessible OECD and IEA websites. This enables a subsequent comparison and clarifies the differences between the national data available via the RDC and the international data provided online."
         author: Annegret Rucker
       - title: eatModel
@@ -77,8 +77,8 @@ listing:
     contents:
       - title: BT Shiny App
         path: https://github.com/iqb-research/BT-ShinyApp
-        #image:
-        description: "tbd"
+        image: ./logos/BTShinyApp.png
+        description: "Displays the results of the 'Bildungstrend' studies on an interactive map of Germany and forms the basis for"
         author: Alina Apel, Karoline Sachse
     type: default
     feed: true
@@ -93,7 +93,7 @@ listing:
         author: Benjamin Becker, Sebastian Weirich, Karoline Sachse
       - title: eatAutoCode
         path:  https://github.com/iqb-research/eatAutoCode
-        #image: ./logos/
+        image: ./logos/eatAutoCode.png
         description: "The goal of eatAutoCode is to code responses from IQB Testcenter."
         author: Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
       - title: eatDB
@@ -103,8 +103,8 @@ listing:
         author: Benjamin Becker
       - title: eatMap
         path: https://github.com/iqb-research/eatAutoCode
-        #image: ./logos/
-        description: "tbd"
+        image: ./logos/eatMap.png
+        description: "A helper package that transforms the input data frame from the BTShinyApp into an interactive widget using JavaScript."
         author: Philipp Franikowski, Alina Apel, Karoline Sachse
       - title: eatTools
         path: https://weirichs.github.io/eatTools/index.html
@@ -113,8 +113,8 @@ listing:
         author: Sebastian Weirich, Benjamin Becker, Karoline Sachse
       - title: eatWidget
         path: https://github.com/iqb-research/eatWidget
-        #image: ./logos/
-        description: "tbd"
+        image: ./logos/eatWidget.png
+        description: "This package provides a collection of small, reusable widgets for Quarto and HTML reports created within institutional workflows. The widgets visualize key metrics through compact graphics that automatically adjust styling and behavior depending on data values (for example, changing colors when thresholds are exceeded). Combining R with JavaScript and lightweight CSS, the package bridges analytical results and interactive report presentation."
         author: Philipp Franikowski, N.N.
     type: default
     feed: true
