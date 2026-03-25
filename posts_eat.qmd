@@ -98,7 +98,7 @@ listing:
         author: Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
       - title: eatDB
         path: https://cran.r-project.org/web/packages/eatDB/index.html
-        image: ./logos/eatDB
+        image: ./logos/eatDB.png
         description: "eatDB (educational assessment tools: Data Bases) enables the use of relational data bases via a pure R interface. It uses SQLlite3 as a back end and makes use of the packages DBI and RSQLite."
         author: Benjamin Becker
       - title: eatMap
