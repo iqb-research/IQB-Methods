@@ -9,7 +9,7 @@
 <link>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/advanced.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.27</generator>
+<generator>quarto-1.9.36</generator>
 <lastBuildDate>Mon, 25 Nov 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>GitHub Copilot in R-Studio</title>
@@ -405,7 +405,7 @@ Note
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-peikert2021reproducible" class="csl-entry">
 Peikert, Aaron, and Andreas M Brandmaier. 2021. <span>“A Reproducible Data Analysis Workflow with r Markdown, Git, Make, and Docker.”</span> <em>Quantitative and Computational Methods in Behavioral Sciences</em>, 1–27.
 </div>
@@ -4932,7 +4932,7 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div></div>
   <category>statistics</category>
   <category>eatRep</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Mon, 02 Mar 2026 05:50:38 GMT</pubDate>
+  <pubDate>Wed, 25 Mar 2026 11:16:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -5422,7 +5422,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
   <category>statistics</category>
   <category>eatModel</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Mon, 02 Mar 2026 05:50:38 GMT</pubDate>
+  <pubDate>Wed, 25 Mar 2026 11:16:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -5489,7 +5489,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Mon, 02 Mar 2026 05:50:38 GMT</pubDate>
+  <pubDate>Wed, 25 Mar 2026 11:16:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5519,7 +5519,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Mon, 02 Mar 2026 05:50:38 GMT</pubDate>
+  <pubDate>Wed, 25 Mar 2026 11:16:43 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" medium="image" type="image/png" height="125" width="144"/>
 </item>
 </channel>
