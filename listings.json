@@ -1,5 +1,35 @@
 [
   {
+    "listing": "/posts_learn.html",
+    "items": [
+      "/docs/beginners.html",
+      "/docs/workflow.html",
+      "/docs/posts_r_sig.html",
+      "/docs/statisticalQuestions.html",
+      "/docs/advanced.html",
+      "/docs/eat_workshops.html"
+    ]
+  },
+  {
+    "listing": "/posts_newsletter.html",
+    "items": [
+      "/posts/newsletter/25_02_19/index.html",
+      "/posts/newsletter/26_01_08/index.html",
+      "/posts/newsletter/24_08_26/index.html",
+      "/posts/newsletter/24_01_12/index.html",
+      "/posts/newsletter/23_08_09/index.html"
+    ]
+  },
+  {
+    "listing": "/docs/eat_workshops.html",
+    "items": [
+      "/docs/R_tutorials/2024_eatATA/eatATA_2024.html",
+      "/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html",
+      "/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html",
+      "/docs/R_tutorials/eatPrep2024_files/eatPrep2024.html"
+    ]
+  },
+  {
     "listing": "/docs/posts_r_sig.html",
     "items": [
       "/docs/r_sig/25_02_10_regex/index.html",
@@ -18,13 +48,22 @@
     ]
   },
   {
-    "listing": "/docs/statisticalQuestions.html",
+    "listing": "/docs/workflow.html",
     "items": [
-      "/docs/FAQ/FAQ1_Imputationen.html",
-      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
-      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
-      "/docs/FAQ/FAQ4_NproItem.html"
+      "/docs/r_sig/23_10_09_cleaner/index.html",
+      "/docs/discussions/code_conventions.html",
+      "/docs/git/github_workshop/github_intro_slides.html",
+      "/docs/git/copilot/copilot.html",
+      "/docs/git/github_pullrequests.html",
+      "/docs/r_sig/23_11_06_renv/index.html",
+      "/docs/r_sig/24_09_09_quarto_git/index.html",
+      "/docs/r_sig/24_07_15_quarto_1/index.html",
+      "/docs/quarto/index.html"
     ]
+  },
+  {
+    "listing": "/posts_eat.html",
+    "items": []
   },
   {
     "listing": "/docs/beginners.html",
@@ -42,51 +81,12 @@
     ]
   },
   {
-    "listing": "/posts_learn.html",
+    "listing": "/docs/statisticalQuestions.html",
     "items": [
-      "/docs/beginners.html",
-      "/docs/workflow.html",
-      "/docs/posts_r_sig.html",
-      "/docs/statisticalQuestions.html",
-      "/docs/advanced.html",
-      "/docs/eat_workshops.html"
-    ]
-  },
-  {
-    "listing": "/posts_eat.html",
-    "items": []
-  },
-  {
-    "listing": "/posts_newsletter.html",
-    "items": [
-      "/posts/newsletter/25_02_19/index.html",
-      "/posts/newsletter/26_01_08/index.html",
-      "/posts/newsletter/24_08_26/index.html",
-      "/posts/newsletter/24_01_12/index.html",
-      "/posts/newsletter/23_08_09/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/workflow.html",
-    "items": [
-      "/docs/r_sig/23_10_09_cleaner/index.html",
-      "/docs/discussions/code_conventions.html",
-      "/docs/git/github_workshop/github_intro_slides.html",
-      "/docs/git/copilot/copilot.html",
-      "/docs/git/github_pullrequests.html",
-      "/docs/r_sig/23_11_06_renv/index.html",
-      "/docs/r_sig/24_09_09_quarto_git/index.html",
-      "/docs/r_sig/24_07_15_quarto_1/index.html",
-      "/docs/quarto/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/eat_workshops.html",
-    "items": [
-      "/docs/R_tutorials/2024_eatATA/eatATA_2024.html",
-      "/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html",
-      "/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html",
-      "/docs/R_tutorials/eatPrep2024_files/eatPrep2024.html"
+      "/docs/FAQ/FAQ1_Imputationen.html",
+      "/docs/FAQ/FAQ2_eatModel-Conquest.html",
+      "/docs/FAQ/FAQ3_Mehrebenenmodelle.html",
+      "/docs/FAQ/FAQ4_NproItem.html"
     ]
   },
   {
