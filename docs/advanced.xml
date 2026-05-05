@@ -2712,8 +2712,12 @@ font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'uni_name'. You can override using the
-`.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by uni_name and question.
+ℹ Output is grouped by uni_name.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(uni_name, question))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 </div>
 </div>
@@ -4199,7 +4203,8 @@ font-style: inherit;">assert_numeric</span>(<span class="st" style="color: #2079
 background-color: null;
 font-style: inherit;">"hallo"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: Assertion on '"hallo"' failed: Must be of type 'numeric', not 'character'.</code></pre>
+<pre><code>Error:
+! Assertion on '"hallo"' failed: Must be of type 'numeric', not 'character'.</code></pre>
 </div>
 </div>
 <p>If you save an <code>assert_numeric()</code> object into a variable x, it will contain the original object that you asserted.</p>
@@ -4932,7 +4937,7 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div></div>
   <category>statistics</category>
   <category>eatRep</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Wed, 15 Apr 2026 10:09:13 GMT</pubDate>
+  <pubDate>Tue, 05 May 2026 07:12:45 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -5422,7 +5427,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
   <category>statistics</category>
   <category>eatModel</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Wed, 15 Apr 2026 10:09:13 GMT</pubDate>
+  <pubDate>Tue, 05 May 2026 07:12:45 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -5489,7 +5494,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Wed, 15 Apr 2026 10:09:13 GMT</pubDate>
+  <pubDate>Tue, 05 May 2026 07:12:45 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5519,7 +5524,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Wed, 15 Apr 2026 10:09:13 GMT</pubDate>
+  <pubDate>Tue, 05 May 2026 07:12:45 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" medium="image" type="image/png" height="125" width="144"/>
 </item>
 </channel>

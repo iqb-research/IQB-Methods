@@ -1962,7 +1962,8 @@ font-style: inherit;">1</span>))</span></code></pre></div></div>
 <pre><code>[1] 55</code></pre>
 </div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in vapply(example_list, print_sum, character(1)): values must be type 'character',
+<pre><code>Error in `vapply()`:
+! values must be type 'character',
  but FUN(X[[1]]) result is type 'integer'</code></pre>
 </div>
 </div>
@@ -2510,20 +2511,13 @@ font-style: inherit;">str</span>(daten)</span></code></pre></div></div>
 background-color: null;
 font-style: inherit;">summary</span>(daten)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       ID            name            geschlecht          treatment     
- Min.   :43678   Length:6           Length:6           Min.   :0.0000  
- 1st Qu.:68252   Class :character   Class :character   1st Qu.:0.2500  
- Median :79128   Mode  :character   Mode  :character   Median :1.0000  
- Mean   :74581                                         Mean   :0.6667  
- 3rd Qu.:88693                                         3rd Qu.:1.0000  
- Max.   :89045                                         Max.   :1.0000  
-    bdi.wert    
- Min.   : 9.85  
- 1st Qu.:10.00  
- Median :10.95  
- Mean   :11.20  
- 3rd Qu.:12.31  
- Max.   :13.00  </code></pre>
+<pre><code>       ID               name       geschlecht   treatment         bdi.wert    
+ Min.   :43678   Length   :6   Length   :6    Min.   :0.0000   Min.   : 9.85  
+ 1st Qu.:68252   N.unique :6   N.unique :2    1st Qu.:0.2500   1st Qu.:10.00  
+ Median :79128   N.blank  :0   N.blank  :0    Median :1.0000   Median :10.95  
+ Mean   :74581   Min.nchar:4   Min.nchar:1    Mean   :0.6667   Mean   :11.20  
+ 3rd Qu.:88693   Max.nchar:7   Max.nchar:1    3rd Qu.:1.0000   3rd Qu.:12.31  
+ Max.   :89045                                Max.   :1.0000   Max.   :13.00  </code></pre>
 </div>
 </div>
 <ol start="4" type="1">
@@ -3720,7 +3714,7 @@ font-style: inherit;">"Eine Verteilung"</span>)</span></code></pre></div></div>
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws2.html</guid>
-  <pubDate>Wed, 15 Apr 2026 10:07:38 GMT</pubDate>
+  <pubDate>Tue, 05 May 2026 07:11:18 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3733,7 +3727,7 @@ font-style: inherit;">"Eine Verteilung"</span>)</span></code></pre></div></div>
   <category>slides</category>
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</guid>
-  <pubDate>Wed, 15 Apr 2026 10:07:38 GMT</pubDate>
+  <pubDate>Tue, 05 May 2026 07:11:18 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4186,7 +4180,7 @@ font-style: inherit;">"Material_WSIII/mtcars.dat"</span>)</span></code></pre></d
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws3.html</guid>
-  <pubDate>Wed, 15 Apr 2026 10:07:38 GMT</pubDate>
+  <pubDate>Tue, 05 May 2026 07:11:18 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5316,7 +5310,7 @@ font-style: inherit;">"'NA'=NA; ''=NA"</span>)</span>
   <category>tutorial</category>
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</guid>
-  <pubDate>Wed, 15 Apr 2026 10:07:38 GMT</pubDate>
+  <pubDate>Tue, 05 May 2026 07:11:18 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
