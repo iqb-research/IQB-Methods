@@ -102,7 +102,7 @@ listing:
         description: "eatDB (educational assessment tools: Data Bases) enables the use of relational data bases via a pure R interface. It uses SQLlite3 as a back end and makes use of the packages DBI and RSQLite."
         author: Benjamin Becker
       - title: eatMap
-        path: https://github.com/iqb-research/eatMap
+        path: https://iqb-research.github.io/eatMap/
         image: ./logos/eatMap.png
         description: "A helper package that transforms the input data frame from the BTShinyApp into an interactive widget using JavaScript."
         author: Philipp Franikowski, Alina Apel, Karoline Sachse
