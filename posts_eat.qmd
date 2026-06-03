@@ -92,7 +92,7 @@ listing:
         description: "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses."
         author: Benjamin Becker, Sebastian Weirich, Karoline Sachse
       - title: eatAutoCode
-        path:  https://github.com/iqb-research/eatAutoCode
+        path:  https://iqb-research.github.io/eatAutoCode/
         image: ./logos/eatAutoCode.png
         description: "The goal of eatAutoCode is to code responses from IQB Testcenter."
         author: Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
@@ -135,7 +135,6 @@ listing:
 
 ::: {#helpPackages}
 :::
-
 
 ## Installing R packages
 
