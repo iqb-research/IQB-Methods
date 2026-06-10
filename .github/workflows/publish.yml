@@ -25,6 +25,7 @@ jobs:
             libmagick++-dev \
             libglpk-dev \
             libnode-dev
+            libpoppler-cpp-dev
 
       - name: Check out repository
         uses: actions/checkout@v4
