@@ -163,6 +163,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<!--
+  The following <div> section is a bugfix. 
+
+  Because dark-mode paths are created dynamically, Quarto may not detect them
+  during rendering and may not copy the files into the final website output.
+  This hidden block makes the dark helper-package logos visible to Quarto's
+  resource handling, so they are included in the rendered site.
+-->
+
+<div style="display: none;">
+  <img src="./logos/dark/eatAnalysis.png" alt="">
+  <img src="./logos/dark/eatAutoCode.png" alt="">
+  <img src="./logos/dark/eatDB.png" alt="">
+  <img src="./logos/dark/eatMap.png" alt="">
+  <img src="./logos/dark/eatTools.png" alt="">
+  <img src="./logos/dark/eatWidget.png" alt="">
+</div>
+
 ## Main Packages
 
 ::: {#packages}
