@@ -194,10 +194,11 @@ window.Quarto = {
 
 <link rel="alternate" type="application/rss+xml" title="IQB Methods Team" href="posts_eat.xml" data-external="1"><meta property="og:title" content="eat Packages – IQB Methods Team">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/logos/eatArchive.png">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/logos/dark/eatAnalysis.png">
 <meta property="og:site_name" content="IQB Methods Team">
-<meta property="og:image:height" content="800">
-<meta property="og:image:width" content="800">
+<meta property="og:image:alt" content="">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:width" content="1200">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -449,6 +450,58 @@ window.Quarto = {
 </header>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function updateLogoFolder() {
+    const darkMode =
+      document.documentElement.classList.contains("quarto-dark") ||
+      document.body.classList.contains("quarto-dark") ||
+      document.documentElement.getAttribute("data-bs-theme") === "dark" ||
+      document.body.getAttribute("data-bs-theme") === "dark";
+
+    const folder = darkMode ? "dark" : "light";
+
+    document
+      .querySelectorAll('img[src*="logos/light/"], img[src*="logos/dark/"]')
+      .forEach(function (img) {
+        img.setAttribute(
+          "src",
+          img.getAttribute("src").replace(
+            /logos\/(light|dark)\//,
+            "logos/" + folder + "/"
+          )
+        );
+      });
+  }
+
+  updateLogoFolder();
+
+  const observer = new MutationObserver(updateLogoFolder);
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class", "data-bs-theme"]
+  });
+
+  observer.observe(document.body, {
+    attributes: true,
+    childList: true,
+    subtree: true,
+    attributeFilter: ["class", "data-bs-theme"]
+  });
+});
+</script>
+<!--
+  The following <div> section is a bugfix. 
+
+  Because dark-mode paths are created dynamically, Quarto may not detect them
+  during rendering and may not copy the files into the final website output.
+  This hidden block makes the dark helper-package logos visible to Quarto's
+  resource handling, so they are included in the rendered site.
+-->
+<div style="display: none;">
+<p><img src="./logos/dark/eatAnalysis.png" alt=""> <img src="./logos/dark/eatAutoCode.png" alt=""> <img src="./logos/dark/eatDB.png" alt=""> <img src="./logos/dark/eatMap.png" alt=""> <img src="./logos/dark/eatTools.png" alt=""> <img src="./logos/dark/eatWidget.png" alt=""></p>
+</div>
 <section id="main-packages" class="level2">
 <h2 class="anchored" data-anchor-id="main-packages">Main Packages</h2>
 <div id="listing-packages" class="quarto-listing quarto-listing-container-default">
@@ -462,7 +515,7 @@ window.Quarto = {
 <div class="quarto-post image-left" data-index="0">
 <div class="thumbnail"><a href="https://buchjani.github.io/eatArchive/" class="no-external">
 
-<img loading="lazy" src="./logos/eatArchive.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatArchive.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -484,7 +537,7 @@ Janine Buchholz
 <div class="quarto-post image-left" data-index="1">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatATA/" class="no-external">
 
-<img loading="lazy" src="./logos/eatATA.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatATA.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -506,7 +559,7 @@ Benjamin Becker
 <div class="quarto-post image-left" data-index="2">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatCodebook/" class="no-external">
 
-<img loading="lazy" src="./logos/eatCodebook.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatCodebook.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -528,7 +581,7 @@ Benjamin Becker
 <div class="quarto-post image-left" data-index="3">
 <div class="thumbnail"><a href="https://github.com/beckerbenj/eatDataTest" class="no-external">
 
-<img loading="lazy" src="./logos/eatDataTest.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatDataTest.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -550,7 +603,7 @@ Benjamin Becker
 <div class="quarto-post image-left" data-index="4">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatFDZ/" class="no-external">
 
-<img loading="lazy" src="./logos/eatFDZ.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatFDZ.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -572,7 +625,7 @@ Benjamin Becker
 <div class="quarto-post image-left" data-index="5">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatGADS/" class="no-external">
 
-<img loading="lazy" src="./logos/eatGADS.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatGADS.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -594,7 +647,7 @@ Benjamin Becker
 <div class="quarto-post image-left" data-index="6">
 <div class="thumbnail"><a href="https://ruckeran.github.io/eatGets/" class="no-external">
 
-<img loading="lazy" src="./logos/eatGets.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatGets.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -616,7 +669,7 @@ Annegret Rucker
 <div class="quarto-post image-left" data-index="7">
 <div class="thumbnail"><a href="https://weirichs.github.io/eatModel/" class="no-external">
 
-<img loading="lazy" src="./logos/eatModel.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatModel.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -638,7 +691,7 @@ Sebastian Weirich
 <div class="quarto-post image-left" data-index="8">
 <div class="thumbnail"><a href="https://nickhaf.github.io/eatPlot/" class="no-external">
 
-<img loading="lazy" src="./logos/eatPlot.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatPlot.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -660,7 +713,7 @@ Nicklas Hafiz
 <div class="quarto-post image-left" data-index="9">
 <div class="thumbnail"><a href="https://sachseka.github.io/eatPrep/" class="no-external">
 
-<img loading="lazy" src="./logos/eatPrep.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatPrep.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -682,7 +735,7 @@ Karoline Sachse
 <div class="quarto-post image-left" data-index="10">
 <div class="thumbnail"><a href="https://iqb-research.github.io/eatPrepTBA/" class="no-external">
 
-<img loading="lazy" src="./logos/eatPrepTBA.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatPrepTBA.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -704,7 +757,7 @@ Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
 <div class="quarto-post image-left" data-index="11">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatRecode/" class="no-external">
 
-<img loading="lazy" src="./logos/eatRecode.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatRecode.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -726,7 +779,7 @@ Benjamin Becker, Nicklas Hafiz
 <div class="quarto-post image-left" data-index="12">
 <div class="thumbnail"><a href="https://weirichs.github.io/eatRep/" class="no-external">
 
-<img loading="lazy" src="./logos/eatRep.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatRep.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -762,7 +815,7 @@ Sebastian Weirich, Benjamin Becker
 <div class="quarto-post image-left" data-index="0">
 <div class="thumbnail"><a href="https://www.iqb.hu-berlin.de/de/schule/bt-ergebnisbrowser/" class="no-external">
 
-<img loading="lazy" src="./logos/BTShinyApp.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/BTShinyApp.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -798,7 +851,7 @@ Alina Apel, Karoline Sachse
 <div class="quarto-post image-left" data-index="0">
 <div class="thumbnail"><a href="https://beckerbenj.github.io/eatAnalysis/index.html" class="no-external">
 
-<img loading="lazy" src="./logos/eatAnalysis.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatAnalysis.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -820,7 +873,7 @@ Benjamin Becker, Sebastian Weirich, Karoline Sachse
 <div class="quarto-post image-left" data-index="1">
 <div class="thumbnail"><a href="https://iqb-research.github.io/eatAutoCode/" class="no-external">
 
-<img loading="lazy" src="./logos/eatAutoCode.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatAutoCode.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -842,7 +895,7 @@ Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
 <div class="quarto-post image-left" data-index="2">
 <div class="thumbnail"><a href="https://cran.r-project.org/web/packages/eatDB/index.html" class="no-external">
 
-<img loading="lazy" src="./logos/eatDB.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatDB.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -864,7 +917,7 @@ Benjamin Becker
 <div class="quarto-post image-left" data-index="3">
 <div class="thumbnail"><a href="https://iqb-research.github.io/eatMap/" class="no-external">
 
-<img loading="lazy" src="./logos/eatMap.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatMap.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -886,7 +939,7 @@ Philipp Franikowski, Alina Apel, Karoline Sachse
 <div class="quarto-post image-left" data-index="4">
 <div class="thumbnail"><a href="https://weirichs.github.io/eatTools/index.html" class="no-external">
 
-<img loading="lazy" src="./logos/eatTools.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatTools.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
@@ -908,7 +961,7 @@ Sebastian Weirich, Benjamin Becker, Karoline Sachse
 <div class="quarto-post image-left" data-index="5">
 <div class="thumbnail"><a href="https://iqb-research.github.io/eatWidget/" class="no-external">
 
-<img loading="lazy" src="./logos/eatWidget.png" class="thumbnail-image">
+<img loading="lazy" src="./logos/light/eatWidget.png" class="thumbnail-image">
 
 </a></div>
 <div class="body">
