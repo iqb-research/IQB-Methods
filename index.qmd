@@ -12,101 +12,166 @@ table, th, td {
   padding: 0px;
   margin-top: -18px;
 }
+
+.logo-grid {
+  width: 900px;
+}
+
+.logo-cell {
+  width: 150px;
+}
+
+.logo-spacer {
+  width: 75px;
+}
+
+.logo-img {
+  width: 150px;
+  height: 150px;
+}
 </style>
 </head>
 
-</br>
-
-<table style="width:900px">
-<tr>
-    <th style="width:75px"></th>
-    <th style="width:150px">
-        <a href="https://www.iqb.hu-berlin.de/de/schule/bt-ergebnisbrowser"><img src="./logos/BTShinyApp.png" style="width:150px;height:150px;"></a>
-    </th>
-    <th style="width:150px">
-      <a href="https://github.com/buchjani/eatArchive"><img src="./logos/eatArchive.png" style="width:150px;height:150px;"></a>
-    </th>
-    <th style="width:150px">
-      <a href="https://beckerbenj.github.io/eatATA/"><img src="./logos/eatATA.png" style="width:150px;height:150px;"></a>
-    </th>
-    <th style="width:150px">
-      <a href="https://beckerbenj.github.io/eatCodebook/"><img src="./logos/eatCodebook.png" style="width:150px;height:150px;"></a>
-    </th>
-    <th style="width:150px">
-      <a href="https://beckerbenj.github.io/eatDataTest/"><img src="./logos/eatDataTest.png" style="width:150px;height:150px;"></a>
-    </th>
-    <th style="width:75px"></th>
-</tr>
-</table>
+<br>
 
 ::: {.light-mode}
-<table style="width:900px">
+
+<table class="logo-grid">
 <tr>
-    <th style="width:150px">
-      <a href="https://beckerbenj.github.io/eatFDZ/"><img src="./logos/eatFDZ.png" style="width:150px;height:150px;"></a>
+    <th class="logo-spacer"></th>
+    <th class="logo-cell">
+        <a href="https://www.iqb.hu-berlin.de/de/schule/bt-ergebnisbrowser"><img src="./logos/light/BTShinyApp.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-      <a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/eatGADS.png" style="width:150px;height:150px;"></a>
+    <th class="logo-cell">
+      <a href="https://buchjani.github.io/eatArchive/"><img src="./logos/light/eatArchive.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-       <img src="./logos/eat.png" style="width:150px;height:150px;">
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatATA/"><img src="./logos/light/eatATA.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-      <img src="./logos/IQBLogo_wabe.png" style="width:150px;height:150px;">
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatCodebook/"><img src="./logos/light/eatCodebook.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-      <a href="https://github.com/ruckeran/eatGets"><img src="./logos/eatGets.png" style="width:150px;height:150px;">
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatDataTest/"><img src="./logos/light/eatDataTest.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-      <a href="https://github.com/weirichs/eatModel"><img src="./logos/eatModel.png" style="width:150px;height:150px;"></a>
+    <th class="logo-spacer"></th>
+</tr>
+</table>
+
+<table class="logo-grid">
+<tr>
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatFDZ/"><img src="./logos/light/eatFDZ.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/light/eatGADS.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+       <img src="./logos/light/eat.png" class="logo-img">
+    </th>
+    <th class="logo-cell">
+      <img src="./logos/light/IQBLogo_wabe.png" class="logo-img">
+    </th>
+    <th class="logo-cell">
+      <a href="https://ruckeran.github.io/eatGets/"><img src="./logos/light/eatGets.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://weirichs.github.io/eatModel/"><img src="./logos/light/eatModel.png" class="logo-img"></a>
     </th>
 </tr>
 </table>
+
+<table class="logo-grid">
+<tr>
+    <th class="logo-spacer"></th>
+    <th class="logo-cell">
+      <a href="https://nickhaf.github.io/eatPlot/"><img src="./logos/light/eatPlot.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://sachseka.github.io/eatPrep/"><img src="./logos/light/eatPrep.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://iqb-research.github.io/eatPrepTBA/"><img src="./logos/light/eatPrepTBA.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatRecode/"><img src="./logos/light/eatRecode.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://weirichs.github.io/eatRep/"><img src="./logos/light/eatRep.png" class="logo-img"></a>
+    </th>
+    <th class="logo-spacer"></th>
+</tr>
+</table>
+
 :::
 
 ::: {.dark-mode}
-<table style="width:900px">
-<tr>
-    <th style="width:150px">
-      <a href="https://beckerbenj.github.io/eatFDZ/"><img src="./logos/eatFDZ.png" style="width:150px;height:150px;"></a>
-    </th>
-    <th style="width:150px">
-      <a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/eatGADS.png" style="width:150px;height:150px;"></a>
-    </th>
-    <th style="width:150px">
-       <img src="./logos/eat_dark.png" style="width:150px;height:150px;">
-    </th>
-    <th style="width:150px">
-      <img src="./logos/IQBLogo_wabe.png" style="width:150px;height:150px;">
-    </th>
-    <th style="width:150px">
-      <a href="https://github.com/ruckeran/eatGets"><img src="./logos/eatGets.png" style="width:150px;height:150px;">
-    </th>
-    <th style="width:150px">
-      <a href="https://github.com/weirichs/eatModel"><img src="./logos/eatModel.png" style="width:150px;height:150px;"></a>
-    </th>
-</tr>
-</table>
-:::
 
-<table style="width:900px">
+<table class="logo-grid">
 <tr>
-    <th style="width:75px"></th>
-    <th style="width:150px">
-      <a href="https://nickhaf.github.io/eatPlot/"><img src="./logos/eatPlot.png" style="width:150px;height:150px;"></a>
+    <th class="logo-spacer"></th>
+    <th class="logo-cell">
+        <a href="https://www.iqb.hu-berlin.de/de/schule/bt-ergebnisbrowser"><img src="./logos/dark/BTShinyApp.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-      <a href="https://sachseka.github.io/eatPrep/"><img src="./logos/eatPrep.png" style="width:150px;height:150px;"></a>
+    <th class="logo-cell">
+      <a href="https://buchjani.github.io/eatArchive/"><img src="./logos/dark/eatArchive.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-      <a href="https://iqb-research.github.io/eatPrepTBA/"><img src="./logos/eatPrepTBA.png" style="width:150px;height:150px;"></a>
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatATA/"><img src="./logos/dark/eatATA.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-      <a href="https://beckerbenj.github.io/eatRecode/"><img src="./logos/eatRecode.png" style="width:150px;height:150px;"></a>
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatCodebook/"><img src="./logos/dark/eatCodebook.png" class="logo-img"></a>
     </th>
-    <th style="width:150px">
-      <a href="https://weirichs.github.io/eatRep/"><img src="./logos/eatRep.png" style="width:150px;height:150px;"></a>
+    <th class="logo-cell">
+      <a href="https://github.com/beckerbenj/eatDataTest"><img src="./logos/dark/eatDataTest.png" class="logo-img"></a>
     </th>
-    <th style="width:75px"></th>
+    <th class="logo-spacer"></th>
 </tr>
 </table>
+
+<table class="logo-grid">
+<tr>
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatFDZ/"><img src="./logos/dark/eatFDZ.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/dark/eatGADS.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+       <img src="./logos/dark/eat.png" class="logo-img">
+    </th>
+    <th class="logo-cell">
+      <img src="./logos/dark/IQBLogo_wabe.png" class="logo-img">
+    </th>
+    <th class="logo-cell">
+      <a href="https://ruckeran.github.io/eatGets/"><img src="./logos/dark/eatGets.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://weirichs.github.io/eatModel/"><img src="./logos/dark/eatModel.png" class="logo-img"></a>
+    </th>
+</tr>
+</table>
+
+<table class="logo-grid">
+<tr>
+    <th class="logo-spacer"></th>
+    <th class="logo-cell">
+      <a href="https://nickhaf.github.io/eatPlot/"><img src="./logos/dark/eatPlot.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://sachseka.github.io/eatPrep/"><img src="./logos/dark/eatPrep.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://iqb-research.github.io/eatPrepTBA/"><img src="./logos/dark/eatPrepTBA.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://beckerbenj.github.io/eatRecode/"><img src="./logos/dark/eatRecode.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://weirichs.github.io/eatRep/"><img src="./logos/dark/eatRep.png" class="logo-img"></a>
+    </th>
+    <th class="logo-spacer"></th>
+</tr>
+</table>
+
+:::
