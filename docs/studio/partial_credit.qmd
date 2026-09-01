@@ -650,7 +650,9 @@ Diese Schritte für alle Basisvariablen wiederholen.
 
 **Geschlossene Kodierung der abgeleiteten Variable 01_unique_ab, 01_unique_ac, 01_unique_bc**
 
-![](images/clipboard-4079197500.png)In dieser abgeleiteten Variable wird geprüft, dass sich keine der Kombinationen wiederholen.
+![](media/media/image38.png)
+
+In dieser abgeleiteten Variable wird geprüft, dass sich keine der Kombinationen wiederholen.
 
 **Schritt 1:** Bei *Basis-/Ableitungsparameter* die Ableitungsmethode : „Auf Einzigartigkeit prüfen" auswählen. Quell-Variablen: 01a, 01b auswählen (bzw. 01a, 01c ODER 01b, 01c)
 
