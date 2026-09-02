@@ -34,7 +34,7 @@ jobs:
 
       - uses: r-lib/actions/setup-renv@v2
         with:
-          cache-version: 2
+          cache-version: 3
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
