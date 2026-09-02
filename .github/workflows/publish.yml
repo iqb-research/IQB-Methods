@@ -24,6 +24,7 @@ jobs:
             libgsl-dev \
             libmagick++-dev \
             libglpk-dev \
+            libgit2-dev \
             libnode-dev \
             libpoppler-cpp-dev
 
