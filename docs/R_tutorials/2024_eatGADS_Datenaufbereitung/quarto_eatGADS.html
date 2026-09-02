@@ -6,8 +6,8 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Benjamin Becker, Annika Liebelt &amp; Jule Burblies">
   <meta name="dcterms.date" content="2024-11-12">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -209,7 +212,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Benjamin Becker, Annika Liebelt &amp; Jule Burblies 
+Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 </div>
 </div>
 </div>
@@ -266,11 +269,11 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <h2>eatGADS</h2>
 
 <img data-src="Figures/eatGADS_CRAN.jpg" class="r-stretch"><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Stabile Version</span></span>
-<span id="cb1-2"><a></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a><span class="co"># Development Version</span></span>
-<span id="cb1-5"><a></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"beckerbenj/eatGADS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># Stabile Version</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
+<span id="cb1-3"><a aria-label="3"></a></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co"># Development Version</span></span>
+<span id="cb1-5"><a aria-label="5"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"beckerbenj/eatGADS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="ressourcen" class="slide level2">
@@ -328,20 +331,20 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <h2>GADSdat-Objekte</h2>
 <p>Import und Export</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Import von .sav/.dta files</span></span>
-<span id="cb2-2"><a></a>pisa <span class="ot">&lt;-</span> <span class="fu">import_spss</span>(<span class="st">"pisa.sav"</span>)</span>
-<span id="cb2-3"><a></a>pisa <span class="ot">&lt;-</span> <span class="fu">import_stata</span>(<span class="st">"pisa.dat"</span>)</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="co"># Export von .sav/.dta files</span></span>
-<span id="cb2-6"><a></a><span class="fu">write_spss</span>(pisa, <span class="at">filePath =</span> <span class="st">"pisa.sav"</span>)</span>
-<span id="cb2-7"><a></a><span class="fu">write_stata</span>(pisa, <span class="at">filePath =</span> <span class="st">"pisa.dat"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Import von .sav/.dta files</span></span>
+<span id="cb2-2"><a aria-label="2"></a>pisa <span class="ot">&lt;-</span> <span class="fu">import_spss</span>(<span class="st">"pisa.sav"</span>)</span>
+<span id="cb2-3"><a aria-label="3"></a>pisa <span class="ot">&lt;-</span> <span class="fu">import_stata</span>(<span class="st">"pisa.dat"</span>)</span>
+<span id="cb2-4"><a aria-label="4"></a></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="co"># Export von .sav/.dta files</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="fu">write_spss</span>(pisa, <span class="at">filePath =</span> <span class="st">"pisa.sav"</span>)</span>
+<span id="cb2-7"><a aria-label="7"></a><span class="fu">write_stata</span>(pisa, <span class="at">filePath =</span> <span class="st">"pisa.dat"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="variablennamen" class="slide level2">
 <h2>Variablennamen</h2>
 <p>Anzeigen von Variablennamen im Datensatz via <code>namesGADS()</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">namesGADS</span>(pisa)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">namesGADS</span>(pisa)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "idstud"    "idschool"  "idclass"   "schtype"   "sameteach" "g8g9"     
  [7] "ganztag"   "classsize" "repeated"  "gender"   </code></pre>
@@ -352,7 +355,7 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <h2>Meta-Daten</h2>
 <p>Extraktion von Meta-Daten via <code>extractMeta()</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">extractMeta</span>(pisa, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">"idstud"</span>, <span class="st">"schtype"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">extractMeta</span>(pisa, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">"idstud"</span>, <span class="st">"schtype"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  varName     varLabel format display_width labeled value
 2  idstud   Student-ID   F8.0            NA      no    NA
@@ -371,27 +374,27 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <h2>Meta-Daten</h2>
 <p>Änderung von Meta-Daten</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Variablenname</span></span>
-<span id="cb7-2"><a></a>pisa2 <span class="ot">&lt;-</span> <span class="fu">changeVarNames</span>(pisa, <span class="at">oldNames =</span> <span class="st">"idstud"</span>,</span>
-<span id="cb7-3"><a></a>                         <span class="at">newNames =</span> <span class="st">"IDSTUD"</span>)</span>
-<span id="cb7-4"><a></a></span>
-<span id="cb7-5"><a></a><span class="co"># Variablenlabel</span></span>
-<span id="cb7-6"><a></a>pisa2 <span class="ot">&lt;-</span> <span class="fu">changeVarLabels</span>(pisa2, <span class="at">varName =</span> <span class="st">"schtype"</span>,</span>
-<span id="cb7-7"><a></a>                         <span class="at">varLabel =</span> <span class="st">"Schulart"</span>)</span>
-<span id="cb7-8"><a></a></span>
-<span id="cb7-9"><a></a><span class="co"># Wertelabel</span></span>
-<span id="cb7-10"><a></a>pisa2 <span class="ot">&lt;-</span> <span class="fu">changeValLabels</span>(pisa2, <span class="at">varName =</span> <span class="st">"schtype"</span>,</span>
-<span id="cb7-11"><a></a>                         <span class="at">value =</span> <span class="dv">1</span>, <span class="at">valLabel =</span> <span class="st">"Gymnasium"</span>)</span>
-<span id="cb7-12"><a></a></span>
-<span id="cb7-13"><a></a><span class="co"># Missingtag</span></span>
-<span id="cb7-14"><a></a>pisa2 <span class="ot">&lt;-</span> <span class="fu">changeMissings</span>(pisa2, <span class="at">varName =</span> <span class="st">"schtype"</span>,</span>
-<span id="cb7-15"><a></a>                         <span class="at">value =</span> <span class="sc">-</span><span class="dv">99</span>, <span class="at">missings =</span> <span class="st">"miss"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="co"># Variablenname</span></span>
+<span id="cb7-2"><a aria-label="2"></a>pisa2 <span class="ot">&lt;-</span> <span class="fu">changeVarNames</span>(pisa, <span class="at">oldNames =</span> <span class="st">"idstud"</span>,</span>
+<span id="cb7-3"><a aria-label="3"></a>                         <span class="at">newNames =</span> <span class="st">"IDSTUD"</span>)</span>
+<span id="cb7-4"><a aria-label="4"></a></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="co"># Variablenlabel</span></span>
+<span id="cb7-6"><a aria-label="6"></a>pisa2 <span class="ot">&lt;-</span> <span class="fu">changeVarLabels</span>(pisa2, <span class="at">varName =</span> <span class="st">"schtype"</span>,</span>
+<span id="cb7-7"><a aria-label="7"></a>                         <span class="at">varLabel =</span> <span class="st">"Schulart"</span>)</span>
+<span id="cb7-8"><a aria-label="8"></a></span>
+<span id="cb7-9"><a aria-label="9"></a><span class="co"># Wertelabel</span></span>
+<span id="cb7-10"><a aria-label="10"></a>pisa2 <span class="ot">&lt;-</span> <span class="fu">changeValLabels</span>(pisa2, <span class="at">varName =</span> <span class="st">"schtype"</span>,</span>
+<span id="cb7-11"><a aria-label="11"></a>                         <span class="at">value =</span> <span class="dv">1</span>, <span class="at">valLabel =</span> <span class="st">"Gymnasium"</span>)</span>
+<span id="cb7-12"><a aria-label="12"></a></span>
+<span id="cb7-13"><a aria-label="13"></a><span class="co"># Missingtag</span></span>
+<span id="cb7-14"><a aria-label="14"></a>pisa2 <span class="ot">&lt;-</span> <span class="fu">changeMissings</span>(pisa2, <span class="at">varName =</span> <span class="st">"schtype"</span>,</span>
+<span id="cb7-15"><a aria-label="15"></a>                         <span class="at">value =</span> <span class="sc">-</span><span class="dv">99</span>, <span class="at">missings =</span> <span class="st">"miss"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="meta-daten-2" class="slide level2">
 <h2>Meta-Daten</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">extractMeta</span>(pisa2, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">"IDSTUD"</span>, <span class="st">"schtype"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">extractMeta</span>(pisa2, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">"IDSTUD"</span>, <span class="st">"schtype"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  varName   varLabel format display_width labeled value
 1  IDSTUD Student-ID   F8.0            NA      no    NA
@@ -412,25 +415,25 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <h2>Daten</h2>
 <p>Änderung von Daten</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Variable duplizieren</span></span>
-<span id="cb10-2"><a></a>pisa3 <span class="ot">&lt;-</span> <span class="fu">cloneVariable</span>(pisa2, <span class="at">varName =</span> <span class="st">"schtype"</span>,</span>
-<span id="cb10-3"><a></a>                       <span class="at">new_varName =</span> <span class="st">"schtype_dich"</span>)</span>
-<span id="cb10-4"><a></a></span>
-<span id="cb10-5"><a></a><span class="co"># Rekodierung</span></span>
-<span id="cb10-6"><a></a>pisa3 <span class="ot">&lt;-</span> <span class="fu">recodeGADS</span>(pisa3, <span class="at">varName =</span> <span class="st">"schtype_dich"</span>,</span>
-<span id="cb10-7"><a></a>                    <span class="at">oldValues =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb10-8"><a></a>                    <span class="at">newValues =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
-<span id="cb10-9"><a></a>                    <span class="at">existingMeta =</span> <span class="st">"drop"</span>)</span>
-<span id="cb10-10"><a></a></span>
-<span id="cb10-11"><a></a><span class="co"># Anpassung Wertelabel</span></span>
-<span id="cb10-12"><a></a>pisa3 <span class="ot">&lt;-</span> <span class="fu">changeValLabels</span>(pisa3, <span class="at">varName =</span> <span class="st">"schtype_dich"</span>,</span>
-<span id="cb10-13"><a></a>                     <span class="at">value =</span> <span class="dv">2</span>, <span class="at">valLabel =</span> <span class="st">"Nicht-Gymnasium"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="co"># Variable duplizieren</span></span>
+<span id="cb10-2"><a aria-label="2"></a>pisa3 <span class="ot">&lt;-</span> <span class="fu">cloneVariable</span>(pisa2, <span class="at">varName =</span> <span class="st">"schtype"</span>,</span>
+<span id="cb10-3"><a aria-label="3"></a>                       <span class="at">new_varName =</span> <span class="st">"schtype_dich"</span>)</span>
+<span id="cb10-4"><a aria-label="4"></a></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="co"># Rekodierung</span></span>
+<span id="cb10-6"><a aria-label="6"></a>pisa3 <span class="ot">&lt;-</span> <span class="fu">recodeGADS</span>(pisa3, <span class="at">varName =</span> <span class="st">"schtype_dich"</span>,</span>
+<span id="cb10-7"><a aria-label="7"></a>                    <span class="at">oldValues =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb10-8"><a aria-label="8"></a>                    <span class="at">newValues =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb10-9"><a aria-label="9"></a>                    <span class="at">existingMeta =</span> <span class="st">"drop"</span>)</span>
+<span id="cb10-10"><a aria-label="10"></a></span>
+<span id="cb10-11"><a aria-label="11"></a><span class="co"># Anpassung Wertelabel</span></span>
+<span id="cb10-12"><a aria-label="12"></a>pisa3 <span class="ot">&lt;-</span> <span class="fu">changeValLabels</span>(pisa3, <span class="at">varName =</span> <span class="st">"schtype_dich"</span>,</span>
+<span id="cb10-13"><a aria-label="13"></a>                     <span class="at">value =</span> <span class="dv">2</span>, <span class="at">valLabel =</span> <span class="st">"Nicht-Gymnasium"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="daten-1" class="slide level2">
 <h2>Daten</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">extractMeta</span>(pisa3, <span class="at">vars =</span> <span class="st">"schtype_dich"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">extractMeta</span>(pisa3, <span class="at">vars =</span> <span class="st">"schtype_dich"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         varName varLabel format display_width labeled value        valLabel
 467 schtype_dich Schulart   F8.0            NA     yes   -99            &lt;NA&gt;
@@ -449,11 +452,11 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <li>Ladet den Datensatz <code>example_data.sav</code> aus dem <a href="https://github.com/beckerbenj/eatFDZ">eatFDZ</a> Paket (© <a href="https://github.com/ruckeran">Annegret Rucker</a>).</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"beckerbenj/eatFDZ"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"beckerbenj/eatFDZ"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>sav_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="st">"example_data.sav"</span>, <span class="at">package =</span> <span class="st">"eatFDZ"</span>)</span>
-<span id="cb14-2"><a></a>example_gads <span class="ot">&lt;-</span> <span class="fu">import_spss</span>(sav_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>sav_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="st">"example_data.sav"</span>, <span class="at">package =</span> <span class="st">"eatFDZ"</span>)</span>
+<span id="cb14-2"><a aria-label="2"></a>example_gads <span class="ot">&lt;-</span> <span class="fu">import_spss</span>(sav_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Inspiziert die Meta-Daten der Variable <code>"books"</code>.</li>
@@ -583,16 +586,16 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 </ul></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Import SPSS data</span></span>
-<span id="cb15-2"><a></a>aepfel <span class="ot">&lt;-</span> <span class="fu">import_spss</span>(<span class="st">"aepfel.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="co"># Import SPSS data</span></span>
+<span id="cb15-2"><a aria-label="2"></a>aepfel <span class="ot">&lt;-</span> <span class="fu">import_spss</span>(<span class="st">"aepfel.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="variablennamen-3" class="slide level2">
 <h2>Variablennamen</h2>
 <p><strong>Test-Daten</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Display the dataset</span></span>
-<span id="cb16-2"><a></a>aepfel<span class="sc">$</span>dat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="co"># Display the dataset</span></span>
+<span id="cb16-2"><a aria-label="2"></a>aepfel<span class="sc">$</span>dat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID Ä_Größe Ä_Qualität     Ort
 1  1       1          2   unter
@@ -605,7 +608,7 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <h2>Variablennamen</h2>
 <p><strong>Test-Daten</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>aepfel<span class="sc">$</span>labels[, <span class="fu">c</span>(<span class="st">"varName"</span>, <span class="st">"varLabel"</span>, <span class="st">"value"</span>, <span class="st">"valLabel"</span>, <span class="st">"missings"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>aepfel<span class="sc">$</span>labels[, <span class="fu">c</span>(<span class="st">"varName"</span>, <span class="st">"varLabel"</span>, <span class="st">"value"</span>, <span class="st">"valLabel"</span>, <span class="st">"missings"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     varName   varLabel value          valLabel missings
 1         ID Identifier    NA              &lt;NA&gt;     &lt;NA&gt;
@@ -627,16 +630,16 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <li>Vorbeugen von Encoding-Problemen</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Fix encoding issues</span></span>
-<span id="cb20-2"><a></a>aepfel <span class="ot">&lt;-</span> <span class="fu">fixEncoding</span>(aepfel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="co"># Fix encoding issues</span></span>
+<span id="cb20-2"><a aria-label="2"></a>aepfel <span class="ot">&lt;-</span> <span class="fu">fixEncoding</span>(aepfel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="sonderzeichen-1" class="slide level2">
 <h2>Sonderzeichen</h2>
 <p><strong>Umlaute &amp; Sonderzeichen umwandeln</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Display the dataset after fixing encoding</span></span>
-<span id="cb21-2"><a></a>aepfel<span class="sc">$</span>dat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="co"># Display the dataset after fixing encoding</span></span>
+<span id="cb21-2"><a aria-label="2"></a>aepfel<span class="sc">$</span>dat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID Ae_Groesse Ae_Qualitaet      Ort
 1  1          1            2    unter
@@ -649,8 +652,8 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <h2>Sonderzeichen</h2>
 <p><strong>Umlaute &amp; Sonderzeichen umwandeln</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># Display specific columns of the labels data</span></span>
-<span id="cb23-2"><a></a>aepfel<span class="sc">$</span>labels[, <span class="fu">c</span>(<span class="st">"varName"</span>, <span class="st">"varLabel"</span>, <span class="st">"value"</span>, <span class="st">"valLabel"</span>, <span class="st">"missings"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="co"># Display specific columns of the labels data</span></span>
+<span id="cb23-2"><a aria-label="2"></a>aepfel<span class="sc">$</span>labels[, <span class="fu">c</span>(<span class="st">"varName"</span>, <span class="st">"varLabel"</span>, <span class="st">"value"</span>, <span class="st">"valLabel"</span>, <span class="st">"missings"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       varName   varLabel value          valLabel missings
 1           ID Identifier    NA              &lt;NA&gt;     &lt;NA&gt;
@@ -672,8 +675,8 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 </ul>
 <p>→ Reporting und/oder Anpassung</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Check and adjust missing tags</span></span>
-<span id="cb25-2"><a></a>aepfel <span class="ot">&lt;-</span> <span class="fu">checkMissings</span>(aepfel, <span class="at">missingLabel =</span> <span class="st">"Missing|missing"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="co"># Check and adjust missing tags</span></span>
+<span id="cb25-2"><a aria-label="2"></a>aepfel <span class="ot">&lt;-</span> <span class="fu">checkMissings</span>(aepfel, <span class="at">missingLabel =</span> <span class="st">"Missing|missing"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="abgleich-missingtags-1" class="slide level2">
@@ -684,8 +687,8 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 </ul>
 <p>→ Reporting und/oder Anpassung</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># Check and adjust missing tags</span></span>
-<span id="cb26-2"><a></a>aepfel <span class="ot">&lt;-</span> <span class="fu">checkMissingsByValues</span>(aepfel, <span class="at">missingValues =</span> <span class="sc">-</span><span class="dv">50</span><span class="sc">:-</span><span class="dv">99</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="co"># Check and adjust missing tags</span></span>
+<span id="cb26-2"><a aria-label="2"></a>aepfel <span class="ot">&lt;-</span> <span class="fu">checkMissingsByValues</span>(aepfel, <span class="at">missingValues =</span> <span class="sc">-</span><span class="dv">50</span><span class="sc">:-</span><span class="dv">99</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="abgleich-wertelabels" class="slide level2">
@@ -695,8 +698,8 @@ Benjamin Becker, Annika Liebelt &amp; Jule Burblies
 <li>Alle Werte mit Wertelabels auch in Daten?</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Check if all value labels are present in the data</span></span>
-<span id="cb27-2"><a></a><span class="fu">checkEmptyValLabels</span>(aepfel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="co"># Check if all value labels are present in the data</span></span>
+<span id="cb27-2"><a aria-label="2"></a><span class="fu">checkEmptyValLabels</span>(aepfel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$ID
 NULL
@@ -722,8 +725,8 @@ NULL</code></pre>
 <li>Alle Werte in den Daten auch mit Wertelabels?</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Check if all values in the data have value labels for specific variables</span></span>
-<span id="cb29-2"><a></a><span class="fu">checkMissingValLabels</span>(aepfel, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">"Ae_Groesse"</span>, <span class="st">"Ae_Qualitaet"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="co"># Check if all values in the data have value labels for specific variables</span></span>
+<span id="cb29-2"><a aria-label="2"></a><span class="fu">checkMissingValLabels</span>(aepfel, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">"Ae_Groesse"</span>, <span class="st">"Ae_Qualitaet"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Ae_Groesse
 NULL

@@ -6,8 +6,8 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Benjamin Becker">
   <meta name="dcterms.date" content="2024-11-05">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -229,7 +232,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Benjamin Becker 
+Benjamin Becker
 </div>
 </div>
 </div>
@@ -450,22 +453,22 @@ Maximiere \quad  1S + 2D + 3P
 <section id="lösung-mithilfe-von-rglpk" class="slide level2">
 <h2>Lösung mithilfe von Rglpk</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Define objective function</span></span>
-<span id="cb1-2"><a></a>obj <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb1-3"><a></a>max <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># Define constraints</span></span>
-<span id="cb1-6"><a></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">18</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">5</span>)</span>
-<span id="cb1-7"><a></a>dir <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"&lt;="</span>, <span class="st">"&lt;="</span>, <span class="st">"&gt;="</span>, <span class="st">"&gt;="</span>, <span class="st">"&gt;="</span>)</span>
-<span id="cb1-8"><a></a>rhs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">120</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="co"># Define problem type (MIP)</span></span>
-<span id="cb1-11"><a></a>types <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"I"</span>, <span class="st">"I"</span>)</span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="co"># Call solver</span></span>
-<span id="cb1-14"><a></a>Rglpk<span class="sc">::</span><span class="fu">Rglpk_solve_LP</span>(obj, mat, dir, rhs, </span>
-<span id="cb1-15"><a></a>               <span class="at">types =</span> types, <span class="at">max =</span> max, </span>
-<span id="cb1-16"><a></a>               <span class="at">control =</span> <span class="fu">list</span>(<span class="st">"verbose"</span> <span class="ot">=</span> <span class="cn">TRUE</span>, <span class="st">"canonicalize_status"</span> <span class="ot">=</span> <span class="cn">FALSE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># Define objective function</span></span>
+<span id="cb1-2"><a aria-label="2"></a>obj <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb1-3"><a aria-label="3"></a>max <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb1-4"><a aria-label="4"></a></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="co"># Define constraints</span></span>
+<span id="cb1-6"><a aria-label="6"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">18</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">5</span>)</span>
+<span id="cb1-7"><a aria-label="7"></a>dir <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"&lt;="</span>, <span class="st">"&lt;="</span>, <span class="st">"&gt;="</span>, <span class="st">"&gt;="</span>, <span class="st">"&gt;="</span>)</span>
+<span id="cb1-8"><a aria-label="8"></a>rhs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">120</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb1-9"><a aria-label="9"></a></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="co"># Define problem type (MIP)</span></span>
+<span id="cb1-11"><a aria-label="11"></a>types <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"I"</span>, <span class="st">"I"</span>)</span>
+<span id="cb1-12"><a aria-label="12"></a></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="co"># Call solver</span></span>
+<span id="cb1-14"><a aria-label="14"></a>Rglpk<span class="sc">::</span><span class="fu">Rglpk_solve_LP</span>(obj, mat, dir, rhs, </span>
+<span id="cb1-15"><a aria-label="15"></a>               <span class="at">types =</span> types, <span class="at">max =</span> max, </span>
+<span id="cb1-16"><a aria-label="16"></a>               <span class="at">control =</span> <span class="fu">list</span>(<span class="st">"verbose"</span> <span class="ot">=</span> <span class="cn">TRUE</span>, <span class="st">"canonicalize_status"</span> <span class="ot">=</span> <span class="cn">FALSE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="lösung-mithilfe-von-rglpk-1" class="slide level2">
@@ -749,44 +752,44 @@ minimiere \quad y
 <h2>Code: Objective Function</h2>
 <p>Minimiere durchschnittliche Blockzeit</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>Btime <span class="ot">&lt;-</span> <span class="fu">minObjective</span>(</span>
-<span id="cb4-2"><a></a>    <span class="at">nForms =</span> <span class="dv">1</span>, </span>
-<span id="cb4-3"><a></a>    <span class="at">itemValues =</span> items_mini<span class="sc">$</span>time,</span>
-<span id="cb4-4"><a></a>    <span class="at">itemIDs =</span> items_mini<span class="sc">$</span>item</span>
-<span id="cb4-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>Btime <span class="ot">&lt;-</span> <span class="fu">minObjective</span>(</span>
+<span id="cb4-2"><a aria-label="2"></a>    <span class="at">nForms =</span> <span class="dv">1</span>, </span>
+<span id="cb4-3"><a aria-label="3"></a>    <span class="at">itemValues =</span> items_mini<span class="sc">$</span>time,</span>
+<span id="cb4-4"><a aria-label="4"></a>    <span class="at">itemIDs =</span> items_mini<span class="sc">$</span>item</span>
+<span id="cb4-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="code-constraint-1" class="slide level2">
 <h2>Code: Constraint 1</h2>
 <p>Anzahl Items im Block</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>Blength <span class="ot">&lt;-</span> <span class="fu">itemsPerFormConstraint</span>(</span>
-<span id="cb5-2"><a></a>    <span class="at">nForms =</span> <span class="dv">1</span>, </span>
-<span id="cb5-3"><a></a>    <span class="at">operator =</span> <span class="st">"="</span>,</span>
-<span id="cb5-4"><a></a>    <span class="at">targetValue =</span> <span class="dv">10</span>,</span>
-<span id="cb5-5"><a></a>    <span class="at">itemIDs =</span> items_mini<span class="sc">$</span>item</span>
-<span id="cb5-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>Blength <span class="ot">&lt;-</span> <span class="fu">itemsPerFormConstraint</span>(</span>
+<span id="cb5-2"><a aria-label="2"></a>    <span class="at">nForms =</span> <span class="dv">1</span>, </span>
+<span id="cb5-3"><a aria-label="3"></a>    <span class="at">operator =</span> <span class="st">"="</span>,</span>
+<span id="cb5-4"><a aria-label="4"></a>    <span class="at">targetValue =</span> <span class="dv">10</span>,</span>
+<span id="cb5-5"><a aria-label="5"></a>    <span class="at">itemIDs =</span> items_mini<span class="sc">$</span>item</span>
+<span id="cb5-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="code-constraint-2" class="slide level2">
 <h2>Code: Constraint 2</h2>
 <p>Itemformate</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>Bcat <span class="ot">&lt;-</span> <span class="fu">itemCategoryConstraint</span>(</span>
-<span id="cb6-2"><a></a>  <span class="at">nForms =</span> <span class="dv">1</span>, </span>
-<span id="cb6-3"><a></a>  <span class="fu">as.factor</span>(items_mini<span class="sc">$</span>format),</span>
-<span id="cb6-4"><a></a>  <span class="at">targetValues =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
-<span id="cb6-5"><a></a>  <span class="at">itemIDs =</span> items_mini<span class="sc">$</span>item)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>Bcat <span class="ot">&lt;-</span> <span class="fu">itemCategoryConstraint</span>(</span>
+<span id="cb6-2"><a aria-label="2"></a>  <span class="at">nForms =</span> <span class="dv">1</span>, </span>
+<span id="cb6-3"><a aria-label="3"></a>  <span class="fu">as.factor</span>(items_mini<span class="sc">$</span>format),</span>
+<span id="cb6-4"><a aria-label="4"></a>  <span class="at">targetValues =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb6-5"><a aria-label="5"></a>  <span class="at">itemIDs =</span> items_mini<span class="sc">$</span>item)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="code-solver-call" class="slide level2">
 <h2>Code: Solver Call</h2>
 <p>Solver Call</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>solver_out <span class="ot">&lt;-</span> <span class="fu">useSolver</span>(</span>
-<span id="cb7-2"><a></a>    <span class="fu">list</span>(Btime, Blength, Bcat),</span>
-<span id="cb7-3"><a></a>    <span class="at">solver =</span> <span class="st">"GLPK"</span></span>
-<span id="cb7-4"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>solver_out <span class="ot">&lt;-</span> <span class="fu">useSolver</span>(</span>
+<span id="cb7-2"><a aria-label="2"></a>    <span class="fu">list</span>(Btime, Blength, Bcat),</span>
+<span id="cb7-3"><a aria-label="3"></a>    <span class="at">solver =</span> <span class="st">"GLPK"</span></span>
+<span id="cb7-4"><a aria-label="4"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GLPK Simplex Optimizer 5.0
 5 rows, 31 columns, 91 non-zeros
@@ -810,11 +813,11 @@ INTEGER OPTIMAL SOLUTION FOUND</code></pre>
 <h2>Code: Inspect Solution</h2>
 <p>Zusammengestellten Block inspizieren</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">inspectSolution</span>(</span>
-<span id="cb9-2"><a></a>    solver_out, </span>
-<span id="cb9-3"><a></a>    <span class="at">items =</span> items_mini, </span>
-<span id="cb9-4"><a></a>    <span class="at">idCol =</span> <span class="st">"item"</span></span>
-<span id="cb9-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">inspectSolution</span>(</span>
+<span id="cb9-2"><a aria-label="2"></a>    solver_out, </span>
+<span id="cb9-3"><a aria-label="3"></a>    <span class="at">items =</span> items_mini, </span>
+<span id="cb9-4"><a aria-label="4"></a>    <span class="at">idCol =</span> <span class="st">"item"</span></span>
+<span id="cb9-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$form_1
     item format      time difficulty
@@ -836,12 +839,12 @@ Sum  148   &lt;NA&gt; 275.85485  1.8277985</code></pre>
 <h2>Code: Append Solution</h2>
 <p>Blockbesetzung zu Itempool hinzufügen</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>item_mini_out <span class="ot">&lt;-</span> <span class="fu">appendSolution</span>(</span>
-<span id="cb11-2"><a></a>    solver_out, </span>
-<span id="cb11-3"><a></a>    <span class="at">items =</span> items_mini, </span>
-<span id="cb11-4"><a></a>    <span class="at">idCol =</span> <span class="st">"item"</span></span>
-<span id="cb11-5"><a></a>)</span>
-<span id="cb11-6"><a></a>item_mini_out[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>item_mini_out <span class="ot">&lt;-</span> <span class="fu">appendSolution</span>(</span>
+<span id="cb11-2"><a aria-label="2"></a>    solver_out, </span>
+<span id="cb11-3"><a aria-label="3"></a>    <span class="at">items =</span> items_mini, </span>
+<span id="cb11-4"><a aria-label="4"></a>    <span class="at">idCol =</span> <span class="st">"item"</span></span>
+<span id="cb11-5"><a aria-label="5"></a>)</span>
+<span id="cb11-6"><a aria-label="6"></a>item_mini_out[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   item format     time difficulty form_1
 1     1     mc 27.78586 -1.8809028      0
@@ -1023,11 +1026,11 @@ Spaccapanico Proietti, G., Matteucci, M., &amp; Mignani, S. (2020). Automated te
 <h2>Code: Item Inclusions (Input)</h2>
 <p>Input: Spalte mit Gruppierung</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>incluTup <span class="ot">&lt;-</span> <span class="fu">stemInclusionTuples</span>(</span>
-<span id="cb13-2"><a></a>    items_lsa, </span>
-<span id="cb13-3"><a></a>    <span class="at">idCol =</span> <span class="st">"item"</span>, </span>
-<span id="cb13-4"><a></a>    <span class="at">stemCol =</span> <span class="st">"testlet"</span></span>
-<span id="cb13-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>incluTup <span class="ot">&lt;-</span> <span class="fu">stemInclusionTuples</span>(</span>
+<span id="cb13-2"><a aria-label="2"></a>    items_lsa, </span>
+<span id="cb13-3"><a aria-label="3"></a>    <span class="at">idCol =</span> <span class="st">"item"</span>, </span>
+<span id="cb13-4"><a aria-label="4"></a>    <span class="at">stemCol =</span> <span class="st">"testlet"</span></span>
+<span id="cb13-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Output: Inclusion Tuples</p>
 </section>
@@ -1035,23 +1038,23 @@ Spaccapanico Proietti, G., Matteucci, M., &amp; Mignani, S. (2020). Automated te
 <h2>Code: Item Inclusions (Constraints)</h2>
 <p>Erstellung von Inclusion Constraints</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>incluCons <span class="ot">&lt;-</span> <span class="fu">itemInclusionConstraint</span>(</span>
-<span id="cb14-2"><a></a>    <span class="at">nForms =</span> <span class="dv">8</span>,  </span>
-<span id="cb14-3"><a></a>    <span class="at">itemTuples =</span> incluTup,</span>
-<span id="cb14-4"><a></a>    <span class="at">itemIDs =</span> items_lsa<span class="sc">$</span>item</span>
-<span id="cb14-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>incluCons <span class="ot">&lt;-</span> <span class="fu">itemInclusionConstraint</span>(</span>
+<span id="cb14-2"><a aria-label="2"></a>    <span class="at">nForms =</span> <span class="dv">8</span>,  </span>
+<span id="cb14-3"><a aria-label="3"></a>    <span class="at">itemTuples =</span> incluTup,</span>
+<span id="cb14-4"><a aria-label="4"></a>    <span class="at">itemIDs =</span> items_lsa<span class="sc">$</span>item</span>
+<span id="cb14-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="code-item-exclusions-input" class="slide level2">
 <h2>Code: Item Exclusions (Input)</h2>
 <p>Input: Spalte mit Exclusion-Listung</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>exclusionTuples <span class="ot">&lt;-</span> <span class="fu">itemTuples</span>(</span>
-<span id="cb15-2"><a></a>    items_pilot, </span>
-<span id="cb15-3"><a></a>    <span class="at">idCol =</span> <span class="st">"item"</span>,</span>
-<span id="cb15-4"><a></a>    <span class="at">infoCol =</span> <span class="st">"exclusions"</span>, </span>
-<span id="cb15-5"><a></a>    <span class="at">sepPattern =</span> <span class="st">", "</span></span>
-<span id="cb15-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a>exclusionTuples <span class="ot">&lt;-</span> <span class="fu">itemTuples</span>(</span>
+<span id="cb15-2"><a aria-label="2"></a>    items_pilot, </span>
+<span id="cb15-3"><a aria-label="3"></a>    <span class="at">idCol =</span> <span class="st">"item"</span>,</span>
+<span id="cb15-4"><a aria-label="4"></a>    <span class="at">infoCol =</span> <span class="st">"exclusions"</span>, </span>
+<span id="cb15-5"><a aria-label="5"></a>    <span class="at">sepPattern =</span> <span class="st">", "</span></span>
+<span id="cb15-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Output: Exclusion Tuples</p>
 </section>
@@ -1059,11 +1062,11 @@ Spaccapanico Proietti, G., Matteucci, M., &amp; Mignani, S. (2020). Automated te
 <h2>Code: Item Exclusions (Constraints)</h2>
 <p>Erstellung von Exclusion COnstraints</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>excl_constraints <span class="ot">&lt;-</span> <span class="fu">itemExclusionConstraint</span>(</span>
-<span id="cb16-2"><a></a>    <span class="at">nForms =</span> nForms,</span>
-<span id="cb16-3"><a></a>    <span class="at">itemTuples =</span> exclusionTuples, </span>
-<span id="cb16-4"><a></a>    <span class="at">itemIDs =</span> items_pilot<span class="sc">$</span>item</span>
-<span id="cb16-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>excl_constraints <span class="ot">&lt;-</span> <span class="fu">itemExclusionConstraint</span>(</span>
+<span id="cb16-2"><a aria-label="2"></a>    <span class="at">nForms =</span> nForms,</span>
+<span id="cb16-3"><a aria-label="3"></a>    <span class="at">itemTuples =</span> exclusionTuples, </span>
+<span id="cb16-4"><a aria-label="4"></a>    <span class="at">itemIDs =</span> items_pilot<span class="sc">$</span>item</span>
+<span id="cb16-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

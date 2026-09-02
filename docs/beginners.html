@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,14 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b9fe78ea93b756c96d449b81309ae26e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-bb08e0bd33a4b63ac65145b4909aed57.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b9fe78ea93b756c96d449b81309ae26e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-72fbe801093701208b35200447855999.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-28dd3644dcb551fd094c1991fbfbb236.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-72fbe801093701208b35200447855999.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -389,7 +392,7 @@ window.Quarto = {
 
 
 <p><img src="./images/sapling.jpg" class="img-fluid"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Welcome to our beginners learn page. Here you can find material, links and articles to start you R journey.</p>
+<p>Welcome to our beginners learn page. Here you can find material, links and articles to start your R journey.</p>
 <section id="r-introduction" class="level2">
 <h2 class="anchored" data-anchor-id="r-introduction">R Introduction</h2>
 <p>An introduction to R with hands on examples and exercises can be found in <a href="https://nickhaf.github.io/r_tutorial/">Introduction to R</a>.</p>
@@ -430,7 +433,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2RhdGElMjBtYW5pcHVsYXRpb24lMkNSLVNJRyUyQ3R1dG9yaWFs" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1784103534819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886">
+<div class="quarto-post image-right" data-index="0" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ2RhdGElMjBtYW5pcHVsYXRpb24lMkNSLVNJRyUyQ3R1dG9yaWFs" data-listing-date-sort="1702857600000" data-listing-file-modified-sort="1788345832362" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886">
 <div class="thumbnail"><a href="../docs/r_sig/23_12_18_case_when/index.html" class="no-external">
 
 <img loading="lazy" src="../docs/r_sig/23_12_18_case_when/case_when.jpg" class="thumbnail-image">
@@ -468,7 +471,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="UiUyQ3R1dG9yaWFs" data-listing-file-modified-sort="1784103534560" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
+<div class="quarto-post image-right" data-index="1" data-categories="UiUyQ3R1dG9yaWFs" data-listing-file-modified-sort="1788345832107" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
 <div class="thumbnail"><a href="../docs/R_tutorials/R_ws2.html" class="no-external">
 
 <img loading="lazy" src="../docs/R_tutorials/images/einführung.jpg" class="thumbnail-image">
@@ -497,7 +500,7 @@ Karoline Sachse, Sebastian Weirich und Benjamin Becker
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkNzbGlkZXMlMkNpbnRybw==" data-listing-file-modified-sort="1784103534618" data-listing-reading-time-sort="12" data-listing-word-count-sort="2242">
+<div class="quarto-post image-right" data-index="2" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkNzbGlkZXMlMkNpbnRybw==" data-listing-file-modified-sort="1788345832159" data-listing-reading-time-sort="12" data-listing-word-count-sort="2242">
 <div class="thumbnail"><a href="../docs/git/github_workshop/github_intro_slides.html" class="no-external">
 
 <img loading="lazy" src="../docs/git/github_workshop/images/github.jpg" class="thumbnail-image">
@@ -530,7 +533,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDaW50cm8=" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1784103534821" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231">
+<div class="quarto-post image-right" data-index="3" data-categories="UiUyQ3RpZHl2ZXJzZSUyQ1ItU0lHJTJDaW50cm8=" data-listing-date-sort="1708905600000" data-listing-file-modified-sort="1788345832362" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1231">
 <div class="thumbnail"><a href="../docs/r_sig/24_01_26_tidyverse_intro/index.html" class="no-external">
 
 <img loading="lazy" src="../docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" class="thumbnail-image">
@@ -566,7 +569,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="UiUyQ3R1dG9yaWFs" data-listing-file-modified-sort="1784103534560" data-listing-reading-time-sort="6" data-listing-word-count-sort="1029">
+<div class="quarto-post image-right" data-index="4" data-categories="UiUyQ3R1dG9yaWFs" data-listing-file-modified-sort="1788345832107" data-listing-reading-time-sort="6" data-listing-word-count-sort="1029">
 <div class="thumbnail"><a href="../docs/R_tutorials/R_ws3.html" class="no-external">
 
 <img loading="lazy" src="../docs/R_tutorials/images/einführung.jpg" class="thumbnail-image">
@@ -595,7 +598,7 @@ Benjamin Becker, Karoline Sachse und Sebastian Weirich
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkN3b3JrZmxvdyUyQ2dpdCUyQ1IlMkNpbnRybw==" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1784103534618" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
+<div class="quarto-post image-right" data-index="5" data-categories="Z2l0aHViJTJDdHV0b3JpYWwlMkN3b3JrZmxvdyUyQ2dpdCUyQ1IlMkNpbnRybw==" data-listing-date-sort="1705017600000" data-listing-file-modified-sort="1788345832159" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
 <div class="thumbnail"><a href="../docs/git/github_pullrequests.html" class="no-external">
 
 <img loading="lazy" src="../docs/git/github.jpg" class="thumbnail-image">
@@ -635,7 +638,7 @@ Sebastian Weirich
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="UiUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-file-modified-sort="1784103534560" data-listing-reading-time-sort="19" data-listing-word-count-sort="3665">
+<div class="quarto-post image-right" data-index="6" data-categories="UiUyQ3R1dG9yaWFsJTJDaW50cm8=" data-listing-file-modified-sort="1788345832107" data-listing-reading-time-sort="19" data-listing-word-count-sort="3665">
 <div class="thumbnail"><a href="../docs/R_tutorials/R_ws1.html" class="no-external">
 
 <img loading="lazy" src="../docs/R_tutorials/images/einführung.jpg" class="thumbnail-image">
@@ -666,7 +669,7 @@ Sebastian Weirich, Karoline Sachse und Benjamin Becker
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkN0dXRvcmlhbA==" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1784103534788" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691">
+<div class="quarto-post image-right" data-index="7" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkN0dXRvcmlhbA==" data-listing-date-sort="1690761600000" data-listing-file-modified-sort="1788345832330" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="691">
 <div class="thumbnail"><a href="../docs/r_sig/23_07_31_apply/index.html" class="no-external">
 
 <img loading="lazy" src="../docs/r_sig/23_07_31_apply/apply_family.jpg" class="thumbnail-image">
@@ -702,7 +705,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3F1YXJ0byUyQ3JlbnYlMkN0dXRvcmlhbCUyQ2ludHJv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1784103534777" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
+<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3F1YXJ0byUyQ3JlbnYlMkN0dXRvcmlhbCUyQ2ludHJv" data-listing-date-sort="1702771200000" data-listing-file-modified-sort="1788345832319" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="986">
 <div class="thumbnail"><a href="../docs/quarto/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="quarto/my_image.jpg"  class="thumbnail-image card-img"/></p>
@@ -740,7 +743,7 @@ Nicklas Hafiz
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkNpbnRybyUyQ3R1dG9yaWFs" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1784103534784" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26">
+<div class="quarto-post image-right" data-index="9" data-categories="UiUyQ1ItU0lHJTJDbG9vcHMlMkNpbnRybyUyQ3R1dG9yaWFs" data-listing-date-sort="1679270400000" data-listing-file-modified-sort="1788345832325" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26">
 <div class="thumbnail"><a href="../docs/r_sig/23_03_20_forloops/index.html" class="no-external">
 
 <img loading="lazy" src="../docs/r_sig/23_03_20_forloops/preview_image.jpg" class="thumbnail-image">

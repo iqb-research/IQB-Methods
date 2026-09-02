@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Eva Crone">
+<meta name="dcterms.date" content="2026-08-27">
+
+<title>Anleitung zur Anlage einer Partial-Credit-Kodierung – IQB Methods Team</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-72fbe801093701208b35200447855999.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-28dd3644dcb551fd094c1991fbfbb236.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-72fbe801093701208b35200447855999.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Anleitung zur Anlage einer Partial-Credit-Kodierung – IQB Methods Team">
+<meta property="og:image" content="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image1.png">
+<meta property="og:site_name" content="IQB Methods Team">
+<meta property="og:image:height" content="525">
+<meta property="og:image:width" content="1388">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">IQB Methods Team</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts_eat.html"> 
+<span class="menu-text">eat Packages</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts_learn.html"> 
+<span class="menu-text">learn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts_newsletter.html"> 
+<span class="menu-text">Newsletter</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts_help.html"> 
+<span class="menu-text">help</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#anleitung-partial-credit-kodierung" id="toc-anleitung-partial-credit-kodierung" class="nav-link active" data-scroll-target="#anleitung-partial-credit-kodierung"><strong>Anleitung Partial-Credit Kodierung</strong></a>
+  <ul class="collapse">
+  <li><a href="#einführung" id="toc-einführung" class="nav-link" data-scroll-target="#einführung">Einführung</a></li>
+  <li><a href="#übersicht" id="toc-übersicht" class="nav-link" data-scroll-target="#übersicht"><strong>Übersicht</strong></a></li>
+  </ul></li>
+  <li><a href="#deutsch-primar-dep" id="toc-deutsch-primar-dep" class="nav-link" data-scroll-target="#deutsch-primar-dep">1. Deutsch Primar (DeP)</a>
+  <ul class="collapse">
+  <li><a href="#complex-multiple-choice-cmc-5x2" id="toc-complex-multiple-choice-cmc-5x2" class="nav-link" data-scroll-target="#complex-multiple-choice-cmc-5x2">1.1 Complex Multiple Choice (CMC 5x2)</a></li>
+  <li><a href="#complex-multiple-choice-cmc-6x2" id="toc-complex-multiple-choice-cmc-6x2" class="nav-link" data-scroll-target="#complex-multiple-choice-cmc-6x2"><strong>1.2. Complex Multiple Choice (CMC 6x2)</strong></a></li>
+  <li><a href="#zuordnen-variante-1" id="toc-zuordnen-variante-1" class="nav-link" data-scroll-target="#zuordnen-variante-1"><strong>1.3. Zuordnen (Variante 1)</strong></a></li>
+  <li><a href="#zuordnen-variante-2" id="toc-zuordnen-variante-2" class="nav-link" data-scroll-target="#zuordnen-variante-2"><strong>1.4. Zuordnen (Variante 2)</strong></a></li>
+  <li><a href="#verbale-kurzantwort-variante-1" id="toc-verbale-kurzantwort-variante-1" class="nav-link" data-scroll-target="#verbale-kurzantwort-variante-1"><strong>1.5. Verbale Kurzantwort (Variante 1)</strong></a></li>
+  <li><a href="#verbale-kurzantwort-variante-2" id="toc-verbale-kurzantwort-variante-2" class="nav-link" data-scroll-target="#verbale-kurzantwort-variante-2"><strong>1.6. Verbale Kurzantwort (Variante 2)</strong></a></li>
+  </ul></li>
+  <li><a href="#mathe-primar-map" id="toc-mathe-primar-map" class="nav-link" data-scroll-target="#mathe-primar-map"><strong>2. Mathe Primar (MaP)</strong></a>
+  <ul class="collapse">
+  <li><a href="#langantwort" id="toc-langantwort" class="nav-link" data-scroll-target="#langantwort"><strong>2.1. Langantwort</strong></a></li>
+  <li><a href="#mc-und-langantwort" id="toc-mc-und-langantwort" class="nav-link" data-scroll-target="#mc-und-langantwort"><strong>2.2. MC und Langantwort</strong></a></li>
+  <li><a href="#numerische-kurzantwort" id="toc-numerische-kurzantwort" class="nav-link" data-scroll-target="#numerische-kurzantwort"><strong>2.3. Numerische Kurzantwort</strong></a></li>
+  <li><a href="#complex-multiple-choice" id="toc-complex-multiple-choice" class="nav-link" data-scroll-target="#complex-multiple-choice"><strong>2.4. Complex Multiple Choice</strong></a></li>
+  <li><a href="#zuordnen-variante-1-1" id="toc-zuordnen-variante-1-1" class="nav-link" data-scroll-target="#zuordnen-variante-1-1"><strong>2.5. Zuordnen (Variante 1)</strong></a></li>
+  <li><a href="#zuordnen-variante-2-1" id="toc-zuordnen-variante-2-1" class="nav-link" data-scroll-target="#zuordnen-variante-2-1"><strong>2.6. Zuordnen (Variante 2)</strong></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/studio/partial_credit.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Anleitung zur Anlage einer Partial-Credit-Kodierung</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">studio</div>
+    <div class="quarto-category">tutorial</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Eva Crone </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 27, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="anleitung-partial-credit-kodierung" class="level1">
+<h1><strong>Anleitung Partial-Credit Kodierung</strong></h1>
+<section id="einführung" class="level2">
+<h2 class="anchored" data-anchor-id="einführung">Einführung</h2>
+<p>Diese Anleitung beschreibt die Anlage von <strong>Partial-Credit-Kodierungen in Studio</strong> anhand von Beispielaufgaben aus <strong>Deutsch und Mathematik Primar</strong>. Dabei werden die unterschiedlichen <strong>Itemformate</strong> und die jeweiligen Schritte zur Umsetzung im IQB-Studio ausführlich erläutert.</p>
+</section>
+<section id="übersicht" class="level2">
+<h2 class="anchored" data-anchor-id="übersicht"><strong>Übersicht</strong></h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 33%">
+<col style="width: 53%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Fach</strong></th>
+<th><strong>Itemformat</strong></th>
+<th><strong>PC-Prinzip</strong></th>
+<th><strong>Bewertung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>DeP</strong></td>
+<td><p><strong>Complex Multiple Choice</strong></p>
+<p>5 Zeilen x 2 Antwortoptionen</p></td>
+<td><strong>Elementweise:</strong> FC= 2 (Alle 5 Antworten korrekt); PC = 1 (4 von 5 Antworten korrekt); No Credit (0,1,2 oder 3 von 5 Antworten korrekt)</td>
+<td><strong>0-0-0-0-1-2</strong></td>
+</tr>
+<tr class="even">
+<td><strong>DeP</strong></td>
+<td><p><strong>Complex Multiple Choice</strong></p>
+<p>6 (oder mehr) Zeilen x 2 Antwortoptionen</p></td>
+<td><strong>Elementweise:</strong> FC= 2 (Alle 6 Antworten korrekt); PC = 1 (4 oder 5 von 6 Antworten korrekt); No Credit (0,1,2 oder 3 von 6 Antworten korrekt)</td>
+<td><strong>0–0–0–0–1–1–2</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>DeP</strong></td>
+<td><p><strong>Zuordnen – V1</strong></p>
+<p>9 Elemente x 4 Ablegelisten (mehrere Elemente-pro Ablegeliste , mind. 1 Element bleibt übrig)</p></td>
+<td><strong>Zeilenweise:</strong> Für jede korrekte Zuordnung 1 Credit: No Credit (0 von 4 Zuordnungen sind korrekt)</td>
+<td><strong>0–1–2–3–4</strong></td>
+</tr>
+<tr class="even">
+<td><strong>DeP</strong></td>
+<td><p><strong>Zuordnen – V2</strong></p>
+<p>6 Elemente x 5 Ablegelisten (mind. 1 Element bleibt übrig)</p></td>
+<td><strong>Elementweise:</strong> mit FC = 2 (Alle Antworten korrekt); PC = 1 (Alle Antworten -1 korrekt); No Credit (0,1,2 oder 3 von 5 Antworten korrekt)</td>
+<td><strong>0–0–0–0–1–2</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>DeP</strong></td>
+<td><p><strong>Verbale Kurzantwort – V1</strong></p>
+<p>3 Eingabefeldern</p></td>
+<td><strong>Elementweise:</strong> Für jede korrekte Eingabe erhält SuS 1 Credit; FC = 3 (Alle Antworten korrekt), PC = 2 (2 von 3 korrekt); PC = 1 (1 von 3 korrekt). No Credit für 0 von 3 korrekt.</td>
+<td><strong>0–1–2–3</strong></td>
+</tr>
+<tr class="even">
+<td><strong>DeP</strong></td>
+<td><p><strong>Verbale Kurzantwort – V2</strong></p>
+<p>2 Eingabefelder (Einzigartigkeitsprüfung)</p></td>
+<td><strong>Elementweise</strong> Für jede korrekte Eingabe erhält SuS 1 Credit; FC = 2 (Alle Antworten korrekt), PC = 1 (1 von 2 korrekt oder 1 doppelt).</td>
+<td><strong>0–1–2</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>MaP</strong></td>
+<td><p><strong>Langantwort</strong></p>
+<p>1 Eingabefeld</p></td>
+<td><strong>Inhaltlich</strong> Bei korrekter Antwort erhält SuS 2 Credits, bei teilweise-korrekter Antwort erhält SuS 1 Credit</td>
+<td><strong>0–1–2</strong></td>
+</tr>
+<tr class="even">
+<td><strong>MaP</strong></td>
+<td><strong>MC und Langantwort</strong></td>
+<td><strong>Inhaltlich</strong> Bei korrekter MC-Auswahl UND korrekter Langantwort erhält SuS 2 Credits, bei korrekter MC-Auswahl UND teilweise-korrekter Langantwort erhält SuS 1 Credit. Bei falscher MC-Auswahl = No Credit. Bei korrekter MC-Auswahl UND falscher Langantwort = No Credit</td>
+<td><strong>0-1-2</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>MaP</strong></td>
+<td><p><strong>Numerische Kurzantwort</strong></p>
+<p>Mind. 3 Eingabefelder</p></td>
+<td><strong>Elementweise:</strong> FC= 2 (Alle Antworten korrekt) und PC = 1 (Alle Antworten -1 korrekt)</td>
+<td><strong>0–0–1–2</strong> (Hier: für 3 Eingabefelder)</td>
+</tr>
+<tr class="even">
+<td><strong>MaP</strong></td>
+<td><p><strong>Complex Multiple Choice</strong></p>
+<p>5 Zeilen x 2 Antwortoptionen</p></td>
+<td><strong>Elementweise:</strong> FC= 2 (Alle 5 Antworten korrekt); PC = 1 (4 von 5 Antworten korrekt); No Credit (0,1,2,3 von 5 Antworten korrekt)</td>
+<td><strong>0-0-0-0-1-2</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>MaP</strong></td>
+<td><p><strong>Zuordnen – V1</strong></p>
+<p>Unendliche viele Elemente (Einstellung „Element kopieren”) × 4 Ablegelisten (mind. 1 Element bleibt übrig)</p></td>
+<td><strong>Elementweise</strong> FC= 2 (Alle Antworten korrekt) und PC = 1 (Alle Antworten -1 korrekt)</td>
+<td><strong>0–0–0–1–2</strong></td>
+</tr>
+<tr class="even">
+<td><strong>MaP</strong></td>
+<td><p><strong>Zuordnen – V2</strong></p>
+<p>Unendliche viele Elemente (Einstellung „Element kopieren”) × 9 Ablegelisten; Zuordnungskombinationen, Reihenfolge der Elemente UND zeilenweise Einzigartigkeit relevant</p></td>
+<td><strong>Zeilenweise:</strong> FC= 2 (Alle Antworten korrekt) und PC = 1 (Alle Antworten -1 korrekt)</td>
+<td><strong>0–0–1–2</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>DeS</strong></td>
+<td><p><strong>Breites Complex Multiple Choice</strong></p>
+<p>7 Zeilen x 4 Antwortoptionen</p></td>
+<td><mark><strong>Elementweise FC =</strong></mark></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>FC = Full Credit</p>
+<p>PC = Partial Credit</p>
+<p>DeP = Deutsch Primar</p>
+<p>MaP = Mathe Primar</p>
+<p>DeS = Deutsch Sekundar</p>
+<p>V1 = Variante 1</p>
+<p>V2 = Variante 2</p>
+</section>
+</section>
+<section id="deutsch-primar-dep" class="level1">
+<h1>1. Deutsch Primar (DeP)</h1>
+<section id="complex-multiple-choice-cmc-5x2" class="level2">
+<h2 class="anchored" data-anchor-id="complex-multiple-choice-cmc-5x2">1.1 Complex Multiple Choice (CMC 5x2)</h2>
+<p><strong>Beispielaufgabe:</strong> Prototypische Aufgabe „Bildergalerie”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149210/preview" class="uri">https://iqb-studio.de/#/a/1329/149210/preview</a></p>
+<p><strong>Itemformat:</strong> CMC mit 5 Zeilen x 2 Antwortoptionen</p>
+<p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4-5</p>
+<p><img src="media/media/image1.png" style="width:6.30208in;height:2.38542in"><strong>Bewertung:</strong> 0-0-0-0-1-2. (FC= 2 (Alle 5 Antworten korrekt); PC = 1 (4 von 5 Antworten korrekt); No Credit (0,1,2 oder 3 von 5 Antworten korrekt)</p>
+<p><img src="media/media/image2.png" style="width:6.30208in;height:1.95833in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d, 01e</strong></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
+<p><strong>Schritt 2:</strong> Mit Zauberstab die richtig Antwortoption (1 = „stimmt”, 2 = „stimmt nicht”) auswählen (s. Allgemeine Hinweise für Kodieranweisung).</p>
+<p>Rotes Kreuz für „falsch-AUTOMATISCH wird mit Zauberstab automatisch hinzugefügt.</p>
+<p>Diese Schritte für alle Basisvariablen wiederholen.</p>
+<p><strong>Geschlossene Kodierung der Abgeleiteten Variable 01</strong></p>
+<p><img src="media/media/image3.png" style="width:6.29167in;height:2.61458in"><strong>Schritt 1</strong>: <em>Basis-/ Ableitungsparameter</em> auswählen: Ableitungsmethode: Bewertung summieren. Quell-Variablen auswählen: 01a, 01b, 01c, 01d, 01e (alle Basisvariablen des Items)</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei Numerische Übereinstimmung maximale Basisvariablen-Anzahl eintragen (hier = 5). Oben rechts Bewertung = 2 auswählen.</p>
+<ul>
+<li><em>Code 1: 5 von 5 Antworten korrekt (2 Credits)</em></li>
+</ul>
+<p><strong>Schritt 3:</strong> Einen Teilweise-Richtig-Code (Ein grüner Haken) anlegen. Code 2. Bei <em>Numerische Übereinstimmung</em> entsprechend korrekte Anzahl an Antworten für PC Schema eintragen (Hier = 4). Oben rechts Bewertung auswählen (Hier = 1)</p>
+<ul>
+<li><em>Code 2:</em> 4 von 5 Antworten korrekt (1 Credit)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen. Dieser Falsch-Code wertet alle Antworten mit 0, wenn keine, eine, zwei oder drei CMC-Option(en) korrekt ist/sind.</p>
+<ul>
+<li><em>Falsch Code:</em> 0 oder 1, 2 oder 3 korrekte Antwort(en) (0 Credits)</li>
+</ul>
+</section>
+<section id="complex-multiple-choice-cmc-6x2" class="level2">
+<h2 class="anchored" data-anchor-id="complex-multiple-choice-cmc-6x2"><strong>1.2. Complex Multiple Choice (CMC 6x2)</strong></h2>
+<p><strong>Beispielaufgabe:</strong> Prototypische Aufgabe „CMC_6x2”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/%23/a/1329/149325/preview">https://iqb-studio.de/#/a/1329/149325/preview</a></p>
+<p><strong>Itemformat:</strong> CMC mit 6 Zeilen x 2 Antwortoptionen</p>
+<p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4-5-6</p>
+<p><strong>Bewertung:</strong> 0-0-0-0-1-1-2. (FC= 2 (Alle 6 Antworten korrekt); PC = 1 (4 oder 5 von 6 Antworten korrekt); No Credit (0,1,2 oder 3 von 6 Antworten korrekt)</p>
+<p><img src="media/media/image4.png" style="width:6.3in;height:1.95139in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d, 01e, 01f</strong></p>
+<p><img src="media/media/image5.png" style="width:6.3in;height:2.04583in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
+<p><strong>Schritt 2:</strong> Mit Zauberstab die richtig Antwortoption (1 = „stimmt”, 2 = „stimmt nicht”) auswählen (s. Allgemeine Hinweise für Kodieranweisung)</p>
+<p>Rotes Kreuz für „falsch-AUTOMATISCH wird mit Zauberstab automatisch hinzugefügt.</p>
+<p>Diese Schritte für alle Basisvariablen wiederholen.</p>
+<p><strong>Geschlossene Kodierung der Abgeleiteten Variable 01</strong></p>
+<p><img src="media/media/image6.png" style="width:6.3in;height:2.63333in"></p>
+<p><strong>Schritt 1</strong>: <em>Basis-/ Ableitungsparameter</em> auswählen: Ableitungsmethode: Bewertung summieren. Quell-Variablen auswählen: 01a, 01b, 01c, 01d, 01e (alle Basisvariablen des Items)</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei Numerische Übereinstimmung maximale Basisvariablen-Anzahl eintragen (hier = 6). Oben rechts Bewertung = 2 auswählen.</p>
+<ul>
+<li><em>Code 1:</em> 6 von 6 Antworten korrekt (2 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Einen Teilweise-Richtig-Code (Ein grüner Haken) anlegen. Code 2. Bei <em>Numerische Übereinstimmung</em> entsprechend korrekte Anzahl an Antworten für PC Schema eintragen (Hier = 4 und 5). Oben rechts Bewertung auswählen (Hier = 1)</p>
+<ul>
+<li><em>Code 2:</em> 4 oder 5 Antworten korrekt (1 Credit)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen. Dieser Falsch-Code wertet alle Antworten mit 0, wenn keine, eine, zwei oder drei CMC-Option(en) korrekt ist/sind.</p>
+<ul>
+<li><em>Falsch Code:</em> 0 oder 1, 2 oder 3 korrekte Antwort(en). Bewertung = 0.</li>
+</ul>
+</section>
+<section id="zuordnen-variante-1" class="level2">
+<h2 class="anchored" data-anchor-id="zuordnen-variante-1"><strong>1.3. Zuordnen (Variante 1)</strong></h2>
+<p><strong>Anmerkung:</strong> mehrere Elemente-pro Ablegeliste mind. 1 Element bleibt übrig</p>
+<p><strong>Beispielaufgabe:</strong> Prototypische Aufgabe „Internetseite” Item 03</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149211/preview" class="uri">https://iqb-studio.de/#/a/1329/149211/preview</a></p>
+<p><strong>Itemformat:</strong> Zuordnen mit 9 Elementen x 4 Ablegelisten</p>
+<p><strong>Partial Credit Prinzip:</strong> zeilenweise 0-1-2-3-4</p>
+<p><strong>Bewertung:</strong> 0-1-2-3-4 (1 Punkt pro Ablegeliste (03a, 03b, 03c, 03d) und Elementkombination vergeben, also Gesamtbewertung = 4; No Credit wenn 0 von 4 Zeilen korrekt zugeordnet wurden)</p>
+<p><img src="media/media/image7.png" style="width:6.3in;height:3.55208in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 03a, 03b, 03c, 03d</strong></p>
+<p><img src="media/media/image8.png" style="width:6.3in;height:2.40417in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
+<p><strong>Schritt 2:</strong> Mit Zauberstab die richtigen Elemente auswählen (Hier 03_1 und 03_4; s. Allgemeine Hinweise für Kodieranweisung).</p>
+<p>Rotes Kreuz für „falsch-AUTOMATISCH wird mit Zauberstab automatisch hinzugefügt.</p>
+<p>Diese Schritte für alle Basisvariablen wiederholen.</p>
+<p><strong>Alternative Kodierung ohne Zauberstab:</strong></p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) anlegen. Code 1 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> die passenden Elemente in einzelnen Regelsätzen (Hier 03_1 und 03_4) eintragen (Für Elementbezeichnung s. Editor, für Kodieranweisung s. Allgemeine Hinweise).</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz “falsch - AUTOMATISCH” für alle falschen Antworten auswählen.</p>
+<p><strong>Geschlossene Kodierung der Abgeleiteten Variable 03</strong><img src="media/media/image9.png" style="width:6.3in;height:3.80625in"></p>
+<p><strong>Schritt 1:</strong> Ableitungsmethode auswählen: Bewertung summieren + Basisvariablen auswählen</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. Bei “<em>Regel ändern</em>” <em>Numerische Übereinstimmung</em> auswählen. Anzahl der korrekten Antworten für diesen Bewertungsfall eintragen (hier 4). Bewertung oben rechts auswählen (hier Bewertung = 4).</p>
+<ul>
+<li><em>Code 1:</em> 4 von 4 Antworten korrekt (4 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Für die PC-Codes den teilweise-richtig-Code (Ein grüner Haken) auswählen. Bezeichnungen der PC-Codes zu 21, 22, 23 etc. ändern. Bei “<em>Regel ändern</em>” <em>Numerische Übereinstimmung</em> auswählen + Anzahl der korrekten Antworten für diesen PC-Credit-Fall eintragen (hier 3 absteigend). Bewertung oben rechts anpassen (hier = 3 absteigend).</p>
+<ul>
+<li><p><em>Code 21: 3 von 4 korrekt (3 Credits)</em></p></li>
+<li><p><em>Code 22: 2 von 4 korrekt (2 Credits)</em></p></li>
+<li><p><em>Code 23: 1 von 4 korrekt (1 Credit)</em></p></li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz für “falsch- AUTOMATISCH” auswählen, um alle anderen Antworten als automatisch falsch abzufangen.</p>
+<ul>
+<li><em>Falsch Code: Keine Antwort korrekt (0 Credits)</em></li>
+</ul>
+</section>
+<section id="zuordnen-variante-2" class="level2">
+<h2 class="anchored" data-anchor-id="zuordnen-variante-2"><strong>1.4. Zuordnen (Variante 2)</strong></h2>
+<p><strong>Anmerkung:</strong> 1 Element pro Ablegeliste; mind. 1 Element bleibt übrig</p>
+<p><strong>Beispielaufgabe:</strong> Partial Credit Dummy „DnD_Bild_Text”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149220/preview" class="uri">https://iqb-studio.de/#/a/1329/149220/preview</a></p>
+<p><strong>Itemformat:</strong> Zuordnen mit 6 Elementen x 5 Ablegelisten</p>
+<p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4-5</p>
+<p><strong>Bewertung:</strong> 0-0-0-0-1-2 (Bei Übereinstimmung = 5 gibt es 2 Punkte, bei Überstimmung = 4 gibt es 1 Punkt und alles andere ergibt 0 Punkte.)</p>
+<p><img src="media/media/image10.png" style="width:6.3in;height:3.12083in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d, 01e</strong></p>
+<p><img src="media/media/image11.png" style="width:6.3in;height:2.32847in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
+<p><strong>Schritt 2:</strong> Mit Zauberstab die korrektes Element auswählen (Hier 01_4; s. Allgemeine Hinweise für Kodieranweisung).</p>
+<p>Rotes Kreuz für „falsch-AUTOMATISCH wird mit Zauberstab automatisch hinzugefügt.</p>
+<p>Diese Schritte für alle Basisvariablen wiederholen.</p>
+<p><strong>Alternative Kodierung ohne Zauberstab:</strong></p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Jeweils korrektes Element in Übereinstimmung eintragen (Für Elementbezeichnung siehe Editor, für Kodieranweisung s. Allgemeine Hinweise). Dieser Schritt kann auch mit dem Zauberstab durchgeführt werden.</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz “falsch - AUTOMATISCH” für alle falschen Antworten auswählen.</p>
+<p><strong>Geschlossene Kodierung in der abgeleiteten Variable</strong><img src="media/media/image12.png" style="width:6.3in;height:2.66111in"></p>
+<p><strong>Schritt 1:</strong> Ableitungsmethode auswählen: Bewertung summieren + alle Basisvariablen auswählen 01a, 01b, 01c, 01d, 01e</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. Bei Numerische Übereinstimmung maximale Anzahl korrekter Antworten eintragen (Hier Summenscore = 5). Bewertung = 2 als Full Credit auswählen.</p>
+<ul>
+<li><em>Code 1:</em> 5 von 5 Antworten korrekt (2 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (Ein Grüner Haken) auswählen. Code 2 benennen. Numerische Übereinstimmung mit maximaler Anzahl korrekter Antworten – 1 eintragen (Hier = 4). Bewertung = 1 Credit auswählen.</p>
+<ul>
+<li><em>Code 2:</em> 4 von 5 Antworten korrekt (1 Credit)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen. Falsch Code bei 0,1,2,3 Antworten sind korrekt (0 Credits).</p>
+</section>
+<section id="verbale-kurzantwort-variante-1" class="level2">
+<h2 class="anchored" data-anchor-id="verbale-kurzantwort-variante-1"><strong>1.5. Verbale Kurzantwort (Variante 1)</strong></h2>
+<p><strong>Anmerkung:</strong> 3 Eingabefelder</p>
+<p><strong>Beispielaufgabe:</strong> Prototypische Aufgabe „Lückentext_ST”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149221/preview" class="uri">https://iqb-studio.de/#/a/1329/149221/preview</a></p>
+<p><strong>Itemformat:</strong> Kurzantwort mit 3 Eingabenfelder</p>
+<p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3</p>
+<p><strong>Bewertung:</strong> 0-1-2-3 (Für jede korrekte Eingabe erhält SuS 1 Credit; FC = 3 (Alle Antworten korrekt), PC = 2 (2 von 3 korrekt); PC = 1 (1 von 3 korrekt); No Credit für 0 von 3 korrekt.)</p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 01a,01b,01c</strong></p>
+<p><img src="media/media/image13.png" style="width:6.3in;height:2.16111in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
+<p><strong>Schritt 2:</strong> Mit Zauberstab Lösungswort in das Textfeld eintragen. Bei <em>Methode für Abschluss</em> „Alle anderen – Manuell” auswählen. <em>Kodierung Generieren</em> auswählen.</p>
+<p><strong>Schritt 3:</strong> Bei Antwortverarbeitung und Fragmente „Alle Leerzeichen entfernen” und „Groß- und Kleinschreibung ignorieren” auswählen.</p>
+<p><strong>Schritt 4:</strong> Bei <em>Instruktion für manuelles Kodieren</em>, korrektes Lösungswort eintragen.</p>
+<p>Jeder Schritt wird für jede Basisvariable mit passendem Lösungswort (s. Allgemeine Hinweise) wiederholt.</p>
+<p><strong>Alternative Kodierung ohne Zauberstab:</strong></p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken). Code 1 nennen. Lösungswort-Optionen bei „Zeichen/Text Übereinstimmung” eintragen. Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 5:</strong> Schwarzes Kreuz „falsch” auswählen. Dieser Code dient der Möglichkeit zur Manuellen Kodierung (Falsche Antworten können im Nachhinein noch manuell geprüft werden.)</p>
+<p><strong>Geschlossene Kodierung der Abgeleiteten Variable 01</strong></p>
+<p><img src="media/media/image14.png" style="width:6.3in;height:3.41736in"></p>
+<p><strong>Schritt 1:</strong> Ableitungsmethode: Bewertung summieren auswählen. Quell-Variablen 01a,01b,01c auswählen.</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Numerische Übereinstimmung = 3 eintragen (wenn alle 3 Basisvariablen korrekt sind, erhält SuS 3 Full Credit). Oben rechts Bewertung = 3 auswählen.</p>
+<ul>
+<li><em>Code 1:</em> 3 von 3 Antworten korrekt (3 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (Ein grüner Haken) 2xl auswählen. In Code 21 und Code 22 benennen. Bei „Numerische Übereinstimmung” absteigend = 2, 1 eintragen. Oben rechts bei Bewertung entsprechenden Wert auswählen. (Wenn also 2 von 3 Antworten korrekt sind, erhält SuS 2 Credits; wenn 1 von 3 Antworten korrekt ist, erhält SuS 1 Credit)</p>
+<ul>
+<li><p><em>Code 21:</em> 2 von 3 Antworten korrekt (2 Credit)</p></li>
+<li><p><em>Code 21:</em> 1 von 3 Antwort korrekt (1 Credit)</p></li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen (Wenn 0 von 3 Antworten korrekt sind, erhält SuS 0 Credits).</p>
+</section>
+<section id="verbale-kurzantwort-variante-2" class="level2">
+<h2 class="anchored" data-anchor-id="verbale-kurzantwort-variante-2"><strong>1.6. Verbale Kurzantwort (Variante 2)</strong></h2>
+<p><strong>Anmerkung:</strong> Reihenfolge der Antworten beliebig, Prüfung auf Einzigartigkeit!</p>
+<p><strong>Beispielaufgabe:</strong> Partial Credit Dummy „DeP_VerbaleKurzantwort”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149930/preview" class="uri">https://iqb-studio.de/#/a/1329/149930/preview</a></p>
+<p><strong>Itemformat:</strong> Kurzantwort mit 2 Eingabefeldern (Reihenfolge beliebig)</p>
+<p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2</p>
+<p><strong>Bewertung:</strong> 0-1-2 (1 Credit pro Eingabefeld; Für jede korrekte Eingabe erhält SuS 1 Credit; FC = 2 (Alle Antworten korrekt), PC = 1 (1 von 2 korrekt oder 1 doppelt))</p>
+<p><strong><em>ACHTUNG:</em></strong> Die Kodierung hier ist etwas komplexer, da auf Einzigartigkeit geprüft wird<img src="media/media/image15.png" style="width:6.3in;height:0.94028in"></p>
+<p><strong>Geschlossene Kodierung für Basisvariablen 01a, 01b</strong></p>
+<p><img src="media/media/image16.png" style="width:6.3in;height:2.23681in"></p>
+<p>Hier wird definiert, dass in beiden Elementen sowohl Antwort „rot” als auch Antwort „blau” korrekt sein kann.</p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
+<p><strong>Schritt 2:</strong> Zwei Richtig-Codes auswählen (doppelter grüner Haken). In Code 11 und Code 12 benennen. Bei Code 11 <em>Zeichen/ Text Übereinstimmung</em> = „rot” eintragen, bei Code 12 <em>Zeichen/ Text Übereinstimmung</em> = „blau” eintragen. Oben rechts Bewertung = 1 jeweils auswählen.</p>
+<p><strong>Schritt 3:</strong> Wenn es sich um ein Textantworten handelt: Bei <em>Antwortverarbeitung und Fragmente</em> „Alle Leerzeichen entfernen” und „Groß- und Kleinschreibung ignorieren” auswählen.</p>
+<p><strong>Schritt 4:</strong> <u>Graues</u> Kreuz „Kodierung soll unvollständig sein” auswählen.</p>
+<p>Diese Schritte für Basisvariable 01a und 01b wiederholen.</p>
+<p><strong>Geschlossene Kodierung für Abgeleitete Variable 01ab_unique</strong> <img src="media/media/image17.png" style="width:6.3in;height:2.21389in"></p>
+<p>Hier wird die SuS-Response auf Einzigartigkeit geprüft. Full Credit erhalten SuS nur, wenn zwei unterschiedliche, korrekte Werte eingetragen werden.</p>
+<p><strong>Schritt 1:</strong> Bei <em>Basis-/ Ableitungsparameter</em> auswählen: Ableitungsmethode: Auf Einzigartigkeit prüfen + Quell-Variablen: 01a, 01b auswählen. Außerdem „Alle Leerzeichen entfernen” + „Überflüssige Leerzeichen entfernen” auswählen.</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Zwei Grüne Haken) auswählen. Code 1 nennen. Bei <em>Regel ändern</em> „Logisch Wahr” auswählen. Oben rechts Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p><strong>Geschlossene Kodierung für Abgeleitete Variable 11_partial_credit</strong></p>
+<p><img src="media/media/image18.png" style="width:6.3in;height:2.74306in"></p>
+<p>Diese Abgeleitete Variable hilft der finalen abgeleiteten Variable 01 zu definieren, dass bei nur einer korrekten Antwort oder zweimal der gleichen Antwort, 1 Credit vergeben wird.</p>
+<p><strong>Schritt 1:</strong> Ableitungsmethode: Bewertung summieren auswählen. Quellvariablen 01a und 01b auswählen.</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. <em>Zeichen/Text Übereinstimmung</em> = 2 auswählen. Oben recht Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (ein grüner Haken) auswählen. Code 21 nennen. <em>Zeichen/Text Übereinstimmung</em> = 1 auswählen. Oben recht Bewertung = 0 auswählen.</p>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p><strong>Geschlossene Kodierung für Abgeleitete Variable 01</strong></p>
+<p><img src="media/media/image19.png" style="width:6.3in;height:2.17292in"></p>
+<p>Hier werden alle abgeleiteten Variablen nochmal abgeleitet, um die finale Punktevergabe festzulegen.</p>
+<p><strong>Schritt 1:</strong> Ableitungsmethode: Codes aneinanderhängen auswählen. Quellvariablen 0 1_partial_credit, 01ab_unique auswählen.</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. <em>Zeichen/Text Übereinstimmung</em> „1_1” eintragen. (Wenn SuS bei PC-Variable den Richtig-Code hat und bei Unique-Variable den Richtig-Code hat, erhält SuS 2 Full Credits). Oben recht Bewertung = 2 auswählen.</p>
+<ul>
+<li><em>Code 1:</em> 2 von 2 Antworten korrekt (2 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (Ein grüner Haken) auswählen. Code 21 nennen. <em>Zeichen/Text Übereinstimmung</em> „1_0”, „21_1” nennen. (Wenn SuS nur eine korrekte Antwort hat oder zweimal dieselbe korrekte Antwort, erhält SuS 1 Credit). Oben rechts Bewertung = 1 auswählen.</p>
+<ul>
+<li><em>Code 2:</em> 1 von 2 Antworten korrekt (1 Credits)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+</section>
+</section>
+<section id="mathe-primar-map" class="level1">
+<h1><strong>2. Mathe Primar (MaP)</strong></h1>
+<section id="langantwort" class="level2">
+<h2 class="anchored" data-anchor-id="langantwort"><strong>2.1. Langantwort</strong></h2>
+<p><strong>Beispielaufgabe:</strong> MaP Langantwort Dummy</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149909/schemer" class="uri">https://iqb-studio.de/#/a/1329/149909/schemer</a></p>
+<p><strong>Itemformat:</strong> Langantwort mit 1 Eingabefeld</p>
+<p><strong>Partial Credit Prinzip:</strong> inhaltlich 0-1</p>
+<p><strong>Bewertung:</strong> 0-1-2 (2 Credits bei korrekter Antwort, 1 Credit bei teilweise korrekter Antwort)</p>
+<p><img src="media/media/image20.png" style="width:6.3in;height:1.5375in"></p>
+<p><strong>(Manuelle) Kodierung der Basisvariable 01</strong> <img src="media/media/image21.png" style="width:6.3in;height:2.29792in"></p>
+<p><strong>Schritt 1:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Instruktionen für manuelles Kodieren</em> passende Kodieranweisung eintragen. Bewertung = 2 auswählen.</p>
+<p><strong>Schritt 2:</strong> Teilweise-Richtig-Code (Ein grüner Haken) auswählen. Code 2 nennen. Bei <em>Instruktionen für manuelles Kodieren</em> passende Kodieranweisung eintragen. Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Bei <em>Antwortverarbeitung und</em> <em>Fragment</em> „Für Kodierung komplette Unit-Ansicht erforderlich (Replay)” auswählen.</p>
+<p><strong>Schritt 4:</strong> Schwarzes Kreuz („falsch”) auswählen. Bei <em>Instruktionen für manuelles Kodieren</em> passende Kodieranweisung eintragen.</p>
+</section>
+<section id="mc-und-langantwort" class="level2">
+<h2 class="anchored" data-anchor-id="mc-und-langantwort"><strong>2.2. MC und Langantwort</strong></h2>
+<p><strong>Beispielaufgabe:</strong> PC Dummy „MC_und_Langantwort”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149322/schemer" class="uri">https://iqb-studio.de/#/a/1329/149322/schemer</a></p>
+<p><strong>Itemformat:</strong> 1 MC mit 1 Langantwort-Eingabefeld</p>
+<p><strong>Partial Credit Prinzip:</strong> inhaltlich 0-1</p>
+<p><strong>Bewertung:</strong> 0-1-2 (Bei korrekter MC-Auswahl UND korrekter Langantwort erhält SuS 2 Credits, bei korrekter MC-Auswahl UND teilweise-korrekter Langantwort erhält SuS 1 Credit. Bei falscher MC-Auswahl = No Credit. Bei korrekter MC-Auswahl UND falscher Langantwort = No Credit)</p>
+<p><img src="media/media/image22.png" style="width:6.3in;height:1.4125in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 01a</strong></p>
+<p><img src="media/media/image23.png" style="width:6.3in;height:1.70833in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
+<p><strong>Schritt 2:</strong> Mit Zauberstab die richtige Antwortoption (1 = „stimmt”, 2 = „stimmt nicht”) auswählen (s. Allgemeine Hinweise für Kodieranweisung). Rotes Kreuz (Falsch – automatisch) wird mit Zauberstab automatisch hinzugefügt.</p>
+<p><strong>Alternative Kodierung ohne Zauberstab:</strong></p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Zeichen/ Text Übereinstimmung</em> Wert 1 (für „ja”; s. Kodieranweisung) eintragen. Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p><img src="media/media/image24.png" style="width:6.3in;height:1.16458in"></p>
+<p><strong>(Manuelle) Kodierung der Basisvariable 01b</strong></p>
+<p><strong>Schritt 1:</strong> Als Falsch-Code „Kodierung soll unvollständig sein” auswählen.</p>
+<p><strong>Geschlossene Kodierung der Abgeleiteten Variable 01</strong></p>
+<p><img src="media/media/image25.png" style="width:6.3in;height:2.55278in"></p>
+<p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> Ableitungsmethode: Codes aneinanderhängen auswählen + Quellvariablen 01a, 01b auswählen</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. Keinen Regelsatz hinzufügen. Bewertung = 2 auswählen. Kodieranweisung für richtige Antwort bei <em>Instruktion für manuelles Kodieren</em> eintragen.</p>
+<ul>
+<li><em>Code 1: MC UND Langantwort korrekt (2 Credits)</em></li>
+</ul>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (Ein grüner Haken) hinzufügen. Code 2 benennen. Keinen Regelsatz hinzufügen. Bewertung = 1 auswählen. Kodieranweisung für teilrichtige Antwort bei <em>Instruktion für manuelles Kodieren</em> eintragen.</p>
+<ul>
+<li>Code 2: MC korrekt UND Langantwort teilweise korrekt (1 Credits)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Gelbe doppelte Haken „Falsch-Code” auswählen. Bei <em>Zeichen/ Text Übereinstimmung</em> „0_0” eintragen. Bewertung = 0 auswählen.</p>
+<p><strong>Schritt 5:</strong> Schwarzes Kreuz „Falsch: Alle anderen Antworten” auswählen. Kodieranweisung für falsche Antwort <em>Zeichen/ Text Übereinstimmung</em> eintragen.</p>
+</section>
+<section id="numerische-kurzantwort" class="level2">
+<h2 class="anchored" data-anchor-id="numerische-kurzantwort"><strong>2.3. Numerische Kurzantwort</strong></h2>
+<p><strong>Anmerkung:</strong> mind. 3 Eingabefelder (z.B. Rechenpäckchen)</p>
+<p><strong>Beispielaufgabe:</strong> PC Dummy „Rechenaufgabe”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149224/preview" class="uri">https://iqb-studio.de/#/a/1329/149224/preview</a></p>
+<p><strong>Itemformat:</strong> Rechenpäckchen mit 3 Eingabefeldern</p>
+<p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3 (hier für 3 Eingabefelder)</p>
+<p><strong>Bewertung:</strong> 0-0-1-2 (Full Credit für Summenscore -1. Wenn alle 3 Antworten korrekt, erhält SuS 2 Credits. Wenn 2 von 3 korrekt, erhält SuS 1 Credit. Wenn 0 von 3 korrekt, erhält SuS 0 Credits.)</p>
+<p><img src="media/media/image26.png" style="width:6.3in;height:0.8875in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariable 01a,01b, 01c</strong><img src="media/media/image27.png" style="width:6.3in;height:1.60278in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”).</p>
+<p><strong>Schritt 2:</strong> Mit Zauberstab die Lösungszahl eintragen (Hier „21”) (s. Allgemeine Hinweise für Kodieranweisung). Rotes Kreuz (Falsch – automatisch) wird mit Zauberstab automatisch hinzugefügt.</p>
+<p><strong>Alternative Kodierung ohne Zauberstab:</strong></p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. Bei <em>Numerische Übereinstimmung</em> die Lösungszahl (s. Kodieranweisung) eintragen. Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p>Diese Schritte bei allen drei Basisvariablen 01a, 01b, 01c wiederholen.</p>
+<p><strong>Achtung!</strong> Liegt die Lösungszahl im <strong>vierstelligen Bereich</strong> (oder mehr), muss ein zweiter Richtig-Code (Code 11 und Code 12) angelegt werden, um unterschiedliche Schreibweisen mithilfe eines regulären Ausdrucks abzudecken. Dies ist beispielsweise bei der Basisvariable 01c der Fall.<img src="media/media/image28.png" style="width:6.3in;height:0.85278in"></p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01</strong><img src="media/media/image29.png" style="width:6.3in;height:2.19236in"></p>
+<p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> Ableitungsmethode: Bewertung summieren auswählen + Quellvariablen 01a, 01b, 01c auswählen</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. <em>Numerische Übereinstimmung</em> eintragen mit maximal zu erreichenden richtigen Antworten (Summenscore = Anzahl der Basisvariablen). Bewertung Summenscore -1 auswählen (hier = 2).</p>
+<ul>
+<li><em>Code 1:</em> 3 von 3 Antworten korrekt (2 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (Ein grüner Haken) hinzufügen. Code 2 benennen. <em>Numerische Übereinstimmung</em> (maximale Anzahl korrekter Antworten – 1, hier = 2) eintragen. Bewertung auf Summenscore -2 auswählen (Hier = 1).</p>
+<ul>
+<li><em>Code 2:</em> 2 von 3 Antworten korrekt (1 Credits)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+</section>
+<section id="complex-multiple-choice" class="level2">
+<h2 class="anchored" data-anchor-id="complex-multiple-choice"><strong>2.4. Complex Multiple Choice</strong></h2>
+<p><strong>Anmerkung:</strong> Aufgabengruppe “Standardrepräsentanten”</p>
+<p><strong>Beispielaufgabe:</strong> PC Dummy „CMC_4x2”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149219/preview" class="uri">https://iqb-studio.de/#/a/1329/149219/preview</a></p>
+<p><strong>Itemformat:</strong> CMC mit 4 Zeilen x 2 Auswahloptionen</p>
+<p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4</p>
+<p><strong>Bewertung:</strong> 0-0-0-1-2 (Full Credit = 2 Punkte, Partial Credit = 1 Punkt. Wenn alle vier Zeilen korrekt sind, erhält SuS 2 Credits, wenn 3 von 4 Zeilen korrekt sind, erhält SuS 1 Credit, wenn 0 bis 2 Zeilen korrekt, erhält SuS 0 Credits.)</p>
+<p><img src="media/media/image30.png" style="width:6.3in;height:1.74097in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d</strong></p>
+<p><img src="media/media/image31.png" style="width:6.3in;height:1.88333in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”).</p>
+<p><strong>Schritt 2:</strong> Mit Zauberstab die richtig Antwortoption (1 = „stimmt”, 2 = „stimmt nicht”) auswählen (s. Allgemeine Hinweise für Kodieranweisung). Rotes Kreuz (Falsch – automatisch) wird mit Zauberstab automatisch hinzugefügt.</p>
+<p><strong>Alternative Kodierung ohne Zauberstab</strong></p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. <em>Zeichen/Text Übereinstimmung</em> auswählen und 1 = stimmt/ 2 = stimmt nicht eintragen (s. Allgemeine Hinweise).</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p>Diese Schritte bei allen vier Basisvariablen wiederholen.</p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variablen 01</strong></p>
+<p><img src="media/media/image32.png" style="width:6.3in;height:2.16944in"></p>
+<p><strong>Schritt 1</strong>: <em>Basis-/Ableitungsparameter</em> auswählen: Ableitungsmethode: Bewertung summieren + Quell-Variablen auswählen: 01a, 01b, 01c, 01d</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Numerische Übereinstimmung</em> die maximale Anzahl an korrekten Antworten eintragen (hier Summenscore = 4). Bei Bewertung = 2 auswählen.</p>
+<ul>
+<li><em>Code 1:</em> 4 von 4 Antworten korrekt (2 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (Ein grüner Haken) auswählen. Code 2 nennen. Bei <em>Numerische</em> Übereinstimmmung Summenscore -1 eintragen (hier = 3). Oben rechts Bewertung auf Maximale Bewertung -1 setzen (Hier = 1).</p>
+<ul>
+<li><em>Code 2:</em> 3 von 4 Antworten korrekt (1 Credit)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+</section>
+<section id="zuordnen-variante-1-1" class="level2">
+<h2 class="anchored" data-anchor-id="zuordnen-variante-1-1"><strong>2.5. Zuordnen (Variante 1)</strong></h2>
+<p><strong>Anmerkung:</strong> Unendlich viele Elemente (Einstellung „Elemente kopieren”) x 4 Ablegeliste (mind. 1 Element bleibt übrig</p>
+<p><strong>Beispielaufgabe:</strong> PC Dummy „MaP_DnD_V1”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149338/preview" class="uri">https://iqb-studio.de/#/a/1329/149338/preview</a></p>
+<p><strong>Itemformat:</strong> Zuordnen mit 3 Elementen x 4 Ablegelisten</p>
+<p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4</p>
+<p><strong>Bewertung:</strong> 0-0-0-1-2 (Full Credit = 2 Punkte, Partial Credit = 1 Punkt. Wenn alle vier Zeilen korrekt sind, erhält SuS 2 Credits, wenn 3 von 4 Zeilen korrekt sind, erhält SuS 1 Credit, wenn 0 bis 2 Zeilen korrekt, erhält SuS 0 Credits.)</p>
+<p><img src="media/media/image33.png" style="width:6.3in;height:1.89236in"></p>
+<p><strong>Besonderheit dieses Formats</strong>: Anzahl der Elemente in den Ausgangslisten ist größer ist als die Anzahl der Ablegelisten. Nach der Zuordnung = mind. 1 Element bleibt übrig. Das muss nicht zwingend mit der Einstellung „Elemente kopieren” erfolgen, sondern kann auch über mehrere <strong>„einmal verwendbare</strong> Elemente” gehen.</p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d</strong> <img src="media/media/image34.png" style="width:6.3in;height:1.97778in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”).</p>
+<p><strong>Schritt 2:</strong> Mit dem Zauberstab das passende Zuordnungs-Element auswählen (s. Kodieranweisung; hier: „01_2”). Rotes Kreuz (Falsch – automatisch) wird mit Zauberstab automatisch hinzugefügt.</p>
+<p>Diese Schritte für alle Basisvariablen 01a, 01b, 01c, 01d wiederholen.</p>
+<p><strong>Alternative Kodierung ohne Zauberstab</strong></p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> das passende Zuordnungs-Element auswählen (s. Kodieranzweisung). Bei Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p>Diesen Schritt für alle Basisvariablen 01a, 01b, 01c, 01d wiederholen.</p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01</strong></p>
+<p><img src="media/media/image35.png" style="width:6.3in;height:2.21944in"></p>
+<p><strong>Schritt 1</strong>: Basis-/Ableitungsparameter auswählen: Ableitungsmethode: Bewertung summieren + Quell-Variablen auswählen: 01a, 01b, 01c, 01d</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Numerische Übereinstimmung</em> die maximale Anzahl an korrekten Antworten eintragen (hier Summenscore = 4). Bei Bewertung = 2 auswählen.</p>
+<ul>
+<li><em>Code 1:</em> 4 von 4 Antworten korrekt (2 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (Ein grüner Haken) auswählen. Code 2 nennen. Bei <em>Numerische</em> Übereinstimmmung Summenscore -1 eintragen (hier = 3). Oben rechts Bewertung auf Maximale Bewertung -1 setzen (Hier = 1).</p>
+<ul>
+<li><em>Code 2:</em> 3 von 4 Antworten korrekt (1 Credits)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+</section>
+<section id="zuordnen-variante-2-1" class="level2">
+<h2 class="anchored" data-anchor-id="zuordnen-variante-2-1"><strong>2.6. Zuordnen (Variante 2)</strong></h2>
+<p><strong>Anmerkung:</strong> Unendlich viele Elemente (Einstellung „Elemente kopieren”) x 9 Ablegeliste (mind. 1 Element bleibt übrig; Zuordnungskombinationen, Reihenfolge der Elemente UND zeilenweise Einzigartigkeit relevant</p>
+<p><strong>Beispielaufgabe:</strong> PC Dummy „MaP_Zuordnen V2”</p>
+<p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149938/preview" class="uri">https://iqb-studio.de/#/a/1329/149938/preview</a></p>
+<p><strong>Itemformat:</strong> Zuordnen mit unendlich vielen Elementen x 9 Ablegelisten mit Zuordnungskombinationen, Reihenfolge der Elemente UND zeilenweise Einzigartigkeit relevant</p>
+<p><strong>Partial Credit Prinzip:</strong> zeilenweise 0-1-2-3</p>
+<p><strong>Bewertung:</strong> 0-0-1-2 (Full Credit = 2 Punkte, Partial Credit = 1 Punkt. Wenn alle 3 Zeilen korrekt sind, erhält SuS 2 Credits, wenn 2 von 3 Zeilen korrekt sind, erhält SuS 1 Credit, wenn 0 oder 1 Antwort korrekt, erhält SuS 0 Credits)</p>
+<p><img src="media/media/image36.png" style="width:6.3in;height:1.71875in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariable 01a_1, 01a_2, 01a_3, 01b_1, 01b_2, 01b_3, 01c_1, 01c_2, 01c_3</strong></p>
+<p><img src="media/media/image37.png" style="width:6.3in;height:3.17292in"></p>
+<p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”).</p>
+<p><strong>Schritt 2:</strong> 3x zu-Prüfen-Code (Blaues Fragezeichen) auswählen. Code 31, Code 32, Code 33 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> Zuordnungs-Element auswählen (s. Kodieranweisung). Bei Bewertung = 0 auswählen.</p>
+<p>Jedes Zuordnungs-Element erhält einen zu-prüfen-Code, welcher in der abgeleiteten Variable auf die Reihenfolge und Einzigartigkeit geprüft wird.</p>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p>Diese Schritte für alle Basisvariablen wiederholen.</p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01_unique_ab, 01_unique_ac, 01_unique_bc</strong></p>
+<p><img src="media/media/image38.png" class="img-fluid"></p>
+<p>In dieser abgeleiteten Variable wird geprüft, dass sich keine der Kombinationen wiederholen.</p>
+<p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> die Ableitungsmethode : „Auf Einzigartigkeit prüfen” auswählen. Quell-Variablen: 01a, 01b auswählen (bzw. 01a, 01c ODER 01b, 01c)</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (doppelter grüner Haken) auswählen. Code 1 nennen. Bei dem Plus-Zeichen als Regel „Logisch Wahr” auswählen. Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p>Diese Schritte wiederholen für 01_unique_ab, 01_unique_ac, 01_unique_bc</p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01_partial_credit</strong></p>
+<p><img src="media/media/image39.png" style="width:6.3in;height:2.28125in"></p>
+<p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> die Ableitungsmethode : „Bewertung summieren” auswählen. Quell-Variablen: 01a, 01b, 01c auswählen</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Numerische Übereinstimmung</em> = 3 eintragen. Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (ein grüner Haken) auswählen. Code 2 nennen. Bei <em>Numerische Übereinstimmung</em> = 2 eintragen. Bewertung = 0 auswählen.</p>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01a, 01b, 01c</strong></p>
+<p><img src="media/media/image40.png" style="width:6.3in;height:3.37708in"></p>
+<p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> die Ableitungsmethode : „Codes aneinanderhängen” auswählen. Quell-Variablen: 01a_1, 01a_2, 01a_3 auswählen (bzw. alle Basisvariablen von 01b oder 01c)</p>
+<p><strong>Schritt 2:</strong> 6x Richtig-Code (doppelter grüner Haken) auswählen. Code 11 bis 16 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> alle möglichen Kombinationen der zu-Prüfen-Code aus den Basisvariablen als aneinander gehängte Codes eintragen (31_32_33, 31_33_32 etc.). Bewertung = 1 auswählen.</p>
+<p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01</strong><img src="media/media/image41.png" style="width:6.3in;height:2.53264in"></p>
+<p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> die Ableitungsmethode : „Codes aneinanderhängen” auswählen. Quell-Variablen: 01_partial_credit, 01_unique_ab, 01_unique_ac, 01_unique_bc auswählen.</p>
+<p><strong>Schritt 2:</strong> Richtig-Code (doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> die aneinander gehängten Codes eintragen (1_1_1_1). Bewertung = 2 auswählen. (Wenn alle 3 Zeilen korrekt zugeordnet wurden und sich nicht wiederholen, erhält SuS 2 Credits).</p>
+<ul>
+<li><em>Code 1:</em> 3 von 3 Antworten korrekt (2 Credits)</li>
+</ul>
+<p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (ein grüner Haken) auswählen. Code 2 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> die aneinander gehängten Codes eintragen (1_0_1_1 etc.). Bewertung = 1 auswählen. (Wenn nur 2 Zeilen korrekt oder sich 1 Kombination doppelt, erhählt SuS 1 Credit).</p>
+<ul>
+<li><em>Code 2:</em> 2 von 3 Antworten korrekt (1 Credit)</li>
+</ul>
+<p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/iqb-research\.github\.io\/IQB-Methods\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Team Methoden <br> Humboldt-Universität zu Berlin <br> Institut zur Qualitätsentwicklung im Bildungswesen <br> Unter den Linden 6 <br> 10099 Berlin <br></p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/iqb-research/IQB-Methods/edit/main/docs/studio/partial_credit.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/iqb-research/IQB-Methods/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

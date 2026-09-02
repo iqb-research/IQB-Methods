@@ -6,8 +6,8 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Benjamin Becker">
   <title>IQB Methods Team – eatGADS - Datenbanknutzung</title>
@@ -20,10 +20,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -208,7 +211,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Benjamin Becker 
+Benjamin Becker
 </div>
 </div>
 </div>
@@ -293,11 +296,11 @@ Benjamin Becker
 <h2>eatGADS</h2>
 
 <img data-src="Figures/eatGADS_CRAN.jpg" class="r-stretch"><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Stabile Version</span></span>
-<span id="cb1-2"><a></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a><span class="co"># Development Version</span></span>
-<span id="cb1-5"><a></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"beckerbenj/eatGADS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># Stabile Version</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"eatGADS"</span>)</span>
+<span id="cb1-3"><a aria-label="3"></a></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co"># Development Version</span></span>
+<span id="cb1-5"><a aria-label="5"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"beckerbenj/eatGADS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="ressourcen" class="slide level2">
@@ -424,15 +427,15 @@ Benjamin Becker
 <h2>Beispiel-Datenbank</h2>
 <p><a href="https://www.iqb.hu-berlin.de/fdz/studies/PISA_Plus_2012-13">PISA-Plus Daten</a> (FDZ Campus Files)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>db_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="st">"pisa.db"</span>, <span class="at">package =</span> <span class="st">"eatGADS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>db_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="st">"pisa.db"</span>, <span class="at">package =</span> <span class="st">"eatGADS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="datenbank-struktur" class="slide level2">
 <h2>Datenbank-Struktur</h2>
 <p>Datenbankstruktur und Variablennamen inspizieren</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>nam <span class="ot">&lt;-</span> <span class="fu">namesGADS</span>(db_path)</span>
-<span id="cb4-2"><a></a>nam</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>nam <span class="ot">&lt;-</span> <span class="fu">namesGADS</span>(db_path)</span>
+<span id="cb4-2"><a aria-label="2"></a>nam</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$noImp
   [1] "idstud"       "idschool"     "idclass"      "schtype"      "sameteach"   
@@ -469,8 +472,8 @@ $PVs
 <h2>Metadaten</h2>
 <p>Metadaten extrahieren</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">extractMeta</span>(<span class="at">GADSobject =</span> db_path, </span>
-<span id="cb6-2"><a></a>            <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">"repeated"</span>, <span class="st">"norms_f"</span>, <span class="st">"computer_age"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">extractMeta</span>(<span class="at">GADSobject =</span> db_path, </span>
+<span id="cb6-2"><a aria-label="2"></a>            <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">"repeated"</span>, <span class="st">"norms_f"</span>, <span class="st">"computer_age"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         varName                                         varLabel format
 165 computer_age                           First use of computers   F8.0
@@ -503,8 +506,8 @@ $PVs
 <h2>Metadaten</h2>
 <p>Metadaten extrahieren</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>all_meta <span class="ot">&lt;-</span> <span class="fu">extractMeta</span>(db_path)</span>
-<span id="cb8-2"><a></a><span class="fu">unique</span>(all_meta[<span class="fu">grep</span>(<span class="st">"grade"</span>, all_meta<span class="sc">$</span>varLabel), <span class="fu">c</span>(<span class="st">"varName"</span>, <span class="st">"varLabel"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>all_meta <span class="ot">&lt;-</span> <span class="fu">extractMeta</span>(db_path)</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="fu">unique</span>(all_meta[<span class="fu">grep</span>(<span class="st">"grade"</span>, all_meta<span class="sc">$</span>varLabel), <span class="fu">c</span>(<span class="st">"varName"</span>, <span class="st">"varLabel"</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      varName                                                 varLabel
 196 grade_bio     School grade in biology (First school semester) (T1)
@@ -520,15 +523,15 @@ $PVs
 <h2>GADSdat</h2>
 <p>GADSdat aus Datenbank ziehen</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>pisa_gads <span class="ot">&lt;-</span> <span class="fu">getGADS</span>(db_path, <span class="at">vSelect =</span> <span class="fu">c</span>(<span class="st">"schtype"</span>, <span class="st">"sameteach"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>pisa_gads <span class="ot">&lt;-</span> <span class="fu">getGADS</span>(db_path, <span class="at">vSelect =</span> <span class="fu">c</span>(<span class="st">"schtype"</span>, <span class="st">"sameteach"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="gadsdat-1" class="slide level2">
 <h2>GADSdat</h2>
 <p>GADSdat aus Datenbank ziehen</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># resultierendes "GADSdat"-Objekt</span></span>
-<span id="cb11-2"><a></a><span class="fu">str</span>(pisa_gads)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="co"># resultierendes "GADSdat"-Objekt</span></span>
+<span id="cb11-2"><a aria-label="2"></a><span class="fu">str</span>(pisa_gads)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 2
  $ dat   :'data.frame': 500 obs. of  3 variables:
@@ -552,8 +555,8 @@ $PVs
 <h2>Daten</h2>
 <p>Daten extrahieren</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>pisa_dat <span class="ot">&lt;-</span> <span class="fu">extractData2</span>(pisa_gads, <span class="at">labels2character =</span> <span class="st">"sameteach"</span>)</span>
-<span id="cb13-2"><a></a><span class="fu">str</span>(pisa_dat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>pisa_dat <span class="ot">&lt;-</span> <span class="fu">extractData2</span>(pisa_gads, <span class="at">labels2character =</span> <span class="st">"sameteach"</span>)</span>
+<span id="cb13-2"><a aria-label="2"></a><span class="fu">str</span>(pisa_dat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   500 obs. of  3 variables:
  $ idstud   : num  1 2 3 4 5 6 7 9 10 11 ...
@@ -569,9 +572,9 @@ $PVs
 <h2>Daten</h2>
 <p>Kompetenz-Daten extrahieren (Long-Format)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>pisa_gads2 <span class="ot">&lt;-</span> <span class="fu">getGADS</span>(db_path, <span class="at">vSelect =</span> <span class="fu">c</span>(<span class="st">"schtype"</span>, <span class="st">"sameteach"</span>, nam<span class="sc">$</span>PVs))</span>
-<span id="cb15-2"><a></a>pisa_dat2 <span class="ot">&lt;-</span> <span class="fu">extractData2</span>(pisa_gads2, <span class="at">labels2character =</span> <span class="fu">c</span>(<span class="st">"sameteach"</span>, <span class="st">"dimension"</span>))</span>
-<span id="cb15-3"><a></a><span class="fu">str</span>(pisa_dat2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a>pisa_gads2 <span class="ot">&lt;-</span> <span class="fu">getGADS</span>(db_path, <span class="at">vSelect =</span> <span class="fu">c</span>(<span class="st">"schtype"</span>, <span class="st">"sameteach"</span>, nam<span class="sc">$</span>PVs))</span>
+<span id="cb15-2"><a aria-label="2"></a>pisa_dat2 <span class="ot">&lt;-</span> <span class="fu">extractData2</span>(pisa_gads2, <span class="at">labels2character =</span> <span class="fu">c</span>(<span class="st">"sameteach"</span>, <span class="st">"dimension"</span>))</span>
+<span id="cb15-3"><a aria-label="3"></a><span class="fu">str</span>(pisa_dat2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   7500 obs. of  6 variables:
  $ idstud   : num  1 1 1 1 1 1 1 1 1 1 ...
