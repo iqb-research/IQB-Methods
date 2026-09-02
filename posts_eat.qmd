@@ -121,6 +121,7 @@ listing:
     image-align: left    
 ---
 
+```{=html}
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   function updateLogoFolder() {
@@ -162,7 +163,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+```
 
+```{=html}
 <!--
   The following <div> section is a bugfix. 
 
@@ -171,15 +174,11 @@ document.addEventListener("DOMContentLoaded", function () {
   This hidden block makes the dark helper-package logos visible to Quarto's
   resource handling, so they are included in the rendered site.
 -->
+```
 
-<div style="display: none;">
-  <img src="./logos/dark/eatAnalysis.png" alt="">
-  <img src="./logos/dark/eatAutoCode.png" alt="">
-  <img src="./logos/dark/eatDB.png" alt="">
-  <img src="./logos/dark/eatMap.png" alt="">
-  <img src="./logos/dark/eatTools.png" alt="">
-  <img src="./logos/dark/eatWidget.png" alt="">
-</div>
+::: {style="display: none;"}
+<img src="./logos/dark/eatAnalysis.png"/> <img src="./logos/dark/eatAutoCode.png"/> <img src="./logos/dark/eatDB.png"/> <img src="./logos/dark/eatMap.png"/> <img src="./logos/dark/eatTools.png"/> <img src="./logos/dark/eatWidget.png"/>
+:::
 
 ## Main Packages
 
