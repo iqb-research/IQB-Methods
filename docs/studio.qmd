@@ -1,0 +1,30 @@
+---
+title: "IQB Studio Tutorial"
+#image: ./images/sapling.jpg
+listing:
+  id: studio
+  type: default
+  feed: true
+  categories: unnumbered
+  sort-ui:
+  - date
+  - author
+  filter-ui: true
+  contents:
+    - "studio/partial_credit.qmd"
+---
+
+
+<!--
+![](./images/sapling.jpg)[^1]
+
+[^1]: *add image copyright*
+-->
+
+
+Welcome to our IQB Studio learn page. Here you can find material, links and articles to help you understand and navigate the IQB studio.
+
+## Articles and Tutorials
+
+::: {studio}
+:::
