@@ -141,22 +141,22 @@
 </section>
 <section id="deutsch-primar-dep" class="level1">
 <h1>1. Deutsch Primar (DeP)</h1>
-<section id="complex-multiple-choice-cmc-5x2" class="level2">
-<h2 class="anchored" data-anchor-id="complex-multiple-choice-cmc-5x2">1.1 Complex Multiple Choice (CMC 5x2)</h2>
+<section id="complex-multiple-choice-5x2" class="level2">
+<h2 class="anchored" data-anchor-id="complex-multiple-choice-5x2">1.1 Complex Multiple Choice (5x2)</h2>
 <p><strong>Beispielaufgabe:</strong> Prototypische Aufgabe „Bildergalerie”</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149210/preview" class="uri">https://iqb-studio.de/#/a/1329/149210/preview</a></p>
 <p><strong>Itemformat:</strong> CMC mit 5 Zeilen x 2 Antwortoptionen</p>
 <p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4-5</p>
 <p><strong>Bewertung:</strong> 0-0-0-0-1-2. (FC= 2 (Alle 5 Antworten korrekt); PC = 1 (4 von 5 Antworten korrekt); No Credit (0,1,2 oder 3 von 5 Antworten korrekt)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image1.png" class="img-fluid" width="623"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image1.png" class="img-fluid" style="width:12cm"></p>
 <p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d, 01e</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image2.png" class="img-fluid"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image2.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
 <p><strong>Schritt 2:</strong> Mit Zauberstab die richtig Antwortoption (1 = „stimmt”, 2 = „stimmt nicht”) auswählen (s. Allgemeine Hinweise für Kodieranweisung).</p>
 <p>Rotes Kreuz für „falsch-AUTOMATISCH wird mit Zauberstab automatisch hinzugefügt.</p>
 <p>Diese Schritte für alle Basisvariablen wiederholen.</p>
 <p><strong>Geschlossene Kodierung der Abgeleiteten Variable 01</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image3.png" class="img-fluid" style="width:6.78in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image3.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1</strong>: <em>Basis-/ Ableitungsparameter</em> auswählen: Ableitungsmethode: Bewertung summieren. Quell-Variablen auswählen: 01a, 01b, 01c, 01d, 01e (alle Basisvariablen des Items)</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei Numerische Übereinstimmung maximale Basisvariablen-Anzahl eintragen (hier = 5). Oben rechts Bewertung = 2 auswählen.</p>
 <ul>
@@ -171,22 +171,22 @@
 <li><em>Falsch Code:</em> 0 oder 1, 2 oder 3 korrekte Antwort(en) (0 Credits)</li>
 </ul>
 </section>
-<section id="complex-multiple-choice-cmc-6x2" class="level2">
-<h2 class="anchored" data-anchor-id="complex-multiple-choice-cmc-6x2"><strong>1.2. Complex Multiple Choice (CMC 6x2)</strong></h2>
+<section id="complex-multiple-choice-6x2" class="level2">
+<h2 class="anchored" data-anchor-id="complex-multiple-choice-6x2"><strong>1.2. Complex Multiple Choice (6x2)</strong></h2>
 <p><strong>Beispielaufgabe:</strong> Prototypische Aufgabe „CMC_6x2”</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/%23/a/1329/149325/preview">https://iqb-studio.de/#/a/1329/149325/preview</a></p>
 <p><strong>Itemformat:</strong> CMC mit 6 Zeilen x 2 Antwortoptionen</p>
 <p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4-5-6</p>
 <p><strong>Bewertung:</strong> 0-0-0-0-1-1-2. (FC= 2 (Alle 6 Antworten korrekt); PC = 1 (4 oder 5 von 6 Antworten korrekt); No Credit (0,1,2 oder 3 von 6 Antworten korrekt)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image4.png" class="img-fluid" width="569"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image4.png" class="img-fluid" style="width:12cm"></p>
 <p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d, 01e, 01f</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image5.png" class="img-fluid" style="width:6.9in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image5.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
 <p><strong>Schritt 2:</strong> Mit Zauberstab die richtig Antwortoption (1 = „stimmt”, 2 = „stimmt nicht”) auswählen (s. Allgemeine Hinweise für Kodieranweisung)</p>
 <p>Rotes Kreuz für „falsch-AUTOMATISCH wird mit Zauberstab automatisch hinzugefügt.</p>
 <p>Diese Schritte für alle Basisvariablen wiederholen.</p>
 <p><strong>Geschlossene Kodierung der Abgeleiteten Variable 01</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image6.png" class="img-fluid" style="width:6.81in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image6.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1</strong>: <em>Basis-/ Ableitungsparameter</em> auswählen: Ableitungsmethode: Bewertung summieren. Quell-Variablen auswählen: 01a, 01b, 01c, 01d, 01e (alle Basisvariablen des Items)</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei Numerische Übereinstimmung maximale Basisvariablen-Anzahl eintragen (hier = 6). Oben rechts Bewertung = 2 auswählen.</p>
 <ul>
@@ -201,17 +201,17 @@
 <li><em>Falsch Code:</em> 0 oder 1, 2 oder 3 korrekte Antwort(en). Bewertung = 0.</li>
 </ul>
 </section>
-<section id="zuordnen-variante-1" class="level2">
-<h2 class="anchored" data-anchor-id="zuordnen-variante-1"><strong>1.3. Zuordnen (Variante 1)</strong></h2>
+<section id="zuordnen-v1" class="level2">
+<h2 class="anchored" data-anchor-id="zuordnen-v1"><strong>1.3. Zuordnen (V1)</strong></h2>
 <p><strong>Anmerkung:</strong> mehrere Elemente-pro Ablegeliste mind. 1 Element bleibt übrig</p>
 <p><strong>Beispielaufgabe:</strong> Prototypische Aufgabe „Internetseite” Item 03</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149211/preview" class="uri">https://iqb-studio.de/#/a/1329/149211/preview</a></p>
 <p><strong>Itemformat:</strong> Zuordnen mit 9 Elementen x 4 Ablegelisten</p>
 <p><strong>Partial Credit Prinzip:</strong> zeilenweise 0-1-2-3-4</p>
 <p><strong>Bewertung:</strong> 0-1-2-3-4 (1 Punkt pro Ablegeliste (03a, 03b, 03c, 03d) und Elementkombination vergeben, also Gesamtbewertung = 4; No Credit wenn 0 von 4 Zeilen korrekt zugeordnet wurden)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image7.png" class="img-fluid" style="width:4.5in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image7.png" class="img-fluid" style="width:12cm"></p>
 <p><strong>Geschlossene Kodierung der Basisvariablen 03a, 03b, 03c, 03d</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image8.png" class="img-fluid" style="width:6.99in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image8.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
 <p><strong>Schritt 2:</strong> Mit Zauberstab die richtigen Elemente auswählen (Hier 03_1 und 03_4; s. Allgemeine Hinweise für Kodieranweisung).</p>
 <p>Rotes Kreuz für „falsch-AUTOMATISCH wird mit Zauberstab automatisch hinzugefügt.</p>
@@ -219,7 +219,7 @@
 <p><strong>Alternative Kodierung ohne Zauberstab:</strong></p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) anlegen. Code 1 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> die passenden Elemente in einzelnen Regelsätzen (Hier 03_1 und 03_4) eintragen (Für Elementbezeichnung s. Editor, für Kodieranweisung s. Allgemeine Hinweise).</p>
 <p><strong>Schritt 3:</strong> Rotes Kreuz “falsch - AUTOMATISCH” für alle falschen Antworten auswählen.</p>
-<p><strong>Geschlossene Kodierung der Abgeleiteten Variable 03</strong><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image9.png" class="img-fluid" style="width:6.88in"></p>
+<p><strong>Geschlossene Kodierung der Abgeleiteten Variable 03</strong><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image9.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> Ableitungsmethode auswählen: Bewertung summieren + Basisvariablen auswählen</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. Bei “<em>Regel ändern</em>” <em>Numerische Übereinstimmung</em> auswählen. Anzahl der korrekten Antworten für diesen Bewertungsfall eintragen (hier 4). Bewertung oben rechts auswählen (hier Bewertung = 4).</p>
 <ul>
@@ -236,17 +236,17 @@
 <li><em>Falsch Code: Keine Antwort korrekt (0 Credits)</em></li>
 </ul>
 </section>
-<section id="zuordnen-variante-2" class="level2">
-<h2 class="anchored" data-anchor-id="zuordnen-variante-2"><strong>1.4. Zuordnen (Variante 2)</strong></h2>
+<section id="zuordnen-v2" class="level2">
+<h2 class="anchored" data-anchor-id="zuordnen-v2"><strong>1.4. Zuordnen (V2)</strong></h2>
 <p><strong>Anmerkung:</strong> 1 Element pro Ablegeliste; mind. 1 Element bleibt übrig</p>
 <p><strong>Beispielaufgabe:</strong> Partial Credit Dummy „DnD_Bild_Text”</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149220/preview" class="uri">https://iqb-studio.de/#/a/1329/149220/preview</a></p>
 <p><strong>Itemformat:</strong> Zuordnen mit 6 Elementen x 5 Ablegelisten</p>
 <p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4-5</p>
 <p><strong>Bewertung:</strong> 0-0-0-0-1-2 (Bei Übereinstimmung = 5 gibt es 2 Punkte, bei Überstimmung = 4 gibt es 1 Punkt und alles andere ergibt 0 Punkte.)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image10.png" class="img-fluid" width="455"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image10.png" class="img-fluid" style="width:12cm"></p>
 <p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d, 01e</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image11.png" class="img-fluid" style="width:6.94in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image11.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
 <p><strong>Schritt 2:</strong> Mit Zauberstab die korrektes Element auswählen (Hier 01_4; s. Allgemeine Hinweise für Kodieranweisung).</p>
 <p>Rotes Kreuz für „falsch-AUTOMATISCH wird mit Zauberstab automatisch hinzugefügt.</p>
@@ -255,7 +255,7 @@
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Jeweils korrektes Element in Übereinstimmung eintragen (Für Elementbezeichnung siehe Editor, für Kodieranweisung s. Allgemeine Hinweise). Dieser Schritt kann auch mit dem Zauberstab durchgeführt werden.</p>
 <p><strong>Schritt 3:</strong> Rotes Kreuz “falsch - AUTOMATISCH” für alle falschen Antworten auswählen.</p>
 <p><strong>Geschlossene Kodierung in der abgeleiteten Variable</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image12.png" class="img-fluid" style="width:6.99in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image12.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> Ableitungsmethode auswählen: Bewertung summieren + alle Basisvariablen auswählen 01a, 01b, 01c, 01d, 01e</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. Bei Numerische Übereinstimmung maximale Anzahl korrekter Antworten eintragen (Hier Summenscore = 5). Bewertung = 2 als Full Credit auswählen.</p>
 <ul>
@@ -267,17 +267,17 @@
 </ul>
 <p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen. Falsch Code bei 0,1,2,3 Antworten sind korrekt (0 Credits).</p>
 </section>
-<section id="verbale-kurzantwort-variante-1" class="level2">
-<h2 class="anchored" data-anchor-id="verbale-kurzantwort-variante-1"><strong>1.5. Verbale Kurzantwort (Variante 1)</strong></h2>
+<section id="verbale-kurzantwort-v1" class="level2">
+<h2 class="anchored" data-anchor-id="verbale-kurzantwort-v1"><strong>1.5. Verbale Kurzantwort (V1)</strong></h2>
 <p><strong>Anmerkung:</strong> 3 Eingabefelder</p>
 <p><strong>Beispielaufgabe:</strong> Prototypische Aufgabe „Lückentext_ST”</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149221/preview" class="uri">https://iqb-studio.de/#/a/1329/149221/preview</a></p>
 <p><strong>Itemformat:</strong> Kurzantwort mit 3 Eingabenfelder</p>
 <p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3</p>
 <p><strong>Bewertung:</strong> 0-1-2-3 (Für jede korrekte Eingabe erhält SuS 1 Credit; FC = 3 (Alle Antworten korrekt), PC = 2 (2 von 3 korrekt); PC = 1 (1 von 3 korrekt); No Credit für 0 von 3 korrekt.)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image42.png" class="img-fluid"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image42.png" class="img-fluid" style="width:12cm"></p>
 <p><strong>Geschlossene Kodierung der Basisvariablen 01a,01b,01c</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image13.png" class="img-fluid" style="width:7.21in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image13.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
 <p><strong>Schritt 2:</strong> Mit Zauberstab Lösungswort in das Textfeld eintragen. Bei <em>Methode für Abschluss</em> „Alle anderen – Manuell” auswählen. <em>Kodierung Generieren</em> auswählen.</p>
 <p><strong>Schritt 3:</strong> Bei Antwortverarbeitung und Fragmente „Alle Leerzeichen entfernen” und „Groß- und Kleinschreibung ignorieren” auswählen.</p>
@@ -287,7 +287,7 @@
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken). Code 1 nennen. Lösungswort-Optionen bei „Zeichen/Text Übereinstimmung” eintragen. Bewertung = 1 auswählen.</p>
 <p><strong>Schritt 5:</strong> Schwarzes Kreuz „falsch” auswählen. Dieser Code dient der Möglichkeit zur Manuellen Kodierung (Falsche Antworten können im Nachhinein noch manuell geprüft werden.)</p>
 <p><strong>Geschlossene Kodierung der Abgeleiteten Variable 01</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image14.png" class="img-fluid" style="width:7.05in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image14.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> Ableitungsmethode: Bewertung summieren auswählen. Quell-Variablen 01a,01b,01c auswählen.</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Numerische Übereinstimmung = 3 eintragen (wenn alle 3 Basisvariablen korrekt sind, erhält SuS 3 Full Credit). Oben rechts Bewertung = 3 auswählen.</p>
 <ul>
@@ -300,37 +300,37 @@
 </ul>
 <p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen (Wenn 0 von 3 Antworten korrekt sind, erhält SuS 0 Credits).</p>
 </section>
-<section id="verbale-kurzantwort-variante-2" class="level2">
-<h2 class="anchored" data-anchor-id="verbale-kurzantwort-variante-2"><strong>1.6. Verbale Kurzantwort (Variante 2)</strong></h2>
+<section id="verbale-kurzantwort-v2" class="level2">
+<h2 class="anchored" data-anchor-id="verbale-kurzantwort-v2"><strong>1.6. Verbale Kurzantwort (V2)</strong></h2>
 <p><strong>Anmerkung:</strong> Reihenfolge der Antworten beliebig, Prüfung auf Einzigartigkeit!</p>
 <p><strong>Beispielaufgabe:</strong> Partial Credit Dummy „DeP_VerbaleKurzantwort”</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149930/preview" class="uri">https://iqb-studio.de/#/a/1329/149930/preview</a></p>
 <p><strong>Itemformat:</strong> Kurzantwort mit 2 Eingabefeldern (Reihenfolge beliebig)</p>
 <p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2</p>
 <p><strong>Bewertung:</strong> 0-1-2 (1 Credit pro Eingabefeld; Für jede korrekte Eingabe erhält SuS 1 Credit; FC = 2 (Alle Antworten korrekt), PC = 1 (1 von 2 korrekt oder 1 doppelt))</p>
-<p><strong><em>ACHTUNG:</em></strong> Die Kodierung hier ist etwas komplexer, da auf Einzigartigkeit geprüft wird<img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image15.png" style="width:7.21in;height:1.07in"></p>
+<p><strong><em>ACHTUNG:</em></strong> Die Kodierung hier ist etwas komplexer, da auf Einzigartigkeit geprüft wird<img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image15.png" style="width:12cm;height:2.7cm"></p>
 <p><strong>Geschlossene Kodierung für Basisvariablen 01a, 01b</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image16.png" class="img-fluid" style="width:7.23in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image16.png" class="img-fluid" style="width:44.2cm"></p>
 <p>Hier wird definiert, dass in beiden Elementen sowohl Antwort „rot” als auch Antwort „blau” korrekt sein kann.</p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
 <p><strong>Schritt 2:</strong> Zwei Richtig-Codes auswählen (doppelter grüner Haken). In Code 11 und Code 12 benennen. Bei Code 11 <em>Zeichen/ Text Übereinstimmung</em> = „rot” eintragen, bei Code 12 <em>Zeichen/ Text Übereinstimmung</em> = „blau” eintragen. Oben rechts Bewertung = 1 jeweils auswählen.</p>
 <p><strong>Schritt 3:</strong> Wenn es sich um ein Textantworten handelt: Bei <em>Antwortverarbeitung und Fragmente</em> „Alle Leerzeichen entfernen” und „Groß- und Kleinschreibung ignorieren” auswählen.</p>
 <p><strong>Schritt 4:</strong> <u>Graues</u> Kreuz „Kodierung soll unvollständig sein” auswählen.</p>
 <p>Diese Schritte für Basisvariable 01a und 01b wiederholen.</p>
-<p><strong>Geschlossene Kodierung für Abgeleitete Variable 01ab_unique</strong> <img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image17.png" class="img-fluid" style="width:7.14in"></p>
+<p><strong>Geschlossene Kodierung für Abgeleitete Variable 01ab_unique</strong> <img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image17.png" class="img-fluid" style="width:44.2cm"></p>
 <p>Hier wird die SuS-Response auf Einzigartigkeit geprüft. Full Credit erhalten SuS nur, wenn zwei unterschiedliche, korrekte Werte eingetragen werden.</p>
 <p><strong>Schritt 1:</strong> Bei <em>Basis-/ Ableitungsparameter</em> auswählen: Ableitungsmethode: Auf Einzigartigkeit prüfen + Quell-Variablen: 01a, 01b auswählen. Außerdem „Alle Leerzeichen entfernen” + „Überflüssige Leerzeichen entfernen” auswählen.</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Zwei Grüne Haken) auswählen. Code 1 nennen. Bei <em>Regel ändern</em> „Logisch Wahr” auswählen. Oben rechts Bewertung = 1 auswählen.</p>
 <p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 <p><strong>Geschlossene Kodierung für Abgeleitete Variable 11_partial_credit</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image18.png" class="img-fluid" style="width:7.14in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image18.png" class="img-fluid" style="width:44.2cm"></p>
 <p>Diese Abgeleitete Variable hilft der finalen abgeleiteten Variable 01 zu definieren, dass bei nur einer korrekten Antwort oder zweimal der gleichen Antwort, 1 Credit vergeben wird.</p>
 <p><strong>Schritt 1:</strong> Ableitungsmethode: Bewertung summieren auswählen. Quellvariablen 01a und 01b auswählen.</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. <em>Zeichen/Text Übereinstimmung</em> = 2 auswählen. Oben recht Bewertung = 1 auswählen.</p>
 <p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (ein grüner Haken) auswählen. Code 21 nennen. <em>Zeichen/Text Übereinstimmung</em> = 1 auswählen. Oben recht Bewertung = 0 auswählen.</p>
 <p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 <p><strong>Geschlossene Kodierung für Abgeleitete Variable 01</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image19.png" class="img-fluid" style="width:7.1in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image19.png" class="img-fluid" style="width:44.2cm"></p>
 <p>Hier werden alle abgeleiteten Variablen nochmal abgeleitet, um die finale Punktevergabe festzulegen.</p>
 <p><strong>Schritt 1:</strong> Ableitungsmethode: Codes aneinanderhängen auswählen. Quellvariablen 0 1_partial_credit, 01ab_unique auswählen.</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. <em>Zeichen/Text Übereinstimmung</em> „1_1” eintragen. (Wenn SuS bei PC-Variable den Richtig-Code hat und bei Unique-Variable den Richtig-Code hat, erhält SuS 2 Full Credits). Oben recht Bewertung = 2 auswählen.</p>
@@ -367,19 +367,19 @@
 <p><strong>Itemformat:</strong> 1 MC mit 1 Langantwort-Eingabefeld</p>
 <p><strong>Partial Credit Prinzip:</strong> inhaltlich 0-1</p>
 <p><strong>Bewertung:</strong> 0-1-2 (Bei korrekter MC-Auswahl UND korrekter Langantwort erhält SuS 2 Credits, bei korrekter MC-Auswahl UND teilweise-korrekter Langantwort erhält SuS 1 Credit. Bei falscher MC-Auswahl = No Credit. Bei korrekter MC-Auswahl UND falscher Langantwort = No Credit)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image22.png" class="img-fluid" width="510"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image22.png" class="img-fluid" style="width:12cm"></p>
 <p><strong>Geschlossene Kodierung der Basisvariablen 01a</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image23.png" class="img-fluid" style="width:7.03in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image23.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”)</p>
 <p><strong>Schritt 2:</strong> Mit Zauberstab die richtige Antwortoption (1 = „stimmt”, 2 = „stimmt nicht”) auswählen (s. Allgemeine Hinweise für Kodieranweisung). Rotes Kreuz (Falsch – automatisch) wird mit Zauberstab automatisch hinzugefügt.</p>
 <p><strong>Alternative Kodierung ohne Zauberstab:</strong></p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Zeichen/ Text Übereinstimmung</em> Wert 1 (für „ja”; s. Kodieranweisung) eintragen. Bewertung = 1 auswählen.</p>
 <p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image24.png" class="img-fluid" style="width:6.91in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image24.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>(Manuelle) Kodierung der Basisvariable 01b</strong></p>
 <p><strong>Schritt 1:</strong> Als Falsch-Code „Kodierung soll unvollständig sein” auswählen.</p>
 <p><strong>Geschlossene Kodierung der Abgeleiteten Variable 01</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image25.png" class="img-fluid" style="width:6.89in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image25.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> Ableitungsmethode: Codes aneinanderhängen auswählen + Quellvariablen 01a, 01b auswählen</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. Keinen Regelsatz hinzufügen. Bewertung = 2 auswählen. Kodieranweisung für richtige Antwort bei <em>Instruktion für manuelles Kodieren</em> eintragen.</p>
 <ul>
@@ -400,16 +400,16 @@
 <p><strong>Itemformat:</strong> Rechenpäckchen mit 3 Eingabefeldern</p>
 <p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3 (hier für 3 Eingabefelder)</p>
 <p><strong>Bewertung:</strong> 0-0-1-2 (Full Credit für Summenscore -1. Wenn alle 3 Antworten korrekt, erhält SuS 2 Credits. Wenn 2 von 3 korrekt, erhält SuS 1 Credit. Wenn 0 von 3 korrekt, erhält SuS 0 Credits.)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image26.png" width="506" height="140"></p>
-<p><strong>Geschlossene Kodierung der Basisvariable 01a,01b, 01c</strong><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image27.png" class="img-fluid" style="width:6.89in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image26.png" style="width:12cm;height:3.3cm"></p>
+<p><strong>Geschlossene Kodierung der Basisvariable 01a,01b, 01c</strong><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image27.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”).</p>
 <p><strong>Schritt 2:</strong> Mit Zauberstab die Lösungszahl eintragen (Hier „21”) (s. Allgemeine Hinweise für Kodieranweisung). Rotes Kreuz (Falsch – automatisch) wird mit Zauberstab automatisch hinzugefügt.</p>
 <p><strong>Alternative Kodierung ohne Zauberstab:</strong></p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. Bei <em>Numerische Übereinstimmung</em> die Lösungszahl (s. Kodieranweisung) eintragen. Bewertung = 1 auswählen.</p>
 <p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 <p>Diese Schritte bei allen drei Basisvariablen 01a, 01b, 01c wiederholen.</p>
-<p><strong>Achtung!</strong> Liegt die Lösungszahl im <strong>vierstelligen Bereich</strong> (oder mehr), muss ein zweiter Richtig-Code (Code 11 und Code 12) angelegt werden, um unterschiedliche Schreibweisen mithilfe eines regulären Ausdrucks abzudecken. Dies ist beispielsweise bei der Basisvariable 01c der Fall.<img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image28.png" style="width:6.3in;height:0.85278in"></p>
-<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01</strong><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image29.png" class="img-fluid" style="width:6.9in"></p>
+<p><strong>Achtung!</strong> Liegt die Lösungszahl im <strong>vierstelligen Bereich</strong> (oder mehr), muss ein zweiter Richtig-Code (Code 11 und Code 12) angelegt werden, um unterschiedliche Schreibweisen mithilfe eines regulären Ausdrucks abzudecken. Dies ist beispielsweise bei der Basisvariable 01c der Fall.<img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image28.png" style="width:44.2cm;height:6.1cm"></p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01</strong><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image29.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> Ableitungsmethode: Bewertung summieren auswählen + Quellvariablen 01a, 01b, 01c auswählen</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 benennen. <em>Numerische Übereinstimmung</em> eintragen mit maximal zu erreichenden richtigen Antworten (Summenscore = Anzahl der Basisvariablen). Bewertung Summenscore -1 auswählen (hier = 2).</p>
 <ul>
@@ -421,17 +421,17 @@
 </ul>
 <p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 </section>
-<section id="complex-multiple-choice" class="level2">
-<h2 class="anchored" data-anchor-id="complex-multiple-choice"><strong>2.4. Complex Multiple Choice</strong></h2>
+<section id="complex-multiple-choice-4x2" class="level2">
+<h2 class="anchored" data-anchor-id="complex-multiple-choice-4x2"><strong>2.4. Complex Multiple Choice (4x2)</strong></h2>
 <p><strong>Anmerkung:</strong> Aufgabengruppe “Standardrepräsentanten”</p>
 <p><strong>Beispielaufgabe:</strong> PC Dummy „CMC_4x2”</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149219/preview" class="uri">https://iqb-studio.de/#/a/1329/149219/preview</a></p>
 <p><strong>Itemformat:</strong> CMC mit 4 Zeilen x 2 Auswahloptionen</p>
 <p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4</p>
 <p><strong>Bewertung:</strong> 0-0-0-1-2 (Full Credit = 2 Punkte, Partial Credit = 1 Punkt. Wenn alle vier Zeilen korrekt sind, erhält SuS 2 Credits, wenn 3 von 4 Zeilen korrekt sind, erhält SuS 1 Credit, wenn 0 bis 2 Zeilen korrekt, erhält SuS 0 Credits.)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image30.png" class="img-fluid" width="536"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image30.png" style="width:12cm;height:4.6cm"></p>
 <p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image31.png" class="img-fluid" style="width:6.91in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image31.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”).</p>
 <p><strong>Schritt 2:</strong> Mit Zauberstab die richtig Antwortoption (1 = „stimmt”, 2 = „stimmt nicht”) auswählen (s. Allgemeine Hinweise für Kodieranweisung). Rotes Kreuz (Falsch – automatisch) wird mit Zauberstab automatisch hinzugefügt.</p>
 <p><strong>Alternative Kodierung ohne Zauberstab</strong></p>
@@ -439,7 +439,7 @@
 <p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 <p>Diese Schritte bei allen vier Basisvariablen wiederholen.</p>
 <p><strong>Geschlossene Kodierung der abgeleiteten Variablen 01</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image32.png" class="img-fluid" style="width:6.92in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image32.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1</strong>: <em>Basis-/Ableitungsparameter</em> auswählen: Ableitungsmethode: Bewertung summieren + Quell-Variablen auswählen: 01a, 01b, 01c, 01d</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Numerische Übereinstimmung</em> die maximale Anzahl an korrekten Antworten eintragen (hier Summenscore = 4). Bei Bewertung = 2 auswählen.</p>
 <ul>
@@ -451,17 +451,17 @@
 </ul>
 <p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 </section>
-<section id="zuordnen-variante-1-1" class="level2">
-<h2 class="anchored" data-anchor-id="zuordnen-variante-1-1"><strong>2.5. Zuordnen (Variante 1)</strong></h2>
+<section id="zuordnen-v1-1" class="level2">
+<h2 class="anchored" data-anchor-id="zuordnen-v1-1"><strong>2.5. Zuordnen (V1)</strong></h2>
 <p><strong>Anmerkung:</strong> Unendlich viele Elemente (Einstellung „Elemente kopieren”) x 4 Ablegeliste (mind. 1 Element bleibt übrig</p>
 <p><strong>Beispielaufgabe:</strong> PC Dummy „MaP_DnD_V1”</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149338/preview" class="uri">https://iqb-studio.de/#/a/1329/149338/preview</a></p>
 <p><strong>Itemformat:</strong> Zuordnen mit 3 Elementen x 4 Ablegelisten</p>
 <p><strong>Partial Credit Prinzip:</strong> elementweise 0-1-2-3-4</p>
 <p><strong>Bewertung:</strong> 0-0-0-1-2 (Full Credit = 2 Punkte, Partial Credit = 1 Punkt. Wenn alle vier Zeilen korrekt sind, erhält SuS 2 Credits, wenn 3 von 4 Zeilen korrekt sind, erhält SuS 1 Credit, wenn 0 bis 2 Zeilen korrekt, erhält SuS 0 Credits.)</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image33.png" class="img-fluid" width="547"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image33.png" class="img-fluid" style="width:12cm"></p>
 <p><strong>Besonderheit dieses Formats</strong>: Anzahl der Elemente in den Ausgangslisten ist größer ist als die Anzahl der Ablegelisten. Nach der Zuordnung = mind. 1 Element bleibt übrig. Das muss nicht zwingend mit der Einstellung „Elemente kopieren” erfolgen, sondern kann auch über mehrere <strong>„einmal verwendbare</strong> Elemente” gehen.</p>
-<p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d</strong> <img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image34.png" class="img-fluid" style="width:7in"></p>
+<p><strong>Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d</strong> <img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image34.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”).</p>
 <p><strong>Schritt 2:</strong> Mit dem Zauberstab das passende Zuordnungs-Element auswählen (s. Kodieranweisung; hier: „01_2”). Rotes Kreuz (Falsch – automatisch) wird mit Zauberstab automatisch hinzugefügt.</p>
 <p>Diese Schritte für alle Basisvariablen 01a, 01b, 01c, 01d wiederholen.</p>
@@ -470,7 +470,7 @@
 <p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 <p>Diesen Schritt für alle Basisvariablen 01a, 01b, 01c, 01d wiederholen.</p>
 <p><strong>Geschlossene Kodierung der abgeleiteten Variable 01</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image35.png" class="img-fluid" style="width:6.96in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image35.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1</strong>: Basis-/Ableitungsparameter auswählen: Ableitungsmethode: Bewertung summieren + Quell-Variablen auswählen: 01a, 01b, 01c, 01d</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Numerische Übereinstimmung</em> die maximale Anzahl an korrekten Antworten eintragen (hier Summenscore = 4). Bei Bewertung = 2 auswählen.</p>
 <ul>
@@ -482,41 +482,41 @@
 </ul>
 <p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 </section>
-<section id="zuordnen-variante-2-1" class="level2">
-<h2 class="anchored" data-anchor-id="zuordnen-variante-2-1"><strong>2.6. Zuordnen (Variante 2)</strong></h2>
+<section id="zuordnen-v2-1" class="level2">
+<h2 class="anchored" data-anchor-id="zuordnen-v2-1"><strong>2.6. Zuordnen (V2)</strong></h2>
 <p><strong>Anmerkung:</strong> Unendlich viele Elemente (Einstellung „Elemente kopieren”) x 9 Ablegeliste (mind. 1 Element bleibt übrig; Zuordnungskombinationen, Reihenfolge der Elemente UND zeilenweise Einzigartigkeit relevant</p>
 <p><strong>Beispielaufgabe:</strong> PC Dummy „MaP_Zuordnen V2”</p>
 <p><strong>IQB-Studio-Link:</strong> <a href="https://iqb-studio.de/#/a/1329/149938/preview" class="uri">https://iqb-studio.de/#/a/1329/149938/preview</a></p>
 <p><strong>Itemformat:</strong> Zuordnen mit unendlich vielen Elementen x 9 Ablegelisten mit Zuordnungskombinationen, Reihenfolge der Elemente UND zeilenweise Einzigartigkeit relevant</p>
 <p><strong>Partial Credit Prinzip:</strong> zeilenweise 0-1-2-3</p>
 <p><strong>Bewertung:</strong> 0-0-1-2 (Full Credit = 2 Punkte, Partial Credit = 1 Punkt. Wenn alle 3 Zeilen korrekt UND einzigartig sind, erhält SuS 2 Credits, wenn 2 von 3 Zeilen korrekt UND einzigartig sind, erhält SuS 1 Credit, wenn 0 oder 1 Antwort korrekt, erhält SuS 0 Credits).</p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image36.png" class="img-fluid" width="514"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image36.png" class="img-fluid" style="width:12cm"></p>
 <p><strong>Geschlossene Kodierung der Basisvariable 01a_1, 01a_2, 01a_3, 01b_1, 01b_2, 01b_3, 01c_1, 01c_2, 01c_3</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image37.png" class="img-fluid" style="width:7in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image37.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> <em>Basis-/Ableitungsparameter</em> anpassen (Häkchen bei “angezeigt = Wert geändert” und “leerer Antwortwert ist gültig”).</p>
 <p><strong>Schritt 2:</strong> 3x zu-Prüfen-Code (Blaues Fragezeichen) auswählen. Code 31, Code 32, Code 33 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> Zuordnungs-Element auswählen (s. Kodieranweisung). Bei Bewertung = 0 auswählen.</p>
 <p>Jedes Zuordnungs-Element erhält einen zu-prüfen-Code, welcher in der abgeleiteten Variable auf die Reihenfolge und Einzigartigkeit geprüft wird.</p>
 <p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 <p>Diese Schritte für alle Basisvariablen wiederholen.</p>
 <p><strong>Geschlossene Kodierung der abgeleiteten Variable 01_unique_ab, 01_unique_ac, 01_unique_bc</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image38.png" class="img-fluid" style="width:7in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image38.png" class="img-fluid" style="width:44.2cm"></p>
 <p>In dieser abgeleiteten Variable wird geprüft, dass sich keine der Kombinationen wiederholen.</p>
 <p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> die Ableitungsmethode : „Auf Einzigartigkeit prüfen” auswählen. Quell-Variablen: 01a, 01b auswählen (bzw. 01a, 01c ODER 01b, 01c)</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (doppelter grüner Haken) auswählen. Code 1 nennen. Bei dem Plus-Zeichen als Regel „Logisch Wahr” auswählen. Bewertung = 1 auswählen.</p>
 <p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 <p>Diese Schritte wiederholen für 01_unique_ab, 01_unique_ac, 01_unique_bc</p>
 <p><strong>Geschlossene Kodierung der abgeleiteten Variable 01_partial_credit</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image39.png" class="img-fluid" style="width:7in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image39.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> die Ableitungsmethode : „Bewertung summieren” auswählen. Quell-Variablen: 01a, 01b, 01c auswählen</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Numerische Übereinstimmung</em> = 3 eintragen. Bewertung = 1 auswählen.</p>
 <p><strong>Schritt 3:</strong> Teilweise-Richtig-Code (ein grüner Haken) auswählen. Code 2 nennen. Bei <em>Numerische Übereinstimmung</em> = 2 eintragen. Bewertung = 0 auswählen.</p>
 <p><strong>Schritt 4:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
 <p><strong>Geschlossene Kodierung der abgeleiteten Variable 01a, 01b, 01c</strong></p>
-<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image40.png" class="img-fluid" style="width:7in"></p>
+<p><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image40.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> die Ableitungsmethode : „Codes aneinanderhängen” auswählen. Quell-Variablen: 01a_1, 01a_2, 01a_3 auswählen (bzw. alle Basisvariablen von 01b oder 01c)</p>
 <p><strong>Schritt 2:</strong> 6x Richtig-Code (doppelter grüner Haken) auswählen. Code 11 bis 16 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> alle möglichen Kombinationen der zu-Prüfen-Code aus den Basisvariablen als aneinander gehängte Codes eintragen (31_32_33, 31_33_32 etc.). Bewertung = 1 auswählen.</p>
 <p><strong>Schritt 3:</strong> Rotes Kreuz „falsch-AUTOMATISCH” auswählen.</p>
-<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01</strong><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image41.png" class="img-fluid" style="width:7in"></p>
+<p><strong>Geschlossene Kodierung der abgeleiteten Variable 01</strong><img src="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/image41.png" class="img-fluid" style="width:44.2cm"></p>
 <p><strong>Schritt 1:</strong> Bei <em>Basis-/Ableitungsparameter</em> die Ableitungsmethode : „Codes aneinanderhängen” auswählen. Quell-Variablen: 01_partial_credit, 01_unique_ab, 01_unique_ac, 01_unique_bc auswählen.</p>
 <p><strong>Schritt 2:</strong> Richtig-Code (doppelter grüner Haken) auswählen. Code 1 nennen. Bei <em>Zeichen/Text Übereinstimmung</em> die aneinander gehängten Codes eintragen (1_1_1_1). Bewertung = 2 auswählen. (Wenn alle 3 Zeilen korrekt zugeordnet wurden und sich nicht wiederholen, erhält SuS 2 Credits).</p>
 <ul>
