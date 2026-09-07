@@ -212,7 +212,9 @@ Diese Schritte für alle Basisvariablen wiederholen.
 
 **Schritt 3:** Rotes Kreuz "falsch - AUTOMATISCH" für alle falschen Antworten auswählen.
 
-**Geschlossene Kodierung der Abgeleiteten Variable 03**![](media/media/image9.png){width="44.2cm"}
+**Geschlossene Kodierung der Abgeleiteten Variable 03**
+
+![](media/media/image9.png){width="44.2cm"}
 
 **Schritt 1:** Ableitungsmethode auswählen: Bewertung summieren + Basisvariablen auswählen
 
@@ -298,7 +300,7 @@ Diese Schritte für alle Basisvariablen wiederholen.
 
 ![](media/media/image42.png){width="12cm"}
 
-**Geschlossene Kodierung der Basisvariablen 01a,01b,01c**
+**Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c**
 
 ![](media/media/image13.png){width="44.2cm"}
 
@@ -368,7 +370,9 @@ Hier wird definiert, dass in beiden Elementen sowohl Antwort „rot" als auch An
 
 Diese Schritte für Basisvariable 01a und 01b wiederholen.
 
-**Geschlossene Kodierung für Abgeleitete Variable 01ab_unique** ![](media/media/image17.png){width="44.2cm"}
+**Geschlossene Kodierung für Abgeleitete Variable 01ab_unique**
+
+![](media/media/image17.png){width="44.2cm"}
 
 Hier wird die SuS-Response auf Einzigartigkeit geprüft. Full Credit erhalten SuS nur, wenn zwei unterschiedliche, korrekte Werte eingetragen werden.
 
@@ -426,7 +430,9 @@ Hier werden alle abgeleiteten Variablen nochmal abgeleitet, um die finale Punkte
 
 ![](media/media/image20.png){width="467"}
 
-**(Manuelle) Kodierung der Basisvariable 01** ![](media/media/image21.png){width="7.06in"}
+**(Manuelle) Kodierung der Basisvariable 01**
+
+![](media/media/image21.png){width="7.06in"}
 
 **Schritt 1:** Richtig-Code (Doppelter grüner Haken) auswählen. Code 1 nennen. Bei *Instruktionen für manuelles Kodieren* passende Kodieranweisung eintragen. Bewertung = 2 auswählen.
 
@@ -504,7 +510,9 @@ Hier werden alle abgeleiteten Variablen nochmal abgeleitet, um die finale Punkte
 
 ![](media/media/image26.png){width="12cm" height="3.3cm"}
 
-**Geschlossene Kodierung der Basisvariable 01a,01b, 01c**![](media/media/image27.png){width="44.2cm"}
+**Geschlossene Kodierung der Basisvariable 01a, 01b, 01c**
+
+![](media/media/image27.png){width="44.2cm"}
 
 **Schritt 1:** *Basis-/Ableitungsparameter* anpassen (Häkchen bei "angezeigt = Wert geändert" und "leerer Antwortwert ist gültig").
 
@@ -518,9 +526,11 @@ Hier werden alle abgeleiteten Variablen nochmal abgeleitet, um die finale Punkte
 
 Diese Schritte bei allen drei Basisvariablen 01a, 01b, 01c wiederholen.
 
-**Achtung!** Liegt die Lösungszahl im **vierstelligen Bereich** (oder mehr), muss ein zweiter Richtig-Code (Code 11 und Code 12) angelegt werden, um unterschiedliche Schreibweisen mithilfe eines regulären Ausdrucks abzudecken. Dies ist beispielsweise bei der Basisvariable 01c der Fall.![](media/media/image28.png){width="44.2cm" height="6.1cm"}
+**Achtung!** Liegt die Lösungszahl im **vierstelligen Bereich** (oder mehr), muss ein zweiter Richtig-Code (Code 11 und Code 12) angelegt werden, um unterschiedliche Schreibweisen mithilfe eines regulären Ausdrucks abzudecken. Dies ist beispielsweise bei der Basisvariable 01c der Fall.![](media/media/image28.png){width="44.2cm"}
 
-**Geschlossene Kodierung der abgeleiteten Variable 01**![](media/media/image29.png){width="44.2cm"}
+**Geschlossene Kodierung der abgeleiteten Variable 01**
+
+![](media/media/image29.png){width="44.2cm"}
 
 **Schritt 1:** Bei *Basis-/Ableitungsparameter* Ableitungsmethode: Bewertung summieren auswählen + Quellvariablen 01a, 01b, 01c auswählen
 
@@ -600,7 +610,9 @@ Diese Schritte bei allen vier Basisvariablen wiederholen.
 
 **Besonderheit dieses Formats**: Anzahl der Elemente in den Ausgangslisten ist größer ist als die Anzahl der Ablegelisten. Nach der Zuordnung = mind. 1 Element bleibt übrig. Das muss nicht zwingend mit der Einstellung „Elemente kopieren" erfolgen, sondern kann auch über mehrere **„einmal verwendbare** Elemente" gehen.
 
-**Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d** ![](media/media/image34.png){width="44.2cm"}
+**Geschlossene Kodierung der Basisvariablen 01a, 01b, 01c, 01d**
+
+![](media/media/image34.png){width="44.2cm"}
 
 **Schritt 1:** *Basis-/Ableitungsparameter* anpassen (Häkchen bei "angezeigt = Wert geändert" und "leerer Antwortwert ist gültig").
 
@@ -698,7 +710,9 @@ Diese Schritte wiederholen für 01_unique_ab, 01_unique_ac, 01_unique_bc
 
 **Schritt 3:** Rotes Kreuz „falsch-AUTOMATISCH" auswählen.
 
-**Geschlossene Kodierung der abgeleiteten Variable 01**![](media/media/image41.png){width="44.2cm"}
+**Geschlossene Kodierung der abgeleiteten Variable 01**
+
+![](media/media/image41.png){width="44.2cm"}
 
 **Schritt 1:** Bei *Basis-/Ableitungsparameter* die Ableitungsmethode : „Codes aneinanderhängen" auswählen. Quell-Variablen: 01_partial_credit, 01_unique_ab, 01_unique_ac, 01_unique_bc auswählen.
 
