@@ -1,0 +1,26 @@
+---
+title: "IQB Studio Tutorial"
+#image: ./images/sapling.jpg
+listing:
+  id: studio
+  type: default
+  feed: true
+  categories: unnumbered
+  sort-ui:
+  - date
+  - author
+  filter-ui: true
+  contents:
+    - "studio/partial_credit.qmd"
+    - title: "Introduction to the IQB-Studio with eatPrepTBA"
+      path: https://iqb-research.github.io/eatPrepTBA/articles/eatPrepTBA.html
+      image: ./studio/eatPrepTBA.png
+      description: "eatPrepTBA is an R package designed to support the preparation and management of technology-based assessments (TBA) used in IQB research workflows. It provides wrapper functions to interact with the IQB Studio and the IQB Testcenter APIs."
+---
+
+Welcome to our IQB Studio learn page. Here you can find material, links and articles to help you understand and navigate the IQB studio.
+
+## Articles and Tutorials
+
+::: {studio}
+:::
