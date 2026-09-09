@@ -543,5 +543,13 @@
   <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/studio/media/media/IQB_Studio.png" medium="image" type="image/png" height="83" width="144"/>
 </item>
+<item>
+  <title>Introduction to the IQB-Studio with eatPrepTBA</title>
+  <link>https://iqb-research.github.io/IQB-Methods/</link>
+  <description>eatPrepTBA is an R package designed to support the preparation and management of technology-based assessments (TBA) used in IQB research workflows. It provides wrapper functions to interact with the IQB Studio and the IQB Testcenter APIs.</description>
+  <guid>https://iqb-research.github.io/IQB-Methods/</guid>
+  <pubDate>Wed, 09 Sep 2026 11:44:20 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/./studio/eatPrepTBA.png" medium="image" type="image/png"/>
+</item>
 </channel>
 </rss>
