@@ -9206,7 +9206,7 @@
     "qs2": {
       "Package": "qs2",
       "Version": "0.2.0",
-      "Source": "Repository",
+      "Source": "URL",
       "Type": "Package",
       "Title": "Efficient Serialization of R Objects",
       "Date": "2026-04-21",
@@ -9244,7 +9244,9 @@
       "BugReports": "https://github.com/qsbase/qs2/issues",
       "NeedsCompilation": "yes",
       "Author": "Travers Ching [aut, cre, cph], Yann Collet [ctb, cph] (Yann Collet is the author of the bundled zstd), Facebook, Inc. [cph] (Facebook is the copyright holder of the bundled zstd code), Reichardt Tino [ctb, cph] (Contributor/copyright holder of zstd bundled code), Skibinski Przemyslaw [ctb, cph] (Contributor/copyright holder of zstd bundled code), Mori Yuta [ctb, cph] (Contributor/copyright holder of zstd bundled code), Francesc Alted [ctb, cph] (Shuffling routines derived from Blosc library)",
-      "Repository": "RSPM"
+      "Repository": "CRAN",
+      "RemoteType": "url",
+      "RemoteUrl": "https://cran.r-project.org/src/contrib/Archive/qs2/qs2_0.2.0.tar.gz"
     },
     "quadprog": {
       "Package": "quadprog",
