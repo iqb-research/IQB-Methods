@@ -82,7 +82,8 @@ jobs:
       contents: write
       pages: write
     environment:
-      name: ${{ github.event_name == 'pull_request' && format('pr-preview-{0}', github.event.number) || 'github-pages' }}
+      # github-pages is reserved for GitHub's final deployment from gh-pages.
+      name: ${{ github.event_name == 'pull_request' && format('pr-preview-{0}', github.event.number) || 'website-publish' }}
       url: ${{ steps.preview.outputs.preview-url || 'https://iqb-research.github.io/IQB-Methods/' }}
     steps:
       - uses: actions/checkout@v4
