@@ -24,6 +24,7 @@ available. GitHub Pages must continue to publish from the root of `gh-pages`.
 
 The `github-pages` environment must allow deployments from the `gh-pages`
 branch: this is where GitHub's final Pages deployment runs. The Quarto workflow
-uses the separate `website-publish` environment when publishing from `main`.
-Previews do not use an environment. Restricting `github-pages` to `main`
+publishes files from `main` to `gh-pages` without a separate environment or
+deployment entry. Previews also do not use an environment, so `github-pages`
+is the only deployment environment. Restricting `github-pages` to `main`
 blocks the final deployment even when the Quarto workflow is green.

@@ -79,10 +79,7 @@ jobs:
     permissions:
       contents: write
       pages: write
-    environment:
-      # github-pages is reserved for GitHub's final deployment from gh-pages.
-      name: website-publish
-      url: https://iqb-research.github.io/IQB-Methods/
+    # Only GitHub's final Pages deployment uses an environment (github-pages).
     steps:
       - uses: actions/checkout@v4
 
