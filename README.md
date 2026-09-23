@@ -10,7 +10,9 @@ the Quarto workflow succeeds:
 
 The preview link appears in the pull request's deployment section and in the
 workflow summary. Each push updates the preview; closing or merging the pull
-request removes it. Pull requests from forks are built and provide a downloadable
+request removes both the preview files and its deployment entries, so expired
+preview links disappear from the repository's Deployments list.
+Pull requests from forks are built and provide a downloadable
 `website` artifact, but are not deployed.
 
 The main website is published from `main`. Its deployment preserves the

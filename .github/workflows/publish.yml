@@ -133,6 +133,7 @@ jobs:
     permissions:
       contents: write
       pages: write
+      deployments: write
     steps:
       - uses: actions/checkout@v4
 
@@ -149,3 +150,31 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
+
+      - name: Remove closed PR deployment entries
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const { owner, repo } = context.repo;
+            if (!pr || pr.state !== 'closed' ||
+                pr.head.repo?.full_name !== `${owner}/${repo}`) {
+              throw new Error('Deployment cleanup requires a closed PR from this repository.');
+            }
+            const environment = `pr-preview-${pr.number}`;
+            const deployments = await github.paginate(github.rest.repos.listDeployments, {
+              owner, repo, environment, per_page: 100
+            });
+            for (const deployment of deployments) {
+              if (deployment.environment !== environment) {
+                throw new Error(`Unexpected deployment environment: ${deployment.environment}`);
+              }
+            }
+            for (const deployment of deployments) {
+              const target = { owner, repo, deployment_id: deployment.id };
+              await github.rest.repos.createDeploymentStatus({
+                ...target, state: 'inactive', auto_inactive: false
+              });
+              await github.rest.repos.deleteDeployment(target);
+            }
+            core.info(`Removed ${deployments.length} deployment entries for ${environment}.`);
