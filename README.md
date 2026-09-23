@@ -8,10 +8,13 @@ the Quarto workflow succeeds:
 
 `https://iqb-research.github.io/IQB-Methods/pr-preview/pr-<PR number>/`
 
-The preview link appears in the pull request's deployment section and in the
-workflow summary. Each push updates the preview; closing or merging the pull
-request removes both the preview files and its deployment entries, so expired
-preview links disappear from the repository's Deployments list.
+The preview link appears under **PR preview** in the pull request's checks
+(open **Details**) and in the workflow summary. Each push updates the preview.
+Closing or merging the pull request removes the preview files and replaces the
+check's preview link with a link back to the closed PR.
+Previews do not create GitHub environments or deployment entries, so there are
+no empty preview environments to remove from Settings. Deployment entries from
+the previous preview workflow are still cleaned up when their PR closes.
 Pull requests from forks are built and provide a downloadable
 `website` artifact, but are not deployed.
 
@@ -21,6 +24,6 @@ available. GitHub Pages must continue to publish from the root of `gh-pages`.
 
 The `github-pages` environment must allow deployments from the `gh-pages`
 branch: this is where GitHub's final Pages deployment runs. The Quarto workflow
-uses the separate `website-publish` environment when publishing from `main`,
-and `pr-preview-<PR number>` for previews. Restricting `github-pages` to `main`
+uses the separate `website-publish` environment when publishing from `main`.
+Previews do not use an environment. Restricting `github-pages` to `main`
 blocks the final deployment even when the Quarto workflow is green.

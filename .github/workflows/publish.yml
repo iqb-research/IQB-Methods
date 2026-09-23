@@ -74,17 +74,15 @@ jobs:
 
   deploy:
     needs: build-deploy
-    if: >-
-      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) ||
-      (github.event_name != 'pull_request' && github.ref == 'refs/heads/main')
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pages: write
     environment:
       # github-pages is reserved for GitHub's final deployment from gh-pages.
-      name: ${{ github.event_name == 'pull_request' && format('pr-preview-{0}', github.event.number) || 'website-publish' }}
-      url: ${{ steps.preview.outputs.preview-url || 'https://iqb-research.github.io/IQB-Methods/' }}
+      name: website-publish
+      url: https://iqb-research.github.io/IQB-Methods/
     steps:
       - uses: actions/checkout@v4
 
@@ -94,7 +92,6 @@ jobs:
           path: _site
 
       - name: Publish website
-        if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
@@ -102,9 +99,32 @@ jobs:
           clean-exclude: pr-preview/
           force: false
 
+      - name: Request GitHub Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
+
+  preview:
+    needs: build-deploy
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      statuses: write
+    # A commit status provides the PR link without creating an environment.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: website
+          path: _site
+
       - name: Publish PR preview
         id: preview
-        if: github.event_name == 'pull_request'
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: _site
@@ -120,10 +140,24 @@ jobs:
         run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
 
       - name: Link to PR preview
-        if: github.event_name == 'pull_request'
         env:
           PREVIEW_URL: ${{ steps.preview.outputs.preview-url }}
         run: printf '[Open PR preview](%s)\n' "$PREVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Add preview link to PR checks
+        uses: actions/github-script@v8
+        env:
+          PREVIEW_URL: ${{ steps.preview.outputs.preview-url }}
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.payload.pull_request.head.sha,
+              context: 'PR preview',
+              state: 'success',
+              description: 'Open the online preview',
+              target_url: process.env.PREVIEW_URL
+            });
 
   remove-preview:
     if: >-
@@ -134,6 +168,7 @@ jobs:
       contents: write
       pages: write
       deployments: write
+      statuses: write
     steps:
       - uses: actions/checkout@v4
 
@@ -178,3 +213,16 @@ jobs:
               await github.rest.repos.deleteDeployment(target);
             }
             core.info(`Removed ${deployments.length} deployment entries for ${environment}.`);
+
+      - name: Retire preview link in PR checks
+        uses: actions/github-script@v8
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.payload.pull_request.head.sha,
+              context: 'PR preview',
+              state: 'success',
+              description: 'Preview removed because this PR is closed',
+              target_url: context.payload.pull_request.html_url
+            });
