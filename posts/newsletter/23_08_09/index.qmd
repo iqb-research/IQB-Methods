@@ -5,10 +5,16 @@ author:
   - name: Benjamin Becker
 date: 08-09-2023
 categories: [eatGADS]
-image: eatGADS.png
+image: eatGADS_light.png
 ---
 
-![](eatGADS.png)
+::: {.light-mode}
+![](eatGADS_light.png)
+:::
+
+::: {.dark-mode}
+![](eatGADS_dark.png)
+:::
 
 # eatGADS
 
@@ -23,3 +29,5 @@ Besonders hervoheben möchten wir an dieser Stelle noch die Funktion `fixEncodin
 Die Dokumentation des Pakets ist nun übrigens leicht einsehbar [hier](https://beckerbenj.github.io/eatGADS/) zu finden.
 
 Alle Änderungen finden sich wie immer erst einmal in der Github-Version des Pakets.
+
+
