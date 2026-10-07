@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "IQB Methods Team"
+  title: "IQB Methods"
   site-url: https://iqb-research.github.io/IQB-Methods/
   page-footer: 
     center: | 
@@ -27,6 +27,8 @@ website:
         href: posts_newsletter.qmd
       - text: "help"
         href: posts_help.qmd
+      - text: "Team"
+        href: team.qmd
     right:
       - icon: rss
       - href: index.xml

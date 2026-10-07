@@ -1,0 +1,15 @@
+---
+title: ""
+pagetitle: "Team"
+toc: false
+page-navigation: false
+format:
+  html:
+    include-in-header:
+      text: |
+        <style>
+        footer.footer { display: none; }
+        </style>
+---
+
+![Teamausflug Sommer 2026, Gärten der Welt](images/team.jpg){fig-alt="Teamfoto von IQB Methods beim Sommerausflug 2026 in den Gärten der Welt" width=100%}
