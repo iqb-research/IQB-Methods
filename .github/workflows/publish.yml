@@ -46,6 +46,9 @@ jobs:
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-renv@v2
+        env:
+          # Keep restored dependencies visible to source builds in the CI library.
+          RENV_CONFIG_INSTALL_TRANSACTIONAL: "FALSE"
         with:
           # Rebuild qs2/stringfish from source against the locked RcppParallel.
           cache-version: 4
