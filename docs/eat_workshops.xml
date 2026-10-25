@@ -10,12 +10,23 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/eat_workshops.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
-<url>https://iqb-research.github.io/IQB-Methods/./images/eat.png</url>
+<url>https://iqb-research.github.io/IQB-Methods/../logos/light/eat.png</url>
 <title>IQB Methods</title>
 <link>https://iqb-research.github.io/IQB-Methods/docs/eat_workshops.html</link>
 </image>
 <generator>quarto-1.10.19</generator>
-<lastBuildDate>Tue, 19 Nov 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 26 Oct 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>eatPrepTBA – Workshop</title>
+  <link>https://iqb-research.github.io/IQB-Methods/</link>
+  <description>Workshop-Materialien zur Datenaufbereitung mit eatPrepTBA</description>
+  <category>eatPrepTBA</category>
+  <category>tutorial</category>
+  <category>intro</category>
+  <guid>https://iqb-research.github.io/IQB-Methods/</guid>
+  <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/../logos/light/eatPrepTBA.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title></title>
   <dc:creator>Karoline Sachse</dc:creator>
@@ -27,7 +38,7 @@
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/eatPrep2024_files/eatPrep2024.html</guid>
   <pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/eatPrep2024_files/eatPrep.png" medium="image" type="image/png" height="144" width="144"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/../logos/light/eatPrep.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title></title>
@@ -40,7 +51,7 @@
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.html</guid>
   <pubDate>Tue, 12 Nov 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenaufbereitung/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/../logos/light/eatGADS.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title></title>
@@ -53,7 +64,7 @@
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatATA/eatATA_2024.html</guid>
   <pubDate>Tue, 05 Nov 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatATA/eatATA.png" medium="image" type="image/png" height="144" width="144"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/../logos/light/eatATA.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title></title>
@@ -65,19 +76,8 @@
   <category>slides</category>
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.html</guid>
-  <pubDate>Sun, 25 Oct 2026 13:56:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS.png" medium="image" type="image/png" height="144" width="144"/>
-</item>
-<item>
-  <title>eatPrepTBA – Workshop</title>
-  <link>https://iqb-research.github.io/IQB-Methods/</link>
-  <description>Workshop-Materialien zur Datenaufbereitung mit eatPrepTBA</description>
-  <category>eatPrepTBA</category>
-  <category>tutorial</category>
-  <category>intro</category>
-  <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Sun, 25 Oct 2026 13:56:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/studio/eatPrepTBA.png" medium="image" type="image/png"/>
+  <pubDate>Sun, 25 Oct 2026 14:10:03 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/../logos/light/eatGADS.png" medium="image" type="image/png"/>
 </item>
 </channel>
 </rss>
