@@ -14,6 +14,7 @@ listing:
   type: default
   feed: true
   categories: unnumbered
+  sort: "date desc"
   sort-ui:
   - date
   - author
