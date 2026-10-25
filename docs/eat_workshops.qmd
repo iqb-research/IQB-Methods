@@ -15,6 +15,11 @@ listing:
     - "R_tutorials/2024_eatGADS_Datenaufbereitung/quarto_eatGADS.qmd"
     - "R_tutorials/2024_eatGADS_Datenbanknutzung/eatGADS_2024_Datenbanknutzung.qmd"
     - "R_tutorials/2024_eatATA/eatATA_2024.qmd"
+    - title: "eatPrepTBA – Workshop"
+      description: "Workshop-Materialien zur Datenaufbereitung mit eatPrepTBA"
+      path: https://sachseka.github.io/eatPrepTBAworkshop/
+      image: "studio/eatPrepTBA.png"
+      categories: [eatPrepTBA, tutorial, intro]
 ---
 
 ::: {.light-mode}
