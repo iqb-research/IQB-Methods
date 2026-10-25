@@ -38,15 +38,15 @@ listing:
       path: https://sachseka.github.io/eatPrepTBAworkshop/
       image: "../logos/light/eatPrepTBA.png"
       image-alt: "eatPrepTBA"
-      categories: [eatPrepTBA, tutorial, intro]
+      categories: [eatPrepTBA, tutorial, slides, intro]
 ---
 
 ::: {.light-mode}
-![](../logos/light/eat.png){fig-alt="educational assessment tools"}
+![](../logos/light/eat.png){width=150px fig-alt="educational assessment tools"}
 :::
 
 ::: {.dark-mode}
-![](../logos/dark/eat.png){fig-alt="educational assessment tools"}
+![](../logos/dark/eat.png){width=150px fig-alt="educational assessment tools"}
 :::
 On this page you can find workshop-slides for the different eat-packages.
 
