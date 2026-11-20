@@ -22,7 +22,7 @@ table, th, td {
 }
 
 .logo-spacer {
-  width: 75px;
+  width: auto;
 }
 
 .logo-img {
@@ -35,6 +35,24 @@ table, th, td {
 <br>
 
 ::: {.light-mode}
+<table class="logo-grid">
+<tr>
+    <th class="logo-spacer"></th>
+    <th class="logo-cell">
+      <img ></a>
+    </th>
+    <th class="logo-cell">
+      <img ></a>
+    </th>
+    <th class="logo-cell">
+        <a href="https://www.iqb.hu-berlin.de/de/schule/bt-ergebnisbrowser"><img src="./logos/light/BTShinyApp.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://buchjani.github.io/eatArchive/"><img src="./logos/light/eatArchive.png" class="logo-img"></a>
+    </th>
+    <th class="logo-spacer"></th>
+</tr>
+</table>
 
 <table class="logo-grid">
 <tr>
@@ -98,6 +116,25 @@ table, th, td {
     </th>
     <th class="logo-cell">
       <a href="https://weirichs.github.io/eatRep/"><img src="./logos/light/eatRep.png" class="logo-img"></a>
+    </th>
+    <th class="logo-spacer"></th>
+</tr>
+</table>
+
+<table class="logo-grid">
+<tr>
+    <th class="logo-spacer"></th>
+    <th class="logo-cell">
+        <a href="https://www.iqb.hu-berlin.de/de/schule/bt-ergebnisbrowser"><img src="./logos/light/BTShinyApp.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <a href="https://buchjani.github.io/eatArchive/"><img src="./logos/light/eatArchive.png" class="logo-img"></a>
+    </th>
+    <th class="logo-cell">
+      <img></a>
+    </th>
+    <th class="logo-cell">
+      <img></a>
     </th>
     <th class="logo-spacer"></th>
 </tr>
