@@ -1,0 +1,16 @@
+/* Follow Quarto's active theme, including changes made with the theme toggle. */
+body.quarto-dark #listing-eat_workshops img[src$="/eatATA.png"] {
+  content: url("../logos/dark/eatATA.png");
+}
+
+body.quarto-dark #listing-eat_workshops img[src$="/eatGADS.png"] {
+  content: url("../logos/dark/eatGADS.png");
+}
+
+body.quarto-dark #listing-eat_workshops img[src$="/eatPrep.png"] {
+  content: url("../logos/dark/eatPrep.png");
+}
+
+body.quarto-dark #listing-eat_workshops img[src$="/eatPrepTBA.png"] {
+  content: url("../logos/dark/eatPrepTBA.png");
+}
