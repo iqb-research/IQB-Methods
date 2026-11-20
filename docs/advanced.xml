@@ -9,7 +9,7 @@
 <link>https://iqb-research.github.io/IQB-Methods/docs/advanced.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/advanced.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.10.19</generator>
+<generator>quarto-1.11.9</generator>
 <lastBuildDate>Mon, 25 Nov 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>GitHub Copilot in R-Studio</title>
@@ -50,7 +50,7 @@ After obtaining some sort of confirmation, you can follow <a href="https://docs.
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/git/copilot/copilot.html</guid>
   <pubDate>Mon, 25 Nov 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/copilot/astronaut.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/copilot/astronaut.jpg" medium="image" type="image/jpeg" height="115" width="144"/>
 </item>
 <item>
   <title>Reproducible manuscripts with Git</title>
@@ -423,7 +423,7 @@ Peikert, Aaron, and Andreas M Brandmaier. 2021. <span>“A Reproducible Data Ana
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/</guid>
   <pubDate>Mon, 09 Sep 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_09_09_quarto_git/manuscript.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Plotting with ggplot2</title>
@@ -454,7 +454,7 @@ Peikert, Aaron, and Andreas M Brandmaier. 2021. <span>“A Reproducible Data Ana
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/</guid>
   <pubDate>Mon, 03 Jun 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_06_03_ggplot2/plotting.jpg" medium="image" type="image/jpeg" height="144" width="144"/>
 </item>
 <item>
   <title>Column-wise operations in the tidyverse</title>
@@ -1396,7 +1396,7 @@ font-style: inherit;">$</span>innocent_jaded_standardized)</span></code></pre></
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/</guid>
   <pubDate>Mon, 08 Apr 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_04_08_tidyverse_column_wise/columns.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Data wrangling in the tidyverse</title>
@@ -2906,7 +2906,7 @@ font-style: inherit;">abs</span>(diff_shows)))</span></code></pre></div></div>
   <category>data manipulation</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/</guid>
   <pubDate>Mon, 25 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_25_tidyverse_wrangling/data_wrangling.jpg" medium="image" type="image/jpeg" height="144" width="144"/>
 </item>
 <item>
   <title>Data sets</title>
@@ -2986,7 +2986,7 @@ Tip
   <category>data sets</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/</guid>
   <pubDate>Fri, 22 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_03_22_datasets/olympics.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Introduction to the tidyverse</title>
@@ -4081,7 +4081,7 @@ font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div></d
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/</guid>
   <pubDate>Mon, 26 Feb 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Using Checkmate</title>
@@ -4741,7 +4741,7 @@ font-style: inherit;">colnames</span>(df))</span></code></pre></div></div>
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/checkmate.html</guid>
   <pubDate>Fri, 01 Dec 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/checkmate.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Reproducibility with renv</title>
@@ -4878,7 +4878,7 @@ font-style: inherit;">"tidyselect@1.1.2"</span>)</span></code></pre></div></div>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/</guid>
   <pubDate>Mon, 23 Oct 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_11_06_renv/renv.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Frage 1: \(R^2\) richtig poolen</title>
@@ -4937,7 +4937,7 @@ font-style: inherit;">pool.R2</span>(r2)</span></code></pre></div></div>
   <category>statistics</category>
   <category>eatRep</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ1_Imputationen.html</guid>
-  <pubDate>Sun, 25 Oct 2026 14:35:07 GMT</pubDate>
+  <pubDate>Fri, 20 Nov 2026 14:18:31 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatRep.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -5427,7 +5427,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
   <category>statistics</category>
   <category>eatModel</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ2_eatModel-Conquest.html</guid>
-  <pubDate>Sun, 25 Oct 2026 14:35:07 GMT</pubDate>
+  <pubDate>Fri, 20 Nov 2026 14:18:31 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/eatModel.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -5494,8 +5494,8 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ3_Mehrebenenmodelle.html</guid>
-  <pubDate>Sun, 25 Oct 2026 14:35:07 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg"/>
+  <pubDate>Fri, 20 Nov 2026 14:18:31 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/centering.jpeg" medium="image" type="image/jpeg" height="81" width="144"/>
 </item>
 <item>
   <title>Frage 4: N pro Item</title>
@@ -5524,7 +5524,7 @@ Dimension 'Dim1': 1 of 10 items with linking |DIF| &gt; 0.6 identified.
  ]]></description>
   <category>statistics</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/FAQ/FAQ4_NproItem.html</guid>
-  <pubDate>Sun, 25 Oct 2026 14:35:07 GMT</pubDate>
+  <pubDate>Fri, 20 Nov 2026 14:18:31 GMT</pubDate>
   <media:content url="https://iqb-research.github.io/IQB-Methods/docs/FAQ/images/N.png" medium="image" type="image/png" height="125" width="144"/>
 </item>
 </channel>

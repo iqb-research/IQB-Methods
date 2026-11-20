@@ -10,11 +10,13 @@
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/beginners.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
-<url>https://iqb-research.github.io/IQB-Methods/./images/sapling.jpg</url>
+<url>https://iqb-research.github.io/IQB-Methods/docs/images/sapling.jpg</url>
 <title>IQB Methods</title>
 <link>https://iqb-research.github.io/IQB-Methods/docs/beginners.html</link>
+<height>95</height>
+<width>144</width>
 </image>
-<generator>quarto-1.10.19</generator>
+<generator>quarto-1.11.9</generator>
 <lastBuildDate>Mon, 26 Feb 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Introduction to the tidyverse</title>
@@ -1109,7 +1111,7 @@ font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div></d
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/</guid>
   <pubDate>Mon, 26 Feb 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/24_01_26_tidyverse_intro/preview_image.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Pull requests with Github</title>
@@ -1191,7 +1193,7 @@ font-style: inherit;">"penguins_frame.RDS"</span>))</span></code></pre></div></d
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/git/github_pullrequests.html</guid>
   <pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github.jpg" medium="image" type="image/jpeg" height="99" width="144"/>
 </item>
 <item>
   <title>Case_when() function</title>
@@ -1504,7 +1506,7 @@ font-style: inherit;">"Another continent"</span></span>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/</guid>
   <pubDate>Mon, 18 Dec 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_12_18_case_when/case_when.jpg" medium="image" type="image/jpeg" height="76" width="144"/>
 </item>
 <item>
   <title>Updating the website</title>
@@ -2323,7 +2325,7 @@ $Species
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/</guid>
   <pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/apply_family.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_07_31_apply/apply_family.jpg" medium="image" type="image/jpeg" height="108" width="144"/>
 </item>
 <item>
   <title>for-loops</title>
@@ -2357,7 +2359,7 @@ $Species
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/</guid>
   <pubDate>Mon, 20 Mar 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/r_sig/23_03_20_forloops/preview_image.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Data Frames, Listen und Grafiken in R</title>
@@ -3721,8 +3723,8 @@ font-style: inherit;">"Eine Verteilung"</span>)</span></code></pre></div></div>
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws2.html</guid>
-  <pubDate>Sun, 25 Oct 2026 14:36:02 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
+  <pubDate>Fri, 20 Nov 2026 14:18:31 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title></title>
@@ -3734,8 +3736,8 @@ font-style: inherit;">"Eine Verteilung"</span>)</span></code></pre></div></div>
   <category>slides</category>
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/github_intro_slides.html</guid>
-  <pubDate>Sun, 25 Oct 2026 14:36:02 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" medium="image" type="image/jpeg"/>
+  <pubDate>Fri, 20 Nov 2026 14:18:31 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/git/github_workshop/images/github.jpg" medium="image" type="image/jpeg" height="99" width="144"/>
 </item>
 <item>
   <title>Pakete(-Installation), Workspace, Daten laden und speichern in R</title>
@@ -4187,8 +4189,8 @@ font-style: inherit;">"Material_WSIII/mtcars.dat"</span>)</span></code></pre></d
   <category>R</category>
   <category>tutorial</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws3.html</guid>
-  <pubDate>Sun, 25 Oct 2026 14:36:02 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
+  <pubDate>Fri, 20 Nov 2026 14:18:31 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>R Workshop Einführung</title>
@@ -5317,8 +5319,8 @@ font-style: inherit;">"'NA'=NA; ''=NA"</span>)</span>
   <category>tutorial</category>
   <category>intro</category>
   <guid>https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/R_ws1.html</guid>
-  <pubDate>Sun, 25 Oct 2026 14:36:02 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg"/>
+  <pubDate>Fri, 20 Nov 2026 14:18:31 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/docs/R_tutorials/images/einführung.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 </channel>
 </rss>

@@ -9,10 +9,11 @@
 <link>https://iqb-research.github.io/IQB-Methods/docs/studio.html</link>
 <atom:link href="https://iqb-research.github.io/IQB-Methods/docs/studio.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.10.19</generator>
+<generator>quarto-1.11.9</generator>
 <lastBuildDate>Thu, 27 Aug 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Anleitung zur Anlage der Partial-Credit-Kodierung</title>
+  <dc:creator>Kristoph Schumann</dc:creator>
   <dc:creator>Eva Crone</dc:creator>
   <link>https://iqb-research.github.io/IQB-Methods/docs/studio/partial_credit.html</link>
   <description><![CDATA[ 
@@ -548,8 +549,8 @@
   <link>https://iqb-research.github.io/IQB-Methods/</link>
   <description>eatPrepTBA is an R package designed to support the preparation and management of technology-based assessments (TBA) used in IQB research workflows. It provides wrapper functions to interact with the IQB Studio and the IQB Testcenter APIs.</description>
   <guid>https://iqb-research.github.io/IQB-Methods/</guid>
-  <pubDate>Sun, 25 Oct 2026 14:36:02 GMT</pubDate>
-  <media:content url="https://iqb-research.github.io/IQB-Methods/./studio/eatPrepTBA.png" medium="image" type="image/png"/>
+  <pubDate>Fri, 20 Nov 2026 14:18:32 GMT</pubDate>
+  <media:content url="https://iqb-research.github.io/IQB-Methods/studio/eatPrepTBA.png" medium="image" type="image/png"/>
 </item>
 </channel>
 </rss>
