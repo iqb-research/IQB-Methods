@@ -9469,7 +9469,7 @@
       "Author": "Travers Ching [aut, cre, cph], Yann Collet [ctb, cph] (Yann Collet is the author of the bundled zstd), Facebook, Inc. [cph] (Facebook is the copyright holder of the bundled zstd code), Reichardt Tino [ctb, cph] (Contributor/copyright holder of zstd bundled code), Skibinski Przemyslaw [ctb, cph] (Contributor/copyright holder of zstd bundled code), Mori Yuta [ctb, cph] (Contributor/copyright holder of zstd bundled code), Francesc Alted [ctb, cph] (Shuffling routines derived from Blosc library)",
       "Repository": "CRAN",
       "RemoteType": "url",
-      "RemoteUrl": "https://cran.r-project.org/src/contrib/qs2_0.3.1.tar.gz"
+      "RemoteUrl": "https://cran.r-project.org/src/contrib/Archive/qs2/qs2_0.3.1.tar.gz"
     },
     "quadprog": {
       "Package": "quadprog",
