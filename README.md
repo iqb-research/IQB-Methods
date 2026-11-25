@@ -28,3 +28,7 @@ publishes files from `main` to `gh-pages` without a separate environment or
 deployment entry. Previews also do not use an environment, so `github-pages`
 is the only deployment environment. Restricting `github-pages` to `main`
 blocks the final deployment even when the Quarto workflow is green.
+
+## Logos for eat Packages
+
+There is a separate Repo for building, adapting and maintaining the logos for the eat packages that you can find [here](https://github.com/iqb-research/logos).
