@@ -4,6 +4,11 @@ listing:
   - id: packages
     filter-ui: true
     contents:
+      - title: eatAnalysis
+        path: https://beckerbenj.github.io/eatAnalysis/index.html
+        image: ./logos/light/eatAnalysis.png
+        description: "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses."
+        author: Benjamin Becker, Sebastian Weirich, Karoline Sachse
       - title: eatArchive
         path: https://buchjani.github.io/eatArchive/
         image: ./logos/light/eatArchive.png
@@ -14,6 +19,11 @@ listing:
         image: ./logos/light/eatATA.png
         description: "Automated block occupation/automated test booklet creation."
         author: Benjamin Becker
+      - title: eatAutoCode
+        path:  https://iqb-research.github.io/eatAutoCode/
+        image: ./logos/light/eatAutoCode.png
+        description: "The goal of eatAutoCode is to code responses from IQB Testcenter."
+        author: Karoline Sachse, Kristoph Schumann, Jakob Schäfer
       - title: eatCodebook
         path: https://beckerbenj.github.io/eatCodebook/
         image: ./logos/light/eatCodebook.png
@@ -58,7 +68,7 @@ listing:
         path: https://iqb-research.github.io/eatPrepTBA/
         image: ./logos/light/eatPrepTBA.png
         description: "The goal of eatPrepTBA is to provide wrapper functions to interact with the IQB Studio and the IQB Testcenter APIs. Moreover, it provides some routines for preparing and blending data from these different resources to manage TBA studies."
-        author: Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
+        author: Karoline Sachse, Kristoph Schumann, Jakob Schäfer
       - title: eatRecode
         path: https://beckerbenj.github.io/eatRecode/
         image: ./logos/light/eatRecode.png
@@ -69,6 +79,16 @@ listing:
         image: ./logos/light/eatRep.png
         description: "Calculates means, standard deviations, variances, frequency tables, percentiles and linear (logistic) regressions, as well as trends for all these analyses in clustered multilevel structures with imputed data. The package implements part of the functionality of the WesVar computer software in R and is mainly relevant for the IQB Bildungstrend studies."
         author: Sebastian Weirich, Benjamin Becker
+      - title: eatTechReport
+        path: https://sachseka.github.io/eatTechReport/
+        image: ./logos/light/eatTechReport.png
+        description: "eatTechReport combines existing analysis results with editable Quarto texts for technical reports on VERA-3."
+        author: Karoline Sachse, Kristoph Schumann
+      - title: eatTools
+        path: https://weirichs.github.io/eatTools/index.html
+        image: ./logos/light/eatTools.png
+        description: "Various help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others."
+        author: Sebastian Weirich, Benjamin Becker, Karoline Sachse
     type: default
     feed: true
     image-align: left
@@ -83,19 +103,9 @@ listing:
     type: default
     feed: true
     image-align: left  
-  - id: helpPackages # eatAnalysis, eatAutoCode, eatDB, eatMap, eatTools, eatWidget
+  - id: helpPackages # eatDB, eatMap, eatWidget
     filter-ui: true
     contents:
-      - title: eatAnalysis
-        path: https://beckerbenj.github.io/eatAnalysis/index.html
-        image: ./logos/light/eatAnalysis.png
-        description: "Various useful help functions, such as saving Excel files, saving analysis results from lm4 and simulating IRT responses."
-        author: Benjamin Becker, Sebastian Weirich, Karoline Sachse
-      - title: eatAutoCode
-        path:  https://iqb-research.github.io/eatAutoCode/
-        image: ./logos/light/eatAutoCode.png
-        description: "The goal of eatAutoCode is to code responses from IQB Testcenter."
-        author: Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
       - title: eatDB
         path: https://beckerbenj.github.io/eatDB/
         image: ./logos/light/eatDB.png
@@ -105,22 +115,18 @@ listing:
         path: https://iqb-research.github.io/eatMap/
         image: ./logos/light/eatMap.png
         description: "A helper package that transforms the input data frame from the BTShinyApp into an interactive widget using JavaScript."
-        author: Philipp Franikowski, Alina Apel, Karoline Sachse
-      - title: eatTools
-        path: https://weirichs.github.io/eatTools/index.html
-        image: ./logos/light/eatTools.png
-        description: "Various help functions that are also required by the packages ‘eatPrep’, ‘eatModel’, ‘eatGADS’ and ‘eatRep’, among others."
-        author: Sebastian Weirich, Benjamin Becker, Karoline Sachse
+        author: Alina Apel, Karoline Sachse
       - title: eatWidget
         path: https://iqb-research.github.io/eatWidget/
         image: ./logos/light/eatWidget.png
         description: "This package provides a collection of small, reusable widgets for Quarto and HTML reports created within institutional workflows. The widgets visualize key metrics through compact graphics that automatically adjust styling and behavior depending on data values (for example, changing colors when thresholds are exceeded). Combining R with JavaScript and lightweight CSS, the package bridges analytical results and interactive report presentation."
-        author: Philipp Franikowski, N.N.
+        author: Karoline Sachse
     type: default
     feed: true
     image-align: left    
 ---
 
+```{=html}
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   function updateLogoFolder() {
@@ -162,7 +168,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+```
 
+```{=html}
 <!--
   The following <div> section is a bugfix. 
 
@@ -171,15 +179,11 @@ document.addEventListener("DOMContentLoaded", function () {
   This hidden block makes the dark helper-package logos visible to Quarto's
   resource handling, so they are included in the rendered site.
 -->
+```
 
-<div style="display: none;">
-  <img src="./logos/dark/eatAnalysis.png" alt="">
-  <img src="./logos/dark/eatAutoCode.png" alt="">
-  <img src="./logos/dark/eatDB.png" alt="">
-  <img src="./logos/dark/eatMap.png" alt="">
-  <img src="./logos/dark/eatTools.png" alt="">
-  <img src="./logos/dark/eatWidget.png" alt="">
-</div>
+::: {style="display: none;"}
+<img src="./logos/dark/eatAnalysis.png"/> <img src="./logos/dark/eatAutoCode.png"/> <img src="./logos/dark/eatDB.png"/> <img src="./logos/dark/eatMap.png"/> <img src="./logos/dark/eatTools.png"/> <img src="./logos/dark/eatWidget.png"/>
+:::
 
 ## Main Packages
 
@@ -204,11 +208,11 @@ Detailed instructions for installing the R packages can be found here: [installi
 
 Most packages of the "eat" family are not executable in isolation, which means that a package is usually dependent on another package in order to be executable. This means:
 
--   "eatTools" is a package with help functions required by other packages. "eatTools" does not depend on other "eat" packages.
--   "eatPrep" requires "eatTools".
--   "eatRep" needs "eatTools" and "eatGADS".
--   "eatModel" requires "eatTools" and "eatRep" (and thus also "eatGADS"). The package optionally accesses the computer programme Conquest or the R package "TAM" for parameter estimation. For Conquest, the command line executable is sufficient, e.g. "console_Feb2007.exe"; "TAM" is installed when the package is loaded. "TAM" and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.
--   "eatGADS" requires "eatTools" and "eatDB".
+- "eatTools" is a package with help functions required by other packages. "eatTools" does not depend on other "eat" packages.
+- "eatPrep" requires "eatTools".
+- "eatRep" needs "eatTools" and "eatGADS".
+- "eatModel" requires "eatTools" and "eatRep" (and thus also "eatGADS"). The package optionally accesses the computer programme Conquest or the R package "TAM" for parameter estimation. For Conquest, the command line executable is sufficient, e.g. "console_Feb2007.exe"; "TAM" is installed when the package is loaded. "TAM" and Conquest are based on the same statistical measurement model, and overlap considerably in their range of functions.
+- "eatGADS" requires "eatTools" and "eatDB".
 
 The interdependence also extends to different versions of the packages. For example, old versions of "eatRep" are not always compatible with new versions of "eatTools" (and vice versa). The current package versions (see table above) should be compatible with each other. Usually (but not always) version conflicts are indicated by an error message. It is recommended to always have the latest package versions installed.
 
