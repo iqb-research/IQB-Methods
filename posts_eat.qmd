@@ -23,7 +23,7 @@ listing:
         path:  https://iqb-research.github.io/eatAutoCode/
         image: ./logos/light/eatAutoCode.png
         description: "The goal of eatAutoCode is to code responses from IQB Testcenter."
-        author: Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
+        author: Karoline Sachse, Kristoph Schumann, Jakob Schäfer
       - title: eatCodebook
         path: https://beckerbenj.github.io/eatCodebook/
         image: ./logos/light/eatCodebook.png
@@ -68,7 +68,7 @@ listing:
         path: https://iqb-research.github.io/eatPrepTBA/
         image: ./logos/light/eatPrepTBA.png
         description: "The goal of eatPrepTBA is to provide wrapper functions to interact with the IQB Studio and the IQB Testcenter APIs. Moreover, it provides some routines for preparing and blending data from these different resources to manage TBA studies."
-        author: Philipp Franikowski, Karoline Sachse, Kristoph Schumann, Jakob Schäfer
+        author: Karoline Sachse, Kristoph Schumann, Jakob Schäfer
       - title: eatRecode
         path: https://beckerbenj.github.io/eatRecode/
         image: ./logos/light/eatRecode.png
@@ -115,12 +115,12 @@ listing:
         path: https://iqb-research.github.io/eatMap/
         image: ./logos/light/eatMap.png
         description: "A helper package that transforms the input data frame from the BTShinyApp into an interactive widget using JavaScript."
-        author: Philipp Franikowski, Alina Apel, Karoline Sachse
+        author: Alina Apel, Karoline Sachse
       - title: eatWidget
         path: https://iqb-research.github.io/eatWidget/
         image: ./logos/light/eatWidget.png
         description: "This package provides a collection of small, reusable widgets for Quarto and HTML reports created within institutional workflows. The widgets visualize key metrics through compact graphics that automatically adjust styling and behavior depending on data values (for example, changing colors when thresholds are exceeded). Combining R with JavaScript and lightweight CSS, the package bridges analytical results and interactive report presentation."
-        author: Philipp Franikowski, N.N.
+        author: Karoline Sachse
     type: default
     feed: true
     image-align: left    
