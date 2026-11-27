@@ -14,7 +14,7 @@ table, th, td {
 }
 
 .logo-grid {
-  width: 975px;
+  width: 900px;
 }
 
 .logo-cell {
@@ -47,15 +47,14 @@ table, th, td {
       <img></a>
     </th>
     <th class="logo-cell">
-      <img></a>
-    </th>
-    <th class="logo-cell">
         <a href="https://www.iqb.hu-berlin.de/de/schule/bt-ergebnisbrowser"><img src="./logos/light/BTShinyApp.png" class="logo-img"></a>
     </th>
     <th class="logo-cell">
       <a href="https://beckerbenj.github.io/eatAnalysis/"><img src="./logos/light/eatAnalysis.png" class="logo-img"></a>
     </th>
-    <th class="logo-spacer"></th>
+    <th class="logo-cell">
+      <img></a>
+    </th>
 </tr>
 </table>
 
@@ -77,9 +76,7 @@ table, th, td {
     <th class="logo-cell">
         <a href="https://iqb-research.github.io/eatAutoCode/"><img src="./logos/light/eatAutoCode.png" class="logo-img"></a>
     </th>
-    <th class="logo-cell">
-      <a href="https://beckerbenj.github.io/eatCodebook/"><img src="./logos/light/eatCodebook.png" class="logo-img"></a>
-    </th>
+    <th class="logo-spacer"></th>
 </tr>
 </table>
 
@@ -92,18 +89,17 @@ table, th, td {
       <img></a>
     </th>
     <th class="logo-cell">
-      <a href="https://github.com/beckerbenj/eatDataTest"><img src="./logos/light/eatDataTest.png" class="logo-img"></a>
+      <a href="https://beckerbenj.github.io/eatCodebook/"><img src="./logos/light/eatCodebook.png" class="logo-img"></a>
     </th>
     <th class="logo-cell">
       <img src="./logos/light/IQBLogo_wabe.png" class="logo-img">
     </th>
     <th class="logo-cell">
-      <a href="https://beckerbenj.github.io/eatFDZ/"><img src="./logos/light/eatFDZ.png" class="logo-img"></a>
+      <a href="https://github.com/beckerbenj/eatDataTest"><img src="./logos/light/eatDataTest.png" class="logo-img"></a>
     </th>
     <th class="logo-cell">
-      <a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/light/eatGADS.png" class="logo-img"></a>
+      <a href="https://beckerbenj.github.io/eatFDZ/"><img src="./logos/light/eatFDZ.png" class="logo-img"></a>
     </th>
-    <th class="logo-spacer"></th>
 </tr>
 </table>
 
@@ -111,28 +107,29 @@ table, th, td {
 <tr>
     <th class="logo-spacer"></th>
     <th class="logo-cell">
-      <a href="https://ruckeran.github.io/eatGets/"><img src="./logos/light/eatGets.png" class="logo-img"></a>
+      <a href="https://beckerbenj.github.io/eatGADS/"><img src="./logos/light/eatGADS.png" class="logo-img"></a>
     </th>
     <th class="logo-cell">
-      <a href="https://weirichs.github.io/eatModel/"><img src="./logos/light/eatModel.png" class="logo-img"></a>
+      <a href="https://ruckeran.github.io/eatGets/"><img src="./logos/light/eatGets.png" class="logo-img"></a>
     </th>
     <th class="logo-cell">
        <img src="./logos/light/eat.png" class="logo-img">
     </th>
     <th class="logo-cell">
-      <a href="https://nickhaf.github.io/eatPlot/"><img src="./logos/light/eatPlot.png" class="logo-img"></a>
+      <a href="https://weirichs.github.io/eatModel/"><img src="./logos/light/eatModel.png" class="logo-img"></a>
     </th>
     <th class="logo-cell">
       <img></a>
     </th>
-    <th class="logo-cell">
-      <img></a>
-    </th>
+    <th class="logo-spacer"></th>
 </tr>
 </table>
 
 <table class="logo-grid">
 <tr>
+    <th class="logo-cell">
+      <a href="https://nickhaf.github.io/eatPlot/"><img src="./logos/light/eatPlot.png" class="logo-img"></a>
+    </th>
     <th class="logo-cell">
       <a href="https://sachseka.github.io/eatPrep/"><img src="./logos/light/eatPrep.png" class="logo-img"></a>
     </th>
@@ -143,21 +140,20 @@ table, th, td {
       <a href="https://beckerbenj.github.io/eatRecode/"><img src="./logos/light/eatRecode.png" class="logo-img"></a>
     </th>
     <th class="logo-cell">
-      <a href="https://weirichs.github.io/eatRep/"><img src="./logos/light/eatRep.png" class="logo-img"></a>
-    </th>
-    <th class="logo-cell">
       <img></a>
     </th>
     <th class="logo-cell">
       <img></a>
     </th>
-    <th class="logo-spacer"></th>
 </tr>
 </table>
 
 <table class="logo-grid">
 <tr>
     <th class="logo-spacer"></th>
+    <th class="logo-cell">
+      <a href="https://weirichs.github.io/eatRep/"><img src="./logos/light/eatRep.png" class="logo-img"></a>
+    </th>
     <th class="logo-cell">
       <a href="https://sachseka.github.io/eatTechReport/"><img src="./logos/light/eatTechReport.png" class="logo-img"></a>
     </th>
@@ -170,12 +166,7 @@ table, th, td {
     <th class="logo-cell">
       <img></a>
     </th>
-    <th class="logo-cell">
-      <img></a>
-    </th>
-    <th class="logo-cell">
-      <img></a>
-    </th>
+    <th class="logo-spacer"></th>
 </tr>
 </table>
 
